@@ -16,6 +16,7 @@ See the [publication record](PUBLICATION.md) for the pinned model revision and u
 ## Start here
 
 - [Install and run](INFERENCE.md), including the bilingual example and ready LUMI commands for downloading from Hugging Face and testing your own text.
+- [Harder bilingual examples](examples/SCENARIOS.md) and [measured failures](SCENARIO_RESULTS.md): four decisions per request and one-fact contrast pairs.
 - [Actual exported-model comparison](EXPORT_COMPARISON.md), with English/Italian and Laya comparisons.
 - [Adapter comparison](COMPARISON.md), kept separate from export measurements.
 - [Experiment narrative](EXPERIMENTS.md), including unsuccessful distillation, translation corrections, confidence failure and task regressions.

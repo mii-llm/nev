@@ -1,0 +1,52 @@
+{
+  "state": {
+    "messaggio_cliente": "Non riesco ad accedere. Anche l’ordine è in ritardo e sospetto un pagamento strano, ma la mia richiesta principale è recuperare l’accesso. Controllate gli esiti della verifica di sicurezza.",
+    "fatti_verificati": {
+      "Giorni dalla consegna": "nessuna",
+      "Prodotto non aperto": "no",
+      "Doppio addebito contabilizzato confermato": "no",
+      "Doppio addebito già rimborsato": "no",
+      "Attività non autorizzata confermata sull’account": "sì",
+      "Ore alla scadenza per la consegna (nessuna indica assenza di scadenza)": "nessuna",
+      "Precedenti contatti con l’assistenza senza soluzione": 1
+    }
+  },
+  "questions": {
+    "route": {
+      "type": "choice",
+      "instructions": "Scegli il reparto per l’azione principale richiesta, ignorando le lamentele di contorno. Un’attività non autorizzata confermata sull’account ha precedenza e va alla sicurezza. Altrimenti: la restituzione di un prodotto va ai resi; la correzione di un doppio addebito alla fatturazione; il ripristino dell’accesso all’assistenza account; la ricerca di un pacco alle spedizioni. I fatti verificati prevalgono sui sospetti del cliente.",
+      "criteria": {
+        "shipping": "Tracciamento pacchi e consegne",
+        "billing": "Correzione dei pagamenti",
+        "account": "Recupero dell’accesso",
+        "returns": "Restituzione dei prodotti",
+        "security": "Attività non autorizzata confermata sull’account"
+      }
+    },
+    "refund": {
+      "type": "noul",
+      "instructions": "Applica esattamente questa politica commerciale sintetica. Approva il rimborso se è confermato un doppio addebito contabilizzato non ancora rimborsato, OPPURE se si richiede la restituzione di un prodotto non aperto, consegnato al massimo 30 giorni fa. Altrimenti rifiuta. Un ritardo nella consegna da solo non è sufficiente.",
+      "criteria": {
+        "false": "Non approvare il rimborso",
+        "true": "Approva il rimborso"
+      }
+    },
+    "urgency": {
+      "type": "score",
+      "instructions": "Scegli il livello 2 se è confermata un’attività non autorizzata sull’account OPPURE la scadenza per la consegna è entro 24 ore incluse. Altrimenti scegli il livello 1 se la scadenza è entro 72 ore incluse. Altrimenti scegli il livello 0. Il tono arrabbiato da solo non aumenta l’urgenza.",
+      "criteria": [
+        "Ordinaria",
+        "Prioritaria",
+        "Urgente"
+      ]
+    },
+    "escalate": {
+      "type": "noul",
+      "instructions": "Passa il caso a un supervisore umano se è confermata un’attività non autorizzata sull’account OPPURE ci sono stati almeno 3 precedenti contatti con l’assistenza senza soluzione. Altrimenti non passare al supervisore.",
+      "criteria": {
+        "false": "Non passare al supervisore",
+        "true": "Passa a un supervisore umano"
+      }
+    }
+  }
+}

@@ -1,0 +1,3390 @@
+{
+  "repository": "giux78/nev",
+  "revision": "c5c84121263b423f8846811a24790ab96e66cee3",
+  "cases_sha256": "4700fe00c50067a5eba0e0d2f61fc230e76283e0a5fdc67aa7639d1d65e464b0",
+  "scope": "20 authored diagnostic requests, 80 decisions/model; not a representative benchmark",
+  "models": {
+    "v2": {
+      "warmup_seconds": 7.211049770005047,
+      "summary": {
+        "en": {
+          "by_task": {
+            "route": {
+              "correct": 7,
+              "n": 10
+            },
+            "refund": {
+              "correct": 8,
+              "n": 10
+            },
+            "urgency": {
+              "correct": 4,
+              "n": 10
+            },
+            "escalate": {
+              "correct": 8,
+              "n": 10
+            }
+          },
+          "all_four_correct": {
+            "correct": 2,
+            "n": 10
+          },
+          "changed_decisions_both_sides_correct": {
+            "correct": 0,
+            "n": 7
+          },
+          "whole_pairs_correct": {
+            "correct": 0,
+            "n": 5
+          }
+        },
+        "it": {
+          "by_task": {
+            "route": {
+              "correct": 5,
+              "n": 10
+            },
+            "refund": {
+              "correct": 8,
+              "n": 10
+            },
+            "urgency": {
+              "correct": 6,
+              "n": 10
+            },
+            "escalate": {
+              "correct": 8,
+              "n": 10
+            }
+          },
+          "all_four_correct": {
+            "correct": 2,
+            "n": 10
+          },
+          "changed_decisions_both_sides_correct": {
+            "correct": 1,
+            "n": 7
+          },
+          "whole_pairs_correct": {
+            "correct": 0,
+            "n": 5
+          }
+        }
+      },
+      "cases": [
+        {
+          "id": "return_window/0/en",
+          "pair": "return_window",
+          "side": 0,
+          "language": "en",
+          "expected": {
+            "route": "returns",
+            "refund": "true",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "predicted": {
+            "route": "returns",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": true,
+            "refund": false,
+            "urgency": true,
+            "escalate": true
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "returns",
+                "top_probability": 0.9877856969833374,
+                "probabilities": {
+                  "shipping": 0.008179882541298866,
+                  "billing": 0.0026123737916350365,
+                  "account": 0.00020729086827486753,
+                  "returns": 0.9877856969833374,
+                  "security": 0.0012147636152803898
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.4667854905128479,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.5332145690917969,
+                  "true": 0.4667854905128479
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 0,
+                "expected_level": 0.9732717871665955,
+                "top_probability": 0.35270223021507263,
+                "levels": {
+                  "0": "Routine",
+                  "1": "Priority",
+                  "2": "Urgent"
+                },
+                "probabilities": {
+                  "0": 0.35270223021507263,
+                  "1": 0.3213236927986145,
+                  "2": 0.3259740471839905
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.02159585803747177,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.9784041047096252,
+                  "true": 0.02159585803747177
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 97,
+              "branch_tokens": 286,
+              "questions": 4
+            },
+            "latency_ms": 72.2163689788431,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "return_window/0/it",
+          "pair": "return_window",
+          "side": 0,
+          "language": "it",
+          "expected": {
+            "route": "returns",
+            "refund": "true",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "predicted": {
+            "route": "returns",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": true,
+            "refund": false,
+            "urgency": true,
+            "escalate": true
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "returns",
+                "top_probability": 0.7632901072502136,
+                "probabilities": {
+                  "shipping": 0.08975739777088165,
+                  "billing": 0.023655695840716362,
+                  "account": 0.022265393286943436,
+                  "returns": 0.7632901072502136,
+                  "security": 0.10103138536214828
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.4418519139289856,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.5581481456756592,
+                  "true": 0.4418519139289856
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 0,
+                "expected_level": 0.889866828918457,
+                "top_probability": 0.48631349205970764,
+                "levels": {
+                  "0": "Ordinaria",
+                  "1": "Prioritaria",
+                  "2": "Urgente"
+                },
+                "probabilities": {
+                  "0": 0.48631349205970764,
+                  "1": 0.13750624656677246,
+                  "2": 0.3761802911758423
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.124908447265625,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.8750914931297302,
+                  "true": 0.124908447265625
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 163,
+              "branch_tokens": 502,
+              "questions": 4
+            },
+            "latency_ms": 72.79040099820122,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "return_window/1/en",
+          "pair": "return_window",
+          "side": 1,
+          "language": "en",
+          "expected": {
+            "route": "returns",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "predicted": {
+            "route": "returns",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": true,
+            "refund": true,
+            "urgency": true,
+            "escalate": true
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "returns",
+                "top_probability": 0.9880118370056152,
+                "probabilities": {
+                  "shipping": 0.008123432286083698,
+                  "billing": 0.002468501217663288,
+                  "account": 0.0002021135442191735,
+                  "returns": 0.9880118370056152,
+                  "security": 0.0011940108379349113
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.4377061426639557,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.5622938871383667,
+                  "true": 0.4377061426639557
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 0,
+                "expected_level": 0.9680939316749573,
+                "top_probability": 0.35248151421546936,
+                "levels": {
+                  "0": "Routine",
+                  "1": "Priority",
+                  "2": "Urgent"
+                },
+                "probabilities": {
+                  "0": 0.35248151421546936,
+                  "1": 0.3269430994987488,
+                  "2": 0.32057541608810425
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.022071197628974915,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.9779288172721863,
+                  "true": 0.022071197628974915
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 97,
+              "branch_tokens": 286,
+              "questions": 4
+            },
+            "latency_ms": 70.61874901410192,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "return_window/1/it",
+          "pair": "return_window",
+          "side": 1,
+          "language": "it",
+          "expected": {
+            "route": "returns",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "predicted": {
+            "route": "returns",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": true,
+            "refund": true,
+            "urgency": true,
+            "escalate": true
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "returns",
+                "top_probability": 0.7557500004768372,
+                "probabilities": {
+                  "shipping": 0.08993692696094513,
+                  "billing": 0.02312006987631321,
+                  "account": 0.021805861964821815,
+                  "returns": 0.7557500004768372,
+                  "security": 0.10938715189695358
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.49463093280792236,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.5053690671920776,
+                  "true": 0.49463093280792236
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 0,
+                "expected_level": 0.87394118309021,
+                "top_probability": 0.49390465021133423,
+                "levels": {
+                  "0": "Ordinaria",
+                  "1": "Prioritaria",
+                  "2": "Urgente"
+                },
+                "probabilities": {
+                  "0": 0.49390465021133423,
+                  "1": 0.13824951648712158,
+                  "2": 0.3678458333015442
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.12274258583784103,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.8772574067115784,
+                  "true": 0.12274258583784103
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 163,
+              "branch_tokens": 502,
+              "questions": 4
+            },
+            "latency_ms": 71.42869697418064,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "security_override/0/en",
+          "pair": "security_override",
+          "side": 0,
+          "language": "en",
+          "expected": {
+            "route": "account",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "predicted": {
+            "route": "account",
+            "refund": "false",
+            "urgency": "2",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": true,
+            "refund": true,
+            "urgency": false,
+            "escalate": true
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "account",
+                "top_probability": 0.8658543229103088,
+                "probabilities": {
+                  "shipping": 0.0052041406743228436,
+                  "billing": 0.010383584536612034,
+                  "account": 0.8658543229103088,
+                  "returns": 0.0074828388169407845,
+                  "security": 0.11107509583234787
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.06870262324810028,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.9312973618507385,
+                  "true": 0.06870262324810028
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 2,
+                "expected_level": 1.263576865196228,
+                "top_probability": 0.48527348041534424,
+                "levels": {
+                  "0": "Routine",
+                  "1": "Priority",
+                  "2": "Urgent"
+                },
+                "probabilities": {
+                  "0": 0.22169657051563263,
+                  "1": 0.29302990436553955,
+                  "2": 0.48527348041534424
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.036597929894924164,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.9634020924568176,
+                  "true": 0.036597929894924164
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 103,
+              "branch_tokens": 286,
+              "questions": 4
+            },
+            "latency_ms": 70.69865299854428,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "security_override/0/it",
+          "pair": "security_override",
+          "side": 0,
+          "language": "it",
+          "expected": {
+            "route": "account",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "predicted": {
+            "route": "account",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": true,
+            "refund": true,
+            "urgency": true,
+            "escalate": true
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "account",
+                "top_probability": 0.6390485167503357,
+                "probabilities": {
+                  "shipping": 0.07122048735618591,
+                  "billing": 0.022077864035964012,
+                  "account": 0.6390485167503357,
+                  "returns": 0.02287181466817856,
+                  "security": 0.2447812855243683
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.14490632712841034,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.8550937175750732,
+                  "true": 0.14490632712841034
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 0,
+                "expected_level": 0.9182265996932983,
+                "top_probability": 0.4525469243526459,
+                "levels": {
+                  "0": "Ordinaria",
+                  "1": "Prioritaria",
+                  "2": "Urgente"
+                },
+                "probabilities": {
+                  "0": 0.4525469243526459,
+                  "1": 0.1766796112060547,
+                  "2": 0.3707734942436218
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.14797382056713104,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.8520262241363525,
+                  "true": 0.14797382056713104
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 175,
+              "branch_tokens": 502,
+              "questions": 4
+            },
+            "latency_ms": 71.30421500187367,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "security_override/1/en",
+          "pair": "security_override",
+          "side": 1,
+          "language": "en",
+          "expected": {
+            "route": "security",
+            "refund": "false",
+            "urgency": "2",
+            "escalate": "true"
+          },
+          "predicted": {
+            "route": "account",
+            "refund": "false",
+            "urgency": "2",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": false,
+            "refund": true,
+            "urgency": true,
+            "escalate": false
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "account",
+                "top_probability": 0.7833475470542908,
+                "probabilities": {
+                  "shipping": 0.004303553607314825,
+                  "billing": 0.010779459960758686,
+                  "account": 0.7833475470542908,
+                  "returns": 0.006943847518414259,
+                  "security": 0.1946256309747696
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.06528320163488388,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.9347167611122131,
+                  "true": 0.06528320163488388
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 2,
+                "expected_level": 1.44353748857975,
+                "top_probability": 0.6080801486968994,
+                "levels": {
+                  "0": "Routine",
+                  "1": "Priority",
+                  "2": "Urgent"
+                },
+                "probabilities": {
+                  "0": 0.16454263031482697,
+                  "1": 0.22737719118595123,
+                  "2": 0.6080801486968994
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.044541049748659134,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.9554589986801147,
+                  "true": 0.044541049748659134
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 103,
+              "branch_tokens": 286,
+              "questions": 4
+            },
+            "latency_ms": 70.56141900829971,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "security_override/1/it",
+          "pair": "security_override",
+          "side": 1,
+          "language": "it",
+          "expected": {
+            "route": "security",
+            "refund": "false",
+            "urgency": "2",
+            "escalate": "true"
+          },
+          "predicted": {
+            "route": "account",
+            "refund": "false",
+            "urgency": "2",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": false,
+            "refund": true,
+            "urgency": true,
+            "escalate": false
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "account",
+                "top_probability": 0.6648321747779846,
+                "probabilities": {
+                  "shipping": 0.07732389122247696,
+                  "billing": 0.028487127274274826,
+                  "account": 0.6648321747779846,
+                  "returns": 0.0274529829621315,
+                  "security": 0.20190373063087463
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.12484218180179596,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.8751577734947205,
+                  "true": 0.12484218180179596
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 2,
+                "expected_level": 1.1238529831171036,
+                "top_probability": 0.4962417781352997,
+                "levels": {
+                  "0": "Ordinaria",
+                  "1": "Prioritaria",
+                  "2": "Urgente"
+                },
+                "probabilities": {
+                  "0": 0.3723887801170349,
+                  "1": 0.1313694268465042,
+                  "2": 0.4962417781352997
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.16187013685703278,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.8381298780441284,
+                  "true": 0.16187013685703278
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 176,
+              "branch_tokens": 502,
+              "questions": 4
+            },
+            "latency_ms": 71.23084302293137,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "duplicate_reimbursement/0/en",
+          "pair": "duplicate_reimbursement",
+          "side": 0,
+          "language": "en",
+          "expected": {
+            "route": "billing",
+            "refund": "true",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "predicted": {
+            "route": "returns",
+            "refund": "false",
+            "urgency": "2",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": false,
+            "refund": false,
+            "urgency": false,
+            "escalate": true
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "returns",
+                "top_probability": 0.6286999583244324,
+                "probabilities": {
+                  "shipping": 0.05268223211169243,
+                  "billing": 0.29937437176704407,
+                  "account": 0.009601547382771969,
+                  "returns": 0.6286999583244324,
+                  "security": 0.009641898795962334
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.23807387053966522,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.7619261741638184,
+                  "true": 0.23807387053966522
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 2,
+                "expected_level": 1.1225007474422455,
+                "top_probability": 0.5004172921180725,
+                "levels": {
+                  "0": "Routine",
+                  "1": "Priority",
+                  "2": "Urgent"
+                },
+                "probabilities": {
+                  "0": 0.37791651487350464,
+                  "1": 0.12166616320610046,
+                  "2": 0.5004172921180725
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.013552889227867126,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.9864470958709717,
+                  "true": 0.013552889227867126
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 104,
+              "branch_tokens": 286,
+              "questions": 4
+            },
+            "latency_ms": 70.16064395429567,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "duplicate_reimbursement/0/it",
+          "pair": "duplicate_reimbursement",
+          "side": 0,
+          "language": "it",
+          "expected": {
+            "route": "billing",
+            "refund": "true",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "predicted": {
+            "route": "returns",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": false,
+            "refund": false,
+            "urgency": true,
+            "escalate": true
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "returns",
+                "top_probability": 0.3975116014480591,
+                "probabilities": {
+                  "shipping": 0.13673512637615204,
+                  "billing": 0.3649604022502899,
+                  "account": 0.01661844365298748,
+                  "returns": 0.3975116014480591,
+                  "security": 0.0841744914650917
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.19868546724319458,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.8013145923614502,
+                  "true": 0.19868546724319458
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 0,
+                "expected_level": 0.5668302625417709,
+                "top_probability": 0.6837869882583618,
+                "levels": {
+                  "0": "Ordinaria",
+                  "1": "Prioritaria",
+                  "2": "Urgente"
+                },
+                "probabilities": {
+                  "0": 0.6837869882583618,
+                  "1": 0.0655958503484726,
+                  "2": 0.25061720609664917
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.1329783797264099,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.8670216798782349,
+                  "true": 0.1329783797264099
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 175,
+              "branch_tokens": 502,
+              "questions": 4
+            },
+            "latency_ms": 70.99661999382079,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "duplicate_reimbursement/1/en",
+          "pair": "duplicate_reimbursement",
+          "side": 1,
+          "language": "en",
+          "expected": {
+            "route": "billing",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "predicted": {
+            "route": "returns",
+            "refund": "false",
+            "urgency": "2",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": false,
+            "refund": true,
+            "urgency": false,
+            "escalate": true
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "returns",
+                "top_probability": 0.618860125541687,
+                "probabilities": {
+                  "shipping": 0.05600576847791672,
+                  "billing": 0.30406346917152405,
+                  "account": 0.010041608475148678,
+                  "returns": 0.618860125541687,
+                  "security": 0.011029081419110298
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.24429628252983093,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.7557037472724915,
+                  "true": 0.24429628252983093
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 2,
+                "expected_level": 1.200267679989338,
+                "top_probability": 0.5455518960952759,
+                "levels": {
+                  "0": "Routine",
+                  "1": "Priority",
+                  "2": "Urgent"
+                },
+                "probabilities": {
+                  "0": 0.34528425335884094,
+                  "1": 0.10916388779878616,
+                  "2": 0.5455518960952759
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.017241984605789185,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.9827579855918884,
+                  "true": 0.017241984605789185
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 104,
+              "branch_tokens": 286,
+              "questions": 4
+            },
+            "latency_ms": 69.96403296943754,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "duplicate_reimbursement/1/it",
+          "pair": "duplicate_reimbursement",
+          "side": 1,
+          "language": "it",
+          "expected": {
+            "route": "billing",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "predicted": {
+            "route": "returns",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": false,
+            "refund": true,
+            "urgency": true,
+            "escalate": true
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "returns",
+                "top_probability": 0.3625836670398712,
+                "probabilities": {
+                  "shipping": 0.13730034232139587,
+                  "billing": 0.34815841913223267,
+                  "account": 0.017358124256134033,
+                  "returns": 0.3625836670398712,
+                  "security": 0.13459952175617218
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.2436898946762085,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.7563101053237915,
+                  "true": 0.2436898946762085
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 0,
+                "expected_level": 0.6189139410853386,
+                "top_probability": 0.6571542620658875,
+                "levels": {
+                  "0": "Ordinaria",
+                  "1": "Prioritaria",
+                  "2": "Urgente"
+                },
+                "probabilities": {
+                  "0": 0.6571542620658875,
+                  "1": 0.06677757948637009,
+                  "2": 0.27606818079948425
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.12598884105682373,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.8740111589431763,
+                  "true": 0.12598884105682373
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 176,
+              "branch_tokens": 502,
+              "questions": 4
+            },
+            "latency_ms": 71.12590002361685,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "delivery_deadline/0/en",
+          "pair": "delivery_deadline",
+          "side": 0,
+          "language": "en",
+          "expected": {
+            "route": "shipping",
+            "refund": "false",
+            "urgency": "1",
+            "escalate": "false"
+          },
+          "predicted": {
+            "route": "shipping",
+            "refund": "false",
+            "urgency": "2",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": true,
+            "refund": true,
+            "urgency": false,
+            "escalate": true
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "shipping",
+                "top_probability": 0.8089991211891174,
+                "probabilities": {
+                  "shipping": 0.8089991211891174,
+                  "billing": 0.13271953165531158,
+                  "account": 0.00412101112306118,
+                  "returns": 0.038041818886995316,
+                  "security": 0.016118532046675682
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.13145776093006134,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.8685422539710999,
+                  "true": 0.13145776093006134
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 2,
+                "expected_level": 1.1757912635803223,
+                "top_probability": 0.4780315160751343,
+                "levels": {
+                  "0": "Routine",
+                  "1": "Priority",
+                  "2": "Urgent"
+                },
+                "probabilities": {
+                  "0": 0.302240252494812,
+                  "1": 0.2197282314300537,
+                  "2": 0.4780315160751343
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.03719106316566467,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.9628089666366577,
+                  "true": 0.03719106316566467
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 105,
+              "branch_tokens": 286,
+              "questions": 4
+            },
+            "latency_ms": 70.4787889844738,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "delivery_deadline/0/it",
+          "pair": "delivery_deadline",
+          "side": 0,
+          "language": "it",
+          "expected": {
+            "route": "shipping",
+            "refund": "false",
+            "urgency": "1",
+            "escalate": "false"
+          },
+          "predicted": {
+            "route": "shipping",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": true,
+            "refund": true,
+            "urgency": false,
+            "escalate": true
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "shipping",
+                "top_probability": 0.7927479147911072,
+                "probabilities": {
+                  "shipping": 0.7927479147911072,
+                  "billing": 0.06900154054164886,
+                  "account": 0.019150586798787117,
+                  "returns": 0.04812610521912575,
+                  "security": 0.07097388803958893
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.20383715629577637,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.7961628437042236,
+                  "true": 0.20383715629577637
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 0,
+                "expected_level": 0.9458946883678436,
+                "top_probability": 0.4394225478172302,
+                "levels": {
+                  "0": "Ordinaria",
+                  "1": "Prioritaria",
+                  "2": "Urgente"
+                },
+                "probabilities": {
+                  "0": 0.4394225478172302,
+                  "1": 0.17526021599769592,
+                  "2": 0.38531723618507385
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.11712083965539932,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.8828791379928589,
+                  "true": 0.11712083965539932
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 177,
+              "branch_tokens": 502,
+              "questions": 4
+            },
+            "latency_ms": 71.53728598495945,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "delivery_deadline/1/en",
+          "pair": "delivery_deadline",
+          "side": 1,
+          "language": "en",
+          "expected": {
+            "route": "shipping",
+            "refund": "false",
+            "urgency": "2",
+            "escalate": "false"
+          },
+          "predicted": {
+            "route": "shipping",
+            "refund": "false",
+            "urgency": "2",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": true,
+            "refund": true,
+            "urgency": true,
+            "escalate": true
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "shipping",
+                "top_probability": 0.8085126280784607,
+                "probabilities": {
+                  "shipping": 0.8085126280784607,
+                  "billing": 0.13457301259040833,
+                  "account": 0.004184599034488201,
+                  "returns": 0.03661167621612549,
+                  "security": 0.016118131577968597
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.11557608097791672,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.8844239115715027,
+                  "true": 0.11557608097791672
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 2,
+                "expected_level": 1.1630425602197647,
+                "top_probability": 0.462230384349823,
+                "levels": {
+                  "0": "Routine",
+                  "1": "Priority",
+                  "2": "Urgent"
+                },
+                "probabilities": {
+                  "0": 0.29918786883354187,
+                  "1": 0.2385817915201187,
+                  "2": 0.462230384349823
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.030774589627981186,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.9692254066467285,
+                  "true": 0.030774589627981186
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 105,
+              "branch_tokens": 286,
+              "questions": 4
+            },
+            "latency_ms": 70.50783600425348,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "delivery_deadline/1/it",
+          "pair": "delivery_deadline",
+          "side": 1,
+          "language": "it",
+          "expected": {
+            "route": "shipping",
+            "refund": "false",
+            "urgency": "2",
+            "escalate": "false"
+          },
+          "predicted": {
+            "route": "shipping",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": true,
+            "refund": true,
+            "urgency": false,
+            "escalate": true
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "shipping",
+                "top_probability": 0.7923496961593628,
+                "probabilities": {
+                  "shipping": 0.7923496961593628,
+                  "billing": 0.06870431452989578,
+                  "account": 0.01936531998217106,
+                  "returns": 0.049214474856853485,
+                  "security": 0.07036610692739487
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.17760583758354187,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.8223941922187805,
+                  "true": 0.17760583758354187
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 0,
+                "expected_level": 0.9349286407232285,
+                "top_probability": 0.4506697952747345,
+                "levels": {
+                  "0": "Ordinaria",
+                  "1": "Prioritaria",
+                  "2": "Urgente"
+                },
+                "probabilities": {
+                  "0": 0.4506697952747345,
+                  "1": 0.1637316793203354,
+                  "2": 0.38559848070144653
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.1099863201379776,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.8900136947631836,
+                  "true": 0.1099863201379776
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 177,
+              "branch_tokens": 502,
+              "questions": 4
+            },
+            "latency_ms": 71.14567898679525,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "repeat_contact/0/en",
+          "pair": "repeat_contact",
+          "side": 0,
+          "language": "en",
+          "expected": {
+            "route": "shipping",
+            "refund": "false",
+            "urgency": "1",
+            "escalate": "false"
+          },
+          "predicted": {
+            "route": "shipping",
+            "refund": "false",
+            "urgency": "2",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": true,
+            "refund": true,
+            "urgency": false,
+            "escalate": true
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "shipping",
+                "top_probability": 0.8125718832015991,
+                "probabilities": {
+                  "shipping": 0.8125718832015991,
+                  "billing": 0.06720060110092163,
+                  "account": 0.05558675155043602,
+                  "returns": 0.03449290990829468,
+                  "security": 0.03014785796403885
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.18376275897026062,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.816237211227417,
+                  "true": 0.18376275897026062
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 2,
+                "expected_level": 1.3760656118392944,
+                "top_probability": 0.6252921223640442,
+                "levels": {
+                  "0": "Routine",
+                  "1": "Priority",
+                  "2": "Urgent"
+                },
+                "probabilities": {
+                  "0": 0.24922645092010498,
+                  "1": 0.12548136711120605,
+                  "2": 0.6252921223640442
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.015741918236017227,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.9842580556869507,
+                  "true": 0.015741918236017227
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 102,
+              "branch_tokens": 286,
+              "questions": 4
+            },
+            "latency_ms": 70.60428097611293,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "repeat_contact/0/it",
+          "pair": "repeat_contact",
+          "side": 0,
+          "language": "it",
+          "expected": {
+            "route": "shipping",
+            "refund": "false",
+            "urgency": "1",
+            "escalate": "false"
+          },
+          "predicted": {
+            "route": "security",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": false,
+            "refund": true,
+            "urgency": false,
+            "escalate": true
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "security",
+                "top_probability": 0.37113675475120544,
+                "probabilities": {
+                  "shipping": 0.33723369240760803,
+                  "billing": 0.04233929142355919,
+                  "account": 0.19868846237659454,
+                  "returns": 0.0506017729640007,
+                  "security": 0.37113675475120544
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.27086934447288513,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.7291306257247925,
+                  "true": 0.27086934447288513
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 0,
+                "expected_level": 0.809590220451355,
+                "top_probability": 0.5304691791534424,
+                "levels": {
+                  "0": "Ordinaria",
+                  "1": "Prioritaria",
+                  "2": "Urgente"
+                },
+                "probabilities": {
+                  "0": 0.5304691791534424,
+                  "1": 0.12947148084640503,
+                  "2": 0.340059369802475
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.24050115048885345,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.7594988942146301,
+                  "true": 0.24050115048885345
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 175,
+              "branch_tokens": 502,
+              "questions": 4
+            },
+            "latency_ms": 71.12768397200853,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "repeat_contact/1/en",
+          "pair": "repeat_contact",
+          "side": 1,
+          "language": "en",
+          "expected": {
+            "route": "shipping",
+            "refund": "false",
+            "urgency": "1",
+            "escalate": "true"
+          },
+          "predicted": {
+            "route": "shipping",
+            "refund": "false",
+            "urgency": "2",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": true,
+            "refund": true,
+            "urgency": false,
+            "escalate": false
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "shipping",
+                "top_probability": 0.8119614720344543,
+                "probabilities": {
+                  "shipping": 0.8119614720344543,
+                  "billing": 0.06764695793390274,
+                  "account": 0.05581669881939888,
+                  "returns": 0.03478875756263733,
+                  "security": 0.0297861211001873
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.1859753429889679,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.8140246868133545,
+                  "true": 0.1859753429889679
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 2,
+                "expected_level": 1.4105587229132652,
+                "top_probability": 0.6464326977729797,
+                "levels": {
+                  "0": "Routine",
+                  "1": "Priority",
+                  "2": "Urgent"
+                },
+                "probabilities": {
+                  "0": 0.23587395250797272,
+                  "1": 0.11769332736730576,
+                  "2": 0.6464326977729797
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.03135152533650398,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.9686484336853027,
+                  "true": 0.03135152533650398
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 102,
+              "branch_tokens": 286,
+              "questions": 4
+            },
+            "latency_ms": 70.7155960262753,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "repeat_contact/1/it",
+          "pair": "repeat_contact",
+          "side": 1,
+          "language": "it",
+          "expected": {
+            "route": "shipping",
+            "refund": "false",
+            "urgency": "1",
+            "escalate": "true"
+          },
+          "predicted": {
+            "route": "security",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": false,
+            "refund": true,
+            "urgency": false,
+            "escalate": false
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "security",
+                "top_probability": 0.3599598705768585,
+                "probabilities": {
+                  "shipping": 0.34952008724212646,
+                  "billing": 0.04137951880693436,
+                  "account": 0.19996602833271027,
+                  "returns": 0.049174483865499496,
+                  "security": 0.3599598705768585
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.262428879737854,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.737571120262146,
+                  "true": 0.262428879737854
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 0,
+                "expected_level": 0.8726656883955002,
+                "top_probability": 0.49886152148246765,
+                "levels": {
+                  "0": "Ordinaria",
+                  "1": "Prioritaria",
+                  "2": "Urgente"
+                },
+                "probabilities": {
+                  "0": 0.49886152148246765,
+                  "1": 0.12961117923259735,
+                  "2": 0.3715272545814514
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.21302159130573273,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.7869783639907837,
+                  "true": 0.21302159130573273
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 175,
+              "branch_tokens": 502,
+              "questions": 4
+            },
+            "latency_ms": 70.88487496366724,
+            "form": "cached"
+          }
+        }
+      ]
+    },
+    "v3": {
+      "warmup_seconds": 0.07753336400492117,
+      "summary": {
+        "en": {
+          "by_task": {
+            "route": {
+              "correct": 9,
+              "n": 10
+            },
+            "refund": {
+              "correct": 8,
+              "n": 10
+            },
+            "urgency": {
+              "correct": 6,
+              "n": 10
+            },
+            "escalate": {
+              "correct": 8,
+              "n": 10
+            }
+          },
+          "all_four_correct": {
+            "correct": 2,
+            "n": 10
+          },
+          "changed_decisions_both_sides_correct": {
+            "correct": 1,
+            "n": 7
+          },
+          "whole_pairs_correct": {
+            "correct": 0,
+            "n": 5
+          }
+        },
+        "it": {
+          "by_task": {
+            "route": {
+              "correct": 5,
+              "n": 10
+            },
+            "refund": {
+              "correct": 8,
+              "n": 10
+            },
+            "urgency": {
+              "correct": 5,
+              "n": 10
+            },
+            "escalate": {
+              "correct": 8,
+              "n": 10
+            }
+          },
+          "all_four_correct": {
+            "correct": 0,
+            "n": 10
+          },
+          "changed_decisions_both_sides_correct": {
+            "correct": 0,
+            "n": 7
+          },
+          "whole_pairs_correct": {
+            "correct": 0,
+            "n": 5
+          }
+        }
+      },
+      "cases": [
+        {
+          "id": "return_window/0/en",
+          "pair": "return_window",
+          "side": 0,
+          "language": "en",
+          "expected": {
+            "route": "returns",
+            "refund": "true",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "predicted": {
+            "route": "returns",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": true,
+            "refund": false,
+            "urgency": true,
+            "escalate": true
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "returns",
+                "top_probability": 0.8975564241409302,
+                "probabilities": {
+                  "shipping": 0.08765830844640732,
+                  "billing": 0.008303370326757431,
+                  "account": 0.00107659213244915,
+                  "returns": 0.8975564241409302,
+                  "security": 0.00540525047108531
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.33060842752456665,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.6693915724754333,
+                  "true": 0.33060842752456665
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 0,
+                "expected_level": 0.7501932978630066,
+                "top_probability": 0.4930090308189392,
+                "levels": {
+                  "0": "Routine",
+                  "1": "Priority",
+                  "2": "Urgent"
+                },
+                "probabilities": {
+                  "0": 0.4930090308189392,
+                  "1": 0.26378852128982544,
+                  "2": 0.24320238828659058
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.01261147577315569,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.9873884916305542,
+                  "true": 0.01261147577315569
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 97,
+              "branch_tokens": 286,
+              "questions": 4
+            },
+            "latency_ms": 72.37467594677582,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "return_window/0/it",
+          "pair": "return_window",
+          "side": 0,
+          "language": "it",
+          "expected": {
+            "route": "returns",
+            "refund": "true",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "predicted": {
+            "route": "shipping",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": false,
+            "refund": false,
+            "urgency": true,
+            "escalate": true
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "shipping",
+                "top_probability": 0.4922105073928833,
+                "probabilities": {
+                  "shipping": 0.4922105073928833,
+                  "billing": 0.02335098385810852,
+                  "account": 0.021015971899032593,
+                  "returns": 0.33006343245506287,
+                  "security": 0.1333591341972351
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.30750328302383423,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.6924967169761658,
+                  "true": 0.30750328302383423
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 0,
+                "expected_level": 0.4052209109067917,
+                "top_probability": 0.761983335018158,
+                "levels": {
+                  "0": "Ordinaria",
+                  "1": "Prioritaria",
+                  "2": "Urgente"
+                },
+                "probabilities": {
+                  "0": 0.761983335018158,
+                  "1": 0.07081244885921478,
+                  "2": 0.16720423102378845
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.08165846019983292,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.9183415174484253,
+                  "true": 0.08165846019983292
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 163,
+              "branch_tokens": 502,
+              "questions": 4
+            },
+            "latency_ms": 74.63170198025182,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "return_window/1/en",
+          "pair": "return_window",
+          "side": 1,
+          "language": "en",
+          "expected": {
+            "route": "returns",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "predicted": {
+            "route": "returns",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": true,
+            "refund": true,
+            "urgency": true,
+            "escalate": true
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "returns",
+                "top_probability": 0.898174524307251,
+                "probabilities": {
+                  "shipping": 0.08758442848920822,
+                  "billing": 0.007913552224636078,
+                  "account": 0.0010587875731289387,
+                  "returns": 0.898174524307251,
+                  "security": 0.0052686394192278385
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.3071131706237793,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.6928868889808655,
+                  "true": 0.3071131706237793
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 0,
+                "expected_level": 0.7505404651165009,
+                "top_probability": 0.48954784870147705,
+                "levels": {
+                  "0": "Routine",
+                  "1": "Priority",
+                  "2": "Urgent"
+                },
+                "probabilities": {
+                  "0": 0.48954784870147705,
+                  "1": 0.2703636586666107,
+                  "2": 0.24008840322494507
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.012775018811225891,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.9872249960899353,
+                  "true": 0.012775018811225891
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 97,
+              "branch_tokens": 286,
+              "questions": 4
+            },
+            "latency_ms": 72.24246999248862,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "return_window/1/it",
+          "pair": "return_window",
+          "side": 1,
+          "language": "it",
+          "expected": {
+            "route": "returns",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "predicted": {
+            "route": "shipping",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": false,
+            "refund": true,
+            "urgency": true,
+            "escalate": true
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "shipping",
+                "top_probability": 0.4800473153591156,
+                "probabilities": {
+                  "shipping": 0.4800473153591156,
+                  "billing": 0.022610941901803017,
+                  "account": 0.02045326493680477,
+                  "returns": 0.33085164427757263,
+                  "security": 0.14603687822818756
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.3441097140312195,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.6558902859687805,
+                  "true": 0.3441097140312195
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 0,
+                "expected_level": 0.39329323172569275,
+                "top_probability": 0.7681033611297607,
+                "levels": {
+                  "0": "Ordinaria",
+                  "1": "Prioritaria",
+                  "2": "Urgente"
+                },
+                "probabilities": {
+                  "0": 0.7681033611297607,
+                  "1": 0.07050001621246338,
+                  "2": 0.16139660775661469
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.07869597524404526,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.9213040471076965,
+                  "true": 0.07869597524404526
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 163,
+              "branch_tokens": 502,
+              "questions": 4
+            },
+            "latency_ms": 72.93934799963608,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "security_override/0/en",
+          "pair": "security_override",
+          "side": 0,
+          "language": "en",
+          "expected": {
+            "route": "account",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "predicted": {
+            "route": "security",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": false,
+            "refund": true,
+            "urgency": true,
+            "escalate": true
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "security",
+                "top_probability": 0.47019630670547485,
+                "probabilities": {
+                  "shipping": 0.08381732553243637,
+                  "billing": 0.047238584607839584,
+                  "account": 0.3567418158054352,
+                  "returns": 0.04200587049126625,
+                  "security": 0.47019630670547485
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.01854560151696205,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.9814544320106506,
+                  "true": 0.01854560151696205
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 0,
+                "expected_level": 0.9711503088474274,
+                "top_probability": 0.3544360399246216,
+                "levels": {
+                  "0": "Routine",
+                  "1": "Priority",
+                  "2": "Urgent"
+                },
+                "probabilities": {
+                  "0": 0.3544360399246216,
+                  "1": 0.3199775516986847,
+                  "2": 0.32558637857437134
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.02415337786078453,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.9758466482162476,
+                  "true": 0.02415337786078453
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 103,
+              "branch_tokens": 286,
+              "questions": 4
+            },
+            "latency_ms": 72.80321599682793,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "security_override/0/it",
+          "pair": "security_override",
+          "side": 0,
+          "language": "it",
+          "expected": {
+            "route": "account",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "predicted": {
+            "route": "security",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": false,
+            "refund": true,
+            "urgency": true,
+            "escalate": true
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "security",
+                "top_probability": 0.38952189683914185,
+                "probabilities": {
+                  "shipping": 0.31996390223503113,
+                  "billing": 0.023421544581651688,
+                  "account": 0.2470177412033081,
+                  "returns": 0.020074918866157532,
+                  "security": 0.38952189683914185
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.07530186325311661,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.9246981143951416,
+                  "true": 0.07530186325311661
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 0,
+                "expected_level": 0.40518316626548767,
+                "top_probability": 0.751928448677063,
+                "levels": {
+                  "0": "Ordinaria",
+                  "1": "Prioritaria",
+                  "2": "Urgente"
+                },
+                "probabilities": {
+                  "0": 0.751928448677063,
+                  "1": 0.0909598171710968,
+                  "2": 0.15711167454719543
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.1007065698504448,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.8992934226989746,
+                  "true": 0.1007065698504448
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 175,
+              "branch_tokens": 502,
+              "questions": 4
+            },
+            "latency_ms": 72.75037199724466,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "security_override/1/en",
+          "pair": "security_override",
+          "side": 1,
+          "language": "en",
+          "expected": {
+            "route": "security",
+            "refund": "false",
+            "urgency": "2",
+            "escalate": "true"
+          },
+          "predicted": {
+            "route": "security",
+            "refund": "false",
+            "urgency": "2",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": true,
+            "refund": true,
+            "urgency": true,
+            "escalate": false
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "security",
+                "top_probability": 0.682887852191925,
+                "probabilities": {
+                  "shipping": 0.043199844658374786,
+                  "billing": 0.03768879175186157,
+                  "account": 0.2108728289604187,
+                  "returns": 0.025350676849484444,
+                  "security": 0.682887852191925
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.01780063658952713,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.9821993112564087,
+                  "true": 0.01780063658952713
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 2,
+                "expected_level": 1.267047792673111,
+                "top_probability": 0.5264866948127747,
+                "levels": {
+                  "0": "Routine",
+                  "1": "Priority",
+                  "2": "Urgent"
+                },
+                "probabilities": {
+                  "0": 0.25943896174430847,
+                  "1": 0.21407440304756165,
+                  "2": 0.5264866948127747
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.03471891209483147,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.965281069278717,
+                  "true": 0.03471891209483147
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 103,
+              "branch_tokens": 286,
+              "questions": 4
+            },
+            "latency_ms": 72.706017002929,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "security_override/1/it",
+          "pair": "security_override",
+          "side": 1,
+          "language": "it",
+          "expected": {
+            "route": "security",
+            "refund": "false",
+            "urgency": "2",
+            "escalate": "true"
+          },
+          "predicted": {
+            "route": "security",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": true,
+            "refund": true,
+            "urgency": false,
+            "escalate": false
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "security",
+                "top_probability": 0.3498465120792389,
+                "probabilities": {
+                  "shipping": 0.32366785407066345,
+                  "billing": 0.03443922474980354,
+                  "account": 0.269268661737442,
+                  "returns": 0.022777726873755455,
+                  "security": 0.3498465120792389
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.06879610568284988,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.9312039017677307,
+                  "true": 0.06879610568284988
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 0,
+                "expected_level": 0.599240280687809,
+                "top_probability": 0.6608845591545105,
+                "levels": {
+                  "0": "Ordinaria",
+                  "1": "Prioritaria",
+                  "2": "Urgente"
+                },
+                "probabilities": {
+                  "0": 0.6608845591545105,
+                  "1": 0.07899055629968643,
+                  "2": 0.2601248621940613
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.13889998197555542,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.8611000180244446,
+                  "true": 0.13889998197555542
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 176,
+              "branch_tokens": 502,
+              "questions": 4
+            },
+            "latency_ms": 72.76496104896069,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "duplicate_reimbursement/0/en",
+          "pair": "duplicate_reimbursement",
+          "side": 0,
+          "language": "en",
+          "expected": {
+            "route": "billing",
+            "refund": "true",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "predicted": {
+            "route": "billing",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": true,
+            "refund": false,
+            "urgency": true,
+            "escalate": true
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "billing",
+                "top_probability": 0.44756290316581726,
+                "probabilities": {
+                  "shipping": 0.22169417142868042,
+                  "billing": 0.44756290316581726,
+                  "account": 0.013155758380889893,
+                  "returns": 0.30214086174964905,
+                  "security": 0.015446305274963379
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.11311613768339157,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.8868838548660278,
+                  "true": 0.11311613768339157
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 0,
+                "expected_level": 0.8314312398433685,
+                "top_probability": 0.5157619118690491,
+                "levels": {
+                  "0": "Routine",
+                  "1": "Priority",
+                  "2": "Urgent"
+                },
+                "probabilities": {
+                  "0": 0.5157619118690491,
+                  "1": 0.13704493641853333,
+                  "2": 0.3471931517124176
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.0038536994252353907,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.9961463212966919,
+                  "true": 0.0038536994252353907
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 104,
+              "branch_tokens": 286,
+              "questions": 4
+            },
+            "latency_ms": 71.77754101576284,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "duplicate_reimbursement/0/it",
+          "pair": "duplicate_reimbursement",
+          "side": 0,
+          "language": "it",
+          "expected": {
+            "route": "billing",
+            "refund": "true",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "predicted": {
+            "route": "shipping",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": false,
+            "refund": false,
+            "urgency": true,
+            "escalate": true
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "shipping",
+                "top_probability": 0.5169704556465149,
+                "probabilities": {
+                  "shipping": 0.5169704556465149,
+                  "billing": 0.33621057868003845,
+                  "account": 0.0115016745403409,
+                  "returns": 0.08186100423336029,
+                  "security": 0.053456202149391174
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.10387630760669708,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.8961237072944641,
+                  "true": 0.10387630760669708
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 0,
+                "expected_level": 0.16483450680971146,
+                "top_probability": 0.9036569595336914,
+                "levels": {
+                  "0": "Ordinaria",
+                  "1": "Prioritaria",
+                  "2": "Urgente"
+                },
+                "probabilities": {
+                  "0": 0.9036569595336914,
+                  "1": 0.027851618826389313,
+                  "2": 0.06849144399166107
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.059159405529499054,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.9408406019210815,
+                  "true": 0.059159405529499054
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 175,
+              "branch_tokens": 502,
+              "questions": 4
+            },
+            "latency_ms": 72.20854499610141,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "duplicate_reimbursement/1/en",
+          "pair": "duplicate_reimbursement",
+          "side": 1,
+          "language": "en",
+          "expected": {
+            "route": "billing",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "predicted": {
+            "route": "billing",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": true,
+            "refund": true,
+            "urgency": true,
+            "escalate": true
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "billing",
+                "top_probability": 0.44799280166625977,
+                "probabilities": {
+                  "shipping": 0.22686347365379333,
+                  "billing": 0.44799280166625977,
+                  "account": 0.013758712448179722,
+                  "returns": 0.29467806220054626,
+                  "security": 0.016706930473446846
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.13920044898986816,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.8607995510101318,
+                  "true": 0.13920044898986816
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 0,
+                "expected_level": 0.9003412574529648,
+                "top_probability": 0.4869668483734131,
+                "levels": {
+                  "0": "Routine",
+                  "1": "Priority",
+                  "2": "Urgent"
+                },
+                "probabilities": {
+                  "0": 0.4869668483734131,
+                  "1": 0.1257248967885971,
+                  "2": 0.38730818033218384
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.0058082095347344875,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.9941918253898621,
+                  "true": 0.0058082095347344875
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 104,
+              "branch_tokens": 286,
+              "questions": 4
+            },
+            "latency_ms": 71.74227299401537,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "duplicate_reimbursement/1/it",
+          "pair": "duplicate_reimbursement",
+          "side": 1,
+          "language": "it",
+          "expected": {
+            "route": "billing",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "predicted": {
+            "route": "shipping",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": false,
+            "refund": true,
+            "urgency": true,
+            "escalate": true
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "shipping",
+                "top_probability": 0.4680590033531189,
+                "probabilities": {
+                  "shipping": 0.4680590033531189,
+                  "billing": 0.3380887806415558,
+                  "account": 0.012035033665597439,
+                  "returns": 0.07885558158159256,
+                  "security": 0.10296159237623215
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.14949484169483185,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.8505051732063293,
+                  "true": 0.14949484169483185
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 0,
+                "expected_level": 0.1958312038332224,
+                "top_probability": 0.8878402709960938,
+                "levels": {
+                  "0": "Ordinaria",
+                  "1": "Prioritaria",
+                  "2": "Urgente"
+                },
+                "probabilities": {
+                  "0": 0.8878402709960938,
+                  "1": 0.028488198295235634,
+                  "2": 0.08367150276899338
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.06285712122917175,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.9371429085731506,
+                  "true": 0.06285712122917175
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 176,
+              "branch_tokens": 502,
+              "questions": 4
+            },
+            "latency_ms": 73.07436998235062,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "delivery_deadline/0/en",
+          "pair": "delivery_deadline",
+          "side": 0,
+          "language": "en",
+          "expected": {
+            "route": "shipping",
+            "refund": "false",
+            "urgency": "1",
+            "escalate": "false"
+          },
+          "predicted": {
+            "route": "shipping",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": true,
+            "refund": true,
+            "urgency": false,
+            "escalate": true
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "shipping",
+                "top_probability": 0.8774675130844116,
+                "probabilities": {
+                  "shipping": 0.8774675130844116,
+                  "billing": 0.0802762359380722,
+                  "account": 0.004192615393549204,
+                  "returns": 0.01431111991405487,
+                  "security": 0.0237526036798954
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.06808602809906006,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.9319139719009399,
+                  "true": 0.06808602809906006
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 0,
+                "expected_level": 0.8498804569244385,
+                "top_probability": 0.4486531615257263,
+                "levels": {
+                  "0": "Routine",
+                  "1": "Priority",
+                  "2": "Urgent"
+                },
+                "probabilities": {
+                  "0": 0.4486531615257263,
+                  "1": 0.25281310081481934,
+                  "2": 0.29853367805480957
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.015530220232903957,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.9844697713851929,
+                  "true": 0.015530220232903957
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 105,
+              "branch_tokens": 286,
+              "questions": 4
+            },
+            "latency_ms": 72.38090701866895,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "delivery_deadline/0/it",
+          "pair": "delivery_deadline",
+          "side": 0,
+          "language": "it",
+          "expected": {
+            "route": "shipping",
+            "refund": "false",
+            "urgency": "1",
+            "escalate": "false"
+          },
+          "predicted": {
+            "route": "shipping",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": true,
+            "refund": true,
+            "urgency": false,
+            "escalate": true
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "shipping",
+                "top_probability": 0.911723256111145,
+                "probabilities": {
+                  "shipping": 0.911723256111145,
+                  "billing": 0.029816821217536926,
+                  "account": 0.008332855068147182,
+                  "returns": 0.016541268676519394,
+                  "security": 0.03358574956655502
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.10487528145313263,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.8951247334480286,
+                  "true": 0.10487528145313263
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 0,
+                "expected_level": 0.5646112114191055,
+                "top_probability": 0.6420771479606628,
+                "levels": {
+                  "0": "Ordinaria",
+                  "1": "Prioritaria",
+                  "2": "Urgente"
+                },
+                "probabilities": {
+                  "0": 0.6420771479606628,
+                  "1": 0.1512346714735031,
+                  "2": 0.2066882699728012
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.07562771439552307,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.9243722558021545,
+                  "true": 0.07562771439552307
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 177,
+              "branch_tokens": 502,
+              "questions": 4
+            },
+            "latency_ms": 72.31253600912169,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "delivery_deadline/1/en",
+          "pair": "delivery_deadline",
+          "side": 1,
+          "language": "en",
+          "expected": {
+            "route": "shipping",
+            "refund": "false",
+            "urgency": "2",
+            "escalate": "false"
+          },
+          "predicted": {
+            "route": "shipping",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": true,
+            "refund": true,
+            "urgency": false,
+            "escalate": true
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "shipping",
+                "top_probability": 0.8817387223243713,
+                "probabilities": {
+                  "shipping": 0.8817387223243713,
+                  "billing": 0.0788775309920311,
+                  "account": 0.004084611777216196,
+                  "returns": 0.012965256348252296,
+                  "security": 0.02233385108411312
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.059245672076940536,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.9407543540000916,
+                  "true": 0.059245672076940536
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 0,
+                "expected_level": 0.805440753698349,
+                "top_probability": 0.4654088318347931,
+                "levels": {
+                  "0": "Routine",
+                  "1": "Priority",
+                  "2": "Urgent"
+                },
+                "probabilities": {
+                  "0": 0.4654088318347931,
+                  "1": 0.26374152302742004,
+                  "2": 0.2708496153354645
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.011910823173820972,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.9880891442298889,
+                  "true": 0.011910823173820972
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 105,
+              "branch_tokens": 286,
+              "questions": 4
+            },
+            "latency_ms": 72.2288130200468,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "delivery_deadline/1/it",
+          "pair": "delivery_deadline",
+          "side": 1,
+          "language": "it",
+          "expected": {
+            "route": "shipping",
+            "refund": "false",
+            "urgency": "2",
+            "escalate": "false"
+          },
+          "predicted": {
+            "route": "shipping",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": true,
+            "refund": true,
+            "urgency": false,
+            "escalate": true
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "shipping",
+                "top_probability": 0.9112193584442139,
+                "probabilities": {
+                  "shipping": 0.9112193584442139,
+                  "billing": 0.02988787554204464,
+                  "account": 0.00856026355177164,
+                  "returns": 0.01704310066998005,
+                  "security": 0.03328932449221611
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.08960425108671188,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.9103958010673523,
+                  "true": 0.08960425108671188
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 0,
+                "expected_level": 0.4729313850402832,
+                "top_probability": 0.6985595226287842,
+                "levels": {
+                  "0": "Ordinaria",
+                  "1": "Prioritaria",
+                  "2": "Urgente"
+                },
+                "probabilities": {
+                  "0": 0.6985595226287842,
+                  "1": 0.12994953989982605,
+                  "2": 0.17149092257022858
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.06801667809486389,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.9319833517074585,
+                  "true": 0.06801667809486389
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 177,
+              "branch_tokens": 502,
+              "questions": 4
+            },
+            "latency_ms": 73.08275601826608,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "repeat_contact/0/en",
+          "pair": "repeat_contact",
+          "side": 0,
+          "language": "en",
+          "expected": {
+            "route": "shipping",
+            "refund": "false",
+            "urgency": "1",
+            "escalate": "false"
+          },
+          "predicted": {
+            "route": "shipping",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": true,
+            "refund": true,
+            "urgency": false,
+            "escalate": true
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "shipping",
+                "top_probability": 0.915404736995697,
+                "probabilities": {
+                  "shipping": 0.915404736995697,
+                  "billing": 0.03153308480978012,
+                  "account": 0.008406569249927998,
+                  "returns": 0.01529003493487835,
+                  "security": 0.02936561591923237
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.09697163850069046,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.9030283689498901,
+                  "true": 0.09697163850069046
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 0,
+                "expected_level": 0.881855919957161,
+                "top_probability": 0.46514421701431274,
+                "levels": {
+                  "0": "Routine",
+                  "1": "Priority",
+                  "2": "Urgent"
+                },
+                "probabilities": {
+                  "0": 0.46514421701431274,
+                  "1": 0.18785573542118073,
+                  "2": 0.3470000922679901
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.005286180879920721,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.9947138428688049,
+                  "true": 0.005286180879920721
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 102,
+              "branch_tokens": 286,
+              "questions": 4
+            },
+            "latency_ms": 72.32328597456217,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "repeat_contact/0/it",
+          "pair": "repeat_contact",
+          "side": 0,
+          "language": "it",
+          "expected": {
+            "route": "shipping",
+            "refund": "false",
+            "urgency": "1",
+            "escalate": "false"
+          },
+          "predicted": {
+            "route": "shipping",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": true,
+            "refund": true,
+            "urgency": false,
+            "escalate": true
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "shipping",
+                "top_probability": 0.6484185457229614,
+                "probabilities": {
+                  "shipping": 0.6484185457229614,
+                  "billing": 0.028920412063598633,
+                  "account": 0.0566183440387249,
+                  "returns": 0.019443698227405548,
+                  "security": 0.2465990036725998
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.2688333988189697,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.7311666011810303,
+                  "true": 0.2688333988189697
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 0,
+                "expected_level": 0.44821852445602417,
+                "top_probability": 0.7178192734718323,
+                "levels": {
+                  "0": "Ordinaria",
+                  "1": "Prioritaria",
+                  "2": "Urgente"
+                },
+                "probabilities": {
+                  "0": 0.7178192734718323,
+                  "1": 0.1161431074142456,
+                  "2": 0.16603770852088928
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.2324608564376831,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.7675391435623169,
+                  "true": 0.2324608564376831
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 175,
+              "branch_tokens": 502,
+              "questions": 4
+            },
+            "latency_ms": 72.39495596149936,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "repeat_contact/1/en",
+          "pair": "repeat_contact",
+          "side": 1,
+          "language": "en",
+          "expected": {
+            "route": "shipping",
+            "refund": "false",
+            "urgency": "1",
+            "escalate": "true"
+          },
+          "predicted": {
+            "route": "shipping",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": true,
+            "refund": true,
+            "urgency": false,
+            "escalate": false
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "shipping",
+                "top_probability": 0.9150748252868652,
+                "probabilities": {
+                  "shipping": 0.9150748252868652,
+                  "billing": 0.0318601056933403,
+                  "account": 0.008402148261666298,
+                  "returns": 0.01539283711463213,
+                  "security": 0.029270000755786896
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.09857437014579773,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.9014256000518799,
+                  "true": 0.09857437014579773
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 0,
+                "expected_level": 0.9218049049377441,
+                "top_probability": 0.44382596015930176,
+                "levels": {
+                  "0": "Routine",
+                  "1": "Priority",
+                  "2": "Urgent"
+                },
+                "probabilities": {
+                  "0": 0.44382596015930176,
+                  "1": 0.19054323434829712,
+                  "2": 0.3656308352947235
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.011471781879663467,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.9885282516479492,
+                  "true": 0.011471781879663467
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 102,
+              "branch_tokens": 286,
+              "questions": 4
+            },
+            "latency_ms": 72.2735800081864,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "repeat_contact/1/it",
+          "pair": "repeat_contact",
+          "side": 1,
+          "language": "it",
+          "expected": {
+            "route": "shipping",
+            "refund": "false",
+            "urgency": "1",
+            "escalate": "true"
+          },
+          "predicted": {
+            "route": "shipping",
+            "refund": "false",
+            "urgency": "0",
+            "escalate": "false"
+          },
+          "correct": {
+            "route": true,
+            "refund": true,
+            "urgency": false,
+            "escalate": false
+          },
+          "response": {
+            "answers": {
+              "route": {
+                "type": "choice",
+                "choice": "shipping",
+                "top_probability": 0.68327397108078,
+                "probabilities": {
+                  "shipping": 0.68327397108078,
+                  "billing": 0.027484819293022156,
+                  "account": 0.051829107105731964,
+                  "returns": 0.017641926184296608,
+                  "security": 0.219770148396492
+                }
+              },
+              "refund": {
+                "type": "noul",
+                "p_true": 0.2539674937725067,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.7460324764251709,
+                  "true": 0.2539674937725067
+                }
+              },
+              "urgency": {
+                "type": "score",
+                "level": 0,
+                "expected_level": 0.49556301534175873,
+                "top_probability": 0.6898320913314819,
+                "levels": {
+                  "0": "Ordinaria",
+                  "1": "Prioritaria",
+                  "2": "Urgente"
+                },
+                "probabilities": {
+                  "0": 0.6898320913314819,
+                  "1": 0.12477286159992218,
+                  "2": 0.18539507687091827
+                }
+              },
+              "escalate": {
+                "type": "noul",
+                "p_true": 0.12897661328315735,
+                "decision": false,
+                "probabilities": {
+                  "false": 0.871023416519165,
+                  "true": 0.12897661328315735
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 175,
+              "branch_tokens": 502,
+              "questions": 4
+            },
+            "latency_ms": 72.53692101221532,
+            "form": "cached"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -112,3 +112,9 @@ access is required for the first download.
 Verified on LUMI: jobs 22720431 (v2) and 22720432 (v3). All four EN/IT
 example answers and probabilities exactly match the previous local-export
 smoke check. See `docs/nesso2/evidence/hf-demo-results.json`.
+
+## More demanding examples
+
+For multi-question requests, policy boundaries and bilingual one-fact contrast
+pairs, use [the scenario runner](examples/SCENARIOS.md). It compares both models
+and reports incorrect answers as well as successful ones.

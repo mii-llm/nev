@@ -20,8 +20,8 @@
     "sha256": "6bce3f3489462b7148b9fa229e2f30030dd65e94c0443410c5bdcb94cfd4cdd3"
   },
   "INFERENCE.md": {
-    "bytes": 5404,
-    "sha256": "5b947170caa2001762a52941ad0695382c75a4a4540b10810df4019e9889695e"
+    "bytes": 5651,
+    "sha256": "6b00090f430e15adac56ee68c932d5003400fbbe92855cda975e307b8824fb18"
   },
   "LICENSE": {
     "bytes": 11358,
@@ -36,8 +36,12 @@
     "sha256": "11600cde9b1fd1156b41f2d815bbb1d4c3e647b65c140a4b013aebb38fae8b8c"
   },
   "README.md": {
-    "bytes": 2641,
-    "sha256": "bed819b025fdcb5f16c39b81a106ba6db62d18bf9a02f994f3dee2f4ddc1bed6"
+    "bytes": 2796,
+    "sha256": "26fc4a36243044f447e6e623b7f78c1281507d79f5e231cf158bde3b966978c7"
+  },
+  "SCENARIO_RESULTS.md": {
+    "bytes": 2828,
+    "sha256": "fc40a9397e068b103fcf341fc88ef5d862c1563f9106c9dc860f7247bb9e39b5"
   },
   "STATUS.md": {
     "bytes": 1077,
@@ -52,8 +56,8 @@
     "sha256": "1119b75cda0724388e6569fb20f78ec324706bc086bc1d914baf7edd9f4339e7"
   },
   "docs/nesso2/EXPERIMENT_LOG.md": {
-    "bytes": 29091,
-    "sha256": "ce239c8025bcf24497a860880b93e5ffd7e220a087d4c36ac504ebe958112cd2"
+    "bytes": 30161,
+    "sha256": "9adc5a8f80309ce97b3092416d0a0d9fbf1ff86c0091477b87e25ba02ae9b917"
   },
   "docs/nesso2/FOCUSED_V3.md": {
     "bytes": 5445,
@@ -215,6 +219,18 @@
     "bytes": 2355,
     "sha256": "e3467d7ead15473ff022d8f4a717edb690f7e04381edcac986ce6fcf7415d667"
   },
+  "docs/nesso2/evidence/scenario-input-correction.json": {
+    "bytes": 315,
+    "sha256": "3e3793ea2cf74f16e0a4fda57865f67e3ecd98222163fe40d2b600b02f5eea6e"
+  },
+  "docs/nesso2/evidence/scenario-job.json": {
+    "bytes": 120,
+    "sha256": "158cbdd1308ee7857038a9084dd29eaef89dec869a60369c65cd050d7f5bb872"
+  },
+  "docs/nesso2/evidence/scenario-results.json": {
+    "bytes": 104868,
+    "sha256": "512cc6300cc3a14a6f7e435ba74ed4c3062a67571ec4cfe9ab68178d2a0b09b3"
+  },
   "docs/nesso2/evidence/v2-release-export-artifact-sha256.json": {
     "bytes": 1038,
     "sha256": "69e736870ce3e4588439a5d299266cdde08218dc69c576e259c65b5218580ca4"
@@ -235,6 +251,14 @@
     "bytes": 411,
     "sha256": "66b71701a8aae70a895e44a7c048b0b7cdf9c404d127e72d414f0da27eabdbb6"
   },
+  "examples/SCENARIOS.md": {
+    "bytes": 3291,
+    "sha256": "53f51ac1465d6806bacc7a9c617727fc7e5212be37f923f687e5561dad4e218e"
+  },
+  "examples/build_scenarios.py": {
+    "bytes": 9450,
+    "sha256": "5dc7fe4d57cfdb8c6a721345ad2816d88719d6fbf076c81d840051106e6c5d40"
+  },
   "examples/decide.py": {
     "bytes": 1109,
     "sha256": "b3e789267fd22ac38c9f9985a9abdf615673972c15d84dcaf0c48b24483040f3"
@@ -251,9 +275,25 @@
     "bytes": 845,
     "sha256": "3b1218e987f337751daaf6d4b0ff539a8ea98a558e4a6d88ab639e192ee874c6"
   },
+  "examples/lumi_scenarios.sbatch": {
+    "bytes": 1160,
+    "sha256": "43a8fdc557fbceed3e46ef3a02edeb34877aa8b13fb5aa80ee7a4bea54245fce"
+  },
+  "examples/request-complex-it.json": {
+    "bytes": 2905,
+    "sha256": "45826f339c83044c03b59b3f8a7659d3f03907c72487262a7c9748eb2a11e51e"
+  },
   "examples/request-it.json": {
     "bytes": 361,
     "sha256": "ddbd0e3886007993b705eeba0137cba7734648777d64e99bbd95973ed27ee3f4"
+  },
+  "examples/run_scenarios.py": {
+    "bytes": 4194,
+    "sha256": "cc53eb176cf826eed1e341e30dfc553676bc560cb1b302e92b33a73623e4e247"
+  },
+  "examples/scenarios.json": {
+    "bytes": 67505,
+    "sha256": "4700fe00c50067a5eba0e0d2f61fc230e76283e0a5fdc67aa7639d1d65e464b0"
   },
   "experiment-index.json": {
     "bytes": 9906,

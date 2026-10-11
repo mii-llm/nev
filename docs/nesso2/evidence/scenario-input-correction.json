@@ -1,0 +1,5 @@
+{
+  "superseded_job": "22720790",
+  "old_cases_sha256": "fdc7c6e286a597663420c63c68533bceed88411f3c6e77e8ba30682c7456e21a",
+  "reason": "Before inspecting model outputs, changed irrelevant default days_since_delivery=60 to null: missing-parcel cases must not assert a prior delivery. Expected answers unchanged."
+}

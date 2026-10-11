@@ -492,3 +492,22 @@ configuration/model wrapper and equivalence checks, not additional training.
 The helper accepts a custom state or a JSON state/questions request. These
 four examples are an inference smoke check, not a benchmark score or latency
 study.
+
+
+## 2026-10-11 — Harder bilingual diagnostic examples
+
+The user rejected the trivial parcel routing smoke example as uninformative.
+Added 20 authored EN/IT requests with four simultaneous decisions and five
+one-fact contrast pairs per language. Job 22720810 compares frozen v2/v3 with
+native cached FP32 inference. V3 routing was 9/10 EN and 5/10 IT (v2 7/10 and
+5/10). Both variants answered false on every refund and escalation case: 8/10
+merely matches the always-no baseline and misses all positive cases. Correct
+changed decisions on both sides: v2 0/7 EN, 1/7 IT; v3 1/7 EN, 0/7 IT.
+High-confidence errors are retained. Full results are in
+`evidence/scenario-results.json`. This tiny correlated diagnostic is not a new
+representative benchmark. Do not train on these cases then report them as fresh
+independent evaluation.
+
+Before inspecting predictions, superseded job 22720790 to correct an irrelevant
+60-days-since-delivery default that contradicted missing-parcel cases; replaced
+with null, leaving answer keys unchanged. Correction provenance is retained.
