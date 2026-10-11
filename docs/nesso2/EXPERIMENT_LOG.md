@@ -473,3 +473,22 @@ recipes and experiment evidence were published to the existing private
 `evidence/huggingface-publication.json`. Existing LUMI credentials worked; no
 A100 transfer was needed. The initial upload launcher stalled in module setup;
 using the same container without GPU-binding module startup resolved it.
+
+
+## 2026-10-11 — Hugging Face download and LUMI command check
+
+Downloaded both private variants from pinned HF revision
+`c5c84121263b423f8846811a24790ab96e66cee3` to the scratch cache. New
+`examples/hf_decide.py` and LUMI launchers ran the frozen runtime on one AMD
+GPU per job (v2: 22720431; v3: 22720432). Both English/Italian parcel examples
+selected shipping; all answer probabilities exactly matched the preceding
+local-export smoke results. Raw outputs and job IDs are in
+`evidence/hf-demo-results.json` and `evidence/hf-demo-jobs.json`.
+
+This validates HF download plus the native decision runtime. The published
+configurations have `model_type=decision_model` and no `auto_map`; direct
+Transformers AutoModel support is not implemented. It would require a custom
+configuration/model wrapper and equivalence checks, not additional training.
+The helper accepts a custom state or a JSON state/questions request. These
+four examples are an inference smoke check, not a benchmark score or latency
+study.

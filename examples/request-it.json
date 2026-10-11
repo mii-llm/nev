@@ -1,0 +1,14 @@
+{
+  "state": "Mi avete addebitato due volte la stessa fattura.",
+  "questions": {
+    "route": {
+      "type": "choice",
+      "instructions": "Scegli il reparto che deve gestire la richiesta.",
+      "criteria": {
+        "shipping": "Spedizioni e consegne",
+        "billing": "Pagamenti e fatture",
+        "account": "Accesso e profilo"
+      }
+    }
+  }
+}
