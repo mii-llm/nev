@@ -20,8 +20,8 @@
     "sha256": "6bce3f3489462b7148b9fa229e2f30030dd65e94c0443410c5bdcb94cfd4cdd3"
   },
   "INFERENCE.md": {
-    "bytes": 2208,
-    "sha256": "f0e8f285088eb206067d50904dac15f87262937470ab78ba66404063178f7f16"
+    "bytes": 2261,
+    "sha256": "6fb54ff151855e7ab958d17b9880f706ab1dca95094b4fcc383fb3f30aa2536e"
   },
   "LICENSE": {
     "bytes": 11358,
@@ -31,9 +31,13 @@
     "bytes": 2840,
     "sha256": "5d945d5bde0ce86325016457b35aedbb2f341c82d09545aa26525d212c2ecdee"
   },
+  "PUBLICATION.md": {
+    "bytes": 1529,
+    "sha256": "11600cde9b1fd1156b41f2d815bbb1d4c3e647b65c140a4b013aebb38fae8b8c"
+  },
   "README.md": {
-    "bytes": 2456,
-    "sha256": "55225364dbfead435cb7127bc884bb68a68e70ea62b1e3a90b2c703c77e6df56"
+    "bytes": 2557,
+    "sha256": "9937d6b570baacb139461093921d9f467b4e749309b5cbd10c6b42b7afda5cc2"
   },
   "STATUS.md": {
     "bytes": 1077,
@@ -48,8 +52,8 @@
     "sha256": "1119b75cda0724388e6569fb20f78ec324706bc086bc1d914baf7edd9f4339e7"
   },
   "docs/nesso2/EXPERIMENT_LOG.md": {
-    "bytes": 27338,
-    "sha256": "12c163d1901d84935929dbd7dd892b89336360b80e2eefcd5cfccc3992fc7538"
+    "bytes": 28081,
+    "sha256": "2925190ad254eeb5d59669d2d26007015110525c09d92000331bbaf97dc2b71d"
   },
   "docs/nesso2/FOCUSED_V3.md": {
     "bytes": 5445,
@@ -142,6 +146,10 @@
   "docs/nesso2/evidence/full-training-report.json": {
     "bytes": 123180,
     "sha256": "47304fa357f246f4b73f735796d359ad2b07c5274c91182862db1d416bb8ccef"
+  },
+  "docs/nesso2/evidence/huggingface-publication.json": {
+    "bytes": 476,
+    "sha256": "da7dcb1a29dac8efe07644c6e4c640a76e73ebd2343f203e6ffdcc0b2e260f27"
   },
   "docs/nesso2/evidence/latest-comparison-archive-index.json": {
     "bytes": 5868,
@@ -624,12 +632,16 @@
     "sha256": "7a8e41467ff07e3c8d3275eafa37f7577c6b8d6331bdee0dff056c9bfa4bd301"
   },
   "experiments/publication/upload_nev.py": {
-    "bytes": 3043,
-    "sha256": "65787a5fedce6375a533dadf9978ae3fe78fc70fd38543afd1f0755e3ace357a"
+    "bytes": 3350,
+    "sha256": "0cfd13dede7db3ab994af4caf0f5fc3f7071e91dad25c3431eff96ba1aba36c3"
   },
   "export-comparison.json": {
     "bytes": 40943,
     "sha256": "e440b6614137550d55a0f30f5fba58f48d243453baec13266fd48823e6c5e7f7"
+  },
+  "models/README.md": {
+    "bytes": 4804,
+    "sha256": "362ea8c23fe8546fd0b726f4d7639dfa0fa27a122071ca4a9958299d0ec4f974"
   },
   "models/v2/README.md": {
     "bytes": 4292,

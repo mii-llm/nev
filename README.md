@@ -11,6 +11,8 @@ Two small English/Italian research variants built with Kev on `mii-llm/nesso2-0.
 
 These labels describe observed differences on research subsets, not guarantees for real traffic. The conversion keeps the parent backbone size and does not provide ordinary text generation.
 
+See the [publication record](PUBLICATION.md) for the pinned model revision and upload verification.
+
 ## Start here
 
 - [Install and run](INFERENCE.md), including the bilingual example.

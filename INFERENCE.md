@@ -39,7 +39,7 @@ from pathlib import Path
 from huggingface_hub import snapshot_download
 
 variant = "v3"  # or "v2"
-folder = Path(snapshot_download("giux78/nev", allow_patterns=[f"{variant}/**"])) / variant
+folder = Path(snapshot_download("giux78/nev", revision="c5c84121263b423f8846811a24790ab96e66cee3", allow_patterns=[f"{variant}/**"])) / variant
 print(folder)
 ```
 

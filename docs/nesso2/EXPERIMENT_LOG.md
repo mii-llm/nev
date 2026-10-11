@@ -460,3 +460,16 @@ files; the previous assembly manifests are preserved before documentation refres
 
 Do not silently choose a new winner using the final test, omit failed runs, or
 replace old reports. Append newly verified results with their source artifacts.
+
+
+## 2026-10-11 — Private Nev publication
+
+Published both standalone evaluated variants to `giux78/nev` in `v2/` and `v3/`,
+revision `c5c84121263b423f8846811a24790ab96e66cee3`. Remote weight sizes/LFS SHA-256 and repository privacy were
+verified; evaluated core model hashes are unchanged. Code, model descriptions,
+recipes and experiment evidence were published to the existing private
+`mii-llm/nev` repository (initial code commit
+`68ee8ae5642f99bd9c0e8636280cc1f7438e6abd`). The model receipt is retained in
+`evidence/huggingface-publication.json`. Existing LUMI credentials worked; no
+A100 transfer was needed. The initial upload launcher stalled in module setup;
+using the same container without GPU-binding module startup resolved it.

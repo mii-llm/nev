@@ -1,0 +1,13 @@
+{
+  "status": "complete",
+  "repository": "giux78/nev",
+  "private": true,
+  "commit": "c5c84121263b423f8846811a24790ab96e66cee3",
+  "commit_url": "https://huggingface.co/giux78/nev/commit/c5c84121263b423f8846811a24790ab96e66cee3",
+  "variants": [
+    "v2",
+    "v3"
+  ],
+  "verification": "remote file sizes and LFS SHA-256 checked for both model weights; evaluated core files unchanged",
+  "card_sha256": "362ea8c23fe8546fd0b726f4d7639dfa0fa27a122071ca4a9958299d0ec4f974"
+}

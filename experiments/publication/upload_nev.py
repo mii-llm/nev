@@ -1,4 +1,5 @@
 """Publish both evaluated Nev variants to the explicitly requested private HF repo."""
+import fcntl
 import hashlib
 import json
 import os
@@ -9,6 +10,13 @@ from huggingface_hub import HfApi
 root=Path('/scratch/project_465002563/decision-models/kev-nesso2')
 work=root/'releases/publication-nev'
 folder=work/'huggingface'
+lock=(work/'upload.lock').open('a')
+fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+receipt_path=work/'huggingface-receipt.json'
+if receipt_path.exists():
+    print(receipt_path.read_text(), flush=True)
+    raise SystemExit(0)
+print('Uploader started; verifying candidate hashes', flush=True)
 
 def sha(p):
     h=hashlib.sha256()
