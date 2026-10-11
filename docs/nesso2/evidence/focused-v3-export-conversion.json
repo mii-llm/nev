@@ -1,0 +1,88 @@
+{
+  "scope": "Private experimental candidate; not public release approval",
+  "experiment_manifest_sha256": "7589d2978e979ec136b1a0aae50573e768adb2589f5fe359bb1d427526ac0826",
+  "recipe_sha256": "b2ed20260cba1d79c433c1a845e9dc64d1b71f260bce2545d791523b2363781a",
+  "parent": {
+    "name": "mii-llm/nesso2-0.4B-agentic",
+    "revision": "86d4bb76c0dd32b6f2e759734d6a0cb0eab9b041"
+  },
+  "selected_checkpoint": {
+    "path": "/scratch/project_465002563/decision-models/kev-nesso2/runs/bilingual-all-v1/focused-pilot-v3/training/adapted-512",
+    "run": {
+      "additional_updates": 512,
+      "initialized_from": "v2_74000_plus_256",
+      "identity": {
+        "manifest_sha256": "7589d2978e979ec136b1a0aae50573e768adb2589f5fe359bb1d427526ac0826"
+      },
+      "parent": "mii-llm/nesso2-0.4B-agentic",
+      "revision": "86d4bb76c0dd32b6f2e759734d6a0cb0eab9b041",
+      "head_dim": 256,
+      "lora": {
+        "r": 16,
+        "alpha": 32,
+        "dropout": 0.05,
+        "targets": [
+          "q_proj",
+          "k_proj",
+          "v_proj",
+          "o_proj",
+          "gate_proj",
+          "up_proj",
+          "down_proj"
+        ]
+      },
+      "temperature": 1.0
+    }
+  },
+  "library_versions": {
+    "python": "3.12.3",
+    "torch": "2.10.0+rocm7.0_lumi_aif_20260807140531",
+    "transformers": "5.17.0",
+    "peft": "0.21.0",
+    "safetensors": "0.8.0",
+    "accelerate": "1.13.0",
+    "huggingface-hub": "1.27.0",
+    "pydantic": "2.13.4",
+    "fastapi": "0.141.1"
+  },
+  "exported_at": "2026-10-11T08:36:24.535898+00:00",
+  "export_dtype": "float32",
+  "export_equivalence": {
+    "requests": 19,
+    "questions": 40,
+    "conditions": {
+      "fp32_tolerance_justification": "fp32 gate 3e-5: on inputs of ~1,000+ tokens each fp32 path sits up to 1.2e-5 from an fp64 reference (fp64 packed vs rows agree to 2.7e-7), so fp32 paths differ by up to 2e-5 from rounding, not logic",
+      "form": "cached",
+      "temperature": 1.0,
+      "device": "cuda",
+      "deployed_dtype": "float32",
+      "NVIDIA_TF32_OVERRIDE": null,
+      "tf32_matmul": false
+    },
+    "pre_merge_vs_merged_fp32": {
+      "max_abs_dp": 4.6193599700927734e-06,
+      "tolerance": 3e-05,
+      "argmax_changes": []
+    },
+    "merged_in_memory_vs_reloaded_same_dtype": {
+      "max_abs_dp": 0.0,
+      "tolerance": 0.001,
+      "argmax_changes": []
+    },
+    "merged_fp32_vs_reloaded": {
+      "max_abs_dp": 0.0,
+      "gated": false,
+      "argmax_changes": [],
+      "note": "fp32 -> deployed-dtype arithmetic difference; measured, not a tolerance"
+    },
+    "reload_env": {
+      "HF_HUB_OFFLINE": "1",
+      "TRANSFORMERS_OFFLINE": "1",
+      "HF_HOME": "/scratch/project_465002563/decision-models/kev-nesso2/tmp/tmp9qwt9z43/hf_home"
+    },
+    "reloaded_layers": 32,
+    "artifact_bytes": 1770265622,
+    "artifact_bytes_note": "all artifact files except conversion.json"
+  },
+  "parent_license_copied": false
+}

@@ -1,0 +1,4 @@
+JobID|JobName|Partition|State|ExitCode|Elapsed|NodeList
+22714887|kev-regress-v3|dev-g|COMPLETED|0:0|00:08:34|nid005020
+22714887.batch|batch||COMPLETED|0:0|00:08:34|nid005020
+22714887.0|singularity||COMPLETED|0:0|00:08:34|nid005020

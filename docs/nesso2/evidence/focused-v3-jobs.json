@@ -1,0 +1,32 @@
+{
+  "experiment": "focused-pilot-v3",
+  "prepare": "22707765",
+  "pilot": "22707766",
+  "status": "completed",
+  "partition": "dev-g",
+  "max_updates": 1024,
+  "initial_model": "practical-v2/adapted-256",
+  "remote_directory": "/scratch/project_465002563/decision-models/kev-nesso2/runs/bilingual-all-v1/focused-pilot-v3",
+  "prepare_status": "COMPLETED",
+  "nesso_training_and_evaluation_status": "COMPLETED",
+  "selected": "adapted-512",
+  "fresh_synthetic_test": {
+    "cases_per_language": 512,
+    "v2": {
+      "en": 0.236328125,
+      "it": 0.25
+    },
+    "adapted-512": {
+      "en": 0.548828125,
+      "it": 0.62890625
+    }
+  },
+  "laya_progress_last_verified": 1024,
+  "laya_total": 1024,
+  "full_pipeline_complete": true,
+  "elapsed": "00:58:52",
+  "exit_code": "0:0",
+  "export_argmax_changes": 12,
+  "evidence_files_verified": 97,
+  "archive_sha256": "3aee6c64f0e12a48b0278265c7ab9c8edd45b9aae842e4dae0a22f517fe15c58"
+}

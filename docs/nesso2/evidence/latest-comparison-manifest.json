@@ -1,0 +1,47 @@
+{
+  "selected_model": "v2_74k_plus_256",
+  "selection_sha256": "3a3cc911803f9f584500e0dc1c7cfdf7ecfe6345c53959166bd6e7f1d4568a75",
+  "pilot_manifest_sha256": "fe80de46873b5e80247a20758f490c6568f34cab3fbc69c80afdcbe33ff0e850",
+  "checkpoint_sha256": {
+    "head.safetensors": "78fb93409987eb3326107cf46fbdeda92909b55eae76fb3026db6b8da1a16c5b",
+    "run.json": "7f1889d25094daa9011878c0d26bb7a5f28db8bf41c1bb74708498c30ec9c190",
+    "adapter/README.md": "65a5fcacaea33cdc8389ef30438fdc8da9a7905ec77f65d52117917e3d720663",
+    "adapter/adapter_model.safetensors": "b363e6821fc16fb84a68d967060b4878c5dfa534dd9025e22ac3949cb8cbc9e1",
+    "adapter/adapter_config.json": "a8490a8ad98406d50a12e8c6d6e0c3c88c0cf5583863921003042b4870001c28"
+  },
+  "source_sha256": {
+    "laya_okapi_eval.py": "d8a955184f81f106ef96d4c4703c328b52794ce16a5752bb480bd87007166293",
+    "compare_latest.py": "114218355da4c1d502ccfdd78ed96e13df0657219399a74b093670ee02ea4ee4",
+    "decision_subset_engine.py": "90a8d6c75ebaf9a31af0d92bab4219360f37317507c48ab190708c8f462689ee",
+    "compare_latest.sbatch": "af80302fb29bfe20c5c9abdf5fd5949bddf5dc23ddd7888c4c5ee0a7f890435a",
+    "prepare_decision_subset.py": "5953f1de8ea8a807a8d45bd18d240ec70adb1c5cba89f7cb2c1363ebd65857ea",
+    "okapi_eval.py": "4f5a2f458de5306c638437b9795df98ff6ba801fdf63505ad5648932d14d93a6"
+  },
+  "inputs": {
+    "okapi": "abaa44da0e54e48c59a1c9478c4bfaaa7cc11d3e4c669ad8ff4119d53531b6de",
+    "decision_index_english": "9d9824d4103df831e080943480861b4221cddc66bc1f2aeb71d04686e1572840",
+    "decision_index_italian": "80f71f04e6a60076df32f9f2c2ff00622e06317f95122db00f8c9db2126fb3fe",
+    "practical_v2": "3a354ff5cbb08ce01470a50957cd50bc3e2e0a693121be96911a53d98e873721"
+  },
+  "baseline_sha256": {
+    "decision-index-okapi-v1/results/decision.jsonl": "f4d2a75d4fd54cb3f47a87b119b26195db18d1316c33b366b5d7a5df7f40d4f9",
+    "okapi-best-review-20261006/results/decision.jsonl": "c33b10e1b95c26a1e11a71b98cfc2a1e5a7d0a151f82ec716ea58927a19d8dd6",
+    "okapi-checkpoint-review-20261004/results/decision.jsonl": "3fed1ba0efc87588c894e25b505f2e3e478941b22f017df481e5dc1e58cb3abc",
+    "okapi-final-review-20261006/results/decision.jsonl": "9e77d5af4b9735c7764e7f64fc3c639a75cc8e2a0ed68fdf3ce811b9607b4d32",
+    "okapi-latest-review-20261004/results/decision.jsonl": "cfce446fa80388294e0973afd8b945af441cb1448cb13de8197af1c079820b62",
+    "okapi-latest-review-20261005/results/decision.jsonl": "5a15f5d3815b6501815b8b40d8afafed24a76cf62b1985fb61b2a48280c19e3e",
+    "decision-index-okapi-v1/results/parent.jsonl": "24667471c80a200ec563a66f7064a0e77521dc4bbd7184692dee43be33f8d612",
+    "decision-index-okapi-v1/laya-results/laya.jsonl": "61a314ac6be29749e4f1cacced2df15ee002e1e8a1f724f626cb2cfb767d5e69",
+    "decision-index-english-selection-v1/results/selection/74000/predictions.jsonl": "2864babc3034403f5b74c1bc169d33429a24a531ffb09f7d96cc40806d61b09f",
+    "decision-index-english-selection-v1/results/selection/142000/predictions.jsonl": "c9e2b259720708562da173642332e3a5dca21d8cc9810570c9d270e7ffe15f3c",
+    "decision-index-english-selection-v1/results/selection/parent/predictions.jsonl": "723a1517eb58388802b1db72a516f8fd213d7387785f46b829450a6ef7ef9298",
+    "decision-index-english-selection-v1/results/selection/laya/predictions.jsonl": "b3e77af8bbf2db0faa7a8085dce3fdac1d874291b790b0d644557b642c8b4655",
+    "decision-index-italian-selection-v1/results/selection/74000/predictions.jsonl": "f89d878656c64865dfe3c37c8ae2e116588fafbdb196b371426a10ff550b7026",
+    "decision-index-italian-selection-v1/results/selection/142000/predictions.jsonl": "d12ad0456710d4bfdfd89d2ba20c71a866cbb801521584d6dd24a62eaeee7aa0",
+    "decision-index-italian-selection-v1/results/selection/parent/predictions.jsonl": "83985101111da361fff36d172111c2b4b80380aae0e62b8f3041ea58ed419a55",
+    "decision-index-italian-selection-v1/results/selection/laya/predictions.jsonl": "43846870510db409645efd940ba81cc5136823a95b26c2a9339d2dc38a615920",
+    "practical-pilot-v2/results/74000-test-logits.json": "33d2a6f5b89fdf1a359f4a82ae0cabaa45c4d6c8a2bdd9d7f5876ec4fe0032bf",
+    "practical-pilot-v2/results/142000-test-logits.json": "40675bffd957903b5e00f0b5312b67afdd0efd1db720728e37e05232deb6783d",
+    "practical-pilot-v2/results/adapted-256-test-logits.json": "f52035f33b5d9cf08fdde1059b33a3524534058116c3b056bae20c6ea2234156"
+  }
+}

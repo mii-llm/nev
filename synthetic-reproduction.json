@@ -1,0 +1,107 @@
+{
+  "status": "complete",
+  "python": "3.13.2",
+  "scope": "Synthetic data regeneration only; full replay corpus not reconstructed",
+  "variants": {
+    "v2": {
+      "variant": "v2",
+      "scope": "Authored synthetic examples only; no original-data replay or guards",
+      "counts": {
+        "train": {
+          "en": 2048,
+          "it": 2048
+        },
+        "dev": {
+          "en": 512,
+          "it": 512
+        },
+        "calibration_fit": {
+          "en": 512,
+          "it": 512
+        },
+        "calibration_policy": {
+          "en": 512,
+          "it": 512
+        },
+        "test": {
+          "en": 1024,
+          "it": 1024
+        }
+      },
+      "historical_heldout_hashes_verified": true,
+      "replay_records_required": 4096,
+      "files": {
+        "train.jsonl": {
+          "records": 4096,
+          "sha256": "90aaf358ac8cdc3a659c6d2649913040be26b4c58c82791ddd7c77900fe09db4"
+        },
+        "dev.jsonl": {
+          "records": 1024,
+          "sha256": "f369d12bab86e94088f3b5fb12dc9aacc92928dc137e2fb42de93774d60f1155"
+        },
+        "calibration_fit.jsonl": {
+          "records": 1024,
+          "sha256": "493bd09a5844f955692f177fe080f5be27953379f737124b964729279abf290d"
+        },
+        "calibration_policy.jsonl": {
+          "records": 1024,
+          "sha256": "4f9c4bf22c71ed7e860e930e0e0e8cb081b17a55de29e053fec31f7580e95c20"
+        },
+        "test.jsonl": {
+          "records": 2048,
+          "sha256": "3a354ff5cbb08ce01470a50957cd50bc3e2e0a693121be96911a53d98e873721"
+        }
+      }
+    },
+    "v3": {
+      "variant": "v3",
+      "scope": "Authored synthetic examples only; no original-data replay or guards",
+      "counts": {
+        "train": {
+          "en": 1024,
+          "it": 1024
+        },
+        "dev": {
+          "en": 256,
+          "it": 256
+        },
+        "calibration_fit": {
+          "en": 256,
+          "it": 256
+        },
+        "calibration_policy": {
+          "en": 256,
+          "it": 256
+        },
+        "test": {
+          "en": 512,
+          "it": 512
+        }
+      },
+      "historical_heldout_hashes_verified": true,
+      "replay_records_required": 6144,
+      "files": {
+        "train.jsonl": {
+          "records": 2048,
+          "sha256": "f5c3b7672aadc240a2881514f9a22d8e686f6a73a1534ba795730806bac1093e"
+        },
+        "dev.jsonl": {
+          "records": 512,
+          "sha256": "609bad761f0e748f8e279af8fc5dcd6f94d377e105d2ad7fb672207919323187"
+        },
+        "calibration_fit.jsonl": {
+          "records": 512,
+          "sha256": "8039d246ad5ed16f7504838375359d8e1c8552f31585825baa53a8c1b0c055a4"
+        },
+        "calibration_policy.jsonl": {
+          "records": 512,
+          "sha256": "65df8f28726a11c7e6ada7b9b0fc04f696c8fa690483fbfa9e26b050017b18eb"
+        },
+        "test.jsonl": {
+          "records": 1024,
+          "sha256": "64ced2dd3c6c0319502bf48576e7af51b90dff7c5c636607caefe1bdb6ff4bf2"
+        }
+      }
+    }
+  }
+}

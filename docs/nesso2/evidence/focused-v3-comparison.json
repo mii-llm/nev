@@ -1,0 +1,382 @@
+{
+  "status": "complete",
+  "selection": {
+    "selected_before_test": "adapted-512",
+    "candidates": [
+      [
+        2.1965980720800946,
+        "v2",
+        "/scratch/project_465002563/decision-models/kev-nesso2/runs/bilingual-all-v1/practical-pilot-v2/training/adapted-256"
+      ],
+      [
+        1.3021651595368111,
+        "adapted-512",
+        "/scratch/project_465002563/decision-models/kev-nesso2/runs/bilingual-all-v1/focused-pilot-v3/training/adapted-512"
+      ]
+    ],
+    "adaptation_eligible": true,
+    "rule": "Lowest new-dev task/language macro NLL among selected v2 and eligible snapshots; ties retain v2",
+    "identity": {
+      "manifest_sha256": "7589d2978e979ec136b1a0aae50573e768adb2589f5fe359bb1d427526ac0826"
+    }
+  },
+  "manifest_sha256": "7589d2978e979ec136b1a0aae50573e768adb2589f5fe359bb1d427526ac0826",
+  "panel": {
+    "full": {
+      "v2": {
+        "overall": {
+          "n": 1024,
+          "answered": 1024,
+          "correct": 249,
+          "accuracy": 0.2431640625,
+          "chance": 0.15625
+        },
+        "by_language": {
+          "en": {
+            "n": 512,
+            "answered": 512,
+            "correct": 121,
+            "accuracy": 0.236328125,
+            "chance": 0.15625,
+            "task_macro_accuracy": 0.236328125
+          },
+          "it": {
+            "n": 512,
+            "answered": 512,
+            "correct": 128,
+            "accuracy": 0.25,
+            "chance": 0.15625,
+            "task_macro_accuracy": 0.25
+          }
+        },
+        "cells": {
+          "focused_intent/en": {
+            "n": 256,
+            "answered": 256,
+            "correct": 31,
+            "accuracy": 0.12109375,
+            "chance": 0.0625
+          },
+          "focused_intent/it": {
+            "n": 256,
+            "answered": 256,
+            "correct": 39,
+            "accuracy": 0.15234375,
+            "chance": 0.0625
+          },
+          "focused_routing/en": {
+            "n": 256,
+            "answered": 256,
+            "correct": 90,
+            "accuracy": 0.3515625,
+            "chance": 0.25
+          },
+          "focused_routing/it": {
+            "n": 256,
+            "answered": 256,
+            "correct": 89,
+            "accuracy": 0.34765625,
+            "chance": 0.25
+          }
+        }
+      },
+      "adapted-512": {
+        "overall": {
+          "n": 1024,
+          "answered": 1024,
+          "correct": 603,
+          "accuracy": 0.5888671875,
+          "chance": 0.15625
+        },
+        "by_language": {
+          "en": {
+            "n": 512,
+            "answered": 512,
+            "correct": 281,
+            "accuracy": 0.548828125,
+            "chance": 0.15625,
+            "task_macro_accuracy": 0.548828125
+          },
+          "it": {
+            "n": 512,
+            "answered": 512,
+            "correct": 322,
+            "accuracy": 0.62890625,
+            "chance": 0.15625,
+            "task_macro_accuracy": 0.62890625
+          }
+        },
+        "cells": {
+          "focused_intent/en": {
+            "n": 256,
+            "answered": 256,
+            "correct": 156,
+            "accuracy": 0.609375,
+            "chance": 0.0625
+          },
+          "focused_intent/it": {
+            "n": 256,
+            "answered": 256,
+            "correct": 190,
+            "accuracy": 0.7421875,
+            "chance": 0.0625
+          },
+          "focused_routing/en": {
+            "n": 256,
+            "answered": 256,
+            "correct": 125,
+            "accuracy": 0.48828125,
+            "chance": 0.25
+          },
+          "focused_routing/it": {
+            "n": 256,
+            "answered": 256,
+            "correct": 132,
+            "accuracy": 0.515625,
+            "chance": 0.25
+          }
+        }
+      },
+      "laya": {
+        "overall": {
+          "n": 1024,
+          "answered": 1024,
+          "correct": 281,
+          "accuracy": 0.2744140625,
+          "chance": 0.15625
+        },
+        "by_language": {
+          "en": {
+            "n": 512,
+            "answered": 512,
+            "correct": 134,
+            "accuracy": 0.26171875,
+            "chance": 0.15625,
+            "task_macro_accuracy": 0.26171875
+          },
+          "it": {
+            "n": 512,
+            "answered": 512,
+            "correct": 147,
+            "accuracy": 0.287109375,
+            "chance": 0.15625,
+            "task_macro_accuracy": 0.287109375
+          }
+        },
+        "cells": {
+          "focused_intent/en": {
+            "n": 256,
+            "answered": 256,
+            "correct": 51,
+            "accuracy": 0.19921875,
+            "chance": 0.0625
+          },
+          "focused_intent/it": {
+            "n": 256,
+            "answered": 256,
+            "correct": 70,
+            "accuracy": 0.2734375,
+            "chance": 0.0625
+          },
+          "focused_routing/en": {
+            "n": 256,
+            "answered": 256,
+            "correct": 83,
+            "accuracy": 0.32421875,
+            "chance": 0.25
+          },
+          "focused_routing/it": {
+            "n": 256,
+            "answered": 256,
+            "correct": 77,
+            "accuracy": 0.30078125,
+            "chance": 0.25
+          }
+        }
+      }
+    },
+    "common_bilingual": {
+      "v2": {
+        "overall": {
+          "n": 1024,
+          "answered": 1024,
+          "correct": 249,
+          "accuracy": 0.2431640625,
+          "chance": 0.15625
+        },
+        "by_language": {
+          "en": {
+            "n": 512,
+            "answered": 512,
+            "correct": 121,
+            "accuracy": 0.236328125,
+            "chance": 0.15625,
+            "task_macro_accuracy": 0.236328125
+          },
+          "it": {
+            "n": 512,
+            "answered": 512,
+            "correct": 128,
+            "accuracy": 0.25,
+            "chance": 0.15625,
+            "task_macro_accuracy": 0.25
+          }
+        },
+        "cells": {
+          "focused_intent/en": {
+            "n": 256,
+            "answered": 256,
+            "correct": 31,
+            "accuracy": 0.12109375,
+            "chance": 0.0625
+          },
+          "focused_intent/it": {
+            "n": 256,
+            "answered": 256,
+            "correct": 39,
+            "accuracy": 0.15234375,
+            "chance": 0.0625
+          },
+          "focused_routing/en": {
+            "n": 256,
+            "answered": 256,
+            "correct": 90,
+            "accuracy": 0.3515625,
+            "chance": 0.25
+          },
+          "focused_routing/it": {
+            "n": 256,
+            "answered": 256,
+            "correct": 89,
+            "accuracy": 0.34765625,
+            "chance": 0.25
+          }
+        }
+      },
+      "adapted-512": {
+        "overall": {
+          "n": 1024,
+          "answered": 1024,
+          "correct": 603,
+          "accuracy": 0.5888671875,
+          "chance": 0.15625
+        },
+        "by_language": {
+          "en": {
+            "n": 512,
+            "answered": 512,
+            "correct": 281,
+            "accuracy": 0.548828125,
+            "chance": 0.15625,
+            "task_macro_accuracy": 0.548828125
+          },
+          "it": {
+            "n": 512,
+            "answered": 512,
+            "correct": 322,
+            "accuracy": 0.62890625,
+            "chance": 0.15625,
+            "task_macro_accuracy": 0.62890625
+          }
+        },
+        "cells": {
+          "focused_intent/en": {
+            "n": 256,
+            "answered": 256,
+            "correct": 156,
+            "accuracy": 0.609375,
+            "chance": 0.0625
+          },
+          "focused_intent/it": {
+            "n": 256,
+            "answered": 256,
+            "correct": 190,
+            "accuracy": 0.7421875,
+            "chance": 0.0625
+          },
+          "focused_routing/en": {
+            "n": 256,
+            "answered": 256,
+            "correct": 125,
+            "accuracy": 0.48828125,
+            "chance": 0.25
+          },
+          "focused_routing/it": {
+            "n": 256,
+            "answered": 256,
+            "correct": 132,
+            "accuracy": 0.515625,
+            "chance": 0.25
+          }
+        }
+      },
+      "laya": {
+        "overall": {
+          "n": 1024,
+          "answered": 1024,
+          "correct": 281,
+          "accuracy": 0.2744140625,
+          "chance": 0.15625
+        },
+        "by_language": {
+          "en": {
+            "n": 512,
+            "answered": 512,
+            "correct": 134,
+            "accuracy": 0.26171875,
+            "chance": 0.15625,
+            "task_macro_accuracy": 0.26171875
+          },
+          "it": {
+            "n": 512,
+            "answered": 512,
+            "correct": 147,
+            "accuracy": 0.287109375,
+            "chance": 0.15625,
+            "task_macro_accuracy": 0.287109375
+          }
+        },
+        "cells": {
+          "focused_intent/en": {
+            "n": 256,
+            "answered": 256,
+            "correct": 51,
+            "accuracy": 0.19921875,
+            "chance": 0.0625
+          },
+          "focused_intent/it": {
+            "n": 256,
+            "answered": 256,
+            "correct": 70,
+            "accuracy": 0.2734375,
+            "chance": 0.0625
+          },
+          "focused_routing/en": {
+            "n": 256,
+            "answered": 256,
+            "correct": 83,
+            "accuracy": 0.32421875,
+            "chance": 0.25
+          },
+          "focused_routing/it": {
+            "n": 256,
+            "answered": 256,
+            "correct": 77,
+            "accuracy": 0.30078125,
+            "chance": 0.25
+          }
+        }
+      }
+    },
+    "common_bilingual_requests": 1024,
+    "full_requests": 1024,
+    "common_ids_sha256": "234441fa55d36274d5916fa2e83ec8eb42ab5d81a20af7095958b607a07e2383"
+  },
+  "limitations": [
+    "Rule families are shared across splits; this measures within-family wording transfer",
+    "Synthetic 16-intent cases and routing are not representative traffic or independently authored benchmarks; improvement here does not establish CLINC generalization",
+    "Bilingual templates authored and reviewed by Codex, not native-speaker certified; no separate teacher was used",
+    "Calibration thresholds are exploratory and do not provide a production risk guarantee",
+    "One training seed and one learning rate; no claim of optimal settings"
+  ]
+}

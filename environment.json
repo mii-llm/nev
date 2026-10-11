@@ -1,0 +1,15 @@
+{
+  "tested": "LUMI AMD MI250X / ROCm",
+  "libraries": {
+    "python": "3.12.3",
+    "torch": "2.10.0+rocm7.0_lumi_aif_20260807140531",
+    "transformers": "5.17.0",
+    "peft": "0.21.0",
+    "safetensors": "0.8.0",
+    "accelerate": "1.13.0",
+    "huggingface-hub": "1.27.0",
+    "pydantic": "2.13.4",
+    "fastapi": "0.141.1"
+  },
+  "portability": "Other hardware not validated by this release preparation"
+}

@@ -1,0 +1,240 @@
+{
+  "status": "complete",
+  "model": "v2_merged_export",
+  "manifest_sha256": "05dc40de25d86f938d84a089e98354e3fdc014886e05844a1cbadc002412cbd9",
+  "panels": {
+    "okapi": {
+      "overall": {
+        "n": 1256,
+        "answered": 1256,
+        "correct": 398,
+        "accuracy": 0.31687898089171973,
+        "chance": 0.2501326963906582
+      },
+      "by_language": {
+        "en": {
+          "n": 628,
+          "answered": 628,
+          "correct": 200,
+          "accuracy": 0.3184713375796178,
+          "chance": 0.2501326963906582,
+          "task_macro_accuracy": 0.31859649122807016
+        },
+        "it": {
+          "n": 628,
+          "answered": 628,
+          "correct": 198,
+          "accuracy": 0.31528662420382164,
+          "chance": 0.2501326963906582,
+          "task_macro_accuracy": 0.31485380116959066
+        }
+      },
+      "cells": {
+        "ARC-Challenge/en": {
+          "n": 200,
+          "answered": 200,
+          "correct": 62,
+          "accuracy": 0.31,
+          "chance": 0.2504166666666667
+        },
+        "ARC-Challenge/it": {
+          "n": 200,
+          "answered": 200,
+          "correct": 58,
+          "accuracy": 0.29,
+          "chance": 0.2504166666666667
+        },
+        "HellaSwag/en": {
+          "n": 200,
+          "answered": 200,
+          "correct": 66,
+          "accuracy": 0.33,
+          "chance": 0.25
+        },
+        "HellaSwag/it": {
+          "n": 200,
+          "answered": 200,
+          "correct": 66,
+          "accuracy": 0.33,
+          "chance": 0.25
+        },
+        "MMLU/en": {
+          "n": 228,
+          "answered": 228,
+          "correct": 72,
+          "accuracy": 0.3157894736842105,
+          "chance": 0.25
+        },
+        "MMLU/it": {
+          "n": 228,
+          "answered": 228,
+          "correct": 74,
+          "accuracy": 0.32456140350877194,
+          "chance": 0.25
+        }
+      }
+    },
+    "decision_index": {
+      "overall": {
+        "n": 902,
+        "answered": 895,
+        "correct": 253,
+        "accuracy": 0.2804878048780488,
+        "chance": 0.19623059866962306
+      },
+      "by_language": {
+        "en": {
+          "n": 451,
+          "answered": 450,
+          "correct": 125,
+          "accuracy": 0.2771618625277162,
+          "chance": 0.19623059866962306,
+          "task_macro_accuracy": 0.2776747608535688
+        },
+        "it": {
+          "n": 451,
+          "answered": 445,
+          "correct": 128,
+          "accuracy": 0.2838137472283814,
+          "chance": 0.19623059866962306,
+          "task_macro_accuracy": 0.2842972774098602
+        }
+      },
+      "cells": {
+        "ANLI/en": {
+          "n": 150,
+          "answered": 150,
+          "correct": 46,
+          "accuracy": 0.30666666666666664,
+          "chance": 0.3333333333333333
+        },
+        "ANLI/it": {
+          "n": 150,
+          "answered": 150,
+          "correct": 57,
+          "accuracy": 0.38,
+          "chance": 0.3333333333333333
+        },
+        "CLINC150+OOS/en": {
+          "n": 151,
+          "answered": 151,
+          "correct": 7,
+          "accuracy": 0.046357615894039736,
+          "chance": 0.006622516556291391
+        },
+        "CLINC150+OOS/it": {
+          "n": 151,
+          "answered": 151,
+          "correct": 10,
+          "accuracy": 0.06622516556291391,
+          "chance": 0.006622516556291391
+        },
+        "When2Call MCQ/en": {
+          "n": 150,
+          "answered": 149,
+          "correct": 72,
+          "accuracy": 0.48,
+          "chance": 0.25
+        },
+        "When2Call MCQ/it": {
+          "n": 150,
+          "answered": 144,
+          "correct": 61,
+          "accuracy": 0.4066666666666667,
+          "chance": 0.25
+        }
+      }
+    },
+    "practical_v2": {
+      "overall": {
+        "n": 2048,
+        "answered": 2048,
+        "correct": 918,
+        "accuracy": 0.4482421875,
+        "chance": 0.35416666666666663
+      },
+      "by_language": {
+        "en": {
+          "n": 1024,
+          "answered": 1024,
+          "correct": 452,
+          "accuracy": 0.44140625,
+          "chance": 0.35416666666666663,
+          "task_macro_accuracy": 0.44140625
+        },
+        "it": {
+          "n": 1024,
+          "answered": 1024,
+          "correct": 466,
+          "accuracy": 0.455078125,
+          "chance": 0.35416666666666663,
+          "task_macro_accuracy": 0.455078125
+        }
+      },
+      "cells": {
+        "practical_escalation/en": {
+          "n": 256,
+          "answered": 256,
+          "correct": 133,
+          "accuracy": 0.51953125,
+          "chance": 0.5
+        },
+        "practical_escalation/it": {
+          "n": 256,
+          "answered": 256,
+          "correct": 132,
+          "accuracy": 0.515625,
+          "chance": 0.5
+        },
+        "practical_refund/en": {
+          "n": 256,
+          "answered": 256,
+          "correct": 157,
+          "accuracy": 0.61328125,
+          "chance": 0.3333333333333333
+        },
+        "practical_refund/it": {
+          "n": 256,
+          "answered": 256,
+          "correct": 135,
+          "accuracy": 0.52734375,
+          "chance": 0.3333333333333333
+        },
+        "practical_routing/en": {
+          "n": 256,
+          "answered": 256,
+          "correct": 76,
+          "accuracy": 0.296875,
+          "chance": 0.25
+        },
+        "practical_routing/it": {
+          "n": 256,
+          "answered": 256,
+          "correct": 89,
+          "accuracy": 0.34765625,
+          "chance": 0.25
+        },
+        "practical_urgency/en": {
+          "n": 256,
+          "answered": 256,
+          "correct": 86,
+          "accuracy": 0.3359375,
+          "chance": 0.3333333333333333
+        },
+        "practical_urgency/it": {
+          "n": 256,
+          "answered": 256,
+          "correct": 110,
+          "accuracy": 0.4296875,
+          "chance": 0.3333333333333333
+        }
+      }
+    }
+  },
+  "numerics": "FP32 parameters / BF16 autocast; external rows T=1; practical packed logits",
+  "limitations": [
+    "Previously inspected diagnostic subsets",
+    "No confidence threshold qualified",
+    "No public upload"
+  ]
+}

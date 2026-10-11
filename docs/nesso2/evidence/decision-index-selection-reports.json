@@ -1,0 +1,318 @@
+{
+  "english": {
+    "74000": {
+      "status": "complete",
+      "manifest_sha256": "a5313637edeb53e3aa24cef82fea402b6fa6b867fef3c65061eff251d02535d6",
+      "script_sha256": "29e97cdb27d9effd9e54ec9911e82049a33122b8d76f588d96845de20150c215",
+      "engine_sha256": "90a8d6c75ebaf9a31af0d92bab4219360f37317507c48ab190708c8f462689ee",
+      "panel": "selection",
+      "model": "74000",
+      "cells": {
+        "ANLI/en": {
+          "n": 150,
+          "answered": 150,
+          "accuracy": 0.30666666666666664
+        },
+        "CLINC150+OOS/en": {
+          "n": 151,
+          "answered": 151,
+          "accuracy": 0.039735099337748346
+        },
+        "When2Call MCQ/en": {
+          "n": 150,
+          "answered": 149,
+          "accuracy": 0.5133333333333333
+        }
+      },
+      "macro_accuracy": 0.2865783664459161,
+      "language_macro_accuracy": {
+        "en": 0.2865783664459161
+      },
+      "limitations": [
+        "Custom stratified subset, not the official Decision Index score",
+        "Synthetic Italian needs semantic review",
+        "Only exact training field overlap checked; pretraining contamination unknown",
+        "CLINC OOS prevalence is intent-balanced, not the original distribution",
+        "When2Call has four choices but only three gold classes in this pinned test source; direct answer is never gold",
+        "Unsupported requests count as incorrect; also report matched bilingual coverage",
+        "English selection cases only; no Italian or confirmation results",
+        "Original English requests and option order unchanged; source-provided labels retained"
+      ]
+    },
+    "142000": {
+      "status": "complete",
+      "manifest_sha256": "a5313637edeb53e3aa24cef82fea402b6fa6b867fef3c65061eff251d02535d6",
+      "script_sha256": "29e97cdb27d9effd9e54ec9911e82049a33122b8d76f588d96845de20150c215",
+      "engine_sha256": "90a8d6c75ebaf9a31af0d92bab4219360f37317507c48ab190708c8f462689ee",
+      "panel": "selection",
+      "model": "142000",
+      "cells": {
+        "ANLI/en": {
+          "n": 150,
+          "answered": 150,
+          "accuracy": 0.32666666666666666
+        },
+        "CLINC150+OOS/en": {
+          "n": 151,
+          "answered": 151,
+          "accuracy": 0.026490066225165563
+        },
+        "When2Call MCQ/en": {
+          "n": 150,
+          "answered": 149,
+          "accuracy": 0.43333333333333335
+        }
+      },
+      "macro_accuracy": 0.26216335540838853,
+      "language_macro_accuracy": {
+        "en": 0.26216335540838853
+      },
+      "limitations": [
+        "Custom stratified subset, not the official Decision Index score",
+        "Synthetic Italian needs semantic review",
+        "Only exact training field overlap checked; pretraining contamination unknown",
+        "CLINC OOS prevalence is intent-balanced, not the original distribution",
+        "When2Call has four choices but only three gold classes in this pinned test source; direct answer is never gold",
+        "Unsupported requests count as incorrect; also report matched bilingual coverage",
+        "English selection cases only; no Italian or confirmation results",
+        "Original English requests and option order unchanged; source-provided labels retained"
+      ]
+    },
+    "parent": {
+      "status": "complete",
+      "manifest_sha256": "a5313637edeb53e3aa24cef82fea402b6fa6b867fef3c65061eff251d02535d6",
+      "script_sha256": "29e97cdb27d9effd9e54ec9911e82049a33122b8d76f588d96845de20150c215",
+      "engine_sha256": "90a8d6c75ebaf9a31af0d92bab4219360f37317507c48ab190708c8f462689ee",
+      "panel": "selection",
+      "model": "parent",
+      "cells": {
+        "ANLI/en": {
+          "n": 150,
+          "answered": 150,
+          "accuracy": 0.2866666666666667
+        },
+        "CLINC150+OOS/en": {
+          "n": 151,
+          "answered": 151,
+          "accuracy": 0.013245033112582781
+        },
+        "When2Call MCQ/en": {
+          "n": 150,
+          "answered": 150,
+          "accuracy": 0.02
+        }
+      },
+      "macro_accuracy": 0.10663723325974982,
+      "language_macro_accuracy": {
+        "en": 0.10663723325974982
+      },
+      "limitations": [
+        "Custom stratified subset, not the official Decision Index score",
+        "Synthetic Italian needs semantic review",
+        "Only exact training field overlap checked; pretraining contamination unknown",
+        "CLINC OOS prevalence is intent-balanced, not the original distribution",
+        "When2Call has four choices but only three gold classes in this pinned test source; direct answer is never gold",
+        "Unsupported requests count as incorrect; also report matched bilingual coverage",
+        "English selection cases only; no Italian or confirmation results",
+        "Original English requests and option order unchanged; source-provided labels retained"
+      ]
+    },
+    "laya": {
+      "status": "complete",
+      "manifest_sha256": "a5313637edeb53e3aa24cef82fea402b6fa6b867fef3c65061eff251d02535d6",
+      "script_sha256": "29e97cdb27d9effd9e54ec9911e82049a33122b8d76f588d96845de20150c215",
+      "engine_sha256": "90a8d6c75ebaf9a31af0d92bab4219360f37317507c48ab190708c8f462689ee",
+      "panel": "selection",
+      "model": "laya",
+      "cells": {
+        "ANLI/en": {
+          "n": 150,
+          "answered": 150,
+          "accuracy": 0.43333333333333335
+        },
+        "CLINC150+OOS/en": {
+          "n": 151,
+          "answered": 151,
+          "accuracy": 0.26490066225165565
+        },
+        "When2Call MCQ/en": {
+          "n": 150,
+          "answered": 95,
+          "accuracy": 0.09333333333333334
+        }
+      },
+      "macro_accuracy": 0.26385577630610746,
+      "language_macro_accuracy": {
+        "en": 0.26385577630610746
+      },
+      "limitations": [
+        "Custom stratified subset, not the official Decision Index score",
+        "Synthetic Italian needs semantic review",
+        "Only exact training field overlap checked; pretraining contamination unknown",
+        "CLINC OOS prevalence is intent-balanced, not the original distribution",
+        "When2Call has four choices but only three gold classes in this pinned test source; direct answer is never gold",
+        "Unsupported requests count as incorrect; also report matched bilingual coverage",
+        "English selection cases only; no Italian or confirmation results",
+        "Original English requests and option order unchanged; source-provided labels retained"
+      ]
+    }
+  },
+  "italian": {
+    "74000": {
+      "status": "complete",
+      "manifest_sha256": "1d78fad120d069bb7472840394705c9e96a8e7ab377c73901ab411db134a2631",
+      "script_sha256": "29e97cdb27d9effd9e54ec9911e82049a33122b8d76f588d96845de20150c215",
+      "engine_sha256": "90a8d6c75ebaf9a31af0d92bab4219360f37317507c48ab190708c8f462689ee",
+      "panel": "selection",
+      "model": "74000",
+      "cells": {
+        "ANLI/it": {
+          "n": 150,
+          "answered": 150,
+          "accuracy": 0.38
+        },
+        "CLINC150+OOS/it": {
+          "n": 151,
+          "answered": 151,
+          "accuracy": 0.033112582781456956
+        },
+        "When2Call MCQ/it": {
+          "n": 150,
+          "answered": 144,
+          "accuracy": 0.4266666666666667
+        }
+      },
+      "macro_accuracy": 0.2799264164827079,
+      "language_macro_accuracy": {
+        "it": 0.2799264164827079
+      },
+      "limitations": [
+        "Custom stratified subset, not the official Decision Index score",
+        "Synthetic Italian needs semantic review",
+        "Only exact training field overlap checked; pretraining contamination unknown",
+        "CLINC OOS prevalence is intent-balanced, not the original distribution",
+        "When2Call has four choices but only three gold classes in this pinned test source; direct answer is never gold",
+        "Unsupported requests count as incorrect; also report matched bilingual coverage",
+        "it selection cases only; confirmation remains unused",
+        "Source-provided labels and option order retained"
+      ]
+    },
+    "142000": {
+      "status": "complete",
+      "manifest_sha256": "1d78fad120d069bb7472840394705c9e96a8e7ab377c73901ab411db134a2631",
+      "script_sha256": "29e97cdb27d9effd9e54ec9911e82049a33122b8d76f588d96845de20150c215",
+      "engine_sha256": "90a8d6c75ebaf9a31af0d92bab4219360f37317507c48ab190708c8f462689ee",
+      "panel": "selection",
+      "model": "142000",
+      "cells": {
+        "ANLI/it": {
+          "n": 150,
+          "answered": 150,
+          "accuracy": 0.34
+        },
+        "CLINC150+OOS/it": {
+          "n": 151,
+          "answered": 151,
+          "accuracy": 0.019867549668874173
+        },
+        "When2Call MCQ/it": {
+          "n": 150,
+          "answered": 144,
+          "accuracy": 0.44
+        }
+      },
+      "macro_accuracy": 0.2666225165562914,
+      "language_macro_accuracy": {
+        "it": 0.2666225165562914
+      },
+      "limitations": [
+        "Custom stratified subset, not the official Decision Index score",
+        "Synthetic Italian needs semantic review",
+        "Only exact training field overlap checked; pretraining contamination unknown",
+        "CLINC OOS prevalence is intent-balanced, not the original distribution",
+        "When2Call has four choices but only three gold classes in this pinned test source; direct answer is never gold",
+        "Unsupported requests count as incorrect; also report matched bilingual coverage",
+        "it selection cases only; confirmation remains unused",
+        "Source-provided labels and option order retained"
+      ]
+    },
+    "parent": {
+      "status": "complete",
+      "manifest_sha256": "1d78fad120d069bb7472840394705c9e96a8e7ab377c73901ab411db134a2631",
+      "script_sha256": "29e97cdb27d9effd9e54ec9911e82049a33122b8d76f588d96845de20150c215",
+      "engine_sha256": "90a8d6c75ebaf9a31af0d92bab4219360f37317507c48ab190708c8f462689ee",
+      "panel": "selection",
+      "model": "parent",
+      "cells": {
+        "ANLI/it": {
+          "n": 150,
+          "answered": 150,
+          "accuracy": 0.2866666666666667
+        },
+        "CLINC150+OOS/it": {
+          "n": 151,
+          "answered": 151,
+          "accuracy": 0.006622516556291391
+        },
+        "When2Call MCQ/it": {
+          "n": 150,
+          "answered": 150,
+          "accuracy": 0.02666666666666667
+        }
+      },
+      "macro_accuracy": 0.10665194996320825,
+      "language_macro_accuracy": {
+        "it": 0.10665194996320825
+      },
+      "limitations": [
+        "Custom stratified subset, not the official Decision Index score",
+        "Synthetic Italian needs semantic review",
+        "Only exact training field overlap checked; pretraining contamination unknown",
+        "CLINC OOS prevalence is intent-balanced, not the original distribution",
+        "When2Call has four choices but only three gold classes in this pinned test source; direct answer is never gold",
+        "Unsupported requests count as incorrect; also report matched bilingual coverage",
+        "it selection cases only; confirmation remains unused",
+        "Source-provided labels and option order retained"
+      ]
+    },
+    "laya": {
+      "status": "complete",
+      "manifest_sha256": "1d78fad120d069bb7472840394705c9e96a8e7ab377c73901ab411db134a2631",
+      "script_sha256": "29e97cdb27d9effd9e54ec9911e82049a33122b8d76f588d96845de20150c215",
+      "engine_sha256": "90a8d6c75ebaf9a31af0d92bab4219360f37317507c48ab190708c8f462689ee",
+      "panel": "selection",
+      "model": "laya",
+      "cells": {
+        "ANLI/it": {
+          "n": 150,
+          "answered": 150,
+          "accuracy": 0.4
+        },
+        "CLINC150+OOS/it": {
+          "n": 151,
+          "answered": 151,
+          "accuracy": 0.2781456953642384
+        },
+        "When2Call MCQ/it": {
+          "n": 150,
+          "answered": 81,
+          "accuracy": 0.12666666666666668
+        }
+      },
+      "macro_accuracy": 0.268270787343635,
+      "language_macro_accuracy": {
+        "it": 0.268270787343635
+      },
+      "limitations": [
+        "Custom stratified subset, not the official Decision Index score",
+        "Synthetic Italian needs semantic review",
+        "Only exact training field overlap checked; pretraining contamination unknown",
+        "CLINC OOS prevalence is intent-balanced, not the original distribution",
+        "When2Call has four choices but only three gold classes in this pinned test source; direct answer is never gold",
+        "Unsupported requests count as incorrect; also report matched bilingual coverage",
+        "it selection cases only; confirmation remains unused",
+        "Source-provided labels and option order retained"
+      ]
+    }
+  }
+}

@@ -1,0 +1,309 @@
+{
+  "candidate": "v2_original74k_plus256",
+  "checkpoint_sha256": {
+    "head.safetensors": "78fb93409987eb3326107cf46fbdeda92909b55eae76fb3026db6b8da1a16c5b",
+    "run.json": "7f1889d25094daa9011878c0d26bb7a5f28db8bf41c1bb74708498c30ec9c190",
+    "adapter/README.md": "65a5fcacaea33cdc8389ef30438fdc8da9a7905ec77f65d52117917e3d720663",
+    "adapter/adapter_model.safetensors": "b363e6821fc16fb84a68d967060b4878c5dfa534dd9025e22ac3949cb8cbc9e1",
+    "adapter/adapter_config.json": "a8490a8ad98406d50a12e8c6d6e0c3c88c0cf5583863921003042b4870001c28"
+  },
+  "frozen_runtime_sha256": {
+    "decision_model/targets.py": "ffbd95aa6c294226e88fa172ca33ca3754772e223cc7382fd38b261c107eb5c6",
+    "decision_model/data.py": "b130949012c9153c1a0057f20c49007b161703f90640262e822c06b8e386bebd",
+    "decision_model/baselines.py": "c3adacea142ff243b8535915ef61a070f96c3691d578f1628019e73303c28b49",
+    "decision_model/schema.py": "e8c55bb7fdfa16307021878c8b6880c675880e8413c575c27ada1a6e0604f75a",
+    "decision_model/convert.py": "f9a97c73c10122abda7d636da5b5e6636535ec59e0b2b308b96005bb6324db8d",
+    "decision_model/calibrate.py": "097eb8153f7fc917b3c1673e704ceca2a5d362d3c2e40e17ff9be53404bf862a",
+    "decision_model/serve.py": "6c307f7731ed9c40280871ee31727d3d5d22f228919da639f4fbfd18e83d4c9d",
+    "decision_model/decide.py": "3a96f1614bea4c2a7c5166f4165a16cfb4cd6d89cf01068420066ec8c150c7bf",
+    "decision_model/evaluate.py": "1db343e438274886ab8549185a4f4138fe686fc3874fe58b23a0aba49ecbdc18",
+    "decision_model/__init__.py": "373a4711e40ed65b74a32c69cf2edc9cee26f82ee0261ec47dc3b6d15a9534e8",
+    "decision_model/render.py": "ecab09a862f13c71e5b2ddb6c3a96d9f1aaf30ddb1398e90dd060f72bf65afc6",
+    "decision_model/export.py": "ce69d9681e2802a239eee129d1a999929c3c134f86306b46bc1ac1392d31e2be",
+    "decision_model/model.py": "2731b8c535fb2f1b9c1ae02d51fe5ccd48b2bfa7074effc429b6f3ea749f757f",
+    "decision_model/train.py": "426d4383a57b6a86e729e14e63faa52186aceceb855778fbd844be0c6b212276",
+    "decision_model/backbones/decoder.py": "cef1f53632f02930a6a89d3394aff73ff3ab969603d50d78c0c169e16dfa0521",
+    "decision_model/backbones/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "decision_model/backbones/qwen3.py": "cfcf16904199943dd5c50f31b6d1946b116a7478bf05184a923fc20be37f5119",
+    "experiments/lumi/train_full.py": "a017422314323c5ec98cd34e29785998f5be318ca8016a795055ef0d47360732",
+    "experiments/lumi/run_bilingual_pilot.py": "09166445081bf8f50ee8198dae7e844af5e3357e4123f1a0f231748dcc91dca7"
+  },
+  "inputs": {
+    "okapi": "abaa44da0e54e48c59a1c9478c4bfaaa7cc11d3e4c669ad8ff4119d53531b6de",
+    "decision_index_english": "9d9824d4103df831e080943480861b4221cddc66bc1f2aeb71d04686e1572840",
+    "decision_index_italian": "80f71f04e6a60076df32f9f2c2ff00622e06317f95122db00f8c9db2126fb3fe",
+    "practical_v2": "3a354ff5cbb08ce01470a50957cd50bc3e2e0a693121be96911a53d98e873721"
+  },
+  "calibration": {
+    "temperature": 0.7320428479728127,
+    "threshold": null,
+    "fallback": "Escalate all cases",
+    "temperature_fit": {
+      "overall": {
+        "n": 1024,
+        "accuracy": 0.5849609375,
+        "nll": 0.8677150928061313,
+        "ece_10": 0.06061823493289221,
+        "accepted": 0,
+        "coverage": 0.0,
+        "accepted_error_rate": null,
+        "accepted_error_wilson_upper": null,
+        "wrong_with_confidence_at_least_90pct": 3
+      },
+      "by_language": {
+        "en": {
+          "n": 512,
+          "accuracy": 0.62890625,
+          "nll": 0.8427824046899061,
+          "ece_10": 0.045666745958289366,
+          "accepted": 0,
+          "coverage": 0.0,
+          "accepted_error_rate": null,
+          "accepted_error_wilson_upper": null,
+          "wrong_with_confidence_at_least_90pct": 2
+        },
+        "it": {
+          "n": 512,
+          "accuracy": 0.541015625,
+          "nll": 0.8926477809223566,
+          "ece_10": 0.09251925874672033,
+          "accepted": 0,
+          "coverage": 0.0,
+          "accepted_error_rate": null,
+          "accepted_error_wilson_upper": null,
+          "wrong_with_confidence_at_least_90pct": 1
+        }
+      },
+      "by_task_language": {
+        "practical_escalation/en": {
+          "n": 128,
+          "accuracy": 0.78125,
+          "nll": 0.4323958691221836,
+          "ece_10": 0.0751566675215625,
+          "accepted": 0,
+          "coverage": 0.0,
+          "accepted_error_rate": null,
+          "accepted_error_wilson_upper": null,
+          "wrong_with_confidence_at_least_90pct": 2
+        },
+        "practical_escalation/it": {
+          "n": 128,
+          "accuracy": 0.8125,
+          "nll": 0.43081808692695645,
+          "ece_10": 0.03312010813302119,
+          "accepted": 0,
+          "coverage": 0.0,
+          "accepted_error_rate": null,
+          "accepted_error_wilson_upper": null,
+          "wrong_with_confidence_at_least_90pct": 1
+        },
+        "practical_refund/en": {
+          "n": 128,
+          "accuracy": 0.890625,
+          "nll": 0.5190313573692609,
+          "ece_10": 0.22327430588724445,
+          "accepted": 0,
+          "coverage": 0.0,
+          "accepted_error_rate": null,
+          "accepted_error_wilson_upper": null,
+          "wrong_with_confidence_at_least_90pct": 0
+        },
+        "practical_refund/it": {
+          "n": 128,
+          "accuracy": 0.734375,
+          "nll": 0.6269554423258605,
+          "ece_10": 0.16475422674182935,
+          "accepted": 0,
+          "coverage": 0.0,
+          "accepted_error_rate": null,
+          "accepted_error_wilson_upper": null,
+          "wrong_with_confidence_at_least_90pct": 0
+        },
+        "practical_routing/en": {
+          "n": 128,
+          "accuracy": 0.3359375,
+          "nll": 1.456315023992474,
+          "ece_10": 0.18628586679236062,
+          "accepted": 0,
+          "coverage": 0.0,
+          "accepted_error_rate": null,
+          "accepted_error_wilson_upper": null,
+          "wrong_with_confidence_at_least_90pct": 0
+        },
+        "practical_routing/it": {
+          "n": 128,
+          "accuracy": 0.2890625,
+          "nll": 1.427915241215779,
+          "ece_10": 0.12677255636116488,
+          "accepted": 0,
+          "coverage": 0.0,
+          "accepted_error_rate": null,
+          "accepted_error_wilson_upper": null,
+          "wrong_with_confidence_at_least_90pct": 0
+        },
+        "practical_urgency/en": {
+          "n": 128,
+          "accuracy": 0.5078125,
+          "nll": 0.9633873682757056,
+          "ece_10": 0.09503112974854307,
+          "accepted": 0,
+          "coverage": 0.0,
+          "accepted_error_rate": null,
+          "accepted_error_wilson_upper": null,
+          "wrong_with_confidence_at_least_90pct": 0
+        },
+        "practical_urgency/it": {
+          "n": 128,
+          "accuracy": 0.328125,
+          "nll": 1.0849023532208306,
+          "ece_10": 0.186262572989399,
+          "accepted": 0,
+          "coverage": 0.0,
+          "accepted_error_rate": null,
+          "accepted_error_wilson_upper": null,
+          "wrong_with_confidence_at_least_90pct": 0
+        }
+      },
+      "macro_nll": 0.8677150928061313,
+      "macro_accuracy": 0.5849609375
+    },
+    "calibration": {
+      "overall": {
+        "n": 1024,
+        "accuracy": 0.43359375,
+        "nll": 1.1059468002165054,
+        "ece_10": 0.16578663988505152,
+        "accepted": 0,
+        "coverage": 0.0,
+        "accepted_error_rate": null,
+        "accepted_error_wilson_upper": null,
+        "wrong_with_confidence_at_least_90pct": 36
+      },
+      "by_language": {
+        "en": {
+          "n": 512,
+          "accuracy": 0.431640625,
+          "nll": 1.1660288520957285,
+          "ece_10": 0.22194942819702626,
+          "accepted": 0,
+          "coverage": 0.0,
+          "accepted_error_rate": null,
+          "accepted_error_wilson_upper": null,
+          "wrong_with_confidence_at_least_90pct": 34
+        },
+        "it": {
+          "n": 512,
+          "accuracy": 0.435546875,
+          "nll": 1.0458647483372825,
+          "ece_10": 0.12356927573143703,
+          "accepted": 0,
+          "coverage": 0.0,
+          "accepted_error_rate": null,
+          "accepted_error_wilson_upper": null,
+          "wrong_with_confidence_at_least_90pct": 2
+        }
+      },
+      "by_task_language": {
+        "practical_escalation/en": {
+          "n": 128,
+          "accuracy": 0.5,
+          "nll": 1.1465362353432547,
+          "ece_10": 0.4134238818742531,
+          "accepted": 0,
+          "coverage": 0.0,
+          "accepted_error_rate": null,
+          "accepted_error_wilson_upper": null,
+          "wrong_with_confidence_at_least_90pct": 27
+        },
+        "practical_escalation/it": {
+          "n": 128,
+          "accuracy": 0.5,
+          "nll": 0.7096092904956304,
+          "ece_10": 0.18200609072611115,
+          "accepted": 0,
+          "coverage": 0.0,
+          "accepted_error_rate": null,
+          "accepted_error_wilson_upper": null,
+          "wrong_with_confidence_at_least_90pct": 0
+        },
+        "practical_refund/en": {
+          "n": 128,
+          "accuracy": 0.6953125,
+          "nll": 0.8953014112364412,
+          "ece_10": 0.11703351960888989,
+          "accepted": 0,
+          "coverage": 0.0,
+          "accepted_error_rate": null,
+          "accepted_error_wilson_upper": null,
+          "wrong_with_confidence_at_least_90pct": 6
+        },
+        "practical_refund/it": {
+          "n": 128,
+          "accuracy": 0.7421875,
+          "nll": 0.8242661102829106,
+          "ece_10": 0.1363966091039027,
+          "accepted": 0,
+          "coverage": 0.0,
+          "accepted_error_rate": null,
+          "accepted_error_wilson_upper": null,
+          "wrong_with_confidence_at_least_90pct": 2
+        },
+        "practical_routing/en": {
+          "n": 128,
+          "accuracy": 0.3046875,
+          "nll": 1.4596823973127593,
+          "ece_10": 0.21538131725562157,
+          "accepted": 0,
+          "coverage": 0.0,
+          "accepted_error_rate": null,
+          "accepted_error_wilson_upper": null,
+          "wrong_with_confidence_at_least_90pct": 1
+        },
+        "practical_routing/it": {
+          "n": 128,
+          "accuracy": 0.2734375,
+          "nll": 1.4964679935644747,
+          "ece_10": 0.18033170401105927,
+          "accepted": 0,
+          "coverage": 0.0,
+          "accepted_error_rate": null,
+          "accepted_error_wilson_upper": null,
+          "wrong_with_confidence_at_least_90pct": 0
+        },
+        "practical_urgency/en": {
+          "n": 128,
+          "accuracy": 0.2265625,
+          "nll": 1.162595364490459,
+          "ece_10": 0.20396840272583344,
+          "accepted": 0,
+          "coverage": 0.0,
+          "accepted_error_rate": null,
+          "accepted_error_wilson_upper": null,
+          "wrong_with_confidence_at_least_90pct": 0
+        },
+        "practical_urgency/it": {
+          "n": 128,
+          "accuracy": 0.2265625,
+          "nll": 1.153115599006114,
+          "ece_10": 0.3071738055412383,
+          "accepted": 0,
+          "coverage": 0.0,
+          "accepted_error_rate": null,
+          "accepted_error_wilson_upper": null,
+          "wrong_with_confidence_at_least_90pct": 0
+        }
+      },
+      "macro_nll": 1.1059468002165054,
+      "macro_accuracy": 0.43359375
+    },
+    "limitation": "Temperature and threshold use distinct facts and wording. Grid-selected empirical policy; Wilson bounds are exploratory, not a post-selection risk guarantee"
+  },
+  "source_sha256": {
+    "compare_latest.py": "114218355da4c1d502ccfdd78ed96e13df0657219399a74b093670ee02ea4ee4",
+    "prepare_v2_release.sbatch": "f4e90d8df95f413679960ab21c61bb69dc98f4e7c041d6336f0ffaeb1fb23a37",
+    "decision_subset_engine.py": "90a8d6c75ebaf9a31af0d92bab4219360f37317507c48ab190708c8f462689ee",
+    "run_focused_v3.py": "d7e0bfd1185e3e2b5c6ab5c3647f2ac274d8606b42a6949bba45437a9952c655",
+    "prepare_v2_release.py": "e05c879b718d700e7908e98135983feee050229489cc04464819e792e6fafd44"
+  },
+  "public_upload": false
+}

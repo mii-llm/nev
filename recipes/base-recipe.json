@@ -1,0 +1,133 @@
+{
+  "parent": "mii-llm/nesso2-0.4B-agentic",
+  "revision": "86d4bb76c0dd32b6f2e759734d6a0cb0eab9b041",
+  "data": {
+    "seed": 20260924,
+    "out": "${PROJECT_ROOT}/runs/bilingual-all-v1/english",
+    "pool_per_source": 392702,
+    "train_cap_per_source": 392702,
+    "official_test_per_source": 150,
+    "showcase_per_source": {
+      "agnews": 30,
+      "trec": 25,
+      "banking77": 20,
+      "boolq": 30,
+      "mnli": 25,
+      "sst5": 30
+    },
+    "variants_per_source": 2,
+    "unseen_per_source": 100,
+    "policy": {
+      "composition_groups_per_shape": 480,
+      "contrastive_pairs_per_family": 720,
+      "train_cap": 20000,
+      "heldout_groups_per_shape": 10,
+      "heldout_contrastive_family": "deadline",
+      "heldout_contrastive_pairs": 30,
+      "showcase_groups_per_test_shape": 1,
+      "showcase_heldout_pairs": 4,
+      "drop_cross_split_duplicate_groups": true
+    },
+    "context": {
+      "max_state": 1024,
+      "max_row": 2048,
+      "max_packed": 4096
+    },
+    "sources": {
+      "agnews": {
+        "revision": "eb185aade064a813bc0b7f42de02595523103ca4"
+      },
+      "trec": {
+        "revision": "65752bf53af25bc935a0dce92fb5b6c930728450"
+      },
+      "banking77": {
+        "revision": "f54121560de48f2852f90be299010d1d6dc612ec"
+      },
+      "boolq": {
+        "revision": "35b264d03638db9f4ce671b711558bf7ff0f80d5"
+      },
+      "mnli": {
+        "revision": "da70db2af9d09693783c3320c4249840212ee221"
+      },
+      "sst5": {
+        "revision": "e51bdcd8cd3a30da231967c1a249ba59361279a3"
+      },
+      "paws": {
+        "revision": "161ece9501cf0a11f3e48bd356eaa82de46d6a09"
+      },
+      "qnli": {
+        "revision": "bcdcba79d07bc864c1c254ccfcedcce55bcc9a8c"
+      },
+      "emotion": {
+        "revision": "cab853a1dbdf4c42c2b3ef2173804746df8825fe"
+      }
+    },
+    "custom": [
+      {
+        "path": "/pfs/lustrep4${PROJECT_ROOT}/src/data/custom/support_tickets.jsonl",
+        "source_family": "support_custom",
+        "split": {
+          "train": 0.7,
+          "dev": 0.1,
+          "calibration": 0.1,
+          "test": 0.1
+        }
+      }
+    ],
+    "demo_dir": "/pfs/lustrep4${PROJECT_ROOT}/src/demo"
+  },
+  "teacher": {
+    "out": "data/targets",
+    "dtype": "bfloat16",
+    "batch_tokens": 4096,
+    "prompt_format": "label-chat-v1"
+  },
+  "train": {
+    "out": "train",
+    "seed": 0,
+    "lora": {
+      "r": 16,
+      "alpha": 32,
+      "dropout": 0.05,
+      "targets": [
+        "q_proj",
+        "k_proj",
+        "v_proj",
+        "o_proj",
+        "gate_proj",
+        "up_proj",
+        "down_proj"
+      ]
+    },
+    "head_dim": 256,
+    "lr": 5e-05,
+    "weight_decay": 0.01,
+    "epochs": 2,
+    "microbatch": 1,
+    "accumulation": 8,
+    "pct_start": 0.1,
+    "clip": 1.0,
+    "gold_weight": 0.5,
+    "autocast": "bfloat16",
+    "weights_dtype": "float32",
+    "activation_checkpointing": false,
+    "eval_every": 200,
+    "eval_batch": 2,
+    "max_steps": null,
+    "language_balance": {
+      "it": 0.5,
+      "en": 0.5
+    }
+  },
+  "calibration": {
+    "grid": {
+      "low": 0.25,
+      "high": 4.0,
+      "points": 121
+    }
+  },
+  "export": {
+    "dtype": "bfloat16",
+    "check_requests": 8
+  }
+}

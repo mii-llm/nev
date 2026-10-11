@@ -1,0 +1,9 @@
+{
+  "status": "verified",
+  "archive_sha256": "3aee6c64f0e12a48b0278265c7ab9c8edd45b9aae842e4dae0a22f517fe15c58",
+  "remote_archive": "/scratch/project_465002563/decision-models/kev-nesso2/publication-record/focused-v3/docs/nesso2/evidence/focused-v3-completed.tar.gz",
+  "documents_transferred": 14,
+  "source_results_status": "complete",
+  "selected": "adapted-512",
+  "public_upload": false
+}

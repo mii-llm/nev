@@ -1,0 +1,5 @@
+{
+  "torch": "2.10.0+rocm7.0",
+  "hip": "7.0.51831",
+  "gpu": "AMD Instinct MI250X"
+}

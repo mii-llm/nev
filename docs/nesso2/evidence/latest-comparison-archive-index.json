@@ -1,0 +1,142 @@
+{
+  "baselines/decision-index-english-selection-v1/results/selection/142000/predictions.jsonl": {
+    "bytes": 89996,
+    "sha256": "c9e2b259720708562da173642332e3a5dca21d8cc9810570c9d270e7ffe15f3c"
+  },
+  "baselines/decision-index-english-selection-v1/results/selection/74000/predictions.jsonl": {
+    "bytes": 89985,
+    "sha256": "2864babc3034403f5b74c1bc169d33429a24a531ffb09f7d96cc40806d61b09f"
+  },
+  "baselines/decision-index-english-selection-v1/results/selection/laya/predictions.jsonl": {
+    "bytes": 90481,
+    "sha256": "b3e77af8bbf2db0faa7a8085dce3fdac1d874291b790b0d644557b642c8b4655"
+  },
+  "baselines/decision-index-english-selection-v1/results/selection/parent/predictions.jsonl": {
+    "bytes": 90057,
+    "sha256": "723a1517eb58388802b1db72a516f8fd213d7387785f46b829450a6ef7ef9298"
+  },
+  "baselines/decision-index-italian-selection-v1/results/selection/142000/predictions.jsonl": {
+    "bytes": 90039,
+    "sha256": "d12ad0456710d4bfdfd89d2ba20c71a866cbb801521584d6dd24a62eaeee7aa0"
+  },
+  "baselines/decision-index-italian-selection-v1/results/selection/74000/predictions.jsonl": {
+    "bytes": 90033,
+    "sha256": "f89d878656c64865dfe3c37c8ae2e116588fafbdb196b371426a10ff550b7026"
+  },
+  "baselines/decision-index-italian-selection-v1/results/selection/laya/predictions.jsonl": {
+    "bytes": 90605,
+    "sha256": "43846870510db409645efd940ba81cc5136823a95b26c2a9339d2dc38a615920"
+  },
+  "baselines/decision-index-italian-selection-v1/results/selection/parent/predictions.jsonl": {
+    "bytes": 90057,
+    "sha256": "83985101111da361fff36d172111c2b4b80380aae0e62b8f3041ea58ed419a55"
+  },
+  "baselines/decision-index-okapi-v1/laya-results/laya.jsonl": {
+    "bytes": 752390,
+    "sha256": "61a314ac6be29749e4f1cacced2df15ee002e1e8a1f724f626cb2cfb767d5e69"
+  },
+  "baselines/decision-index-okapi-v1/results/decision.jsonl": {
+    "bytes": 667662,
+    "sha256": "f4d2a75d4fd54cb3f47a87b119b26195db18d1316c33b366b5d7a5df7f40d4f9"
+  },
+  "baselines/decision-index-okapi-v1/results/parent.jsonl": {
+    "bytes": 684948,
+    "sha256": "24667471c80a200ec563a66f7064a0e77521dc4bbd7184692dee43be33f8d612"
+  },
+  "baselines/okapi-best-review-20261006/results/decision.jsonl": {
+    "bytes": 667754,
+    "sha256": "c33b10e1b95c26a1e11a71b98cfc2a1e5a7d0a151f82ec716ea58927a19d8dd6"
+  },
+  "baselines/okapi-checkpoint-review-20261004/results/decision.jsonl": {
+    "bytes": 667676,
+    "sha256": "3fed1ba0efc87588c894e25b505f2e3e478941b22f017df481e5dc1e58cb3abc"
+  },
+  "baselines/okapi-final-review-20261006/results/decision.jsonl": {
+    "bytes": 667766,
+    "sha256": "9e77d5af4b9735c7764e7f64fc3c639a75cc8e2a0ed68fdf3ce811b9607b4d32"
+  },
+  "baselines/okapi-latest-review-20261004/results/decision.jsonl": {
+    "bytes": 667674,
+    "sha256": "cfce446fa80388294e0973afd8b945af441cb1448cb13de8197af1c079820b62"
+  },
+  "baselines/okapi-latest-review-20261005/results/decision.jsonl": {
+    "bytes": 667774,
+    "sha256": "5a15f5d3815b6501815b8b40d8afafed24a76cf62b1985fb61b2a48280c19e3e"
+  },
+  "baselines/practical-pilot-v2/results/142000-test-logits.json": {
+    "bytes": 1072248,
+    "sha256": "40675bffd957903b5e00f0b5312b67afdd0efd1db720728e37e05232deb6783d"
+  },
+  "baselines/practical-pilot-v2/results/74000-test-logits.json": {
+    "bytes": 1069359,
+    "sha256": "33d2a6f5b89fdf1a359f4a82ae0cabaa45c4d6c8a2bdd9d7f5876ec4fe0032bf"
+  },
+  "baselines/practical-pilot-v2/results/adapted-256-test-logits.json": {
+    "bytes": 1070968,
+    "sha256": "f52035f33b5d9cf08fdde1059b33a3524534058116c3b056bae20c6ea2234156"
+  },
+  "comparison/accounting.txt": {
+    "bytes": 231,
+    "sha256": "21a85cf1459484ee53e5bfc7d41dc2aa4b4eeb680cd4152e9504a2856c423690"
+  },
+  "comparison/decision_index-v2_74k_plus_256.jsonl": {
+    "bytes": 1977486,
+    "sha256": "57162946d0f38c94fc0dfa9fd19a68acfc6106a4e9ab5d68e3222b1c202c9a07"
+  },
+  "comparison/environment.json": {
+    "bytes": 86,
+    "sha256": "9920a4e52fc18d44621a98198ca0e6a081f5788b0f816e7bcc98e7166445f71b"
+  },
+  "comparison/job.log": {
+    "bytes": 7081,
+    "sha256": "ea384fb4141d1fb9d55a1f97456216411d607b2fd154785a3efee927eff03e9d"
+  },
+  "comparison/laya-provenance.json": {
+    "bytes": 1085,
+    "sha256": "7b3cfb9735ae9fdd4fa704f28e851247403f500d05a875d83bf443d651de6ec4"
+  },
+  "comparison/manifest.json": {
+    "bytes": 4357,
+    "sha256": "ee1569b4fe8a36b9a1b8087df18cbffac31b68013a6bc05f106f764aef3e7dff"
+  },
+  "comparison/okapi-v2_74k_plus_256.jsonl": {
+    "bytes": 504484,
+    "sha256": "69e2c6bb2ef872685672ffbbb82e2ebb49c64c3cc5b5cac8bbe87fe7dfa446b4"
+  },
+  "comparison/practical_v2-laya.jsonl": {
+    "bytes": 958991,
+    "sha256": "b9653b6fdf00ca0163251025032b18d4cc160cc85fbc07943cffb710385dc5ab"
+  },
+  "comparison/report.json": {
+    "bytes": 79637,
+    "sha256": "4b9f9799da57cd429a77feed6f1a3a83ce0cd6aff805b7d611c7be7836282b5f"
+  },
+  "comparison/source/compare_latest.py": {
+    "bytes": 16904,
+    "sha256": "114218355da4c1d502ccfdd78ed96e13df0657219399a74b093670ee02ea4ee4"
+  },
+  "comparison/source/compare_latest.sbatch": {
+    "bytes": 894,
+    "sha256": "af80302fb29bfe20c5c9abdf5fd5949bddf5dc23ddd7888c4c5ee0a7f890435a"
+  },
+  "comparison/source/decision_subset_engine.py": {
+    "bytes": 4018,
+    "sha256": "90a8d6c75ebaf9a31af0d92bab4219360f37317507c48ab190708c8f462689ee"
+  },
+  "comparison/source/laya_okapi_eval.py": {
+    "bytes": 8278,
+    "sha256": "d8a955184f81f106ef96d4c4703c328b52794ce16a5752bb480bd87007166293"
+  },
+  "comparison/source/okapi_eval.py": {
+    "bytes": 7461,
+    "sha256": "4f5a2f458de5306c638437b9795df98ff6ba801fdf63505ad5648932d14d93a6"
+  },
+  "comparison/source/prepare_decision_subset.py": {
+    "bytes": 14715,
+    "sha256": "5953f1de8ea8a807a8d45bd18d240ec70adb1c5cba89f7cb2c1363ebd65857ea"
+  },
+  "comparison/submission.txt": {
+    "bytes": 9,
+    "sha256": "664bf030c9d3fccc0ad853ae36bf6e130f50814c6ac387fae89a7ae9364caac5"
+  }
+}

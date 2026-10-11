@@ -1,0 +1,73 @@
+{
+  "selected_model": "v2_74k_plus_256",
+  "selection_sha256": "3a3cc911803f9f584500e0dc1c7cfdf7ecfe6345c53959166bd6e7f1d4568a75",
+  "pilot_manifest_sha256": "fe80de46873b5e80247a20758f490c6568f34cab3fbc69c80afdcbe33ff0e850",
+  "checkpoint_sha256": {
+    "head.safetensors": "78fb93409987eb3326107cf46fbdeda92909b55eae76fb3026db6b8da1a16c5b",
+    "run.json": "7f1889d25094daa9011878c0d26bb7a5f28db8bf41c1bb74708498c30ec9c190",
+    "adapter/README.md": "65a5fcacaea33cdc8389ef30438fdc8da9a7905ec77f65d52117917e3d720663",
+    "adapter/adapter_model.safetensors": "b363e6821fc16fb84a68d967060b4878c5dfa534dd9025e22ac3949cb8cbc9e1",
+    "adapter/adapter_config.json": "a8490a8ad98406d50a12e8c6d6e0c3c88c0cf5583863921003042b4870001c28"
+  },
+  "source_sha256": {
+    "regression-pins.json": "654c78931fd7d7702423c14b31850eff2239cf35d177e12217a7c05c8c355c2b",
+    "compare_latest.py": "114218355da4c1d502ccfdd78ed96e13df0657219399a74b093670ee02ea4ee4",
+    "regression_v3.sbatch": "bd6f59322808dbdc72628b9206b268e52b40fd99e42193bed73a2c8d2a7d5386",
+    "decision_subset_engine.py": "90a8d6c75ebaf9a31af0d92bab4219360f37317507c48ab190708c8f462689ee",
+    "run_focused_v3.py": "d7e0bfd1185e3e2b5c6ab5c3647f2ac274d8606b42a6949bba45437a9952c655",
+    "test_regression_v3.py": "8cb1b8ea35abbfbe4e02fd03c9e3a6dc091eb687499c14a418732b8e09b1a3d5",
+    "regression_v3.py": "52950dbe41fcd062be6b34292ebdff041c415eb2f40dfc0f25a382a0c0d5ffcd"
+  },
+  "inputs": {
+    "okapi": "abaa44da0e54e48c59a1c9478c4bfaaa7cc11d3e4c669ad8ff4119d53531b6de",
+    "decision_index_english": "9d9824d4103df831e080943480861b4221cddc66bc1f2aeb71d04686e1572840",
+    "decision_index_italian": "80f71f04e6a60076df32f9f2c2ff00622e06317f95122db00f8c9db2126fb3fe",
+    "practical_v2": "3a354ff5cbb08ce01470a50957cd50bc3e2e0a693121be96911a53d98e873721"
+  },
+  "baseline_sha256": {
+    "decision-index-okapi-v1/results/decision.jsonl": "f4d2a75d4fd54cb3f47a87b119b26195db18d1316c33b366b5d7a5df7f40d4f9",
+    "okapi-best-review-20261006/results/decision.jsonl": "c33b10e1b95c26a1e11a71b98cfc2a1e5a7d0a151f82ec716ea58927a19d8dd6",
+    "okapi-checkpoint-review-20261004/results/decision.jsonl": "3fed1ba0efc87588c894e25b505f2e3e478941b22f017df481e5dc1e58cb3abc",
+    "okapi-final-review-20261006/results/decision.jsonl": "9e77d5af4b9735c7764e7f64fc3c639a75cc8e2a0ed68fdf3ce811b9607b4d32",
+    "okapi-latest-review-20261004/results/decision.jsonl": "cfce446fa80388294e0973afd8b945af441cb1448cb13de8197af1c079820b62",
+    "okapi-latest-review-20261005/results/decision.jsonl": "5a15f5d3815b6501815b8b40d8afafed24a76cf62b1985fb61b2a48280c19e3e",
+    "decision-index-okapi-v1/results/parent.jsonl": "24667471c80a200ec563a66f7064a0e77521dc4bbd7184692dee43be33f8d612",
+    "decision-index-okapi-v1/laya-results/laya.jsonl": "61a314ac6be29749e4f1cacced2df15ee002e1e8a1f724f626cb2cfb767d5e69",
+    "decision-index-english-selection-v1/results/selection/74000/predictions.jsonl": "2864babc3034403f5b74c1bc169d33429a24a531ffb09f7d96cc40806d61b09f",
+    "decision-index-english-selection-v1/results/selection/142000/predictions.jsonl": "c9e2b259720708562da173642332e3a5dca21d8cc9810570c9d270e7ffe15f3c",
+    "decision-index-english-selection-v1/results/selection/parent/predictions.jsonl": "723a1517eb58388802b1db72a516f8fd213d7387785f46b829450a6ef7ef9298",
+    "decision-index-english-selection-v1/results/selection/laya/predictions.jsonl": "b3e77af8bbf2db0faa7a8085dce3fdac1d874291b790b0d644557b642c8b4655",
+    "decision-index-italian-selection-v1/results/selection/74000/predictions.jsonl": "f89d878656c64865dfe3c37c8ae2e116588fafbdb196b371426a10ff550b7026",
+    "decision-index-italian-selection-v1/results/selection/142000/predictions.jsonl": "d12ad0456710d4bfdfd89d2ba20c71a866cbb801521584d6dd24a62eaeee7aa0",
+    "decision-index-italian-selection-v1/results/selection/parent/predictions.jsonl": "83985101111da361fff36d172111c2b4b80380aae0e62b8f3041ea58ed419a55",
+    "decision-index-italian-selection-v1/results/selection/laya/predictions.jsonl": "43846870510db409645efd940ba81cc5136823a95b26c2a9339d2dc38a615920",
+    "practical-pilot-v2/results/74000-test-logits.json": "33d2a6f5b89fdf1a359f4a82ae0cabaa45c4d6c8a2bdd9d7f5876ec4fe0032bf",
+    "practical-pilot-v2/results/142000-test-logits.json": "40675bffd957903b5e00f0b5312b67afdd0efd1db720728e37e05232deb6783d",
+    "practical-pilot-v2/results/adapted-256-test-logits.json": "f52035f33b5d9cf08fdde1059b33a3524534058116c3b056bae20c6ea2234156",
+    "practical-v2-benchmark-comparison-v1/okapi-v2_74k_plus_256.jsonl": "69e2c6bb2ef872685672ffbbb82e2ebb49c64c3cc5b5cac8bbe87fe7dfa446b4",
+    "practical-v2-benchmark-comparison-v1/decision_index-v2_74k_plus_256.jsonl": "57162946d0f38c94fc0dfa9fd19a68acfc6106a4e9ab5d68e3222b1c202c9a07",
+    "practical-v2-benchmark-comparison-v1/practical_v2-laya.jsonl": "b9653b6fdf00ca0163251025032b18d4cc160cc85fbc07943cffb710385dc5ab"
+  },
+  "v3_artifact_sha256": {
+    "training/adapted-512/head.safetensors": "76fc4342431d31732fdeae8185e22592ab6e4166d85c540a2f3aec3f6a660730",
+    "training/adapted-512/run.json": "c503c451d1e7f6c539390bd1d63474fa9f1ffbb4b3b3c1f1155076e44c7c8215",
+    "training/adapted-512/adapter/README.md": "65a5fcacaea33cdc8389ef30438fdc8da9a7905ec77f65d52117917e3d720663",
+    "training/adapted-512/adapter/adapter_model.safetensors": "991bfa72b5322744b1fc47bec402e93252e558470c4732726c2b529b58424878",
+    "training/adapted-512/adapter/adapter_config.json": "e90a08f3cd673ffd6c4db7aec29edfdc5411436e09feefd560ec27557850782b",
+    "private-export/config.json": "c7e4bd4a56ea4be8f00732f05294b94011eecf8d15d7a17ca7b2b5257ab9dcf3",
+    "private-export/conversion.json": "16f925b2b668708a4f6f02b0c8d5b5c38ef3b50e3ea1bed0b06c1b7507be0311",
+    "private-export/evaluation.json": "4ec28989560b1f80e18b1924346bc66d5a8453815514c6210111c806f9990348",
+    "private-export/README.md": "fdfc2427c9f7e46639d2a043a0287fac3da39f0870b5050f58bfcc197d45a4ad",
+    "private-export/calibration.json": "7c8bb51feb5fda27ab81a28b9c39739dc7446c3bd00413929fbb3e41af39462f",
+    "private-export/decision_head.safetensors": "76fc4342431d31732fdeae8185e22592ab6e4166d85c540a2f3aec3f6a660730",
+    "private-export/backbone/config.json": "4a39b47802c741fd41c30a7dcc263e70f8d0881ac9cbbe2234e4f7cf420ede8f",
+    "private-export/backbone/model.safetensors": "6c1401f5b555374ff525df95b17097995b3003979b31150be8641d49ac23d73a",
+    "private-export/tokenizer/chat_template.jinja": "079e708fbc79d0961dbbc552b5ff5bf3b68a80b903a59e547ab2cc763d48095f",
+    "private-export/tokenizer/tokenizer.json": "6b9e4e7fb171f92fd137b777cc2714bf87d11576700a1dcd7a399e7bbe39537b",
+    "private-export/tokenizer/tokenizer_config.json": "afe6cfa9fbf75c0b334367e41ceeb1b3679a43ccc1bdeb155d48413a3f99f865"
+  },
+  "v3_root": "/scratch/project_465002563/decision-models/kev-nesso2/runs/bilingual-all-v1/focused-pilot-v3",
+  "numerics": "FP32 parameters / BF16 autocast / T=1; external rows; practical packed logits",
+  "protocol": "Frozen diagnostic subsets; full and bilingual common support; no model selection",
+  "comparison_report_sha256": "4b9f9799da57cd429a77feed6f1a3a83ce0cd6aff805b7d611c7be7836282b5f"
+}

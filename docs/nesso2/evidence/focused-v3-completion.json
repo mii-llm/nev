@@ -1,0 +1,8 @@
+{
+  "status": "complete",
+  "selected": "adapted-512",
+  "comparison_sha256": "85dfee256c7b410706bdf7e536ac5b890a2c321e2a20bb609782767a465aab99",
+  "export_evaluation_sha256": "4ec28989560b1f80e18b1924346bc66d5a8453815514c6210111c806f9990348",
+  "private_export": "/scratch/project_465002563/decision-models/kev-nesso2/runs/bilingual-all-v1/focused-pilot-v3/private-export",
+  "public_upload": false
+}

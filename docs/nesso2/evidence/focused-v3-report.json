@@ -1,0 +1,1090 @@
+{
+  "status": "complete",
+  "selection": {
+    "selected_before_test": "adapted-512",
+    "candidates": [
+      [
+        2.1965980720800946,
+        "v2",
+        "/scratch/project_465002563/decision-models/kev-nesso2/runs/bilingual-all-v1/practical-pilot-v2/training/adapted-256"
+      ],
+      [
+        1.3021651595368111,
+        "adapted-512",
+        "/scratch/project_465002563/decision-models/kev-nesso2/runs/bilingual-all-v1/focused-pilot-v3/training/adapted-512"
+      ]
+    ],
+    "adaptation_eligible": true,
+    "rule": "Lowest new-dev task/language macro NLL among selected v2 and eligible snapshots; ties retain v2",
+    "identity": {
+      "manifest_sha256": "7589d2978e979ec136b1a0aae50573e768adb2589f5fe359bb1d427526ac0826"
+    }
+  },
+  "models": {
+    "v2": {
+      "raw": {
+        "overall": {
+          "n": 1024,
+          "accuracy": 0.2431640625,
+          "nll": 2.1978909205090016,
+          "ece_10": 0.340759051974365,
+          "accepted": 0,
+          "coverage": 0.0,
+          "accepted_error_rate": null,
+          "accepted_error_wilson_upper": null,
+          "wrong_with_confidence_at_least_90pct": 164
+        },
+        "by_language": {
+          "en": {
+            "n": 512,
+            "accuracy": 0.236328125,
+            "nll": 2.3679744501942004,
+            "ece_10": 0.3766297553047438,
+            "accepted": 0,
+            "coverage": 0.0,
+            "accepted_error_rate": null,
+            "accepted_error_wilson_upper": null,
+            "wrong_with_confidence_at_least_90pct": 96
+          },
+          "it": {
+            "n": 512,
+            "accuracy": 0.25,
+            "nll": 2.027807390823803,
+            "ece_10": 0.3060397110998616,
+            "accepted": 0,
+            "coverage": 0.0,
+            "accepted_error_rate": null,
+            "accepted_error_wilson_upper": null,
+            "wrong_with_confidence_at_least_90pct": 68
+          }
+        },
+        "by_task_language": {
+          "focused_intent/en": {
+            "n": 256,
+            "accuracy": 0.12109375,
+            "nll": 3.351026141112344,
+            "ece_10": 0.6544759850276907,
+            "accepted": 0,
+            "coverage": 0.0,
+            "accepted_error_rate": null,
+            "accepted_error_wilson_upper": null,
+            "wrong_with_confidence_at_least_90pct": 96
+          },
+          "focused_intent/it": {
+            "n": 256,
+            "accuracy": 0.15234375,
+            "nll": 2.69759274245651,
+            "ece_10": 0.5679603308773873,
+            "accepted": 0,
+            "coverage": 0.0,
+            "accepted_error_rate": null,
+            "accepted_error_wilson_upper": null,
+            "wrong_with_confidence_at_least_90pct": 68
+          },
+          "focused_routing/en": {
+            "n": 256,
+            "accuracy": 0.3515625,
+            "nll": 1.384922759276056,
+            "ece_10": 0.10111977223769957,
+            "accepted": 0,
+            "coverage": 0.0,
+            "accepted_error_rate": null,
+            "accepted_error_wilson_upper": null,
+            "wrong_with_confidence_at_least_90pct": 0
+          },
+          "focused_routing/it": {
+            "n": 256,
+            "accuracy": 0.34765625,
+            "nll": 1.3580220391910958,
+            "ece_10": 0.04553552309819291,
+            "accepted": 0,
+            "coverage": 0.0,
+            "accepted_error_rate": null,
+            "accepted_error_wilson_upper": null,
+            "wrong_with_confidence_at_least_90pct": 0
+          }
+        },
+        "macro_nll": 2.1978909205090016,
+        "macro_accuracy": 0.2431640625
+      },
+      "calibrated": {
+        "overall": {
+          "n": 1024,
+          "accuracy": 0.2431640625,
+          "nll": 1.7447393010954098,
+          "ece_10": 0.11499874013109511,
+          "accepted": 0,
+          "coverage": 0.0,
+          "accepted_error_rate": null,
+          "accepted_error_wilson_upper": null,
+          "wrong_with_confidence_at_least_90pct": 0
+        },
+        "by_language": {
+          "en": {
+            "n": 512,
+            "accuracy": 0.236328125,
+            "nll": 1.7915030167018045,
+            "ece_10": 0.1478655528104422,
+            "accepted": 0,
+            "coverage": 0.0,
+            "accepted_error_rate": null,
+            "accepted_error_wilson_upper": null,
+            "wrong_with_confidence_at_least_90pct": 0
+          },
+          "it": {
+            "n": 512,
+            "accuracy": 0.25,
+            "nll": 1.6979755854890148,
+            "ece_10": 0.0947310143211147,
+            "accepted": 0,
+            "coverage": 0.0,
+            "accepted_error_rate": null,
+            "accepted_error_wilson_upper": null,
+            "wrong_with_confidence_at_least_90pct": 0
+          }
+        },
+        "by_task_language": {
+          "focused_intent/en": {
+            "n": 256,
+            "accuracy": 0.12109375,
+            "nll": 2.2417933581410705,
+            "ece_10": 0.30236482277613647,
+            "accepted": 0,
+            "coverage": 0.0,
+            "accepted_error_rate": null,
+            "accepted_error_wilson_upper": null,
+            "wrong_with_confidence_at_least_90pct": 0
+          },
+          "focused_intent/it": {
+            "n": 256,
+            "accuracy": 0.15234375,
+            "nll": 2.045242078119608,
+            "ece_10": 0.23035095932344313,
+            "accepted": 0,
+            "coverage": 0.0,
+            "accepted_error_rate": null,
+            "accepted_error_wilson_upper": null,
+            "wrong_with_confidence_at_least_90pct": 0
+          },
+          "focused_routing/en": {
+            "n": 256,
+            "accuracy": 0.3515625,
+            "nll": 1.3412126752625386,
+            "ece_10": 0.02167594505013593,
+            "accepted": 0,
+            "coverage": 0.0,
+            "accepted_error_rate": null,
+            "accepted_error_wilson_upper": null,
+            "wrong_with_confidence_at_least_90pct": 0
+          },
+          "focused_routing/it": {
+            "n": 256,
+            "accuracy": 0.34765625,
+            "nll": 1.3507090928584213,
+            "ece_10": 0.04951743350479119,
+            "accepted": 0,
+            "coverage": 0.0,
+            "accepted_error_rate": null,
+            "accepted_error_wilson_upper": null,
+            "wrong_with_confidence_at_least_90pct": 0
+          }
+        },
+        "macro_nll": 1.7447393010954095,
+        "macro_accuracy": 0.2431640625
+      },
+      "by_template": {
+        "7": {
+          "overall": {
+            "n": 512,
+            "accuracy": 0.287109375,
+            "nll": 1.7287610908948907,
+            "ece_10": 0.10406329776443851,
+            "accepted": 0,
+            "coverage": 0.0,
+            "accepted_error_rate": null,
+            "accepted_error_wilson_upper": null,
+            "wrong_with_confidence_at_least_90pct": 0
+          },
+          "by_language": {
+            "en": {
+              "n": 256,
+              "accuracy": 0.265625,
+              "nll": 1.7697480028126737,
+              "ece_10": 0.1390989618820267,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 0
+            },
+            "it": {
+              "n": 256,
+              "accuracy": 0.30859375,
+              "nll": 1.687774178977108,
+              "ece_10": 0.12183986437863288,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 0
+            }
+          },
+          "by_task_language": {
+            "focused_intent/en": {
+              "n": 128,
+              "accuracy": 0.140625,
+              "nll": 2.214423557087309,
+              "ece_10": 0.3018702649782995,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 0
+            },
+            "focused_intent/it": {
+              "n": 128,
+              "accuracy": 0.1796875,
+              "nll": 2.0593716102675033,
+              "ece_10": 0.20644754884516922,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 0
+            },
+            "focused_routing/en": {
+              "n": 128,
+              "accuracy": 0.390625,
+              "nll": 1.3250724485380383,
+              "ece_10": 0.07067886333608299,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 0
+            },
+            "focused_routing/it": {
+              "n": 128,
+              "accuracy": 0.4375,
+              "nll": 1.3161767476867126,
+              "ece_10": 0.1334878082987138,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 0
+            }
+          },
+          "macro_nll": 1.7287610908948907,
+          "macro_accuracy": 0.287109375
+        },
+        "8": {
+          "overall": {
+            "n": 512,
+            "accuracy": 0.19921875,
+            "nll": 1.7607175112959286,
+            "ece_10": 0.1604351251660543,
+            "accepted": 0,
+            "coverage": 0.0,
+            "accepted_error_rate": null,
+            "accepted_error_wilson_upper": null,
+            "wrong_with_confidence_at_least_90pct": 0
+          },
+          "by_language": {
+            "en": {
+              "n": 256,
+              "accuracy": 0.20703125,
+              "nll": 1.8132580305909354,
+              "ece_10": 0.1678880919631069,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 0
+            },
+            "it": {
+              "n": 256,
+              "accuracy": 0.19140625,
+              "nll": 1.7081769920009218,
+              "ece_10": 0.1529821583690017,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 0
+            }
+          },
+          "by_task_language": {
+            "focused_intent/en": {
+              "n": 128,
+              "accuracy": 0.1015625,
+              "nll": 2.269163159194832,
+              "ece_10": 0.30791981864482215,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 0
+            },
+            "focused_intent/it": {
+              "n": 128,
+              "accuracy": 0.125,
+              "nll": 2.0311125459717134,
+              "ece_10": 0.25425436980171706,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 0
+            },
+            "focused_routing/en": {
+              "n": 128,
+              "accuracy": 0.3125,
+              "nll": 1.357352901987039,
+              "ece_10": 0.027856365281391567,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 0
+            },
+            "focused_routing/it": {
+              "n": 128,
+              "accuracy": 0.2578125,
+              "nll": 1.3852414380301303,
+              "ece_10": 0.05170994693628635,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 0
+            }
+          },
+          "macro_nll": 1.7607175112959286,
+          "macro_accuracy": 0.19921875
+        }
+      },
+      "calibration": {
+        "temperature": 2.462288826689832,
+        "threshold": null,
+        "fallback": "Escalate all cases",
+        "temperature_fit": {
+          "overall": {
+            "n": 512,
+            "accuracy": 0.232421875,
+            "nll": 1.6960238579229816,
+            "ece_10": 0.1310026193157294,
+            "accepted": 0,
+            "coverage": 0.0,
+            "accepted_error_rate": null,
+            "accepted_error_wilson_upper": null,
+            "wrong_with_confidence_at_least_90pct": 0
+          },
+          "by_language": {
+            "en": {
+              "n": 256,
+              "accuracy": 0.21875,
+              "nll": 1.7543116781970607,
+              "ece_10": 0.17334793979998173,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 0
+            },
+            "it": {
+              "n": 256,
+              "accuracy": 0.24609375,
+              "nll": 1.6377360376489027,
+              "ece_10": 0.1071856155402305,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 0
+            }
+          },
+          "by_task_language": {
+            "focused_intent/en": {
+              "n": 128,
+              "accuracy": 0.1640625,
+              "nll": 2.1486799457005,
+              "ece_10": 0.2611757221976729,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 0
+            },
+            "focused_intent/it": {
+              "n": 128,
+              "accuracy": 0.1484375,
+              "nll": 1.8995775664200312,
+              "ece_10": 0.22135041927344784,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 0
+            },
+            "focused_routing/en": {
+              "n": 128,
+              "accuracy": 0.2734375,
+              "nll": 1.3599434106936212,
+              "ece_10": 0.12460623966288893,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 0
+            },
+            "focused_routing/it": {
+              "n": 128,
+              "accuracy": 0.34375,
+              "nll": 1.375894508877774,
+              "ece_10": 0.051882646360084085,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 0
+            }
+          },
+          "macro_nll": 1.6960238579229816,
+          "macro_accuracy": 0.232421875
+        },
+        "calibration": {
+          "overall": {
+            "n": 512,
+            "accuracy": 0.265625,
+            "nll": 1.6701288410255917,
+            "ece_10": 0.12273781815654883,
+            "accepted": 0,
+            "coverage": 0.0,
+            "accepted_error_rate": null,
+            "accepted_error_wilson_upper": null,
+            "wrong_with_confidence_at_least_90pct": 0
+          },
+          "by_language": {
+            "en": {
+              "n": 256,
+              "accuracy": 0.2734375,
+              "nll": 1.7110868023392898,
+              "ece_10": 0.14498246671739723,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 0
+            },
+            "it": {
+              "n": 256,
+              "accuracy": 0.2578125,
+              "nll": 1.6291708797118936,
+              "ece_10": 0.10049316959570044,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 0
+            }
+          },
+          "by_task_language": {
+            "focused_intent/en": {
+              "n": 128,
+              "accuracy": 0.1796875,
+              "nll": 2.0860418533449727,
+              "ece_10": 0.2675067085393771,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 0
+            },
+            "focused_intent/it": {
+              "n": 128,
+              "accuracy": 0.203125,
+              "nll": 1.8980379659543618,
+              "ece_10": 0.21583532612933384,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 0
+            },
+            "focused_routing/en": {
+              "n": 128,
+              "accuracy": 0.3671875,
+              "nll": 1.3361317513336068,
+              "ece_10": 0.06498914922072821,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 0
+            },
+            "focused_routing/it": {
+              "n": 128,
+              "accuracy": 0.3125,
+              "nll": 1.3603037934694253,
+              "ece_10": 0.01686256680975244,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 0
+            }
+          },
+          "macro_nll": 1.6701288410255917,
+          "macro_accuracy": 0.265625
+        },
+        "limitation": "Temperature and threshold use distinct facts and wording. Grid-selected empirical policy; Wilson bounds are exploratory, not a post-selection risk guarantee"
+      },
+      "performance": {
+        "batch_size": 1,
+        "requests": 1024,
+        "median_ms": 72.09858199348673,
+        "p95_ms": 72.59925699327141,
+        "peak_allocated_bytes": 2041259008,
+        "gpu": "AMD Instinct MI250X",
+        "scope": "FP32 weights/BF16 autocast; includes tokenization; excludes model loading and network"
+      }
+    },
+    "adapted-512": {
+      "raw": {
+        "overall": {
+          "n": 1024,
+          "accuracy": 0.5888671875,
+          "nll": 1.0285676958008227,
+          "ece_10": 0.05643541903965347,
+          "accepted": 0,
+          "coverage": 0.0,
+          "accepted_error_rate": null,
+          "accepted_error_wilson_upper": null,
+          "wrong_with_confidence_at_least_90pct": 3
+        },
+        "by_language": {
+          "en": {
+            "n": 512,
+            "accuracy": 0.548828125,
+            "nll": 1.1085533193833763,
+            "ece_10": 0.0768672057221986,
+            "accepted": 0,
+            "coverage": 0.0,
+            "accepted_error_rate": null,
+            "accepted_error_wilson_upper": null,
+            "wrong_with_confidence_at_least_90pct": 3
+          },
+          "it": {
+            "n": 512,
+            "accuracy": 0.62890625,
+            "nll": 0.948582072218269,
+            "ece_10": 0.06687490955941311,
+            "accepted": 0,
+            "coverage": 0.0,
+            "accepted_error_rate": null,
+            "accepted_error_wilson_upper": null,
+            "wrong_with_confidence_at_least_90pct": 0
+          }
+        },
+        "by_task_language": {
+          "focused_intent/en": {
+            "n": 256,
+            "accuracy": 0.609375,
+            "nll": 1.0779418540861136,
+            "ece_10": 0.0784705792350113,
+            "accepted": 0,
+            "coverage": 0.0,
+            "accepted_error_rate": null,
+            "accepted_error_wilson_upper": null,
+            "wrong_with_confidence_at_least_90pct": 1
+          },
+          "focused_intent/it": {
+            "n": 256,
+            "accuracy": 0.7421875,
+            "nll": 0.7770287167111497,
+            "ece_10": 0.06661350087484162,
+            "accepted": 0,
+            "coverage": 0.0,
+            "accepted_error_rate": null,
+            "accepted_error_wilson_upper": null,
+            "wrong_with_confidence_at_least_90pct": 0
+          },
+          "focused_routing/en": {
+            "n": 256,
+            "accuracy": 0.48828125,
+            "nll": 1.139164784680639,
+            "ece_10": 0.13030843750333887,
+            "accepted": 0,
+            "coverage": 0.0,
+            "accepted_error_rate": null,
+            "accepted_error_wilson_upper": null,
+            "wrong_with_confidence_at_least_90pct": 2
+          },
+          "focused_routing/it": {
+            "n": 256,
+            "accuracy": 0.515625,
+            "nll": 1.120135427725388,
+            "ece_10": 0.08532455247102944,
+            "accepted": 0,
+            "coverage": 0.0,
+            "accepted_error_rate": null,
+            "accepted_error_wilson_upper": null,
+            "wrong_with_confidence_at_least_90pct": 0
+          }
+        },
+        "macro_nll": 1.0285676958008225,
+        "macro_accuracy": 0.5888671875
+      },
+      "calibrated": {
+        "overall": {
+          "n": 1024,
+          "accuracy": 0.5888671875,
+          "nll": 1.0460839924909016,
+          "ece_10": 0.08332087185927457,
+          "accepted": 0,
+          "coverage": 0.0,
+          "accepted_error_rate": null,
+          "accepted_error_wilson_upper": null,
+          "wrong_with_confidence_at_least_90pct": 19
+        },
+        "by_language": {
+          "en": {
+            "n": 512,
+            "accuracy": 0.548828125,
+            "nll": 1.1467278253946762,
+            "ece_10": 0.13104709646974524,
+            "accepted": 0,
+            "coverage": 0.0,
+            "accepted_error_rate": null,
+            "accepted_error_wilson_upper": null,
+            "wrong_with_confidence_at_least_90pct": 11
+          },
+          "it": {
+            "n": 512,
+            "accuracy": 0.62890625,
+            "nll": 0.9454401595871268,
+            "ece_10": 0.052003864369580655,
+            "accepted": 0,
+            "coverage": 0.0,
+            "accepted_error_rate": null,
+            "accepted_error_wilson_upper": null,
+            "wrong_with_confidence_at_least_90pct": 8
+          }
+        },
+        "by_task_language": {
+          "focused_intent/en": {
+            "n": 256,
+            "accuracy": 0.609375,
+            "nll": 1.1148932808998637,
+            "ece_10": 0.09780040873918264,
+            "accepted": 0,
+            "coverage": 0.0,
+            "accepted_error_rate": null,
+            "accepted_error_wilson_upper": null,
+            "wrong_with_confidence_at_least_90pct": 5
+          },
+          "focused_intent/it": {
+            "n": 256,
+            "accuracy": 0.7421875,
+            "nll": 0.7646935079098754,
+            "ece_10": 0.07046707094970994,
+            "accepted": 0,
+            "coverage": 0.0,
+            "accepted_error_rate": null,
+            "accepted_error_wilson_upper": null,
+            "wrong_with_confidence_at_least_90pct": 4
+          },
+          "focused_routing/en": {
+            "n": 256,
+            "accuracy": 0.48828125,
+            "nll": 1.178562369889489,
+            "ece_10": 0.17858196728092396,
+            "accepted": 0,
+            "coverage": 0.0,
+            "accepted_error_rate": null,
+            "accepted_error_wilson_upper": null,
+            "wrong_with_confidence_at_least_90pct": 6
+          },
+          "focused_routing/it": {
+            "n": 256,
+            "accuracy": 0.515625,
+            "nll": 1.126186811264378,
+            "ece_10": 0.08105563952355777,
+            "accepted": 0,
+            "coverage": 0.0,
+            "accepted_error_rate": null,
+            "accepted_error_wilson_upper": null,
+            "wrong_with_confidence_at_least_90pct": 4
+          }
+        },
+        "macro_nll": 1.0460839924909016,
+        "macro_accuracy": 0.5888671875
+      },
+      "by_template": {
+        "7": {
+          "overall": {
+            "n": 512,
+            "accuracy": 0.638671875,
+            "nll": 0.9766307114261814,
+            "ece_10": 0.11984582767453297,
+            "accepted": 0,
+            "coverage": 0.0,
+            "accepted_error_rate": null,
+            "accepted_error_wilson_upper": null,
+            "wrong_with_confidence_at_least_90pct": 9
+          },
+          "by_language": {
+            "en": {
+              "n": 256,
+              "accuracy": 0.60546875,
+              "nll": 1.030440280985402,
+              "ece_10": 0.1292272026573936,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 3
+            },
+            "it": {
+              "n": 256,
+              "accuracy": 0.671875,
+              "nll": 0.9228211418669607,
+              "ece_10": 0.11046445269167235,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 6
+            }
+          },
+          "by_task_language": {
+            "focused_intent/en": {
+              "n": 128,
+              "accuracy": 0.6171875,
+              "nll": 1.1479546336437105,
+              "ece_10": 0.13204019325120248,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 3
+            },
+            "focused_intent/it": {
+              "n": 128,
+              "accuracy": 0.703125,
+              "nll": 0.8872683667509538,
+              "ece_10": 0.09652255257144972,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 3
+            },
+            "focused_routing/en": {
+              "n": 128,
+              "accuracy": 0.59375,
+              "nll": 0.9129259283270935,
+              "ece_10": 0.1615122031032875,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 0
+            },
+            "focused_routing/it": {
+              "n": 128,
+              "accuracy": 0.640625,
+              "nll": 0.9583739169829678,
+              "ece_10": 0.15457382852931045,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 3
+            }
+          },
+          "macro_nll": 0.9766307114261814,
+          "macro_accuracy": 0.638671875
+        },
+        "8": {
+          "overall": {
+            "n": 512,
+            "accuracy": 0.5390625,
+            "nll": 1.1155372735556217,
+            "ece_10": 0.09708933283395108,
+            "accepted": 0,
+            "coverage": 0.0,
+            "accepted_error_rate": null,
+            "accepted_error_wilson_upper": null,
+            "wrong_with_confidence_at_least_90pct": 10
+          },
+          "by_language": {
+            "en": {
+              "n": 256,
+              "accuracy": 0.4921875,
+              "nll": 1.2630153698039506,
+              "ece_10": 0.17194587181704232,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 8
+            },
+            "it": {
+              "n": 256,
+              "accuracy": 0.5859375,
+              "nll": 0.9680591773072927,
+              "ece_10": 0.059234243043450104,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 2
+            }
+          },
+          "by_task_language": {
+            "focused_intent/en": {
+              "n": 128,
+              "accuracy": 0.6015625,
+              "nll": 1.081831928156017,
+              "ece_10": 0.08705972724600428,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 2
+            },
+            "focused_intent/it": {
+              "n": 128,
+              "accuracy": 0.78125,
+              "nll": 0.642118649068797,
+              "ece_10": 0.10460593836341425,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 1
+            },
+            "focused_routing/en": {
+              "n": 128,
+              "accuracy": 0.3828125,
+              "nll": 1.4441988114518842,
+              "ece_10": 0.25683201638808034,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 6
+            },
+            "focused_routing/it": {
+              "n": 128,
+              "accuracy": 0.390625,
+              "nll": 1.2939997055457884,
+              "ece_10": 0.08824547751449646,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 1
+            }
+          },
+          "macro_nll": 1.1155372735556217,
+          "macro_accuracy": 0.5390625
+        }
+      },
+      "calibration": {
+        "temperature": 0.8122523963562355,
+        "threshold": null,
+        "fallback": "Escalate all cases",
+        "temperature_fit": {
+          "overall": {
+            "n": 512,
+            "accuracy": 0.654296875,
+            "nll": 0.9017636547491342,
+            "ece_10": 0.07047697329423108,
+            "accepted": 0,
+            "coverage": 0.0,
+            "accepted_error_rate": null,
+            "accepted_error_wilson_upper": null,
+            "wrong_with_confidence_at_least_90pct": 8
+          },
+          "by_language": {
+            "en": {
+              "n": 256,
+              "accuracy": 0.58203125,
+              "nll": 1.0514985152568865,
+              "ece_10": 0.1018819481660844,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 6
+            },
+            "it": {
+              "n": 256,
+              "accuracy": 0.7265625,
+              "nll": 0.7520287942413819,
+              "ece_10": 0.11029917850003323,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 2
+            }
+          },
+          "by_task_language": {
+            "focused_intent/en": {
+              "n": 128,
+              "accuracy": 0.5625,
+              "nll": 1.1452076550125756,
+              "ece_10": 0.17516374165246457,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 6
+            },
+            "focused_intent/it": {
+              "n": 128,
+              "accuracy": 0.8125,
+              "nll": 0.5409204931468438,
+              "ece_10": 0.051157847668854256,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 2
+            },
+            "focused_routing/en": {
+              "n": 128,
+              "accuracy": 0.6015625,
+              "nll": 0.9577893755011976,
+              "ece_10": 0.12847586742697611,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 0
+            },
+            "focused_routing/it": {
+              "n": 128,
+              "accuracy": 0.640625,
+              "nll": 0.9631370953359202,
+              "ece_10": 0.17039894397285055,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 0
+            }
+          },
+          "macro_nll": 0.9017636547491343,
+          "macro_accuracy": 0.654296875
+        },
+        "calibration": {
+          "overall": {
+            "n": 512,
+            "accuracy": 0.578125,
+            "nll": 1.043824467556467,
+            "ece_10": 0.05930043505266589,
+            "accepted": 0,
+            "coverage": 0.0,
+            "accepted_error_rate": null,
+            "accepted_error_wilson_upper": null,
+            "wrong_with_confidence_at_least_90pct": 15
+          },
+          "by_language": {
+            "en": {
+              "n": 256,
+              "accuracy": 0.56640625,
+              "nll": 1.1543727024379722,
+              "ece_10": 0.11507332847558686,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 11
+            },
+            "it": {
+              "n": 256,
+              "accuracy": 0.58984375,
+              "nll": 0.9332762326749616,
+              "ece_10": 0.04060873215844994,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 4
+            }
+          },
+          "by_task_language": {
+            "focused_intent/en": {
+              "n": 128,
+              "accuracy": 0.6171875,
+              "nll": 1.1989068377486054,
+              "ece_10": 0.1540108240728809,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 11
+            },
+            "focused_intent/it": {
+              "n": 128,
+              "accuracy": 0.7578125,
+              "nll": 0.638588778102525,
+              "ece_10": 0.07211396576028019,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 4
+            },
+            "focused_routing/en": {
+              "n": 128,
+              "accuracy": 0.515625,
+              "nll": 1.109838567127339,
+              "ece_10": 0.08386028840102192,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 0
+            },
+            "focused_routing/it": {
+              "n": 128,
+              "accuracy": 0.421875,
+              "nll": 1.2279636872473982,
+              "ece_10": 0.050632937536918964,
+              "accepted": 0,
+              "coverage": 0.0,
+              "accepted_error_rate": null,
+              "accepted_error_wilson_upper": null,
+              "wrong_with_confidence_at_least_90pct": 0
+            }
+          },
+          "macro_nll": 1.043824467556467,
+          "macro_accuracy": 0.578125
+        },
+        "limitation": "Temperature and threshold use distinct facts and wording. Grid-selected empirical policy; Wilson bounds are exploratory, not a post-selection risk guarantee"
+      },
+      "performance": {
+        "batch_size": 1,
+        "requests": 1024,
+        "median_ms": 72.019551997073,
+        "p95_ms": 72.69813597667962,
+        "peak_allocated_bytes": 2041259008,
+        "gpu": "AMD Instinct MI250X",
+        "scope": "FP32 weights/BF16 autocast; includes tokenization; excludes model loading and network"
+      }
+    }
+  },
+  "limitations": [
+    "Rule families are shared across splits; this measures within-family wording transfer",
+    "Synthetic 16-intent cases and routing are not representative traffic or independently authored benchmarks; improvement here does not establish CLINC generalization",
+    "Bilingual templates authored and reviewed by Codex, not native-speaker certified; no separate teacher was used",
+    "Calibration thresholds are exploratory and do not provide a production risk guarantee",
+    "One training seed and one learning rate; no claim of optimal settings"
+  ]
+}

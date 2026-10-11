@@ -1,0 +1,202 @@
+{
+  "recipe-source/base/audit_training.py": {
+    "sha256": "eb03f6976aa62b1ef00091ad97a7e13a9b21b7e5b6f8edc89cdf04d4f8043b85",
+    "source_archive_sha256": "d740cf309846e2ff0842ce8994cc6e5d00d240572ef57e8a5a75acc15e80722f",
+    "source_member": "training-source/experiments/lumi/audit_training.py"
+  },
+  "recipe-source/base/bilingual_data.py": {
+    "sha256": "0f9ca084d0be756a4cf560dee5fd950c2eb6104ce36f8f5a4f8323c206ac24f4",
+    "source_archive_sha256": "d740cf309846e2ff0842ce8994cc6e5d00d240572ef57e8a5a75acc15e80722f",
+    "source_member": "training-source/experiments/lumi/bilingual_data.py"
+  },
+  "recipe-source/base/check_full_resume.py": {
+    "sha256": "35e489b56ffa6a4c324254f4eceaf31603e65bb2ca69283f65f0b56094f8c1f5",
+    "source_archive_sha256": "d740cf309846e2ff0842ce8994cc6e5d00d240572ef57e8a5a75acc15e80722f",
+    "source_member": "training-source/experiments/lumi/check_full_resume.py"
+  },
+  "recipe-source/base/check_translation.py": {
+    "sha256": "eb855f0c792e9f3d38b6432af98a56ae65eb3af1ed2ca92109e04bdeaa086be9",
+    "source_archive_sha256": "d740cf309846e2ff0842ce8994cc6e5d00d240572ef57e8a5a75acc15e80722f",
+    "source_member": "training-source/experiments/lumi/check_translation.py"
+  },
+  "recipe-source/base/corpus_filters.py": {
+    "sha256": "ff0761fc1179968ecf1ac5a94a98118c0b7d730fc11644e5660812b25c83ed01",
+    "source_archive_sha256": "d740cf309846e2ff0842ce8994cc6e5d00d240572ef57e8a5a75acc15e80722f",
+    "source_member": "training-source/experiments/lumi/corpus_filters.py"
+  },
+  "recipe-source/base/eval_kev_reference.py": {
+    "sha256": "d49643cb3cf8cf8e393648c8a14e0055e18dc8cd0e4612a3a228765b0ed070a3",
+    "source_archive_sha256": "d740cf309846e2ff0842ce8994cc6e5d00d240572ef57e8a5a75acc15e80722f",
+    "source_member": "training-source/experiments/lumi/eval_kev_reference.py"
+  },
+  "recipe-source/base/finish_full.py": {
+    "sha256": "07cea9e5abb2b2c93072acbaa1d99ca4fc92467dcb25d2df3f5bda5f336606d3",
+    "source_archive_sha256": "d740cf309846e2ff0842ce8994cc6e5d00d240572ef57e8a5a75acc15e80722f",
+    "source_member": "training-source/experiments/lumi/finish_full.py"
+  },
+  "recipe-source/base/launch_full.py": {
+    "sha256": "ebb9fb8ab14369680d26e7885fed97367cd18591b2f029b79a5d26a822fc1570",
+    "source_archive_sha256": "d740cf309846e2ff0842ce8994cc6e5d00d240572ef57e8a5a75acc15e80722f",
+    "source_member": "training-source/experiments/lumi/launch_full.py"
+  },
+  "recipe-source/base/prepare_full.py": {
+    "sha256": "8aa39457ec53b5f6fb2d53bcc1f69932d5b192a017bb91efb2b96820dc2730a7",
+    "source_archive_sha256": "d740cf309846e2ff0842ce8994cc6e5d00d240572ef57e8a5a75acc15e80722f",
+    "source_member": "training-source/experiments/lumi/prepare_full.py"
+  },
+  "recipe-source/base/prepare_kev_reference.py": {
+    "sha256": "99c94973c5127a054da493b6ec7cec3ab0e19c6e6316615160b3d82990ffae1e",
+    "source_archive_sha256": "d740cf309846e2ff0842ce8994cc6e5d00d240572ef57e8a5a75acc15e80722f",
+    "source_member": "training-source/experiments/lumi/prepare_kev_reference.py"
+  },
+  "recipe-source/base/prepare_pilot.py": {
+    "sha256": "04a7db8ac5cadbb57f1743188aaed477ce8ccad918790d3159be25b3efcb14f6",
+    "source_archive_sha256": "d740cf309846e2ff0842ce8994cc6e5d00d240572ef57e8a5a75acc15e80722f",
+    "source_member": "training-source/experiments/lumi/prepare_pilot.py"
+  },
+  "recipe-source/base/probe.py": {
+    "sha256": "0f5846f473bbea28efd85ca2a88af404f91a537d7af5cd108764e26052719112",
+    "source_archive_sha256": "d740cf309846e2ff0842ce8994cc6e5d00d240572ef57e8a5a75acc15e80722f",
+    "source_member": "training-source/experiments/lumi/probe.py"
+  },
+  "recipe-source/base/review_full.py": {
+    "sha256": "ad9ee2e0dbe2216bea7880fced10f4d367a304b8d588a7e483f29e8d8fbed694",
+    "source_archive_sha256": "d740cf309846e2ff0842ce8994cc6e5d00d240572ef57e8a5a75acc15e80722f",
+    "source_member": "training-source/experiments/lumi/review_full.py"
+  },
+  "recipe-source/base/run_bilingual_pilot.py": {
+    "sha256": "09166445081bf8f50ee8198dae7e844af5e3357e4123f1a0f231748dcc91dca7",
+    "source_archive_sha256": "d740cf309846e2ff0842ce8994cc6e5d00d240572ef57e8a5a75acc15e80722f",
+    "source_member": "training-source/experiments/lumi/run_bilingual_pilot.py"
+  },
+  "recipe-source/base/summarize_kev_reference.py": {
+    "sha256": "cf9b3f9c8dfc9190b06d0c9aa3c318dbbf2cafbcc6ede8ec1c57437c83e8baf4",
+    "source_archive_sha256": "d740cf309846e2ff0842ce8994cc6e5d00d240572ef57e8a5a75acc15e80722f",
+    "source_member": "training-source/experiments/lumi/summarize_kev_reference.py"
+  },
+  "recipe-source/base/summarize_pilot.py": {
+    "sha256": "1fd9dc579b7026c8920025e0d2c452e549c67e6489270c7e8624dd35f64547d3",
+    "source_archive_sha256": "d740cf309846e2ff0842ce8994cc6e5d00d240572ef57e8a5a75acc15e80722f",
+    "source_member": "training-source/experiments/lumi/summarize_pilot.py"
+  },
+  "recipe-source/base/teacher_pilot.py": {
+    "sha256": "0c1bbf2d97394e73795a95ee5a0fa17fcb58cbc3397eca2652307d2c79035f16",
+    "source_archive_sha256": "d740cf309846e2ff0842ce8994cc6e5d00d240572ef57e8a5a75acc15e80722f",
+    "source_member": "training-source/experiments/lumi/teacher_pilot.py"
+  },
+  "recipe-source/base/train_full.py": {
+    "sha256": "a017422314323c5ec98cd34e29785998f5be318ca8016a795055ef0d47360732",
+    "source_archive_sha256": "d740cf309846e2ff0842ce8994cc6e5d00d240572ef57e8a5a75acc15e80722f",
+    "source_member": "training-source/experiments/lumi/train_full.py"
+  },
+  "recipe-source/base/vllm_translate.py": {
+    "sha256": "7a8e41467ff07e3c8d3275eafa37f7577c6b8d6331bdee0dff056c9bfa4bd301",
+    "source_archive_sha256": "d740cf309846e2ff0842ce8994cc6e5d00d240572ef57e8a5a75acc15e80722f",
+    "source_member": "training-source/experiments/lumi/vllm_translate.py"
+  },
+  "recipes/base-recipe.json": {
+    "original_sha256": "eb811718afaf5f006fc993b032d5079a07760750e8b0337a3f4e84efacd15ee6",
+    "sha256": "bbce42134b1bdbb85b9b59312bbd2a431157de446dacc28091b75fc67c5bcb93",
+    "transformation": "project-root path replaced by placeholder; substitute explicitly before running"
+  },
+  "recipes/data-manifest.json": {
+    "original_sha256": "6410cdcf4157ec1e849dd62f7afec217a9fe7e27342d8509ecc749030464f6da",
+    "sha256": "7c867465950c35745bcd402c5ed9ace765ceb64c3fbe026f344eca37ee597982",
+    "transformation": "project-root path replaced by placeholder; substitute explicitly before running"
+  },
+  "recipe-source/v2/launch_practical_v2.py": {
+    "sha256": "7eb37a774f358126e6256b6ba850dbe13dc4ff2b4b6629459930755626399386",
+    "source_archive_sha256": "7952999a510db7b5ab722d9048b4ecd935164f3462d867ad302c6461e2938b76",
+    "source_member": "source/launch_practical_v2.py"
+  },
+  "recipe-source/v2/practical_data.py": {
+    "sha256": "6999097b859d67e47919f82191493c1f8ba4ca9f6f03835f236e645c1d8d9d35",
+    "source_archive_sha256": "7952999a510db7b5ab722d9048b4ecd935164f3462d867ad302c6461e2938b76",
+    "source_member": "source/practical_data.py"
+  },
+  "recipe-source/v2/practical_data_v2.py": {
+    "sha256": "1836b91509a2704c7c6219cfd5368155984c426a7a8bf1888e38f040af4c94a0",
+    "source_archive_sha256": "7952999a510db7b5ab722d9048b4ecd935164f3462d867ad302c6461e2938b76",
+    "source_member": "source/practical_data_v2.py"
+  },
+  "recipe-source/v2/prepare_practical_v2.py": {
+    "sha256": "eb7cb17baf8caa8f67e9229e7181259fca1a0a15ea11a5f3b2a8f25f295397e5",
+    "source_archive_sha256": "7952999a510db7b5ab722d9048b4ecd935164f3462d867ad302c6461e2938b76",
+    "source_member": "source/prepare_practical_v2.py"
+  },
+  "recipe-source/v2/run_practical_v2.py": {
+    "sha256": "5a1c60f022f493359fbd58e0d46fc4b6c0e4c22cbc73f12c1f501d390fd56b40",
+    "source_archive_sha256": "7952999a510db7b5ab722d9048b4ecd935164f3462d867ad302c6461e2938b76",
+    "source_member": "source/run_practical_v2.py"
+  },
+  "recipe-source/v2/test_practical_v2.py": {
+    "sha256": "5a8930b3f58049fdeafe99a32d1660a58a2af26c190a36d4f0a0e401522e3e55",
+    "source_archive_sha256": "7952999a510db7b5ab722d9048b4ecd935164f3462d867ad302c6461e2938b76",
+    "source_member": "source/test_practical_v2.py"
+  },
+  "recipe-source/v3/compare_latest.py": {
+    "sha256": "114218355da4c1d502ccfdd78ed96e13df0657219399a74b093670ee02ea4ee4",
+    "source_archive_sha256": "3aee6c64f0e12a48b0278265c7ab9c8edd45b9aae842e4dae0a22f517fe15c58",
+    "source_member": "source/compare_latest.py"
+  },
+  "recipe-source/v3/decision_subset_engine.py": {
+    "sha256": "90a8d6c75ebaf9a31af0d92bab4219360f37317507c48ab190708c8f462689ee",
+    "source_archive_sha256": "3aee6c64f0e12a48b0278265c7ab9c8edd45b9aae842e4dae0a22f517fe15c58",
+    "source_member": "source/decision_subset_engine.py"
+  },
+  "recipe-source/v3/finish_focused_v3.py": {
+    "sha256": "189a0de1793df89629890790683ecd85eb3bb1b727433c700f43dee9f5a7832b",
+    "source_archive_sha256": "3aee6c64f0e12a48b0278265c7ab9c8edd45b9aae842e4dae0a22f517fe15c58",
+    "source_member": "source/finish_focused_v3.py"
+  },
+  "recipe-source/v3/focused_data_v3.py": {
+    "sha256": "408ebf5449804391ea7183d1283b5598d43239f5895cab96c9b76474997e26a3",
+    "source_archive_sha256": "3aee6c64f0e12a48b0278265c7ab9c8edd45b9aae842e4dae0a22f517fe15c58",
+    "source_member": "source/focused_data_v3.py"
+  },
+  "recipe-source/v3/launch_focused_v3.py": {
+    "sha256": "b9409e832c6ffebfe6d772fc82809372c8c72b0235b9485e202b92eb1a28c7d2",
+    "source_archive_sha256": "3aee6c64f0e12a48b0278265c7ab9c8edd45b9aae842e4dae0a22f517fe15c58",
+    "source_member": "source/launch_focused_v3.py"
+  },
+  "recipe-source/v3/laya_okapi_eval.py": {
+    "sha256": "d8a955184f81f106ef96d4c4703c328b52794ce16a5752bb480bd87007166293",
+    "source_archive_sha256": "3aee6c64f0e12a48b0278265c7ab9c8edd45b9aae842e4dae0a22f517fe15c58",
+    "source_member": "source/laya_okapi_eval.py"
+  },
+  "recipe-source/v3/okapi_eval.py": {
+    "sha256": "4f5a2f458de5306c638437b9795df98ff6ba801fdf63505ad5648932d14d93a6",
+    "source_archive_sha256": "3aee6c64f0e12a48b0278265c7ab9c8edd45b9aae842e4dae0a22f517fe15c58",
+    "source_member": "source/okapi_eval.py"
+  },
+  "recipe-source/v3/practical_data.py": {
+    "sha256": "6999097b859d67e47919f82191493c1f8ba4ca9f6f03835f236e645c1d8d9d35",
+    "source_archive_sha256": "3aee6c64f0e12a48b0278265c7ab9c8edd45b9aae842e4dae0a22f517fe15c58",
+    "source_member": "source/practical_data.py"
+  },
+  "recipe-source/v3/practical_data_v2.py": {
+    "sha256": "1836b91509a2704c7c6219cfd5368155984c426a7a8bf1888e38f040af4c94a0",
+    "source_archive_sha256": "3aee6c64f0e12a48b0278265c7ab9c8edd45b9aae842e4dae0a22f517fe15c58",
+    "source_member": "source/practical_data_v2.py"
+  },
+  "recipe-source/v3/prepare_decision_subset.py": {
+    "sha256": "5953f1de8ea8a807a8d45bd18d240ec70adb1c5cba89f7cb2c1363ebd65857ea",
+    "source_archive_sha256": "3aee6c64f0e12a48b0278265c7ab9c8edd45b9aae842e4dae0a22f517fe15c58",
+    "source_member": "source/prepare_decision_subset.py"
+  },
+  "recipe-source/v3/prepare_focused_v3.py": {
+    "sha256": "4b331f510846da4db25deb1646c2ab8524b782eb717188cde29f913539dc4e43",
+    "source_archive_sha256": "3aee6c64f0e12a48b0278265c7ab9c8edd45b9aae842e4dae0a22f517fe15c58",
+    "source_member": "source/prepare_focused_v3.py"
+  },
+  "recipe-source/v3/run_focused_v3.py": {
+    "sha256": "d7e0bfd1185e3e2b5c6ab5c3647f2ac274d8606b42a6949bba45437a9952c655",
+    "source_archive_sha256": "3aee6c64f0e12a48b0278265c7ab9c8edd45b9aae842e4dae0a22f517fe15c58",
+    "source_member": "source/run_focused_v3.py"
+  },
+  "recipe-source/v3/test_focused_v3.py": {
+    "sha256": "e8bdca154f9a03fbcf234f67734636f44f28c47c6972695ae63e4764102b71ec",
+    "source_archive_sha256": "3aee6c64f0e12a48b0278265c7ab9c8edd45b9aae842e4dae0a22f517fe15c58",
+    "source_member": "source/test_focused_v3.py"
+  }
+}

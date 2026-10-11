@@ -1,0 +1,15 @@
+{
+  "job_id": 22697632,
+  "partition": "dev-g",
+  "gpu_count": 1,
+  "wall_time_limit": "01:00:00",
+  "remote_run": "/scratch/project_465002563/decision-models/kev-nesso2/runs/bilingual-all-v1/practical-v2-benchmark-comparison-v1",
+  "selected_model": "practical-v2/training/adapted-256",
+  "preflight": "passed",
+  "status": "completed",
+  "node": "nid007977",
+  "exit_code": "0:0",
+  "elapsed": "00:04:30",
+  "verified_archive_files": 35,
+  "archive_sha256": "941cb2e354f76d520fe54e3c4c14064cb04ee773f12f0a59caac828a9c6e32f6"
+}

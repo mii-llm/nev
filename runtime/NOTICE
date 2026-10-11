@@ -1,0 +1,52 @@
+Kev (Python distribution: decision-model)
+Licensed under the Apache License, Version 2.0.
+
+Software copyright notice
+Copyright 2026 Jared Palmer
+Licensed under the Apache License, Version 2.0.
+
+--------------------------------------------------------------------------------
+Qwen3-1.7B
+https://huggingface.co/Qwen/Qwen3-1.7B (revision 70d244cc86ccca08cf5af4e1e306ecf908b1ad5e)
+Copyright 2024 Alibaba Cloud
+Licensed under the Apache License, Version 2.0.
+
+The converted checkpoint is a modified version of this model: a trained LoRA adapter was merged into its weights, its
+language-model head is not included, and a decision head was added. The checkpoint directory carries the model's
+LICENSE file.
+
+--------------------------------------------------------------------------------
+Qwen3-4B and Qwen3-8B
+https://huggingface.co/Qwen/Qwen3-4B (revision 1cfa9a7208912126459214e8b04321603b3df60c)
+https://huggingface.co/Qwen/Qwen3-8B (revision b968826d9c46dd6066d109eabc6255188de91218)
+Copyright 2024 Alibaba Cloud
+Licensed under the Apache License, Version 2.0.
+
+The same conversion pipeline was also applied to these backbones. Any separately distributed converted checkpoint
+retains the parent's LICENSE and identifies the merged adapter and added decision head in its metadata.
+
+--------------------------------------------------------------------------------
+Datasets
+The training and evaluation corpora are prepared from public datasets whose repositories, revisions and recorded
+license terms are recorded in the generated data manifests during preparation.
+Those datasets retain their own terms; this repository's software license does not relicense them. Original dataset source
+texts are not distributed in this repository. The checkpoint contains no dataset files.
+
+--------------------------------------------------------------------------------
+Nesso2 Decision bilingual adaptation
+Parent: mii-llm/nesso2-0.4B-agentic
+Revision: 86d4bb76c0dd32b6f2e759734d6a0cb0eab9b041
+Parent model card metadata at that revision declares Apache-2.0.
+See parent-provenance.json for the revision-specific source. The parent repository
+does not contain a separate LICENSE file; this package includes the standard
+Apache-2.0 text and preserves the upstream Kev notices above. Qwen conversion
+notices describe upstream Kev history, not the parent of these Nesso2 weights.
+
+Modifications: Llama-compatible runtime; bilingual data/training support;
+English/Italian decision-head and LoRA training; two selected adaptation recipes.
+Merged exports modify the parent decoder and add a pointer head. They do not
+provide the parent's ordinary text-generation interface.
+
+Dataset texts retain their source terms. The software/model license does not
+relicense training datasets. This preparation package includes no raw third-party
+training or benchmark texts.

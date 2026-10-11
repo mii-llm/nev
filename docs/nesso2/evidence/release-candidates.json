@@ -1,0 +1,20 @@
+{
+  "status": "staged_draft",
+  "public_upload": false,
+  "models": {
+    "v2": {
+      "files": 94,
+      "bytes": 1778853555,
+      "file_manifest_sha256": "69a235075f44d63aa802b9a0a0eb55ff1a7e52d9ac8317f7a9bc399b810cc882",
+      "unchanged_core_files": 8
+    },
+    "v3": {
+      "files": 94,
+      "bytes": 1778847547,
+      "file_manifest_sha256": "69b168636e3fed435d8e9b416e238db1823a741a8cfeecdc73a9788393c2e650",
+      "unchanged_core_files": 8
+    }
+  },
+  "documentation_revision": 2,
+  "smoke_test": "passed: isolated package install and EN/IT examples for each model, using tested LUMI dependencies"
+}

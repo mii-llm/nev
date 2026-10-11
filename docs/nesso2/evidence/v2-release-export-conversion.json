@@ -1,0 +1,87 @@
+{
+  "scope": "V2 release preparation; no upload",
+  "release_preparation_manifest_sha256": "05dc40de25d86f938d84a089e98354e3fdc014886e05844a1cbadc002412cbd9",
+  "parent": {
+    "name": "mii-llm/nesso2-0.4B-agentic",
+    "revision": "86d4bb76c0dd32b6f2e759734d6a0cb0eab9b041"
+  },
+  "selected_checkpoint": {
+    "path": "/scratch/project_465002563/decision-models/kev-nesso2/runs/bilingual-all-v1/practical-pilot-v2/training/adapted-256",
+    "run": {
+      "additional_updates": 256,
+      "initialized_from": 74000,
+      "identity": {
+        "manifest_sha256": "fe80de46873b5e80247a20758f490c6568f34cab3fbc69c80afdcbe33ff0e850"
+      },
+      "parent": "mii-llm/nesso2-0.4B-agentic",
+      "revision": "86d4bb76c0dd32b6f2e759734d6a0cb0eab9b041",
+      "head_dim": 256,
+      "lora": {
+        "r": 16,
+        "alpha": 32,
+        "dropout": 0.05,
+        "targets": [
+          "q_proj",
+          "k_proj",
+          "v_proj",
+          "o_proj",
+          "gate_proj",
+          "up_proj",
+          "down_proj"
+        ]
+      },
+      "temperature": 1.0
+    }
+  },
+  "library_versions": {
+    "python": "3.12.3",
+    "torch": "2.10.0+rocm7.0_lumi_aif_20260807140531",
+    "transformers": "5.17.0",
+    "peft": "0.21.0",
+    "safetensors": "0.8.0",
+    "accelerate": "1.13.0",
+    "huggingface-hub": "1.27.0",
+    "pydantic": "2.13.4",
+    "fastapi": "0.141.1"
+  },
+  "exported_at": "2026-10-11T15:33:56.834632+00:00",
+  "export_dtype": "float32",
+  "export_equivalence": {
+    "requests": 11,
+    "questions": 16,
+    "conditions": {
+      "fp32_tolerance_justification": "fp32 gate 3e-5: on inputs of ~1,000+ tokens each fp32 path sits up to 1.2e-5 from an fp64 reference (fp64 packed vs rows agree to 2.7e-7), so fp32 paths differ by up to 2e-5 from rounding, not logic",
+      "form": "cached",
+      "temperature": 1.0,
+      "device": "cuda",
+      "deployed_dtype": "float32",
+      "NVIDIA_TF32_OVERRIDE": null,
+      "tf32_matmul": false
+    },
+    "pre_merge_vs_merged_fp32": {
+      "max_abs_dp": 3.3974647521972656e-06,
+      "tolerance": 3e-05,
+      "argmax_changes": []
+    },
+    "merged_in_memory_vs_reloaded_same_dtype": {
+      "max_abs_dp": 0.0,
+      "tolerance": 0.001,
+      "argmax_changes": []
+    },
+    "merged_fp32_vs_reloaded": {
+      "max_abs_dp": 0.0,
+      "gated": false,
+      "argmax_changes": [],
+      "note": "fp32 -> deployed-dtype arithmetic difference; measured, not a tolerance"
+    },
+    "reload_env": {
+      "HF_HUB_OFFLINE": "1",
+      "TRANSFORMERS_OFFLINE": "1",
+      "HF_HOME": "/scratch/project_465002563/decision-models/kev-nesso2/tmp/tmplhayw4s6/hf_home"
+    },
+    "reloaded_layers": 32,
+    "artifact_bytes": 1770268398,
+    "artifact_bytes_note": "all artifact files except conversion.json"
+  },
+  "parent_license_copied": false
+}

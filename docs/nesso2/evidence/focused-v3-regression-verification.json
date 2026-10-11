@@ -1,0 +1,12 @@
+{
+  "archive_sha256": "343ff137a7bb7d6b714c68377d8427cd0accd35b7352bbf6b5984b7da36fed4b",
+  "verified_files": 70,
+  "job": 22714887,
+  "checks": [
+    "archive/file/source hashes",
+    "manifest identity",
+    "per-case correctness",
+    "recomputed model metrics",
+    "recomputed export correctness transitions"
+  ]
+}

@@ -1,0 +1,1399 @@
+{
+  "status": "complete",
+  "scope": "Actual FP32 exports / BF16 autocast; reused bilingual diagnostic panels",
+  "panels": {
+    "okapi": {
+      "full": {
+        "v2_export": {
+          "overall": {
+            "n": 1256,
+            "answered": 1256,
+            "correct": 398,
+            "accuracy": 0.31687898089171973,
+            "chance": 0.2501326963906582
+          },
+          "by_language": {
+            "en": {
+              "n": 628,
+              "answered": 628,
+              "correct": 200,
+              "accuracy": 0.3184713375796178,
+              "chance": 0.2501326963906582,
+              "task_macro_accuracy": 0.31859649122807016
+            },
+            "it": {
+              "n": 628,
+              "answered": 628,
+              "correct": 198,
+              "accuracy": 0.31528662420382164,
+              "chance": 0.2501326963906582,
+              "task_macro_accuracy": 0.31485380116959066
+            }
+          },
+          "cells": {
+            "ARC-Challenge/en": {
+              "n": 200,
+              "answered": 200,
+              "correct": 62,
+              "accuracy": 0.31,
+              "chance": 0.2504166666666667
+            },
+            "ARC-Challenge/it": {
+              "n": 200,
+              "answered": 200,
+              "correct": 58,
+              "accuracy": 0.29,
+              "chance": 0.2504166666666667
+            },
+            "HellaSwag/en": {
+              "n": 200,
+              "answered": 200,
+              "correct": 66,
+              "accuracy": 0.33,
+              "chance": 0.25
+            },
+            "HellaSwag/it": {
+              "n": 200,
+              "answered": 200,
+              "correct": 66,
+              "accuracy": 0.33,
+              "chance": 0.25
+            },
+            "MMLU/en": {
+              "n": 228,
+              "answered": 228,
+              "correct": 72,
+              "accuracy": 0.3157894736842105,
+              "chance": 0.25
+            },
+            "MMLU/it": {
+              "n": 228,
+              "answered": 228,
+              "correct": 74,
+              "accuracy": 0.32456140350877194,
+              "chance": 0.25
+            }
+          }
+        },
+        "v3_export": {
+          "overall": {
+            "n": 1256,
+            "answered": 1256,
+            "correct": 395,
+            "accuracy": 0.3144904458598726,
+            "chance": 0.2501326963906582
+          },
+          "by_language": {
+            "en": {
+              "n": 628,
+              "answered": 628,
+              "correct": 193,
+              "accuracy": 0.3073248407643312,
+              "chance": 0.2501326963906582,
+              "task_macro_accuracy": 0.3067251461988304
+            },
+            "it": {
+              "n": 628,
+              "answered": 628,
+              "correct": 202,
+              "accuracy": 0.321656050955414,
+              "chance": 0.2501326963906582,
+              "task_macro_accuracy": 0.3215204678362573
+            }
+          },
+          "cells": {
+            "ARC-Challenge/en": {
+              "n": 200,
+              "answered": 200,
+              "correct": 61,
+              "accuracy": 0.305,
+              "chance": 0.2504166666666667
+            },
+            "ARC-Challenge/it": {
+              "n": 200,
+              "answered": 200,
+              "correct": 62,
+              "accuracy": 0.31,
+              "chance": 0.2504166666666667
+            },
+            "HellaSwag/en": {
+              "n": 200,
+              "answered": 200,
+              "correct": 59,
+              "accuracy": 0.295,
+              "chance": 0.25
+            },
+            "HellaSwag/it": {
+              "n": 200,
+              "answered": 200,
+              "correct": 66,
+              "accuracy": 0.33,
+              "chance": 0.25
+            },
+            "MMLU/en": {
+              "n": 228,
+              "answered": 228,
+              "correct": 73,
+              "accuracy": 0.3201754385964912,
+              "chance": 0.25
+            },
+            "MMLU/it": {
+              "n": 228,
+              "answered": 228,
+              "correct": 74,
+              "accuracy": 0.32456140350877194,
+              "chance": 0.25
+            }
+          }
+        },
+        "laya": {
+          "overall": {
+            "n": 1256,
+            "answered": 1083,
+            "correct": 307,
+            "accuracy": 0.2444267515923567,
+            "chance": 0.2501326963906582
+          },
+          "by_language": {
+            "en": {
+              "n": 628,
+              "answered": 570,
+              "correct": 168,
+              "accuracy": 0.267515923566879,
+              "chance": 0.2501326963906582,
+              "task_macro_accuracy": 0.2648538011695906
+            },
+            "it": {
+              "n": 628,
+              "answered": 513,
+              "correct": 139,
+              "accuracy": 0.2213375796178344,
+              "chance": 0.2501326963906582,
+              "task_macro_accuracy": 0.22
+            }
+          },
+          "cells": {
+            "ARC-Challenge/en": {
+              "n": 200,
+              "answered": 200,
+              "correct": 53,
+              "accuracy": 0.265,
+              "chance": 0.2504166666666667
+            },
+            "ARC-Challenge/it": {
+              "n": 200,
+              "answered": 200,
+              "correct": 60,
+              "accuracy": 0.3,
+              "chance": 0.2504166666666667
+            },
+            "HellaSwag/en": {
+              "n": 200,
+              "answered": 142,
+              "correct": 41,
+              "accuracy": 0.205,
+              "chance": 0.25
+            },
+            "HellaSwag/it": {
+              "n": 200,
+              "answered": 88,
+              "correct": 22,
+              "accuracy": 0.11,
+              "chance": 0.25
+            },
+            "MMLU/en": {
+              "n": 228,
+              "answered": 228,
+              "correct": 74,
+              "accuracy": 0.32456140350877194,
+              "chance": 0.25
+            },
+            "MMLU/it": {
+              "n": 228,
+              "answered": 225,
+              "correct": 57,
+              "accuracy": 0.25,
+              "chance": 0.25
+            }
+          }
+        }
+      },
+      "common_bilingual": {
+        "v2_export": {
+          "overall": {
+            "n": 1026,
+            "answered": 1026,
+            "correct": 320,
+            "accuracy": 0.31189083820662766,
+            "chance": 0.2501624431448993
+          },
+          "by_language": {
+            "en": {
+              "n": 513,
+              "answered": 513,
+              "correct": 160,
+              "accuracy": 0.31189083820662766,
+              "chance": 0.2501624431448993,
+              "task_macro_accuracy": 0.3107912457912458
+            },
+            "it": {
+              "n": 513,
+              "answered": 513,
+              "correct": 160,
+              "accuracy": 0.31189083820662766,
+              "chance": 0.2501624431448993,
+              "task_macro_accuracy": 0.31696969696969696
+            }
+          },
+          "cells": {
+            "ARC-Challenge/en": {
+              "n": 200,
+              "answered": 200,
+              "correct": 62,
+              "accuracy": 0.31,
+              "chance": 0.2504166666666667
+            },
+            "ARC-Challenge/it": {
+              "n": 200,
+              "answered": 200,
+              "correct": 58,
+              "accuracy": 0.29,
+              "chance": 0.2504166666666667
+            },
+            "HellaSwag/en": {
+              "n": 88,
+              "answered": 88,
+              "correct": 27,
+              "accuracy": 0.3068181818181818,
+              "chance": 0.25
+            },
+            "HellaSwag/it": {
+              "n": 88,
+              "answered": 88,
+              "correct": 30,
+              "accuracy": 0.3409090909090909,
+              "chance": 0.25
+            },
+            "MMLU/en": {
+              "n": 225,
+              "answered": 225,
+              "correct": 71,
+              "accuracy": 0.31555555555555553,
+              "chance": 0.25
+            },
+            "MMLU/it": {
+              "n": 225,
+              "answered": 225,
+              "correct": 72,
+              "accuracy": 0.32,
+              "chance": 0.25
+            }
+          }
+        },
+        "v3_export": {
+          "overall": {
+            "n": 1026,
+            "answered": 1026,
+            "correct": 323,
+            "accuracy": 0.3148148148148148,
+            "chance": 0.2501624431448993
+          },
+          "by_language": {
+            "en": {
+              "n": 513,
+              "answered": 513,
+              "correct": 156,
+              "accuracy": 0.30409356725146197,
+              "chance": 0.2501624431448993,
+              "task_macro_accuracy": 0.2977609427609427
+            },
+            "it": {
+              "n": 513,
+              "answered": 513,
+              "correct": 167,
+              "accuracy": 0.3255360623781676,
+              "chance": 0.2501624431448993,
+              "task_macro_accuracy": 0.33499999999999996
+            }
+          },
+          "cells": {
+            "ARC-Challenge/en": {
+              "n": 200,
+              "answered": 200,
+              "correct": 61,
+              "accuracy": 0.305,
+              "chance": 0.2504166666666667
+            },
+            "ARC-Challenge/it": {
+              "n": 200,
+              "answered": 200,
+              "correct": 62,
+              "accuracy": 0.31,
+              "chance": 0.2504166666666667
+            },
+            "HellaSwag/en": {
+              "n": 88,
+              "answered": 88,
+              "correct": 24,
+              "accuracy": 0.2727272727272727,
+              "chance": 0.25
+            },
+            "HellaSwag/it": {
+              "n": 88,
+              "answered": 88,
+              "correct": 33,
+              "accuracy": 0.375,
+              "chance": 0.25
+            },
+            "MMLU/en": {
+              "n": 225,
+              "answered": 225,
+              "correct": 71,
+              "accuracy": 0.31555555555555553,
+              "chance": 0.25
+            },
+            "MMLU/it": {
+              "n": 225,
+              "answered": 225,
+              "correct": 72,
+              "accuracy": 0.32,
+              "chance": 0.25
+            }
+          }
+        },
+        "laya": {
+          "overall": {
+            "n": 1026,
+            "answered": 1026,
+            "correct": 293,
+            "accuracy": 0.2855750487329435,
+            "chance": 0.2501624431448993
+          },
+          "by_language": {
+            "en": {
+              "n": 513,
+              "answered": 513,
+              "correct": 154,
+              "accuracy": 0.3001949317738791,
+              "chance": 0.2501624431448993,
+              "task_macro_accuracy": 0.3025420875420875
+            },
+            "it": {
+              "n": 513,
+              "answered": 513,
+              "correct": 139,
+              "accuracy": 0.2709551656920078,
+              "chance": 0.2501624431448993,
+              "task_macro_accuracy": 0.2677777777777778
+            }
+          },
+          "cells": {
+            "ARC-Challenge/en": {
+              "n": 200,
+              "answered": 200,
+              "correct": 53,
+              "accuracy": 0.265,
+              "chance": 0.2504166666666667
+            },
+            "ARC-Challenge/it": {
+              "n": 200,
+              "answered": 200,
+              "correct": 60,
+              "accuracy": 0.3,
+              "chance": 0.2504166666666667
+            },
+            "HellaSwag/en": {
+              "n": 88,
+              "answered": 88,
+              "correct": 28,
+              "accuracy": 0.3181818181818182,
+              "chance": 0.25
+            },
+            "HellaSwag/it": {
+              "n": 88,
+              "answered": 88,
+              "correct": 22,
+              "accuracy": 0.25,
+              "chance": 0.25
+            },
+            "MMLU/en": {
+              "n": 225,
+              "answered": 225,
+              "correct": 73,
+              "accuracy": 0.3244444444444444,
+              "chance": 0.25
+            },
+            "MMLU/it": {
+              "n": 225,
+              "answered": 225,
+              "correct": 57,
+              "accuracy": 0.25333333333333335,
+              "chance": 0.25
+            }
+          }
+        }
+      },
+      "common_bilingual_requests": 1026,
+      "full_requests": 1256,
+      "common_ids_sha256": "d2bbffa21e4d702bd4834216a72e0df63d9353b52fb761ba9cb6ef8581d59dee"
+    },
+    "decision_index": {
+      "full": {
+        "v2_export": {
+          "overall": {
+            "n": 902,
+            "answered": 895,
+            "correct": 253,
+            "accuracy": 0.2804878048780488,
+            "chance": 0.19623059866962306
+          },
+          "by_language": {
+            "en": {
+              "n": 451,
+              "answered": 450,
+              "correct": 125,
+              "accuracy": 0.2771618625277162,
+              "chance": 0.19623059866962306,
+              "task_macro_accuracy": 0.2776747608535688
+            },
+            "it": {
+              "n": 451,
+              "answered": 445,
+              "correct": 128,
+              "accuracy": 0.2838137472283814,
+              "chance": 0.19623059866962306,
+              "task_macro_accuracy": 0.2842972774098602
+            }
+          },
+          "cells": {
+            "ANLI/en": {
+              "n": 150,
+              "answered": 150,
+              "correct": 46,
+              "accuracy": 0.30666666666666664,
+              "chance": 0.3333333333333333
+            },
+            "ANLI/it": {
+              "n": 150,
+              "answered": 150,
+              "correct": 57,
+              "accuracy": 0.38,
+              "chance": 0.3333333333333333
+            },
+            "CLINC150+OOS/en": {
+              "n": 151,
+              "answered": 151,
+              "correct": 7,
+              "accuracy": 0.046357615894039736,
+              "chance": 0.006622516556291391
+            },
+            "CLINC150+OOS/it": {
+              "n": 151,
+              "answered": 151,
+              "correct": 10,
+              "accuracy": 0.06622516556291391,
+              "chance": 0.006622516556291391
+            },
+            "When2Call MCQ/en": {
+              "n": 150,
+              "answered": 149,
+              "correct": 72,
+              "accuracy": 0.48,
+              "chance": 0.25
+            },
+            "When2Call MCQ/it": {
+              "n": 150,
+              "answered": 144,
+              "correct": 61,
+              "accuracy": 0.4066666666666667,
+              "chance": 0.25
+            }
+          }
+        },
+        "v3_export": {
+          "overall": {
+            "n": 902,
+            "answered": 895,
+            "correct": 256,
+            "accuracy": 0.2838137472283814,
+            "chance": 0.19623059866962306
+          },
+          "by_language": {
+            "en": {
+              "n": 451,
+              "answered": 450,
+              "correct": 122,
+              "accuracy": 0.270509977827051,
+              "chance": 0.19623059866962306,
+              "task_macro_accuracy": 0.2709933774834437
+            },
+            "it": {
+              "n": 451,
+              "answered": 445,
+              "correct": 134,
+              "accuracy": 0.29711751662971175,
+              "chance": 0.19623059866962306,
+              "task_macro_accuracy": 0.2974981604120677
+            }
+          },
+          "cells": {
+            "ANLI/en": {
+              "n": 150,
+              "answered": 150,
+              "correct": 45,
+              "accuracy": 0.3,
+              "chance": 0.3333333333333333
+            },
+            "ANLI/it": {
+              "n": 150,
+              "answered": 150,
+              "correct": 57,
+              "accuracy": 0.38,
+              "chance": 0.3333333333333333
+            },
+            "CLINC150+OOS/en": {
+              "n": 151,
+              "answered": 151,
+              "correct": 8,
+              "accuracy": 0.052980132450331126,
+              "chance": 0.006622516556291391
+            },
+            "CLINC150+OOS/it": {
+              "n": 151,
+              "answered": 151,
+              "correct": 19,
+              "accuracy": 0.12582781456953643,
+              "chance": 0.006622516556291391
+            },
+            "When2Call MCQ/en": {
+              "n": 150,
+              "answered": 149,
+              "correct": 69,
+              "accuracy": 0.46,
+              "chance": 0.25
+            },
+            "When2Call MCQ/it": {
+              "n": 150,
+              "answered": 144,
+              "correct": 58,
+              "accuracy": 0.38666666666666666,
+              "chance": 0.25
+            }
+          }
+        },
+        "laya": {
+          "overall": {
+            "n": 902,
+            "answered": 778,
+            "correct": 240,
+            "accuracy": 0.2660753880266075,
+            "chance": 0.19623059866962306
+          },
+          "by_language": {
+            "en": {
+              "n": 451,
+              "answered": 396,
+              "correct": 119,
+              "accuracy": 0.2638580931263858,
+              "chance": 0.19623059866962306,
+              "task_macro_accuracy": 0.26385577630610746
+            },
+            "it": {
+              "n": 451,
+              "answered": 382,
+              "correct": 121,
+              "accuracy": 0.2682926829268293,
+              "chance": 0.19623059866962306,
+              "task_macro_accuracy": 0.268270787343635
+            }
+          },
+          "cells": {
+            "ANLI/en": {
+              "n": 150,
+              "answered": 150,
+              "correct": 65,
+              "accuracy": 0.43333333333333335,
+              "chance": 0.3333333333333333
+            },
+            "ANLI/it": {
+              "n": 150,
+              "answered": 150,
+              "correct": 60,
+              "accuracy": 0.4,
+              "chance": 0.3333333333333333
+            },
+            "CLINC150+OOS/en": {
+              "n": 151,
+              "answered": 151,
+              "correct": 40,
+              "accuracy": 0.26490066225165565,
+              "chance": 0.006622516556291391
+            },
+            "CLINC150+OOS/it": {
+              "n": 151,
+              "answered": 151,
+              "correct": 42,
+              "accuracy": 0.2781456953642384,
+              "chance": 0.006622516556291391
+            },
+            "When2Call MCQ/en": {
+              "n": 150,
+              "answered": 95,
+              "correct": 14,
+              "accuracy": 0.09333333333333334,
+              "chance": 0.25
+            },
+            "When2Call MCQ/it": {
+              "n": 150,
+              "answered": 81,
+              "correct": 19,
+              "accuracy": 0.12666666666666668,
+              "chance": 0.25
+            }
+          }
+        }
+      },
+      "common_bilingual": {
+        "v2_export": {
+          "overall": {
+            "n": 756,
+            "answered": 756,
+            "correct": 188,
+            "accuracy": 0.24867724867724866,
+            "chance": 0.18584656084656084
+          },
+          "by_language": {
+            "en": {
+              "n": 378,
+              "answered": 378,
+              "correct": 91,
+              "accuracy": 0.24074074074074073,
+              "chance": 0.18584656084656084,
+              "task_macro_accuracy": 0.2821769253557333
+            },
+            "it": {
+              "n": 378,
+              "answered": 378,
+              "correct": 97,
+              "accuracy": 0.2566137566137566,
+              "chance": 0.18584656084656084,
+              "task_macro_accuracy": 0.27861185172443453
+            }
+          },
+          "cells": {
+            "ANLI/en": {
+              "n": 150,
+              "answered": 150,
+              "correct": 46,
+              "accuracy": 0.30666666666666664,
+              "chance": 0.3333333333333333
+            },
+            "ANLI/it": {
+              "n": 150,
+              "answered": 150,
+              "correct": 57,
+              "accuracy": 0.38,
+              "chance": 0.3333333333333333
+            },
+            "CLINC150+OOS/en": {
+              "n": 151,
+              "answered": 151,
+              "correct": 7,
+              "accuracy": 0.046357615894039736,
+              "chance": 0.006622516556291391
+            },
+            "CLINC150+OOS/it": {
+              "n": 151,
+              "answered": 151,
+              "correct": 10,
+              "accuracy": 0.06622516556291391,
+              "chance": 0.006622516556291391
+            },
+            "When2Call MCQ/en": {
+              "n": 77,
+              "answered": 77,
+              "correct": 38,
+              "accuracy": 0.4935064935064935,
+              "chance": 0.25
+            },
+            "When2Call MCQ/it": {
+              "n": 77,
+              "answered": 77,
+              "correct": 30,
+              "accuracy": 0.38961038961038963,
+              "chance": 0.25
+            }
+          }
+        },
+        "v3_export": {
+          "overall": {
+            "n": 756,
+            "answered": 756,
+            "correct": 195,
+            "accuracy": 0.25793650793650796,
+            "chance": 0.18584656084656084
+          },
+          "by_language": {
+            "en": {
+              "n": 378,
+              "answered": 378,
+              "correct": 90,
+              "accuracy": 0.23809523809523808,
+              "chance": 0.18584656084656084,
+              "task_macro_accuracy": 0.2778332043232706
+            },
+            "it": {
+              "n": 378,
+              "answered": 378,
+              "correct": 105,
+              "accuracy": 0.2777777777777778,
+              "chance": 0.18584656084656084,
+              "task_macro_accuracy": 0.29415039706430435
+            }
+          },
+          "cells": {
+            "ANLI/en": {
+              "n": 150,
+              "answered": 150,
+              "correct": 45,
+              "accuracy": 0.3,
+              "chance": 0.3333333333333333
+            },
+            "ANLI/it": {
+              "n": 150,
+              "answered": 150,
+              "correct": 57,
+              "accuracy": 0.38,
+              "chance": 0.3333333333333333
+            },
+            "CLINC150+OOS/en": {
+              "n": 151,
+              "answered": 151,
+              "correct": 8,
+              "accuracy": 0.052980132450331126,
+              "chance": 0.006622516556291391
+            },
+            "CLINC150+OOS/it": {
+              "n": 151,
+              "answered": 151,
+              "correct": 19,
+              "accuracy": 0.12582781456953643,
+              "chance": 0.006622516556291391
+            },
+            "When2Call MCQ/en": {
+              "n": 77,
+              "answered": 77,
+              "correct": 37,
+              "accuracy": 0.4805194805194805,
+              "chance": 0.25
+            },
+            "When2Call MCQ/it": {
+              "n": 77,
+              "answered": 77,
+              "correct": 29,
+              "accuracy": 0.37662337662337664,
+              "chance": 0.25
+            }
+          }
+        },
+        "laya": {
+          "overall": {
+            "n": 756,
+            "answered": 756,
+            "correct": 235,
+            "accuracy": 0.31084656084656087,
+            "chance": 0.18584656084656084
+          },
+          "by_language": {
+            "en": {
+              "n": 378,
+              "answered": 378,
+              "correct": 114,
+              "accuracy": 0.30158730158730157,
+              "chance": 0.18584656084656084,
+              "task_macro_accuracy": 0.2717057041560353
+            },
+            "it": {
+              "n": 378,
+              "answered": 378,
+              "correct": 121,
+              "accuracy": 0.3201058201058201,
+              "chance": 0.18584656084656084,
+              "task_macro_accuracy": 0.30829964737249504
+            }
+          },
+          "cells": {
+            "ANLI/en": {
+              "n": 150,
+              "answered": 150,
+              "correct": 65,
+              "accuracy": 0.43333333333333335,
+              "chance": 0.3333333333333333
+            },
+            "ANLI/it": {
+              "n": 150,
+              "answered": 150,
+              "correct": 60,
+              "accuracy": 0.4,
+              "chance": 0.3333333333333333
+            },
+            "CLINC150+OOS/en": {
+              "n": 151,
+              "answered": 151,
+              "correct": 40,
+              "accuracy": 0.26490066225165565,
+              "chance": 0.006622516556291391
+            },
+            "CLINC150+OOS/it": {
+              "n": 151,
+              "answered": 151,
+              "correct": 42,
+              "accuracy": 0.2781456953642384,
+              "chance": 0.006622516556291391
+            },
+            "When2Call MCQ/en": {
+              "n": 77,
+              "answered": 77,
+              "correct": 9,
+              "accuracy": 0.11688311688311688,
+              "chance": 0.25
+            },
+            "When2Call MCQ/it": {
+              "n": 77,
+              "answered": 77,
+              "correct": 19,
+              "accuracy": 0.24675324675324675,
+              "chance": 0.25
+            }
+          }
+        }
+      },
+      "common_bilingual_requests": 756,
+      "full_requests": 902,
+      "common_ids_sha256": "a067f4f84954f18fb4620dd7730cefe2b490615496b3c9f8e9087d497935e2ed"
+    },
+    "practical_v2": {
+      "full": {
+        "v2_export": {
+          "overall": {
+            "n": 2048,
+            "answered": 2048,
+            "correct": 918,
+            "accuracy": 0.4482421875,
+            "chance": 0.35416666666666663
+          },
+          "by_language": {
+            "en": {
+              "n": 1024,
+              "answered": 1024,
+              "correct": 452,
+              "accuracy": 0.44140625,
+              "chance": 0.35416666666666663,
+              "task_macro_accuracy": 0.44140625
+            },
+            "it": {
+              "n": 1024,
+              "answered": 1024,
+              "correct": 466,
+              "accuracy": 0.455078125,
+              "chance": 0.35416666666666663,
+              "task_macro_accuracy": 0.455078125
+            }
+          },
+          "cells": {
+            "practical_escalation/en": {
+              "n": 256,
+              "answered": 256,
+              "correct": 133,
+              "accuracy": 0.51953125,
+              "chance": 0.5
+            },
+            "practical_escalation/it": {
+              "n": 256,
+              "answered": 256,
+              "correct": 132,
+              "accuracy": 0.515625,
+              "chance": 0.5
+            },
+            "practical_refund/en": {
+              "n": 256,
+              "answered": 256,
+              "correct": 157,
+              "accuracy": 0.61328125,
+              "chance": 0.3333333333333333
+            },
+            "practical_refund/it": {
+              "n": 256,
+              "answered": 256,
+              "correct": 135,
+              "accuracy": 0.52734375,
+              "chance": 0.3333333333333333
+            },
+            "practical_routing/en": {
+              "n": 256,
+              "answered": 256,
+              "correct": 76,
+              "accuracy": 0.296875,
+              "chance": 0.25
+            },
+            "practical_routing/it": {
+              "n": 256,
+              "answered": 256,
+              "correct": 89,
+              "accuracy": 0.34765625,
+              "chance": 0.25
+            },
+            "practical_urgency/en": {
+              "n": 256,
+              "answered": 256,
+              "correct": 86,
+              "accuracy": 0.3359375,
+              "chance": 0.3333333333333333
+            },
+            "practical_urgency/it": {
+              "n": 256,
+              "answered": 256,
+              "correct": 110,
+              "accuracy": 0.4296875,
+              "chance": 0.3333333333333333
+            }
+          }
+        },
+        "v3_export": {
+          "overall": {
+            "n": 2048,
+            "answered": 2048,
+            "correct": 976,
+            "accuracy": 0.4765625,
+            "chance": 0.35416666666666663
+          },
+          "by_language": {
+            "en": {
+              "n": 1024,
+              "answered": 1024,
+              "correct": 499,
+              "accuracy": 0.4873046875,
+              "chance": 0.35416666666666663,
+              "task_macro_accuracy": 0.4873046875
+            },
+            "it": {
+              "n": 1024,
+              "answered": 1024,
+              "correct": 477,
+              "accuracy": 0.4658203125,
+              "chance": 0.35416666666666663,
+              "task_macro_accuracy": 0.4658203125
+            }
+          },
+          "cells": {
+            "practical_escalation/en": {
+              "n": 256,
+              "answered": 256,
+              "correct": 137,
+              "accuracy": 0.53515625,
+              "chance": 0.5
+            },
+            "practical_escalation/it": {
+              "n": 256,
+              "answered": 256,
+              "correct": 131,
+              "accuracy": 0.51171875,
+              "chance": 0.5
+            },
+            "practical_refund/en": {
+              "n": 256,
+              "answered": 256,
+              "correct": 135,
+              "accuracy": 0.52734375,
+              "chance": 0.3333333333333333
+            },
+            "practical_refund/it": {
+              "n": 256,
+              "answered": 256,
+              "correct": 129,
+              "accuracy": 0.50390625,
+              "chance": 0.3333333333333333
+            },
+            "practical_routing/en": {
+              "n": 256,
+              "answered": 256,
+              "correct": 141,
+              "accuracy": 0.55078125,
+              "chance": 0.25
+            },
+            "practical_routing/it": {
+              "n": 256,
+              "answered": 256,
+              "correct": 120,
+              "accuracy": 0.46875,
+              "chance": 0.25
+            },
+            "practical_urgency/en": {
+              "n": 256,
+              "answered": 256,
+              "correct": 86,
+              "accuracy": 0.3359375,
+              "chance": 0.3333333333333333
+            },
+            "practical_urgency/it": {
+              "n": 256,
+              "answered": 256,
+              "correct": 97,
+              "accuracy": 0.37890625,
+              "chance": 0.3333333333333333
+            }
+          }
+        },
+        "laya": {
+          "overall": {
+            "n": 2048,
+            "answered": 2048,
+            "correct": 847,
+            "accuracy": 0.41357421875,
+            "chance": 0.35416666666666663
+          },
+          "by_language": {
+            "en": {
+              "n": 1024,
+              "answered": 1024,
+              "correct": 447,
+              "accuracy": 0.4365234375,
+              "chance": 0.35416666666666663,
+              "task_macro_accuracy": 0.4365234375
+            },
+            "it": {
+              "n": 1024,
+              "answered": 1024,
+              "correct": 400,
+              "accuracy": 0.390625,
+              "chance": 0.35416666666666663,
+              "task_macro_accuracy": 0.390625
+            }
+          },
+          "cells": {
+            "practical_escalation/en": {
+              "n": 256,
+              "answered": 256,
+              "correct": 116,
+              "accuracy": 0.453125,
+              "chance": 0.5
+            },
+            "practical_escalation/it": {
+              "n": 256,
+              "answered": 256,
+              "correct": 116,
+              "accuracy": 0.453125,
+              "chance": 0.5
+            },
+            "practical_refund/en": {
+              "n": 256,
+              "answered": 256,
+              "correct": 159,
+              "accuracy": 0.62109375,
+              "chance": 0.3333333333333333
+            },
+            "practical_refund/it": {
+              "n": 256,
+              "answered": 256,
+              "correct": 131,
+              "accuracy": 0.51171875,
+              "chance": 0.3333333333333333
+            },
+            "practical_routing/en": {
+              "n": 256,
+              "answered": 256,
+              "correct": 85,
+              "accuracy": 0.33203125,
+              "chance": 0.25
+            },
+            "practical_routing/it": {
+              "n": 256,
+              "answered": 256,
+              "correct": 69,
+              "accuracy": 0.26953125,
+              "chance": 0.25
+            },
+            "practical_urgency/en": {
+              "n": 256,
+              "answered": 256,
+              "correct": 87,
+              "accuracy": 0.33984375,
+              "chance": 0.3333333333333333
+            },
+            "practical_urgency/it": {
+              "n": 256,
+              "answered": 256,
+              "correct": 84,
+              "accuracy": 0.328125,
+              "chance": 0.3333333333333333
+            }
+          }
+        }
+      },
+      "common_bilingual": {
+        "v2_export": {
+          "overall": {
+            "n": 2048,
+            "answered": 2048,
+            "correct": 918,
+            "accuracy": 0.4482421875,
+            "chance": 0.35416666666666663
+          },
+          "by_language": {
+            "en": {
+              "n": 1024,
+              "answered": 1024,
+              "correct": 452,
+              "accuracy": 0.44140625,
+              "chance": 0.35416666666666663,
+              "task_macro_accuracy": 0.44140625
+            },
+            "it": {
+              "n": 1024,
+              "answered": 1024,
+              "correct": 466,
+              "accuracy": 0.455078125,
+              "chance": 0.35416666666666663,
+              "task_macro_accuracy": 0.455078125
+            }
+          },
+          "cells": {
+            "practical_escalation/en": {
+              "n": 256,
+              "answered": 256,
+              "correct": 133,
+              "accuracy": 0.51953125,
+              "chance": 0.5
+            },
+            "practical_escalation/it": {
+              "n": 256,
+              "answered": 256,
+              "correct": 132,
+              "accuracy": 0.515625,
+              "chance": 0.5
+            },
+            "practical_refund/en": {
+              "n": 256,
+              "answered": 256,
+              "correct": 157,
+              "accuracy": 0.61328125,
+              "chance": 0.3333333333333333
+            },
+            "practical_refund/it": {
+              "n": 256,
+              "answered": 256,
+              "correct": 135,
+              "accuracy": 0.52734375,
+              "chance": 0.3333333333333333
+            },
+            "practical_routing/en": {
+              "n": 256,
+              "answered": 256,
+              "correct": 76,
+              "accuracy": 0.296875,
+              "chance": 0.25
+            },
+            "practical_routing/it": {
+              "n": 256,
+              "answered": 256,
+              "correct": 89,
+              "accuracy": 0.34765625,
+              "chance": 0.25
+            },
+            "practical_urgency/en": {
+              "n": 256,
+              "answered": 256,
+              "correct": 86,
+              "accuracy": 0.3359375,
+              "chance": 0.3333333333333333
+            },
+            "practical_urgency/it": {
+              "n": 256,
+              "answered": 256,
+              "correct": 110,
+              "accuracy": 0.4296875,
+              "chance": 0.3333333333333333
+            }
+          }
+        },
+        "v3_export": {
+          "overall": {
+            "n": 2048,
+            "answered": 2048,
+            "correct": 976,
+            "accuracy": 0.4765625,
+            "chance": 0.35416666666666663
+          },
+          "by_language": {
+            "en": {
+              "n": 1024,
+              "answered": 1024,
+              "correct": 499,
+              "accuracy": 0.4873046875,
+              "chance": 0.35416666666666663,
+              "task_macro_accuracy": 0.4873046875
+            },
+            "it": {
+              "n": 1024,
+              "answered": 1024,
+              "correct": 477,
+              "accuracy": 0.4658203125,
+              "chance": 0.35416666666666663,
+              "task_macro_accuracy": 0.4658203125
+            }
+          },
+          "cells": {
+            "practical_escalation/en": {
+              "n": 256,
+              "answered": 256,
+              "correct": 137,
+              "accuracy": 0.53515625,
+              "chance": 0.5
+            },
+            "practical_escalation/it": {
+              "n": 256,
+              "answered": 256,
+              "correct": 131,
+              "accuracy": 0.51171875,
+              "chance": 0.5
+            },
+            "practical_refund/en": {
+              "n": 256,
+              "answered": 256,
+              "correct": 135,
+              "accuracy": 0.52734375,
+              "chance": 0.3333333333333333
+            },
+            "practical_refund/it": {
+              "n": 256,
+              "answered": 256,
+              "correct": 129,
+              "accuracy": 0.50390625,
+              "chance": 0.3333333333333333
+            },
+            "practical_routing/en": {
+              "n": 256,
+              "answered": 256,
+              "correct": 141,
+              "accuracy": 0.55078125,
+              "chance": 0.25
+            },
+            "practical_routing/it": {
+              "n": 256,
+              "answered": 256,
+              "correct": 120,
+              "accuracy": 0.46875,
+              "chance": 0.25
+            },
+            "practical_urgency/en": {
+              "n": 256,
+              "answered": 256,
+              "correct": 86,
+              "accuracy": 0.3359375,
+              "chance": 0.3333333333333333
+            },
+            "practical_urgency/it": {
+              "n": 256,
+              "answered": 256,
+              "correct": 97,
+              "accuracy": 0.37890625,
+              "chance": 0.3333333333333333
+            }
+          }
+        },
+        "laya": {
+          "overall": {
+            "n": 2048,
+            "answered": 2048,
+            "correct": 847,
+            "accuracy": 0.41357421875,
+            "chance": 0.35416666666666663
+          },
+          "by_language": {
+            "en": {
+              "n": 1024,
+              "answered": 1024,
+              "correct": 447,
+              "accuracy": 0.4365234375,
+              "chance": 0.35416666666666663,
+              "task_macro_accuracy": 0.4365234375
+            },
+            "it": {
+              "n": 1024,
+              "answered": 1024,
+              "correct": 400,
+              "accuracy": 0.390625,
+              "chance": 0.35416666666666663,
+              "task_macro_accuracy": 0.390625
+            }
+          },
+          "cells": {
+            "practical_escalation/en": {
+              "n": 256,
+              "answered": 256,
+              "correct": 116,
+              "accuracy": 0.453125,
+              "chance": 0.5
+            },
+            "practical_escalation/it": {
+              "n": 256,
+              "answered": 256,
+              "correct": 116,
+              "accuracy": 0.453125,
+              "chance": 0.5
+            },
+            "practical_refund/en": {
+              "n": 256,
+              "answered": 256,
+              "correct": 159,
+              "accuracy": 0.62109375,
+              "chance": 0.3333333333333333
+            },
+            "practical_refund/it": {
+              "n": 256,
+              "answered": 256,
+              "correct": 131,
+              "accuracy": 0.51171875,
+              "chance": 0.3333333333333333
+            },
+            "practical_routing/en": {
+              "n": 256,
+              "answered": 256,
+              "correct": 85,
+              "accuracy": 0.33203125,
+              "chance": 0.25
+            },
+            "practical_routing/it": {
+              "n": 256,
+              "answered": 256,
+              "correct": 69,
+              "accuracy": 0.26953125,
+              "chance": 0.25
+            },
+            "practical_urgency/en": {
+              "n": 256,
+              "answered": 256,
+              "correct": 87,
+              "accuracy": 0.33984375,
+              "chance": 0.3333333333333333
+            },
+            "practical_urgency/it": {
+              "n": 256,
+              "answered": 256,
+              "correct": 84,
+              "accuracy": 0.328125,
+              "chance": 0.3333333333333333
+            }
+          }
+        }
+      },
+      "common_bilingual_requests": 2048,
+      "full_requests": 2048,
+      "common_ids_sha256": "a73961f3e6b4b4c3fc30e46a08e604612e03814e2f7656d1d4e1313035c51686"
+    }
+  },
+  "source_archives_sha256": {
+    "v2-release-export.tar.gz": "eb49678c77af3e43b66146a4f69399901841e835efc753cf5f6a4a8473829a07",
+    "focused-v3-regression-completed.tar.gz": "343ff137a7bb7d6b714c68377d8427cd0accd35b7352bbf6b5984b7da36fed4b"
+  }
+}

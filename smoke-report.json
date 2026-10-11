@@ -1,0 +1,91 @@
+{
+  "status": "complete",
+  "scope": "Isolated pip installation and four actual example invocations on LUMI with existing tested dependencies; not a fresh machine or other GPU platform",
+  "offline": true,
+  "examples": {
+    "v2/en": {
+      "answers": {
+        "route": {
+          "type": "choice",
+          "choice": "shipping",
+          "top_probability": 0.9967166781425476,
+          "probabilities": {
+            "shipping": 0.9967166781425476,
+            "billing": 0.003058800706639886,
+            "account": 0.00022442768386099488
+          }
+        }
+      },
+      "usage": {
+        "state_tokens": 15,
+        "branch_tokens": 32,
+        "questions": 1
+      },
+      "latency_ms": 7940.824767982122,
+      "form": "cached"
+    },
+    "v2/it": {
+      "answers": {
+        "route": {
+          "type": "choice",
+          "choice": "shipping",
+          "top_probability": 0.9889163970947266,
+          "probabilities": {
+            "shipping": 0.9889163970947266,
+            "billing": 0.010593332350254059,
+            "account": 0.0004903473891317844
+          }
+        }
+      },
+      "usage": {
+        "state_tokens": 18,
+        "branch_tokens": 44,
+        "questions": 1
+      },
+      "latency_ms": 2378.8380500045605,
+      "form": "cached"
+    },
+    "v3/en": {
+      "answers": {
+        "route": {
+          "type": "choice",
+          "choice": "shipping",
+          "top_probability": 0.9976683259010315,
+          "probabilities": {
+            "shipping": 0.9976683259010315,
+            "billing": 0.0019129471620544791,
+            "account": 0.0004187762679066509
+          }
+        }
+      },
+      "usage": {
+        "state_tokens": 15,
+        "branch_tokens": 32,
+        "questions": 1
+      },
+      "latency_ms": 2552.807469968684,
+      "form": "cached"
+    },
+    "v3/it": {
+      "answers": {
+        "route": {
+          "type": "choice",
+          "choice": "shipping",
+          "top_probability": 0.9894605278968811,
+          "probabilities": {
+            "shipping": 0.9894605278968811,
+            "billing": 0.009423264302313328,
+            "account": 0.0011162152513861656
+          }
+        }
+      },
+      "usage": {
+        "state_tokens": 18,
+        "branch_tokens": 44,
+        "questions": 1
+      },
+      "latency_ms": 2435.1380800362676,
+      "form": "cached"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+transformers==5.17.0
+peft==0.21.0
+safetensors==0.8.0
+accelerate==1.13.0
+huggingface-hub==1.27.0
+pydantic==2.13.4
+numpy>=2
+datasets>=3
+pyyaml>=6
+fastapi==0.141.1
+uvicorn>=0.30

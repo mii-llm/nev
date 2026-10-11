@@ -1,0 +1,93 @@
+{
+  "status": "complete",
+  "selected": "adapted-512",
+  "argmax_changes_vs_adapter_bf16": 12,
+  "metrics": {
+    "overall": {
+      "n": 1024,
+      "accuracy": 0.5859375,
+      "nll": 1.029107509030462,
+      "ece_10": 0.04768009926221056,
+      "accepted": 0,
+      "coverage": 0.0,
+      "accepted_error_rate": null,
+      "accepted_error_wilson_upper": null,
+      "wrong_with_confidence_at_least_90pct": 3
+    },
+    "by_language": {
+      "en": {
+        "n": 512,
+        "accuracy": 0.546875,
+        "nll": 1.110280856575427,
+        "ece_10": 0.06532301131588848,
+        "accepted": 0,
+        "coverage": 0.0,
+        "accepted_error_rate": null,
+        "accepted_error_wilson_upper": null,
+        "wrong_with_confidence_at_least_90pct": 3
+      },
+      "it": {
+        "n": 512,
+        "accuracy": 0.625,
+        "nll": 0.9479341614854969,
+        "ece_10": 0.05753803512156172,
+        "accepted": 0,
+        "coverage": 0.0,
+        "accepted_error_rate": null,
+        "accepted_error_wilson_upper": null,
+        "wrong_with_confidence_at_least_90pct": 0
+      }
+    },
+    "by_task_language": {
+      "focused_intent/en": {
+        "n": 256,
+        "accuracy": 0.6171875,
+        "nll": 1.0812597302004432,
+        "ece_10": 0.084635361089138,
+        "accepted": 0,
+        "coverage": 0.0,
+        "accepted_error_rate": null,
+        "accepted_error_wilson_upper": null,
+        "wrong_with_confidence_at_least_90pct": 1
+      },
+      "focused_intent/it": {
+        "n": 256,
+        "accuracy": 0.73828125,
+        "nll": 0.7711897034062815,
+        "ece_10": 0.05716678820533483,
+        "accepted": 0,
+        "coverage": 0.0,
+        "accepted_error_rate": null,
+        "accepted_error_wilson_upper": null,
+        "wrong_with_confidence_at_least_90pct": 0
+      },
+      "focused_routing/en": {
+        "n": 256,
+        "accuracy": 0.4765625,
+        "nll": 1.1393019829504105,
+        "ece_10": 0.12029977648652808,
+        "accepted": 0,
+        "coverage": 0.0,
+        "accepted_error_rate": null,
+        "accepted_error_wilson_upper": null,
+        "wrong_with_confidence_at_least_90pct": 2
+      },
+      "focused_routing/it": {
+        "n": 256,
+        "accuracy": 0.51171875,
+        "nll": 1.1246786195647123,
+        "ece_10": 0.07693781779389676,
+        "accepted": 0,
+        "coverage": 0.0,
+        "accepted_error_rate": null,
+        "accepted_error_wilson_upper": null,
+        "wrong_with_confidence_at_least_90pct": 0
+      }
+    },
+    "macro_nll": 1.0291075090304618,
+    "macro_accuracy": 0.5859375
+  },
+  "dtype": "float32 parameters / bfloat16 autocast",
+  "release_ready": false,
+  "note": "Confidence policy and distribution-shift limitations still require review; no upload performed."
+}
