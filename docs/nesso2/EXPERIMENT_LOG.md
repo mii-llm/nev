@@ -511,3 +511,14 @@ independent evaluation.
 Before inspecting predictions, superseded job 22720790 to correct an irrelevant
 60-days-since-delivery default that contradicted missing-parcel cases; replaced
 with null, leaving answer keys unchanged. Correction provenance is retained.
+
+
+## 2026-10-11 — Consolidated project README
+
+Replaced the navigation-first README with a self-contained long-form account of
+Zagreus pretraining from scratch, Nesso2 knowledge/context/agentic stages, and
+Nev decision conversion, balanced bilingual training, adaptation experiments,
+actual-export comparisons, policy-following failures, inference and LUMI usage.
+Earlier-stage claims are attributed to the pinned Nesso2 card; retained decision
+metrics were checked against machine-readable evidence. Three deep-dive links
+remain, with historical documents preserved as supporting records.

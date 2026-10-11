@@ -36,8 +36,8 @@
     "sha256": "11600cde9b1fd1156b41f2d815bbb1d4c3e647b65c140a4b013aebb38fae8b8c"
   },
   "README.md": {
-    "bytes": 2796,
-    "sha256": "26fc4a36243044f447e6e623b7f78c1281507d79f5e231cf158bde3b966978c7"
+    "bytes": 33178,
+    "sha256": "ee197bb8ee822170ac02551d402cb28a7e50a0e1b9c94ebe2f250ba881832d41"
   },
   "SCENARIO_RESULTS.md": {
     "bytes": 2828,
@@ -56,8 +56,8 @@
     "sha256": "1119b75cda0724388e6569fb20f78ec324706bc086bc1d914baf7edd9f4339e7"
   },
   "docs/nesso2/EXPERIMENT_LOG.md": {
-    "bytes": 30161,
-    "sha256": "9adc5a8f80309ce97b3092416d0a0d9fbf1ff86c0091477b87e25ba02ae9b917"
+    "bytes": 30753,
+    "sha256": "00dc7ba69d92f3d03c0c53fbb39594f04a1972397a039d623d864cc7e1d8ae42"
   },
   "docs/nesso2/FOCUSED_V3.md": {
     "bytes": 5445,
@@ -210,6 +210,10 @@
   "docs/nesso2/evidence/practical-v2-training.json": {
     "bytes": 62778,
     "sha256": "4b538f52dc7a6d98f38a2d4157ab47e80a0e3d7a5402f4143c0341ed07d2c615"
+  },
+  "docs/nesso2/evidence/readme-consolidation.json": {
+    "bytes": 777,
+    "sha256": "fc0a8dee6a2bf73cf2914c02039dfc21b70fd5b0213bd7ddefcd660ca6a624f7"
   },
   "docs/nesso2/evidence/release-candidates.json": {
     "bytes": 614,

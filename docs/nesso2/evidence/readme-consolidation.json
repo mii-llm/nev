@@ -1,0 +1,9 @@
+{
+  "date": "2026-10-11",
+  "purpose": "Consolidate project narrative, lineage, training, experiments, results and usage into README with three deep-dive links",
+  "parent_card_url": "https://huggingface.co/mii-llm/nesso2-0.4B-agentic/blob/86d4bb76c0dd32b6f2e759734d6a0cb0eab9b041/README.md",
+  "parent_card_sha256": "edc08316c7902b7b14b4f042725aba99cf1ce9db57bfb7d818c2221c61d1c0e4",
+  "source_scope": "Earlier pretraining/CPT/context/SFT stages summarized from pinned parent card; decision-stage results from repository evidence",
+  "verified": "Actual-export task and common-support tables plus harder-scenario counts checked against JSON; local links checked",
+  "historical_documents": "Retained as supporting records; primary reader journey is the consolidated README"
+}
