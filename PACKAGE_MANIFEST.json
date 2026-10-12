@@ -384,12 +384,12 @@
     "sha256": "992f332b16e728dd25bc9bdaf847353a9e2aa7d0eec19ad894dbaa5d4f0b679c"
   },
   "experiments/hybrid_agent/README.md": {
-    "bytes": 6808,
-    "sha256": "e0005e774fdecaa674338042918a57529ba0053c0e1ca3aa2766a09e9692faf4"
+    "bytes": 7672,
+    "sha256": "bc835c1c7cad1ab49ecdd97072105d9d8f56dde4e79bb6995dbf7a7706e37a9b"
   },
   "experiments/hybrid_agent/agent.py": {
-    "bytes": 10422,
-    "sha256": "91e29040bfdd00f954640c999463835d6a00a6da57405c92b2182f999739b547"
+    "bytes": 10899,
+    "sha256": "55e19aafe91138d0b62542902aa09665be9f80823026cc37e6b311ad4573347c"
   },
   "experiments/hybrid_agent/analyze.py": {
     "bytes": 4040,
@@ -404,20 +404,20 @@
     "sha256": "d11a1fac0925e5d62e9542ebe3894441943ed856bddfa20c9a3156396c3bee57"
   },
   "experiments/hybrid_agent/demo.py": {
-    "bytes": 553,
-    "sha256": "3800ff6696c72faeb1c838f57b4fe8d88a1612f7b3ed62adfe35fd917bb499a5"
+    "bytes": 665,
+    "sha256": "9fb343c39ddb2145ba1e57d986ce8acff03f8aa71918efdd3bbb66df42701da2"
   },
   "experiments/hybrid_agent/design.json": {
-    "bytes": 1190,
-    "sha256": "34cc37f8e69077f57b1a16db4e48f9a62f21179d5a3e6e1a108fcbca642c08cf"
+    "bytes": 1936,
+    "sha256": "c98368d76898ba2701380d870a8bd093b00b2f6730385531903b0fc74e52a2cf"
   },
   "experiments/hybrid_agent/run_pilot.py": {
-    "bytes": 6391,
-    "sha256": "eae5c168c2ac199d3c18675e049ced499c48adb8a6d3964eaf94647e4575dedd"
+    "bytes": 6552,
+    "sha256": "7533efb1d697e6ed471c00d392113a0b9f0d0d28e3a7d738761da7cccd58a1d2"
   },
   "experiments/hybrid_agent/test_agent.py": {
-    "bytes": 2644,
-    "sha256": "d7f78d32e95e3a07d4639b41a2731cd608ac416c0499a7a4d63ce9d5b14e84d3"
+    "bytes": 3100,
+    "sha256": "f6fc80595985ad826f5e3758e4497b8c094d5ba841a0810f080b036136e98ba1"
   },
   "experiments/lumi/CHECKPOINT_EVAL_PLAN.md": {
     "bytes": 3484,

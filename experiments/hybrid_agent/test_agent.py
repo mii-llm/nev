@@ -1,9 +1,15 @@
 """CPU-only checks of the mock execution boundary and pilot scoring."""
 import unittest
-from agent import parse_calls, validate_call, mock_tool, TOOL_DATA
+from agent import parse_calls, validate_call, mock_tool, TOOL_DATA, schemas
 from run_pilot import score
 
 class BoundaryTests(unittest.TestCase):
+    def test_compact_schemas_change_display_only(self):
+        compact=schemas('en','compact')
+        self.assertNotIn('pattern',str(compact))
+        self.assertNotIn('additionalProperties',str(compact))
+        self.assertEqual([x['function']['name'] for x in compact],list(TOOL_DATA))
+        self.assertEqual(validate_call({'name':'get_order_status','arguments':{'order_id':'invented'}},list(TOOL_DATA),'invented'),'invalid_argument_value')
     def test_call_parser_rejects_mixed_and_malformed_content(self):
         call={'name':'get_invoice','arguments':{'order_id':'ORD-6101'}}
         import json

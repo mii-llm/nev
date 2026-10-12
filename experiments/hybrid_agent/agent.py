@@ -26,13 +26,22 @@ TOOL_DATA = {
 }
 
 
-def schemas(language):
-    return [{'type': 'function', 'function': {
+def schemas(language, style='validated'):
+    if style not in ('validated', 'compact'):
+        raise ValueError('Unknown schema style')
+    result = [{'type': 'function', 'function': {
         'name': name, 'description': row[3 if language == 'it' else 2],
         'parameters': {'type': 'object', 'properties': {
             row[0]: {'type': 'string', 'pattern': row[1]}},
             'required': [row[0]], 'additionalProperties': False}}}
         for name, row in TOOL_DATA.items()]
+    if style == 'compact':
+        for tool in result:
+            parameters = tool['function']['parameters']
+            parameters.pop('additionalProperties')
+            for spec in parameters['properties'].values():
+                spec.pop('pattern')
+    return result
 
 
 def parse_calls(text):
@@ -87,12 +96,13 @@ def mock_tool(call):
 
 
 class HybridAgent:
-    def __init__(self, memory_cap_gib=8):
+    def __init__(self, memory_cap_gib=8, schema_style='validated'):
         import torch
         from transformers import AutoModelForCausalLM, AutoTokenizer
         from huggingface_hub import snapshot_download
         from decision_model import DecisionModel
         self.torch = torch
+        self.schema_style = schema_style
         if not torch.cuda.is_available():
             raise RuntimeError('The A100 pilot requires CUDA')
         free, total = torch.cuda.mem_get_info()
@@ -145,7 +155,7 @@ class HybridAgent:
             raise ValueError('Unknown arm')
         if arm != 'nesso_only' and ranking is None:
             ranking = self.rank(message, language)
-        full = {s['function']['name']: s for s in schemas(language)}
+        full = {s['function']['name']: s for s in schemas(language, self.schema_style)}
         names = list(full) if arm == 'nesso_only' else ranking['names'][:2] if arm == 'nev_top2' else ranking['names']
         tools = [full[name] for name in names]
         context = ('Sei un assistente operativo. Usa gli strumenti disponibili quando serve.' if language=='it'

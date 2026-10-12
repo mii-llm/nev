@@ -57,6 +57,7 @@ def main():
     p.add_argument('--cases',type=Path,default=Path(__file__).with_name('cases.json'))
     p.add_argument('--output',type=Path,required=True)
     p.add_argument('--limit',type=int)
+    p.add_argument('--schema-style',choices=['validated','compact'],default='validated')
     a=p.parse_args()
     if a.output.exists():p.error('Choose a new output file')
     a.output.parent.mkdir(parents=True,exist_ok=True)
@@ -68,15 +69,15 @@ def main():
         'nev':{'repository':NEV_REPO,'revision':NEV_REVISION,'variant':'v3','precision':'fp32'},
         'cases_sha256':hashlib.sha256(a.cases.read_bytes()).hexdigest(),
         'source_sha256':{f:hashlib.sha256((source/f).read_bytes()).hexdigest() for f in ['agent.py','run_pilot.py']},
-        'tool_schemas':{lang:schemas(lang) for lang in ['en','it']},'python':platform.python_version(),
+        'tool_schemas':{lang:schemas(lang,a.schema_style) for lang in ['en','it']},'python':platform.python_version(),
         'settings':{'max_new_tokens_per_turn':192,'max_tool_rounds':3,'greedy':True,'memory_cap_gib':8,
-                    'arm_order_seed':20261012,'shortlist_size':2,'timing':'Resident models, shared GPU, synchronized wall clock; mock tool overhead only. Nev rank is computed once per case and its measured cost attributed to each hybrid arm.'},
+                    'schema_style':a.schema_style,'arm_order_seed':20261012,'shortlist_size':2,'timing':'Resident models, shared GPU, synchronized wall clock; mock tool overhead only. Nev rank is computed once per case and its measured cost attributed to each hybrid arm.'},
         'gpu_samples':[],'rows':[]}
     def sample_gpu():
         try:return subprocess.check_output(['nvidia-smi','--query-gpu=name,memory.used,utilization.gpu','--format=csv,noheader,nounits'],text=True,timeout=5).strip()
         except Exception:return 'unavailable'
     report['gpu_samples'].append(sample_gpu())
-    agent=HybridAgent()
+    agent=HybridAgent(schema_style=a.schema_style)
     import torch, transformers
     report.update(torch=torch.__version__,transformers=transformers.__version__,cuda=torch.version.cuda)
     # Separate engineering warmup; outputs are not scored.

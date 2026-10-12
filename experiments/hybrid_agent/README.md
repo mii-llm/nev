@@ -24,10 +24,10 @@ On the prepared A100:
 source ~/nev-a100/activate-nev.sh
 cd ~/nev-a100/source
 
-python experiments/hybrid_agent/demo.py --arm nev_top2 --language it \
+python experiments/hybrid_agent/demo.py --arm nev_top2 --schema-style compact --language it \
   --message "Puoi controllare la consegna di ORD-6101 e darmi il riferimento di tracciamento?"
 
-python experiments/hybrid_agent/demo.py --arm nesso_only --language en \
+python experiments/hybrid_agent/demo.py --arm nesso_only --schema-style compact --language en \
   --message "Please retrieve the invoice for ORD-6101 and tell me the filename."
 ```
 
@@ -102,7 +102,7 @@ business-rule engine. The model never sees gold labels or expected answer anchor
 
 ```bash
 python -m unittest discover -s experiments/hybrid_agent -p test_agent.py
-python experiments/hybrid_agent/run_pilot.py \
+python experiments/hybrid_agent/run_pilot.py --schema-style compact \
   --output "../results/hybrid-$(date +%Y%m%d-%H%M%S).json"
 ```
 
@@ -130,3 +130,17 @@ yet matched the question-mark/keyword check. A mechanical pass is not a
 human-verified completed task. A follow-up will check the model card's minimal
 schema format while keeping the same Python validation and frozen requests;
 that is a protocol comparison on reused cases, not a new independent test.
+
+## Compact-schema protocol follow-up
+
+`--schema-style compact` removes `pattern` and `additionalProperties` from the
+model-visible schemas, matching the minimal schema structure in the generator's
+card. Python still enforces the same required arguments, patterns, grounding
+and allowed-function checks. The older display remains reproducible with
+`--schema-style validated`; its exact original source is retained in Git commit
+`1cab00d`. No request or expected label was changed.
+
+This protocol change was made after inspecting the initial run, so its repeat
+on the same 80 requests is a development comparison, not a fresh test. All three
+agent modes are rerun under the same compact protocol. The same two-request
+engineering smoke check passed all three modes. Its outputs are retained too.

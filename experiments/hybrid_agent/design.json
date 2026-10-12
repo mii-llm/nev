@@ -15,5 +15,15 @@
     "smoke": "First two frozen requests; same prompts as full run. No model/prompt/scoring tuning after inspecting these outputs."
   },
   "models_unchanged": true,
-  "external_tool_calls": false
+  "external_tool_calls": false,
+  "initial_protocol_source_commit": "1cab00d",
+  "compact_followup": {
+    "reason": "The model card prescribes minimal compact tool schemas. Initial traces copied validation/observation fields into calls; a two-request engineering check passed all three arms after removing displayed validation fields.",
+    "change": "Remove pattern and additionalProperties from model-visible schemas only. Python validation is identical.",
+    "cases": "Same frozen 80 requests; reused development/protocol comparison, not independent evaluation.",
+    "source_sha256": {
+      "agent.py": "55e19aafe91138d0b62542902aa09665be9f80823026cc37e6b311ad4573347c",
+      "run_pilot.py": "7533efb1d697e6ed471c00d392113a0b9f0d0d28e3a7d738761da7cccd58a1d2"
+    }
+  }
 }
