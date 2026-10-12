@@ -531,3 +531,22 @@ actual-export comparisons, the fresh synthetic test, harder examples and
 calibration. Lineage, architecture, corpus, training history and rebuild recipe
 follow below. The opening paragraph now focuses on using and evaluating Nev.
 All existing command blocks, result-table rows and links were preserved.
+
+
+## 2026-10-12 — Fresh A100 environment and shared-GPU speed check
+
+Installed an isolated Python 3.12.13 environment in `~/nev-a100/.venv`, using
+PyTorch 2.10.0+cu126 and the pinned inference dependencies. Both private HF
+variants downloaded successfully. With explicit user approval, ran brief tests
+alongside the existing GPU workload; no other process was stopped. The timing
+script caps its PyTorch allocator at 6 GiB and records GPU-load telemetry.
+
+Twenty bilingual requests per variant/workload/precision: v3 four-question
+median/p95 was 144.1/185.9 ms FP32 and 99.1/103.6 ms BF16 autocast. V2 was
+154.8/188.0 and 60.5/91.0 ms. Background activity prevents interpreting these
+as controlled architecture or idle-throughput comparisons. Loading took
+2.70/1.93 seconds for v2/v3, excluding imports/download; peak allocated GPU
+memory was about 1.85 GiB. All 160 full-request FP32 decisions matched the LUMI
+scenario predictions. Autocast changed 0/100 decisions per model in this sample.
+The exact custom-Italian CLI invocation also completed. Evidence is retained
+in `evidence/a100-*.json` and `evidence/a100-requirements.txt`.

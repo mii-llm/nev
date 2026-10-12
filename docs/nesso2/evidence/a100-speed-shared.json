@@ -1,0 +1,3096 @@
+{
+  "repository": "giux78/nev",
+  "revision": "c5c84121263b423f8846811a24790ab96e66cee3",
+  "scope": "Sequential batch=1 cached API, validation/tokenization and GPU synchronization included; no HTTP or download time",
+  "cases_sha256": "4700fe00c50067a5eba0e0d2f61fc230e76283e0a5fdc67aa7639d1d65e464b0",
+  "torch": "2.10.0+cu126",
+  "cuda": "12.6",
+  "gpu": "NVIDIA A100 80GB PCIe",
+  "repeats": 1,
+  "parameter_dtype": "float32",
+  "memory_cap_gib": 6,
+  "allow_tf32": false,
+  "float32_matmul_precision": "highest",
+  "cpu_threads": 4,
+  "models": {
+    "v2": {
+      "load_seconds": 2.704188270494342,
+      "measurements": {
+        "fp32": {
+          "first_request_ms": 381.9613931700587,
+          "workloads": {
+            "one_question": {
+              "summary": {
+                "requests": 20,
+                "decisions": 20,
+                "p50_ms": 85.76853759586811,
+                "p95_ms": 100.39627351798117,
+                "mean_ms": 86.95817468687892,
+                "requests_per_second": 11.499781401815573,
+                "decisions_per_second": 11.499781401815573,
+                "correct_decisions": 12,
+                "changed_decisions_vs_fp32": null,
+                "peak_allocated_mib": 1737.54638671875,
+                "peak_reserved_mib": 1960.0
+              },
+              "samples": [
+                {
+                  "case": "return_window/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 75.16269199550152,
+                  "usage": {
+                    "state_tokens": 97,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "returns"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "return_window/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 102.41834633052349,
+                  "usage": {
+                    "state_tokens": 163,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "returns"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "return_window/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 77.44371052831411,
+                  "usage": {
+                    "state_tokens": 97,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "returns"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "return_window/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 89.78013601154089,
+                  "usage": {
+                    "state_tokens": 163,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "returns"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "security_override/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 81.75693918019533,
+                  "usage": {
+                    "state_tokens": 103,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "account"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "security_override/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 98.4373390674591,
+                  "usage": {
+                    "state_tokens": 175,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "account"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "security_override/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 77.23099272698164,
+                  "usage": {
+                    "state_tokens": 103,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "account"
+                  },
+                  "correct": 0,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "security_override/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 99.38940685242414,
+                  "usage": {
+                    "state_tokens": 176,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "account"
+                  },
+                  "correct": 0,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "duplicate_reimbursement/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 76.71741489320993,
+                  "usage": {
+                    "state_tokens": 104,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "returns"
+                  },
+                  "correct": 0,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "duplicate_reimbursement/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 98.96382875740528,
+                  "usage": {
+                    "state_tokens": 175,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "returns"
+                  },
+                  "correct": 0,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "duplicate_reimbursement/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 69.6582468226552,
+                  "usage": {
+                    "state_tokens": 104,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "returns"
+                  },
+                  "correct": 0,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "duplicate_reimbursement/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 99.47974793612957,
+                  "usage": {
+                    "state_tokens": 176,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "returns"
+                  },
+                  "correct": 0,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "delivery_deadline/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 77.39977166056633,
+                  "usage": {
+                    "state_tokens": 105,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "shipping"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "delivery_deadline/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 90.86007811129093,
+                  "usage": {
+                    "state_tokens": 177,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "shipping"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "delivery_deadline/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 73.30577727407217,
+                  "usage": {
+                    "state_tokens": 105,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "shipping"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "delivery_deadline/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 100.28984863311052,
+                  "usage": {
+                    "state_tokens": 177,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "shipping"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "repeat_contact/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 77.14069727808237,
+                  "usage": {
+                    "state_tokens": 102,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "shipping"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "repeat_contact/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 98.28296676278114,
+                  "usage": {
+                    "state_tokens": 175,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "security"
+                  },
+                  "correct": 0,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "repeat_contact/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 77.0371900871396,
+                  "usage": {
+                    "state_tokens": 102,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "shipping"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "repeat_contact/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 98.4083628281951,
+                  "usage": {
+                    "state_tokens": 175,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "security"
+                  },
+                  "correct": 0,
+                  "changed_vs_fp32": null
+                }
+              ]
+            },
+            "four_questions": {
+              "summary": {
+                "requests": 20,
+                "decisions": 80,
+                "p50_ms": 154.78698397055268,
+                "p95_ms": 187.9998336546123,
+                "mean_ms": 154.65239332988858,
+                "requests_per_second": 6.466113963505904,
+                "decisions_per_second": 25.864455854023618,
+                "correct_decisions": 54,
+                "changed_decisions_vs_fp32": null,
+                "peak_allocated_mib": 1894.85107421875,
+                "peak_reserved_mib": 1982.0
+              },
+              "samples": [
+                {
+                  "case": "return_window/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 109.36699248850346,
+                  "usage": {
+                    "state_tokens": 97,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "returns",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "return_window/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 186.65115348994732,
+                  "usage": {
+                    "state_tokens": 163,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "returns",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "return_window/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 125.02951826900244,
+                  "usage": {
+                    "state_tokens": 97,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "returns",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 4,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "return_window/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 190.49026910215616,
+                  "usage": {
+                    "state_tokens": 163,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "returns",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 4,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "security_override/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 134.95635986328125,
+                  "usage": {
+                    "state_tokens": 103,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "account",
+                    "refund": "false",
+                    "urgency": "2",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "security_override/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 179.91348262876272,
+                  "usage": {
+                    "state_tokens": 175,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "account",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 4,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "security_override/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 122.00083117932081,
+                  "usage": {
+                    "state_tokens": 103,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "account",
+                    "refund": "false",
+                    "urgency": "2",
+                    "escalate": "false"
+                  },
+                  "correct": 2,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "security_override/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 187.16744519770145,
+                  "usage": {
+                    "state_tokens": 176,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "account",
+                    "refund": "false",
+                    "urgency": "2",
+                    "escalate": "false"
+                  },
+                  "correct": 2,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "duplicate_reimbursement/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 135.89787762612104,
+                  "usage": {
+                    "state_tokens": 104,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "returns",
+                    "refund": "false",
+                    "urgency": "2",
+                    "escalate": "false"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "duplicate_reimbursement/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 181.32472690194845,
+                  "usage": {
+                    "state_tokens": 175,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "returns",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 2,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "duplicate_reimbursement/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 125.484480522573,
+                  "usage": {
+                    "state_tokens": 104,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "returns",
+                    "refund": "false",
+                    "urgency": "2",
+                    "escalate": "false"
+                  },
+                  "correct": 2,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "duplicate_reimbursement/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 187.86875810474157,
+                  "usage": {
+                    "state_tokens": 176,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "returns",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "delivery_deadline/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 133.75536259263754,
+                  "usage": {
+                    "state_tokens": 105,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "shipping",
+                    "refund": "false",
+                    "urgency": "2",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "delivery_deadline/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 181.2120657414198,
+                  "usage": {
+                    "state_tokens": 177,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "shipping",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "delivery_deadline/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 120.16063183546066,
+                  "usage": {
+                    "state_tokens": 105,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "shipping",
+                    "refund": "false",
+                    "urgency": "2",
+                    "escalate": "false"
+                  },
+                  "correct": 4,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "delivery_deadline/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 186.28258723765612,
+                  "usage": {
+                    "state_tokens": 177,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "shipping",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "repeat_contact/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 118.45923122018576,
+                  "usage": {
+                    "state_tokens": 102,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "shipping",
+                    "refund": "false",
+                    "urgency": "2",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "repeat_contact/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 187.4490063637495,
+                  "usage": {
+                    "state_tokens": 175,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "security",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 2,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "repeat_contact/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 125.90099591761827,
+                  "usage": {
+                    "state_tokens": 102,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "shipping",
+                    "refund": "false",
+                    "urgency": "2",
+                    "escalate": "false"
+                  },
+                  "correct": 2,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "repeat_contact/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 173.67609031498432,
+                  "usage": {
+                    "state_tokens": 175,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "security",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": null
+                }
+              ]
+            }
+          }
+        },
+        "bf16": {
+          "first_request_ms": 252.9602972790599,
+          "workloads": {
+            "one_question": {
+              "summary": {
+                "requests": 20,
+                "decisions": 20,
+                "p50_ms": 63.80580319091678,
+                "p95_ms": 64.95940960012376,
+                "mean_ms": 63.02636773325503,
+                "requests_per_second": 15.866375232541971,
+                "decisions_per_second": 15.866375232541971,
+                "correct_decisions": 12,
+                "changed_decisions_vs_fp32": 0,
+                "peak_allocated_mib": 1738.26611328125,
+                "peak_reserved_mib": 1982.0
+              },
+              "samples": [
+                {
+                  "case": "return_window/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 63.02129477262497,
+                  "usage": {
+                    "state_tokens": 97,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "returns"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "return_window/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 64.15222026407719,
+                  "usage": {
+                    "state_tokens": 163,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "returns"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "return_window/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 63.860904425382614,
+                  "usage": {
+                    "state_tokens": 97,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "returns"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "return_window/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 61.38498801738024,
+                  "usage": {
+                    "state_tokens": 163,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "returns"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "security_override/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 60.85797771811485,
+                  "usage": {
+                    "state_tokens": 103,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "account"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "security_override/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 64.06411994248629,
+                  "usage": {
+                    "state_tokens": 175,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "account"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "security_override/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 63.09974566102028,
+                  "usage": {
+                    "state_tokens": 103,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "account"
+                  },
+                  "correct": 0,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "security_override/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 64.24383632838726,
+                  "usage": {
+                    "state_tokens": 176,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "account"
+                  },
+                  "correct": 0,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "duplicate_reimbursement/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 62.48399429023266,
+                  "usage": {
+                    "state_tokens": 104,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "returns"
+                  },
+                  "correct": 0,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "duplicate_reimbursement/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 63.88562452048063,
+                  "usage": {
+                    "state_tokens": 175,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "returns"
+                  },
+                  "correct": 0,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "duplicate_reimbursement/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 64.94621373713017,
+                  "usage": {
+                    "state_tokens": 104,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "returns"
+                  },
+                  "correct": 0,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "duplicate_reimbursement/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 64.01879340410233,
+                  "usage": {
+                    "state_tokens": 176,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "returns"
+                  },
+                  "correct": 0,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "delivery_deadline/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 63.75070195645094,
+                  "usage": {
+                    "state_tokens": 105,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "shipping"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "delivery_deadline/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 61.74047291278839,
+                  "usage": {
+                    "state_tokens": 177,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "shipping"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "delivery_deadline/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 64.19985927641392,
+                  "usage": {
+                    "state_tokens": 105,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "shipping"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "delivery_deadline/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 64.27544821053743,
+                  "usage": {
+                    "state_tokens": 177,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "shipping"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "repeat_contact/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 65.21013099700212,
+                  "usage": {
+                    "state_tokens": 102,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "shipping"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "repeat_contact/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 61.21508497744799,
+                  "usage": {
+                    "state_tokens": 175,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "security"
+                  },
+                  "correct": 0,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "repeat_contact/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 59.38393250107765,
+                  "usage": {
+                    "state_tokens": 102,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "shipping"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "repeat_contact/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 60.73201075196266,
+                  "usage": {
+                    "state_tokens": 175,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "security"
+                  },
+                  "correct": 0,
+                  "changed_vs_fp32": 0
+                }
+              ]
+            },
+            "four_questions": {
+              "summary": {
+                "requests": 20,
+                "decisions": 80,
+                "p50_ms": 60.48812810331583,
+                "p95_ms": 90.97986537963152,
+                "mean_ms": 67.26822163909674,
+                "requests_per_second": 14.86586051531342,
+                "decisions_per_second": 59.46344206125368,
+                "correct_decisions": 54,
+                "changed_decisions_vs_fp32": 0,
+                "peak_allocated_mib": 1886.5927734375,
+                "peak_reserved_mib": 1982.0
+              },
+              "samples": [
+                {
+                  "case": "return_window/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 90.87240137159824,
+                  "usage": {
+                    "state_tokens": 97,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "returns",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "return_window/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 88.30498065799475,
+                  "usage": {
+                    "state_tokens": 163,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "returns",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "return_window/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 87.3445924371481,
+                  "usage": {
+                    "state_tokens": 97,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "returns",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 4,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "return_window/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 93.02168153226376,
+                  "usage": {
+                    "state_tokens": 163,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "returns",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 4,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "security_override/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 79.65008821338415,
+                  "usage": {
+                    "state_tokens": 103,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "account",
+                    "refund": "false",
+                    "urgency": "2",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "security_override/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 64.18815534561872,
+                  "usage": {
+                    "state_tokens": 175,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "account",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 4,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "security_override/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 88.322464376688,
+                  "usage": {
+                    "state_tokens": 103,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "account",
+                    "refund": "false",
+                    "urgency": "2",
+                    "escalate": "false"
+                  },
+                  "correct": 2,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "security_override/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 61.43247615545988,
+                  "usage": {
+                    "state_tokens": 176,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "account",
+                    "refund": "false",
+                    "urgency": "2",
+                    "escalate": "false"
+                  },
+                  "correct": 2,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "duplicate_reimbursement/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 61.834052205085754,
+                  "usage": {
+                    "state_tokens": 104,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "returns",
+                    "refund": "false",
+                    "urgency": "2",
+                    "escalate": "false"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "duplicate_reimbursement/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 57.3701374232769,
+                  "usage": {
+                    "state_tokens": 175,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "returns",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 2,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "duplicate_reimbursement/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 57.82998073846102,
+                  "usage": {
+                    "state_tokens": 104,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "returns",
+                    "refund": "false",
+                    "urgency": "2",
+                    "escalate": "false"
+                  },
+                  "correct": 2,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "duplicate_reimbursement/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 58.46397019922733,
+                  "usage": {
+                    "state_tokens": 176,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "returns",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "delivery_deadline/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 69.40060947090387,
+                  "usage": {
+                    "state_tokens": 105,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "shipping",
+                    "refund": "false",
+                    "urgency": "2",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "delivery_deadline/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 56.56605586409569,
+                  "usage": {
+                    "state_tokens": 177,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "shipping",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "delivery_deadline/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 55.90114649385214,
+                  "usage": {
+                    "state_tokens": 105,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "shipping",
+                    "refund": "false",
+                    "urgency": "2",
+                    "escalate": "false"
+                  },
+                  "correct": 4,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "delivery_deadline/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 59.54378005117178,
+                  "usage": {
+                    "state_tokens": 177,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "shipping",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "repeat_contact/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 53.08011174201965,
+                  "usage": {
+                    "state_tokens": 102,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "shipping",
+                    "refund": "false",
+                    "urgency": "2",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "repeat_contact/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 54.4649101793766,
+                  "usage": {
+                    "state_tokens": 175,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "security",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 2,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "repeat_contact/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 53.46664320677519,
+                  "usage": {
+                    "state_tokens": 102,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "shipping",
+                    "refund": "false",
+                    "urgency": "2",
+                    "escalate": "false"
+                  },
+                  "correct": 2,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "repeat_contact/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 54.30619511753321,
+                  "usage": {
+                    "state_tokens": 175,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "security",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": 0
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "v3": {
+      "load_seconds": 1.9290837878361344,
+      "measurements": {
+        "fp32": {
+          "first_request_ms": 124.0821061655879,
+          "workloads": {
+            "one_question": {
+              "summary": {
+                "requests": 20,
+                "decisions": 20,
+                "p50_ms": 77.22721993923187,
+                "p95_ms": 98.46015395596623,
+                "mean_ms": 75.18692524172366,
+                "requests_per_second": 13.300184796559119,
+                "decisions_per_second": 13.300184796559119,
+                "correct_decisions": 14,
+                "changed_decisions_vs_fp32": null,
+                "peak_allocated_mib": 1737.52685546875,
+                "peak_reserved_mib": 1960.0
+              },
+              "samples": [
+                {
+                  "case": "return_window/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 80.59546072036028,
+                  "usage": {
+                    "state_tokens": 97,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "returns"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "return_window/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 74.23058152198792,
+                  "usage": {
+                    "state_tokens": 163,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "shipping"
+                  },
+                  "correct": 0,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "return_window/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 52.84622684121132,
+                  "usage": {
+                    "state_tokens": 97,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "returns"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "return_window/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 53.036777302622795,
+                  "usage": {
+                    "state_tokens": 163,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "shipping"
+                  },
+                  "correct": 0,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "security_override/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 51.76016502082348,
+                  "usage": {
+                    "state_tokens": 103,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "security"
+                  },
+                  "correct": 0,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "security_override/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 50.011749379336834,
+                  "usage": {
+                    "state_tokens": 175,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "security"
+                  },
+                  "correct": 0,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "security_override/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 54.12994045764208,
+                  "usage": {
+                    "state_tokens": 103,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "security"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "security_override/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 98.17890450358391,
+                  "usage": {
+                    "state_tokens": 176,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "security"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "duplicate_reimbursement/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 67.31191463768482,
+                  "usage": {
+                    "state_tokens": 104,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "billing"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "duplicate_reimbursement/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 87.3340554535389,
+                  "usage": {
+                    "state_tokens": 175,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "shipping"
+                  },
+                  "correct": 0,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "duplicate_reimbursement/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 77.93330308049917,
+                  "usage": {
+                    "state_tokens": 104,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "billing"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "duplicate_reimbursement/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 98.34978077560663,
+                  "usage": {
+                    "state_tokens": 176,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "shipping"
+                  },
+                  "correct": 0,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "delivery_deadline/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 74.89582523703575,
+                  "usage": {
+                    "state_tokens": 105,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "shipping"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "delivery_deadline/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 87.69722748547792,
+                  "usage": {
+                    "state_tokens": 177,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "shipping"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "delivery_deadline/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 77.860944904387,
+                  "usage": {
+                    "state_tokens": 105,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "shipping"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "delivery_deadline/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 98.81448652595282,
+                  "usage": {
+                    "state_tokens": 177,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "shipping"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "repeat_contact/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 65.85521623492241,
+                  "usage": {
+                    "state_tokens": 102,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "shipping"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "repeat_contact/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 77.37331092357635,
+                  "usage": {
+                    "state_tokens": 175,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "shipping"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "repeat_contact/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 77.08112895488739,
+                  "usage": {
+                    "state_tokens": 102,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "shipping"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "repeat_contact/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 98.44150487333536,
+                  "usage": {
+                    "state_tokens": 175,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "shipping"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": null
+                }
+              ]
+            },
+            "four_questions": {
+              "summary": {
+                "requests": 20,
+                "decisions": 80,
+                "p50_ms": 144.06677149236202,
+                "p95_ms": 185.87498175911605,
+                "mean_ms": 147.86524469964206,
+                "requests_per_second": 6.7629144497836196,
+                "decisions_per_second": 27.051657799134478,
+                "correct_decisions": 57,
+                "changed_decisions_vs_fp32": null,
+                "peak_allocated_mib": 1893.39111328125,
+                "peak_reserved_mib": 1982.0
+              },
+              "samples": [
+                {
+                  "case": "return_window/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 106.30122479051352,
+                  "usage": {
+                    "state_tokens": 97,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "returns",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "return_window/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 160.60438193380833,
+                  "usage": {
+                    "state_tokens": 163,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "shipping",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 2,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "return_window/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 132.4127884581685,
+                  "usage": {
+                    "state_tokens": 97,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "returns",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 4,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "return_window/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 168.9728396013379,
+                  "usage": {
+                    "state_tokens": 163,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "shipping",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "security_override/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 128.14510520547628,
+                  "usage": {
+                    "state_tokens": 103,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "security",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "security_override/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 187.01909482479095,
+                  "usage": {
+                    "state_tokens": 175,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "security",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "security_override/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 124.3508206680417,
+                  "usage": {
+                    "state_tokens": 103,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "security",
+                    "refund": "false",
+                    "urgency": "2",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "security_override/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 155.48401232808828,
+                  "usage": {
+                    "state_tokens": 176,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "security",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 2,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "duplicate_reimbursement/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 129.25104890018702,
+                  "usage": {
+                    "state_tokens": 104,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "billing",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "duplicate_reimbursement/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 164.73884601145983,
+                  "usage": {
+                    "state_tokens": 175,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "shipping",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 2,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "duplicate_reimbursement/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 130.99571410566568,
+                  "usage": {
+                    "state_tokens": 104,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "billing",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 4,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "duplicate_reimbursement/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 185.79326570034027,
+                  "usage": {
+                    "state_tokens": 176,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "shipping",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "delivery_deadline/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 127.14943010360003,
+                  "usage": {
+                    "state_tokens": 105,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "shipping",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "delivery_deadline/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 156.25313483178616,
+                  "usage": {
+                    "state_tokens": 177,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "shipping",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "delivery_deadline/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 132.64953065663576,
+                  "usage": {
+                    "state_tokens": 105,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "shipping",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "delivery_deadline/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 160.6489373371005,
+                  "usage": {
+                    "state_tokens": 177,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "shipping",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "repeat_contact/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 121.01509422063828,
+                  "usage": {
+                    "state_tokens": 102,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "shipping",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "repeat_contact/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 184.0275414288044,
+                  "usage": {
+                    "state_tokens": 175,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "shipping",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "repeat_contact/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 115.67731760442257,
+                  "usage": {
+                    "state_tokens": 102,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "shipping",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 2,
+                  "changed_vs_fp32": null
+                },
+                {
+                  "case": "repeat_contact/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 185.81476528197527,
+                  "usage": {
+                    "state_tokens": 175,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "shipping",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 2,
+                  "changed_vs_fp32": null
+                }
+              ]
+            }
+          }
+        },
+        "bf16": {
+          "first_request_ms": 98.02918694913387,
+          "workloads": {
+            "one_question": {
+              "summary": {
+                "requests": 20,
+                "decisions": 20,
+                "p50_ms": 79.77670105174184,
+                "p95_ms": 82.63568473048508,
+                "mean_ms": 77.8785252943635,
+                "requests_per_second": 12.84051022050331,
+                "decisions_per_second": 12.84051022050331,
+                "correct_decisions": 14,
+                "changed_decisions_vs_fp32": 0,
+                "peak_allocated_mib": 1738.42236328125,
+                "peak_reserved_mib": 1982.0
+              },
+              "samples": [
+                {
+                  "case": "return_window/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 79.86511010676622,
+                  "usage": {
+                    "state_tokens": 97,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "returns"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "return_window/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 80.4239297285676,
+                  "usage": {
+                    "state_tokens": 163,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "shipping"
+                  },
+                  "correct": 0,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "return_window/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 78.62058281898499,
+                  "usage": {
+                    "state_tokens": 97,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "returns"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "return_window/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 73.78585916012526,
+                  "usage": {
+                    "state_tokens": 163,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "shipping"
+                  },
+                  "correct": 0,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "security_override/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 68.23791284114122,
+                  "usage": {
+                    "state_tokens": 103,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "security"
+                  },
+                  "correct": 0,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "security_override/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 65.25690294802189,
+                  "usage": {
+                    "state_tokens": 175,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "security"
+                  },
+                  "correct": 0,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "security_override/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 69.50974464416504,
+                  "usage": {
+                    "state_tokens": 103,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "security"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "security_override/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 77.7579890564084,
+                  "usage": {
+                    "state_tokens": 176,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "security"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "duplicate_reimbursement/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 79.84122913330793,
+                  "usage": {
+                    "state_tokens": 104,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "billing"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "duplicate_reimbursement/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 79.95893526822329,
+                  "usage": {
+                    "state_tokens": 175,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "shipping"
+                  },
+                  "correct": 0,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "duplicate_reimbursement/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 79.71217297017574,
+                  "usage": {
+                    "state_tokens": 104,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "billing"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "duplicate_reimbursement/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 82.26039074361324,
+                  "usage": {
+                    "state_tokens": 176,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "shipping"
+                  },
+                  "correct": 0,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "delivery_deadline/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 79.36886046081781,
+                  "usage": {
+                    "state_tokens": 105,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "shipping"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "delivery_deadline/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 77.64443010091782,
+                  "usage": {
+                    "state_tokens": 177,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "shipping"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "delivery_deadline/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 82.6051328331232,
+                  "usage": {
+                    "state_tokens": 105,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "shipping"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "delivery_deadline/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 82.30787701904774,
+                  "usage": {
+                    "state_tokens": 177,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "shipping"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "repeat_contact/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 83.2161707803607,
+                  "usage": {
+                    "state_tokens": 102,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "shipping"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "repeat_contact/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 80.22009767591953,
+                  "usage": {
+                    "state_tokens": 175,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "shipping"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "repeat_contact/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 76.56802237033844,
+                  "usage": {
+                    "state_tokens": 102,
+                    "branch_tokens": 96,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "shipping"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "repeat_contact/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 80.4091552272439,
+                  "usage": {
+                    "state_tokens": 175,
+                    "branch_tokens": 185,
+                    "questions": 1
+                  },
+                  "predicted": {
+                    "route": "shipping"
+                  },
+                  "correct": 1,
+                  "changed_vs_fp32": 0
+                }
+              ]
+            },
+            "four_questions": {
+              "summary": {
+                "requests": 20,
+                "decisions": 80,
+                "p50_ms": 99.06668867915869,
+                "p95_ms": 103.56002012267709,
+                "mean_ms": 98.08653891086578,
+                "requests_per_second": 10.19507886712906,
+                "decisions_per_second": 40.78031546851624,
+                "correct_decisions": 57,
+                "changed_decisions_vs_fp32": 0,
+                "peak_allocated_mib": 1888.92041015625,
+                "peak_reserved_mib": 1982.0
+              },
+              "samples": [
+                {
+                  "case": "return_window/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 102.12593246251345,
+                  "usage": {
+                    "state_tokens": 97,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "returns",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "return_window/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 100.90282559394836,
+                  "usage": {
+                    "state_tokens": 163,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "shipping",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 2,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "return_window/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 101.64417698979378,
+                  "usage": {
+                    "state_tokens": 97,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "returns",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 4,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "return_window/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 92.47289691120386,
+                  "usage": {
+                    "state_tokens": 163,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "shipping",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "security_override/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 101.2175902724266,
+                  "usage": {
+                    "state_tokens": 103,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "security",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "security_override/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 104.69650570303202,
+                  "usage": {
+                    "state_tokens": 175,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "security",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "security_override/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 97.78799396008253,
+                  "usage": {
+                    "state_tokens": 103,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "security",
+                    "refund": "false",
+                    "urgency": "2",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "security_override/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 95.23629397153854,
+                  "usage": {
+                    "state_tokens": 176,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "security",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 2,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "duplicate_reimbursement/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 101.82795021682978,
+                  "usage": {
+                    "state_tokens": 104,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "billing",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "duplicate_reimbursement/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 101.79697163403034,
+                  "usage": {
+                    "state_tokens": 175,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "shipping",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 2,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "duplicate_reimbursement/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 100.34538339823484,
+                  "usage": {
+                    "state_tokens": 104,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "billing",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 4,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "duplicate_reimbursement/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 102.91359201073647,
+                  "usage": {
+                    "state_tokens": 176,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "shipping",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "delivery_deadline/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 89.71646148711443,
+                  "usage": {
+                    "state_tokens": 105,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "shipping",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "delivery_deadline/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 90.58624226599932,
+                  "usage": {
+                    "state_tokens": 177,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "shipping",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "delivery_deadline/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 96.12964000552893,
+                  "usage": {
+                    "state_tokens": 105,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "shipping",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "delivery_deadline/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 96.15293424576521,
+                  "usage": {
+                    "state_tokens": 177,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "shipping",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "repeat_contact/0/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 94.60202697664499,
+                  "usage": {
+                    "state_tokens": 102,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "shipping",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "repeat_contact/0/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 94.2139970138669,
+                  "usage": {
+                    "state_tokens": 175,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "shipping",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 3,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "repeat_contact/1/en",
+                  "language": "en",
+                  "repeat": 0,
+                  "elapsed_ms": 103.50020509213209,
+                  "usage": {
+                    "state_tokens": 102,
+                    "branch_tokens": 286,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "shipping",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 2,
+                  "changed_vs_fp32": 0
+                },
+                {
+                  "case": "repeat_contact/1/it",
+                  "language": "it",
+                  "repeat": 0,
+                  "elapsed_ms": 93.86115800589323,
+                  "usage": {
+                    "state_tokens": 175,
+                    "branch_tokens": 502,
+                    "questions": 4
+                  },
+                  "predicted": {
+                    "route": "shipping",
+                    "refund": "false",
+                    "urgency": "0",
+                    "escalate": "false"
+                  },
+                  "correct": 2,
+                  "changed_vs_fp32": 0
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "gpu_telemetry": [
+    {
+      "time": 1791796521.4527628,
+      "gpu_csv": "NVIDIA A100 80GB PCIe, 47215, 81920, 100, 1305",
+      "other_compute_processes": 1
+    },
+    {
+      "time": 1791796523.1638901,
+      "gpu_csv": "NVIDIA A100 80GB PCIe, 47215, 81920, 99, 1260",
+      "other_compute_processes": 1
+    },
+    {
+      "time": 1791796524.2152789,
+      "gpu_csv": "NVIDIA A100 80GB PCIe, 48985, 81920, 98, 1260",
+      "other_compute_processes": 1
+    },
+    {
+      "time": 1791796525.257735,
+      "gpu_csv": "NVIDIA A100 80GB PCIe, 49261, 81920, 99, 1365",
+      "other_compute_processes": 1
+    },
+    {
+      "time": 1791796526.3011684,
+      "gpu_csv": "NVIDIA A100 80GB PCIe, 49261, 81920, 100, 1410",
+      "other_compute_processes": 1
+    },
+    {
+      "time": 1791796527.3543205,
+      "gpu_csv": "NVIDIA A100 80GB PCIe, 49261, 81920, 100, 1365",
+      "other_compute_processes": 1
+    },
+    {
+      "time": 1791796528.4034133,
+      "gpu_csv": "NVIDIA A100 80GB PCIe, 49283, 81920, 100, 1380",
+      "other_compute_processes": 1
+    },
+    {
+      "time": 1791796529.449224,
+      "gpu_csv": "NVIDIA A100 80GB PCIe, 49283, 81920, 100, 1380",
+      "other_compute_processes": 1
+    },
+    {
+      "time": 1791796530.4953158,
+      "gpu_csv": "NVIDIA A100 80GB PCIe, 49291, 81920, 98, 1380",
+      "other_compute_processes": 1
+    },
+    {
+      "time": 1791796531.5360184,
+      "gpu_csv": "NVIDIA A100 80GB PCIe, 49291, 81920, 99, 1365",
+      "other_compute_processes": 1
+    },
+    {
+      "time": 1791796532.5856335,
+      "gpu_csv": "NVIDIA A100 80GB PCIe, 14855, 81920, 97, 1410",
+      "other_compute_processes": 1
+    },
+    {
+      "time": 1791796534.562519,
+      "gpu_csv": "NVIDIA A100 80GB PCIe, 32281, 81920, 100, 1410",
+      "other_compute_processes": 1
+    },
+    {
+      "time": 1791796535.606837,
+      "gpu_csv": "NVIDIA A100 80GB PCIe, 34803, 81920, 100, 1410",
+      "other_compute_processes": 1
+    },
+    {
+      "time": 1791796536.6488333,
+      "gpu_csv": "NVIDIA A100 80GB PCIe, 38283, 81920, 100, 1410",
+      "other_compute_processes": 1
+    },
+    {
+      "time": 1791796537.6895614,
+      "gpu_csv": "NVIDIA A100 80GB PCIe, 43267, 81920, 100, 1410",
+      "other_compute_processes": 1
+    },
+    {
+      "time": 1791796538.733852,
+      "gpu_csv": "NVIDIA A100 80GB PCIe, 51305, 81920, 100, 1410",
+      "other_compute_processes": 1
+    },
+    {
+      "time": 1791796539.773166,
+      "gpu_csv": "NVIDIA A100 80GB PCIe, 58625, 81920, 100, 1395",
+      "other_compute_processes": 1
+    },
+    {
+      "time": 1791796540.8168025,
+      "gpu_csv": "NVIDIA A100 80GB PCIe, 61121, 81920, 50, 1410",
+      "other_compute_processes": 1
+    },
+    {
+      "time": 1791796541.8612044,
+      "gpu_csv": "NVIDIA A100 80GB PCIe, 63633, 81920, 97, 1410",
+      "other_compute_processes": 1
+    },
+    {
+      "time": 1791796542.908245,
+      "gpu_csv": "NVIDIA A100 80GB PCIe, 63633, 81920, 100, 1410",
+      "other_compute_processes": 1
+    },
+    {
+      "time": 1791796544.0377634,
+      "gpu_csv": "NVIDIA A100 80GB PCIe, 64193, 81920, 98, 1380",
+      "other_compute_processes": 1
+    },
+    {
+      "time": 1791796544.0807676,
+      "gpu_csv": "NVIDIA A100 80GB PCIe, 64193, 81920, 98, 1380",
+      "other_compute_processes": 1
+    }
+  ],
+  "status": "complete"
+}

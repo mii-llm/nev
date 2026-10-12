@@ -6,7 +6,7 @@ Use Nev to turn English or Italian requests into categorical, boolean, and ordin
 
 ## 1. Install and use Nev
 
-Use **Python 3.12** and install a PyTorch build appropriate for your hardware first. The verified environment was LUMI ROCm with PyTorch 2.10.0, Transformers 5.17.0, PEFT 0.21.0, Safetensors 0.8.0, Accelerate 1.13.0 and Hugging Face Hub 1.27.0. Other GPU platforms, CPU/mobile deployment and quantization have not been validated by this release.
+Use **Python 3.12** and install a PyTorch build appropriate for your hardware first. The original verified environment was LUMI ROCm with PyTorch 2.10.0, Transformers 5.17.0, PEFT 0.21.0, Safetensors 0.8.0, Accelerate 1.13.0 and Hugging Face Hub 1.27.0. A fresh Python 3.12 environment on an NVIDIA A100 has also passed the limited inference checks and timing measurements below, using PyTorch 2.10.0+cu126. CPU/mobile deployment and quantization remain unvalidated.
 
 From a checkout of this repository:
 
@@ -64,6 +64,39 @@ The runtime enforces artifact-specific admission limits and rejects oversized in
 Transformers already loads the decoder inside the runtime. The whole released decision model is currently a custom `nn.Module` with `model_type=decision_model` and no `auto_map`. Therefore plain `transformers.AutoModel.from_pretrained("giux78/nev")` is not a supported loading command.
 
 A custom `PreTrainedConfig` / `PreTrainedModel` wrapper and Hub registration could provide that interface without retraining. It would need to preserve the renderer, head, tokenizer, calibration, and equivalent outputs. That wrapper is not implemented in this release. For now, use the HF download plus native loader shown above.
+
+### Run in the prepared A100 environment
+
+A separate environment is installed at `~/nev-a100/.venv`, with source in
+`~/nev-a100/source` and both HF variants cached locally. After SSH into the A100:
+
+```bash
+source ~/nev-a100/activate-nev.sh
+cd ~/nev-a100/source
+
+# Four decisions over a custom Italian request; edit the JSON to try your own.
+python examples/hf_decide.py --offline --variant v3 \
+  --request examples/request-complex-it.json
+
+# Compare both models on all authored bilingual scenarios.
+python examples/run_scenarios.py --variants v2 v3 \
+  --output "../results/scenarios-$(date +%Y%m%d-%H%M%S).json"
+
+# Time v3 with synchronized FP32 and BF16-autocast inference.
+python examples/benchmark_latency.py --variants v3 --repeats 3 \
+  --output "../results/speed-$(date +%Y%m%d-%H%M%S).json"
+```
+
+The scenario and timing commands preserve existing files, so use a fresh output
+filename each time. `--variants v2 v3` times both variants; `--repeats 1` makes a
+brief check. The speed script requires at least 6 GiB free GPU memory and caps
+its PyTorch allocator at that amount. It leaves other GPU processes running.
+The ordinary request helper uses FP32; the timing script explicitly compares
+FP32 with BF16 autocast while retaining FP32 model weights.
+
+The completed check is in `~/nev-a100/results/speed-shared.json`, with readable
+progress in `speed-shared.log`. Model downloads and Python imports are excluded
+from the latency measurements. Source the activation script in each new shell.
 
 ## 2. Run and evaluate on LUMI
 
@@ -169,6 +202,29 @@ A new synthetic 16-intent/routing test contained 512 requests per language:
 | Laya | 26.17% | 28.71% |
 
 The v2 export was not measured on this new panel; the v2 row above is explicitly its adapter. This controlled synthetic 16-intent task differs from 151-option CLINC and real customer traffic.
+
+### A100 inference speed: brief shared-GPU measurement
+
+On 2026-10-12, a fresh isolated Python 3.12.13 environment loaded both releases on an NVIDIA A100 80GB PCIe with driver 575.57.08 and PyTorch 2.10.0+cu126. Another compute process was active throughout the timing samples. These are **shared-GPU observations**, not idle-GPU throughput or a controlled v2-versus-v3 speed comparison.
+
+Each row measures 20 sequential bilingual requests after warmup. The one-question workload asks only routing; the four-question workload asks all four decisions over the same states. Timings include validation, tokenization and synchronized GPU execution, with batch size 1 and cached inference. There is no HTTP overhead, model download or text generation.
+
+| Variant | Arithmetic | Questions/request | Median | p95 | Requests/s |
+|---|---|---:|---:|---:|---:|
+| v2 | FP32 | 1 | 85.8 ms | 100.4 ms | 11.50 |
+| v2 | FP32 | 4 | 154.8 ms | 188.0 ms | 6.47 |
+| v2 | BF16 autocast | 1 | 63.8 ms | 65.0 ms | 15.87 |
+| v2 | BF16 autocast | 4 | 60.5 ms | 91.0 ms | 14.87 |
+| v3 | FP32 | 1 | 77.2 ms | 98.5 ms | 13.30 |
+| v3 | FP32 | 4 | 144.1 ms | 185.9 ms | 6.76 |
+| v3 | BF16 autocast | 1 | 79.8 ms | 82.6 ms | 12.84 |
+| v3 | BF16 autocast | 4 | 99.1 ms | 103.6 ms | 10.20 |
+
+Loading the local model took 2.70 seconds for v2 and 1.93 seconds for v3, excluding Python imports and download. The first FP32 request after each load took 382 ms and 124 ms respectively; these are separate from the warmed samples. Peak allocated PyTorch GPU memory was 1,895 MiB (about 1.85 GiB), with 1,982 MiB reserved. CUDA/driver allocations and the other workload are additional. TF32 was disabled and CPU threads were set to four.
+
+All **160 FP32 decisions** in the two full four-question panels matched the earlier LUMI predictions. BF16 autocast changed **0/100 decisions per model** across the one- and four-question workloads in this small check. This does not establish precision equivalence on other examples or remove the previously observed policy-following errors.
+
+BF16 was faster for the four-question requests in this run. Changing background load prevents treating the measured differences as a stable speedup, and 20 samples provide only a rough p95. `benchmark_latency.py` saves individual timings, input hash, GPU-load samples, memory measurements and changed decisions. It measures requests and decisions per second; tokens/second is not the output metric for this non-generative model.
 
 ## 4. Harder examples: what the easy demo concealed
 
@@ -440,7 +496,7 @@ The strongest observed development was v3's routing and synthetic 16-intent impr
 
 The next experiments should use broader instruction wording and task balance, explicit positive/negative contrast pairs, and **task-level** development retention checks. Any examples used to improve the model must be separated from new independent tests. A Transformers loading wrapper would improve usability, but would not by itself fix the observed decision errors. These are directions for future work, not completed improvements.
 
-The scope remains a small bilingual research model. External subsets have been reused; Italian text is partly synthetic; pretraining exposure is unknown; no confidence threshold qualified; and neither real-traffic reliability nor CPU/mobile, quantized or cross-platform performance is established here.
+The scope remains a small bilingual research model. External subsets have been reused; Italian text is partly synthetic; pretraining exposure is unknown; no confidence threshold qualified; and neither real-traffic reliability nor CPU/mobile or quantized performance is established here. Cross-platform evidence is limited to the recorded LUMI checks and the small shared-A100 inference test above.
 
 ## 14. A few deeper records
 

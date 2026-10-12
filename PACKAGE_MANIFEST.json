@@ -36,16 +36,16 @@
     "sha256": "11600cde9b1fd1156b41f2d815bbb1d4c3e647b65c140a4b013aebb38fae8b8c"
   },
   "README.md": {
-    "bytes": 33488,
-    "sha256": "03ead554045ea74cc4dcd51830ff7912a359e78c4afe9e3115fe9f45fcc7779b"
+    "bytes": 37679,
+    "sha256": "33c2eb8762ce91b01ca82543eaff4959bbb6af7a147d33d9bc273f9043539b94"
   },
   "SCENARIO_RESULTS.md": {
     "bytes": 2828,
     "sha256": "fc40a9397e068b103fcf341fc88ef5d862c1563f9106c9dc860f7247bb9e39b5"
   },
   "STATUS.md": {
-    "bytes": 1077,
-    "sha256": "363e60efc78805e5fd0be877f1d847b10f032fe5f7d97ad65f6db57f4d8116d7"
+    "bytes": 1217,
+    "sha256": "f2aa2eb17a3283772401511ededd6c51c985edcca60cbb72fa53004ad6575668"
   },
   "docs/nesso2/BUILD_RECIPE.md": {
     "bytes": 6243,
@@ -56,8 +56,8 @@
     "sha256": "1119b75cda0724388e6569fb20f78ec324706bc086bc1d914baf7edd9f4339e7"
   },
   "docs/nesso2/EXPERIMENT_LOG.md": {
-    "bytes": 31193,
-    "sha256": "75c1d5e11bd5aa507a156043a0006164768c52d612246a8213e56da8a80f578e"
+    "bytes": 32329,
+    "sha256": "551c7d6b464b5f397507d5f14bc0cf3b1ff676a90a57749e0e8a2b1e4b17e5dd"
   },
   "docs/nesso2/FOCUSED_V3.md": {
     "bytes": 5445,
@@ -74,6 +74,22 @@
   "docs/nesso2/V3_REGRESSION.md": {
     "bytes": 7473,
     "sha256": "7cd86122869fcb9bc85e51da58d600334b8284b7e0897573cf8d80e850a14eb9"
+  },
+  "docs/nesso2/evidence/a100-environment.json": {
+    "bytes": 159,
+    "sha256": "671aacfd8a60d8048620f01b554bb538335a1ca667e5757ca237e9ff50e71869"
+  },
+  "docs/nesso2/evidence/a100-lumi-parity.json": {
+    "bytes": 368,
+    "sha256": "aae31c740d65de1103c230cd07e07fa50384df5dca071a00c6703c418649a23c"
+  },
+  "docs/nesso2/evidence/a100-requirements.txt": {
+    "bytes": 1660,
+    "sha256": "d5108a180c70f27e4eb9e39a72d49d44e996d790ccc70369532c919152a863eb"
+  },
+  "docs/nesso2/evidence/a100-speed-shared.json": {
+    "bytes": 105440,
+    "sha256": "1a677c5098646d57e36c696c8de559c6a0da8c239aa98e6379f2f2a21120e676"
   },
   "docs/nesso2/evidence/archive-index.json": {
     "bytes": 27256,
@@ -258,6 +274,10 @@
   "examples/SCENARIOS.md": {
     "bytes": 3291,
     "sha256": "53f51ac1465d6806bacc7a9c617727fc7e5212be37f923f687e5561dad4e218e"
+  },
+  "examples/benchmark_latency.py": {
+    "bytes": 8442,
+    "sha256": "f9366a9c8d6bbb6a72fe06cf7cfa782268806107d5c2ce36505caa7f5c5122a4"
   },
   "examples/build_scenarios.py": {
     "bytes": 9450,

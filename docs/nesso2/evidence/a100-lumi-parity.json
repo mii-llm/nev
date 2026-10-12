@@ -1,0 +1,16 @@
+{
+  "v2": {
+    "requests": 20,
+    "decisions": 80,
+    "requests_differing_from_lumi": [],
+    "load_seconds": 2.704188270494342,
+    "first_fp32_request_ms": 381.9613931700587
+  },
+  "v3": {
+    "requests": 20,
+    "decisions": 80,
+    "requests_differing_from_lumi": [],
+    "load_seconds": 1.9290837878361344,
+    "first_fp32_request_ms": 124.0821061655879
+  }
+}
