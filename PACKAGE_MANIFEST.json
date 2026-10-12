@@ -36,8 +36,8 @@
     "sha256": "11600cde9b1fd1156b41f2d815bbb1d4c3e647b65c140a4b013aebb38fae8b8c"
   },
   "README.md": {
-    "bytes": 45493,
-    "sha256": "33cf8c3f8cfa9e9e85c30aad640798d28cd04ddb97a6573ed75d72b559a57352"
+    "bytes": 46727,
+    "sha256": "fe1106346a440c70b50c36a5f4d3c7f08d8cba25cd47bfe2802db317bbd37bb7"
   },
   "SCENARIO_RESULTS.md": {
     "bytes": 2828,
@@ -56,8 +56,8 @@
     "sha256": "1119b75cda0724388e6569fb20f78ec324706bc086bc1d914baf7edd9f4339e7"
   },
   "docs/nesso2/EXPERIMENT_LOG.md": {
-    "bytes": 34036,
-    "sha256": "9e8953f5fb3427ab1764e5103b313dcb01300e5a81f9503903d73aaf5ebdf152"
+    "bytes": 34775,
+    "sha256": "17a3418f87f69bec0820ec3534ff749e65651ff274181ff444e32e5301e4d62d"
   },
   "docs/nesso2/FOCUSED_V3.md": {
     "bytes": 5445,
@@ -186,6 +186,10 @@
   "docs/nesso2/evidence/hf-demo-results.json": {
     "bytes": 2584,
     "sha256": "7568029807253f7a7dacd704c04f9f794b51a03f062d68a4ad514dec4c8c22dc"
+  },
+  "docs/nesso2/evidence/huggingface-gallery-publication.json": {
+    "bytes": 464,
+    "sha256": "2ee491ceb9929debf711141d099933f353b73a3511104edf233580403ff1a9b3"
   },
   "docs/nesso2/evidence/huggingface-publication.json": {
     "bytes": 476,
@@ -768,8 +772,8 @@
     "sha256": "e440b6614137550d55a0f30f5fba58f48d243453baec13266fd48823e6c5e7f7"
   },
   "models/README.md": {
-    "bytes": 12178,
-    "sha256": "5ec6cd1c89fae348ac1937ae7a13630a07f35aa7612f4c50237beb98adba4fa3"
+    "bytes": 13412,
+    "sha256": "ccf76b6140bd01c14a9e59d83b89f196257e8429446a32091ca3d58b862b2403"
   },
   "models/v2/README.md": {
     "bytes": 5288,

@@ -98,6 +98,64 @@ The completed check is in `~/nev-a100/results/speed-shared.json`, with readable
 progress in `speed-shared.log`. Model downloads and Python imports are excluded
 from the latency measurements. Source the activation script in each new shell.
 
+### Example gallery: English and Italian
+
+Read these as **input → decision** examples. Each English/Italian pair below
+passed on both released variants on the A100; the displayed outputs are from
+**v3, native FP32 inference**. These four pairs were selected from the recorded
+candidate run for documentation. They illustrate successful behavior, not
+representative accuracy; the evaluation below retains all candidates and failures.
+
+#### Support routing
+
+Available choices: `shipping`, `billing`, `account`, `returns`, `technical`.
+
+| Language | Input | Expected | Actual v3 output |
+|---|---|---|---|
+| English | My monthly subscription was charged twice on the same day. I can see both completed payments on my statement and need this checked. | `billing` | ✓ `billing` |
+| Italian | Il mio abbonamento mensile è stato addebitato due volte nello stesso giorno. Vedo entrambi i pagamenti completati sull’estratto conto e vorrei una verifica. | `billing` | ✓ `billing` |
+
+#### Function selection
+
+Available choices: `get_order_status`, `get_invoice`, `search_help_center`, `list_transactions`, `no_tool`.
+
+| Language | Input | Expected | Actual v3 output |
+|---|---|---|---|
+| English | I need a copy of the invoice for order ORD-2048 to attach to my expense report. Please retrieve the document. | `get_invoice` | ✓ `get_invoice` |
+| Italian | Mi serve una copia della fattura dell’ordine ORD-2048 da allegare alla nota spese. Recuperate il documento, per favore. | `get_invoice` | ✓ `get_invoice` |
+
+For both languages, the application can assemble the following proposed call:
+
+```json
+{"name": "get_invoice", "arguments": {"order_id": "ORD-2048"}, "executed": false}
+```
+
+**Nev selected `get_invoice`; the application supplied `order_id`.** This demo
+neither generates arguments nor executes a tool.
+
+#### News-topic classification
+
+Available choices: `world`, `sports`, `business`, `science_technology`.
+
+| Language | Input | Expected | Actual v3 output |
+|---|---|---|---|
+| English | Researchers demonstrated a new optical chip that processes signals using light. The laboratory prototype could reduce the energy required by future computers. | `science_technology` | ✓ `science_technology` |
+| Italian | I ricercatori hanno presentato un nuovo chip ottico che elabora segnali usando la luce. Il prototipo di laboratorio potrebbe ridurre l’energia necessaria ai computer del futuro. | `science_technology` | ✓ `science_technology` |
+
+#### Banking intents
+
+Available choices: `cash_withdrawal`, `card_payment`, `bank_transfer`, `card_delivery`, `card_pin`, `exchange_rate`.
+
+| Language | Input | Expected | Actual v3 output |
+|---|---|---|---|
+| English | The ATM debited my account, but the machine did not dispense any cash. How do I report the failed withdrawal? | `cash_withdrawal` | ✓ `cash_withdrawal` |
+| Italian | Il bancomat ha addebitato il mio conto, ma non ha erogato contanti. Come posso segnalare il prelievo non riuscito? | `cash_withdrawal` | ✓ `cash_withdrawal` |
+
+The complete editable inputs are in `examples/reference_examples.json`.
+Use the commands immediately below to run them on the prepared A100. The full
+32-candidate record, including unsuccessful cases, is retained in
+`docs/nesso2/evidence/a100-reference-candidates.json` in the GitHub repository.
+
 ### Bilingual reference examples: routing, function selection and classification
 
 The A100 examples below demonstrate decisions that succeeded in both English
@@ -138,14 +196,8 @@ at 4 GiB, and load only locally cached weights. The normal request helper also
 accepts `examples/request-function-en.json` or
 `examples/request-function-it.json` with `--request`.
 
-The function example selects among `get_order_status`, `get_invoice`,
-`search_help_center`, `list_transactions` and `no_tool`. The default English
-request is “I need a copy of the invoice for order ORD-2048 to attach to my
-expense report. Please retrieve the document.” Its Italian counterpart is
-“Mi serve una copia della fattura dell’ordine ORD-2048 da allegare alla nota
-spese. Recuperate il documento, per favore.” Both selected `get_invoice`.
-
-The application then constructs this dry-run call:
+The function demo runs the invoice-retrieval example in the gallery by default.
+The application then constructs a dry-run call with argument provenance:
 
 ```json
 {
@@ -312,29 +364,8 @@ curated after evaluation. It includes two examples each of routing, function
 selection, news topics and banking intents. All were rerun with the user-facing
 command; this repeat checks reproducibility, not independent accuracy.
 
-Four representative pairs from that curated file are shown below. Probabilities
-are v3's actual assigned probabilities on the candidate run, rounded to one
-decimal percent; they are not calibrated reliability estimates.
-
-**Routing a duplicate-charge request**
-
-- **EN:** “My monthly subscription was charged twice on the same day. I can see both completed payments on my statement and need this checked.” → `billing` (99.9%).
-- **IT:** “Il mio abbonamento mensile è stato addebitato due volte nello stesso giorno. Vedo entrambi i pagamenti completati sull’estratto conto e vorrei una verifica.” → `billing` (100.0%).
-
-**Selecting an invoice-retrieval function**
-
-- **EN:** “I need a copy of the invoice for order ORD-2048 to attach to my expense report. Please retrieve the document.” → `get_invoice` (99.8%).
-- **IT:** “Mi serve una copia della fattura dell’ordine ORD-2048 da allegare alla nota spese. Recuperate il documento, per favore.” → `get_invoice` (95.5%).
-
-**Classifying a technology news brief**
-
-- **EN:** “Researchers demonstrated a new optical chip that processes signals using light. The laboratory prototype could reduce the energy required by future computers.” → `science_technology` (99.7%).
-- **IT:** “I ricercatori hanno presentato un nuovo chip ottico che elabora segnali usando la luce. Il prototipo di laboratorio potrebbe ridurre l’energia necessaria ai computer del futuro.” → `science_technology` (99.6%).
-
-**Recognizing a failed cash withdrawal**
-
-- **EN:** “The ATM debited my account, but the machine did not dispense any cash. How do I report the failed withdrawal?” → `cash_withdrawal` (100.0%).
-- **IT:** “Il bancomat ha addebitato il mio conto, ma non ha erogato contanti. Come posso segnalare il prelievo non riuscito?” → `cash_withdrawal` (100.0%).
+The successful examples appear in the **Example gallery: English and Italian**
+near the installation instructions above.
 
 These results support using the released models as examples of **clear-intent
 classification over a small, described option set**. They do not reverse the

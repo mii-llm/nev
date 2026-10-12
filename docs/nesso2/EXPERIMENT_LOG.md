@@ -578,3 +578,16 @@ an allowlisted mapping. The example only prints a proposed call, executes no
 tool, and does not evaluate argument extraction, no-tool rejection or planning.
 GitHub README and HF cards include tested usage, successes, complete candidate
 counts, failure disclosure and scope. No weights or calibration were changed.
+
+
+## 2026-10-12 — Visible bilingual example gallery
+
+Moved the previously inline examples into a clearly titled gallery near the
+usage instructions in the GitHub README and root Hugging Face model card.
+Each of support routing, function selection, news-topic classification and
+banking intents now shows available choices and a table with the exact English
+and Italian input, expected answer and recorded v3 output. The eight displayed
+predictions also passed v2. The function example shows an application-built
+JSON call and explicitly distinguishes model-selected names from supplied
+arguments. No new inference or weights were needed; examples are drawn from
+the preserved candidate run and remain labelled as curated demonstrations.

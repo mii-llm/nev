@@ -1,0 +1,13 @@
+{
+  "status": "complete",
+  "repository": "giux78/nev",
+  "private": true,
+  "parent_commit": "3ad1000771d11a54b9ead34989e22cf31084692d",
+  "commit": "d109f37999dcd5c90cb476e4ef16efd0402c6f9f",
+  "commit_url": "https://huggingface.co/giux78/nev/commit/d109f37999dcd5c90cb476e4ef16efd0402c6f9f",
+  "weights_unchanged": true,
+  "weight_files_verified": 4,
+  "files_sha256": {
+    "README.md": "ccf76b6140bd01c14a9e59d83b89f196257e8429446a32091ca3d58b862b2403"
+  }
+}
