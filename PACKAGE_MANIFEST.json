@@ -36,8 +36,8 @@
     "sha256": "11600cde9b1fd1156b41f2d815bbb1d4c3e647b65c140a4b013aebb38fae8b8c"
   },
   "README.md": {
-    "bytes": 33178,
-    "sha256": "ee197bb8ee822170ac02551d402cb28a7e50a0e1b9c94ebe2f250ba881832d41"
+    "bytes": 33488,
+    "sha256": "03ead554045ea74cc4dcd51830ff7912a359e78c4afe9e3115fe9f45fcc7779b"
   },
   "SCENARIO_RESULTS.md": {
     "bytes": 2828,
@@ -56,8 +56,8 @@
     "sha256": "1119b75cda0724388e6569fb20f78ec324706bc086bc1d914baf7edd9f4339e7"
   },
   "docs/nesso2/EXPERIMENT_LOG.md": {
-    "bytes": 30753,
-    "sha256": "00dc7ba69d92f3d03c0c53fbb39594f04a1972397a039d623d864cc7e1d8ae42"
+    "bytes": 31193,
+    "sha256": "75c1d5e11bd5aa507a156043a0006164768c52d612246a8213e56da8a80f578e"
   },
   "docs/nesso2/FOCUSED_V3.md": {
     "bytes": 5445,

@@ -522,3 +522,12 @@ actual-export comparisons, policy-following failures, inference and LUMI usage.
 Earlier-stage claims are attributed to the pinned Nesso2 card; retained decision
 metrics were checked against machine-readable evidence. Three deep-dive links
 remain, with historical documents preserved as supporting records.
+
+
+## 2026-10-12 — README reordered for use and evaluation
+
+Moved installation, loading and LUMI commands to the beginning, followed by
+actual-export comparisons, the fresh synthetic test, harder examples and
+calibration. Lineage, architecture, corpus, training history and rebuild recipe
+follow below. The opening paragraph now focuses on using and evaluating Nev.
+All existing command blocks, result-table rows and links were preserved.
