@@ -215,6 +215,34 @@ from the user's text, generate arbitrary JSON or execute a function. Selecting
 `no_tool` is supported by the example but was not evaluated in this candidate
 set. Multi-step tool use and out-of-scope detection are not established here.
 
+### Try Nev with generative Nesso as one agent
+
+The A100 also has a two-model prototype. It ranks tools with Nev, generates
+calls and responses with Nesso, and runs only **local simulated read-only tools**.
+The three-mode evaluation is reported below; this is an experimental agent,
+not a production service or unrestricted planner.
+
+```bash
+source ~/nev-a100/activate-nev.sh
+cd ~/nev-a100/source
+
+python experiments/hybrid_agent/demo.py --arm nev_ranked --language it \
+  --message "Puoi controllare l’avanzamento della consegna per ORD-6101? Includi il riferimento di tracciamento."
+
+python experiments/hybrid_agent/demo.py --arm nev_ranked --language en \
+  --message "Can you check the delivery progress for ORD-6101? Please include the tracking reference."
+```
+
+The output includes Nev's ranking, Nesso's generated calls, validation errors,
+simulated observations and the final response. Both examples selected
+`get_order_status` with `order_id="ORD-6101"` and returned the tracking reference
+`TRK-ORD-6101`. Use `--arm nesso_only` for the baseline; `--arm nev_top2` tests
+hard shortlisting, which performed worse overall in this pilot. Compact tool
+schemas are the default, with strict validation retained in application code.
+The prototype needs both pinned models cached and at least 8 GiB free GPU memory.
+CLI first-call latency includes warmup; the comparison timings exclude model
+loading and use a separate warmup.
+
 ## 2. Run and evaluate on LUMI
 
 A ready copy of the examples and frozen runtime is staged in the existing project installation. After connecting to LUMI:
@@ -372,6 +400,73 @@ classification over a small, described option set**. They do not reverse the
 observed failures on numeric thresholds, boolean policies, interacting rules,
 or unfamiliar large intent sets. The application should keep deterministic
 business rules separate from model-selected intent.
+
+### Nesso + Nev: first agent comparison
+
+A runnable prototype combines generative
+`giux78/nesso2-0.4B-agentic-v2` with Nev v3. Nev ranks four available tools;
+Nesso generates the function name and arguments, receives a simulated tool
+result, and attempts a final response. Python enforces schema and argument
+checks. All tools are local read-only simulations, with no real account actions.
+
+The corrected compact-schema pilot used **80 authored requests, 40 EN / 40 IT**,
+covering straightforward requests, distracting details, two-step workflows,
+missing arguments, no-tool questions and unsupported actions. Each was run with
+three modes on the shared A100. Both models remained resident; inference used
+BF16 Nesso and native FP32 Nev. All model revisions, requests, labels and traces
+are retained. No model weights were trained or changed.
+
+| Mode | Strict checks EN /40 | Strict checks IT /40 | Total /80 | Median EN | Median IT |
+|---|---:|---:|---:|---:|---:|
+| Nesso alone | 9 | 14 | 23 | 1.97 s | 1.55 s |
+| Nev-ranked → Nesso | 12 | 15 | 27 | 1.51 s | 1.59 s |
+| Nev top-2 → Nesso | 6 | 11 | 17 | 1.52 s | 1.59 s |
+
+“Strict checks” means exact emitted calls and arguments, no extra calls,
+a final response containing required result anchors, sequential turns where
+requested, and clarification/refusal heuristics. It is a **mechanical proxy**,
+not human-verified task accuracy. Manual review found replies that passed the
+checks but added unsupported or imprecise statements. This small, partly
+templated pilot is not a representative benchmark. Timing includes the measured
+Nev routing cost where used and local mock-tool overhead; real API latency is absent.
+
+Ranking achieved six paired wins and two losses versus Nesso alone: **four net
+additional passes (+5 percentage points)**. This is a small directional result,
+not evidence of a reliable general improvement. Importantly, Nesso alone had
+better **first-call exactness** on the 28 tool requests per language: 22/28 EN
+and 26/28 IT, versus 20/28 and 24/28 with ranking. Ranking helped more runs finish
+after the initial call; it did not improve first-call accuracy here.
+
+Hard top-2 selection lost six passes overall and excluded a required tool on
+all four Italian two-step requests. Every mode failed the strict two-step
+checks in both languages. Common failures were repeating calls after a valid
+observation, adding output fields to new arguments, and failing to finish with
+a grounded answer. Keep all tools available in the current prototype and treat
+Nev's ordering as experimental advice.
+
+**A material integration finding:** the initial run exposed JSON Schema
+`pattern` and `additionalProperties` fields to Nesso. It passed only 4/80 checks
+alone, 4/80 with ranking and 14/80 with top-2. Removing those fields from the
+model-visible schemas, following the model card's minimal format, produced the
+table above. The same validation remained in Python. Thus the first apparent
+shortlisting gain was not a sound recommendation. Both protocol runs are
+retained. The compact follow-up reused the same cases after inspecting the first
+run, so it is a development comparison; a fresh held-out evaluation is still needed.
+
+The corrected 240-run comparison took **452 seconds**, with peak allocated GPU
+memory **2,572 MiB (2.51 GiB)** for the resident models and inference. The first
+protocol took 853 seconds. The next experiments should separate call generation
+from answering after an observation, compare Nev ordering with randomized or
+simple deterministic ordering, and evaluate on new bilingual requests before
+claiming an agent-level gain.
+
+Reproducible code and exact methodology are in `experiments/hybrid_agent/`;
+complete corrected traces and analysis are in
+`docs/nesso2/evidence/a100-hybrid-compact-pilot.json` and
+`a100-hybrid-compact-analysis.json`. The original protocol and smoke records
+remain alongside them. The source used for the first run is Git commit
+`1cab00d`; the compact run used `9997ec5`. The prototype now defaults to compact
+schemas; passing `--schema-style validated` reproduces the old schema display.
 
 ### A100 inference speed: brief shared-GPU measurement
 

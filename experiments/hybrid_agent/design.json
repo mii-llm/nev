@@ -24,6 +24,8 @@
     "source_sha256": {
       "agent.py": "55e19aafe91138d0b62542902aa09665be9f80823026cc37e6b311ad4573347c",
       "run_pilot.py": "7533efb1d697e6ed471c00d392113a0b9f0d0d28e3a7d738761da7cccd58a1d2"
-    }
-  }
+    },
+    "source_commit": "9997ec5"
+  },
+  "final_cli": "Both EN/IT shipping examples verified with compact default and nev_ranked; outputs retained."
 }

@@ -1,0 +1,189 @@
+{
+  "status": "complete",
+  "n_requests": 80,
+  "n_pairs": 40,
+  "scoring_note": "Strict mechanical checks, not semantic correctness. See README for literal-anchor and keyword limitations.",
+  "results": {
+    "nesso_only": {
+      "en": {
+        "n": 40,
+        "tool_requests": 28,
+        "non_tool_requests": 12,
+        "first_tool_name_correct": 25,
+        "first_call_exact": 22,
+        "whole_call_sequence_exact": 13,
+        "strict_mechanical_pass": 9,
+        "tool_request_strict_pass": 6,
+        "non_tool_request_strict_pass": 3,
+        "all_required_tools_retained": 28,
+        "median_ms": 1970.9332380443811,
+        "mean_ms": 1873.8915665540844,
+        "mean_generated_tokens": 80.625,
+        "truncated_requests": 1
+      },
+      "it": {
+        "n": 40,
+        "tool_requests": 28,
+        "non_tool_requests": 12,
+        "first_tool_name_correct": 26,
+        "first_call_exact": 26,
+        "whole_call_sequence_exact": 20,
+        "strict_mechanical_pass": 14,
+        "tool_request_strict_pass": 9,
+        "non_tool_request_strict_pass": 5,
+        "all_required_tools_retained": 28,
+        "median_ms": 1553.4623130224645,
+        "mean_ms": 2046.9379575457424,
+        "mean_generated_tokens": 89.85,
+        "truncated_requests": 4
+      }
+    },
+    "nev_ranked": {
+      "en": {
+        "n": 40,
+        "tool_requests": 28,
+        "non_tool_requests": 12,
+        "first_tool_name_correct": 20,
+        "first_call_exact": 20,
+        "whole_call_sequence_exact": 16,
+        "strict_mechanical_pass": 12,
+        "tool_request_strict_pass": 9,
+        "non_tool_request_strict_pass": 3,
+        "all_required_tools_retained": 28,
+        "median_ms": 1507.9732383601367,
+        "mean_ms": 1854.359939461574,
+        "mean_generated_tokens": 77.35,
+        "truncated_requests": 5
+      },
+      "it": {
+        "n": 40,
+        "tool_requests": 28,
+        "non_tool_requests": 12,
+        "first_tool_name_correct": 24,
+        "first_call_exact": 24,
+        "whole_call_sequence_exact": 20,
+        "strict_mechanical_pass": 15,
+        "tool_request_strict_pass": 11,
+        "non_tool_request_strict_pass": 4,
+        "all_required_tools_retained": 28,
+        "median_ms": 1585.3178738616407,
+        "mean_ms": 1999.4637679774314,
+        "mean_generated_tokens": 85.5,
+        "truncated_requests": 3
+      }
+    },
+    "nev_top2": {
+      "en": {
+        "n": 40,
+        "tool_requests": 28,
+        "non_tool_requests": 12,
+        "first_tool_name_correct": 18,
+        "first_call_exact": 18,
+        "whole_call_sequence_exact": 15,
+        "strict_mechanical_pass": 6,
+        "tool_request_strict_pass": 5,
+        "non_tool_request_strict_pass": 1,
+        "all_required_tools_retained": 28,
+        "median_ms": 1524.6310248039663,
+        "mean_ms": 1791.3837960688397,
+        "mean_generated_tokens": 75.125,
+        "truncated_requests": 4
+      },
+      "it": {
+        "n": 40,
+        "tool_requests": 28,
+        "non_tool_requests": 12,
+        "first_tool_name_correct": 17,
+        "first_call_exact": 17,
+        "whole_call_sequence_exact": 18,
+        "strict_mechanical_pass": 11,
+        "tool_request_strict_pass": 6,
+        "non_tool_request_strict_pass": 5,
+        "all_required_tools_retained": 24,
+        "median_ms": 1594.4838165305555,
+        "mean_ms": 1795.3147172229365,
+        "mean_generated_tokens": 74.55,
+        "truncated_requests": 1
+      }
+    }
+  },
+  "paired_changes": {
+    "nev_ranked": {
+      "en": {
+        "wins": [
+          "invoice_0/en",
+          "invoice_2/en",
+          "payments_3/en"
+        ],
+        "losses": [],
+        "net": 3
+      },
+      "it": {
+        "wins": [
+          "guide_0/it",
+          "invoice_1/it",
+          "guide_1/it"
+        ],
+        "losses": [
+          "order_3/it",
+          "missing_guide/it"
+        ],
+        "net": 1
+      }
+    },
+    "nev_top2": {
+      "en": {
+        "wins": [
+          "unavailable_email/en"
+        ],
+        "losses": [
+          "payments_0/en",
+          "missing_guide/en",
+          "no_tool_capital_it/en",
+          "no_tool_capital_fr/en"
+        ],
+        "net": -3
+      },
+      "it": {
+        "wins": [
+          "invoice_1/it",
+          "missing_order/it",
+          "unavailable_refund/it"
+        ],
+        "losses": [
+          "payments_1/it",
+          "payments_2/it",
+          "order_3/it",
+          "payments_3/it",
+          "missing_guide/it",
+          "no_tool_capital_it/it"
+        ],
+        "net": -3
+      }
+    }
+  },
+  "errors": {
+    "nesso_only": {
+      "duplicate_call": 12,
+      "invalid_argument_value": 44,
+      "tool_round_limit": 12,
+      "wrong_arguments": 3,
+      "malformed_or_mixed_tool_markup": 2
+    },
+    "nev_ranked": {
+      "duplicate_call": 8,
+      "invalid_argument_value": 32,
+      "wrong_arguments": 4,
+      "tool_round_limit": 7,
+      "malformed_or_mixed_tool_markup": 5
+    },
+    "nev_top2": {
+      "wrong_arguments": 6,
+      "duplicate_call": 13,
+      "invalid_argument_value": 25,
+      "tool_round_limit": 3,
+      "malformed_or_mixed_tool_markup": 5
+    }
+  },
+  "report_sha256": "749ed0307ad52da8c3d6ce4800713c9a6c8ae482588c15e9fee1d455ba126ab0"
+}

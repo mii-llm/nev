@@ -1,0 +1,36 @@
+{
+  "scope": "Read all automatically passing final responses in both protocol reports (22 initial and 67 compact). This is a qualitative audit, not independent grading of all failures or a corrected semantic accuracy score.",
+  "findings": [
+    {
+      "protocol": "initial",
+      "id": "missing_invoice/it",
+      "arm": "nesso_only",
+      "issue": "Asked for a filename/name rather than clearly the required order ID, but passed the order-keyword heuristic."
+    },
+    {
+      "protocol": "compact",
+      "id": "payments_0/en",
+      "arm": "nesso_only",
+      "issue": "Returned the correct total but also asserted the user statement was correct without evidence."
+    },
+    {
+      "protocol": "compact",
+      "id": "payments_1/it",
+      "arm": "nesso_only",
+      "issue": "Returned the correct total but described the month as 2026."
+    },
+    {
+      "protocol": "compact",
+      "id": "missing_order/it",
+      "arm": "nev_top2",
+      "issue": "Requested the order number OR a product name, although only order_id is supported."
+    },
+    {
+      "protocol": "compact",
+      "id": "unavailable_email/it",
+      "arm": "nesso_only",
+      "issue": "Correctly declined email but offered to contact the accountant, which is not an available capability."
+    }
+  ],
+  "interpretation": "Keep the published counts labelled mechanical checks; they are neither general task accuracy nor a guaranteed bound on semantic correctness."
+}

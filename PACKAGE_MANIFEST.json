@@ -36,16 +36,16 @@
     "sha256": "11600cde9b1fd1156b41f2d815bbb1d4c3e647b65c140a4b013aebb38fae8b8c"
   },
   "README.md": {
-    "bytes": 46727,
-    "sha256": "fe1106346a440c70b50c36a5f4d3c7f08d8cba25cd47bfe2802db317bbd37bb7"
+    "bytes": 52271,
+    "sha256": "e4f3bb3c595bdb5138f92f1c08314935de1685bbd3d74d2c2e4b93d3901c643a"
   },
   "SCENARIO_RESULTS.md": {
     "bytes": 2828,
     "sha256": "fc40a9397e068b103fcf341fc88ef5d862c1563f9106c9dc860f7247bb9e39b5"
   },
   "STATUS.md": {
-    "bytes": 1506,
-    "sha256": "93a732197dd187aaadf49c568a4448b11bcba2c248d2bc99e33d84feb33913da"
+    "bytes": 1797,
+    "sha256": "4156205bcc772768ee7dbf4b4f17558bccf379f341a52540ea6ef3160f6fc204"
   },
   "docs/nesso2/BUILD_RECIPE.md": {
     "bytes": 6243,
@@ -56,8 +56,8 @@
     "sha256": "1119b75cda0724388e6569fb20f78ec324706bc086bc1d914baf7edd9f4339e7"
   },
   "docs/nesso2/EXPERIMENT_LOG.md": {
-    "bytes": 34775,
-    "sha256": "17a3418f87f69bec0820ec3534ff749e65651ff274181ff444e32e5301e4d62d"
+    "bytes": 37287,
+    "sha256": "c83e8e4c119a874fe8288dc09c8bf8db9fbc33b3e6b812fef2687ef7e452d1b2"
   },
   "docs/nesso2/FOCUSED_V3.md": {
     "bytes": 5445,
@@ -87,9 +87,37 @@
     "bytes": 5212,
     "sha256": "004f0128455f58dc50bd0c49b9c7c3f02b8b13629184a2abffa766979031d43b"
   },
+  "docs/nesso2/evidence/a100-hybrid-compact-analysis.json": {
+    "bytes": 5224,
+    "sha256": "d63ff9c422f081051c1f2f8a202c28b83e73076433e9dc22608607426fd10c68"
+  },
+  "docs/nesso2/evidence/a100-hybrid-compact-launch.json": {
+    "bytes": 353,
+    "sha256": "d97ee7a15880094aef98b890e14bf7ee46299e444518519cce9eb9cd05cc8004"
+  },
+  "docs/nesso2/evidence/a100-hybrid-compact-pilot.json": {
+    "bytes": 724732,
+    "sha256": "749ed0307ad52da8c3d6ce4800713c9a6c8ae482588c15e9fee1d455ba126ab0"
+  },
+  "docs/nesso2/evidence/a100-hybrid-compact-smoke.json": {
+    "bytes": 23925,
+    "sha256": "fc27d9534304a310de3d94c51590266e9f91e705403b7e15c898364c99cc7d02"
+  },
+  "docs/nesso2/evidence/a100-hybrid-demo-en.json": {
+    "bytes": 2283,
+    "sha256": "5c59c1b87a40fcda0729adad0c4a39c4b90168da431f7b245ea65e0368c7ea08"
+  },
+  "docs/nesso2/evidence/a100-hybrid-demo-it.json": {
+    "bytes": 2289,
+    "sha256": "bfde1281bf31ed27e99b79a95f176b6c49504bef018db44eef22d3d44b22a396"
+  },
   "docs/nesso2/evidence/a100-hybrid-launch.json": {
     "bytes": 226,
     "sha256": "40064aff6dd9aa3976c31541850d6d5d85b8e49b7a696b0dbcea588f03b6e3e6"
+  },
+  "docs/nesso2/evidence/a100-hybrid-output-audit.json": {
+    "bytes": 1447,
+    "sha256": "ec5bd3a043a6ad27c8fd29d9f5cc9fb97b36f42e53d6026a5394982ac973af30"
   },
   "docs/nesso2/evidence/a100-hybrid-pilot.json": {
     "bytes": 934175,
@@ -384,12 +412,12 @@
     "sha256": "992f332b16e728dd25bc9bdaf847353a9e2aa7d0eec19ad894dbaa5d4f0b679c"
   },
   "experiments/hybrid_agent/README.md": {
-    "bytes": 7672,
-    "sha256": "bc835c1c7cad1ab49ecdd97072105d9d8f56dde4e79bb6995dbf7a7706e37a9b"
+    "bytes": 11796,
+    "sha256": "d90748dc15fc8aafdecd5b8765b12874583079c468c160f1297bf05c333f45c3"
   },
   "experiments/hybrid_agent/agent.py": {
-    "bytes": 10899,
-    "sha256": "55e19aafe91138d0b62542902aa09665be9f80823026cc37e6b311ad4573347c"
+    "bytes": 10895,
+    "sha256": "56089b88228cc899c260815a1499d9005ac0b180ffa6a648e9e7b2a45786b58a"
   },
   "experiments/hybrid_agent/analyze.py": {
     "bytes": 4040,
@@ -404,16 +432,16 @@
     "sha256": "d11a1fac0925e5d62e9542ebe3894441943ed856bddfa20c9a3156396c3bee57"
   },
   "experiments/hybrid_agent/demo.py": {
-    "bytes": 665,
-    "sha256": "9fb343c39ddb2145ba1e57d986ce8acff03f8aa71918efdd3bbb66df42701da2"
+    "bytes": 663,
+    "sha256": "37c72c02cbcc3a38011b884ebf4fe5d011dd231fa977b00b07207d70005004b2"
   },
   "experiments/hybrid_agent/design.json": {
-    "bytes": 1936,
-    "sha256": "c98368d76898ba2701380d870a8bd093b00b2f6730385531903b0fc74e52a2cf"
+    "bytes": 2079,
+    "sha256": "b66f7981b98bc47817ceba6e533386b9a56947cff66b4fe78154156c82c3be2c"
   },
   "experiments/hybrid_agent/run_pilot.py": {
-    "bytes": 6552,
-    "sha256": "7533efb1d697e6ed471c00d392113a0b9f0d0d28e3a7d738761da7cccd58a1d2"
+    "bytes": 6550,
+    "sha256": "2b794e984399f4f056b6cdb01f7dcce890a6035bee3d91c93e5fa45d9d6a1118"
   },
   "experiments/hybrid_agent/test_agent.py": {
     "bytes": 3100,

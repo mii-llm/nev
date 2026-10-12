@@ -9,3 +9,5 @@ The portable synthetic generator reproduces all eight held-out split hashes. The
 Detailed adapter and export results are kept separate. The original preparation status and failed packaging smoke test remain documented in docs/nesso2/EXPERIMENT_LOG.md. Raw third-party datasets and model binaries are not checked into GitHub; archive inventories and result/provenance JSON are included.
 
 Bilingual A100 reference examples now retain all 32 authored candidates, their v2/v3 outputs and 16 explicitly curated successful requests. Function-name selection is demonstrated with application-supplied arguments and dry-run calls; no argument extraction or tool execution is claimed.
+
+A bounded Nesso2-v2 + Nev agent prototype and both 80-request protocol comparisons are retained. Compact tool schemas with Nev ordering gave a small mechanical-check gain (27/80 vs 23/80); hard top2 fell to 17/80. No reliable agent-level improvement or production readiness is established.

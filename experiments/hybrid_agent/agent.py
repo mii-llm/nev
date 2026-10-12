@@ -26,7 +26,7 @@ TOOL_DATA = {
 }
 
 
-def schemas(language, style='validated'):
+def schemas(language, style='compact'):
     if style not in ('validated', 'compact'):
         raise ValueError('Unknown schema style')
     result = [{'type': 'function', 'function': {
@@ -96,7 +96,7 @@ def mock_tool(call):
 
 
 class HybridAgent:
-    def __init__(self, memory_cap_gib=8, schema_style='validated'):
+    def __init__(self, memory_cap_gib=8, schema_style='compact'):
         import torch
         from transformers import AutoModelForCausalLM, AutoTokenizer
         from huggingface_hub import snapshot_download

@@ -591,3 +591,45 @@ predictions also passed v2. The function example shows an application-built
 JSON call and explicitly distinguishes model-selected names from supplied
 arguments. No new inference or weights were needed; examples are drawn from
 the preserved candidate run and remain labelled as curated demonstrations.
+
+
+## 2026-10-12 — Generative Nesso + Nev agent pilot
+
+Built a bounded agent using generative Nesso2-v2 at
+`dc74c2f5ec3330d3e22d697078646b547669da1a` and the pinned Nev-v3 export.
+80 requests (40 bilingual pairs), three arms, synthetic read-only tools,
+generated arguments with Python schema/grounding checks, at most three tool
+rounds and one final generation. Fixed inputs and labels before inference.
+All traces and failures retained; no weights changed and no real actions executed.
+
+The initial schema exposed validation fields to the model. Over 240 runs it
+passed only 4/80 strict mechanical checks alone, 4/80 ranked, 14/80 top2.
+Engineering checks verified the saved chat template, exactly one BOS and tool
+roles. The initial offline snapshot-loading failure was fixed before inference.
+Investigated the unexpectedly weak baseline against the model card's format
+requirements instead of attributing the first apparent top2 gain to Nev.
+
+A matched follow-up removed `pattern` and `additionalProperties` only from the
+model-visible schema. Python validation was unchanged. Same 80 cases, same
+labels, three arms, 240 runs: Nesso alone 9/40 EN +14/40 IT (23/80); Nev-ranked
+12/40 +15/40 (27/80); top2 6/40 +11/40 (17/80). Ranking had six paired wins and
+two losses. First-call exactness was better for Nesso alone (22/28,26/28) than
+ranked (20/28,24/28). All modes failed every strict two-step case. Top2 removed
+a required tool in all four Italian two-step cases. Repeated calls and poor
+answering after observations remain major weaknesses.
+
+The follow-up reused inspected cases, so it is a protocol/development comparison,
+not a fresh benchmark. Mechanical anchor/keyword scoring has false positives
+and possible false negatives; qualitative audit examples are retained. No claim
+of reliable general improvement or production readiness. Compact schemas now
+default; all tools remain available in the suggested ranked mode. Need fresh
+evaluation and random/deterministic ordering controls to establish Nev's value.
+
+Original exact source: `1cab00d`; compact comparison source: `9997ec5`.
+852.5 s initial; 452.0 s compact on shared A100; compact peak GPU allocation
+2,572 MiB. Source, 480 full-run traces, 12 smoke traces, launch receipts,
+analysis and qualitative audit retained under experiments/hybrid_agent and
+`docs/nesso2/evidence/a100-hybrid-*`.
+
+Final EN/IT CLI commands also passed with generated order_id and actual mock
+observations; their outputs are retained as a100-hybrid-demo-en/it.json.

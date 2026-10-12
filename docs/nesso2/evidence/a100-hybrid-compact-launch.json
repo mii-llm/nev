@@ -1,0 +1,10 @@
+{
+  "pid": 323653,
+  "output": "/home/ecuser/nev-a100/results/hybrid-compact-pilot.json",
+  "log": "/home/ecuser/nev-a100/results/hybrid-compact-pilot.log",
+  "started_utc": "2026-10-12T19:12:18.795688+00:00",
+  "requests": 80,
+  "arms": 3,
+  "schema_style": "compact",
+  "scope": "Protocol follow-up on same frozen cases; not independent evaluation"
+}

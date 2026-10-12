@@ -57,7 +57,7 @@ def main():
     p.add_argument('--cases',type=Path,default=Path(__file__).with_name('cases.json'))
     p.add_argument('--output',type=Path,required=True)
     p.add_argument('--limit',type=int)
-    p.add_argument('--schema-style',choices=['validated','compact'],default='validated')
+    p.add_argument('--schema-style',choices=['validated','compact'],default='compact')
     a=p.parse_args()
     if a.output.exists():p.error('Choose a new output file')
     a.output.parent.mkdir(parents=True,exist_ok=True)
