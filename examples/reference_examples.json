@@ -1,0 +1,405 @@
+{
+  "scope": "16 curated demonstration requests (8 EN/IT pairs), selected AFTER inspecting 32 fixed candidate outputs. Every selected pair succeeded in both languages on both v2 and v3. This selected subset is not an accuracy benchmark.",
+  "selection_rule": "A pair qualifies for a variant only if both English and Italian choices match the expected labels. No prompt revisions based on predictions.",
+  "function_calling_scope": "Model selects a function name only. Arguments come from synthetic application context; no argument extraction or tool execution is evaluated.",
+  "cases": [
+    {
+      "id": "routing/invoice/en",
+      "pair": "routing/invoice",
+      "domain": "routing",
+      "language": "en",
+      "expected": "billing",
+      "request": {
+        "state": "My monthly subscription was charged twice on the same day. I can see both completed payments on my statement and need this checked.",
+        "questions": {
+          "decision": {
+            "type": "choice",
+            "instructions": "Choose the support team that should handle the customer request.",
+            "criteria": {
+              "shipping": "Parcel tracking and delivery",
+              "billing": "Invoices, payments and duplicate charges",
+              "account": "Login, passwords and account access",
+              "returns": "Returning or exchanging a product",
+              "technical": "Device or software faults and troubleshooting"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "routing/invoice/it",
+      "pair": "routing/invoice",
+      "domain": "routing",
+      "language": "it",
+      "expected": "billing",
+      "request": {
+        "state": "Il mio abbonamento mensile è stato addebitato due volte nello stesso giorno. Vedo entrambi i pagamenti completati sull’estratto conto e vorrei una verifica.",
+        "questions": {
+          "decision": {
+            "type": "choice",
+            "instructions": "Scegli il reparto di assistenza che deve gestire la richiesta del cliente.",
+            "criteria": {
+              "shipping": "Tracciamento pacchi e consegne",
+              "billing": "Fatture, pagamenti e doppi addebiti",
+              "account": "Accesso, password e recupero account",
+              "returns": "Resi e sostituzione dei prodotti",
+              "technical": "Guasti di dispositivi o software e assistenza tecnica"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "routing/exchange/en",
+      "pair": "routing/exchange",
+      "domain": "routing",
+      "language": "en",
+      "expected": "returns",
+      "request": {
+        "state": "The shoes arrived in the correct size, but they are too narrow. I would like to send them back and exchange them for a different model.",
+        "questions": {
+          "decision": {
+            "type": "choice",
+            "instructions": "Choose the support team that should handle the customer request.",
+            "criteria": {
+              "shipping": "Parcel tracking and delivery",
+              "billing": "Invoices, payments and duplicate charges",
+              "account": "Login, passwords and account access",
+              "returns": "Returning or exchanging a product",
+              "technical": "Device or software faults and troubleshooting"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "routing/exchange/it",
+      "pair": "routing/exchange",
+      "domain": "routing",
+      "language": "it",
+      "expected": "returns",
+      "request": {
+        "state": "Le scarpe sono arrivate nella taglia ordinata, ma sono troppo strette. Vorrei rispedirle e cambiarle con un altro modello.",
+        "questions": {
+          "decision": {
+            "type": "choice",
+            "instructions": "Scegli il reparto di assistenza che deve gestire la richiesta del cliente.",
+            "criteria": {
+              "shipping": "Tracciamento pacchi e consegne",
+              "billing": "Fatture, pagamenti e doppi addebiti",
+              "account": "Accesso, password e recupero account",
+              "returns": "Resi e sostituzione dei prodotti",
+              "technical": "Guasti di dispositivi o software e assistenza tecnica"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "function_selection/document/en",
+      "pair": "function_selection/document",
+      "domain": "function_selection",
+      "language": "en",
+      "expected": "get_invoice",
+      "request": {
+        "state": "I need a copy of the invoice for order ORD-2048 to attach to my expense report. Please retrieve the document.",
+        "questions": {
+          "decision": {
+            "type": "choice",
+            "instructions": "Select the read-only function needed to answer the user. Choose no_tool if none applies.",
+            "criteria": {
+              "get_order_status": "Look up the shipment status and estimated delivery of an order",
+              "get_invoice": "Retrieve the invoice document for an order",
+              "search_help_center": "Search product documentation and troubleshooting guides",
+              "list_transactions": "List the recorded payments for a customer account",
+              "no_tool": "No available function is appropriate"
+            }
+          }
+        }
+      },
+      "application_context": {
+        "order_id": "ORD-2048",
+        "customer_id": "DEMO-CUSTOMER",
+        "start_date": "2026-09-01",
+        "end_date": "2026-09-30",
+        "help_query": "PX-7 Wi-Fi setup"
+      }
+    },
+    {
+      "id": "function_selection/document/it",
+      "pair": "function_selection/document",
+      "domain": "function_selection",
+      "language": "it",
+      "expected": "get_invoice",
+      "request": {
+        "state": "Mi serve una copia della fattura dell’ordine ORD-2048 da allegare alla nota spese. Recuperate il documento, per favore.",
+        "questions": {
+          "decision": {
+            "type": "choice",
+            "instructions": "Seleziona la funzione di sola lettura necessaria per rispondere all’utente. Scegli no_tool se nessuna è adatta.",
+            "criteria": {
+              "get_order_status": "Consulta lo stato della spedizione e la consegna prevista di un ordine",
+              "get_invoice": "Recupera il documento della fattura di un ordine",
+              "search_help_center": "Cerca nella documentazione del prodotto e nelle guide alla risoluzione dei problemi",
+              "list_transactions": "Elenca i pagamenti registrati per un account cliente",
+              "no_tool": "Nessuna funzione disponibile è adatta"
+            }
+          }
+        }
+      },
+      "application_context": {
+        "order_id": "ORD-2048",
+        "customer_id": "DEMO-CUSTOMER",
+        "start_date": "2026-09-01",
+        "end_date": "2026-09-30",
+        "help_query": "PX-7 Wi-Fi setup"
+      }
+    },
+    {
+      "id": "function_selection/guide/en",
+      "pair": "function_selection/guide",
+      "domain": "function_selection",
+      "language": "en",
+      "expected": "search_help_center",
+      "request": {
+        "state": "Find the instructions for connecting the PX-7 printer to a wireless network. I want the setup guide.",
+        "questions": {
+          "decision": {
+            "type": "choice",
+            "instructions": "Select the read-only function needed to answer the user. Choose no_tool if none applies.",
+            "criteria": {
+              "get_order_status": "Look up the shipment status and estimated delivery of an order",
+              "get_invoice": "Retrieve the invoice document for an order",
+              "search_help_center": "Search product documentation and troubleshooting guides",
+              "list_transactions": "List the recorded payments for a customer account",
+              "no_tool": "No available function is appropriate"
+            }
+          }
+        }
+      },
+      "application_context": {
+        "order_id": "ORD-2048",
+        "customer_id": "DEMO-CUSTOMER",
+        "start_date": "2026-09-01",
+        "end_date": "2026-09-30",
+        "help_query": "PX-7 Wi-Fi setup"
+      }
+    },
+    {
+      "id": "function_selection/guide/it",
+      "pair": "function_selection/guide",
+      "domain": "function_selection",
+      "language": "it",
+      "expected": "search_help_center",
+      "request": {
+        "state": "Cerca le istruzioni per collegare la stampante PX-7 a una rete wireless. Mi serve la guida alla configurazione.",
+        "questions": {
+          "decision": {
+            "type": "choice",
+            "instructions": "Seleziona la funzione di sola lettura necessaria per rispondere all’utente. Scegli no_tool se nessuna è adatta.",
+            "criteria": {
+              "get_order_status": "Consulta lo stato della spedizione e la consegna prevista di un ordine",
+              "get_invoice": "Recupera il documento della fattura di un ordine",
+              "search_help_center": "Cerca nella documentazione del prodotto e nelle guide alla risoluzione dei problemi",
+              "list_transactions": "Elenca i pagamenti registrati per un account cliente",
+              "no_tool": "Nessuna funzione disponibile è adatta"
+            }
+          }
+        }
+      },
+      "application_context": {
+        "order_id": "ORD-2048",
+        "customer_id": "DEMO-CUSTOMER",
+        "start_date": "2026-09-01",
+        "end_date": "2026-09-30",
+        "help_query": "PX-7 Wi-Fi setup"
+      }
+    },
+    {
+      "id": "news_topic/earnings/en",
+      "pair": "news_topic/earnings",
+      "domain": "news_topic",
+      "language": "en",
+      "expected": "business",
+      "request": {
+        "state": "The retailer reported higher quarterly revenue but lower profit margins. Its shares fell after management reduced the annual earnings forecast.",
+        "questions": {
+          "decision": {
+            "type": "choice",
+            "instructions": "Classify this fictional news brief by its main topic.",
+            "criteria": {
+              "world": "International affairs, politics and diplomacy",
+              "sports": "Athletic competitions and sports results",
+              "business": "Companies, markets and the economy",
+              "science_technology": "Science, computing and technological research"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "news_topic/earnings/it",
+      "pair": "news_topic/earnings",
+      "domain": "news_topic",
+      "language": "it",
+      "expected": "business",
+      "request": {
+        "state": "La catena di negozi ha registrato ricavi trimestrali più alti ma margini di profitto inferiori. Le azioni sono scese dopo la revisione al ribasso delle previsioni sugli utili annuali.",
+        "questions": {
+          "decision": {
+            "type": "choice",
+            "instructions": "Classifica questa notizia inventata in base al suo argomento principale.",
+            "criteria": {
+              "world": "Affari internazionali, politica e diplomazia",
+              "sports": "Competizioni sportive e risultati delle gare",
+              "business": "Aziende, mercati ed economia",
+              "science_technology": "Scienza, informatica e ricerca tecnologica"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "news_topic/research/en",
+      "pair": "news_topic/research",
+      "domain": "news_topic",
+      "language": "en",
+      "expected": "science_technology",
+      "request": {
+        "state": "Researchers demonstrated a new optical chip that processes signals using light. The laboratory prototype could reduce the energy required by future computers.",
+        "questions": {
+          "decision": {
+            "type": "choice",
+            "instructions": "Classify this fictional news brief by its main topic.",
+            "criteria": {
+              "world": "International affairs, politics and diplomacy",
+              "sports": "Athletic competitions and sports results",
+              "business": "Companies, markets and the economy",
+              "science_technology": "Science, computing and technological research"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "news_topic/research/it",
+      "pair": "news_topic/research",
+      "domain": "news_topic",
+      "language": "it",
+      "expected": "science_technology",
+      "request": {
+        "state": "I ricercatori hanno presentato un nuovo chip ottico che elabora segnali usando la luce. Il prototipo di laboratorio potrebbe ridurre l’energia necessaria ai computer del futuro.",
+        "questions": {
+          "decision": {
+            "type": "choice",
+            "instructions": "Classifica questa notizia inventata in base al suo argomento principale.",
+            "criteria": {
+              "world": "Affari internazionali, politica e diplomazia",
+              "sports": "Competizioni sportive e risultati delle gare",
+              "business": "Aziende, mercati ed economia",
+              "science_technology": "Scienza, informatica e ricerca tecnologica"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "banking_intent/atm/en",
+      "pair": "banking_intent/atm",
+      "domain": "banking_intent",
+      "language": "en",
+      "expected": "cash_withdrawal",
+      "request": {
+        "state": "The ATM debited my account, but the machine did not dispense any cash. How do I report the failed withdrawal?",
+        "questions": {
+          "decision": {
+            "type": "choice",
+            "instructions": "Identify the main banking support intent.",
+            "criteria": {
+              "cash_withdrawal": "Cash withdrawal at an ATM failed or money was not dispensed",
+              "card_payment": "A card payment was declined or failed",
+              "bank_transfer": "A bank transfer has not arrived or is pending",
+              "card_delivery": "A new or replacement card has not arrived",
+              "card_pin": "Help with a forgotten card PIN",
+              "exchange_rate": "Questions about currency conversion rates"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "banking_intent/atm/it",
+      "pair": "banking_intent/atm",
+      "domain": "banking_intent",
+      "language": "it",
+      "expected": "cash_withdrawal",
+      "request": {
+        "state": "Il bancomat ha addebitato il mio conto, ma non ha erogato contanti. Come posso segnalare il prelievo non riuscito?",
+        "questions": {
+          "decision": {
+            "type": "choice",
+            "instructions": "Identifica l’intento principale della richiesta di assistenza bancaria.",
+            "criteria": {
+              "cash_withdrawal": "Prelievo al bancomat fallito o contanti non erogati",
+              "card_payment": "Pagamento con carta rifiutato o fallito",
+              "bank_transfer": "Bonifico non arrivato o in sospeso",
+              "card_delivery": "Carta nuova o sostitutiva non arrivata",
+              "card_pin": "Assistenza per PIN della carta dimenticato",
+              "exchange_rate": "Domande sui tassi di cambio delle valute"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "banking_intent/transfer/en",
+      "pair": "banking_intent/transfer",
+      "domain": "banking_intent",
+      "language": "en",
+      "expected": "bank_transfer",
+      "request": {
+        "state": "I sent a bank transfer on Monday and the recipient still has not received it. The app continues to show the transfer as pending.",
+        "questions": {
+          "decision": {
+            "type": "choice",
+            "instructions": "Identify the main banking support intent.",
+            "criteria": {
+              "cash_withdrawal": "Cash withdrawal at an ATM failed or money was not dispensed",
+              "card_payment": "A card payment was declined or failed",
+              "bank_transfer": "A bank transfer has not arrived or is pending",
+              "card_delivery": "A new or replacement card has not arrived",
+              "card_pin": "Help with a forgotten card PIN",
+              "exchange_rate": "Questions about currency conversion rates"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "banking_intent/transfer/it",
+      "pair": "banking_intent/transfer",
+      "domain": "banking_intent",
+      "language": "it",
+      "expected": "bank_transfer",
+      "request": {
+        "state": "Ho inviato un bonifico lunedì e il destinatario non lo ha ancora ricevuto. L’app continua a mostrare il bonifico in sospeso.",
+        "questions": {
+          "decision": {
+            "type": "choice",
+            "instructions": "Identifica l’intento principale della richiesta di assistenza bancaria.",
+            "criteria": {
+              "cash_withdrawal": "Prelievo al bancomat fallito o contanti non erogati",
+              "card_payment": "Pagamento con carta rifiutato o fallito",
+              "bank_transfer": "Bonifico non arrivato o in sospeso",
+              "card_delivery": "Carta nuova o sostitutiva non arrivata",
+              "card_pin": "Assistenza per PIN della carta dimenticato",
+              "exchange_rate": "Domande sui tassi di cambio delle valute"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "candidate_source": "reference_candidates.json",
+  "candidate_sha256": "f4288d9a1820a7fa18b085030a12103545dfa1ba56aebe2f649d4fe10b109110"
+}

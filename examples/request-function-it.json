@@ -1,0 +1,16 @@
+{
+  "state": "Mi serve una copia della fattura dell’ordine ORD-2048 da allegare alla nota spese. Recuperate il documento, per favore.",
+  "questions": {
+    "decision": {
+      "type": "choice",
+      "instructions": "Seleziona la funzione di sola lettura necessaria per rispondere all’utente. Scegli no_tool se nessuna è adatta.",
+      "criteria": {
+        "get_order_status": "Consulta lo stato della spedizione e la consegna prevista di un ordine",
+        "get_invoice": "Recupera il documento della fattura di un ordine",
+        "search_help_center": "Cerca nella documentazione del prodotto e nelle guide alla risoluzione dei problemi",
+        "list_transactions": "Elenca i pagamenti registrati per un account cliente",
+        "no_tool": "Nessuna funzione disponibile è adatta"
+      }
+    }
+  }
+}

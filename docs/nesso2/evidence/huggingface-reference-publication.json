@@ -1,0 +1,25 @@
+{
+  "status": "complete",
+  "repository": "giux78/nev",
+  "private": true,
+  "parent_commit": "c5c84121263b423f8846811a24790ab96e66cee3",
+  "commit": "3ad1000771d11a54b9ead34989e22cf31084692d",
+  "commit_url": "https://huggingface.co/giux78/nev/commit/3ad1000771d11a54b9ead34989e22cf31084692d",
+  "weights_unchanged": true,
+  "weight_files_verified": 4,
+  "files_sha256": {
+    "README.md": "5ec6cd1c89fae348ac1937ae7a13630a07f35aa7612f4c50237beb98adba4fa3",
+    "v2/README.md": "ab7bc5f170c63c940f3b84e8ff7cb99fd6a773acb78ddb8f21348f0f93843ad6",
+    "v3/README.md": "7ed619f3e86cd8ce87e8dd917947a52d122e04107dbfb2efc4c1c7f63a7afe3f",
+    "examples/hf_decide.py": "9d6a55ae7a50209bc4d9b17a0732e90daeddfe26b63161b2b7fb426a6fcbc234",
+    "examples/run_reference_examples.py": "9f2ed73f8fbd471a033f32e7a48529ec96a12ce8df9d8ffe8bdd9d2d31661ce9",
+    "examples/function_calling_demo.py": "dbe2777a077a941f8c30bdeb6e8fca378caaef350e8d72b490629a0c479986a2",
+    "examples/reference_candidates.json": "f4288d9a1820a7fa18b085030a12103545dfa1ba56aebe2f649d4fe10b109110",
+    "examples/reference_examples.json": "a5b690415136601fc5815dbbc546c56c773424c93a9d9cf4ae7a1c1e8dc5c62b",
+    "examples/request-function-en.json": "f8f29670e549e918990a3912e0a572e346ab4319897252e7795a97b8a8f4f59f",
+    "examples/request-function-it.json": "4ca780f67835f42adfc4b6314db9f84594805889baca7682240c62096e807d06",
+    "examples/reference-candidate-results.json": "3840efb92483ba537152f50b1465cdc1f940e4bc781f7ab08bbb2ff27edf8156",
+    "examples/a100-reference-selected.json": "818f8f2dbf80a7a88dc795ac2a9b5afbf86f6462e2978147e4ee32f0c7706430",
+    "examples/a100-function-calling-demo.json": "82ba3702b7e95e3006e5a70c0fe1062bb0e2d3d936d1bae518dc86906d8dc954"
+  }
+}

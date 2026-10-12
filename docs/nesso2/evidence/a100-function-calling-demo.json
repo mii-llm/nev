@@ -1,0 +1,52 @@
+{
+  "repository": "giux78/nev",
+  "revision": "c5c84121263b423f8846811a24790ab96e66cee3",
+  "variant": "v3",
+  "scope": "Function-name selection only. Arguments come from the application; no tool is executed.",
+  "results": [
+    {
+      "language": "en",
+      "input": "I need a copy of the invoice for order ORD-2048 to attach to my expense report. Please retrieve the document.",
+      "model_selected_function": "get_invoice",
+      "probabilities": {
+        "get_order_status": 0.0014994319062680006,
+        "get_invoice": 0.9980605244636536,
+        "search_help_center": 0.00027331800083629787,
+        "list_transactions": 1.5344045095844194e-05,
+        "no_tool": 0.00015137618174776435
+      },
+      "expected_function": "get_invoice",
+      "correct": true,
+      "application_built_call": {
+        "name": "get_invoice",
+        "arguments": {
+          "order_id": "ORD-2048"
+        },
+        "executed": false,
+        "argument_source": "synthetic application context; not model output"
+      }
+    },
+    {
+      "language": "it",
+      "input": "Mi serve una copia della fattura dell’ordine ORD-2048 da allegare alla nota spese. Recuperate il documento, per favore.",
+      "model_selected_function": "get_invoice",
+      "probabilities": {
+        "get_order_status": 0.019960561767220497,
+        "get_invoice": 0.9552146196365356,
+        "search_help_center": 0.01574959233403206,
+        "list_transactions": 0.000660978548694402,
+        "no_tool": 0.008414213545620441
+      },
+      "expected_function": "get_invoice",
+      "correct": true,
+      "application_built_call": {
+        "name": "get_invoice",
+        "arguments": {
+          "order_id": "ORD-2048"
+        },
+        "executed": false,
+        "argument_source": "synthetic application context; not model output"
+      }
+    }
+  ]
+}

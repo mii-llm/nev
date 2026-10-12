@@ -550,3 +550,31 @@ memory was about 1.85 GiB. All 160 full-request FP32 decisions matched the LUMI
 scenario predictions. Autocast changed 0/100 decisions per model in this sample.
 The exact custom-Italian CLI invocation also completed. Evidence is retained
 in `evidence/a100-*.json` and `evidence/a100-requirements.txt`.
+
+
+## 2026-10-12 — Bilingual reference demonstrations on A100
+
+Authored and froze 32 single-decision candidates, 16 parallel EN/IT pairs, before
+running either model. Existing routing/intent evidence guided domain selection;
+AG News and Banking77 were training precedents, while function-name selection
+was an application demonstration, not a previously measured capability. All
+inputs, expected labels, instructions, candidate failures and raw outputs are
+retained. Candidate SHA256:
+`f4288d9a1820a7fa18b085030a12103545dfa1ba56aebe2f649d4fe10b109110`.
+
+Native cached FP32 inference on the shared A100: routing v2 3/4 EN, 4/4 IT;
+v3 3/4 in each language. Function selection, news topics and banking intents
+were 4/4 per language on both variants. These are authored candidates with
+clear intents and small option sets, not representative benchmarks. V3's
+account-recovery request selected technical support in both languages despite
+high assigned probability. No prompts were revised to remove that failure.
+
+Selected eight bilingual pairs (16 requests) AFTER inspecting predictions;
+every selected pair passed both languages on both variants. The curated file
+explicitly records selection and links to the full candidate hash. Reran the
+selected suite and the exact standalone function-demo command on A100. Nev
+selects a function name; arguments come from synthetic application context via
+an allowlisted mapping. The example only prints a proposed call, executes no
+tool, and does not evaluate argument extraction, no-tool rejection or planning.
+GitHub README and HF cards include tested usage, successes, complete candidate
+counts, failure disclosure and scope. No weights or calibration were changed.

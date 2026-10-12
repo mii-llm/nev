@@ -1,0 +1,16 @@
+{
+  "state": "I need a copy of the invoice for order ORD-2048 to attach to my expense report. Please retrieve the document.",
+  "questions": {
+    "decision": {
+      "type": "choice",
+      "instructions": "Select the read-only function needed to answer the user. Choose no_tool if none applies.",
+      "criteria": {
+        "get_order_status": "Look up the shipment status and estimated delivery of an order",
+        "get_invoice": "Retrieve the invoice document for an order",
+        "search_help_center": "Search product documentation and troubleshooting guides",
+        "list_transactions": "List the recorded payments for a customer account",
+        "no_tool": "No available function is appropriate"
+      }
+    }
+  }
+}

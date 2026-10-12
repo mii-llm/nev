@@ -1,0 +1,2402 @@
+{
+  "repository": "giux78/nev",
+  "revision": "c5c84121263b423f8846811a24790ab96e66cee3",
+  "scope": "32 authored candidate requests, 16 parallel EN/IT pairs. Inputs and expected answers fixed before running either model. All successes and failures retained. Curated successful pairs are demonstrations, not a representative benchmark.",
+  "cases_sha256": "f4288d9a1820a7fa18b085030a12103545dfa1ba56aebe2f649d4fe10b109110",
+  "runner_sha256": "9f2ed73f8fbd471a033f32e7a48529ec96a12ce8df9d8ffe8bdd9d2d31661ce9",
+  "python": "3.12.13",
+  "torch": "2.10.0+cu126",
+  "gpu": "NVIDIA A100 80GB PCIe",
+  "precision": "FP32 native cached inference",
+  "timing_scope": "Synchronized wall time after one warmup; shared GPU, illustrative only",
+  "selection_rule": "A pair qualifies for a variant only if both English and Italian choices match the expected labels. No prompt revisions based on predictions.",
+  "models": {
+    "v2": {
+      "cases": [
+        {
+          "id": "routing/parcel/en",
+          "pair": "routing/parcel",
+          "domain": "routing",
+          "language": "en",
+          "expected": "shipping",
+          "predicted": "shipping",
+          "correct": true,
+          "elapsed_ms": 49.53600559383631,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "shipping",
+                "top_probability": 0.9911664128303528,
+                "probabilities": {
+                  "shipping": 0.9911664128303528,
+                  "billing": 0.005518155638128519,
+                  "account": 9.582657366991043e-05,
+                  "returns": 0.0021673922892659903,
+                  "technical": 0.0010521820513531566
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 26,
+              "branch_tokens": 61,
+              "questions": 1
+            },
+            "latency_ms": 49.44549407809973,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "routing/parcel/it",
+          "pair": "routing/parcel",
+          "domain": "routing",
+          "language": "it",
+          "expected": "shipping",
+          "predicted": "shipping",
+          "correct": true,
+          "elapsed_ms": 48.882865346968174,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "shipping",
+                "top_probability": 0.9896817803382874,
+                "probabilities": {
+                  "shipping": 0.9896817803382874,
+                  "billing": 0.007534247823059559,
+                  "account": 0.0009606916573829949,
+                  "returns": 0.001597861759364605,
+                  "technical": 0.00022550657740794122
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 34,
+              "branch_tokens": 91,
+              "questions": 1
+            },
+            "latency_ms": 48.802527599036694,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "routing/invoice/en",
+          "pair": "routing/invoice",
+          "domain": "routing",
+          "language": "en",
+          "expected": "billing",
+          "predicted": "billing",
+          "correct": true,
+          "elapsed_ms": 48.887343145906925,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "billing",
+                "top_probability": 0.9991890788078308,
+                "probabilities": {
+                  "shipping": 0.0005261492915451527,
+                  "billing": 0.9991890788078308,
+                  "account": 3.5730514355236664e-05,
+                  "returns": 0.00016648616292513907,
+                  "technical": 8.2566482888069e-05
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 26,
+              "branch_tokens": 61,
+              "questions": 1
+            },
+            "latency_ms": 48.8160839304328,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "routing/invoice/it",
+          "pair": "routing/invoice",
+          "domain": "routing",
+          "language": "it",
+          "expected": "billing",
+          "predicted": "billing",
+          "correct": true,
+          "elapsed_ms": 47.87819180637598,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "billing",
+                "top_probability": 0.9995648264884949,
+                "probabilities": {
+                  "shipping": 0.00029537794762291014,
+                  "billing": 0.9995648264884949,
+                  "account": 9.76422888925299e-05,
+                  "returns": 3.3540887670824304e-05,
+                  "technical": 8.686401997692883e-06
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 43,
+              "branch_tokens": 91,
+              "questions": 1
+            },
+            "latency_ms": 47.808751463890076,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "routing/login/en",
+          "pair": "routing/login",
+          "domain": "routing",
+          "language": "en",
+          "expected": "account",
+          "predicted": "technical",
+          "correct": false,
+          "elapsed_ms": 47.07692936062813,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "technical",
+                "top_probability": 0.8552471399307251,
+                "probabilities": {
+                  "shipping": 5.462385161081329e-05,
+                  "billing": 2.2074156731832772e-05,
+                  "account": 0.06960902363061905,
+                  "returns": 0.07506709545850754,
+                  "technical": 0.8552471399307251
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 27,
+              "branch_tokens": 61,
+              "questions": 1
+            },
+            "latency_ms": 47.008370980620384,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "routing/login/it",
+          "pair": "routing/login",
+          "domain": "routing",
+          "language": "it",
+          "expected": "account",
+          "predicted": "account",
+          "correct": true,
+          "elapsed_ms": 47.249577939510345,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "account",
+                "top_probability": 0.6492202281951904,
+                "probabilities": {
+                  "shipping": 0.0004041458014398813,
+                  "billing": 6.241154915187508e-05,
+                  "account": 0.6492202281951904,
+                  "returns": 0.020484648644924164,
+                  "technical": 0.32982856035232544
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 36,
+              "branch_tokens": 91,
+              "questions": 1
+            },
+            "latency_ms": 47.173974104225636,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "routing/exchange/en",
+          "pair": "routing/exchange",
+          "domain": "routing",
+          "language": "en",
+          "expected": "returns",
+          "predicted": "returns",
+          "correct": true,
+          "elapsed_ms": 47.74876218289137,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "returns",
+                "top_probability": 0.9671907424926758,
+                "probabilities": {
+                  "shipping": 0.02828586846590042,
+                  "billing": 0.0012693244498223066,
+                  "account": 0.0002531065256334841,
+                  "returns": 0.9671907424926758,
+                  "technical": 0.0030009758193045855
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 30,
+              "branch_tokens": 61,
+              "questions": 1
+            },
+            "latency_ms": 47.68019542098045,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "routing/exchange/it",
+          "pair": "routing/exchange",
+          "domain": "routing",
+          "language": "it",
+          "expected": "returns",
+          "predicted": "returns",
+          "correct": true,
+          "elapsed_ms": 47.18020558357239,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "returns",
+                "top_probability": 0.7482154965400696,
+                "probabilities": {
+                  "shipping": 0.21125353872776031,
+                  "billing": 0.008127794601023197,
+                  "account": 0.0016545143444091082,
+                  "returns": 0.7482154965400696,
+                  "technical": 0.03074869140982628
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 35,
+              "branch_tokens": 91,
+              "questions": 1
+            },
+            "latency_ms": 47.1141180023551,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "function_selection/order/en",
+          "pair": "function_selection/order",
+          "domain": "function_selection",
+          "language": "en",
+          "expected": "get_order_status",
+          "predicted": "get_order_status",
+          "correct": true,
+          "elapsed_ms": 47.53287881612778,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "get_order_status",
+                "top_probability": 0.9991627931594849,
+                "probabilities": {
+                  "get_order_status": 0.9991627931594849,
+                  "get_invoice": 0.0006489685620181262,
+                  "search_help_center": 1.4533537068928126e-05,
+                  "list_transactions": 4.4606503024624544e-07,
+                  "no_tool": 0.0001732632954372093
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 21,
+              "branch_tokens": 84,
+              "questions": 1
+            },
+            "latency_ms": 47.46708646416664,
+            "form": "cached"
+          },
+          "proposed_call": {
+            "name": "get_order_status",
+            "arguments": {
+              "order_id": "ORD-2048"
+            },
+            "executed": false,
+            "argument_source": "synthetic application context; not model output"
+          }
+        },
+        {
+          "id": "function_selection/order/it",
+          "pair": "function_selection/order",
+          "domain": "function_selection",
+          "language": "it",
+          "expected": "get_order_status",
+          "predicted": "get_order_status",
+          "correct": true,
+          "elapsed_ms": 47.93465416878462,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "get_order_status",
+                "top_probability": 0.9936044812202454,
+                "probabilities": {
+                  "get_order_status": 0.9936044812202454,
+                  "get_invoice": 0.0028981128707528114,
+                  "search_help_center": 0.0009035911061801016,
+                  "list_transactions": 4.107864515390247e-05,
+                  "no_tool": 0.002552767051383853
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 34,
+              "branch_tokens": 130,
+              "questions": 1
+            },
+            "latency_ms": 47.863355837762356,
+            "form": "cached"
+          },
+          "proposed_call": {
+            "name": "get_order_status",
+            "arguments": {
+              "order_id": "ORD-2048"
+            },
+            "executed": false,
+            "argument_source": "synthetic application context; not model output"
+          }
+        },
+        {
+          "id": "function_selection/document/en",
+          "pair": "function_selection/document",
+          "domain": "function_selection",
+          "language": "en",
+          "expected": "get_invoice",
+          "predicted": "get_invoice",
+          "correct": true,
+          "elapsed_ms": 48.402014188468456,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "get_invoice",
+                "top_probability": 0.9994400143623352,
+                "probabilities": {
+                  "get_order_status": 0.0004359894955996424,
+                  "get_invoice": 0.9994400143623352,
+                  "search_help_center": 4.692937363870442e-05,
+                  "list_transactions": 3.328855655126972e-06,
+                  "no_tool": 7.371994433924556e-05
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 26,
+              "branch_tokens": 84,
+              "questions": 1
+            },
+            "latency_ms": 48.32804575562477,
+            "form": "cached"
+          },
+          "proposed_call": {
+            "name": "get_invoice",
+            "arguments": {
+              "order_id": "ORD-2048"
+            },
+            "executed": false,
+            "argument_source": "synthetic application context; not model output"
+          }
+        },
+        {
+          "id": "function_selection/document/it",
+          "pair": "function_selection/document",
+          "domain": "function_selection",
+          "language": "it",
+          "expected": "get_invoice",
+          "predicted": "get_invoice",
+          "correct": true,
+          "elapsed_ms": 47.810669988393784,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "get_invoice",
+                "top_probability": 0.9809324741363525,
+                "probabilities": {
+                  "get_order_status": 0.008516545407474041,
+                  "get_invoice": 0.9809324741363525,
+                  "search_help_center": 0.005564273335039616,
+                  "list_transactions": 0.0001961796369869262,
+                  "no_tool": 0.00479046069085598
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 35,
+              "branch_tokens": 130,
+              "questions": 1
+            },
+            "latency_ms": 47.74111323058605,
+            "form": "cached"
+          },
+          "proposed_call": {
+            "name": "get_invoice",
+            "arguments": {
+              "order_id": "ORD-2048"
+            },
+            "executed": false,
+            "argument_source": "synthetic application context; not model output"
+          }
+        },
+        {
+          "id": "function_selection/guide/en",
+          "pair": "function_selection/guide",
+          "domain": "function_selection",
+          "language": "en",
+          "expected": "search_help_center",
+          "predicted": "search_help_center",
+          "correct": true,
+          "elapsed_ms": 48.427507281303406,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "search_help_center",
+                "top_probability": 0.9849840998649597,
+                "probabilities": {
+                  "get_order_status": 0.00019662412523757666,
+                  "get_invoice": 1.293711920880014e-05,
+                  "search_help_center": 0.9849840998649597,
+                  "list_transactions": 2.8651791694755957e-07,
+                  "no_tool": 0.014806032180786133
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 22,
+              "branch_tokens": 84,
+              "questions": 1
+            },
+            "latency_ms": 48.3344541862607,
+            "form": "cached"
+          },
+          "proposed_call": {
+            "name": "search_help_center",
+            "arguments": {
+              "help_query": "PX-7 Wi-Fi setup"
+            },
+            "executed": false,
+            "argument_source": "synthetic application context; not model output"
+          }
+        },
+        {
+          "id": "function_selection/guide/it",
+          "pair": "function_selection/guide",
+          "domain": "function_selection",
+          "language": "it",
+          "expected": "search_help_center",
+          "predicted": "search_help_center",
+          "correct": true,
+          "elapsed_ms": 47.916267067193985,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "search_help_center",
+                "top_probability": 0.9986178874969482,
+                "probabilities": {
+                  "get_order_status": 3.9409202145179734e-05,
+                  "get_invoice": 5.8520322454569396e-06,
+                  "search_help_center": 0.9986178874969482,
+                  "list_transactions": 1.5702799771588616e-07,
+                  "no_tool": 0.0013367385836318135
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 31,
+              "branch_tokens": 130,
+              "questions": 1
+            },
+            "latency_ms": 47.83156421035528,
+            "form": "cached"
+          },
+          "proposed_call": {
+            "name": "search_help_center",
+            "arguments": {
+              "help_query": "PX-7 Wi-Fi setup"
+            },
+            "executed": false,
+            "argument_source": "synthetic application context; not model output"
+          }
+        },
+        {
+          "id": "function_selection/payments/en",
+          "pair": "function_selection/payments",
+          "domain": "function_selection",
+          "language": "en",
+          "expected": "list_transactions",
+          "predicted": "list_transactions",
+          "correct": true,
+          "elapsed_ms": 47.29663394391537,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "list_transactions",
+                "top_probability": 0.9866216778755188,
+                "probabilities": {
+                  "get_order_status": 0.00042246244265697896,
+                  "get_invoice": 6.758864037692547e-05,
+                  "search_help_center": 0.000132228436996229,
+                  "list_transactions": 0.9866216778755188,
+                  "no_tool": 0.012755918316543102
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 18,
+              "branch_tokens": 84,
+              "questions": 1
+            },
+            "latency_ms": 47.226094640791416,
+            "form": "cached"
+          },
+          "proposed_call": {
+            "name": "list_transactions",
+            "arguments": {
+              "customer_id": "DEMO-CUSTOMER",
+              "start_date": "2026-09-01",
+              "end_date": "2026-09-30"
+            },
+            "executed": false,
+            "argument_source": "synthetic application context; not model output"
+          }
+        },
+        {
+          "id": "function_selection/payments/it",
+          "pair": "function_selection/payments",
+          "domain": "function_selection",
+          "language": "it",
+          "expected": "list_transactions",
+          "predicted": "list_transactions",
+          "correct": true,
+          "elapsed_ms": 46.492934226989746,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "list_transactions",
+                "top_probability": 0.9002979397773743,
+                "probabilities": {
+                  "get_order_status": 0.0015099822776392102,
+                  "get_invoice": 0.0017977500101551414,
+                  "search_help_center": 0.0006792370695620775,
+                  "list_transactions": 0.9002979397773743,
+                  "no_tool": 0.0957150086760521
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 30,
+              "branch_tokens": 130,
+              "questions": 1
+            },
+            "latency_ms": 46.42361495643854,
+            "form": "cached"
+          },
+          "proposed_call": {
+            "name": "list_transactions",
+            "arguments": {
+              "customer_id": "DEMO-CUSTOMER",
+              "start_date": "2026-09-01",
+              "end_date": "2026-09-30"
+            },
+            "executed": false,
+            "argument_source": "synthetic application context; not model output"
+          }
+        },
+        {
+          "id": "news_topic/diplomacy/en",
+          "pair": "news_topic/diplomacy",
+          "domain": "news_topic",
+          "language": "en",
+          "expected": "world",
+          "predicted": "world",
+          "correct": true,
+          "elapsed_ms": 49.23949856311083,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "world",
+                "top_probability": 0.9999728202819824,
+                "probabilities": {
+                  "world": 0.9999728202819824,
+                  "sports": 3.1293836855184054e-06,
+                  "business": 1.6633881386951543e-05,
+                  "science_technology": 7.361830284935422e-06
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 28,
+              "branch_tokens": 55,
+              "questions": 1
+            },
+            "latency_ms": 49.170623533427715,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "news_topic/diplomacy/it",
+          "pair": "news_topic/diplomacy",
+          "domain": "news_topic",
+          "language": "it",
+          "expected": "world",
+          "predicted": "world",
+          "correct": true,
+          "elapsed_ms": 47.487556003034115,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "world",
+                "top_probability": 0.9999548196792603,
+                "probabilities": {
+                  "world": 0.9999548196792603,
+                  "sports": 3.729496256710263e-06,
+                  "business": 3.749493771465495e-05,
+                  "science_technology": 3.86675037589157e-06
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 51,
+              "branch_tokens": 80,
+              "questions": 1
+            },
+            "latency_ms": 47.41931054741144,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "news_topic/final/en",
+          "pair": "news_topic/final",
+          "domain": "news_topic",
+          "language": "en",
+          "expected": "sports",
+          "predicted": "sports",
+          "correct": true,
+          "elapsed_ms": 47.388706356287,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "sports",
+                "top_probability": 0.9944652915000916,
+                "probabilities": {
+                  "world": 0.005247920751571655,
+                  "sports": 0.9944652915000916,
+                  "business": 0.00020711336401291192,
+                  "science_technology": 7.962650852277875e-05
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 25,
+              "branch_tokens": 55,
+              "questions": 1
+            },
+            "latency_ms": 47.311912290751934,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "news_topic/final/it",
+          "pair": "news_topic/final",
+          "domain": "news_topic",
+          "language": "it",
+          "expected": "sports",
+          "predicted": "sports",
+          "correct": true,
+          "elapsed_ms": 48.52231778204441,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "sports",
+                "top_probability": 0.9936460256576538,
+                "probabilities": {
+                  "world": 0.0056409575045108795,
+                  "sports": 0.9936460256576538,
+                  "business": 0.0005869974265806377,
+                  "science_technology": 0.00012602785136550665
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 45,
+              "branch_tokens": 80,
+              "questions": 1
+            },
+            "latency_ms": 48.452640883624554,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "news_topic/earnings/en",
+          "pair": "news_topic/earnings",
+          "domain": "news_topic",
+          "language": "en",
+          "expected": "business",
+          "predicted": "business",
+          "correct": true,
+          "elapsed_ms": 47.16302081942558,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "business",
+                "top_probability": 0.9987465143203735,
+                "probabilities": {
+                  "world": 0.0007115165353752673,
+                  "sports": 4.0678613004274666e-05,
+                  "business": 0.9987465143203735,
+                  "science_technology": 0.000501250964589417
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 23,
+              "branch_tokens": 55,
+              "questions": 1
+            },
+            "latency_ms": 47.09361121058464,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "news_topic/earnings/it",
+          "pair": "news_topic/earnings",
+          "domain": "news_topic",
+          "language": "it",
+          "expected": "business",
+          "predicted": "business",
+          "correct": true,
+          "elapsed_ms": 47.7884728461504,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "business",
+                "top_probability": 0.97694993019104,
+                "probabilities": {
+                  "world": 0.02171821892261505,
+                  "sports": 0.00034243689151480794,
+                  "business": 0.97694993019104,
+                  "science_technology": 0.0009894066024571657
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 52,
+              "branch_tokens": 80,
+              "questions": 1
+            },
+            "latency_ms": 47.71933890879154,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "news_topic/research/en",
+          "pair": "news_topic/research",
+          "domain": "news_topic",
+          "language": "en",
+          "expected": "science_technology",
+          "predicted": "science_technology",
+          "correct": true,
+          "elapsed_ms": 46.18312884122133,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "science_technology",
+                "top_probability": 0.9960021376609802,
+                "probabilities": {
+                  "world": 0.0003835761162918061,
+                  "sports": 0.00013404859055299312,
+                  "business": 0.003480165498331189,
+                  "science_technology": 0.9960021376609802
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 25,
+              "branch_tokens": 55,
+              "questions": 1
+            },
+            "latency_ms": 46.10817972570658,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "news_topic/research/it",
+          "pair": "news_topic/research",
+          "domain": "news_topic",
+          "language": "it",
+          "expected": "science_technology",
+          "predicted": "science_technology",
+          "correct": true,
+          "elapsed_ms": 48.13092388212681,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "science_technology",
+                "top_probability": 0.9942295551300049,
+                "probabilities": {
+                  "world": 0.00024186023802030832,
+                  "sports": 3.7743277061963454e-05,
+                  "business": 0.005490866024047136,
+                  "science_technology": 0.9942295551300049
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 46,
+              "branch_tokens": 80,
+              "questions": 1
+            },
+            "latency_ms": 48.06233011186123,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "banking_intent/atm/en",
+          "pair": "banking_intent/atm",
+          "domain": "banking_intent",
+          "language": "en",
+          "expected": "cash_withdrawal",
+          "predicted": "cash_withdrawal",
+          "correct": true,
+          "elapsed_ms": 50.344484858214855,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "cash_withdrawal",
+                "top_probability": 0.9999985694885254,
+                "probabilities": {
+                  "cash_withdrawal": 0.9999985694885254,
+                  "card_payment": 6.230372378013271e-07,
+                  "bank_transfer": 8.770895760790154e-07,
+                  "card_delivery": 2.870218729356111e-08,
+                  "card_pin": 7.743351737588e-09,
+                  "exchange_rate": 1.1956832746129464e-10
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 26,
+              "branch_tokens": 89,
+              "questions": 1
+            },
+            "latency_ms": 50.27226824313402,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "banking_intent/atm/it",
+          "pair": "banking_intent/atm",
+          "domain": "banking_intent",
+          "language": "it",
+          "expected": "cash_withdrawal",
+          "predicted": "cash_withdrawal",
+          "correct": true,
+          "elapsed_ms": 57.61377979069948,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "cash_withdrawal",
+                "top_probability": 0.9999879598617554,
+                "probabilities": {
+                  "cash_withdrawal": 0.9999879598617554,
+                  "card_payment": 6.86843532093917e-06,
+                  "bank_transfer": 5.0999055929423776e-06,
+                  "card_delivery": 8.232988513157125e-09,
+                  "card_pin": 2.9984728033838337e-09,
+                  "exchange_rate": 7.62557031408484e-11
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 39,
+              "branch_tokens": 119,
+              "questions": 1
+            },
+            "latency_ms": 57.5287900865078,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "banking_intent/transfer/en",
+          "pair": "banking_intent/transfer",
+          "domain": "banking_intent",
+          "language": "en",
+          "expected": "bank_transfer",
+          "predicted": "bank_transfer",
+          "correct": true,
+          "elapsed_ms": 49.787397496402264,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "bank_transfer",
+                "top_probability": 0.9998921155929565,
+                "probabilities": {
+                  "cash_withdrawal": 0.00010535794717725366,
+                  "card_payment": 6.971608854655642e-07,
+                  "bank_transfer": 0.9998921155929565,
+                  "card_delivery": 1.7839795418694848e-06,
+                  "card_pin": 1.6865783436514903e-08,
+                  "exchange_rate": 8.67874327958873e-10
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 27,
+              "branch_tokens": 89,
+              "questions": 1
+            },
+            "latency_ms": 49.681324511766434,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "banking_intent/transfer/it",
+          "pair": "banking_intent/transfer",
+          "domain": "banking_intent",
+          "language": "it",
+          "expected": "bank_transfer",
+          "predicted": "bank_transfer",
+          "correct": true,
+          "elapsed_ms": 48.12859557569027,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "bank_transfer",
+                "top_probability": 0.9999046325683594,
+                "probabilities": {
+                  "cash_withdrawal": 7.792055839672685e-05,
+                  "card_payment": 9.46886939345859e-06,
+                  "bank_transfer": 0.9999046325683594,
+                  "card_delivery": 7.872226888139267e-06,
+                  "card_pin": 2.724057956982051e-08,
+                  "exchange_rate": 4.5937365023007715e-09
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 40,
+              "branch_tokens": 119,
+              "questions": 1
+            },
+            "latency_ms": 48.05347230285406,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "banking_intent/new_card/en",
+          "pair": "banking_intent/new_card",
+          "domain": "banking_intent",
+          "language": "en",
+          "expected": "card_delivery",
+          "predicted": "card_delivery",
+          "correct": true,
+          "elapsed_ms": 46.94507736712694,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "card_delivery",
+                "top_probability": 0.9979416728019714,
+                "probabilities": {
+                  "cash_withdrawal": 0.00013869046233594418,
+                  "card_payment": 1.7361646314384416e-05,
+                  "bank_transfer": 0.0015452406369149685,
+                  "card_delivery": 0.9979416728019714,
+                  "card_pin": 0.000357019598595798,
+                  "exchange_rate": 6.048761491683763e-08
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 25,
+              "branch_tokens": 89,
+              "questions": 1
+            },
+            "latency_ms": 46.87198903411627,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "banking_intent/new_card/it",
+          "pair": "banking_intent/new_card",
+          "domain": "banking_intent",
+          "language": "it",
+          "expected": "card_delivery",
+          "predicted": "card_delivery",
+          "correct": true,
+          "elapsed_ms": 47.964454628527164,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "card_delivery",
+                "top_probability": 0.9937360286712646,
+                "probabilities": {
+                  "cash_withdrawal": 0.0001607994781807065,
+                  "card_payment": 0.00017188271158374846,
+                  "bank_transfer": 0.005868406966328621,
+                  "card_delivery": 0.9937360286712646,
+                  "card_pin": 6.27082190476358e-05,
+                  "exchange_rate": 1.266707414515622e-07
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 40,
+              "branch_tokens": 119,
+              "questions": 1
+            },
+            "latency_ms": 47.89272882044315,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "banking_intent/pin/en",
+          "pair": "banking_intent/pin",
+          "domain": "banking_intent",
+          "language": "en",
+          "expected": "card_pin",
+          "predicted": "card_pin",
+          "correct": true,
+          "elapsed_ms": 47.84334730356932,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "card_pin",
+                "top_probability": 0.9999369382858276,
+                "probabilities": {
+                  "cash_withdrawal": 1.2661389519053046e-06,
+                  "card_payment": 1.1042423153639902e-07,
+                  "bank_transfer": 4.951058230062699e-08,
+                  "card_delivery": 6.16579272900708e-05,
+                  "card_pin": 0.9999369382858276,
+                  "exchange_rate": 9.359189118152145e-11
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 22,
+              "branch_tokens": 89,
+              "questions": 1
+            },
+            "latency_ms": 47.752080485224724,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "banking_intent/pin/it",
+          "pair": "banking_intent/pin",
+          "domain": "banking_intent",
+          "language": "it",
+          "expected": "card_pin",
+          "predicted": "card_pin",
+          "correct": true,
+          "elapsed_ms": 47.87374101579189,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "card_pin",
+                "top_probability": 0.9999440908432007,
+                "probabilities": {
+                  "cash_withdrawal": 9.457054375161533e-07,
+                  "card_payment": 1.9273309703748964e-07,
+                  "bank_transfer": 2.8803503582253143e-08,
+                  "card_delivery": 5.472190969157964e-05,
+                  "card_pin": 0.9999440908432007,
+                  "exchange_rate": 1.4732406961037725e-10
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 28,
+              "branch_tokens": 119,
+              "questions": 1
+            },
+            "latency_ms": 47.77971561998129,
+            "form": "cached"
+          }
+        }
+      ],
+      "summary": {
+        "banking_intent": {
+          "en": {
+            "correct": 4,
+            "n": 4
+          },
+          "it": {
+            "correct": 4,
+            "n": 4
+          },
+          "successful_bilingual_pairs": [
+            "banking_intent/atm",
+            "banking_intent/new_card",
+            "banking_intent/pin",
+            "banking_intent/transfer"
+          ]
+        },
+        "function_selection": {
+          "en": {
+            "correct": 4,
+            "n": 4
+          },
+          "it": {
+            "correct": 4,
+            "n": 4
+          },
+          "successful_bilingual_pairs": [
+            "function_selection/document",
+            "function_selection/guide",
+            "function_selection/order",
+            "function_selection/payments"
+          ]
+        },
+        "news_topic": {
+          "en": {
+            "correct": 4,
+            "n": 4
+          },
+          "it": {
+            "correct": 4,
+            "n": 4
+          },
+          "successful_bilingual_pairs": [
+            "news_topic/diplomacy",
+            "news_topic/earnings",
+            "news_topic/final",
+            "news_topic/research"
+          ]
+        },
+        "routing": {
+          "en": {
+            "correct": 3,
+            "n": 4
+          },
+          "it": {
+            "correct": 4,
+            "n": 4
+          },
+          "successful_bilingual_pairs": [
+            "routing/exchange",
+            "routing/invoice",
+            "routing/parcel"
+          ]
+        }
+      }
+    },
+    "v3": {
+      "cases": [
+        {
+          "id": "routing/parcel/en",
+          "pair": "routing/parcel",
+          "domain": "routing",
+          "language": "en",
+          "expected": "shipping",
+          "predicted": "shipping",
+          "correct": true,
+          "elapsed_ms": 48.77866618335247,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "shipping",
+                "top_probability": 0.9977936744689941,
+                "probabilities": {
+                  "shipping": 0.9977936744689941,
+                  "billing": 0.0007392786792479455,
+                  "account": 2.1303594621713273e-05,
+                  "returns": 0.0004664455773308873,
+                  "technical": 0.0009792996570467949
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 26,
+              "branch_tokens": 61,
+              "questions": 1
+            },
+            "latency_ms": 48.705535009503365,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "routing/parcel/it",
+          "pair": "routing/parcel",
+          "domain": "routing",
+          "language": "it",
+          "expected": "shipping",
+          "predicted": "shipping",
+          "correct": true,
+          "elapsed_ms": 49.928853288292885,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "shipping",
+                "top_probability": 0.9958940744400024,
+                "probabilities": {
+                  "shipping": 0.9958940744400024,
+                  "billing": 0.003014513524249196,
+                  "account": 0.00033553183311596513,
+                  "returns": 0.0003571220440790057,
+                  "technical": 0.0003987829259131104
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 34,
+              "branch_tokens": 91,
+              "questions": 1
+            },
+            "latency_ms": 49.85756799578667,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "routing/invoice/en",
+          "pair": "routing/invoice",
+          "domain": "routing",
+          "language": "en",
+          "expected": "billing",
+          "predicted": "billing",
+          "correct": true,
+          "elapsed_ms": 49.214049242436886,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "billing",
+                "top_probability": 0.9985558390617371,
+                "probabilities": {
+                  "shipping": 0.0008598362328484654,
+                  "billing": 0.9985558390617371,
+                  "account": 2.9924891350674443e-05,
+                  "returns": 9.053786925505847e-05,
+                  "technical": 0.00046377076068893075
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 26,
+              "branch_tokens": 61,
+              "questions": 1
+            },
+            "latency_ms": 49.13237597793341,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "routing/invoice/it",
+          "pair": "routing/invoice",
+          "domain": "routing",
+          "language": "it",
+          "expected": "billing",
+          "predicted": "billing",
+          "correct": true,
+          "elapsed_ms": 50.504425540566444,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "billing",
+                "top_probability": 0.9996041655540466,
+                "probabilities": {
+                  "shipping": 0.00035056372871622443,
+                  "billing": 0.9996041655540466,
+                  "account": 2.1824813302373514e-05,
+                  "returns": 1.1230722520849667e-05,
+                  "technical": 1.2304177289479412e-05
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 43,
+              "branch_tokens": 91,
+              "questions": 1
+            },
+            "latency_ms": 50.432704389095306,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "routing/login/en",
+          "pair": "routing/login",
+          "domain": "routing",
+          "language": "en",
+          "expected": "account",
+          "predicted": "technical",
+          "correct": false,
+          "elapsed_ms": 48.414421267807484,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "technical",
+                "top_probability": 0.9614304900169373,
+                "probabilities": {
+                  "shipping": 2.0496814613579772e-05,
+                  "billing": 1.1562261533981655e-05,
+                  "account": 0.014191408641636372,
+                  "returns": 0.02434602379798889,
+                  "technical": 0.9614304900169373
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 27,
+              "branch_tokens": 61,
+              "questions": 1
+            },
+            "latency_ms": 48.33414778113365,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "routing/login/it",
+          "pair": "routing/login",
+          "domain": "routing",
+          "language": "it",
+          "expected": "account",
+          "predicted": "technical",
+          "correct": false,
+          "elapsed_ms": 48.66856709122658,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "technical",
+                "top_probability": 0.771647572517395,
+                "probabilities": {
+                  "shipping": 0.0013516739709302783,
+                  "billing": 8.631565287942067e-05,
+                  "account": 0.21365100145339966,
+                  "returns": 0.013263420201838017,
+                  "technical": 0.771647572517395
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 36,
+              "branch_tokens": 91,
+              "questions": 1
+            },
+            "latency_ms": 48.59849717468023,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "routing/exchange/en",
+          "pair": "routing/exchange",
+          "domain": "routing",
+          "language": "en",
+          "expected": "returns",
+          "predicted": "returns",
+          "correct": true,
+          "elapsed_ms": 49.90795440971851,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "returns",
+                "top_probability": 0.9819230437278748,
+                "probabilities": {
+                  "shipping": 0.011836539953947067,
+                  "billing": 0.0002842044341377914,
+                  "account": 0.00011940801778109744,
+                  "returns": 0.9819230437278748,
+                  "technical": 0.005836740601807833
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 30,
+              "branch_tokens": 61,
+              "questions": 1
+            },
+            "latency_ms": 49.83515199273825,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "routing/exchange/it",
+          "pair": "routing/exchange",
+          "domain": "routing",
+          "language": "it",
+          "expected": "returns",
+          "predicted": "returns",
+          "correct": true,
+          "elapsed_ms": 49.17414952069521,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "returns",
+                "top_probability": 0.7278805375099182,
+                "probabilities": {
+                  "shipping": 0.19424377381801605,
+                  "billing": 0.003338765585795045,
+                  "account": 0.0008692944538779557,
+                  "returns": 0.7278805375099182,
+                  "technical": 0.07366769015789032
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 35,
+              "branch_tokens": 91,
+              "questions": 1
+            },
+            "latency_ms": 49.10120461136103,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "function_selection/order/en",
+          "pair": "function_selection/order",
+          "domain": "function_selection",
+          "language": "en",
+          "expected": "get_order_status",
+          "predicted": "get_order_status",
+          "correct": true,
+          "elapsed_ms": 49.21977687627077,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "get_order_status",
+                "top_probability": 0.9993029832839966,
+                "probabilities": {
+                  "get_order_status": 0.9993029832839966,
+                  "get_invoice": 0.00048608335782773793,
+                  "search_help_center": 1.5448003978235647e-05,
+                  "list_transactions": 5.753269647357229e-07,
+                  "no_tool": 0.00019494495063554496
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 21,
+              "branch_tokens": 84,
+              "questions": 1
+            },
+            "latency_ms": 49.14859030395746,
+            "form": "cached"
+          },
+          "proposed_call": {
+            "name": "get_order_status",
+            "arguments": {
+              "order_id": "ORD-2048"
+            },
+            "executed": false,
+            "argument_source": "synthetic application context; not model output"
+          }
+        },
+        {
+          "id": "function_selection/order/it",
+          "pair": "function_selection/order",
+          "domain": "function_selection",
+          "language": "it",
+          "expected": "get_order_status",
+          "predicted": "get_order_status",
+          "correct": true,
+          "elapsed_ms": 50.80531258136034,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "get_order_status",
+                "top_probability": 0.9952110648155212,
+                "probabilities": {
+                  "get_order_status": 0.9952110648155212,
+                  "get_invoice": 0.002854190533980727,
+                  "search_help_center": 0.00037783439620397985,
+                  "list_transactions": 2.4855205992935225e-05,
+                  "no_tool": 0.0015321123646572232
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 34,
+              "branch_tokens": 130,
+              "questions": 1
+            },
+            "latency_ms": 50.71983207017183,
+            "form": "cached"
+          },
+          "proposed_call": {
+            "name": "get_order_status",
+            "arguments": {
+              "order_id": "ORD-2048"
+            },
+            "executed": false,
+            "argument_source": "synthetic application context; not model output"
+          }
+        },
+        {
+          "id": "function_selection/document/en",
+          "pair": "function_selection/document",
+          "domain": "function_selection",
+          "language": "en",
+          "expected": "get_invoice",
+          "predicted": "get_invoice",
+          "correct": true,
+          "elapsed_ms": 47.846720553934574,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "get_invoice",
+                "top_probability": 0.9980605244636536,
+                "probabilities": {
+                  "get_order_status": 0.0014994319062680006,
+                  "get_invoice": 0.9980605244636536,
+                  "search_help_center": 0.00027331800083629787,
+                  "list_transactions": 1.5344045095844194e-05,
+                  "no_tool": 0.00015137618174776435
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 26,
+              "branch_tokens": 84,
+              "questions": 1
+            },
+            "latency_ms": 47.77332302182913,
+            "form": "cached"
+          },
+          "proposed_call": {
+            "name": "get_invoice",
+            "arguments": {
+              "order_id": "ORD-2048"
+            },
+            "executed": false,
+            "argument_source": "synthetic application context; not model output"
+          }
+        },
+        {
+          "id": "function_selection/document/it",
+          "pair": "function_selection/document",
+          "domain": "function_selection",
+          "language": "it",
+          "expected": "get_invoice",
+          "predicted": "get_invoice",
+          "correct": true,
+          "elapsed_ms": 49.20680820941925,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "get_invoice",
+                "top_probability": 0.9552146196365356,
+                "probabilities": {
+                  "get_order_status": 0.019960561767220497,
+                  "get_invoice": 0.9552146196365356,
+                  "search_help_center": 0.01574959233403206,
+                  "list_transactions": 0.000660978548694402,
+                  "no_tool": 0.008414213545620441
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 35,
+              "branch_tokens": 130,
+              "questions": 1
+            },
+            "latency_ms": 49.13271497935057,
+            "form": "cached"
+          },
+          "proposed_call": {
+            "name": "get_invoice",
+            "arguments": {
+              "order_id": "ORD-2048"
+            },
+            "executed": false,
+            "argument_source": "synthetic application context; not model output"
+          }
+        },
+        {
+          "id": "function_selection/guide/en",
+          "pair": "function_selection/guide",
+          "domain": "function_selection",
+          "language": "en",
+          "expected": "search_help_center",
+          "predicted": "search_help_center",
+          "correct": true,
+          "elapsed_ms": 48.83153457194567,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "search_help_center",
+                "top_probability": 0.975777268409729,
+                "probabilities": {
+                  "get_order_status": 0.00015870117931626737,
+                  "get_invoice": 1.5348514352808706e-05,
+                  "search_help_center": 0.975777268409729,
+                  "list_transactions": 5.755619554292934e-07,
+                  "no_tool": 0.0240480899810791
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 22,
+              "branch_tokens": 84,
+              "questions": 1
+            },
+            "latency_ms": 48.7479530274868,
+            "form": "cached"
+          },
+          "proposed_call": {
+            "name": "search_help_center",
+            "arguments": {
+              "help_query": "PX-7 Wi-Fi setup"
+            },
+            "executed": false,
+            "argument_source": "synthetic application context; not model output"
+          }
+        },
+        {
+          "id": "function_selection/guide/it",
+          "pair": "function_selection/guide",
+          "domain": "function_selection",
+          "language": "it",
+          "expected": "search_help_center",
+          "predicted": "search_help_center",
+          "correct": true,
+          "elapsed_ms": 49.75667595863342,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "search_help_center",
+                "top_probability": 0.9975995421409607,
+                "probabilities": {
+                  "get_order_status": 1.6757219782448374e-05,
+                  "get_invoice": 3.7196009543549735e-06,
+                  "search_help_center": 0.9975995421409607,
+                  "list_transactions": 1.5623901106209814e-07,
+                  "no_tool": 0.00237982627004385
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 31,
+              "branch_tokens": 130,
+              "questions": 1
+            },
+            "latency_ms": 49.68354105949402,
+            "form": "cached"
+          },
+          "proposed_call": {
+            "name": "search_help_center",
+            "arguments": {
+              "help_query": "PX-7 Wi-Fi setup"
+            },
+            "executed": false,
+            "argument_source": "synthetic application context; not model output"
+          }
+        },
+        {
+          "id": "function_selection/payments/en",
+          "pair": "function_selection/payments",
+          "domain": "function_selection",
+          "language": "en",
+          "expected": "list_transactions",
+          "predicted": "list_transactions",
+          "correct": true,
+          "elapsed_ms": 47.75527026504278,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "list_transactions",
+                "top_probability": 0.989098072052002,
+                "probabilities": {
+                  "get_order_status": 0.00037498539313673973,
+                  "get_invoice": 6.966850196477026e-05,
+                  "search_help_center": 0.00021134490089025348,
+                  "list_transactions": 0.989098072052002,
+                  "no_tool": 0.010245857760310173
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 18,
+              "branch_tokens": 84,
+              "questions": 1
+            },
+            "latency_ms": 47.6858364418149,
+            "form": "cached"
+          },
+          "proposed_call": {
+            "name": "list_transactions",
+            "arguments": {
+              "customer_id": "DEMO-CUSTOMER",
+              "start_date": "2026-09-01",
+              "end_date": "2026-09-30"
+            },
+            "executed": false,
+            "argument_source": "synthetic application context; not model output"
+          }
+        },
+        {
+          "id": "function_selection/payments/it",
+          "pair": "function_selection/payments",
+          "domain": "function_selection",
+          "language": "it",
+          "expected": "list_transactions",
+          "predicted": "list_transactions",
+          "correct": true,
+          "elapsed_ms": 48.36348909884691,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "list_transactions",
+                "top_probability": 0.8510278463363647,
+                "probabilities": {
+                  "get_order_status": 0.0009134937427006662,
+                  "get_invoice": 0.0022991264704614878,
+                  "search_help_center": 0.0012047974159941077,
+                  "list_transactions": 0.8510278463363647,
+                  "no_tool": 0.14455468952655792
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 30,
+              "branch_tokens": 130,
+              "questions": 1
+            },
+            "latency_ms": 48.280916176736355,
+            "form": "cached"
+          },
+          "proposed_call": {
+            "name": "list_transactions",
+            "arguments": {
+              "customer_id": "DEMO-CUSTOMER",
+              "start_date": "2026-09-01",
+              "end_date": "2026-09-30"
+            },
+            "executed": false,
+            "argument_source": "synthetic application context; not model output"
+          }
+        },
+        {
+          "id": "news_topic/diplomacy/en",
+          "pair": "news_topic/diplomacy",
+          "domain": "news_topic",
+          "language": "en",
+          "expected": "world",
+          "predicted": "world",
+          "correct": true,
+          "elapsed_ms": 52.09006741642952,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "world",
+                "top_probability": 0.9999135732650757,
+                "probabilities": {
+                  "world": 0.9999135732650757,
+                  "sports": 3.4758111269184155e-06,
+                  "business": 5.178857099963352e-05,
+                  "science_technology": 3.124282739008777e-05
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 28,
+              "branch_tokens": 55,
+              "questions": 1
+            },
+            "latency_ms": 52.018352784216404,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "news_topic/diplomacy/it",
+          "pair": "news_topic/diplomacy",
+          "domain": "news_topic",
+          "language": "it",
+          "expected": "world",
+          "predicted": "world",
+          "correct": true,
+          "elapsed_ms": 49.323199316859245,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "world",
+                "top_probability": 0.9999303817749023,
+                "probabilities": {
+                  "world": 0.9999303817749023,
+                  "sports": 2.968946319015231e-06,
+                  "business": 5.2693230827571824e-05,
+                  "science_technology": 1.3985795703774784e-05
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 51,
+              "branch_tokens": 80,
+              "questions": 1
+            },
+            "latency_ms": 49.249157309532166,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "news_topic/final/en",
+          "pair": "news_topic/final",
+          "domain": "news_topic",
+          "language": "en",
+          "expected": "sports",
+          "predicted": "sports",
+          "correct": true,
+          "elapsed_ms": 47.05945495516062,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "sports",
+                "top_probability": 0.9944067001342773,
+                "probabilities": {
+                  "world": 0.005157585255801678,
+                  "sports": 0.9944067001342773,
+                  "business": 0.00026340721524320543,
+                  "science_technology": 0.00017232068057637662
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 25,
+              "branch_tokens": 55,
+              "questions": 1
+            },
+            "latency_ms": 46.99132964015007,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "news_topic/final/it",
+          "pair": "news_topic/final",
+          "domain": "news_topic",
+          "language": "it",
+          "expected": "sports",
+          "predicted": "sports",
+          "correct": true,
+          "elapsed_ms": 49.40265230834484,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "sports",
+                "top_probability": 0.9955109357833862,
+                "probabilities": {
+                  "world": 0.003778531216084957,
+                  "sports": 0.9955109357833862,
+                  "business": 0.0005318685434758663,
+                  "science_technology": 0.00017875773482955992
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 45,
+              "branch_tokens": 80,
+              "questions": 1
+            },
+            "latency_ms": 49.33102149516344,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "news_topic/earnings/en",
+          "pair": "news_topic/earnings",
+          "domain": "news_topic",
+          "language": "en",
+          "expected": "business",
+          "predicted": "business",
+          "correct": true,
+          "elapsed_ms": 49.07148890197277,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "business",
+                "top_probability": 0.9986342787742615,
+                "probabilities": {
+                  "world": 0.0006480682059191167,
+                  "sports": 2.9242844902910292e-05,
+                  "business": 0.9986342787742615,
+                  "science_technology": 0.0006883948226459324
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 23,
+              "branch_tokens": 55,
+              "questions": 1
+            },
+            "latency_ms": 48.990448005497456,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "news_topic/earnings/it",
+          "pair": "news_topic/earnings",
+          "domain": "news_topic",
+          "language": "it",
+          "expected": "business",
+          "predicted": "business",
+          "correct": true,
+          "elapsed_ms": 50.7047763094306,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "business",
+                "top_probability": 0.9882785081863403,
+                "probabilities": {
+                  "world": 0.010226842947304249,
+                  "sports": 0.00016904894437175244,
+                  "business": 0.9882785081863403,
+                  "science_technology": 0.0013256433885544538
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 52,
+              "branch_tokens": 80,
+              "questions": 1
+            },
+            "latency_ms": 50.62627326697111,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "news_topic/research/en",
+          "pair": "news_topic/research",
+          "domain": "news_topic",
+          "language": "en",
+          "expected": "science_technology",
+          "predicted": "science_technology",
+          "correct": true,
+          "elapsed_ms": 49.628470093011856,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "science_technology",
+                "top_probability": 0.9968498349189758,
+                "probabilities": {
+                  "world": 0.00022324999736156315,
+                  "sports": 0.00011827343405457214,
+                  "business": 0.002808679360896349,
+                  "science_technology": 0.9968498349189758
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 25,
+              "branch_tokens": 55,
+              "questions": 1
+            },
+            "latency_ms": 49.5393481105566,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "news_topic/research/it",
+          "pair": "news_topic/research",
+          "domain": "news_topic",
+          "language": "it",
+          "expected": "science_technology",
+          "predicted": "science_technology",
+          "correct": true,
+          "elapsed_ms": 52.491928450763226,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "science_technology",
+                "top_probability": 0.99574214220047,
+                "probabilities": {
+                  "world": 0.00017849514551926404,
+                  "sports": 2.3704824343440123e-05,
+                  "business": 0.004055578261613846,
+                  "science_technology": 0.99574214220047
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 46,
+              "branch_tokens": 80,
+              "questions": 1
+            },
+            "latency_ms": 52.40966007113457,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "banking_intent/atm/en",
+          "pair": "banking_intent/atm",
+          "domain": "banking_intent",
+          "language": "en",
+          "expected": "cash_withdrawal",
+          "predicted": "cash_withdrawal",
+          "correct": true,
+          "elapsed_ms": 52.42261663079262,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "cash_withdrawal",
+                "top_probability": 0.9999995231628418,
+                "probabilities": {
+                  "cash_withdrawal": 0.9999995231628418,
+                  "card_payment": 3.635780103650177e-07,
+                  "bank_transfer": 1.2333165955169534e-07,
+                  "card_delivery": 2.776579854923966e-09,
+                  "card_pin": 2.3044925967496965e-09,
+                  "exchange_rate": 1.999729375146142e-11
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 26,
+              "branch_tokens": 89,
+              "questions": 1
+            },
+            "latency_ms": 52.3354010656476,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "banking_intent/atm/it",
+          "pair": "banking_intent/atm",
+          "domain": "banking_intent",
+          "language": "it",
+          "expected": "cash_withdrawal",
+          "predicted": "cash_withdrawal",
+          "correct": true,
+          "elapsed_ms": 55.95373176038265,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "cash_withdrawal",
+                "top_probability": 0.9999978542327881,
+                "probabilities": {
+                  "cash_withdrawal": 0.9999978542327881,
+                  "card_payment": 9.771449640538776e-07,
+                  "bank_transfer": 1.2317531172811869e-06,
+                  "card_delivery": 8.043636312571323e-10,
+                  "card_pin": 7.989157668752966e-10,
+                  "exchange_rate": 1.0329305986933601e-11
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 39,
+              "branch_tokens": 119,
+              "questions": 1
+            },
+            "latency_ms": 55.85772730410099,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "banking_intent/transfer/en",
+          "pair": "banking_intent/transfer",
+          "domain": "banking_intent",
+          "language": "en",
+          "expected": "bank_transfer",
+          "predicted": "bank_transfer",
+          "correct": true,
+          "elapsed_ms": 51.12747848033905,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "bank_transfer",
+                "top_probability": 0.9999748468399048,
+                "probabilities": {
+                  "cash_withdrawal": 2.3217038688017055e-05,
+                  "card_payment": 1.4152047924653743e-06,
+                  "bank_transfer": 0.9999748468399048,
+                  "card_delivery": 5.215157443672069e-07,
+                  "card_pin": 1.2648628811007256e-08,
+                  "exchange_rate": 2.70978267602473e-10
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 27,
+              "branch_tokens": 89,
+              "questions": 1
+            },
+            "latency_ms": 51.041736267507076,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "banking_intent/transfer/it",
+          "pair": "banking_intent/transfer",
+          "domain": "banking_intent",
+          "language": "it",
+          "expected": "bank_transfer",
+          "predicted": "bank_transfer",
+          "correct": true,
+          "elapsed_ms": 55.12537527829409,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "bank_transfer",
+                "top_probability": 0.9999954700469971,
+                "probabilities": {
+                  "cash_withdrawal": 2.807738155752304e-06,
+                  "card_payment": 1.276975581276929e-06,
+                  "bank_transfer": 0.9999954700469971,
+                  "card_delivery": 3.7989903489688004e-07,
+                  "card_pin": 2.268327081722532e-09,
+                  "exchange_rate": 1.7042040001413739e-10
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 40,
+              "branch_tokens": 119,
+              "questions": 1
+            },
+            "latency_ms": 55.02044688910246,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "banking_intent/new_card/en",
+          "pair": "banking_intent/new_card",
+          "domain": "banking_intent",
+          "language": "en",
+          "expected": "card_delivery",
+          "predicted": "card_delivery",
+          "correct": true,
+          "elapsed_ms": 53.963880985975266,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "card_delivery",
+                "top_probability": 0.9971297383308411,
+                "probabilities": {
+                  "cash_withdrawal": 0.00013986456906422973,
+                  "card_payment": 6.883071910124272e-05,
+                  "bank_transfer": 0.002092772163450718,
+                  "card_delivery": 0.9971297383308411,
+                  "card_pin": 0.0005687043303623796,
+                  "exchange_rate": 5.791002521959854e-08
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 25,
+              "branch_tokens": 89,
+              "questions": 1
+            },
+            "latency_ms": 53.860303945839405,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "banking_intent/new_card/it",
+          "pair": "banking_intent/new_card",
+          "domain": "banking_intent",
+          "language": "it",
+          "expected": "card_delivery",
+          "predicted": "card_delivery",
+          "correct": true,
+          "elapsed_ms": 54.48819324374199,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "card_delivery",
+                "top_probability": 0.9935479760169983,
+                "probabilities": {
+                  "cash_withdrawal": 2.9779499527649023e-05,
+                  "card_payment": 0.00010942354128928855,
+                  "bank_transfer": 0.006277879700064659,
+                  "card_delivery": 0.9935479760169983,
+                  "card_pin": 3.4886092180386186e-05,
+                  "exchange_rate": 6.165034704963546e-08
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 40,
+              "branch_tokens": 119,
+              "questions": 1
+            },
+            "latency_ms": 54.40843105316162,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "banking_intent/pin/en",
+          "pair": "banking_intent/pin",
+          "domain": "banking_intent",
+          "language": "en",
+          "expected": "card_pin",
+          "predicted": "card_pin",
+          "correct": true,
+          "elapsed_ms": 48.727541230618954,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "card_pin",
+                "top_probability": 0.9999773502349854,
+                "probabilities": {
+                  "cash_withdrawal": 4.0161822312256845e-07,
+                  "card_payment": 2.5861322683340404e-07,
+                  "bank_transfer": 1.656797721238945e-08,
+                  "card_delivery": 2.198167385358829e-05,
+                  "card_pin": 0.9999773502349854,
+                  "exchange_rate": 2.163750949246701e-11
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 22,
+              "branch_tokens": 89,
+              "questions": 1
+            },
+            "latency_ms": 48.64971432834864,
+            "form": "cached"
+          }
+        },
+        {
+          "id": "banking_intent/pin/it",
+          "pair": "banking_intent/pin",
+          "domain": "banking_intent",
+          "language": "it",
+          "expected": "card_pin",
+          "predicted": "card_pin",
+          "correct": true,
+          "elapsed_ms": 49.353571608662605,
+          "response": {
+            "answers": {
+              "decision": {
+                "type": "choice",
+                "choice": "card_pin",
+                "top_probability": 0.9999804496765137,
+                "probabilities": {
+                  "cash_withdrawal": 4.2650037812563824e-07,
+                  "card_payment": 2.2585537351460516e-07,
+                  "bank_transfer": 2.5509976353532693e-08,
+                  "card_delivery": 1.8831948182196356e-05,
+                  "card_pin": 0.9999804496765137,
+                  "exchange_rate": 4.480533652428953e-11
+                }
+              }
+            },
+            "usage": {
+              "state_tokens": 28,
+              "branch_tokens": 119,
+              "questions": 1
+            },
+            "latency_ms": 49.276940524578094,
+            "form": "cached"
+          }
+        }
+      ],
+      "summary": {
+        "banking_intent": {
+          "en": {
+            "correct": 4,
+            "n": 4
+          },
+          "it": {
+            "correct": 4,
+            "n": 4
+          },
+          "successful_bilingual_pairs": [
+            "banking_intent/atm",
+            "banking_intent/new_card",
+            "banking_intent/pin",
+            "banking_intent/transfer"
+          ]
+        },
+        "function_selection": {
+          "en": {
+            "correct": 4,
+            "n": 4
+          },
+          "it": {
+            "correct": 4,
+            "n": 4
+          },
+          "successful_bilingual_pairs": [
+            "function_selection/document",
+            "function_selection/guide",
+            "function_selection/order",
+            "function_selection/payments"
+          ]
+        },
+        "news_topic": {
+          "en": {
+            "correct": 4,
+            "n": 4
+          },
+          "it": {
+            "correct": 4,
+            "n": 4
+          },
+          "successful_bilingual_pairs": [
+            "news_topic/diplomacy",
+            "news_topic/earnings",
+            "news_topic/final",
+            "news_topic/research"
+          ]
+        },
+        "routing": {
+          "en": {
+            "correct": 3,
+            "n": 4
+          },
+          "it": {
+            "correct": 3,
+            "n": 4
+          },
+          "successful_bilingual_pairs": [
+            "routing/exchange",
+            "routing/invoice",
+            "routing/parcel"
+          ]
+        }
+      }
+    }
+  },
+  "status": "complete"
+}

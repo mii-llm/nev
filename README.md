@@ -98,6 +98,71 @@ The completed check is in `~/nev-a100/results/speed-shared.json`, with readable
 progress in `speed-shared.log`. Model downloads and Python imports are excluded
 from the latency measurements. Source the activation script in each new shell.
 
+### Bilingual reference examples: routing, function selection and classification
+
+The A100 examples below demonstrate decisions that succeeded in both English
+and Italian. They use the exact released v2/v3 weights and native FP32 cached
+inference. The complete candidate results, including failures, appear in the
+evaluation section; the successful gallery is a **curated demonstration**, not
+an accuracy benchmark. No model was retrained for these examples.
+
+In the prepared A100 environment:
+
+```bash
+source ~/nev-a100/activate-nev.sh
+cd ~/nev-a100/source
+
+# See the English and Italian requests, selected function, probabilities,
+# and the proposed call with application-supplied arguments.
+python examples/function_calling_demo.py --variant v3 --language both
+
+# Other read-only function selections: order, guide, payments.
+python examples/function_calling_demo.py --variant v3 --example guide
+
+# Run all 16 curated requests (8 parallel bilingual pairs).
+python examples/run_reference_examples.py --variants v2 v3 \
+  --cases examples/reference_examples.json \
+  --output "../results/reference-$(date +%Y%m%d-%H%M%S).json"
+
+# Run every candidate, including the unsuccessful account-recovery example.
+python examples/run_reference_examples.py --variants v2 v3 \
+  --output "../results/candidates-$(date +%Y%m%d-%H%M%S).json"
+```
+
+From a different machine, first install `runtime/`, authenticate for the private
+HF repository and cache the pinned weights using
+`python examples/hf_decide.py --variant v3 --download-only` (repeat for v2).
+Create an output directory and adjust the output path. These runners require a
+CUDA-compatible GPU and at least 4 GiB free memory, cap their PyTorch allocator
+at 4 GiB, and load only locally cached weights. The normal request helper also
+accepts `examples/request-function-en.json` or
+`examples/request-function-it.json` with `--request`.
+
+The function example selects among `get_order_status`, `get_invoice`,
+`search_help_center`, `list_transactions` and `no_tool`. The default English
+request is “I need a copy of the invoice for order ORD-2048 to attach to my
+expense report. Please retrieve the document.” Its Italian counterpart is
+“Mi serve una copia della fattura dell’ordine ORD-2048 da allegare alla nota
+spese. Recuperate il documento, per favore.” Both selected `get_invoice`.
+
+The application then constructs this dry-run call:
+
+```json
+{
+  "name": "get_invoice",
+  "arguments": {"order_id": "ORD-2048"},
+  "executed": false,
+  "argument_source": "synthetic application context; not model output"
+}
+```
+
+Nev predicts the **function name**. `proposed_call()` in
+`examples/run_reference_examples.py` maps that name to an allowed argument
+schema and uses synthetic application context. It does not extract arguments
+from the user's text, generate arbitrary JSON or execute a function. Selecting
+`no_tool` is supported by the example but was not evaluated in this candidate
+set. Multi-step tool use and out-of-scope detection are not established here.
+
 ## 2. Run and evaluate on LUMI
 
 A ready copy of the examples and frozen runtime is staged in the existing project installation. After connecting to LUMI:
@@ -202,6 +267,80 @@ A new synthetic 16-intent/routing test contained 512 requests per language:
 | Laya | 26.17% | 28.71% |
 
 The v2 export was not measured on this new panel; the v2 row above is explicitly its adapter. This controlled synthetic 16-intent task differs from 151-option CLINC and real customer traffic.
+
+### Bilingual reference candidates on A100
+
+The existing broader evidence supports v3's relative routing and small-option
+intent gains: 55.08% EN / 46.88% IT on practical routing and 54.69% / 62.50% on
+the new synthetic 16-intent panel. News-topic classification also has a training
+precedent in AG News, and Banking77 supplied banking intents. Training exposure
+is not evidence of generalization. Function-name selection is an application of
+categorical inference; there was no prior dedicated function-calling benchmark.
+
+To find useful documentation examples, we authored **32 requests in 16 parallel
+English/Italian pairs**, four pairs per domain. Text, options, expected labels
+and the bilingual selection rule were fixed before running either model. All
+32 requests were evaluated once per variant on the shared A100 on 2026-10-12,
+using the pinned FP32 exports and native cached inference. No prompt was revised
+after seeing its prediction. Counts below include **every candidate**, before
+selecting the successful gallery.
+
+| Candidate domain | Options | V2 EN | V2 IT | V3 EN | V3 IT |
+|---|---:|---:|---:|---:|---:|
+| Support routing | 5 | 3/4 | 4/4 | 3/4 | 3/4 |
+| Function-name selection | 5 | 4/4 | 4/4 | 4/4 | 4/4 |
+| News-topic classification | 4 | 4/4 | 4/4 | 4/4 | 4/4 |
+| Banking intent classification | 6 | 4/4 | 4/4 | 4/4 | 4/4 |
+
+These tiny, clear-intent examples do not establish 100% task accuracy. Four
+banking intents were queried out of six offered choices; four functions were
+queried out of five choices. The news cases are invented examples, one per
+topic, rather than an AG News test. These counts are not comparable to the
+harder policy examples, 16-intent panel or 151-option CLINC results.
+
+The failed routing pair asks to recover account access after changing phones:
+v3 selected `technical` instead of `account` in both languages (96.1% EN and
+77.2% IT assigned probability). V2 also failed English but passed Italian.
+The failure remains in `examples/reference_candidates.json` and the complete
+record `docs/nesso2/evidence/a100-reference-candidates.json`. High assigned
+probability still does not establish correctness.
+
+After inspecting these outputs, we selected **eight pairs / 16 requests** that
+both variants answered correctly in both languages, saved as
+`examples/reference_examples.json`. The selected file states that it was
+curated after evaluation. It includes two examples each of routing, function
+selection, news topics and banking intents. All were rerun with the user-facing
+command; this repeat checks reproducibility, not independent accuracy.
+
+Four representative pairs from that curated file are shown below. Probabilities
+are v3's actual assigned probabilities on the candidate run, rounded to one
+decimal percent; they are not calibrated reliability estimates.
+
+**Routing a duplicate-charge request**
+
+- **EN:** “My monthly subscription was charged twice on the same day. I can see both completed payments on my statement and need this checked.” → `billing` (99.9%).
+- **IT:** “Il mio abbonamento mensile è stato addebitato due volte nello stesso giorno. Vedo entrambi i pagamenti completati sull’estratto conto e vorrei una verifica.” → `billing` (100.0%).
+
+**Selecting an invoice-retrieval function**
+
+- **EN:** “I need a copy of the invoice for order ORD-2048 to attach to my expense report. Please retrieve the document.” → `get_invoice` (99.8%).
+- **IT:** “Mi serve una copia della fattura dell’ordine ORD-2048 da allegare alla nota spese. Recuperate il documento, per favore.” → `get_invoice` (95.5%).
+
+**Classifying a technology news brief**
+
+- **EN:** “Researchers demonstrated a new optical chip that processes signals using light. The laboratory prototype could reduce the energy required by future computers.” → `science_technology` (99.7%).
+- **IT:** “I ricercatori hanno presentato un nuovo chip ottico che elabora segnali usando la luce. Il prototipo di laboratorio potrebbe ridurre l’energia necessaria ai computer del futuro.” → `science_technology` (99.6%).
+
+**Recognizing a failed cash withdrawal**
+
+- **EN:** “The ATM debited my account, but the machine did not dispense any cash. How do I report the failed withdrawal?” → `cash_withdrawal` (100.0%).
+- **IT:** “Il bancomat ha addebitato il mio conto, ma non ha erogato contanti. Come posso segnalare il prelievo non riuscito?” → `cash_withdrawal` (100.0%).
+
+These results support using the released models as examples of **clear-intent
+classification over a small, described option set**. They do not reverse the
+observed failures on numeric thresholds, boolean policies, interacting rules,
+or unfamiliar large intent sets. The application should keep deterministic
+business rules separate from model-selected intent.
 
 ### A100 inference speed: brief shared-GPU measurement
 

@@ -69,3 +69,24 @@ Italian evaluation text is synthetic and only partially reviewed; pretraining co
 Use the accompanying frozen `decision_model` runtime and the artifact-specific `config.json`, not a generic text-generation pipeline. See the shared `INFERENCE.md`, `BUILD.md` and `EXPERIMENTS.md`. The artifact manifest identifies the exact weights; the source manifest identifies the runtime. The Hugging Face variant directory contains the standalone weights; this GitHub repository contains the model card and reproducibility code.
 
 The parent revision declares Apache-2.0 in its model metadata; Kev code attribution and upstream notices are preserved in `NOTICE`. Dataset terms remain separate. See `parent-provenance.json`.
+
+
+## Bilingual A100 reference examples
+
+The tested example runner supports this variant. From the code checkout with
+its runtime installed and the pinned model cached:
+
+```bash
+python examples/function_calling_demo.py --variant v3 --language both
+python examples/run_reference_examples.py --variants v3 \
+  --cases examples/reference_examples.json --output reference-v3.json
+```
+
+The gallery contains 16 requests selected after inspecting all 32 candidates;
+it is a curated demonstration, not an unbiased accuracy estimate. Both languages
+passed for each selected routing, function-selection, news-topic and banking
+intent pair. Full candidate counts and the unsuccessful account-recovery case
+are retained in the root model card and GitHub README. Function calling here
+means selecting an allowed function name. Arguments are supplied by the
+application and no function is executed. It does not establish argument
+extraction, no-tool rejection, multi-step planning or reliable policy execution.
