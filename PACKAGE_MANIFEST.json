@@ -83,6 +83,22 @@
     "bytes": 1833,
     "sha256": "82ba3702b7e95e3006e5a70c0fe1062bb0e2d3d936d1bae518dc86906d8dc954"
   },
+  "docs/nesso2/evidence/a100-hybrid-analysis.json": {
+    "bytes": 5212,
+    "sha256": "004f0128455f58dc50bd0c49b9c7c3f02b8b13629184a2abffa766979031d43b"
+  },
+  "docs/nesso2/evidence/a100-hybrid-launch.json": {
+    "bytes": 226,
+    "sha256": "40064aff6dd9aa3976c31541850d6d5d85b8e49b7a696b0dbcea588f03b6e3e6"
+  },
+  "docs/nesso2/evidence/a100-hybrid-pilot.json": {
+    "bytes": 934175,
+    "sha256": "101e6d31525aeb1e0c19e511a8bf7d053e2ce1f06e576455ed64a6a8dd3c3ae6"
+  },
+  "docs/nesso2/evidence/a100-hybrid-smoke-v2.json": {
+    "bytes": 34684,
+    "sha256": "91e6580743b67ecff8b43479365f5a6b9830a717d7d96fa743caf55764bdd231"
+  },
   "docs/nesso2/evidence/a100-lumi-parity.json": {
     "bytes": 368,
     "sha256": "aae31c740d65de1103c230cd07e07fa50384df5dca071a00c6703c418649a23c"
@@ -366,6 +382,42 @@
   "experiment-index.json": {
     "bytes": 9906,
     "sha256": "992f332b16e728dd25bc9bdaf847353a9e2aa7d0eec19ad894dbaa5d4f0b679c"
+  },
+  "experiments/hybrid_agent/README.md": {
+    "bytes": 6808,
+    "sha256": "e0005e774fdecaa674338042918a57529ba0053c0e1ca3aa2766a09e9692faf4"
+  },
+  "experiments/hybrid_agent/agent.py": {
+    "bytes": 10422,
+    "sha256": "91e29040bfdd00f954640c999463835d6a00a6da57405c92b2182f999739b547"
+  },
+  "experiments/hybrid_agent/analyze.py": {
+    "bytes": 4040,
+    "sha256": "d93266d714a95fb8919b5ecec17d9ce77f8cc7b70c3c4fd0fdcf29b7a73af0fb"
+  },
+  "experiments/hybrid_agent/build_cases.py": {
+    "bytes": 8684,
+    "sha256": "1fcda3ae54f3ae312f2fb37b86948f463ff3117e89162dd2ca2a7923ffbfb312"
+  },
+  "experiments/hybrid_agent/cases.json": {
+    "bytes": 42720,
+    "sha256": "d11a1fac0925e5d62e9542ebe3894441943ed856bddfa20c9a3156396c3bee57"
+  },
+  "experiments/hybrid_agent/demo.py": {
+    "bytes": 553,
+    "sha256": "3800ff6696c72faeb1c838f57b4fe8d88a1612f7b3ed62adfe35fd917bb499a5"
+  },
+  "experiments/hybrid_agent/design.json": {
+    "bytes": 1190,
+    "sha256": "34cc37f8e69077f57b1a16db4e48f9a62f21179d5a3e6e1a108fcbca642c08cf"
+  },
+  "experiments/hybrid_agent/run_pilot.py": {
+    "bytes": 6391,
+    "sha256": "eae5c168c2ac199d3c18675e049ced499c48adb8a6d3964eaf94647e4575dedd"
+  },
+  "experiments/hybrid_agent/test_agent.py": {
+    "bytes": 2644,
+    "sha256": "d7f78d32e95e3a07d4639b41a2731cd608ac416c0499a7a4d63ce9d5b14e84d3"
   },
   "experiments/lumi/CHECKPOINT_EVAL_PLAN.md": {
     "bytes": 3484,

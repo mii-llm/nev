@@ -1,0 +1,8 @@
+{
+  "pid": 320315,
+  "output": "/home/ecuser/nev-a100/results/hybrid-pilot.json",
+  "log": "/home/ecuser/nev-a100/results/hybrid-pilot.log",
+  "started_utc": "2026-10-12T18:54:47.258472+00:00",
+  "requests": 80,
+  "arms": 3
+}

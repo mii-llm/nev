@@ -1,0 +1,1246 @@
+{
+  "status": "complete",
+  "scope": "Authored pilot, 40 parallel EN/IT pairs. Fixed before inference. Synthetic read-only tools and data. Not a representative benchmark.",
+  "scoring": "Exact emitted calls/arguments; distinct ordered turns for two-step; literal tool-result anchors for tool cases; keyword heuristics for clarification/refusal and answer anchors for no-tool. Mechanical pass is not a semantic correctness guarantee.",
+  "generator": {
+    "repository": "giux78/nesso2-0.4B-agentic-v2",
+    "revision": "dc74c2f5ec3330d3e22d697078646b547669da1a",
+    "precision": "bf16"
+  },
+  "nev": {
+    "repository": "giux78/nev",
+    "revision": "c5c84121263b423f8846811a24790ab96e66cee3",
+    "variant": "v3",
+    "precision": "fp32"
+  },
+  "cases_sha256": "d11a1fac0925e5d62e9542ebe3894441943ed856bddfa20c9a3156396c3bee57",
+  "source_sha256": {
+    "agent.py": "91e29040bfdd00f954640c999463835d6a00a6da57405c92b2182f999739b547",
+    "run_pilot.py": "eae5c168c2ac199d3c18675e049ced499c48adb8a6d3964eaf94647e4575dedd"
+  },
+  "tool_schemas": {
+    "en": [
+      {
+        "type": "function",
+        "function": {
+          "name": "get_order_status",
+          "description": "Look up shipment status and tracking reference for an order.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "order_id": {
+                "type": "string",
+                "pattern": "ORD-\\d{4}"
+              }
+            },
+            "required": [
+              "order_id"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "get_invoice",
+          "description": "Retrieve the invoice document and filename for an order.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "order_id": {
+                "type": "string",
+                "pattern": "ORD-\\d{4}"
+              }
+            },
+            "required": [
+              "order_id"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "search_help_center",
+          "description": "Find the documentation and guide reference for a product model.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "product": {
+                "type": "string",
+                "pattern": "[A-Z]{2}-\\d"
+              }
+            },
+            "required": [
+              "product"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "list_transactions",
+          "description": "List recorded payments and their total for a month in YYYY-MM format.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "month": {
+                "type": "string",
+                "pattern": "2026-(?:0[1-9]|1[0-2])"
+              }
+            },
+            "required": [
+              "month"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    ],
+    "it": [
+      {
+        "type": "function",
+        "function": {
+          "name": "get_order_status",
+          "description": "Consulta lo stato della spedizione e il riferimento di tracciamento di un ordine.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "order_id": {
+                "type": "string",
+                "pattern": "ORD-\\d{4}"
+              }
+            },
+            "required": [
+              "order_id"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "get_invoice",
+          "description": "Recupera il documento della fattura e il nome del file di un ordine.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "order_id": {
+                "type": "string",
+                "pattern": "ORD-\\d{4}"
+              }
+            },
+            "required": [
+              "order_id"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "search_help_center",
+          "description": "Trova la documentazione e il riferimento della guida di un modello di prodotto.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "product": {
+                "type": "string",
+                "pattern": "[A-Z]{2}-\\d"
+              }
+            },
+            "required": [
+              "product"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "list_transactions",
+          "description": "Elenca i pagamenti registrati e il totale di un mese nel formato AAAA-MM.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "month": {
+                "type": "string",
+                "pattern": "2026-(?:0[1-9]|1[0-2])"
+              }
+            },
+            "required": [
+              "month"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    ]
+  },
+  "python": "3.12.13",
+  "settings": {
+    "max_new_tokens_per_turn": 192,
+    "max_tool_rounds": 3,
+    "greedy": true,
+    "memory_cap_gib": 8,
+    "arm_order_seed": 20261012,
+    "shortlist_size": 2,
+    "timing": "Resident models, shared GPU, synchronized wall clock; mock tool overhead only. Nev rank is computed once per case and its measured cost attributed to each hybrid arm."
+  },
+  "gpu_samples": [
+    "NVIDIA A100 80GB PCIe, 38639, 100",
+    "NVIDIA A100 80GB PCIe, 41734, 100",
+    "NVIDIA A100 80GB PCIe, 41758, 100"
+  ],
+  "rows": [
+    {
+      "id": "order_0/en",
+      "pair": "order_0",
+      "category": "single",
+      "language": "en",
+      "arm": "nev_top2",
+      "available_tools": [
+        "get_order_status",
+        "search_help_center"
+      ],
+      "ranking": {
+        "names": [
+          "get_order_status",
+          "search_help_center",
+          "get_invoice",
+          "list_transactions"
+        ],
+        "probabilities": {
+          "get_order_status": 0.9856975078582764,
+          "get_invoice": 0.00010567992285359651,
+          "search_help_center": 0.014185802079737186,
+          "list_transactions": 1.105243882193463e-05
+        },
+        "elapsed_ms": 82.10258465260267
+      },
+      "emitted_calls": [
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-6101"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "get_order_status",
+            "arguments": {
+              "order_id": "ORD-6101"
+            }
+          }
+        }
+      ],
+      "errors": [],
+      "final": "The delivery status for ORD-6101 is in transit. The tracking reference is TRK-ORD-6101.",
+      "trace": [
+        {
+          "turn": 0,
+          "assistant": "<tool_call>\n{\"name\": \"get_order_status\", \"arguments\": {\"order_id\": \"ORD-6101\"}}\n</tool_call>",
+          "generated_tokens": 30,
+          "calls": [
+            {
+              "name": "get_order_status",
+              "arguments": {
+                "order_id": "ORD-6101"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": [
+            {
+              "call": {
+                "name": "get_order_status",
+                "arguments": {
+                  "order_id": "ORD-6101"
+                }
+              },
+              "result": {
+                "order_id": "ORD-6101",
+                "status": "in_transit",
+                "tracking_reference": "TRK-ORD-6101"
+              }
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "assistant": "The delivery status for ORD-6101 is in transit. The tracking reference is TRK-ORD-6101.",
+          "generated_tokens": 25,
+          "calls": [],
+          "parse_error": null,
+          "observations": []
+        }
+      ],
+      "generated_tokens": 55,
+      "truncated": false,
+      "generator_and_controller_ms": 1378.2936790958047,
+      "route_ms": 82.10258465260267,
+      "total_ms": 1460.3962637484074,
+      "score": {
+        "calls_exact": true,
+        "sequential": true,
+        "answer_anchors_pass": true,
+        "behavior_heuristic_pass": true,
+        "strict_mechanical_pass": true,
+        "required_tools_available": true
+      }
+    },
+    {
+      "id": "order_0/en",
+      "pair": "order_0",
+      "category": "single",
+      "language": "en",
+      "arm": "nesso_only",
+      "available_tools": [
+        "get_order_status",
+        "get_invoice",
+        "search_help_center",
+        "list_transactions"
+      ],
+      "ranking": null,
+      "emitted_calls": [
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-6101"
+          }
+        },
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-6101",
+            "status": "in_transit"
+          }
+        },
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-6101",
+            "status": "in_transit"
+          }
+        },
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-6101",
+            "status": "in_transit"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "get_order_status",
+            "arguments": {
+              "order_id": "ORD-6101"
+            }
+          }
+        }
+      ],
+      "errors": [
+        "wrong_arguments",
+        "wrong_arguments",
+        "tool_round_limit"
+      ],
+      "final": "",
+      "trace": [
+        {
+          "turn": 0,
+          "assistant": "<tool_call>\n{\"name\": \"get_order_status\", \"arguments\": {\"order_id\": \"ORD-6101\"}}\n</tool_call>",
+          "generated_tokens": 30,
+          "calls": [
+            {
+              "name": "get_order_status",
+              "arguments": {
+                "order_id": "ORD-6101"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": [
+            {
+              "call": {
+                "name": "get_order_status",
+                "arguments": {
+                  "order_id": "ORD-6101"
+                }
+              },
+              "result": {
+                "order_id": "ORD-6101",
+                "status": "in_transit",
+                "tracking_reference": "TRK-ORD-6101"
+              }
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "assistant": "<tool_call>\n{\"name\": \"get_order_status\", \"arguments\": {\"order_id\": \"ORD-6101\", \"status\": \"in_transit\"}}\n</tool_call>",
+          "generated_tokens": 38,
+          "calls": [
+            {
+              "name": "get_order_status",
+              "arguments": {
+                "order_id": "ORD-6101",
+                "status": "in_transit"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": [
+            {
+              "call": {
+                "name": "get_order_status",
+                "arguments": {
+                  "order_id": "ORD-6101",
+                  "status": "in_transit"
+                }
+              },
+              "result": {
+                "error": "wrong_arguments"
+              }
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "assistant": "<tool_call>\n{\"name\": \"get_order_status\", \"arguments\": {\"order_id\": \"ORD-6101\", \"status\": \"in_transit\"}}\n</tool_call>",
+          "generated_tokens": 38,
+          "calls": [
+            {
+              "name": "get_order_status",
+              "arguments": {
+                "order_id": "ORD-6101",
+                "status": "in_transit"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": [
+            {
+              "call": {
+                "name": "get_order_status",
+                "arguments": {
+                  "order_id": "ORD-6101",
+                  "status": "in_transit"
+                }
+              },
+              "result": {
+                "error": "wrong_arguments"
+              }
+            }
+          ]
+        },
+        {
+          "turn": 3,
+          "assistant": "<tool_call>\n{\"name\": \"get_order_status\", \"arguments\": {\"order_id\": \"ORD-6101\", \"status\": \"in_transit\"}}\n</tool_call>",
+          "generated_tokens": 38,
+          "calls": [
+            {
+              "name": "get_order_status",
+              "arguments": {
+                "order_id": "ORD-6101",
+                "status": "in_transit"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": []
+        }
+      ],
+      "generated_tokens": 144,
+      "truncated": false,
+      "generator_and_controller_ms": 3528.555420227349,
+      "route_ms": 0,
+      "total_ms": 3528.555420227349,
+      "score": {
+        "calls_exact": false,
+        "sequential": true,
+        "answer_anchors_pass": false,
+        "behavior_heuristic_pass": true,
+        "strict_mechanical_pass": false,
+        "required_tools_available": true
+      }
+    },
+    {
+      "id": "order_0/en",
+      "pair": "order_0",
+      "category": "single",
+      "language": "en",
+      "arm": "nev_ranked",
+      "available_tools": [
+        "get_order_status",
+        "search_help_center",
+        "get_invoice",
+        "list_transactions"
+      ],
+      "ranking": {
+        "names": [
+          "get_order_status",
+          "search_help_center",
+          "get_invoice",
+          "list_transactions"
+        ],
+        "probabilities": {
+          "get_order_status": 0.9856975078582764,
+          "get_invoice": 0.00010567992285359651,
+          "search_help_center": 0.014185802079737186,
+          "list_transactions": 1.105243882193463e-05
+        },
+        "elapsed_ms": 82.10258465260267
+      },
+      "emitted_calls": [
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-6101"
+          }
+        },
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-6101",
+            "status": "in_transit"
+          }
+        },
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-6101",
+            "status": "in_transit"
+          }
+        },
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-6101",
+            "status": "in_transit"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "get_order_status",
+            "arguments": {
+              "order_id": "ORD-6101"
+            }
+          }
+        }
+      ],
+      "errors": [
+        "wrong_arguments",
+        "wrong_arguments",
+        "tool_round_limit"
+      ],
+      "final": "",
+      "trace": [
+        {
+          "turn": 0,
+          "assistant": "<tool_call>\n{\"name\": \"get_order_status\", \"arguments\": {\"order_id\": \"ORD-6101\"}}\n</tool_call>",
+          "generated_tokens": 30,
+          "calls": [
+            {
+              "name": "get_order_status",
+              "arguments": {
+                "order_id": "ORD-6101"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": [
+            {
+              "call": {
+                "name": "get_order_status",
+                "arguments": {
+                  "order_id": "ORD-6101"
+                }
+              },
+              "result": {
+                "order_id": "ORD-6101",
+                "status": "in_transit",
+                "tracking_reference": "TRK-ORD-6101"
+              }
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "assistant": "<tool_call>\n{\"name\": \"get_order_status\", \"arguments\": {\"order_id\": \"ORD-6101\", \"status\": \"in_transit\"}}\n</tool_call>",
+          "generated_tokens": 38,
+          "calls": [
+            {
+              "name": "get_order_status",
+              "arguments": {
+                "order_id": "ORD-6101",
+                "status": "in_transit"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": [
+            {
+              "call": {
+                "name": "get_order_status",
+                "arguments": {
+                  "order_id": "ORD-6101",
+                  "status": "in_transit"
+                }
+              },
+              "result": {
+                "error": "wrong_arguments"
+              }
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "assistant": "<tool_call>\n{\"name\": \"get_order_status\", \"arguments\": {\"order_id\": \"ORD-6101\", \"status\": \"in_transit\"}}\n</tool_call>",
+          "generated_tokens": 38,
+          "calls": [
+            {
+              "name": "get_order_status",
+              "arguments": {
+                "order_id": "ORD-6101",
+                "status": "in_transit"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": [
+            {
+              "call": {
+                "name": "get_order_status",
+                "arguments": {
+                  "order_id": "ORD-6101",
+                  "status": "in_transit"
+                }
+              },
+              "result": {
+                "error": "wrong_arguments"
+              }
+            }
+          ]
+        },
+        {
+          "turn": 3,
+          "assistant": "<tool_call>\n{\"name\": \"get_order_status\", \"arguments\": {\"order_id\": \"ORD-6101\", \"status\": \"in_transit\"}}\n</tool_call>",
+          "generated_tokens": 38,
+          "calls": [
+            {
+              "name": "get_order_status",
+              "arguments": {
+                "order_id": "ORD-6101",
+                "status": "in_transit"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": []
+        }
+      ],
+      "generated_tokens": 144,
+      "truncated": false,
+      "generator_and_controller_ms": 3572.108577005565,
+      "route_ms": 82.10258465260267,
+      "total_ms": 3654.211161658168,
+      "score": {
+        "calls_exact": false,
+        "sequential": true,
+        "answer_anchors_pass": false,
+        "behavior_heuristic_pass": true,
+        "strict_mechanical_pass": false,
+        "required_tools_available": true
+      }
+    },
+    {
+      "id": "order_0/it",
+      "pair": "order_0",
+      "category": "single",
+      "language": "it",
+      "arm": "nesso_only",
+      "available_tools": [
+        "get_order_status",
+        "get_invoice",
+        "search_help_center",
+        "list_transactions"
+      ],
+      "ranking": null,
+      "emitted_calls": [
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-6101"
+          }
+        },
+        {
+          "name": "get_invoice",
+          "arguments": {
+            "order_id": "ORD-6101",
+            "pattern": "ORD-\\d{4}"
+          }
+        },
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-6101",
+            "status": "in_transit"
+          }
+        },
+        {
+          "name": "get_invoice",
+          "arguments": {
+            "order_id": "ORD-6101",
+            "pattern": "ORD-\\d{4}"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "get_order_status",
+            "arguments": {
+              "order_id": "ORD-6101"
+            }
+          }
+        }
+      ],
+      "errors": [
+        "wrong_arguments",
+        "wrong_arguments",
+        "tool_round_limit"
+      ],
+      "final": "",
+      "trace": [
+        {
+          "turn": 0,
+          "assistant": "<tool_call>\n{\"name\": \"get_order_status\", \"arguments\": {\"order_id\": \"ORD-6101\"}}\n</tool_call>",
+          "generated_tokens": 30,
+          "calls": [
+            {
+              "name": "get_order_status",
+              "arguments": {
+                "order_id": "ORD-6101"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": [
+            {
+              "call": {
+                "name": "get_order_status",
+                "arguments": {
+                  "order_id": "ORD-6101"
+                }
+              },
+              "result": {
+                "order_id": "ORD-6101",
+                "status": "in_transit",
+                "tracking_reference": "TRK-ORD-6101"
+              }
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "assistant": "<tool_call>\n{\"name\": \"get_invoice\", \"arguments\": {\"order_id\": \"ORD-6101\", \"pattern\": \"ORD-\\\\d{4}\"}}\n</tool_call>",
+          "generated_tokens": 41,
+          "calls": [
+            {
+              "name": "get_invoice",
+              "arguments": {
+                "order_id": "ORD-6101",
+                "pattern": "ORD-\\d{4}"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": [
+            {
+              "call": {
+                "name": "get_invoice",
+                "arguments": {
+                  "order_id": "ORD-6101",
+                  "pattern": "ORD-\\d{4}"
+                }
+              },
+              "result": {
+                "error": "wrong_arguments"
+              }
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "assistant": "<tool_call>\n{\"name\": \"get_order_status\", \"arguments\": {\"order_id\": \"ORD-6101\", \"status\": \"in_transit\"}}\n</tool_call>",
+          "generated_tokens": 38,
+          "calls": [
+            {
+              "name": "get_order_status",
+              "arguments": {
+                "order_id": "ORD-6101",
+                "status": "in_transit"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": [
+            {
+              "call": {
+                "name": "get_order_status",
+                "arguments": {
+                  "order_id": "ORD-6101",
+                  "status": "in_transit"
+                }
+              },
+              "result": {
+                "error": "wrong_arguments"
+              }
+            }
+          ]
+        },
+        {
+          "turn": 3,
+          "assistant": "<tool_call>\n{\"name\": \"get_invoice\", \"arguments\": {\"order_id\": \"ORD-6101\", \"pattern\": \"ORD-\\\\d{4}\"}}\n</tool_call>",
+          "generated_tokens": 41,
+          "calls": [
+            {
+              "name": "get_invoice",
+              "arguments": {
+                "order_id": "ORD-6101",
+                "pattern": "ORD-\\d{4}"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": []
+        }
+      ],
+      "generated_tokens": 150,
+      "truncated": false,
+      "generator_and_controller_ms": 3721.0610853508115,
+      "route_ms": 0,
+      "total_ms": 3721.0610853508115,
+      "score": {
+        "calls_exact": false,
+        "sequential": true,
+        "answer_anchors_pass": false,
+        "behavior_heuristic_pass": true,
+        "strict_mechanical_pass": false,
+        "required_tools_available": true
+      }
+    },
+    {
+      "id": "order_0/it",
+      "pair": "order_0",
+      "category": "single",
+      "language": "it",
+      "arm": "nev_ranked",
+      "available_tools": [
+        "get_order_status",
+        "search_help_center",
+        "get_invoice",
+        "list_transactions"
+      ],
+      "ranking": {
+        "names": [
+          "get_order_status",
+          "search_help_center",
+          "get_invoice",
+          "list_transactions"
+        ],
+        "probabilities": {
+          "get_order_status": 0.9975014328956604,
+          "get_invoice": 0.0002735762973316014,
+          "search_help_center": 0.002217151690274477,
+          "list_transactions": 7.856385309423786e-06
+        },
+        "elapsed_ms": 86.01970691233873
+      },
+      "emitted_calls": [
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-6101"
+          }
+        },
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-6101",
+            "tracking_reference": "TRK-ORD-6101"
+          }
+        },
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-6101",
+            "tracking_reference": "TRK-ORD-6101"
+          }
+        },
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-6101",
+            "tracking_reference": "TRK-ORD-6101"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "get_order_status",
+            "arguments": {
+              "order_id": "ORD-6101"
+            }
+          }
+        }
+      ],
+      "errors": [
+        "wrong_arguments",
+        "wrong_arguments",
+        "tool_round_limit"
+      ],
+      "final": "",
+      "trace": [
+        {
+          "turn": 0,
+          "assistant": "<tool_call>\n{\"name\": \"get_order_status\", \"arguments\": {\"order_id\": \"ORD-6101\"}}\n</tool_call>",
+          "generated_tokens": 30,
+          "calls": [
+            {
+              "name": "get_order_status",
+              "arguments": {
+                "order_id": "ORD-6101"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": [
+            {
+              "call": {
+                "name": "get_order_status",
+                "arguments": {
+                  "order_id": "ORD-6101"
+                }
+              },
+              "result": {
+                "order_id": "ORD-6101",
+                "status": "in_transit",
+                "tracking_reference": "TRK-ORD-6101"
+              }
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "assistant": "<tool_call>\n{\"name\": \"get_order_status\", \"arguments\": {\"order_id\": \"ORD-6101\", \"tracking_reference\": \"TRK-ORD-6101\"}}\n</tool_call>",
+          "generated_tokens": 43,
+          "calls": [
+            {
+              "name": "get_order_status",
+              "arguments": {
+                "order_id": "ORD-6101",
+                "tracking_reference": "TRK-ORD-6101"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": [
+            {
+              "call": {
+                "name": "get_order_status",
+                "arguments": {
+                  "order_id": "ORD-6101",
+                  "tracking_reference": "TRK-ORD-6101"
+                }
+              },
+              "result": {
+                "error": "wrong_arguments"
+              }
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "assistant": "<tool_call>\n{\"name\": \"get_order_status\", \"arguments\": {\"order_id\": \"ORD-6101\", \"tracking_reference\": \"TRK-ORD-6101\"}}\n</tool_call>",
+          "generated_tokens": 43,
+          "calls": [
+            {
+              "name": "get_order_status",
+              "arguments": {
+                "order_id": "ORD-6101",
+                "tracking_reference": "TRK-ORD-6101"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": [
+            {
+              "call": {
+                "name": "get_order_status",
+                "arguments": {
+                  "order_id": "ORD-6101",
+                  "tracking_reference": "TRK-ORD-6101"
+                }
+              },
+              "result": {
+                "error": "wrong_arguments"
+              }
+            }
+          ]
+        },
+        {
+          "turn": 3,
+          "assistant": "<tool_call>\n{\"name\": \"get_order_status\", \"arguments\": {\"order_id\": \"ORD-6101\", \"tracking_reference\": \"TRK-ORD-6101\"}}\n</tool_call>",
+          "generated_tokens": 43,
+          "calls": [
+            {
+              "name": "get_order_status",
+              "arguments": {
+                "order_id": "ORD-6101",
+                "tracking_reference": "TRK-ORD-6101"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": []
+        }
+      ],
+      "generated_tokens": 159,
+      "truncated": false,
+      "generator_and_controller_ms": 3955.6290227919817,
+      "route_ms": 86.01970691233873,
+      "total_ms": 4041.6487297043204,
+      "score": {
+        "calls_exact": false,
+        "sequential": true,
+        "answer_anchors_pass": false,
+        "behavior_heuristic_pass": true,
+        "strict_mechanical_pass": false,
+        "required_tools_available": true
+      }
+    },
+    {
+      "id": "order_0/it",
+      "pair": "order_0",
+      "category": "single",
+      "language": "it",
+      "arm": "nev_top2",
+      "available_tools": [
+        "get_order_status",
+        "search_help_center"
+      ],
+      "ranking": {
+        "names": [
+          "get_order_status",
+          "search_help_center",
+          "get_invoice",
+          "list_transactions"
+        ],
+        "probabilities": {
+          "get_order_status": 0.9975014328956604,
+          "get_invoice": 0.0002735762973316014,
+          "search_help_center": 0.002217151690274477,
+          "list_transactions": 7.856385309423786e-06
+        },
+        "elapsed_ms": 86.01970691233873
+      },
+      "emitted_calls": [
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-6101"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "get_order_status",
+            "arguments": {
+              "order_id": "ORD-6101"
+            }
+          }
+        }
+      ],
+      "errors": [],
+      "final": "L'avanzamento della consegna per ORD-6101 è in transito. Il riferimento di tracciamento è TRK-ORD-6101.",
+      "trace": [
+        {
+          "turn": 0,
+          "assistant": "<tool_call>\n{\"name\": \"get_order_status\", \"arguments\": {\"order_id\": \"ORD-6101\"}}\n</tool_call>",
+          "generated_tokens": 30,
+          "calls": [
+            {
+              "name": "get_order_status",
+              "arguments": {
+                "order_id": "ORD-6101"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": [
+            {
+              "call": {
+                "name": "get_order_status",
+                "arguments": {
+                  "order_id": "ORD-6101"
+                }
+              },
+              "result": {
+                "order_id": "ORD-6101",
+                "status": "in_transit",
+                "tracking_reference": "TRK-ORD-6101"
+              }
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "assistant": "L'avanzamento della consegna per ORD-6101 è in transito. Il riferimento di tracciamento è TRK-ORD-6101.",
+          "generated_tokens": 35,
+          "calls": [],
+          "parse_error": null,
+          "observations": []
+        }
+      ],
+      "generated_tokens": 65,
+      "truncated": false,
+      "generator_and_controller_ms": 1608.3584669977427,
+      "route_ms": 86.01970691233873,
+      "total_ms": 1694.3781739100814,
+      "score": {
+        "calls_exact": true,
+        "sequential": true,
+        "answer_anchors_pass": true,
+        "behavior_heuristic_pass": true,
+        "strict_mechanical_pass": true,
+        "required_tools_available": true
+      }
+    }
+  ],
+  "torch": "2.10.0+cu126",
+  "transformers": "5.17.0",
+  "cuda": "12.6",
+  "summary": {
+    "nesso_only": {
+      "en": {
+        "n": 1,
+        "calls_exact": 0,
+        "strict_mechanical_pass": 0,
+        "median_ms": 3528.555420227349,
+        "mean_ms": 3528.555420227349,
+        "mean_generated_tokens": 144,
+        "by_category": {
+          "single": {
+            "n": 1,
+            "calls_exact": 0,
+            "strict_mechanical_pass": 0
+          }
+        }
+      },
+      "it": {
+        "n": 1,
+        "calls_exact": 0,
+        "strict_mechanical_pass": 0,
+        "median_ms": 3721.0610853508115,
+        "mean_ms": 3721.0610853508115,
+        "mean_generated_tokens": 150,
+        "by_category": {
+          "single": {
+            "n": 1,
+            "calls_exact": 0,
+            "strict_mechanical_pass": 0
+          }
+        }
+      }
+    },
+    "nev_ranked": {
+      "en": {
+        "n": 1,
+        "calls_exact": 0,
+        "strict_mechanical_pass": 0,
+        "median_ms": 3654.211161658168,
+        "mean_ms": 3654.211161658168,
+        "mean_generated_tokens": 144,
+        "by_category": {
+          "single": {
+            "n": 1,
+            "calls_exact": 0,
+            "strict_mechanical_pass": 0
+          }
+        }
+      },
+      "it": {
+        "n": 1,
+        "calls_exact": 0,
+        "strict_mechanical_pass": 0,
+        "median_ms": 4041.6487297043204,
+        "mean_ms": 4041.6487297043204,
+        "mean_generated_tokens": 159,
+        "by_category": {
+          "single": {
+            "n": 1,
+            "calls_exact": 0,
+            "strict_mechanical_pass": 0
+          }
+        }
+      }
+    },
+    "nev_top2": {
+      "en": {
+        "n": 1,
+        "calls_exact": 1,
+        "strict_mechanical_pass": 1,
+        "median_ms": 1460.3962637484074,
+        "mean_ms": 1460.3962637484074,
+        "mean_generated_tokens": 55,
+        "by_category": {
+          "single": {
+            "n": 1,
+            "calls_exact": 1,
+            "strict_mechanical_pass": 1
+          }
+        }
+      },
+      "it": {
+        "n": 1,
+        "calls_exact": 1,
+        "strict_mechanical_pass": 1,
+        "median_ms": 1694.3781739100814,
+        "mean_ms": 1694.3781739100814,
+        "mean_generated_tokens": 65,
+        "by_category": {
+          "single": {
+            "n": 1,
+            "calls_exact": 1,
+            "strict_mechanical_pass": 1
+          }
+        }
+      }
+    }
+  },
+  "elapsed_seconds": 17.959841723553836,
+  "peak_allocated_mib": 2569.7666015625,
+  "peak_reserved_mib": 2606.0
+}

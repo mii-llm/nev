@@ -1,0 +1,19 @@
+{
+  "stage": "Inputs and executable sources fixed before full inference; this provenance record was written while that run was in progress.",
+  "cases_sha256": "d11a1fac0925e5d62e9542ebe3894441943ed856bddfa20c9a3156396c3bee57",
+  "source_sha256": {
+    "agent.py": "91e29040bfdd00f954640c999463835d6a00a6da57405c92b2182f999739b547",
+    "run_pilot.py": "eae5c168c2ac199d3c18675e049ced499c48adb8a6d3964eaf94647e4575dedd",
+    "build_cases.py": "1fcda3ae54f3ae312f2fb37b86948f463ff3117e89162dd2ca2a7923ffbfb312",
+    "test_agent.py": "d7f78d32e95e3a07d4639b41a2731cd608ac416c0499a7a4d63ce9d5b14e84d3"
+  },
+  "engineering_checks": {
+    "unit_tests": 4,
+    "native_template": "saved Llama-3 chat_template.jinja; arbitrary message roles including tool; no BOS in rendered template",
+    "bos": "exactly one asserted on each generated turn",
+    "initial_failure": "Offline snapshot request omitted allow_patterns and required README/.gitattributes not downloaded. Fixed before smoke inference.",
+    "smoke": "First two frozen requests; same prompts as full run. No model/prompt/scoring tuning after inspecting these outputs."
+  },
+  "models_unchanged": true,
+  "external_tool_calls": false
+}

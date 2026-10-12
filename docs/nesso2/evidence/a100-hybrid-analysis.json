@@ -1,0 +1,187 @@
+{
+  "status": "complete",
+  "n_requests": 80,
+  "n_pairs": 40,
+  "scoring_note": "Strict mechanical checks, not semantic correctness. See README for literal-anchor and keyword limitations.",
+  "results": {
+    "nesso_only": {
+      "en": {
+        "n": 40,
+        "tool_requests": 28,
+        "non_tool_requests": 12,
+        "first_tool_name_correct": 24,
+        "first_call_exact": 21,
+        "whole_call_sequence_exact": 4,
+        "strict_mechanical_pass": 1,
+        "tool_request_strict_pass": 0,
+        "non_tool_request_strict_pass": 1,
+        "all_required_tools_retained": 28,
+        "median_ms": 4094.8688574135303,
+        "mean_ms": 4169.35783426743,
+        "mean_generated_tokens": 141.775,
+        "truncated_requests": 6
+      },
+      "it": {
+        "n": 40,
+        "tool_requests": 28,
+        "non_tool_requests": 12,
+        "first_tool_name_correct": 26,
+        "first_call_exact": 24,
+        "whole_call_sequence_exact": 6,
+        "strict_mechanical_pass": 3,
+        "tool_request_strict_pass": 1,
+        "non_tool_request_strict_pass": 2,
+        "all_required_tools_retained": 28,
+        "median_ms": 3042.0383899472654,
+        "mean_ms": 3188.479726575315,
+        "mean_generated_tokens": 108.925,
+        "truncated_requests": 0
+      }
+    },
+    "nev_ranked": {
+      "en": {
+        "n": 40,
+        "tool_requests": 28,
+        "non_tool_requests": 12,
+        "first_tool_name_correct": 20,
+        "first_call_exact": 20,
+        "whole_call_sequence_exact": 4,
+        "strict_mechanical_pass": 2,
+        "tool_request_strict_pass": 0,
+        "non_tool_request_strict_pass": 2,
+        "all_required_tools_retained": 28,
+        "median_ms": 4082.24585512653,
+        "mean_ms": 4028.4319476690143,
+        "mean_generated_tokens": 133.95,
+        "truncated_requests": 5
+      },
+      "it": {
+        "n": 40,
+        "tool_requests": 28,
+        "non_tool_requests": 12,
+        "first_tool_name_correct": 20,
+        "first_call_exact": 20,
+        "whole_call_sequence_exact": 6,
+        "strict_mechanical_pass": 2,
+        "tool_request_strict_pass": 2,
+        "non_tool_request_strict_pass": 0,
+        "all_required_tools_retained": 28,
+        "median_ms": 3341.8634799309075,
+        "mean_ms": 3499.687509192154,
+        "mean_generated_tokens": 116.625,
+        "truncated_requests": 5
+      }
+    },
+    "nev_top2": {
+      "en": {
+        "n": 40,
+        "tool_requests": 28,
+        "non_tool_requests": 12,
+        "first_tool_name_correct": 22,
+        "first_call_exact": 22,
+        "whole_call_sequence_exact": 8,
+        "strict_mechanical_pass": 7,
+        "tool_request_strict_pass": 3,
+        "non_tool_request_strict_pass": 4,
+        "all_required_tools_retained": 28,
+        "median_ms": 3254.389070905745,
+        "mean_ms": 3343.188715726137,
+        "mean_generated_tokens": 111.975,
+        "truncated_requests": 4
+      },
+      "it": {
+        "n": 40,
+        "tool_requests": 28,
+        "non_tool_requests": 12,
+        "first_tool_name_correct": 20,
+        "first_call_exact": 19,
+        "whole_call_sequence_exact": 12,
+        "strict_mechanical_pass": 7,
+        "tool_request_strict_pass": 5,
+        "non_tool_request_strict_pass": 2,
+        "all_required_tools_retained": 24,
+        "median_ms": 2996.6371124610305,
+        "mean_ms": 3154.370284290053,
+        "mean_generated_tokens": 104.475,
+        "truncated_requests": 5
+      }
+    }
+  },
+  "paired_changes": {
+    "nev_ranked": {
+      "en": {
+        "wins": [
+          "missing_invoice/en"
+        ],
+        "losses": [],
+        "net": 1
+      },
+      "it": {
+        "wins": [
+          "payments_0/it"
+        ],
+        "losses": [
+          "missing_invoice/it",
+          "missing_guide/it"
+        ],
+        "net": -1
+      }
+    },
+    "nev_top2": {
+      "en": {
+        "wins": [
+          "order_0/en",
+          "invoice_1/en",
+          "invoice_3/en",
+          "missing_invoice/en",
+          "missing_payments/en",
+          "unavailable_refund/en"
+        ],
+        "losses": [],
+        "net": 6
+      },
+      "it": {
+        "wins": [
+          "order_0/it",
+          "invoice_1/it",
+          "focus_invoice_0/it",
+          "focus_invoice_1/it",
+          "unavailable_email/it",
+          "unavailable_address/it"
+        ],
+        "losses": [
+          "missing_invoice/it",
+          "missing_guide/it"
+        ],
+        "net": 4
+      }
+    }
+  },
+  "errors": {
+    "nesso_only": {
+      "wrong_arguments": 31,
+      "tool_round_limit": 30,
+      "duplicate_call": 18,
+      "invalid_argument_value": 64,
+      "invalid_json": 1,
+      "malformed_or_mixed_tool_markup": 4
+    },
+    "nev_ranked": {
+      "wrong_arguments": 40,
+      "tool_round_limit": 35,
+      "duplicate_call": 17,
+      "invalid_argument_value": 55,
+      "malformed_or_mixed_tool_markup": 9,
+      "function_not_available": 3
+    },
+    "nev_top2": {
+      "wrong_arguments": 24,
+      "tool_round_limit": 22,
+      "duplicate_call": 12,
+      "invalid_argument_value": 55,
+      "invalid_json": 2,
+      "malformed_or_mixed_tool_markup": 9
+    }
+  },
+  "report_sha256": "101e6d31525aeb1e0c19e511a8bf7d053e2ce1f06e576455ed64a6a8dd3c3ae6"
+}

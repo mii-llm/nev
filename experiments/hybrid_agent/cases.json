@@ -1,0 +1,1675 @@
+{
+  "scope": "Authored pilot, 40 parallel EN/IT pairs. Fixed before inference. Synthetic read-only tools and data. Not a representative benchmark.",
+  "design": "16 single + 8 distractor + 4 two-step + 4 missing + 4 no-tool + 4 unavailable pairs; identical requests and validation in all arms.",
+  "scoring": "Exact emitted calls/arguments; distinct ordered turns for two-step; literal tool-result anchors for tool cases; keyword heuristics for clarification/refusal and answer anchors for no-tool. Mechanical pass is not a semantic correctness guarantee.",
+  "cases": [
+    {
+      "id": "order_0/en",
+      "pair": "order_0",
+      "category": "single",
+      "language": "en",
+      "message": "Can you check the delivery progress for ORD-6101? Please include the tracking reference.",
+      "expected_calls": [
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-6101"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "TRK-ORD-6101"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "order_0/it",
+      "pair": "order_0",
+      "category": "single",
+      "language": "it",
+      "message": "Puoi controllare l’avanzamento della consegna per ORD-6101? Includi il riferimento di tracciamento.",
+      "expected_calls": [
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-6101"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "TRK-ORD-6101"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "invoice_0/en",
+      "pair": "invoice_0",
+      "category": "single",
+      "language": "en",
+      "message": "I am preparing my expense claim. Retrieve the invoice for ORD-6101 and tell me its filename.",
+      "expected_calls": [
+        {
+          "name": "get_invoice",
+          "arguments": {
+            "order_id": "ORD-6101"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "invoice_ORD-6101.pdf"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "invoice_0/it",
+      "pair": "invoice_0",
+      "category": "single",
+      "language": "it",
+      "message": "Sto preparando la nota spese. Recupera la fattura di ORD-6101 e dimmi il nome del file.",
+      "expected_calls": [
+        {
+          "name": "get_invoice",
+          "arguments": {
+            "order_id": "ORD-6101"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "invoice_ORD-6101.pdf"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "guide_0/en",
+      "pair": "guide_0",
+      "category": "single",
+      "language": "en",
+      "message": "I need the documentation for product PX-7. Search the help center and tell me the guide reference.",
+      "expected_calls": [
+        {
+          "name": "search_help_center",
+          "arguments": {
+            "product": "PX-7"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "GUIDE-PX-7"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "guide_0/it",
+      "pair": "guide_0",
+      "category": "single",
+      "language": "it",
+      "message": "Mi serve la documentazione del prodotto PX-7. Cerca nel centro assistenza e dimmi il riferimento della guida.",
+      "expected_calls": [
+        {
+          "name": "search_help_center",
+          "arguments": {
+            "product": "PX-7"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "GUIDE-PX-7"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "payments_0/en",
+      "pair": "payments_0",
+      "category": "single",
+      "language": "en",
+      "message": "Please look up my recorded payments for 2026-05. Tell me their total in EUR so I can reconcile the statement.",
+      "expected_calls": [
+        {
+          "name": "list_transactions",
+          "arguments": {
+            "month": "2026-05"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "63.75",
+          "63,75"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "payments_0/it",
+      "pair": "payments_0",
+      "category": "single",
+      "language": "it",
+      "message": "Consulta i miei pagamenti registrati per 2026-05. Dimmi il totale in EUR per confrontarlo con l’estratto conto.",
+      "expected_calls": [
+        {
+          "name": "list_transactions",
+          "arguments": {
+            "month": "2026-05"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "63.75",
+          "63,75"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "order_1/en",
+      "pair": "order_1",
+      "category": "single",
+      "language": "en",
+      "message": "I am arranging for someone to be home when ORD-6102 arrives. Look up the shipment and give me its tracking reference.",
+      "expected_calls": [
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-6102"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "TRK-ORD-6102"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "order_1/it",
+      "pair": "order_1",
+      "category": "single",
+      "language": "it",
+      "message": "Sto organizzando la presenza di qualcuno a casa all’arrivo di ORD-6102. Consulta la spedizione e dammi il riferimento di tracciamento.",
+      "expected_calls": [
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-6102"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "TRK-ORD-6102"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "invoice_1/en",
+      "pair": "invoice_1",
+      "category": "single",
+      "language": "en",
+      "message": "Our accountant needs the invoice document for ORD-6102. Please fetch it and provide the filename.",
+      "expected_calls": [
+        {
+          "name": "get_invoice",
+          "arguments": {
+            "order_id": "ORD-6102"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "invoice_ORD-6102.pdf"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "invoice_1/it",
+      "pair": "invoice_1",
+      "category": "single",
+      "language": "it",
+      "message": "Al nostro commercialista serve il documento della fattura di ORD-6102. Recuperalo e indica il nome del file.",
+      "expected_calls": [
+        {
+          "name": "get_invoice",
+          "arguments": {
+            "order_id": "ORD-6102"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "invoice_ORD-6102.pdf"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "guide_1/en",
+      "pair": "guide_1",
+      "category": "single",
+      "language": "en",
+      "message": "I need the documentation for product MX-4. Search the help center and tell me the guide reference.",
+      "expected_calls": [
+        {
+          "name": "search_help_center",
+          "arguments": {
+            "product": "MX-4"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "GUIDE-MX-4"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "guide_1/it",
+      "pair": "guide_1",
+      "category": "single",
+      "language": "it",
+      "message": "Mi serve la documentazione del prodotto MX-4. Cerca nel centro assistenza e dimmi il riferimento della guida.",
+      "expected_calls": [
+        {
+          "name": "search_help_center",
+          "arguments": {
+            "product": "MX-4"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "GUIDE-MX-4"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "payments_1/en",
+      "pair": "payments_1",
+      "category": "single",
+      "language": "en",
+      "message": "Please look up my recorded payments for 2026-06. Tell me their total in EUR so I can reconcile the statement.",
+      "expected_calls": [
+        {
+          "name": "list_transactions",
+          "arguments": {
+            "month": "2026-06"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "63.75",
+          "63,75"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "payments_1/it",
+      "pair": "payments_1",
+      "category": "single",
+      "language": "it",
+      "message": "Consulta i miei pagamenti registrati per 2026-06. Dimmi il totale in EUR per confrontarlo con l’estratto conto.",
+      "expected_calls": [
+        {
+          "name": "list_transactions",
+          "arguments": {
+            "month": "2026-06"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "63.75",
+          "63,75"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "order_2/en",
+      "pair": "order_2",
+      "category": "single",
+      "language": "en",
+      "message": "The courier page is unavailable on my phone. Please retrieve the current shipment details and tracking reference for ORD-6103.",
+      "expected_calls": [
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-6103"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "TRK-ORD-6103"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "order_2/it",
+      "pair": "order_2",
+      "category": "single",
+      "language": "it",
+      "message": "La pagina del corriere non funziona sul mio telefono. Recupera i dettagli attuali della spedizione e il riferimento di tracciamento per ORD-6103.",
+      "expected_calls": [
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-6103"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "TRK-ORD-6103"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "invoice_2/en",
+      "pair": "invoice_2",
+      "category": "single",
+      "language": "en",
+      "message": "I cannot find my receipt email for ORD-6103. Could you retrieve the invoice and report the filename?",
+      "expected_calls": [
+        {
+          "name": "get_invoice",
+          "arguments": {
+            "order_id": "ORD-6103"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "invoice_ORD-6103.pdf"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "invoice_2/it",
+      "pair": "invoice_2",
+      "category": "single",
+      "language": "it",
+      "message": "Non trovo l’email con la ricevuta di ORD-6103. Puoi recuperare la fattura e riportare il nome del file?",
+      "expected_calls": [
+        {
+          "name": "get_invoice",
+          "arguments": {
+            "order_id": "ORD-6103"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "invoice_ORD-6103.pdf"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "guide_2/en",
+      "pair": "guide_2",
+      "category": "single",
+      "language": "en",
+      "message": "I need the documentation for product LX-2. Search the help center and tell me the guide reference.",
+      "expected_calls": [
+        {
+          "name": "search_help_center",
+          "arguments": {
+            "product": "LX-2"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "GUIDE-LX-2"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "guide_2/it",
+      "pair": "guide_2",
+      "category": "single",
+      "language": "it",
+      "message": "Mi serve la documentazione del prodotto LX-2. Cerca nel centro assistenza e dimmi il riferimento della guida.",
+      "expected_calls": [
+        {
+          "name": "search_help_center",
+          "arguments": {
+            "product": "LX-2"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "GUIDE-LX-2"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "payments_2/en",
+      "pair": "payments_2",
+      "category": "single",
+      "language": "en",
+      "message": "Please look up my recorded payments for 2026-07. Tell me their total in EUR so I can reconcile the statement.",
+      "expected_calls": [
+        {
+          "name": "list_transactions",
+          "arguments": {
+            "month": "2026-07"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "63.75",
+          "63,75"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "payments_2/it",
+      "pair": "payments_2",
+      "category": "single",
+      "language": "it",
+      "message": "Consulta i miei pagamenti registrati per 2026-07. Dimmi il totale in EUR per confrontarlo con l’estratto conto.",
+      "expected_calls": [
+        {
+          "name": "list_transactions",
+          "arguments": {
+            "month": "2026-07"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "63.75",
+          "63,75"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "order_3/en",
+      "pair": "order_3",
+      "category": "single",
+      "language": "en",
+      "message": "Could you look up ORD-6104 and tell me the shipment status together with the tracking reference?",
+      "expected_calls": [
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-6104"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "TRK-ORD-6104"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "order_3/it",
+      "pair": "order_3",
+      "category": "single",
+      "language": "it",
+      "message": "Puoi cercare ORD-6104 e dirmi lo stato della spedizione insieme al riferimento di tracciamento?",
+      "expected_calls": [
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-6104"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "TRK-ORD-6104"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "invoice_3/en",
+      "pair": "invoice_3",
+      "category": "single",
+      "language": "en",
+      "message": "Please obtain the invoice file associated with ORD-6104; I need its filename for our records.",
+      "expected_calls": [
+        {
+          "name": "get_invoice",
+          "arguments": {
+            "order_id": "ORD-6104"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "invoice_ORD-6104.pdf"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "invoice_3/it",
+      "pair": "invoice_3",
+      "category": "single",
+      "language": "it",
+      "message": "Recupera il file della fattura associata a ORD-6104; mi serve il nome del file per il nostro archivio.",
+      "expected_calls": [
+        {
+          "name": "get_invoice",
+          "arguments": {
+            "order_id": "ORD-6104"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "invoice_ORD-6104.pdf"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "guide_3/en",
+      "pair": "guide_3",
+      "category": "single",
+      "language": "en",
+      "message": "I need the documentation for product QX-9. Search the help center and tell me the guide reference.",
+      "expected_calls": [
+        {
+          "name": "search_help_center",
+          "arguments": {
+            "product": "QX-9"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "GUIDE-QX-9"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "guide_3/it",
+      "pair": "guide_3",
+      "category": "single",
+      "language": "it",
+      "message": "Mi serve la documentazione del prodotto QX-9. Cerca nel centro assistenza e dimmi il riferimento della guida.",
+      "expected_calls": [
+        {
+          "name": "search_help_center",
+          "arguments": {
+            "product": "QX-9"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "GUIDE-QX-9"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "payments_3/en",
+      "pair": "payments_3",
+      "category": "single",
+      "language": "en",
+      "message": "Please look up my recorded payments for 2026-08. Tell me their total in EUR so I can reconcile the statement.",
+      "expected_calls": [
+        {
+          "name": "list_transactions",
+          "arguments": {
+            "month": "2026-08"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "63.75",
+          "63,75"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "payments_3/it",
+      "pair": "payments_3",
+      "category": "single",
+      "language": "it",
+      "message": "Consulta i miei pagamenti registrati per 2026-08. Dimmi il totale in EUR per confrontarlo con l’estratto conto.",
+      "expected_calls": [
+        {
+          "name": "list_transactions",
+          "arguments": {
+            "month": "2026-08"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "63.75",
+          "63,75"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "focus_invoice_0/en",
+      "pair": "focus_invoice_0",
+      "category": "distractor",
+      "language": "en",
+      "message": "The delivery question about ORD-7201 is already resolved. My only request now is its invoice document; retrieve it and give me the filename.",
+      "expected_calls": [
+        {
+          "name": "get_invoice",
+          "arguments": {
+            "order_id": "ORD-7201"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "invoice_ORD-7201.pdf"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "focus_invoice_0/it",
+      "pair": "focus_invoice_0",
+      "category": "distractor",
+      "language": "it",
+      "message": "Il problema della consegna di ORD-7201 è già risolto. Ora mi serve soltanto il documento della fattura: recuperalo e dammi il nome del file.",
+      "expected_calls": [
+        {
+          "name": "get_invoice",
+          "arguments": {
+            "order_id": "ORD-7201"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "invoice_ORD-7201.pdf"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "focus_order_0/en",
+      "pair": "focus_order_0",
+      "category": "distractor",
+      "language": "en",
+      "message": "I already downloaded the invoice for ORD-7201, so do not fetch that again. Check the shipment and give me its tracking reference.",
+      "expected_calls": [
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-7201"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "TRK-ORD-7201"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "focus_order_0/it",
+      "pair": "focus_order_0",
+      "category": "distractor",
+      "language": "it",
+      "message": "Ho già scaricato la fattura di ORD-7201, quindi non recuperarla di nuovo. Controlla la spedizione e dammi il riferimento di tracciamento.",
+      "expected_calls": [
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-7201"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "TRK-ORD-7201"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "focus_guide_0/en",
+      "pair": "focus_guide_0",
+      "category": "distractor",
+      "language": "en",
+      "message": "I bought PX-7 last month, but I am not asking about payment or delivery. Search its documentation and give me the guide reference.",
+      "expected_calls": [
+        {
+          "name": "search_help_center",
+          "arguments": {
+            "product": "PX-7"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "GUIDE-PX-7"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "focus_guide_0/it",
+      "pair": "focus_guide_0",
+      "category": "distractor",
+      "language": "it",
+      "message": "Ho comprato PX-7 il mese scorso, ma non chiedo informazioni su pagamento o consegna. Cerca la documentazione e dammi il riferimento della guida.",
+      "expected_calls": [
+        {
+          "name": "search_help_center",
+          "arguments": {
+            "product": "PX-7"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "GUIDE-PX-7"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "focus_payments_0/en",
+      "pair": "focus_payments_0",
+      "category": "distractor",
+      "language": "en",
+      "message": "I do not need an invoice copy. Look up the recorded payments for 2026-08 and tell me the total in EUR.",
+      "expected_calls": [
+        {
+          "name": "list_transactions",
+          "arguments": {
+            "month": "2026-08"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "63.75",
+          "63,75"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "focus_payments_0/it",
+      "pair": "focus_payments_0",
+      "category": "distractor",
+      "language": "it",
+      "message": "Non mi serve una copia della fattura. Consulta i pagamenti registrati per 2026-08 e dimmi il totale in EUR.",
+      "expected_calls": [
+        {
+          "name": "list_transactions",
+          "arguments": {
+            "month": "2026-08"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "63.75",
+          "63,75"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "focus_invoice_1/en",
+      "pair": "focus_invoice_1",
+      "category": "distractor",
+      "language": "en",
+      "message": "The delivery question about ORD-7202 is already resolved. My only request now is its invoice document; retrieve it and give me the filename.",
+      "expected_calls": [
+        {
+          "name": "get_invoice",
+          "arguments": {
+            "order_id": "ORD-7202"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "invoice_ORD-7202.pdf"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "focus_invoice_1/it",
+      "pair": "focus_invoice_1",
+      "category": "distractor",
+      "language": "it",
+      "message": "Il problema della consegna di ORD-7202 è già risolto. Ora mi serve soltanto il documento della fattura: recuperalo e dammi il nome del file.",
+      "expected_calls": [
+        {
+          "name": "get_invoice",
+          "arguments": {
+            "order_id": "ORD-7202"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "invoice_ORD-7202.pdf"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "focus_order_1/en",
+      "pair": "focus_order_1",
+      "category": "distractor",
+      "language": "en",
+      "message": "I already downloaded the invoice for ORD-7202, so do not fetch that again. Check the shipment and give me its tracking reference.",
+      "expected_calls": [
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-7202"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "TRK-ORD-7202"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "focus_order_1/it",
+      "pair": "focus_order_1",
+      "category": "distractor",
+      "language": "it",
+      "message": "Ho già scaricato la fattura di ORD-7202, quindi non recuperarla di nuovo. Controlla la spedizione e dammi il riferimento di tracciamento.",
+      "expected_calls": [
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-7202"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "TRK-ORD-7202"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "focus_guide_1/en",
+      "pair": "focus_guide_1",
+      "category": "distractor",
+      "language": "en",
+      "message": "I bought MX-4 last month, but I am not asking about payment or delivery. Search its documentation and give me the guide reference.",
+      "expected_calls": [
+        {
+          "name": "search_help_center",
+          "arguments": {
+            "product": "MX-4"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "GUIDE-MX-4"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "focus_guide_1/it",
+      "pair": "focus_guide_1",
+      "category": "distractor",
+      "language": "it",
+      "message": "Ho comprato MX-4 il mese scorso, ma non chiedo informazioni su pagamento o consegna. Cerca la documentazione e dammi il riferimento della guida.",
+      "expected_calls": [
+        {
+          "name": "search_help_center",
+          "arguments": {
+            "product": "MX-4"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "GUIDE-MX-4"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "focus_payments_1/en",
+      "pair": "focus_payments_1",
+      "category": "distractor",
+      "language": "en",
+      "message": "I do not need an invoice copy. Look up the recorded payments for 2026-09 and tell me the total in EUR.",
+      "expected_calls": [
+        {
+          "name": "list_transactions",
+          "arguments": {
+            "month": "2026-09"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "63.75",
+          "63,75"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "focus_payments_1/it",
+      "pair": "focus_payments_1",
+      "category": "distractor",
+      "language": "it",
+      "message": "Non mi serve una copia della fattura. Consulta i pagamenti registrati per 2026-09 e dimmi il totale in EUR.",
+      "expected_calls": [
+        {
+          "name": "list_transactions",
+          "arguments": {
+            "month": "2026-09"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "63.75",
+          "63,75"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "two_step_0/en",
+      "pair": "two_step_0",
+      "category": "two_step",
+      "language": "en",
+      "message": "For ORD-8301, first look up the shipment and wait for the result. Then retrieve its invoice. Finally report both the tracking reference and invoice filename.",
+      "expected_calls": [
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-8301"
+          }
+        },
+        {
+          "name": "get_invoice",
+          "arguments": {
+            "order_id": "ORD-8301"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "TRK-ORD-8301"
+        ],
+        [
+          "invoice_ORD-8301.pdf"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "two_step_0/it",
+      "pair": "two_step_0",
+      "category": "two_step",
+      "language": "it",
+      "message": "Per ORD-8301, prima consulta la spedizione e attendi il risultato. Poi recupera la fattura. Infine riporta sia il riferimento di tracciamento sia il nome del file della fattura.",
+      "expected_calls": [
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-8301"
+          }
+        },
+        {
+          "name": "get_invoice",
+          "arguments": {
+            "order_id": "ORD-8301"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "TRK-ORD-8301"
+        ],
+        [
+          "invoice_ORD-8301.pdf"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "two_step_1/en",
+      "pair": "two_step_1",
+      "category": "two_step",
+      "language": "en",
+      "message": "For ORD-8302, first look up the shipment and wait for the result. Then retrieve its invoice. Finally report both the tracking reference and invoice filename.",
+      "expected_calls": [
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-8302"
+          }
+        },
+        {
+          "name": "get_invoice",
+          "arguments": {
+            "order_id": "ORD-8302"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "TRK-ORD-8302"
+        ],
+        [
+          "invoice_ORD-8302.pdf"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "two_step_1/it",
+      "pair": "two_step_1",
+      "category": "two_step",
+      "language": "it",
+      "message": "Per ORD-8302, prima consulta la spedizione e attendi il risultato. Poi recupera la fattura. Infine riporta sia il riferimento di tracciamento sia il nome del file della fattura.",
+      "expected_calls": [
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-8302"
+          }
+        },
+        {
+          "name": "get_invoice",
+          "arguments": {
+            "order_id": "ORD-8302"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "TRK-ORD-8302"
+        ],
+        [
+          "invoice_ORD-8302.pdf"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "two_step_2/en",
+      "pair": "two_step_2",
+      "category": "two_step",
+      "language": "en",
+      "message": "For ORD-8303, first look up the shipment and wait for the result. Then retrieve its invoice. Finally report both the tracking reference and invoice filename.",
+      "expected_calls": [
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-8303"
+          }
+        },
+        {
+          "name": "get_invoice",
+          "arguments": {
+            "order_id": "ORD-8303"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "TRK-ORD-8303"
+        ],
+        [
+          "invoice_ORD-8303.pdf"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "two_step_2/it",
+      "pair": "two_step_2",
+      "category": "two_step",
+      "language": "it",
+      "message": "Per ORD-8303, prima consulta la spedizione e attendi il risultato. Poi recupera la fattura. Infine riporta sia il riferimento di tracciamento sia il nome del file della fattura.",
+      "expected_calls": [
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-8303"
+          }
+        },
+        {
+          "name": "get_invoice",
+          "arguments": {
+            "order_id": "ORD-8303"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "TRK-ORD-8303"
+        ],
+        [
+          "invoice_ORD-8303.pdf"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "two_step_3/en",
+      "pair": "two_step_3",
+      "category": "two_step",
+      "language": "en",
+      "message": "For ORD-8304, first look up the shipment and wait for the result. Then retrieve its invoice. Finally report both the tracking reference and invoice filename.",
+      "expected_calls": [
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-8304"
+          }
+        },
+        {
+          "name": "get_invoice",
+          "arguments": {
+            "order_id": "ORD-8304"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "TRK-ORD-8304"
+        ],
+        [
+          "invoice_ORD-8304.pdf"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "two_step_3/it",
+      "pair": "two_step_3",
+      "category": "two_step",
+      "language": "it",
+      "message": "Per ORD-8304, prima consulta la spedizione e attendi il risultato. Poi recupera la fattura. Infine riporta sia il riferimento di tracciamento sia il nome del file della fattura.",
+      "expected_calls": [
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-8304"
+          }
+        },
+        {
+          "name": "get_invoice",
+          "arguments": {
+            "order_id": "ORD-8304"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "TRK-ORD-8304"
+        ],
+        [
+          "invoice_ORD-8304.pdf"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "missing_order/en",
+      "pair": "missing_order",
+      "category": "missing",
+      "language": "en",
+      "message": "Please check my delivery and give me its tracking reference.",
+      "expected_calls": [],
+      "answer_anchor_groups": [],
+      "behavior_keywords": [
+        "order",
+        "ordine"
+      ]
+    },
+    {
+      "id": "missing_order/it",
+      "pair": "missing_order",
+      "category": "missing",
+      "language": "it",
+      "message": "Controlla la mia consegna e dammi il riferimento di tracciamento.",
+      "expected_calls": [],
+      "answer_anchor_groups": [],
+      "behavior_keywords": [
+        "order",
+        "ordine"
+      ]
+    },
+    {
+      "id": "missing_invoice/en",
+      "pair": "missing_invoice",
+      "category": "missing",
+      "language": "en",
+      "message": "Please retrieve my invoice document.",
+      "expected_calls": [],
+      "answer_anchor_groups": [],
+      "behavior_keywords": [
+        "order",
+        "ordine"
+      ]
+    },
+    {
+      "id": "missing_invoice/it",
+      "pair": "missing_invoice",
+      "category": "missing",
+      "language": "it",
+      "message": "Recupera il documento della mia fattura.",
+      "expected_calls": [],
+      "answer_anchor_groups": [],
+      "behavior_keywords": [
+        "order",
+        "ordine"
+      ]
+    },
+    {
+      "id": "missing_guide/en",
+      "pair": "missing_guide",
+      "category": "missing",
+      "language": "en",
+      "message": "Find the documentation for my device.",
+      "expected_calls": [],
+      "answer_anchor_groups": [],
+      "behavior_keywords": [
+        "product",
+        "device",
+        "model",
+        "prodotto",
+        "dispositivo",
+        "modello"
+      ]
+    },
+    {
+      "id": "missing_guide/it",
+      "pair": "missing_guide",
+      "category": "missing",
+      "language": "it",
+      "message": "Trova la documentazione del mio dispositivo.",
+      "expected_calls": [],
+      "answer_anchor_groups": [],
+      "behavior_keywords": [
+        "product",
+        "device",
+        "model",
+        "prodotto",
+        "dispositivo",
+        "modello"
+      ]
+    },
+    {
+      "id": "missing_payments/en",
+      "pair": "missing_payments",
+      "category": "missing",
+      "language": "en",
+      "message": "Look up my payments and tell me their total.",
+      "expected_calls": [],
+      "answer_anchor_groups": [],
+      "behavior_keywords": [
+        "month",
+        "period",
+        "date",
+        "mese",
+        "periodo",
+        "data"
+      ]
+    },
+    {
+      "id": "missing_payments/it",
+      "pair": "missing_payments",
+      "category": "missing",
+      "language": "it",
+      "message": "Consulta i miei pagamenti e dimmi il totale.",
+      "expected_calls": [],
+      "answer_anchor_groups": [],
+      "behavior_keywords": [
+        "month",
+        "period",
+        "date",
+        "mese",
+        "periodo",
+        "data"
+      ]
+    },
+    {
+      "id": "no_tool_capital_it/en",
+      "pair": "no_tool_capital_it",
+      "category": "no_tool",
+      "language": "en",
+      "message": "What is the capital of Italy?",
+      "expected_calls": [],
+      "answer_anchor_groups": [
+        [
+          "Rome",
+          "Roma"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "no_tool_capital_it/it",
+      "pair": "no_tool_capital_it",
+      "category": "no_tool",
+      "language": "it",
+      "message": "Qual è la capitale d’Italia?",
+      "expected_calls": [],
+      "answer_anchor_groups": [
+        [
+          "Rome",
+          "Roma"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "no_tool_capital_fr/en",
+      "pair": "no_tool_capital_fr",
+      "category": "no_tool",
+      "language": "en",
+      "message": "What is the capital of France?",
+      "expected_calls": [],
+      "answer_anchor_groups": [
+        [
+          "Paris",
+          "Parigi"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "no_tool_capital_fr/it",
+      "pair": "no_tool_capital_fr",
+      "category": "no_tool",
+      "language": "it",
+      "message": "Qual è la capitale della Francia?",
+      "expected_calls": [],
+      "answer_anchor_groups": [
+        [
+          "Paris",
+          "Parigi"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "no_tool_arithmetic/en",
+      "pair": "no_tool_arithmetic",
+      "category": "no_tool",
+      "language": "en",
+      "message": "What is two plus three?",
+      "expected_calls": [],
+      "answer_anchor_groups": [
+        [
+          "5",
+          "five",
+          "cinque"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "no_tool_arithmetic/it",
+      "pair": "no_tool_arithmetic",
+      "category": "no_tool",
+      "language": "it",
+      "message": "Quanto fa due più tre?",
+      "expected_calls": [],
+      "answer_anchor_groups": [
+        [
+          "5",
+          "five",
+          "cinque"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "no_tool_translation/en",
+      "pair": "no_tool_translation",
+      "category": "no_tool",
+      "language": "en",
+      "message": "Translate the English word \"invoice\" into Italian.",
+      "expected_calls": [],
+      "answer_anchor_groups": [
+        [
+          "fattura"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "no_tool_translation/it",
+      "pair": "no_tool_translation",
+      "category": "no_tool",
+      "language": "it",
+      "message": "Come si traduce in italiano la parola inglese \"invoice\"?",
+      "expected_calls": [],
+      "answer_anchor_groups": [
+        [
+          "fattura"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "unavailable_cancel/en",
+      "pair": "unavailable_cancel",
+      "category": "unavailable",
+      "language": "en",
+      "message": "Cancel order ORD-9401 immediately.",
+      "expected_calls": [],
+      "answer_anchor_groups": [],
+      "behavior_keywords": [
+        "cannot",
+        "can't",
+        "unable",
+        "not available",
+        "do not have",
+        "non posso",
+        "non è disponibile",
+        "non ho",
+        "non support",
+        "non dispon"
+      ]
+    },
+    {
+      "id": "unavailable_cancel/it",
+      "pair": "unavailable_cancel",
+      "category": "unavailable",
+      "language": "it",
+      "message": "Annulla immediatamente l’ordine ORD-9401.",
+      "expected_calls": [],
+      "answer_anchor_groups": [],
+      "behavior_keywords": [
+        "cannot",
+        "can't",
+        "unable",
+        "not available",
+        "do not have",
+        "non posso",
+        "non è disponibile",
+        "non ho",
+        "non support",
+        "non dispon"
+      ]
+    },
+    {
+      "id": "unavailable_refund/en",
+      "pair": "unavailable_refund",
+      "category": "unavailable",
+      "language": "en",
+      "message": "Issue a refund for order ORD-9402.",
+      "expected_calls": [],
+      "answer_anchor_groups": [],
+      "behavior_keywords": [
+        "cannot",
+        "can't",
+        "unable",
+        "not available",
+        "do not have",
+        "non posso",
+        "non è disponibile",
+        "non ho",
+        "non support",
+        "non dispon"
+      ]
+    },
+    {
+      "id": "unavailable_refund/it",
+      "pair": "unavailable_refund",
+      "category": "unavailable",
+      "language": "it",
+      "message": "Emetti un rimborso per l’ordine ORD-9402.",
+      "expected_calls": [],
+      "answer_anchor_groups": [],
+      "behavior_keywords": [
+        "cannot",
+        "can't",
+        "unable",
+        "not available",
+        "do not have",
+        "non posso",
+        "non è disponibile",
+        "non ho",
+        "non support",
+        "non dispon"
+      ]
+    },
+    {
+      "id": "unavailable_email/en",
+      "pair": "unavailable_email",
+      "category": "unavailable",
+      "language": "en",
+      "message": "Send the invoice for ORD-9403 by email to my accountant.",
+      "expected_calls": [],
+      "answer_anchor_groups": [],
+      "behavior_keywords": [
+        "cannot",
+        "can't",
+        "unable",
+        "not available",
+        "do not have",
+        "non posso",
+        "non è disponibile",
+        "non ho",
+        "non support",
+        "non dispon"
+      ]
+    },
+    {
+      "id": "unavailable_email/it",
+      "pair": "unavailable_email",
+      "category": "unavailable",
+      "language": "it",
+      "message": "Invia per email la fattura di ORD-9403 al mio commercialista.",
+      "expected_calls": [],
+      "answer_anchor_groups": [],
+      "behavior_keywords": [
+        "cannot",
+        "can't",
+        "unable",
+        "not available",
+        "do not have",
+        "non posso",
+        "non è disponibile",
+        "non ho",
+        "non support",
+        "non dispon"
+      ]
+    },
+    {
+      "id": "unavailable_address/en",
+      "pair": "unavailable_address",
+      "category": "unavailable",
+      "language": "en",
+      "message": "Change the delivery address of ORD-9404 to my office.",
+      "expected_calls": [],
+      "answer_anchor_groups": [],
+      "behavior_keywords": [
+        "cannot",
+        "can't",
+        "unable",
+        "not available",
+        "do not have",
+        "non posso",
+        "non è disponibile",
+        "non ho",
+        "non support",
+        "non dispon"
+      ]
+    },
+    {
+      "id": "unavailable_address/it",
+      "pair": "unavailable_address",
+      "category": "unavailable",
+      "language": "it",
+      "message": "Cambia l’indirizzo di consegna di ORD-9404 con quello del mio ufficio.",
+      "expected_calls": [],
+      "answer_anchor_groups": [],
+      "behavior_keywords": [
+        "cannot",
+        "can't",
+        "unable",
+        "not available",
+        "do not have",
+        "non posso",
+        "non è disponibile",
+        "non ho",
+        "non support",
+        "non dispon"
+      ]
+    }
+  ]
+}
