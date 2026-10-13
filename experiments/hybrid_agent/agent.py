@@ -12,6 +12,7 @@ GENERATOR_REPO, GENERATOR_REVISION = GENERATORS['nesso3']
 NEV_REPO = 'giux78/nev'
 NEV_REVISION = 'c5c84121263b423f8846811a24790ab96e66cee3'
 ARMS = ['nesso_only', 'nev_ranked', 'nev_top2']
+POLICIES = ['baseline', 'prompt_once', 'single_read']
 
 TOOL_DATA = {
     'get_order_status': ('order_id', r'ORD-\d{4}',
@@ -154,7 +155,11 @@ class HybridAgent:
         text = re.split(r'<\|eot_id\|>|<\|end_of_text\|>', text)[0].strip()
         return text, len(generated), len(generated)==192
 
-    def run(self, message, language, arm, ranking=None):
+    def run(self, message, language, arm, ranking=None, policy='baseline'):
+        if policy not in POLICIES:
+            raise ValueError('Unknown policy')
+        if policy == 'single_read' and arm != 'nev_ranked':
+            raise ValueError('single_read requires Nev agreement and all tools (nev_ranked)')
         if arm not in ARMS:
             raise ValueError('Unknown arm')
         if arm != 'nesso_only' and ranking is None:
@@ -164,10 +169,14 @@ class HybridAgent:
         tools = [full[name] for name in names]
         context = ('Sei un assistente operativo. Usa gli strumenti disponibili quando serve.' if language=='it'
                    else 'You are an operational assistant. Use the available tools when needed.')
+        if policy == 'prompt_once':
+            context = ('Usa solo lo strumento necessario una volta e poi rispondi usando il risultato.' if language == 'it'
+                       else 'Use only the necessary tool once, then answer using its result.')
         system = context + '\n<tools>\n' + json.dumps(tools, ensure_ascii=False, separators=(',', ':')) + '\n</tools>'
         messages = [{'role':'system','content':system},{'role':'user','content':message}]
         trace, emitted, executed, errors = [], [], [], []
         final = ''; total_tokens=0; truncated=False
+        policy_events=[]; answer_source='generator'; blocked_reason=None
         self.torch.cuda.synchronize(); start=time.perf_counter()
         for turn in range(4):
             text, tokens, hit_limit = self.generate(messages)
@@ -177,10 +186,31 @@ class HybridAgent:
             trace.append(event)
             messages.append({'role':'assistant','content':text})
             if parse_error:
-                errors.append(parse_error);break
+                errors.append(parse_error)
+                if policy == 'single_read':blocked_reason=parse_error
+                break
             if not calls:
-                final=text;break
+                if policy == 'single_read':
+                    blocked_reason='no_validated_call'
+                else:
+                    final=text
+                break
             emitted.extend(calls)
+            if policy == 'single_read':
+                from single_read import select_call, render_result
+                if hit_limit:
+                    blocked_reason='truncated_call_output'
+                    break
+                call, policy_events, blocked_reason = select_call(calls,names,message,ranking,validate_call)
+                errors.extend(e['reason'] for e in policy_events)
+                if blocked_reason:
+                    break
+                observation=mock_tool(call)
+                executed.append({'turn':turn,'call':call})
+                event['observations'].append({'call':call,'result':observation})
+                final=render_result(call['name'],observation,language)
+                answer_source='application_template'
+                break
             if turn==3:
                 errors.append('tool_round_limit');break
             for call in calls:
@@ -196,10 +226,15 @@ class HybridAgent:
                 event['observations'].append({'call':call,'result':observation})
             payload=event['observations'][0]['result'] if len(calls)==1 else event['observations']
             messages.append({'role':'tool','content':json.dumps(payload,ensure_ascii=False,separators=(',',':'))})
+        if policy == 'single_read' and blocked_reason:
+            answer_source='application_deferral'
+            final=('Non ho eseguito operazioni. La richiesta richiede una verifica o un chiarimento.' if language=='it'
+                   else 'No operation was executed. This request needs review or clarification.')
         self.torch.cuda.synchronize()
         generator_ms=(time.perf_counter()-start)*1000
         route_ms=0 if arm=='nesso_only' else ranking['elapsed_ms']
-        return {'arm':arm,'available_tools':names,'ranking':None if arm=='nesso_only' else ranking,
+        return {'policy':policy,'policy_events':policy_events,'answer_source':answer_source,'blocked_reason':blocked_reason,
+                'arm':arm,'available_tools':names,'ranking':None if arm=='nesso_only' else ranking,
                 'emitted_calls':emitted,'executed_calls':executed,'errors':errors,'final':final,'trace':trace,
                 'generated_tokens':total_tokens,'truncated':truncated,
                 'generator_and_controller_ms':generator_ms,'route_ms':route_ms,'total_ms':generator_ms+route_ms}

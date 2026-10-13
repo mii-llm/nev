@@ -17,3 +17,12 @@ simple EN/IT requests were tested in baseline and Nev-ranked modes on the A100:
 both passed the same 4/8 strict checks. Four successful curated examples and
 all 16 readable/raw traces are retained under docs/nesso3. No broad model gain
 or Nev-ranking benefit is claimed from this demonstration set.
+
+A 24-request (12 EN/12 IT), 72-run Nesso3 policy comparison found correct Nev
+top1 and Nesso3 first calls on every scoped request. A short prompt was mixed.
+An opt-in single_read controller validates/deduplicates calls and formats tool
+facts without a second generation: 16/16 reviewed complete fresh answers vs
+11/16 baseline, 10/16 prompt. This is application completion, not perfect raw
+generation (strict: 12/16 vs 9/16 and 9/16). Its scope must be established by the
+application; no general out-of-scope detector was built. All results and audit
+are in docs/nesso3; original default and evidence retained.

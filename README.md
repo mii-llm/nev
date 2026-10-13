@@ -266,6 +266,39 @@ The adapter follows the compact tool contract in the
 [training report](https://github.com/mii-llm/zagreus-nesso-slm/tree/main/nesso3).
 
 
+
+### One read operation: a tested controller for Nesso3's weak completion stage
+
+On 24 simple requests (12 EN / 12 IT), Nev ranked the correct tool first and
+Nesso3's first generated call had the correct function and arguments every time.
+Failures came from extra calls, loops after a successful result, incorrect
+copying of filenames, incomplete lists and refusals despite available data.
+This is evidence for these four tools, not universal routing accuracy.
+
+For an application that already restricts the request to **one supported read**,
+use `--policy single_read`. It validates and deduplicates Nesso3's generated
+calls, requires one valid call agreeing with Nev and one explicit reference,
+executes once, and formats the returned facts in code. It records every rejected
+extra call. It does not ask Nesso3 for a second answer.
+
+```bash
+python experiments/hybrid_agent/demo.py --generator nesso3 --arm nev_ranked \
+  --policy single_read --format text --language it \
+  --message "Elenca i miei pagamenti di 2026-06 e dimmi il totale in EUR."
+```
+
+Actual application-formatted answer:
+
+> Pagamenti di 2026-06: 24,50 EUR, 39,25 EUR. Totale: 63,75 EUR.
+
+This endpoint does **not** detect all unsupported intents or multi-step requests.
+Its scope must be established by the application. Ambiguous/no valid calls,
+multiple recognized references, or disagreement with Nev cause deferral; arbitrary
+out-of-scope detection is unmeasured. Use a separate workflow for multi-step
+plans, unsupported actions and unrestricted chat. The demo default remains
+`baseline`; selecting this endpoint is explicit. No model weights changed.
+
+
 ## 2. Run and evaluate on LUMI
 
 A ready copy of the examples and frozen runtime is staged in the existing project installation. After connecting to LUMI:
@@ -448,6 +481,37 @@ simpler set differs from the historical 80-request pilot: do not compare its
 pass fraction with the Nesso2 table as a model improvement. Nesso2 was not rerun
 on these eight prompts. See the runnable recipe in `experiments/hybrid_agent/`
 and complete evidence in `docs/nesso3/`.
+
+### Nesso3: prompt versus application controller
+
+Three policies were compared on eight previously inspected requests and 16
+fresh authored requests fixed before inference. All kept Nev enabled and the
+same four mock tools. The short prompt said to use the necessary tool once and
+answer from its result. It introduced regressions and is not recommended as a
+general fix. The controller uses the original prompt and writes the final
+answer from the observation in application code.
+
+| Policy | Complete answers, fresh EN /8 | Fresh IT /8 | Total /16 | Median EN | Median IT |
+|---|---:|---:|---:|---:|---:|
+| Original loop | 6 | 5 | 11 | 1.85 s | 1.37 s |
+| Short prompt | 6 | 4 | 10 | 1.26 s | 1.44 s |
+| Single-read controller + templates | 8 | 8 | 16 | 0.73 s | 0.76 s |
+
+Completion requires correct executed actions and all requested facts; the
+assistant reviewed all 72 outputs against the requests and mock results (not
+independent human grading). Three automatic anchor-check passes omitted payment
+entries and were marked incomplete in this table. Rejected extra calls remain
+visible: the stricter metric penalizing any generated extra call scored 9/16,
+9/16 and 12/16 respectively. Thus **16/16 is an application completion result,
+not perfect raw generation**. The controller also completed all eight development
+examples; the original loop completed five and the prompt completed three.
+
+The fresh set is small, uses similar mock response shapes, and is entirely in
+scope for single-read handling. It does not establish automatic scope detection,
+production reliability or an incremental gain from Nev. Nine boundary/scoring
+unit tests passed locally and on the A100. Full commands, failure patterns,
+limits and evidence are in the [controller report](docs/nesso3/CONTROLLER_REPORT.md),
+with [all readable traces](docs/nesso3/CONTROL_TRACES.md).
 
 ### Nesso2 + Nev: historical first agent comparison
 

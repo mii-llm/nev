@@ -1,0 +1,17 @@
+Simulation: local mock tools
+User (it): Elenca i miei pagamenti di 2026-06 e dimmi il totale in EUR.
+Nev tool order: list_transactions > search_help_center > get_invoice > get_order_status
+
+Nesso turn 1:
+  Requested: {"name": "list_transactions", "arguments": {"month": "2026-06"}}
+  Requested: {"name": "get_invoice", "arguments": {"order_id": "1234567890"}}
+  Result for list_transactions: {"month": "2026-06", "currency": "EUR", "payments": [24.5, 39.25], "total": 63.75}
+
+Controller decisions: [{"action": "reject", "call": {"name": "get_invoice", "arguments": {"order_id": "1234567890"}}, "reason": "invalid_argument_value"}]
+
+Answer source: application_template
+Pagamenti di 2026-06: 24,50 EUR, 39,25 EUR. Totale: 63,75 EUR.
+
+Controller errors: invalid_argument_value
+
+Elapsed (excluding model load): 1.95 s

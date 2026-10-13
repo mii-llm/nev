@@ -647,3 +647,23 @@ docs/nesso3. Italian invoice had correct final data but duplicate call; English
 guide and both payment cases had unrelated calls. No Nesso2 rerun or broad
 model-improvement claim. Added --generator and --format text; old model and
 all prior experiment artifacts retained. No model training or HF weight changes.
+
+## 2026-10-13 — Nesso3 failure patterns and single-read controller
+
+Frozen 8 development + 16 fresh single-read requests before inference; 72 runs
+with Nev enabled under baseline, short prompt and opt-in single_read policies.
+All 24 original first calls and Nev top1 choices correct. Weaknesses: extra
+initial calls, post-observation loops, wrong filenames, invented URL under new
+prompt, incomplete payment lists and refusals after tool success. Short prompt
+not selected as fix. single_read checks/deduplicates initial calls, requires
+Nev agreement and one reference, executes once, then renders observation facts
+in code. Application must establish scope; no automatic general intent gate.
+Reviewed fresh complete answers: baseline 6/8 EN + 5/8 IT; prompt 6/8 + 4/8;
+controller 8/8 + 8/8. Development totals 5/8, 3/8, 8/8. Assistant audit corrected
+three incomplete-payment-list proxy passes; raw metrics unchanged. Strict fresh
+checks 9/16, 9/16, 12/16 show bad generated extras persist even under controller.
+Fresh controller medians 0.734s EN / 0.760s IT, shared A100. 101.3s total; peak
+2562.7MiB. Nine CPU boundary/scoring tests passed locally and remotely. All
+source hashes, 72 raw traces, readable traces and audit retained in docs/nesso3.
+Baseline reproduced every prior development call, error and final text. No
+training, model weight changes or confidence thresholds; baseline remains default.

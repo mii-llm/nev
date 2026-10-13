@@ -42,4 +42,60 @@ class BoundaryTests(unittest.TestCase):
         self.assertEqual(mock_tool({'name':'get_invoice','arguments':{'order_id':'ORD-6101'}}),
                          {'order_id':'ORD-6101','filename':'invoice_ORD-6101.pdf'})
 
+
+class SingleReadTests(unittest.TestCase):
+    def run_response(self, text, message='Invoice for ORD-8123', top='get_invoice', truncated=False):
+        from types import SimpleNamespace
+        from agent import HybridAgent
+        agent=HybridAgent.__new__(HybridAgent)
+        agent.torch=SimpleNamespace(cuda=SimpleNamespace(synchronize=lambda:None))
+        agent.schema_style='compact'
+        agent.generate=lambda messages:(text,10,truncated)
+        ranking={'names':[top]+[n for n in TOOL_DATA if n!=top], 'elapsed_ms':0}
+        return agent.run(message,'en','nev_ranked',ranking,policy='single_read')
+
+    def block(self, name='get_invoice', **args):
+        import json
+        return '<tool_call>'+json.dumps({'name':name,'arguments':args})+'</tool_call>'
+
+    def test_duplicate_executes_once_and_invalid_extra_never_executes(self):
+        good=self.block(order_id='ORD-8123')
+        r=self.run_response(good+good+self.block('get_order_status',order_id='12345'))
+        self.assertEqual(len(r['executed_calls']),1)
+        self.assertEqual(len(r['emitted_calls']),3)
+        self.assertEqual(r['answer_source'],'application_template')
+        self.assertIn('invoice_ORD-8123.pdf',r['final'])
+        self.assertEqual(r['errors'],['duplicate_call','invalid_argument_value'])
+
+    def test_disagreement_multiple_calls_and_references_defer(self):
+        good=self.block(order_id='ORD-8123')
+        candidates=[self.run_response(good,top='get_order_status'),
+            self.run_response(good+self.block('get_order_status',order_id='ORD-8123')),
+            self.run_response(good,message='Invoice for ORD-8123 or ORD-8124')]
+        for r in candidates:
+            self.assertEqual(r['executed_calls'],[])
+            self.assertEqual(r['answer_source'],'application_deferral')
+            self.assertTrue(r['blocked_reason'])
+
+    def test_malformed_ungrounded_truncated_and_no_call_defer(self):
+        candidates=[self.run_response('<tool_call>{bad}</tool_call>'),
+            self.run_response(self.block(order_id='ORD-9999')),
+            self.run_response(self.block(order_id='ORD-8123'),truncated=True),
+            self.run_response('The invoice is paid.')]
+        for r in candidates:
+            self.assertEqual(r['executed_calls'],[])
+            self.assertEqual(r['answer_source'],'application_deferral')
+            self.assertNotIn('paid',r['final'])
+
+    def test_renderer_uses_actual_observation_including_all_payments(self):
+        from single_read import render_result
+        observation={'month':'2026-11','currency':'GBP','payments':[1.25,8.50],'total':9.75}
+        en=render_result('list_transactions',observation,'en')
+        it=render_result('list_transactions',observation,'it')
+        self.assertIn('1.25 GBP, 8.50 GBP',en)
+        self.assertIn('9.75 GBP',en)
+        self.assertIn('1,25 GBP, 8,50 GBP',it)
+        self.assertIn('9,75 GBP',it)
+        self.assertNotIn('63.75',en)
+
 if __name__=='__main__': unittest.main()

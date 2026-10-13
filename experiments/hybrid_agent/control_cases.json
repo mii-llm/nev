@@ -1,0 +1,539 @@
+{
+  "scope": "24 single-read application requests: 8 previously inspected development examples and 16 fresh authored examples fixed before control-policy inference. Every request is explicitly in the application single-read workflow; this does not test automatic intent/scope detection. Shared mock fixtures. Not a representative benchmark.",
+  "cases": [
+    {
+      "id": "simple_shipping/en",
+      "pair": "simple_shipping",
+      "category": "single",
+      "language": "en",
+      "message": "What is the shipment status and tracking reference for order ORD-6101?",
+      "expected_calls": [
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-6101"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "TRK-ORD-6101"
+        ]
+      ],
+      "behavior_keywords": [],
+      "split": "development"
+    },
+    {
+      "id": "simple_shipping/it",
+      "pair": "simple_shipping",
+      "category": "single",
+      "language": "it",
+      "message": "Qual è lo stato della spedizione e il riferimento di tracciamento dell’ordine ORD-6101?",
+      "expected_calls": [
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-6101"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "TRK-ORD-6101"
+        ]
+      ],
+      "behavior_keywords": [],
+      "split": "development"
+    },
+    {
+      "id": "simple_invoice/en",
+      "pair": "simple_invoice",
+      "category": "single",
+      "language": "en",
+      "message": "Get the invoice for order ORD-6101 and tell me the filename.",
+      "expected_calls": [
+        {
+          "name": "get_invoice",
+          "arguments": {
+            "order_id": "ORD-6101"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "invoice_ORD-6101.pdf"
+        ]
+      ],
+      "behavior_keywords": [],
+      "split": "development"
+    },
+    {
+      "id": "simple_invoice/it",
+      "pair": "simple_invoice",
+      "category": "single",
+      "language": "it",
+      "message": "Recupera la fattura dell’ordine ORD-6101 e dimmi il nome del file.",
+      "expected_calls": [
+        {
+          "name": "get_invoice",
+          "arguments": {
+            "order_id": "ORD-6101"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "invoice_ORD-6101.pdf"
+        ]
+      ],
+      "behavior_keywords": [],
+      "split": "development"
+    },
+    {
+      "id": "simple_guide/en",
+      "pair": "simple_guide",
+      "category": "single",
+      "language": "en",
+      "message": "Find the guide reference for product PX-7.",
+      "expected_calls": [
+        {
+          "name": "search_help_center",
+          "arguments": {
+            "product": "PX-7"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "GUIDE-PX-7"
+        ]
+      ],
+      "behavior_keywords": [],
+      "split": "development"
+    },
+    {
+      "id": "simple_guide/it",
+      "pair": "simple_guide",
+      "category": "single",
+      "language": "it",
+      "message": "Trova il riferimento della guida del prodotto PX-7.",
+      "expected_calls": [
+        {
+          "name": "search_help_center",
+          "arguments": {
+            "product": "PX-7"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "GUIDE-PX-7"
+        ]
+      ],
+      "behavior_keywords": [],
+      "split": "development"
+    },
+    {
+      "id": "simple_payments/en",
+      "pair": "simple_payments",
+      "category": "single",
+      "language": "en",
+      "message": "List my payments for 2026-06 and tell me the total in EUR.",
+      "expected_calls": [
+        {
+          "name": "list_transactions",
+          "arguments": {
+            "month": "2026-06"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "63.75",
+          "63,75"
+        ]
+      ],
+      "behavior_keywords": [],
+      "split": "development"
+    },
+    {
+      "id": "simple_payments/it",
+      "pair": "simple_payments",
+      "category": "single",
+      "language": "it",
+      "message": "Elenca i miei pagamenti di 2026-06 e dimmi il totale in EUR.",
+      "expected_calls": [
+        {
+          "name": "list_transactions",
+          "arguments": {
+            "month": "2026-06"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "63.75",
+          "63,75"
+        ]
+      ],
+      "behavior_keywords": [],
+      "split": "development"
+    },
+    {
+      "id": "fresh_shipping_a/en",
+      "pair": "fresh_shipping_a",
+      "split": "fresh",
+      "category": "single",
+      "language": "en",
+      "message": "Please check shipment ORD-8241 and give me its tracking reference.",
+      "expected_calls": [
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-8241"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "TRK-ORD-8241"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "fresh_shipping_a/it",
+      "pair": "fresh_shipping_a",
+      "split": "fresh",
+      "category": "single",
+      "language": "it",
+      "message": "Controlla la spedizione ORD-8241 e indicami il riferimento di tracciamento.",
+      "expected_calls": [
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-8241"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "TRK-ORD-8241"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "fresh_shipping_b/en",
+      "pair": "fresh_shipping_b",
+      "split": "fresh",
+      "category": "single",
+      "language": "en",
+      "message": "I need the delivery status and tracking code for ORD-9527.",
+      "expected_calls": [
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-9527"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "TRK-ORD-9527"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "fresh_shipping_b/it",
+      "pair": "fresh_shipping_b",
+      "split": "fresh",
+      "category": "single",
+      "language": "it",
+      "message": "Mi servono lo stato della consegna e il codice di tracciamento di ORD-9527.",
+      "expected_calls": [
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-9527"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "TRK-ORD-9527"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "fresh_invoice_a/en",
+      "pair": "fresh_invoice_a",
+      "split": "fresh",
+      "category": "single",
+      "language": "en",
+      "message": "Please retrieve the invoice filename for ORD-7482.",
+      "expected_calls": [
+        {
+          "name": "get_invoice",
+          "arguments": {
+            "order_id": "ORD-7482"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "invoice_ORD-7482.pdf"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "fresh_invoice_a/it",
+      "pair": "fresh_invoice_a",
+      "split": "fresh",
+      "category": "single",
+      "language": "it",
+      "message": "Recupera il nome del file della fattura relativa a ORD-7482.",
+      "expected_calls": [
+        {
+          "name": "get_invoice",
+          "arguments": {
+            "order_id": "ORD-7482"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "invoice_ORD-7482.pdf"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "fresh_invoice_b/en",
+      "pair": "fresh_invoice_b",
+      "split": "fresh",
+      "category": "single",
+      "language": "en",
+      "message": "Which invoice file belongs to order ORD-9365?",
+      "expected_calls": [
+        {
+          "name": "get_invoice",
+          "arguments": {
+            "order_id": "ORD-9365"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "invoice_ORD-9365.pdf"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "fresh_invoice_b/it",
+      "pair": "fresh_invoice_b",
+      "split": "fresh",
+      "category": "single",
+      "language": "it",
+      "message": "Quale file della fattura corrisponde all’ordine ORD-9365?",
+      "expected_calls": [
+        {
+          "name": "get_invoice",
+          "arguments": {
+            "order_id": "ORD-9365"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "invoice_ORD-9365.pdf"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "fresh_guide_a/en",
+      "pair": "fresh_guide_a",
+      "split": "fresh",
+      "category": "single",
+      "language": "en",
+      "message": "Look up the documentation reference for model AX-3.",
+      "expected_calls": [
+        {
+          "name": "search_help_center",
+          "arguments": {
+            "product": "AX-3"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "GUIDE-AX-3"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "fresh_guide_a/it",
+      "pair": "fresh_guide_a",
+      "split": "fresh",
+      "category": "single",
+      "language": "it",
+      "message": "Cerca il riferimento della documentazione del modello AX-3.",
+      "expected_calls": [
+        {
+          "name": "search_help_center",
+          "arguments": {
+            "product": "AX-3"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "GUIDE-AX-3"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "fresh_guide_b/en",
+      "pair": "fresh_guide_b",
+      "split": "fresh",
+      "category": "single",
+      "language": "en",
+      "message": "I need the guide identifier for product BZ-8.",
+      "expected_calls": [
+        {
+          "name": "search_help_center",
+          "arguments": {
+            "product": "BZ-8"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "GUIDE-BZ-8"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "fresh_guide_b/it",
+      "pair": "fresh_guide_b",
+      "split": "fresh",
+      "category": "single",
+      "language": "it",
+      "message": "Mi serve l’identificativo della guida del prodotto BZ-8.",
+      "expected_calls": [
+        {
+          "name": "search_help_center",
+          "arguments": {
+            "product": "BZ-8"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "GUIDE-BZ-8"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "fresh_payments_a/en",
+      "pair": "fresh_payments_a",
+      "split": "fresh",
+      "category": "single",
+      "language": "en",
+      "message": "Show the payments recorded in 2026-09 and their total in EUR.",
+      "expected_calls": [
+        {
+          "name": "list_transactions",
+          "arguments": {
+            "month": "2026-09"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "63.75",
+          "63,75"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "fresh_payments_a/it",
+      "pair": "fresh_payments_a",
+      "split": "fresh",
+      "category": "single",
+      "language": "it",
+      "message": "Mostra i pagamenti registrati in 2026-09 e il loro totale in EUR.",
+      "expected_calls": [
+        {
+          "name": "list_transactions",
+          "arguments": {
+            "month": "2026-09"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "63.75",
+          "63,75"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "fresh_payments_b/en",
+      "pair": "fresh_payments_b",
+      "split": "fresh",
+      "category": "single",
+      "language": "en",
+      "message": "What payments are recorded for 2026-11, and what is their EUR total?",
+      "expected_calls": [
+        {
+          "name": "list_transactions",
+          "arguments": {
+            "month": "2026-11"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "63.75",
+          "63,75"
+        ]
+      ],
+      "behavior_keywords": []
+    },
+    {
+      "id": "fresh_payments_b/it",
+      "pair": "fresh_payments_b",
+      "split": "fresh",
+      "category": "single",
+      "language": "it",
+      "message": "Quali pagamenti risultano per 2026-11 e qual è il totale in EUR?",
+      "expected_calls": [
+        {
+          "name": "list_transactions",
+          "arguments": {
+            "month": "2026-11"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "63.75",
+          "63,75"
+        ]
+      ],
+      "behavior_keywords": []
+    }
+  ]
+}

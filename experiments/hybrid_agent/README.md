@@ -16,6 +16,18 @@ flowchart LR
     G --> A[Final response]
 ```
 
+## Single-read controller experiment
+
+`demo.py --policy single_read --arm nev_ranked` opts into a workflow where the
+application already knows the user wants one supported read operation. Nesso3
+proposes the call; Python checks it and Nev agreement, executes once and renders
+the observation. This is not a general intent gate and the final text is written
+by code. `baseline` remains the default; `prompt_once` retains the unsuccessful
+short-prompt experiment. See the [full controller report](../../docs/nesso3/CONTROLLER_REPORT.md)
+for scope, commands, all metrics and limits. On 16 fresh simple requests,
+reviewed complete answers were 11 original / 10 short-prompt / 16 controller.
+All bad raw calls remain recorded; raw strict checks were 9 / 9 / 12.
+
 ## Current generator and simple examples
 
 The default generator is now `giux78/nesso3-0.4B-agentic`, pinned to

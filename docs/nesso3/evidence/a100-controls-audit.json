@@ -1,0 +1,712 @@
+{
+  "method": "Assistant review of all 72 saved outputs against each request and mock observation; not an independent human or blinded judge. Exact execution checked in code. Full requested facts checked by reading answers. Original metrics and traces unchanged.",
+  "proxy_false_positives": [
+    {
+      "id": "simple_payments/en",
+      "split": "development",
+      "language": "en",
+      "policy": "baseline",
+      "answer_source": "generator",
+      "reviewed_completion": false,
+      "note": "Omits the 39.25 EUR payment although the user asked to list payments."
+    },
+    {
+      "id": "simple_payments/en",
+      "split": "development",
+      "language": "en",
+      "policy": "prompt_once",
+      "answer_source": "generator",
+      "reviewed_completion": false,
+      "note": "Gives only the total; omits both requested payment entries."
+    },
+    {
+      "id": "fresh_payments_b/en",
+      "split": "fresh",
+      "language": "en",
+      "policy": "prompt_once",
+      "answer_source": "generator",
+      "reviewed_completion": false,
+      "note": "Gives only the total; omits both requested payment entries."
+    }
+  ],
+  "rows": [
+    {
+      "id": "simple_shipping/en",
+      "split": "development",
+      "language": "en",
+      "policy": "baseline",
+      "answer_source": "generator",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "simple_shipping/en",
+      "split": "development",
+      "language": "en",
+      "policy": "prompt_once",
+      "answer_source": "generator",
+      "reviewed_completion": false,
+      "note": "Missing or incorrect requested answer; see raw trace."
+    },
+    {
+      "id": "simple_shipping/en",
+      "split": "development",
+      "language": "en",
+      "policy": "single_read",
+      "answer_source": "application_template",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "simple_shipping/it",
+      "split": "development",
+      "language": "it",
+      "policy": "prompt_once",
+      "answer_source": "generator",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "simple_shipping/it",
+      "split": "development",
+      "language": "it",
+      "policy": "single_read",
+      "answer_source": "application_template",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "simple_shipping/it",
+      "split": "development",
+      "language": "it",
+      "policy": "baseline",
+      "answer_source": "generator",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "simple_invoice/en",
+      "split": "development",
+      "language": "en",
+      "policy": "single_read",
+      "answer_source": "application_template",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "simple_invoice/en",
+      "split": "development",
+      "language": "en",
+      "policy": "baseline",
+      "answer_source": "generator",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "simple_invoice/en",
+      "split": "development",
+      "language": "en",
+      "policy": "prompt_once",
+      "answer_source": "generator",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "simple_invoice/it",
+      "split": "development",
+      "language": "it",
+      "policy": "baseline",
+      "answer_source": "generator",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "simple_invoice/it",
+      "split": "development",
+      "language": "it",
+      "policy": "prompt_once",
+      "answer_source": "generator",
+      "reviewed_completion": false,
+      "note": "Missing or incorrect requested answer; see raw trace."
+    },
+    {
+      "id": "simple_invoice/it",
+      "split": "development",
+      "language": "it",
+      "policy": "single_read",
+      "answer_source": "application_template",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "simple_guide/en",
+      "split": "development",
+      "language": "en",
+      "policy": "prompt_once",
+      "answer_source": "generator",
+      "reviewed_completion": false,
+      "note": "Missing or incorrect requested answer; see raw trace."
+    },
+    {
+      "id": "simple_guide/en",
+      "split": "development",
+      "language": "en",
+      "policy": "single_read",
+      "answer_source": "application_template",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "simple_guide/en",
+      "split": "development",
+      "language": "en",
+      "policy": "baseline",
+      "answer_source": "generator",
+      "reviewed_completion": false,
+      "note": "Missing or incorrect requested answer; see raw trace."
+    },
+    {
+      "id": "simple_guide/it",
+      "split": "development",
+      "language": "it",
+      "policy": "single_read",
+      "answer_source": "application_template",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "simple_guide/it",
+      "split": "development",
+      "language": "it",
+      "policy": "baseline",
+      "answer_source": "generator",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "simple_guide/it",
+      "split": "development",
+      "language": "it",
+      "policy": "prompt_once",
+      "answer_source": "generator",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "simple_payments/en",
+      "split": "development",
+      "language": "en",
+      "policy": "baseline",
+      "answer_source": "generator",
+      "reviewed_completion": false,
+      "note": "Omits the 39.25 EUR payment although the user asked to list payments."
+    },
+    {
+      "id": "simple_payments/en",
+      "split": "development",
+      "language": "en",
+      "policy": "prompt_once",
+      "answer_source": "generator",
+      "reviewed_completion": false,
+      "note": "Gives only the total; omits both requested payment entries."
+    },
+    {
+      "id": "simple_payments/en",
+      "split": "development",
+      "language": "en",
+      "policy": "single_read",
+      "answer_source": "application_template",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "simple_payments/it",
+      "split": "development",
+      "language": "it",
+      "policy": "prompt_once",
+      "answer_source": "generator",
+      "reviewed_completion": false,
+      "note": "Missing or incorrect requested answer; see raw trace."
+    },
+    {
+      "id": "simple_payments/it",
+      "split": "development",
+      "language": "it",
+      "policy": "single_read",
+      "answer_source": "application_template",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "simple_payments/it",
+      "split": "development",
+      "language": "it",
+      "policy": "baseline",
+      "answer_source": "generator",
+      "reviewed_completion": false,
+      "note": "Missing or incorrect requested answer; see raw trace."
+    },
+    {
+      "id": "fresh_shipping_a/en",
+      "split": "fresh",
+      "language": "en",
+      "policy": "single_read",
+      "answer_source": "application_template",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_shipping_a/en",
+      "split": "fresh",
+      "language": "en",
+      "policy": "baseline",
+      "answer_source": "generator",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_shipping_a/en",
+      "split": "fresh",
+      "language": "en",
+      "policy": "prompt_once",
+      "answer_source": "generator",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_shipping_a/it",
+      "split": "fresh",
+      "language": "it",
+      "policy": "baseline",
+      "answer_source": "generator",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_shipping_a/it",
+      "split": "fresh",
+      "language": "it",
+      "policy": "prompt_once",
+      "answer_source": "generator",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_shipping_a/it",
+      "split": "fresh",
+      "language": "it",
+      "policy": "single_read",
+      "answer_source": "application_template",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_shipping_b/en",
+      "split": "fresh",
+      "language": "en",
+      "policy": "prompt_once",
+      "answer_source": "generator",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_shipping_b/en",
+      "split": "fresh",
+      "language": "en",
+      "policy": "single_read",
+      "answer_source": "application_template",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_shipping_b/en",
+      "split": "fresh",
+      "language": "en",
+      "policy": "baseline",
+      "answer_source": "generator",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_shipping_b/it",
+      "split": "fresh",
+      "language": "it",
+      "policy": "single_read",
+      "answer_source": "application_template",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_shipping_b/it",
+      "split": "fresh",
+      "language": "it",
+      "policy": "baseline",
+      "answer_source": "generator",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_shipping_b/it",
+      "split": "fresh",
+      "language": "it",
+      "policy": "prompt_once",
+      "answer_source": "generator",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_invoice_a/en",
+      "split": "fresh",
+      "language": "en",
+      "policy": "baseline",
+      "answer_source": "generator",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_invoice_a/en",
+      "split": "fresh",
+      "language": "en",
+      "policy": "prompt_once",
+      "answer_source": "generator",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_invoice_a/en",
+      "split": "fresh",
+      "language": "en",
+      "policy": "single_read",
+      "answer_source": "application_template",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_invoice_a/it",
+      "split": "fresh",
+      "language": "it",
+      "policy": "prompt_once",
+      "answer_source": "generator",
+      "reviewed_completion": false,
+      "note": "Missing or incorrect requested answer; see raw trace."
+    },
+    {
+      "id": "fresh_invoice_a/it",
+      "split": "fresh",
+      "language": "it",
+      "policy": "single_read",
+      "answer_source": "application_template",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_invoice_a/it",
+      "split": "fresh",
+      "language": "it",
+      "policy": "baseline",
+      "answer_source": "generator",
+      "reviewed_completion": false,
+      "note": "Missing or incorrect requested answer; see raw trace."
+    },
+    {
+      "id": "fresh_invoice_b/en",
+      "split": "fresh",
+      "language": "en",
+      "policy": "single_read",
+      "answer_source": "application_template",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_invoice_b/en",
+      "split": "fresh",
+      "language": "en",
+      "policy": "baseline",
+      "answer_source": "generator",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_invoice_b/en",
+      "split": "fresh",
+      "language": "en",
+      "policy": "prompt_once",
+      "answer_source": "generator",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_invoice_b/it",
+      "split": "fresh",
+      "language": "it",
+      "policy": "baseline",
+      "answer_source": "generator",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_invoice_b/it",
+      "split": "fresh",
+      "language": "it",
+      "policy": "prompt_once",
+      "answer_source": "generator",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_invoice_b/it",
+      "split": "fresh",
+      "language": "it",
+      "policy": "single_read",
+      "answer_source": "application_template",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_guide_a/en",
+      "split": "fresh",
+      "language": "en",
+      "policy": "prompt_once",
+      "answer_source": "generator",
+      "reviewed_completion": false,
+      "note": "Missing or incorrect requested answer; see raw trace."
+    },
+    {
+      "id": "fresh_guide_a/en",
+      "split": "fresh",
+      "language": "en",
+      "policy": "single_read",
+      "answer_source": "application_template",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_guide_a/en",
+      "split": "fresh",
+      "language": "en",
+      "policy": "baseline",
+      "answer_source": "generator",
+      "reviewed_completion": false,
+      "note": "Missing or incorrect requested answer; see raw trace."
+    },
+    {
+      "id": "fresh_guide_a/it",
+      "split": "fresh",
+      "language": "it",
+      "policy": "single_read",
+      "answer_source": "application_template",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_guide_a/it",
+      "split": "fresh",
+      "language": "it",
+      "policy": "baseline",
+      "answer_source": "generator",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_guide_a/it",
+      "split": "fresh",
+      "language": "it",
+      "policy": "prompt_once",
+      "answer_source": "generator",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_guide_b/en",
+      "split": "fresh",
+      "language": "en",
+      "policy": "baseline",
+      "answer_source": "generator",
+      "reviewed_completion": false,
+      "note": "Missing or incorrect requested answer; see raw trace."
+    },
+    {
+      "id": "fresh_guide_b/en",
+      "split": "fresh",
+      "language": "en",
+      "policy": "prompt_once",
+      "answer_source": "generator",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_guide_b/en",
+      "split": "fresh",
+      "language": "en",
+      "policy": "single_read",
+      "answer_source": "application_template",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_guide_b/it",
+      "split": "fresh",
+      "language": "it",
+      "policy": "prompt_once",
+      "answer_source": "generator",
+      "reviewed_completion": false,
+      "note": "Missing or incorrect requested answer; see raw trace."
+    },
+    {
+      "id": "fresh_guide_b/it",
+      "split": "fresh",
+      "language": "it",
+      "policy": "single_read",
+      "answer_source": "application_template",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_guide_b/it",
+      "split": "fresh",
+      "language": "it",
+      "policy": "baseline",
+      "answer_source": "generator",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_payments_a/en",
+      "split": "fresh",
+      "language": "en",
+      "policy": "single_read",
+      "answer_source": "application_template",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_payments_a/en",
+      "split": "fresh",
+      "language": "en",
+      "policy": "baseline",
+      "answer_source": "generator",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_payments_a/en",
+      "split": "fresh",
+      "language": "en",
+      "policy": "prompt_once",
+      "answer_source": "generator",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_payments_a/it",
+      "split": "fresh",
+      "language": "it",
+      "policy": "baseline",
+      "answer_source": "generator",
+      "reviewed_completion": false,
+      "note": "Missing or incorrect requested answer; see raw trace."
+    },
+    {
+      "id": "fresh_payments_a/it",
+      "split": "fresh",
+      "language": "it",
+      "policy": "prompt_once",
+      "answer_source": "generator",
+      "reviewed_completion": false,
+      "note": "Missing or incorrect requested answer; see raw trace."
+    },
+    {
+      "id": "fresh_payments_a/it",
+      "split": "fresh",
+      "language": "it",
+      "policy": "single_read",
+      "answer_source": "application_template",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_payments_b/en",
+      "split": "fresh",
+      "language": "en",
+      "policy": "prompt_once",
+      "answer_source": "generator",
+      "reviewed_completion": false,
+      "note": "Gives only the total; omits both requested payment entries."
+    },
+    {
+      "id": "fresh_payments_b/en",
+      "split": "fresh",
+      "language": "en",
+      "policy": "single_read",
+      "answer_source": "application_template",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_payments_b/en",
+      "split": "fresh",
+      "language": "en",
+      "policy": "baseline",
+      "answer_source": "generator",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_payments_b/it",
+      "split": "fresh",
+      "language": "it",
+      "policy": "single_read",
+      "answer_source": "application_template",
+      "reviewed_completion": true,
+      "note": "Requested facts present and executed call matches."
+    },
+    {
+      "id": "fresh_payments_b/it",
+      "split": "fresh",
+      "language": "it",
+      "policy": "baseline",
+      "answer_source": "generator",
+      "reviewed_completion": false,
+      "note": "Missing or incorrect requested answer; see raw trace."
+    },
+    {
+      "id": "fresh_payments_b/it",
+      "split": "fresh",
+      "language": "it",
+      "policy": "prompt_once",
+      "answer_source": "generator",
+      "reviewed_completion": false,
+      "note": "Missing or incorrect requested answer; see raw trace."
+    }
+  ],
+  "summary": {
+    "development": {
+      "baseline": {
+        "en": 2,
+        "it": 3
+      },
+      "prompt_once": {
+        "en": 1,
+        "it": 2
+      },
+      "single_read": {
+        "en": 4,
+        "it": 4
+      }
+    },
+    "fresh": {
+      "baseline": {
+        "en": 6,
+        "it": 5
+      },
+      "prompt_once": {
+        "en": 6,
+        "it": 4
+      },
+      "single_read": {
+        "en": 8,
+        "it": 8
+      }
+    }
+  }
+}

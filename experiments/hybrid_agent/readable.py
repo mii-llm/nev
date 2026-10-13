@@ -18,6 +18,12 @@ def render(record):
                              json.dumps(observation['result'], ensure_ascii=False))
         else:
             lines.append(event['assistant'])
+    if record.get('policy_events'):
+        lines.append('\nController decisions: ' + json.dumps(record['policy_events'], ensure_ascii=False))
+    if record.get('answer_source', 'generator') != 'generator':
+        lines.extend(['\nAnswer source: ' + record['answer_source'], record['final']])
+    if record.get('blocked_reason'):
+        lines.append('Deferred: ' + record['blocked_reason'])
     if record['errors']:
         lines.append('\nController errors: ' + ', '.join(record['errors']))
     lines.append(f"\nElapsed (excluding model load): {record['total_ms'] / 1000:.2f} s")
