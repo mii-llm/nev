@@ -1,0 +1,1348 @@
+{
+  "notes": {
+    "schemas": {
+      "en": [
+        {
+          "type": "function",
+          "function": {
+            "name": "find_note",
+            "description": "Find a note by its exact title and return its identifier.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "query": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "query"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "read_note",
+            "description": "Read the content of a note using its identifier.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "note_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "note_id"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "list_notes",
+            "description": "List note titles in a folder.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "folder": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "folder"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "note_count",
+            "description": "Count notes in a folder.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "folder": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "folder"
+              ]
+            }
+          }
+        }
+      ],
+      "it": [
+        {
+          "type": "function",
+          "function": {
+            "name": "find_note",
+            "description": "Trova una nota dal titolo esatto e restituisce il suo identificativo.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "query": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "query"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "read_note",
+            "description": "Leggi il contenuto di una nota usando il suo identificativo.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "note_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "note_id"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "list_notes",
+            "description": "Elenca i titoli delle note in una cartella.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "folder": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "folder"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "note_count",
+            "description": "Conta le note in una cartella.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "folder": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "folder"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "responses": [
+      {
+        "call": {
+          "name": "find_note",
+          "arguments": {
+            "query": "Aurora"
+          }
+        },
+        "result": {
+          "note_id": "N-7Q2",
+          "title": "Aurora"
+        }
+      },
+      {
+        "call": {
+          "name": "read_note",
+          "arguments": {
+            "note_id": "N-7Q2"
+          }
+        },
+        "result": {
+          "content": "Access code: 4821"
+        }
+      },
+      {
+        "call": {
+          "name": "read_note",
+          "arguments": {
+            "note_id": "N-8R6"
+          }
+        },
+        "result": {
+          "content": "Access code: 7392"
+        }
+      },
+      {
+        "call": {
+          "name": "list_notes",
+          "arguments": {
+            "folder": "Work"
+          }
+        },
+        "result": {
+          "titles": [
+            "Aurora",
+            "Atlas"
+          ]
+        }
+      },
+      {
+        "call": {
+          "name": "note_count",
+          "arguments": {
+            "folder": "Work"
+          }
+        },
+        "result": {
+          "count": 2
+        }
+      }
+    ]
+  },
+  "sensors": {
+    "schemas": {
+      "en": [
+        {
+          "type": "function",
+          "function": {
+            "name": "find_sensor",
+            "description": "Find the temperature sensor in a room and return its identifier.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "room": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "room"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "read_sensor",
+            "description": "Read the current temperature from a sensor identifier.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "sensor_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "sensor_id"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "convert_temperature",
+            "description": "Convert a temperature between Celsius (C) and Fahrenheit (F).",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "number"
+                },
+                "from_unit": {
+                  "type": "string",
+                  "enum": [
+                    "C",
+                    "F"
+                  ]
+                },
+                "to_unit": {
+                  "type": "string",
+                  "enum": [
+                    "C",
+                    "F"
+                  ]
+                }
+              },
+              "required": [
+                "value",
+                "from_unit",
+                "to_unit"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "battery_status",
+            "description": "Read the battery percentage of a device.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "device_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "device_id"
+              ]
+            }
+          }
+        }
+      ],
+      "it": [
+        {
+          "type": "function",
+          "function": {
+            "name": "find_sensor",
+            "description": "Trova il sensore di temperatura in una stanza e restituisce il suo identificativo.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "room": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "room"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "read_sensor",
+            "description": "Leggi la temperatura attuale usando un identificativo di sensore.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "sensor_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "sensor_id"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "convert_temperature",
+            "description": "Converti una temperatura tra Celsius (C) e Fahrenheit (F).",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "number"
+                },
+                "from_unit": {
+                  "type": "string",
+                  "enum": [
+                    "C",
+                    "F"
+                  ]
+                },
+                "to_unit": {
+                  "type": "string",
+                  "enum": [
+                    "C",
+                    "F"
+                  ]
+                }
+              },
+              "required": [
+                "value",
+                "from_unit",
+                "to_unit"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "battery_status",
+            "description": "Leggi la percentuale della batteria di un dispositivo.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "device_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "device_id"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "responses": [
+      {
+        "call": {
+          "name": "find_sensor",
+          "arguments": {
+            "room": "Studio"
+          }
+        },
+        "result": {
+          "sensor_id": "S-4J9"
+        }
+      },
+      {
+        "call": {
+          "name": "read_sensor",
+          "arguments": {
+            "sensor_id": "S-4J9"
+          }
+        },
+        "result": {
+          "temperature": 21.5,
+          "unit": "C"
+        }
+      },
+      {
+        "call": {
+          "name": "read_sensor",
+          "arguments": {
+            "sensor_id": "S-6K3"
+          }
+        },
+        "result": {
+          "temperature": 18.2,
+          "unit": "C"
+        }
+      },
+      {
+        "call": {
+          "name": "convert_temperature",
+          "arguments": {
+            "value": 20,
+            "from_unit": "C",
+            "to_unit": "F"
+          }
+        },
+        "result": {
+          "temperature": 68,
+          "unit": "F"
+        }
+      },
+      {
+        "call": {
+          "name": "battery_status",
+          "arguments": {
+            "device_id": "D-91"
+          }
+        },
+        "result": {
+          "percent": 73
+        }
+      }
+    ]
+  },
+  "media": {
+    "schemas": {
+      "en": [
+        {
+          "type": "function",
+          "function": {
+            "name": "search_track",
+            "description": "Find a music track by its exact title and return its identifier.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "title"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "track_details",
+            "description": "Read the artist and duration of a track using its identifier.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "track_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "track_id"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "playlist_tracks",
+            "description": "List track titles in a named playlist.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "playlist": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "playlist"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "playlist_duration",
+            "description": "Read the total duration in seconds of a named playlist.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "playlist": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "playlist"
+              ]
+            }
+          }
+        }
+      ],
+      "it": [
+        {
+          "type": "function",
+          "function": {
+            "name": "search_track",
+            "description": "Trova un brano dal titolo esatto e restituisce il suo identificativo.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "title"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "track_details",
+            "description": "Leggi artista e durata di un brano usando il suo identificativo.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "track_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "track_id"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "playlist_tracks",
+            "description": "Elenca i titoli dei brani in una playlist.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "playlist": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "playlist"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "playlist_duration",
+            "description": "Leggi la durata totale in secondi di una playlist.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "playlist": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "playlist"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "responses": [
+      {
+        "call": {
+          "name": "search_track",
+          "arguments": {
+            "title": "Aster"
+          }
+        },
+        "result": {
+          "track_id": "T-3V8"
+        }
+      },
+      {
+        "call": {
+          "name": "track_details",
+          "arguments": {
+            "track_id": "T-3V8"
+          }
+        },
+        "result": {
+          "artist": "Mira",
+          "duration_seconds": 187
+        }
+      },
+      {
+        "call": {
+          "name": "track_details",
+          "arguments": {
+            "track_id": "T-9W2"
+          }
+        },
+        "result": {
+          "artist": "Elio",
+          "duration_seconds": 204
+        }
+      },
+      {
+        "call": {
+          "name": "playlist_tracks",
+          "arguments": {
+            "playlist": "Focus"
+          }
+        },
+        "result": {
+          "titles": [
+            "Aster",
+            "Lumen"
+          ]
+        }
+      },
+      {
+        "call": {
+          "name": "playlist_duration",
+          "arguments": {
+            "playlist": "Focus"
+          }
+        },
+        "result": {
+          "duration_seconds": 391
+        }
+      }
+    ]
+  },
+  "notes_renamed": {
+    "schemas": {
+      "en": [
+        {
+          "type": "function",
+          "function": {
+            "name": "tool_a7",
+            "description": "Find a note by its exact title and return its identifier.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "query": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "query"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "tool_b2",
+            "description": "Read the content of a note using its identifier.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "note_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "note_id"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "tool_c9",
+            "description": "List note titles in a folder.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "folder": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "folder"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "tool_d4",
+            "description": "Count notes in a folder.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "folder": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "folder"
+              ]
+            }
+          }
+        }
+      ],
+      "it": [
+        {
+          "type": "function",
+          "function": {
+            "name": "tool_a7",
+            "description": "Trova una nota dal titolo esatto e restituisce il suo identificativo.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "query": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "query"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "tool_b2",
+            "description": "Leggi il contenuto di una nota usando il suo identificativo.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "note_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "note_id"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "tool_c9",
+            "description": "Elenca i titoli delle note in una cartella.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "folder": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "folder"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "tool_d4",
+            "description": "Conta le note in una cartella.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "folder": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "folder"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "responses": [
+      {
+        "call": {
+          "name": "tool_a7",
+          "arguments": {
+            "query": "Aurora"
+          }
+        },
+        "result": {
+          "note_id": "N-7Q2",
+          "title": "Aurora"
+        }
+      },
+      {
+        "call": {
+          "name": "tool_b2",
+          "arguments": {
+            "note_id": "N-7Q2"
+          }
+        },
+        "result": {
+          "content": "Access code: 4821"
+        }
+      },
+      {
+        "call": {
+          "name": "tool_b2",
+          "arguments": {
+            "note_id": "N-8R6"
+          }
+        },
+        "result": {
+          "content": "Access code: 7392"
+        }
+      },
+      {
+        "call": {
+          "name": "tool_c9",
+          "arguments": {
+            "folder": "Work"
+          }
+        },
+        "result": {
+          "titles": [
+            "Aurora",
+            "Atlas"
+          ]
+        }
+      },
+      {
+        "call": {
+          "name": "tool_d4",
+          "arguments": {
+            "folder": "Work"
+          }
+        },
+        "result": {
+          "count": 2
+        }
+      }
+    ]
+  },
+  "sensors_renamed": {
+    "schemas": {
+      "en": [
+        {
+          "type": "function",
+          "function": {
+            "name": "tool_a7",
+            "description": "Find the temperature sensor in a room and return its identifier.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "room": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "room"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "tool_b2",
+            "description": "Read the current temperature from a sensor identifier.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "sensor_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "sensor_id"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "tool_c9",
+            "description": "Convert a temperature between Celsius (C) and Fahrenheit (F).",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "number"
+                },
+                "from_unit": {
+                  "type": "string",
+                  "enum": [
+                    "C",
+                    "F"
+                  ]
+                },
+                "to_unit": {
+                  "type": "string",
+                  "enum": [
+                    "C",
+                    "F"
+                  ]
+                }
+              },
+              "required": [
+                "value",
+                "from_unit",
+                "to_unit"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "tool_d4",
+            "description": "Read the battery percentage of a device.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "device_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "device_id"
+              ]
+            }
+          }
+        }
+      ],
+      "it": [
+        {
+          "type": "function",
+          "function": {
+            "name": "tool_a7",
+            "description": "Trova il sensore di temperatura in una stanza e restituisce il suo identificativo.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "room": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "room"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "tool_b2",
+            "description": "Leggi la temperatura attuale usando un identificativo di sensore.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "sensor_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "sensor_id"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "tool_c9",
+            "description": "Converti una temperatura tra Celsius (C) e Fahrenheit (F).",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "number"
+                },
+                "from_unit": {
+                  "type": "string",
+                  "enum": [
+                    "C",
+                    "F"
+                  ]
+                },
+                "to_unit": {
+                  "type": "string",
+                  "enum": [
+                    "C",
+                    "F"
+                  ]
+                }
+              },
+              "required": [
+                "value",
+                "from_unit",
+                "to_unit"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "tool_d4",
+            "description": "Leggi la percentuale della batteria di un dispositivo.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "device_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "device_id"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "responses": [
+      {
+        "call": {
+          "name": "tool_a7",
+          "arguments": {
+            "room": "Studio"
+          }
+        },
+        "result": {
+          "sensor_id": "S-4J9"
+        }
+      },
+      {
+        "call": {
+          "name": "tool_b2",
+          "arguments": {
+            "sensor_id": "S-4J9"
+          }
+        },
+        "result": {
+          "temperature": 21.5,
+          "unit": "C"
+        }
+      },
+      {
+        "call": {
+          "name": "tool_b2",
+          "arguments": {
+            "sensor_id": "S-6K3"
+          }
+        },
+        "result": {
+          "temperature": 18.2,
+          "unit": "C"
+        }
+      },
+      {
+        "call": {
+          "name": "tool_c9",
+          "arguments": {
+            "value": 20,
+            "from_unit": "C",
+            "to_unit": "F"
+          }
+        },
+        "result": {
+          "temperature": 68,
+          "unit": "F"
+        }
+      },
+      {
+        "call": {
+          "name": "tool_d4",
+          "arguments": {
+            "device_id": "D-91"
+          }
+        },
+        "result": {
+          "percent": 73
+        }
+      }
+    ]
+  },
+  "media_renamed": {
+    "schemas": {
+      "en": [
+        {
+          "type": "function",
+          "function": {
+            "name": "tool_a7",
+            "description": "Find a music track by its exact title and return its identifier.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "title"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "tool_b2",
+            "description": "Read the artist and duration of a track using its identifier.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "track_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "track_id"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "tool_c9",
+            "description": "List track titles in a named playlist.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "playlist": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "playlist"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "tool_d4",
+            "description": "Read the total duration in seconds of a named playlist.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "playlist": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "playlist"
+              ]
+            }
+          }
+        }
+      ],
+      "it": [
+        {
+          "type": "function",
+          "function": {
+            "name": "tool_a7",
+            "description": "Trova un brano dal titolo esatto e restituisce il suo identificativo.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "title"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "tool_b2",
+            "description": "Leggi artista e durata di un brano usando il suo identificativo.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "track_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "track_id"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "tool_c9",
+            "description": "Elenca i titoli dei brani in una playlist.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "playlist": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "playlist"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "tool_d4",
+            "description": "Leggi la durata totale in secondi di una playlist.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "playlist": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "playlist"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "responses": [
+      {
+        "call": {
+          "name": "tool_a7",
+          "arguments": {
+            "title": "Aster"
+          }
+        },
+        "result": {
+          "track_id": "T-3V8"
+        }
+      },
+      {
+        "call": {
+          "name": "tool_b2",
+          "arguments": {
+            "track_id": "T-3V8"
+          }
+        },
+        "result": {
+          "artist": "Mira",
+          "duration_seconds": 187
+        }
+      },
+      {
+        "call": {
+          "name": "tool_b2",
+          "arguments": {
+            "track_id": "T-9W2"
+          }
+        },
+        "result": {
+          "artist": "Elio",
+          "duration_seconds": 204
+        }
+      },
+      {
+        "call": {
+          "name": "tool_c9",
+          "arguments": {
+            "playlist": "Focus"
+          }
+        },
+        "result": {
+          "titles": [
+            "Aster",
+            "Lumen"
+          ]
+        }
+      },
+      {
+        "call": {
+          "name": "tool_d4",
+          "arguments": {
+            "playlist": "Focus"
+          }
+        },
+        "result": {
+          "duration_seconds": 391
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,2858 @@
+{
+  "reviewer": "Assistant inspection of all final outputs, exact executed plans, and selected full traces; not an independent blinded human assessment.",
+  "raw_sha256": "3f23a5b063df3f472320aa5bd67922250a81e1288abc382a654d15b8ac727f9b",
+  "criteria": "Supported pass requires exact executed plan and complete, factually grounded final answer without contradictory additions. Rejected/cached extra proposals are retained but do not alone fail completion. Missing pass asks for a usable identifier/title. Unsupported pass clearly explains lack of capability with no execution. Arithmetic pass is correct with no execution.",
+  "correction_count": 9,
+  "summary": {
+    "nesso_only": {
+      "en": {
+        "supported": {
+          "n": 18,
+          "exact_plan": 9,
+          "reviewed_completion": 5,
+          "handling_pass": 0,
+          "no_execution": 1
+        },
+        "single_original": {
+          "n": 6,
+          "exact_plan": 6,
+          "reviewed_completion": 4,
+          "handling_pass": 0,
+          "no_execution": 0
+        },
+        "dependent_original": {
+          "n": 3,
+          "exact_plan": 1,
+          "reviewed_completion": 1,
+          "handling_pass": 0,
+          "no_execution": 0
+        },
+        "parallel": {
+          "n": 3,
+          "exact_plan": 2,
+          "reviewed_completion": 0,
+          "handling_pass": 0,
+          "no_execution": 1
+        },
+        "renamed": {
+          "n": 6,
+          "exact_plan": 0,
+          "reviewed_completion": 0,
+          "handling_pass": 0,
+          "no_execution": 0
+        },
+        "missing": {
+          "n": 3,
+          "exact_plan": 3,
+          "reviewed_completion": 0,
+          "handling_pass": 1,
+          "no_execution": 3
+        },
+        "unsupported": {
+          "n": 3,
+          "exact_plan": 3,
+          "reviewed_completion": 0,
+          "handling_pass": 0,
+          "no_execution": 3
+        },
+        "no_tool": {
+          "n": 3,
+          "exact_plan": 3,
+          "reviewed_completion": 0,
+          "handling_pass": 2,
+          "no_execution": 3
+        }
+      },
+      "it": {
+        "supported": {
+          "n": 18,
+          "exact_plan": 7,
+          "reviewed_completion": 4,
+          "handling_pass": 0,
+          "no_execution": 3
+        },
+        "single_original": {
+          "n": 6,
+          "exact_plan": 5,
+          "reviewed_completion": 3,
+          "handling_pass": 0,
+          "no_execution": 1
+        },
+        "dependent_original": {
+          "n": 3,
+          "exact_plan": 0,
+          "reviewed_completion": 0,
+          "handling_pass": 0,
+          "no_execution": 1
+        },
+        "parallel": {
+          "n": 3,
+          "exact_plan": 2,
+          "reviewed_completion": 1,
+          "handling_pass": 0,
+          "no_execution": 0
+        },
+        "renamed": {
+          "n": 6,
+          "exact_plan": 0,
+          "reviewed_completion": 0,
+          "handling_pass": 0,
+          "no_execution": 1
+        },
+        "missing": {
+          "n": 3,
+          "exact_plan": 3,
+          "reviewed_completion": 0,
+          "handling_pass": 3,
+          "no_execution": 3
+        },
+        "unsupported": {
+          "n": 3,
+          "exact_plan": 2,
+          "reviewed_completion": 0,
+          "handling_pass": 1,
+          "no_execution": 2
+        },
+        "no_tool": {
+          "n": 3,
+          "exact_plan": 3,
+          "reviewed_completion": 0,
+          "handling_pass": 3,
+          "no_execution": 3
+        }
+      }
+    },
+    "shuffled": {
+      "en": {
+        "supported": {
+          "n": 18,
+          "exact_plan": 11,
+          "reviewed_completion": 7,
+          "handling_pass": 0,
+          "no_execution": 2
+        },
+        "single_original": {
+          "n": 6,
+          "exact_plan": 6,
+          "reviewed_completion": 4,
+          "handling_pass": 0,
+          "no_execution": 0
+        },
+        "dependent_original": {
+          "n": 3,
+          "exact_plan": 1,
+          "reviewed_completion": 1,
+          "handling_pass": 0,
+          "no_execution": 0
+        },
+        "parallel": {
+          "n": 3,
+          "exact_plan": 2,
+          "reviewed_completion": 0,
+          "handling_pass": 0,
+          "no_execution": 1
+        },
+        "renamed": {
+          "n": 6,
+          "exact_plan": 2,
+          "reviewed_completion": 2,
+          "handling_pass": 0,
+          "no_execution": 1
+        },
+        "missing": {
+          "n": 3,
+          "exact_plan": 3,
+          "reviewed_completion": 0,
+          "handling_pass": 2,
+          "no_execution": 3
+        },
+        "unsupported": {
+          "n": 3,
+          "exact_plan": 1,
+          "reviewed_completion": 0,
+          "handling_pass": 0,
+          "no_execution": 1
+        },
+        "no_tool": {
+          "n": 3,
+          "exact_plan": 3,
+          "reviewed_completion": 0,
+          "handling_pass": 1,
+          "no_execution": 3
+        }
+      },
+      "it": {
+        "supported": {
+          "n": 18,
+          "exact_plan": 10,
+          "reviewed_completion": 6,
+          "handling_pass": 0,
+          "no_execution": 0
+        },
+        "single_original": {
+          "n": 6,
+          "exact_plan": 6,
+          "reviewed_completion": 4,
+          "handling_pass": 0,
+          "no_execution": 0
+        },
+        "dependent_original": {
+          "n": 3,
+          "exact_plan": 0,
+          "reviewed_completion": 0,
+          "handling_pass": 0,
+          "no_execution": 0
+        },
+        "parallel": {
+          "n": 3,
+          "exact_plan": 3,
+          "reviewed_completion": 1,
+          "handling_pass": 0,
+          "no_execution": 0
+        },
+        "renamed": {
+          "n": 6,
+          "exact_plan": 1,
+          "reviewed_completion": 1,
+          "handling_pass": 0,
+          "no_execution": 0
+        },
+        "missing": {
+          "n": 3,
+          "exact_plan": 3,
+          "reviewed_completion": 0,
+          "handling_pass": 3,
+          "no_execution": 3
+        },
+        "unsupported": {
+          "n": 3,
+          "exact_plan": 2,
+          "reviewed_completion": 0,
+          "handling_pass": 1,
+          "no_execution": 2
+        },
+        "no_tool": {
+          "n": 3,
+          "exact_plan": 3,
+          "reviewed_completion": 0,
+          "handling_pass": 3,
+          "no_execution": 3
+        }
+      }
+    },
+    "nev_ranked": {
+      "en": {
+        "supported": {
+          "n": 18,
+          "exact_plan": 12,
+          "reviewed_completion": 7,
+          "handling_pass": 0,
+          "no_execution": 3
+        },
+        "single_original": {
+          "n": 6,
+          "exact_plan": 6,
+          "reviewed_completion": 4,
+          "handling_pass": 0,
+          "no_execution": 0
+        },
+        "dependent_original": {
+          "n": 3,
+          "exact_plan": 2,
+          "reviewed_completion": 1,
+          "handling_pass": 0,
+          "no_execution": 0
+        },
+        "parallel": {
+          "n": 3,
+          "exact_plan": 1,
+          "reviewed_completion": 0,
+          "handling_pass": 0,
+          "no_execution": 1
+        },
+        "renamed": {
+          "n": 6,
+          "exact_plan": 3,
+          "reviewed_completion": 2,
+          "handling_pass": 0,
+          "no_execution": 2
+        },
+        "missing": {
+          "n": 3,
+          "exact_plan": 3,
+          "reviewed_completion": 0,
+          "handling_pass": 2,
+          "no_execution": 3
+        },
+        "unsupported": {
+          "n": 3,
+          "exact_plan": 3,
+          "reviewed_completion": 0,
+          "handling_pass": 0,
+          "no_execution": 3
+        },
+        "no_tool": {
+          "n": 3,
+          "exact_plan": 3,
+          "reviewed_completion": 0,
+          "handling_pass": 2,
+          "no_execution": 3
+        }
+      },
+      "it": {
+        "supported": {
+          "n": 18,
+          "exact_plan": 10,
+          "reviewed_completion": 6,
+          "handling_pass": 0,
+          "no_execution": 2
+        },
+        "single_original": {
+          "n": 6,
+          "exact_plan": 6,
+          "reviewed_completion": 4,
+          "handling_pass": 0,
+          "no_execution": 0
+        },
+        "dependent_original": {
+          "n": 3,
+          "exact_plan": 1,
+          "reviewed_completion": 1,
+          "handling_pass": 0,
+          "no_execution": 0
+        },
+        "parallel": {
+          "n": 3,
+          "exact_plan": 3,
+          "reviewed_completion": 1,
+          "handling_pass": 0,
+          "no_execution": 0
+        },
+        "renamed": {
+          "n": 6,
+          "exact_plan": 0,
+          "reviewed_completion": 0,
+          "handling_pass": 0,
+          "no_execution": 2
+        },
+        "missing": {
+          "n": 3,
+          "exact_plan": 3,
+          "reviewed_completion": 0,
+          "handling_pass": 3,
+          "no_execution": 3
+        },
+        "unsupported": {
+          "n": 3,
+          "exact_plan": 3,
+          "reviewed_completion": 0,
+          "handling_pass": 1,
+          "no_execution": 3
+        },
+        "no_tool": {
+          "n": 3,
+          "exact_plan": 3,
+          "reviewed_completion": 0,
+          "handling_pass": 3,
+          "no_execution": 3
+        }
+      }
+    },
+    "nev_gated": {
+      "en": {
+        "supported": {
+          "n": 18,
+          "exact_plan": 12,
+          "reviewed_completion": 7,
+          "handling_pass": 0,
+          "no_execution": 3
+        },
+        "single_original": {
+          "n": 6,
+          "exact_plan": 6,
+          "reviewed_completion": 4,
+          "handling_pass": 0,
+          "no_execution": 0
+        },
+        "dependent_original": {
+          "n": 3,
+          "exact_plan": 2,
+          "reviewed_completion": 1,
+          "handling_pass": 0,
+          "no_execution": 0
+        },
+        "parallel": {
+          "n": 3,
+          "exact_plan": 1,
+          "reviewed_completion": 0,
+          "handling_pass": 0,
+          "no_execution": 1
+        },
+        "renamed": {
+          "n": 6,
+          "exact_plan": 3,
+          "reviewed_completion": 2,
+          "handling_pass": 0,
+          "no_execution": 2
+        },
+        "missing": {
+          "n": 3,
+          "exact_plan": 3,
+          "reviewed_completion": 0,
+          "handling_pass": 2,
+          "no_execution": 3
+        },
+        "unsupported": {
+          "n": 3,
+          "exact_plan": 3,
+          "reviewed_completion": 0,
+          "handling_pass": 0,
+          "no_execution": 3
+        },
+        "no_tool": {
+          "n": 3,
+          "exact_plan": 3,
+          "reviewed_completion": 0,
+          "handling_pass": 2,
+          "no_execution": 3
+        }
+      },
+      "it": {
+        "supported": {
+          "n": 18,
+          "exact_plan": 10,
+          "reviewed_completion": 6,
+          "handling_pass": 0,
+          "no_execution": 3
+        },
+        "single_original": {
+          "n": 6,
+          "exact_plan": 6,
+          "reviewed_completion": 4,
+          "handling_pass": 0,
+          "no_execution": 0
+        },
+        "dependent_original": {
+          "n": 3,
+          "exact_plan": 0,
+          "reviewed_completion": 0,
+          "handling_pass": 0,
+          "no_execution": 1
+        },
+        "parallel": {
+          "n": 3,
+          "exact_plan": 3,
+          "reviewed_completion": 1,
+          "handling_pass": 0,
+          "no_execution": 0
+        },
+        "renamed": {
+          "n": 6,
+          "exact_plan": 1,
+          "reviewed_completion": 1,
+          "handling_pass": 0,
+          "no_execution": 2
+        },
+        "missing": {
+          "n": 3,
+          "exact_plan": 3,
+          "reviewed_completion": 0,
+          "handling_pass": 3,
+          "no_execution": 3
+        },
+        "unsupported": {
+          "n": 3,
+          "exact_plan": 3,
+          "reviewed_completion": 0,
+          "handling_pass": 1,
+          "no_execution": 3
+        },
+        "no_tool": {
+          "n": 3,
+          "exact_plan": 3,
+          "reviewed_completion": 0,
+          "handling_pass": 3,
+          "no_execution": 3
+        }
+      }
+    }
+  },
+  "rows": [
+    {
+      "id": "notes-single-en",
+      "arm": "nesso_only",
+      "language": "en",
+      "kind": "single",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes-single-en",
+      "arm": "shuffled",
+      "language": "en",
+      "kind": "single",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes-single-en",
+      "arm": "nev_ranked",
+      "language": "en",
+      "kind": "single",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes-single-en",
+      "arm": "nev_gated",
+      "language": "en",
+      "kind": "single",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes-single-it",
+      "arm": "shuffled",
+      "language": "it",
+      "kind": "single",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes-single-it",
+      "arm": "nev_ranked",
+      "language": "it",
+      "kind": "single",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes-single-it",
+      "arm": "nev_gated",
+      "language": "it",
+      "kind": "single",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes-single-it",
+      "arm": "nesso_only",
+      "language": "it",
+      "kind": "single",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes-selection-en",
+      "arm": "nev_ranked",
+      "language": "en",
+      "kind": "selection",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes-selection-en",
+      "arm": "nev_gated",
+      "language": "en",
+      "kind": "selection",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes-selection-en",
+      "arm": "nesso_only",
+      "language": "en",
+      "kind": "selection",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes-selection-en",
+      "arm": "shuffled",
+      "language": "en",
+      "kind": "selection",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes-selection-it",
+      "arm": "nev_gated",
+      "language": "it",
+      "kind": "selection",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes-selection-it",
+      "arm": "nesso_only",
+      "language": "it",
+      "kind": "selection",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes-selection-it",
+      "arm": "shuffled",
+      "language": "it",
+      "kind": "selection",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes-selection-it",
+      "arm": "nev_ranked",
+      "language": "it",
+      "kind": "selection",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes-dependent-en",
+      "arm": "nesso_only",
+      "language": "en",
+      "kind": "dependent",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes-dependent-en",
+      "arm": "shuffled",
+      "language": "en",
+      "kind": "dependent",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes-dependent-en",
+      "arm": "nev_ranked",
+      "language": "en",
+      "kind": "dependent",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes-dependent-en",
+      "arm": "nev_gated",
+      "language": "en",
+      "kind": "dependent",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes-dependent-it",
+      "arm": "shuffled",
+      "language": "it",
+      "kind": "dependent",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes-dependent-it",
+      "arm": "nev_ranked",
+      "language": "it",
+      "kind": "dependent",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes-dependent-it",
+      "arm": "nev_gated",
+      "language": "it",
+      "kind": "dependent",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes-dependent-it",
+      "arm": "nesso_only",
+      "language": "it",
+      "kind": "dependent",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes-parallel-en",
+      "arm": "nev_ranked",
+      "language": "en",
+      "kind": "parallel",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes-parallel-en",
+      "arm": "nev_gated",
+      "language": "en",
+      "kind": "parallel",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes-parallel-en",
+      "arm": "nesso_only",
+      "language": "en",
+      "kind": "parallel",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes-parallel-en",
+      "arm": "shuffled",
+      "language": "en",
+      "kind": "parallel",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes-parallel-it",
+      "arm": "nev_gated",
+      "language": "it",
+      "kind": "parallel",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes-parallel-it",
+      "arm": "nesso_only",
+      "language": "it",
+      "kind": "parallel",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes-parallel-it",
+      "arm": "shuffled",
+      "language": "it",
+      "kind": "parallel",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes-parallel-it",
+      "arm": "nev_ranked",
+      "language": "it",
+      "kind": "parallel",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes-missing-en",
+      "arm": "nesso_only",
+      "language": "en",
+      "kind": "missing",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": false,
+      "handling_label": "irrelevant question"
+    },
+    {
+      "id": "notes-missing-en",
+      "arm": "shuffled",
+      "language": "en",
+      "kind": "missing",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": false,
+      "handling_label": "irrelevant question"
+    },
+    {
+      "id": "notes-missing-en",
+      "arm": "nev_ranked",
+      "language": "en",
+      "kind": "missing",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "asks usable identifier or title"
+    },
+    {
+      "id": "notes-missing-en",
+      "arm": "nev_gated",
+      "language": "en",
+      "kind": "missing",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "asks usable identifier or title"
+    },
+    {
+      "id": "notes-missing-it",
+      "arm": "shuffled",
+      "language": "it",
+      "kind": "missing",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "asks usable identifier or title"
+    },
+    {
+      "id": "notes-missing-it",
+      "arm": "nev_ranked",
+      "language": "it",
+      "kind": "missing",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "asks usable identifier or title"
+    },
+    {
+      "id": "notes-missing-it",
+      "arm": "nev_gated",
+      "language": "it",
+      "kind": "missing",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "asks usable identifier or title"
+    },
+    {
+      "id": "notes-missing-it",
+      "arm": "nesso_only",
+      "language": "it",
+      "kind": "missing",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "asks usable identifier or title"
+    },
+    {
+      "id": "notes-unsupported-en",
+      "arm": "nev_ranked",
+      "language": "en",
+      "kind": "unsupported",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": false,
+      "handling_label": "irrelevant or redundant clarification"
+    },
+    {
+      "id": "notes-unsupported-en",
+      "arm": "nev_gated",
+      "language": "en",
+      "kind": "unsupported",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": false,
+      "handling_label": "irrelevant or redundant clarification"
+    },
+    {
+      "id": "notes-unsupported-en",
+      "arm": "nesso_only",
+      "language": "en",
+      "kind": "unsupported",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": false,
+      "handling_label": "irrelevant or redundant clarification"
+    },
+    {
+      "id": "notes-unsupported-en",
+      "arm": "shuffled",
+      "language": "en",
+      "kind": "unsupported",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": false,
+      "handling_label": "unrelated read executed"
+    },
+    {
+      "id": "notes-unsupported-it",
+      "arm": "nev_gated",
+      "language": "it",
+      "kind": "unsupported",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": false,
+      "handling_label": "not-found claim without successful observation"
+    },
+    {
+      "id": "notes-unsupported-it",
+      "arm": "nesso_only",
+      "language": "it",
+      "kind": "unsupported",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": false,
+      "handling_label": "unrelated read executed"
+    },
+    {
+      "id": "notes-unsupported-it",
+      "arm": "shuffled",
+      "language": "it",
+      "kind": "unsupported",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": false,
+      "handling_label": "truthful noncompletion statement, but no capability explanation"
+    },
+    {
+      "id": "notes-unsupported-it",
+      "arm": "nev_ranked",
+      "language": "it",
+      "kind": "unsupported",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": false,
+      "handling_label": "not-found claim without successful observation"
+    },
+    {
+      "id": "notes-no_tool-en",
+      "arm": "nesso_only",
+      "language": "en",
+      "kind": "no_tool",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "correct arithmetic without tools"
+    },
+    {
+      "id": "notes-no_tool-en",
+      "arm": "shuffled",
+      "language": "en",
+      "kind": "no_tool",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": false,
+      "handling_label": "wrong arithmetic or irrelevant refusal"
+    },
+    {
+      "id": "notes-no_tool-en",
+      "arm": "nev_ranked",
+      "language": "en",
+      "kind": "no_tool",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "correct arithmetic without tools"
+    },
+    {
+      "id": "notes-no_tool-en",
+      "arm": "nev_gated",
+      "language": "en",
+      "kind": "no_tool",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "correct arithmetic without tools"
+    },
+    {
+      "id": "notes-no_tool-it",
+      "arm": "shuffled",
+      "language": "it",
+      "kind": "no_tool",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "correct arithmetic without tools"
+    },
+    {
+      "id": "notes-no_tool-it",
+      "arm": "nev_ranked",
+      "language": "it",
+      "kind": "no_tool",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "correct arithmetic without tools"
+    },
+    {
+      "id": "notes-no_tool-it",
+      "arm": "nev_gated",
+      "language": "it",
+      "kind": "no_tool",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "correct arithmetic without tools"
+    },
+    {
+      "id": "notes-no_tool-it",
+      "arm": "nesso_only",
+      "language": "it",
+      "kind": "no_tool",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "correct arithmetic without tools"
+    },
+    {
+      "id": "sensors-single-en",
+      "arm": "nev_ranked",
+      "language": "en",
+      "kind": "single",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors-single-en",
+      "arm": "nev_gated",
+      "language": "en",
+      "kind": "single",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors-single-en",
+      "arm": "nesso_only",
+      "language": "en",
+      "kind": "single",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors-single-en",
+      "arm": "shuffled",
+      "language": "en",
+      "kind": "single",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors-single-it",
+      "arm": "nev_gated",
+      "language": "it",
+      "kind": "single",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors-single-it",
+      "arm": "nesso_only",
+      "language": "it",
+      "kind": "single",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors-single-it",
+      "arm": "shuffled",
+      "language": "it",
+      "kind": "single",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors-single-it",
+      "arm": "nev_ranked",
+      "language": "it",
+      "kind": "single",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors-selection-en",
+      "arm": "nesso_only",
+      "language": "en",
+      "kind": "selection",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors-selection-en",
+      "arm": "shuffled",
+      "language": "en",
+      "kind": "selection",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors-selection-en",
+      "arm": "nev_ranked",
+      "language": "en",
+      "kind": "selection",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors-selection-en",
+      "arm": "nev_gated",
+      "language": "en",
+      "kind": "selection",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors-selection-it",
+      "arm": "shuffled",
+      "language": "it",
+      "kind": "selection",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": "Wrong unit: says 68 C, tool returned 68 F.",
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors-selection-it",
+      "arm": "nev_ranked",
+      "language": "it",
+      "kind": "selection",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": "Wrong unit: says 68 C, tool returned 68 F.",
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors-selection-it",
+      "arm": "nev_gated",
+      "language": "it",
+      "kind": "selection",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": "Wrong unit: says 68 C, tool returned 68 F.",
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors-selection-it",
+      "arm": "nesso_only",
+      "language": "it",
+      "kind": "selection",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": "Wrong unit: says 68 C, tool returned 68 F.",
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors-dependent-en",
+      "arm": "nev_ranked",
+      "language": "en",
+      "kind": "dependent",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors-dependent-en",
+      "arm": "nev_gated",
+      "language": "en",
+      "kind": "dependent",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors-dependent-en",
+      "arm": "nesso_only",
+      "language": "en",
+      "kind": "dependent",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors-dependent-en",
+      "arm": "shuffled",
+      "language": "en",
+      "kind": "dependent",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors-dependent-it",
+      "arm": "nev_gated",
+      "language": "it",
+      "kind": "dependent",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors-dependent-it",
+      "arm": "nesso_only",
+      "language": "it",
+      "kind": "dependent",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors-dependent-it",
+      "arm": "shuffled",
+      "language": "it",
+      "kind": "dependent",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors-dependent-it",
+      "arm": "nev_ranked",
+      "language": "it",
+      "kind": "dependent",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors-parallel-en",
+      "arm": "nesso_only",
+      "language": "en",
+      "kind": "parallel",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors-parallel-en",
+      "arm": "shuffled",
+      "language": "en",
+      "kind": "parallel",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors-parallel-en",
+      "arm": "nev_ranked",
+      "language": "en",
+      "kind": "parallel",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors-parallel-en",
+      "arm": "nev_gated",
+      "language": "en",
+      "kind": "parallel",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors-parallel-it",
+      "arm": "shuffled",
+      "language": "it",
+      "kind": "parallel",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors-parallel-it",
+      "arm": "nev_ranked",
+      "language": "it",
+      "kind": "parallel",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors-parallel-it",
+      "arm": "nev_gated",
+      "language": "it",
+      "kind": "parallel",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors-parallel-it",
+      "arm": "nesso_only",
+      "language": "it",
+      "kind": "parallel",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors-missing-en",
+      "arm": "nev_ranked",
+      "language": "en",
+      "kind": "missing",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "asks usable identifier or title"
+    },
+    {
+      "id": "sensors-missing-en",
+      "arm": "nev_gated",
+      "language": "en",
+      "kind": "missing",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "asks usable identifier or title"
+    },
+    {
+      "id": "sensors-missing-en",
+      "arm": "nesso_only",
+      "language": "en",
+      "kind": "missing",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": false,
+      "handling_label": "irrelevant question"
+    },
+    {
+      "id": "sensors-missing-en",
+      "arm": "shuffled",
+      "language": "en",
+      "kind": "missing",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "asks usable identifier or title"
+    },
+    {
+      "id": "sensors-missing-it",
+      "arm": "nev_gated",
+      "language": "it",
+      "kind": "missing",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "asks usable identifier or title"
+    },
+    {
+      "id": "sensors-missing-it",
+      "arm": "nesso_only",
+      "language": "it",
+      "kind": "missing",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "asks usable identifier or title"
+    },
+    {
+      "id": "sensors-missing-it",
+      "arm": "shuffled",
+      "language": "it",
+      "kind": "missing",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "asks usable identifier or title"
+    },
+    {
+      "id": "sensors-missing-it",
+      "arm": "nev_ranked",
+      "language": "it",
+      "kind": "missing",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "asks usable identifier or title"
+    },
+    {
+      "id": "sensors-unsupported-en",
+      "arm": "nesso_only",
+      "language": "en",
+      "kind": "unsupported",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": false,
+      "handling_label": "false action-completed claim after rejected call"
+    },
+    {
+      "id": "sensors-unsupported-en",
+      "arm": "shuffled",
+      "language": "en",
+      "kind": "unsupported",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": false,
+      "handling_label": "unrelated read executed"
+    },
+    {
+      "id": "sensors-unsupported-en",
+      "arm": "nev_ranked",
+      "language": "en",
+      "kind": "unsupported",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": false,
+      "handling_label": "false action-completed claim after rejected call"
+    },
+    {
+      "id": "sensors-unsupported-en",
+      "arm": "nev_gated",
+      "language": "en",
+      "kind": "unsupported",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": false,
+      "handling_label": "false action-completed claim after rejected call"
+    },
+    {
+      "id": "sensors-unsupported-it",
+      "arm": "shuffled",
+      "language": "it",
+      "kind": "unsupported",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": false,
+      "handling_label": "unrelated read executed"
+    },
+    {
+      "id": "sensors-unsupported-it",
+      "arm": "nev_ranked",
+      "language": "it",
+      "kind": "unsupported",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": false,
+      "handling_label": "unsupported state claim after rejected call"
+    },
+    {
+      "id": "sensors-unsupported-it",
+      "arm": "nev_gated",
+      "language": "it",
+      "kind": "unsupported",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": false,
+      "handling_label": "unsupported state claim after rejected call"
+    },
+    {
+      "id": "sensors-unsupported-it",
+      "arm": "nesso_only",
+      "language": "it",
+      "kind": "unsupported",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": false,
+      "handling_label": "unsupported state claim after rejected call"
+    },
+    {
+      "id": "sensors-no_tool-en",
+      "arm": "nev_ranked",
+      "language": "en",
+      "kind": "no_tool",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": false,
+      "handling_label": "wrong arithmetic or irrelevant refusal"
+    },
+    {
+      "id": "sensors-no_tool-en",
+      "arm": "nev_gated",
+      "language": "en",
+      "kind": "no_tool",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": false,
+      "handling_label": "wrong arithmetic or irrelevant refusal"
+    },
+    {
+      "id": "sensors-no_tool-en",
+      "arm": "nesso_only",
+      "language": "en",
+      "kind": "no_tool",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": false,
+      "handling_label": "wrong arithmetic or irrelevant refusal"
+    },
+    {
+      "id": "sensors-no_tool-en",
+      "arm": "shuffled",
+      "language": "en",
+      "kind": "no_tool",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": false,
+      "handling_label": "wrong arithmetic or irrelevant refusal"
+    },
+    {
+      "id": "sensors-no_tool-it",
+      "arm": "nev_gated",
+      "language": "it",
+      "kind": "no_tool",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "correct arithmetic without tools"
+    },
+    {
+      "id": "sensors-no_tool-it",
+      "arm": "nesso_only",
+      "language": "it",
+      "kind": "no_tool",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "correct arithmetic without tools"
+    },
+    {
+      "id": "sensors-no_tool-it",
+      "arm": "shuffled",
+      "language": "it",
+      "kind": "no_tool",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "correct arithmetic without tools"
+    },
+    {
+      "id": "sensors-no_tool-it",
+      "arm": "nev_ranked",
+      "language": "it",
+      "kind": "no_tool",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "correct arithmetic without tools"
+    },
+    {
+      "id": "media-single-en",
+      "arm": "nesso_only",
+      "language": "en",
+      "kind": "single",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media-single-en",
+      "arm": "shuffled",
+      "language": "en",
+      "kind": "single",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media-single-en",
+      "arm": "nev_ranked",
+      "language": "en",
+      "kind": "single",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media-single-en",
+      "arm": "nev_gated",
+      "language": "en",
+      "kind": "single",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media-single-it",
+      "arm": "shuffled",
+      "language": "it",
+      "kind": "single",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media-single-it",
+      "arm": "nev_ranked",
+      "language": "it",
+      "kind": "single",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": "Artist Elio is presented as the track title, not the artist.",
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media-single-it",
+      "arm": "nev_gated",
+      "language": "it",
+      "kind": "single",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": "Artist Elio is presented as the track title, not the artist.",
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media-single-it",
+      "arm": "nesso_only",
+      "language": "it",
+      "kind": "single",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": "Artist Elio is presented as the track title, not the artist.",
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media-selection-en",
+      "arm": "nev_ranked",
+      "language": "en",
+      "kind": "selection",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media-selection-en",
+      "arm": "nev_gated",
+      "language": "en",
+      "kind": "selection",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media-selection-en",
+      "arm": "nesso_only",
+      "language": "en",
+      "kind": "selection",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media-selection-en",
+      "arm": "shuffled",
+      "language": "en",
+      "kind": "selection",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media-selection-it",
+      "arm": "nev_gated",
+      "language": "it",
+      "kind": "selection",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media-selection-it",
+      "arm": "nesso_only",
+      "language": "it",
+      "kind": "selection",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media-selection-it",
+      "arm": "shuffled",
+      "language": "it",
+      "kind": "selection",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media-selection-it",
+      "arm": "nev_ranked",
+      "language": "it",
+      "kind": "selection",
+      "renamed": false,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media-dependent-en",
+      "arm": "nesso_only",
+      "language": "en",
+      "kind": "dependent",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media-dependent-en",
+      "arm": "shuffled",
+      "language": "en",
+      "kind": "dependent",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media-dependent-en",
+      "arm": "nev_ranked",
+      "language": "en",
+      "kind": "dependent",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media-dependent-en",
+      "arm": "nev_gated",
+      "language": "en",
+      "kind": "dependent",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media-dependent-it",
+      "arm": "shuffled",
+      "language": "it",
+      "kind": "dependent",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media-dependent-it",
+      "arm": "nev_ranked",
+      "language": "it",
+      "kind": "dependent",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media-dependent-it",
+      "arm": "nev_gated",
+      "language": "it",
+      "kind": "dependent",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media-dependent-it",
+      "arm": "nesso_only",
+      "language": "it",
+      "kind": "dependent",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media-parallel-en",
+      "arm": "nev_ranked",
+      "language": "en",
+      "kind": "parallel",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media-parallel-en",
+      "arm": "nev_gated",
+      "language": "en",
+      "kind": "parallel",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media-parallel-en",
+      "arm": "nesso_only",
+      "language": "en",
+      "kind": "parallel",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media-parallel-en",
+      "arm": "shuffled",
+      "language": "en",
+      "kind": "parallel",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media-parallel-it",
+      "arm": "nev_gated",
+      "language": "it",
+      "kind": "parallel",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media-parallel-it",
+      "arm": "nesso_only",
+      "language": "it",
+      "kind": "parallel",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media-parallel-it",
+      "arm": "shuffled",
+      "language": "it",
+      "kind": "parallel",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media-parallel-it",
+      "arm": "nev_ranked",
+      "language": "it",
+      "kind": "parallel",
+      "renamed": false,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media-missing-en",
+      "arm": "nesso_only",
+      "language": "en",
+      "kind": "missing",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "asks usable identifier or title"
+    },
+    {
+      "id": "media-missing-en",
+      "arm": "shuffled",
+      "language": "en",
+      "kind": "missing",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "asks usable identifier or title"
+    },
+    {
+      "id": "media-missing-en",
+      "arm": "nev_ranked",
+      "language": "en",
+      "kind": "missing",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": false,
+      "handling_label": "invented track/format"
+    },
+    {
+      "id": "media-missing-en",
+      "arm": "nev_gated",
+      "language": "en",
+      "kind": "missing",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": false,
+      "handling_label": "invented track/format"
+    },
+    {
+      "id": "media-missing-it",
+      "arm": "shuffled",
+      "language": "it",
+      "kind": "missing",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "asks usable identifier or title"
+    },
+    {
+      "id": "media-missing-it",
+      "arm": "nev_ranked",
+      "language": "it",
+      "kind": "missing",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "asks usable identifier or title"
+    },
+    {
+      "id": "media-missing-it",
+      "arm": "nev_gated",
+      "language": "it",
+      "kind": "missing",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "asks usable identifier or title"
+    },
+    {
+      "id": "media-missing-it",
+      "arm": "nesso_only",
+      "language": "it",
+      "kind": "missing",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "asks usable identifier or title"
+    },
+    {
+      "id": "media-unsupported-en",
+      "arm": "nev_ranked",
+      "language": "en",
+      "kind": "unsupported",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": false,
+      "handling_label": "irrelevant or redundant clarification"
+    },
+    {
+      "id": "media-unsupported-en",
+      "arm": "nev_gated",
+      "language": "en",
+      "kind": "unsupported",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": false,
+      "handling_label": "irrelevant or redundant clarification"
+    },
+    {
+      "id": "media-unsupported-en",
+      "arm": "nesso_only",
+      "language": "en",
+      "kind": "unsupported",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": false,
+      "handling_label": "irrelevant or redundant clarification"
+    },
+    {
+      "id": "media-unsupported-en",
+      "arm": "shuffled",
+      "language": "en",
+      "kind": "unsupported",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": false,
+      "handling_label": "irrelevant or redundant clarification"
+    },
+    {
+      "id": "media-unsupported-it",
+      "arm": "nev_gated",
+      "language": "it",
+      "kind": "unsupported",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "clear capability refusal"
+    },
+    {
+      "id": "media-unsupported-it",
+      "arm": "nesso_only",
+      "language": "it",
+      "kind": "unsupported",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "clear capability refusal"
+    },
+    {
+      "id": "media-unsupported-it",
+      "arm": "shuffled",
+      "language": "it",
+      "kind": "unsupported",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "clear capability refusal"
+    },
+    {
+      "id": "media-unsupported-it",
+      "arm": "nev_ranked",
+      "language": "it",
+      "kind": "unsupported",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "clear capability refusal"
+    },
+    {
+      "id": "media-no_tool-en",
+      "arm": "nesso_only",
+      "language": "en",
+      "kind": "no_tool",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "correct arithmetic without tools"
+    },
+    {
+      "id": "media-no_tool-en",
+      "arm": "shuffled",
+      "language": "en",
+      "kind": "no_tool",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "correct arithmetic without tools"
+    },
+    {
+      "id": "media-no_tool-en",
+      "arm": "nev_ranked",
+      "language": "en",
+      "kind": "no_tool",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "correct arithmetic without tools"
+    },
+    {
+      "id": "media-no_tool-en",
+      "arm": "nev_gated",
+      "language": "en",
+      "kind": "no_tool",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "correct arithmetic without tools"
+    },
+    {
+      "id": "media-no_tool-it",
+      "arm": "shuffled",
+      "language": "it",
+      "kind": "no_tool",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "correct arithmetic without tools"
+    },
+    {
+      "id": "media-no_tool-it",
+      "arm": "nev_ranked",
+      "language": "it",
+      "kind": "no_tool",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "correct arithmetic without tools"
+    },
+    {
+      "id": "media-no_tool-it",
+      "arm": "nev_gated",
+      "language": "it",
+      "kind": "no_tool",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "correct arithmetic without tools"
+    },
+    {
+      "id": "media-no_tool-it",
+      "arm": "nesso_only",
+      "language": "it",
+      "kind": "no_tool",
+      "renamed": false,
+      "reviewed_completion": null,
+      "proxy_override": null,
+      "handling_pass": true,
+      "handling_label": "correct arithmetic without tools"
+    },
+    {
+      "id": "notes_renamed-single-en",
+      "arm": "nev_ranked",
+      "language": "en",
+      "kind": "single",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes_renamed-single-en",
+      "arm": "nev_gated",
+      "language": "en",
+      "kind": "single",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes_renamed-single-en",
+      "arm": "nesso_only",
+      "language": "en",
+      "kind": "single",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes_renamed-single-en",
+      "arm": "shuffled",
+      "language": "en",
+      "kind": "single",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes_renamed-single-it",
+      "arm": "nev_gated",
+      "language": "it",
+      "kind": "single",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes_renamed-single-it",
+      "arm": "nesso_only",
+      "language": "it",
+      "kind": "single",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes_renamed-single-it",
+      "arm": "shuffled",
+      "language": "it",
+      "kind": "single",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes_renamed-single-it",
+      "arm": "nev_ranked",
+      "language": "it",
+      "kind": "single",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes_renamed-dependent-en",
+      "arm": "nesso_only",
+      "language": "en",
+      "kind": "dependent",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes_renamed-dependent-en",
+      "arm": "shuffled",
+      "language": "en",
+      "kind": "dependent",
+      "renamed": true,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes_renamed-dependent-en",
+      "arm": "nev_ranked",
+      "language": "en",
+      "kind": "dependent",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes_renamed-dependent-en",
+      "arm": "nev_gated",
+      "language": "en",
+      "kind": "dependent",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes_renamed-dependent-it",
+      "arm": "shuffled",
+      "language": "it",
+      "kind": "dependent",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes_renamed-dependent-it",
+      "arm": "nev_ranked",
+      "language": "it",
+      "kind": "dependent",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes_renamed-dependent-it",
+      "arm": "nev_gated",
+      "language": "it",
+      "kind": "dependent",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "notes_renamed-dependent-it",
+      "arm": "nesso_only",
+      "language": "it",
+      "kind": "dependent",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors_renamed-single-en",
+      "arm": "nev_ranked",
+      "language": "en",
+      "kind": "single",
+      "renamed": true,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors_renamed-single-en",
+      "arm": "nev_gated",
+      "language": "en",
+      "kind": "single",
+      "renamed": true,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors_renamed-single-en",
+      "arm": "nesso_only",
+      "language": "en",
+      "kind": "single",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors_renamed-single-en",
+      "arm": "shuffled",
+      "language": "en",
+      "kind": "single",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors_renamed-single-it",
+      "arm": "nev_gated",
+      "language": "it",
+      "kind": "single",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors_renamed-single-it",
+      "arm": "nesso_only",
+      "language": "it",
+      "kind": "single",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors_renamed-single-it",
+      "arm": "shuffled",
+      "language": "it",
+      "kind": "single",
+      "renamed": true,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors_renamed-single-it",
+      "arm": "nev_ranked",
+      "language": "it",
+      "kind": "single",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors_renamed-dependent-en",
+      "arm": "nesso_only",
+      "language": "en",
+      "kind": "dependent",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors_renamed-dependent-en",
+      "arm": "shuffled",
+      "language": "en",
+      "kind": "dependent",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors_renamed-dependent-en",
+      "arm": "nev_ranked",
+      "language": "en",
+      "kind": "dependent",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors_renamed-dependent-en",
+      "arm": "nev_gated",
+      "language": "en",
+      "kind": "dependent",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors_renamed-dependent-it",
+      "arm": "shuffled",
+      "language": "it",
+      "kind": "dependent",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors_renamed-dependent-it",
+      "arm": "nev_ranked",
+      "language": "it",
+      "kind": "dependent",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors_renamed-dependent-it",
+      "arm": "nev_gated",
+      "language": "it",
+      "kind": "dependent",
+      "renamed": true,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "sensors_renamed-dependent-it",
+      "arm": "nesso_only",
+      "language": "it",
+      "kind": "dependent",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media_renamed-single-en",
+      "arm": "nev_ranked",
+      "language": "en",
+      "kind": "single",
+      "renamed": true,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media_renamed-single-en",
+      "arm": "nev_gated",
+      "language": "en",
+      "kind": "single",
+      "renamed": true,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media_renamed-single-en",
+      "arm": "nesso_only",
+      "language": "en",
+      "kind": "single",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media_renamed-single-en",
+      "arm": "shuffled",
+      "language": "en",
+      "kind": "single",
+      "renamed": true,
+      "reviewed_completion": true,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media_renamed-single-it",
+      "arm": "nev_gated",
+      "language": "it",
+      "kind": "single",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media_renamed-single-it",
+      "arm": "nesso_only",
+      "language": "it",
+      "kind": "single",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media_renamed-single-it",
+      "arm": "shuffled",
+      "language": "it",
+      "kind": "single",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media_renamed-single-it",
+      "arm": "nev_ranked",
+      "language": "it",
+      "kind": "single",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media_renamed-dependent-en",
+      "arm": "nesso_only",
+      "language": "en",
+      "kind": "dependent",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media_renamed-dependent-en",
+      "arm": "shuffled",
+      "language": "en",
+      "kind": "dependent",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media_renamed-dependent-en",
+      "arm": "nev_ranked",
+      "language": "en",
+      "kind": "dependent",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": "Calls and requested artist/duration are correct, but final answer falsely calls identifier T-3V8 the track title (request says Aster). Strict grounded completion fails.",
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media_renamed-dependent-en",
+      "arm": "nev_gated",
+      "language": "en",
+      "kind": "dependent",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": "Calls and requested artist/duration are correct, but final answer falsely calls identifier T-3V8 the track title (request says Aster). Strict grounded completion fails.",
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media_renamed-dependent-it",
+      "arm": "shuffled",
+      "language": "it",
+      "kind": "dependent",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media_renamed-dependent-it",
+      "arm": "nev_ranked",
+      "language": "it",
+      "kind": "dependent",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media_renamed-dependent-it",
+      "arm": "nev_gated",
+      "language": "it",
+      "kind": "dependent",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    },
+    {
+      "id": "media_renamed-dependent-it",
+      "arm": "nesso_only",
+      "language": "it",
+      "kind": "dependent",
+      "renamed": true,
+      "reviewed_completion": false,
+      "proxy_override": null,
+      "handling_pass": null,
+      "handling_label": null
+    }
+  ]
+}

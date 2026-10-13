@@ -346,6 +346,32 @@ models over a pure parser for these known forms. All tools remain simulations.
 The [workflow report](docs/nesso3/WORKFLOW_REPORT.md) describes the grammar,
 execution states, limits and evidence.
 
+### Try the domain-independent controller
+
+The separate `experiments/abstract_agent/` pilot removes the application grammar
+and answer templates. It accepts tool schemas at runtime: Nesso3 chooses calls,
+consumes observations and generates the final answer; Nev can rank tools or
+experimentally gate execution. The same controller handles notes, sensors and
+media fixtures, including lookup→read dependencies and opaque tool names.
+
+In the prepared A100 environment:
+
+```bash
+python -m pip install -r experiments/abstract_agent/requirements.txt
+python experiments/abstract_agent/demo.py --toolset sensors --language en \
+  --message 'Find the temperature sensor in Studio, then read its temperature.'
+python experiments/abstract_agent/demo.py --toolset sensors --language it \
+  --message 'Trova il sensore di temperatura in Studio, poi leggi la sua temperatura.'
+```
+
+Use `--arm nesso_only`, `shuffled`, `nev_ranked` (default), or `nev_gated` to
+compare behavior. Supply `--toolsets /path/to/custom.json --toolset name` to
+change tools without editing the engine. Tool descriptions and schemas still
+define what functions mean; the controller itself has no domain-specific rules.
+All tools are mocks. This experiment measures model behavior on the A100,
+not phone/laptop performance. The [protocol and source guide](experiments/abstract_agent/README.md)
+explain validation, reproducibility and deployment limits.
+
 
 ## 2. Run and evaluate on LUMI
 
@@ -589,6 +615,48 @@ showed concrete unsupported-action errors, including claiming an email was sent
 after only retrieving an invoice. Full comparison metrics and interpretation
 limits are in the [workflow report](docs/nesso3/WORKFLOW_REPORT.md), with
 [all 96 readable traces](docs/nesso3/WORKFLOW_TRACES.md).
+
+### Domain-independent function calling: 216-trial pilot
+
+The abstract controller received schemas at runtime for notes, sensors and media;
+it used no application grammar, gold plan, or answer template. We froze 54 paired
+requests (27 EN/27 IT) and ran four configurations. Cases included dependent
+lookup→read operations, missing arguments, unavailable actions and renamed tools.
+All tools were mocks and the models were unchanged.
+
+| Configuration | Exact executed plans, EN + IT | Reviewed complete answers EN | Reviewed complete answers IT |
+| --- | ---: | ---: | ---: |
+| Nesso3, original order | 16/36 | 5/18 (27.8%) | 4/18 (22.2%) |
+| Nesso3, shuffled order | 21/36 | 7/18 (38.9%) | 6/18 (33.3%) |
+| Nev-ranked → Nesso3 | 22/36 | 7/18 (38.9%) | 6/18 (33.3%) |
+| Nev ranking + execution gate | 22/36 | 7/18 (38.9%) | 6/18 (33.3%) |
+
+These denominators cover supported requests; missing-value, unsupported-action
+and no-tool cases are reported separately. Complete answers require correct
+execution and grounded final facts. An assistant review corrected nine raw
+keyword-score false positives: wrong temperature units and artist/ID values
+presented as track titles. This is a small authored pilot, not broad accuracy.
+
+Nev-ranked execution was correct on **12/12 original-name single-operation
+requests**, but only 8/12 final answers were complete and grounded. It completed
+2/6 original-name dependent requests and 1/6 parallel requests. One successful
+Italian trace was `find_sensor(room="Studio")` → returned ID `S-4J9` →
+`read_sensor(sensor_id="S-4J9")` → “La temperatura è 21.5°C.” Other traces confused
+titles with IDs, repeated calls, omitted fields, or falsely claimed an unavailable
+action had completed after schema validation rejected it.
+
+**Interpretation:** ranking improved exact execution over the original order,
+but complete answers tied shuffled order. The proposed gate blocked no calls and
+did not improve capability refusals. This supports more work on schema-driven
+function calling, not a claim of reliable general autonomous behavior.
+
+All 216 trials took 321 seconds. Nev-ranked median latency was 1.28 s EN / 1.30 s
+IT on the shared A100; peak PyTorch allocation was 2.53 GiB with Nesso BF16 and
+Nev FP32. These are not on-device measurements. No mobile runtime or quantization
+was tested. The [full abstract-agent report](docs/abstract-agent/REPORT.md)
+includes all comparisons, successful and failed examples, raw results and
+readable traces. Its next proposed experiment is a generic structured result and
+execution-status stage to reduce factual errors without adding domain templates.
 
 ### Nesso2 + Nev: historical first agent comparison
 
