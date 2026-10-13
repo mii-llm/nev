@@ -1,0 +1,7 @@
+Simulation: local mock tools
+User (en): Shipment ORD-4731; cancel order ORD-4731.
+Workflow route: unsupported
+
+Status: deferred
+This action is not supported by the available tools. No operation was executed.
+Elapsed: 0.00 s

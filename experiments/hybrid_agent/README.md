@@ -16,6 +16,21 @@ flowchart LR
     G --> A[Final response]
 ```
 
+## Merged bounded workflow
+
+`demo.py --policy workflow --arm nev_ranked` adds a full-match bilingual grammar,
+a complete preflight of one-to-four read steps, sequential execution and
+execution-free handling of unsupported or unrecognized requests. Existing
+policies and model weights are unchanged. This uses application planning and
+final templates; it is not a general autonomous planner. Every step must name
+its reference; conditional/output-dependent requests defer.
+
+The [workflow report](../../docs/nesso3/WORKFLOW_REPORT.md) includes EN/IT commands,
+all limits and the 96-record comparison. All 24 older single-read outputs were
+preserved, 8 new single reads and 12 multi-step reads completed, and all 16
+unsupported/out-of-scope requests ran no tool. These figures describe the
+finite grammar contract, not general-language accuracy.
+
 ## Single-read controller experiment
 
 `demo.py --policy single_read --arm nev_ranked` opts into a workflow where the

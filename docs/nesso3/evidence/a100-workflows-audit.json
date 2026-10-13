@@ -1,0 +1,160 @@
+{
+  "method": "Assistant read all new final outputs and compared calls/results. Old single outputs verified exactly against the previously audited single_read records. Not independent human/blinded grading. No original scores changed.",
+  "regression": [
+    {
+      "id": "simple_shipping/en",
+      "same_calls_and_final_as_single_read": true
+    },
+    {
+      "id": "simple_shipping/it",
+      "same_calls_and_final_as_single_read": true
+    },
+    {
+      "id": "simple_invoice/en",
+      "same_calls_and_final_as_single_read": true
+    },
+    {
+      "id": "simple_invoice/it",
+      "same_calls_and_final_as_single_read": true
+    },
+    {
+      "id": "simple_guide/en",
+      "same_calls_and_final_as_single_read": true
+    },
+    {
+      "id": "simple_guide/it",
+      "same_calls_and_final_as_single_read": true
+    },
+    {
+      "id": "simple_payments/en",
+      "same_calls_and_final_as_single_read": true
+    },
+    {
+      "id": "simple_payments/it",
+      "same_calls_and_final_as_single_read": true
+    },
+    {
+      "id": "fresh_shipping_a/en",
+      "same_calls_and_final_as_single_read": true
+    },
+    {
+      "id": "fresh_shipping_a/it",
+      "same_calls_and_final_as_single_read": true
+    },
+    {
+      "id": "fresh_shipping_b/en",
+      "same_calls_and_final_as_single_read": true
+    },
+    {
+      "id": "fresh_shipping_b/it",
+      "same_calls_and_final_as_single_read": true
+    },
+    {
+      "id": "fresh_invoice_a/en",
+      "same_calls_and_final_as_single_read": true
+    },
+    {
+      "id": "fresh_invoice_a/it",
+      "same_calls_and_final_as_single_read": true
+    },
+    {
+      "id": "fresh_invoice_b/en",
+      "same_calls_and_final_as_single_read": true
+    },
+    {
+      "id": "fresh_invoice_b/it",
+      "same_calls_and_final_as_single_read": true
+    },
+    {
+      "id": "fresh_guide_a/en",
+      "same_calls_and_final_as_single_read": true
+    },
+    {
+      "id": "fresh_guide_a/it",
+      "same_calls_and_final_as_single_read": true
+    },
+    {
+      "id": "fresh_guide_b/en",
+      "same_calls_and_final_as_single_read": true
+    },
+    {
+      "id": "fresh_guide_b/it",
+      "same_calls_and_final_as_single_read": true
+    },
+    {
+      "id": "fresh_payments_a/en",
+      "same_calls_and_final_as_single_read": true
+    },
+    {
+      "id": "fresh_payments_a/it",
+      "same_calls_and_final_as_single_read": true
+    },
+    {
+      "id": "fresh_payments_b/en",
+      "same_calls_and_final_as_single_read": true
+    },
+    {
+      "id": "fresh_payments_b/it",
+      "same_calls_and_final_as_single_read": true
+    }
+  ],
+  "observations": [
+    {
+      "id": "single_ship/it",
+      "variant": "baseline",
+      "note": "Final gives shipment status as requested. Fails the application full-summary check because it omits tracking, which the short user wording did not explicitly ask for. This is a possible semantic false negative."
+    },
+    {
+      "id": "single_invoice/it",
+      "variant": "baseline",
+      "note": "Anchor check passes but describes the invoice filename as a folder (cartella). Mechanical pass does not guarantee exact wording/factual presentation."
+    },
+    {
+      "id": "multi_two_orders/it",
+      "variant": "baseline",
+      "note": "Both shipment statuses are present, but tracking references required by the full-summary contract are omitted. The short request could reasonably be interpreted more narrowly."
+    },
+    {
+      "id": "multi_ship_invoice/it",
+      "variant": "baseline",
+      "note": "Invents shipment and receipt dates (15/05/2023, 20/05/2023), absent from observations."
+    },
+    {
+      "id": "multi_three/it",
+      "variant": "baseline",
+      "note": "Mixes product code into invoice identity and invents a receipt date."
+    },
+    {
+      "id": "multi_four/en",
+      "variant": "baseline",
+      "note": "Executes only an invoice lookup, treats a month as an order ID in final prose, and invents URLs."
+    },
+    {
+      "id": "unsupported_refund/en",
+      "variant": "baseline",
+      "note": "Claims a refund order was issued after only a shipment lookup. No refund tool exists."
+    },
+    {
+      "id": "unsupported_email/en",
+      "variant": "baseline",
+      "note": "Claims the invoice has been sent after only an invoice lookup. No email tool exists."
+    },
+    {
+      "id": "defer_unknown/en",
+      "variant": "baseline",
+      "note": "Returns an invoice for a receipt paraphrase. Workflow intentionally defers because that wording is outside the grammar; execution-free gate scores here measure application policy rather than generic answer quality."
+    },
+    {
+      "id": "defer_unknown/it",
+      "variant": "baseline",
+      "note": "Returns invoice filename for ricevuta wording. Same declared-grammar coverage tradeoff as English."
+    }
+  ],
+  "workflow_review": {
+    "supported_requests": 44,
+    "exact_plan_execution_and_full_template_answers": 44,
+    "negative_requests": 16,
+    "negative_requests_without_model_preflight_or_execution": 16
+  },
+  "interpretation": "Only finite grammar and mock tool interface tested. Baseline summary checks are not a general semantic accuracy score; omissions/ambiguity notes retained."
+}

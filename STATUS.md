@@ -26,3 +26,11 @@ facts without a second generation: 16/16 reviewed complete fresh answers vs
 generation (strict: 12/16 vs 9/16 and 9/16). Its scope must be established by the
 application; no general out-of-scope detector was built. All results and audit
 are in docs/nesso3; original default and evidence retained.
+
+An opt-in `workflow` entry point now adds a bounded bilingual grammar and
+preflights one-to-four explicitly referenced reads before sequential execution.
+All 24 single-read regression outputs matched; 8 new single reads and 12 new
+multi-step requests completed. All 16 unsupported/out-of-scope cases executed
+nothing. 96 total records and audit retained under docs/nesso3. Application code
+plans and formats answers; unrestricted phrasing, conditionals and result-driven
+arguments remain unsupported. No general planning or model-accuracy claim.

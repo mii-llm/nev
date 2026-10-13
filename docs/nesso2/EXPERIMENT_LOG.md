@@ -667,3 +667,22 @@ Fresh controller medians 0.734s EN / 0.760s IT, shared A100. 101.3s total; peak
 source hashes, 72 raw traces, readable traces and audit retained in docs/nesso3.
 Baseline reproduced every prior development call, error and final text. No
 training, model weight changes or confidence thresholds; baseline remains default.
+
+## 2026-10-13 — Merged bounded workflow
+
+Implemented a full-match EN/IT application grammar, whole-plan preflight using
+Nev and Nesso3, sequential mock execution and deterministic result summaries.
+Supports one-to-four explicit read operations; unsupported/unknown clauses
+stop the whole plan. Previous single_read and baseline implementations unchanged.
+Frozen 60 requests before inference: 24 regression, 8 new single, 12 multi,
+8 unsupported/mixed, 8 deferred. Workflow on 60 + original loop on 36 new = 96
+records. All 24 previous first generations/executions/finals exactly preserved;
+all 20 new supported workflows passed complete-summary checks; all 16 negative
+requests skipped models and execution. Application contract over known grammar,
+not broad language accuracy or evidence of models' value over deterministic
+parsing. Baseline summary metrics have semantic false negatives/positives noted
+in the audit. Clear baseline failures include invented dates/URLs and claiming
+refund/email actions after read-only lookups. Multi median 1.84s EN / 2.22s IT;
+133.3s comparison, 2568MiB peak allocated. All 16 boundary/scoring tests passed
+locally and remotely, including all-preflight-before-execute and tool failures.
+Evidence, source hashes, every readable trace and audit under docs/nesso3.

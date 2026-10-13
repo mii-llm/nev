@@ -299,6 +299,54 @@ plans, unsupported actions and unrestricted chat. The demo default remains
 `baseline`; selecting this endpoint is explicit. No model weights changed.
 
 
+
+### Unified single-read, multi-step and unsupported-request workflow
+
+`--policy workflow` adds one entry point above the previous single-read
+controller. It recognizes declared English/Italian request forms, builds an
+ordered plan, checks every step with Nev and Nesso3 before any execution, and
+then runs up to four reads sequentially. It uses the same validators and
+bilingual result templates. Unsupported or unmatched clauses stop the entire
+request. The earlier policies remain available and unchanged.
+
+```bash
+python experiments/hybrid_agent/demo.py --generator nesso3 --arm nev_ranked \
+  --policy workflow --format text --language it \
+  --message "Prima controlla la spedizione ORD-4731, poi recupera la fattura dell’ordine ORD-4731."
+```
+
+The workflow validates both proposed calls, executes shipment lookup followed
+by invoice lookup, and returns:
+
+> 1. Ordine ORD-4731: in transito. Riferimento di tracciamento: TRK-ORD-4731.
+> 2. La fattura dell’ordine ORD-4731 è invoice_ORD-4731.pdf.
+
+English works through the same entry point:
+
+```bash
+python experiments/hybrid_agent/demo.py --generator nesso3 --arm nev_ranked \
+  --policy workflow --format text --language en \
+  --message "First check shipment ORD-4731, then get the invoice for order ORD-4731."
+
+python experiments/hybrid_agent/demo.py --generator nesso3 --arm nev_ranked \
+  --policy workflow --format text --language en \
+  --message "Shipment ORD-4731; cancel order ORD-4731."
+```
+
+The second request returns “This action is not supported by the available tools.
+No operation was executed.” It performs neither lookup nor cancellation.
+
+**Scope:** the full request must match a finite bilingual grammar. Each step
+needs its own explicit reference. Conditional plans, pronouns, output-dependent
+arguments, unknown paraphrases and unsupported actions defer or refuse. The
+unsupported-word check can also refuse benign negations or phrases such as
+“send me the invoice”. The planner and final summaries are application code;
+this does not demonstrate general autonomous planning or the added value of
+models over a pure parser for these known forms. All tools remain simulations.
+The [workflow report](docs/nesso3/WORKFLOW_REPORT.md) describes the grammar,
+execution states, limits and evidence.
+
+
 ## 2. Run and evaluate on LUMI
 
 A ready copy of the examples and frozen runtime is staged in the existing project installation. After connecting to LUMI:
@@ -512,6 +560,35 @@ production reliability or an incremental gain from Nev. Nine boundary/scoring
 unit tests passed locally and on the A100. Full commands, failure patterns,
 limits and evidence are in the [controller report](docs/nesso3/CONTROLLER_REPORT.md),
 with [all readable traces](docs/nesso3/CONTROL_TRACES.md).
+
+### Merged workflow: regression and multi-step checks
+
+The new `workflow` entry point was checked on 60 EN/IT requests, including all
+24 earlier single-read cases. The original free loop also ran on the 36 new
+requests, producing 96 saved records in total.
+
+| Application-contract check | English | Italian |
+|---|---:|---:|
+| Earlier single-read outputs preserved | 12/12 | 12/12 |
+| New single reads completed | 4/4 | 4/4 |
+| New 2–4-step reads completed in order | 6/6 | 6/6 |
+| Unsupported/mixed requests refused without execution | 4/4 | 4/4 |
+| Missing/conditional/unknown/ambiguous requests deferred without execution | 4/4 | 4/4 |
+
+All earlier first-generation calls, executed calls and final answers matched the
+previous single-read run exactly. Warm median latency for new multi-step reads
+was 1.84 s EN / 2.22 s IT on the shared A100. All 16 boundary/scoring unit tests
+passed locally and remotely, including aborting preflight without partial
+execution and stopping after tool failures.
+
+These are results for a **declared grammar and mock tools**, not general model
+accuracy. New examples test that grammar; the earlier examples informed its
+design. The code constructs the plan and formats final facts. Unknown wording
+can defer even where a generative answer would be useful. The baseline also
+showed concrete unsupported-action errors, including claiming an email was sent
+after only retrieving an invoice. Full comparison metrics and interpretation
+limits are in the [workflow report](docs/nesso3/WORKFLOW_REPORT.md), with
+[all 96 readable traces](docs/nesso3/WORKFLOW_TRACES.md).
 
 ### Nesso2 + Nev: historical first agent comparison
 
