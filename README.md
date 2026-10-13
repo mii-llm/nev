@@ -215,33 +215,56 @@ from the user's text, generate arbitrary JSON or execute a function. Selecting
 `no_tool` is supported by the example but was not evaluated in this candidate
 set. Multi-step tool use and out-of-scope detection are not established here.
 
-### Try Nev with generative Nesso as one agent
+### Try Nev with generative Nesso3 as one agent
 
-The A100 also has a two-model prototype. It ranks tools with Nev, generates
-calls and responses with Nesso, and runs only **local simulated read-only tools**.
-The three-mode evaluation is reported below; this is an experimental agent,
-not a production service or unrestricted planner.
+The A100 prototype now uses **`giux78/nesso3-0.4B-agentic`** for generated calls
+and answers, with **Nev v3** ranking all four available tools. Python validates
+arguments and runs **local simulated read-only tools**. Nesso3 is pinned to
+`56f42f1c7eb82fbd48b0c4ee46aae7b8bed203b8`; Nev's weights are unchanged.
+The previous Nesso2 generator remains selectable with `--generator nesso2`.
+
+On the prepared A100, these commands print human-readable steps:
 
 ```bash
 source ~/nev-a100/activate-nev.sh
 cd ~/nev-a100/source
 
-python experiments/hybrid_agent/demo.py --arm nev_ranked --language it \
-  --message "Puoi controllare l’avanzamento della consegna per ORD-6101? Includi il riferimento di tracciamento."
+python experiments/hybrid_agent/demo.py --generator nesso3 --arm nev_ranked --format text --language it \
+  --message "Qual è lo stato della spedizione e il riferimento di tracciamento dell’ordine ORD-6101?"
 
-python experiments/hybrid_agent/demo.py --arm nev_ranked --language en \
-  --message "Can you check the delivery progress for ORD-6101? Please include the tracking reference."
+python experiments/hybrid_agent/demo.py --generator nesso3 --arm nev_ranked --format text --language en \
+  --message "What is the shipment status and tracking reference for order ORD-6101?"
 ```
 
-The output includes Nev's ranking, Nesso's generated calls, validation errors,
-simulated observations and the final response. Both examples selected
-`get_order_status` with `order_id="ORD-6101"` and returned the tracking reference
-`TRK-ORD-6101`. Use `--arm nesso_only` for the baseline; `--arm nev_top2` tests
-hard shortlisting, which performed worse overall in this pilot. Compact tool
-schemas are the default, with strict validation retained in application code.
-The prototype needs both pinned models cached and at least 8 GiB free GPU memory.
-CLI first-call latency includes warmup; the comparison timings exclude model
-loading and use a separate warmup.
+`nesso3` is the default generator. Omit `--format text` for full JSON traces.
+Use `--arm nesso_only` for the baseline. All tools remain available in
+`nev_ranked`; hard top-two filtering is not recommended from the earlier pilot.
+Both pinned models must be cached; the allocator is capped at 8 GiB and checks
+for that much free GPU memory. Loading is outside the recorded inference timing.
+
+**Successful Nesso3 + Nev examples, selected after inspecting all eight candidates:**
+
+| Language / task | Exact request | Generated call | Actual final response |
+|---|---|---|---|
+| EN / shipment | What is the shipment status and tracking reference for order ORD-6101? | `get_order_status(order_id="ORD-6101")` | The shipment status is "in transit", and the tracking reference is TRK-ORD-6101. |
+| IT / shipment | Qual è lo stato della spedizione e il riferimento di tracciamento dell’ordine ORD-6101? | `get_order_status(order_id="ORD-6101")` | Lo stato della spedizione è "in_transit" e il riferimento di tracciamento è "TRK-ORD-6101". |
+| EN / invoice | Get the invoice for order ORD-6101 and tell me the filename. | `get_invoice(order_id="ORD-6101")` | The invoice for order ORD-6101 is in "invoice_ORD-6101.pdf". |
+| IT / guide | Trova il riferimento della guida del prodotto PX-7. | `search_help_center(product="PX-7")` | Il riferimento della guida del prodotto PX-7 è GUIDE-PX-7. |
+
+For either shipment example the sequence is: Nev puts shipment lookup first →
+Nesso3 generates the call → the mock tool returns `in_transit` and
+`TRK-ORD-6101` → Nesso3 answers from that observation. These four runs passed
+without extra calls and took 1.12–1.41 seconds after warmup, including Nev, on
+a shared A100. Separate fresh-process shipment demos took 1.79 s EN / 2.05 s IT
+(excluding model loading, including first-inference warmup).
+
+All candidates, including failures, appear in the
+[readable step-by-step traces](docs/nesso3/SIMPLE_TRACES.md). This is a curated
+demonstration, not a general accuracy claim. The comparison is reported below.
+The adapter follows the compact tool contract in the
+[Nesso3 model card](https://huggingface.co/giux78/nesso3-0.4B-agentic) and
+[training report](https://github.com/mii-llm/zagreus-nesso-slm/tree/main/nesso3).
+
 
 ## 2. Run and evaluate on LUMI
 
@@ -401,7 +424,32 @@ observed failures on numeric thresholds, boolean policies, interacting rules,
 or unfamiliar large intent sets. The application should keep deterministic
 business rules separate from model-selected intent.
 
-### Nesso + Nev: first agent comparison
+### Nesso3 + Nev: simple example check
+
+Eight requests (four EN/IT pairs) were fixed before Nesso3 inference: shipment,
+invoice, product guide and payment total. Both modes used the same four compact
+schemas, mock observations, validators, greedy decoding and 192-token budget.
+
+| Mode | Strict checks EN /4 | Strict checks IT /4 | Median EN | Median IT |
+|---|---:|---:|---:|---:|
+| Nesso3 alone | 2 | 2 | 1.59 s | 1.39 s |
+| Nev-ranked → Nesso3 | 2 | 2 | 1.61 s | 1.56 s |
+
+The same four cases passed in both modes. This demonstrates working bilingual
+examples, with **no observed ranking benefit on this small set**. The Italian
+invoice answer had the correct filename but a duplicate call. English guide
+lookup looped into invalid order calls; payment requests also attempted
+unrelated calls with invented identifiers. All outputs are retained.
+
+Sixteen runs took 25.5 seconds after warmup and allocated at most 2.50 GiB GPU
+memory. Shared-GPU wall times include Nev routing in the ranked mode; they
+exclude model loading and real API latency. No weights were changed. This
+simpler set differs from the historical 80-request pilot: do not compare its
+pass fraction with the Nesso2 table as a model improvement. Nesso2 was not rerun
+on these eight prompts. See the runnable recipe in `experiments/hybrid_agent/`
+and complete evidence in `docs/nesso3/`.
+
+### Nesso2 + Nev: historical first agent comparison
 
 A runnable prototype combines generative
 `giux78/nesso2-0.4B-agentic-v2` with Nev v3. Nev ranks four available tools;

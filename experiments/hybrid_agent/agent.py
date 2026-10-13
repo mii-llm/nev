@@ -4,8 +4,11 @@ import re
 from pathlib import Path
 import time
 
-GENERATOR_REPO = 'giux78/nesso2-0.4B-agentic-v2'
-GENERATOR_REVISION = 'dc74c2f5ec3330d3e22d697078646b547669da1a'
+GENERATORS = {
+    'nesso3': ('giux78/nesso3-0.4B-agentic', '56f42f1c7eb82fbd48b0c4ee46aae7b8bed203b8'),
+    'nesso2': ('giux78/nesso2-0.4B-agentic-v2', 'dc74c2f5ec3330d3e22d697078646b547669da1a'),
+}
+GENERATOR_REPO, GENERATOR_REVISION = GENERATORS['nesso3']
 NEV_REPO = 'giux78/nev'
 NEV_REVISION = 'c5c84121263b423f8846811a24790ab96e66cee3'
 ARMS = ['nesso_only', 'nev_ranked', 'nev_top2']
@@ -96,13 +99,14 @@ def mock_tool(call):
 
 
 class HybridAgent:
-    def __init__(self, memory_cap_gib=8, schema_style='compact'):
+    def __init__(self, memory_cap_gib=8, schema_style='compact', generator='nesso3'):
         import torch
         from transformers import AutoModelForCausalLM, AutoTokenizer
         from huggingface_hub import snapshot_download
         from decision_model import DecisionModel
         self.torch = torch
         self.schema_style = schema_style
+        self.generator_repo, self.generator_revision = GENERATORS[generator]
         if not torch.cuda.is_available():
             raise RuntimeError('The A100 pilot requires CUDA')
         free, total = torch.cuda.mem_get_info()
@@ -110,7 +114,7 @@ class HybridAgent:
         if free < cap:
             raise RuntimeError(f'Need {memory_cap_gib} GiB free GPU memory')
         torch.cuda.set_per_process_memory_fraction(min(cap / total, 1.0))
-        generator_path = snapshot_download(GENERATOR_REPO, revision=GENERATOR_REVISION,
+        generator_path = snapshot_download(self.generator_repo, revision=self.generator_revision,
             allow_patterns=['*.json', '*.safetensors', '*.jinja', 'tokenizer.model'], local_files_only=True)
         nev_path = Path(snapshot_download(NEV_REPO, revision=NEV_REVISION,
                             allow_patterns=['v3/**'], local_files_only=True)) / 'v3'

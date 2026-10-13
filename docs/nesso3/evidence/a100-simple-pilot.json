@@ -1,0 +1,2094 @@
+{
+  "status": "complete",
+  "scope": "Eight authored simple demonstration requests, four English/Italian pairs. Frozen before Nesso3 inference. Not a held-out benchmark; all candidate outputs retained.",
+  "scoring": "Same strict mechanical call-sequence and answer-anchor checks as the historical pilot; manual review required.",
+  "generator": {
+    "repository": "giux78/nesso3-0.4B-agentic",
+    "revision": "56f42f1c7eb82fbd48b0c4ee46aae7b8bed203b8",
+    "precision": "bf16"
+  },
+  "nev": {
+    "repository": "giux78/nev",
+    "revision": "c5c84121263b423f8846811a24790ab96e66cee3",
+    "variant": "v3",
+    "precision": "fp32"
+  },
+  "cases_sha256": "7f56ac20e8589e569d65bc7825702b27cad64c2bd790f4fefe6352456a8d478d",
+  "source_sha256": {
+    "agent.py": "d35d1fd5a6e7990ab9784bfb88689396c8be75a8d6bf413f8283fdbf2c668d95",
+    "run_pilot.py": "12b308c8ad38ba90030b5588286a068c7d1bebb34bb8ac7dc8cc5fbc556e3317"
+  },
+  "tool_schemas": {
+    "en": [
+      {
+        "type": "function",
+        "function": {
+          "name": "get_order_status",
+          "description": "Look up shipment status and tracking reference for an order.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "order_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "order_id"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "get_invoice",
+          "description": "Retrieve the invoice document and filename for an order.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "order_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "order_id"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "search_help_center",
+          "description": "Find the documentation and guide reference for a product model.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "product": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "product"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "list_transactions",
+          "description": "List recorded payments and their total for a month in YYYY-MM format.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "month": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "month"
+            ]
+          }
+        }
+      }
+    ],
+    "it": [
+      {
+        "type": "function",
+        "function": {
+          "name": "get_order_status",
+          "description": "Consulta lo stato della spedizione e il riferimento di tracciamento di un ordine.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "order_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "order_id"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "get_invoice",
+          "description": "Recupera il documento della fattura e il nome del file di un ordine.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "order_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "order_id"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "search_help_center",
+          "description": "Trova la documentazione e il riferimento della guida di un modello di prodotto.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "product": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "product"
+            ]
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "list_transactions",
+          "description": "Elenca i pagamenti registrati e il totale di un mese nel formato AAAA-MM.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "month": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "month"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "python": "3.12.13",
+  "settings": {
+    "max_new_tokens_per_turn": 192,
+    "max_tool_rounds": 3,
+    "greedy": true,
+    "memory_cap_gib": 8,
+    "schema_style": "compact",
+    "arms": [
+      "nesso_only",
+      "nev_ranked"
+    ],
+    "arm_order_seed": 20261012,
+    "shortlist_size": 2,
+    "timing": "Resident models, shared GPU, synchronized wall clock; mock tool overhead only. Nev rank is computed once per case and its measured cost attributed to each hybrid arm."
+  },
+  "gpu_samples": [
+    "NVIDIA A100 80GB PCIe, 39555, 99",
+    "NVIDIA A100 80GB PCIe, 42634, 100",
+    "NVIDIA A100 80GB PCIe, 42650, 100"
+  ],
+  "rows": [
+    {
+      "id": "simple_shipping/en",
+      "pair": "simple_shipping",
+      "category": "single",
+      "language": "en",
+      "message": "What is the shipment status and tracking reference for order ORD-6101?",
+      "arm": "nesso_only",
+      "available_tools": [
+        "get_order_status",
+        "get_invoice",
+        "search_help_center",
+        "list_transactions"
+      ],
+      "ranking": null,
+      "emitted_calls": [
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-6101"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "get_order_status",
+            "arguments": {
+              "order_id": "ORD-6101"
+            }
+          }
+        }
+      ],
+      "errors": [],
+      "final": "The shipment status is \"in transit\", and the tracking reference is TRK-ORD-6101.",
+      "trace": [
+        {
+          "turn": 0,
+          "assistant": "<tool_call>\n{\"name\": \"get_order_status\", \"arguments\": {\"order_id\": \"ORD-6101\"}}\n</tool_call>",
+          "generated_tokens": 30,
+          "calls": [
+            {
+              "name": "get_order_status",
+              "arguments": {
+                "order_id": "ORD-6101"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": [
+            {
+              "call": {
+                "name": "get_order_status",
+                "arguments": {
+                  "order_id": "ORD-6101"
+                }
+              },
+              "result": {
+                "order_id": "ORD-6101",
+                "status": "in_transit",
+                "tracking_reference": "TRK-ORD-6101"
+              }
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "assistant": "The shipment status is \"in transit\", and the tracking reference is TRK-ORD-6101.",
+          "generated_tokens": 22,
+          "calls": [],
+          "parse_error": null,
+          "observations": []
+        }
+      ],
+      "generated_tokens": 52,
+      "truncated": false,
+      "generator_and_controller_ms": 1176.1859599500895,
+      "route_ms": 0,
+      "total_ms": 1176.1859599500895,
+      "score": {
+        "calls_exact": true,
+        "sequential": true,
+        "answer_anchors_pass": true,
+        "behavior_heuristic_pass": true,
+        "strict_mechanical_pass": true,
+        "required_tools_available": true
+      }
+    },
+    {
+      "id": "simple_shipping/en",
+      "pair": "simple_shipping",
+      "category": "single",
+      "language": "en",
+      "message": "What is the shipment status and tracking reference for order ORD-6101?",
+      "arm": "nev_ranked",
+      "available_tools": [
+        "get_order_status",
+        "search_help_center",
+        "get_invoice",
+        "list_transactions"
+      ],
+      "ranking": {
+        "names": [
+          "get_order_status",
+          "search_help_center",
+          "get_invoice",
+          "list_transactions"
+        ],
+        "probabilities": {
+          "get_order_status": 0.9995249509811401,
+          "get_invoice": 1.5260648069670424e-05,
+          "search_help_center": 0.00045951822539791465,
+          "list_transactions": 2.3046648323088448e-07
+        },
+        "elapsed_ms": 64.13040962070227
+      },
+      "emitted_calls": [
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-6101"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "get_order_status",
+            "arguments": {
+              "order_id": "ORD-6101"
+            }
+          }
+        }
+      ],
+      "errors": [],
+      "final": "The shipment status is \"in transit\", and the tracking reference is TRK-ORD-6101.",
+      "trace": [
+        {
+          "turn": 0,
+          "assistant": "<tool_call>\n{\"name\": \"get_order_status\", \"arguments\": {\"order_id\": \"ORD-6101\"}}\n</tool_call>",
+          "generated_tokens": 30,
+          "calls": [
+            {
+              "name": "get_order_status",
+              "arguments": {
+                "order_id": "ORD-6101"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": [
+            {
+              "call": {
+                "name": "get_order_status",
+                "arguments": {
+                  "order_id": "ORD-6101"
+                }
+              },
+              "result": {
+                "order_id": "ORD-6101",
+                "status": "in_transit",
+                "tracking_reference": "TRK-ORD-6101"
+              }
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "assistant": "The shipment status is \"in transit\", and the tracking reference is TRK-ORD-6101.",
+          "generated_tokens": 22,
+          "calls": [],
+          "parse_error": null,
+          "observations": []
+        }
+      ],
+      "generated_tokens": 52,
+      "truncated": false,
+      "generator_and_controller_ms": 1153.23606133461,
+      "route_ms": 64.13040962070227,
+      "total_ms": 1217.3664709553123,
+      "score": {
+        "calls_exact": true,
+        "sequential": true,
+        "answer_anchors_pass": true,
+        "behavior_heuristic_pass": true,
+        "strict_mechanical_pass": true,
+        "required_tools_available": true
+      }
+    },
+    {
+      "id": "simple_shipping/it",
+      "pair": "simple_shipping",
+      "category": "single",
+      "language": "it",
+      "message": "Qual è lo stato della spedizione e il riferimento di tracciamento dell’ordine ORD-6101?",
+      "arm": "nev_ranked",
+      "available_tools": [
+        "get_order_status",
+        "search_help_center",
+        "get_invoice",
+        "list_transactions"
+      ],
+      "ranking": {
+        "names": [
+          "get_order_status",
+          "search_help_center",
+          "get_invoice",
+          "list_transactions"
+        ],
+        "probabilities": {
+          "get_order_status": 0.9995941519737244,
+          "get_invoice": 1.2953094483236782e-05,
+          "search_help_center": 0.000392583548091352,
+          "list_transactions": 3.210495833627647e-07
+        },
+        "elapsed_ms": 72.6919723674655
+      },
+      "emitted_calls": [
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-6101"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "get_order_status",
+            "arguments": {
+              "order_id": "ORD-6101"
+            }
+          }
+        }
+      ],
+      "errors": [],
+      "final": "Lo stato della spedizione è \"in_transit\" e il riferimento di tracciamento è \"TRK-ORD-6101\".",
+      "trace": [
+        {
+          "turn": 0,
+          "assistant": "<tool_call>\n{\"name\": \"get_order_status\", \"arguments\": {\"order_id\": \"ORD-6101\"}}\n</tool_call>",
+          "generated_tokens": 30,
+          "calls": [
+            {
+              "name": "get_order_status",
+              "arguments": {
+                "order_id": "ORD-6101"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": [
+            {
+              "call": {
+                "name": "get_order_status",
+                "arguments": {
+                  "order_id": "ORD-6101"
+                }
+              },
+              "result": {
+                "order_id": "ORD-6101",
+                "status": "in_transit",
+                "tracking_reference": "TRK-ORD-6101"
+              }
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "assistant": "Lo stato della spedizione è \"in_transit\" e il riferimento di tracciamento è \"TRK-ORD-6101\".",
+          "generated_tokens": 31,
+          "calls": [],
+          "parse_error": null,
+          "observations": []
+        }
+      ],
+      "generated_tokens": 61,
+      "truncated": false,
+      "generator_and_controller_ms": 1339.5784255117178,
+      "route_ms": 72.6919723674655,
+      "total_ms": 1412.2703978791833,
+      "score": {
+        "calls_exact": true,
+        "sequential": true,
+        "answer_anchors_pass": true,
+        "behavior_heuristic_pass": true,
+        "strict_mechanical_pass": true,
+        "required_tools_available": true
+      }
+    },
+    {
+      "id": "simple_shipping/it",
+      "pair": "simple_shipping",
+      "category": "single",
+      "language": "it",
+      "message": "Qual è lo stato della spedizione e il riferimento di tracciamento dell’ordine ORD-6101?",
+      "arm": "nesso_only",
+      "available_tools": [
+        "get_order_status",
+        "get_invoice",
+        "search_help_center",
+        "list_transactions"
+      ],
+      "ranking": null,
+      "emitted_calls": [
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "ORD-6101"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "get_order_status",
+            "arguments": {
+              "order_id": "ORD-6101"
+            }
+          }
+        }
+      ],
+      "errors": [],
+      "final": "Lo stato della spedizione è \"in_transit\" e il riferimento di tracciamento è \"TRK-ORD-6101\".",
+      "trace": [
+        {
+          "turn": 0,
+          "assistant": "<tool_call>\n{\"name\": \"get_order_status\", \"arguments\": {\"order_id\": \"ORD-6101\"}}\n</tool_call>",
+          "generated_tokens": 30,
+          "calls": [
+            {
+              "name": "get_order_status",
+              "arguments": {
+                "order_id": "ORD-6101"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": [
+            {
+              "call": {
+                "name": "get_order_status",
+                "arguments": {
+                  "order_id": "ORD-6101"
+                }
+              },
+              "result": {
+                "order_id": "ORD-6101",
+                "status": "in_transit",
+                "tracking_reference": "TRK-ORD-6101"
+              }
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "assistant": "Lo stato della spedizione è \"in_transit\" e il riferimento di tracciamento è \"TRK-ORD-6101\".",
+          "generated_tokens": 31,
+          "calls": [],
+          "parse_error": null,
+          "observations": []
+        }
+      ],
+      "generated_tokens": 61,
+      "truncated": false,
+      "generator_and_controller_ms": 1334.6198657527566,
+      "route_ms": 0,
+      "total_ms": 1334.6198657527566,
+      "score": {
+        "calls_exact": true,
+        "sequential": true,
+        "answer_anchors_pass": true,
+        "behavior_heuristic_pass": true,
+        "strict_mechanical_pass": true,
+        "required_tools_available": true
+      }
+    },
+    {
+      "id": "simple_invoice/en",
+      "pair": "simple_invoice",
+      "category": "single",
+      "language": "en",
+      "message": "Get the invoice for order ORD-6101 and tell me the filename.",
+      "arm": "nesso_only",
+      "available_tools": [
+        "get_order_status",
+        "get_invoice",
+        "search_help_center",
+        "list_transactions"
+      ],
+      "ranking": null,
+      "emitted_calls": [
+        {
+          "name": "get_invoice",
+          "arguments": {
+            "order_id": "ORD-6101"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "get_invoice",
+            "arguments": {
+              "order_id": "ORD-6101"
+            }
+          }
+        }
+      ],
+      "errors": [],
+      "final": "The invoice for order ORD-6101 is in \"invoice_ORD-6101.pdf\".",
+      "trace": [
+        {
+          "turn": 0,
+          "assistant": "<tool_call>\n{\"name\": \"get_invoice\", \"arguments\": {\"order_id\": \"ORD-6101\"}}\n</tool_call>",
+          "generated_tokens": 29,
+          "calls": [
+            {
+              "name": "get_invoice",
+              "arguments": {
+                "order_id": "ORD-6101"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": [
+            {
+              "call": {
+                "name": "get_invoice",
+                "arguments": {
+                  "order_id": "ORD-6101"
+                }
+              },
+              "result": {
+                "order_id": "ORD-6101",
+                "filename": "invoice_ORD-6101.pdf"
+              }
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "assistant": "The invoice for order ORD-6101 is in \"invoice_ORD-6101.pdf\".",
+          "generated_tokens": 19,
+          "calls": [],
+          "parse_error": null,
+          "observations": []
+        }
+      ],
+      "generated_tokens": 48,
+      "truncated": false,
+      "generator_and_controller_ms": 1052.5061562657356,
+      "route_ms": 0,
+      "total_ms": 1052.5061562657356,
+      "score": {
+        "calls_exact": true,
+        "sequential": true,
+        "answer_anchors_pass": true,
+        "behavior_heuristic_pass": true,
+        "strict_mechanical_pass": true,
+        "required_tools_available": true
+      }
+    },
+    {
+      "id": "simple_invoice/en",
+      "pair": "simple_invoice",
+      "category": "single",
+      "language": "en",
+      "message": "Get the invoice for order ORD-6101 and tell me the filename.",
+      "arm": "nev_ranked",
+      "available_tools": [
+        "get_invoice",
+        "search_help_center",
+        "get_order_status",
+        "list_transactions"
+      ],
+      "ranking": {
+        "names": [
+          "get_invoice",
+          "search_help_center",
+          "get_order_status",
+          "list_transactions"
+        ],
+        "probabilities": {
+          "get_order_status": 2.313944605703e-05,
+          "get_invoice": 0.9996857643127441,
+          "search_help_center": 0.000291012111119926,
+          "list_transactions": 6.004007957471913e-08
+        },
+        "elapsed_ms": 65.37048798054457
+      },
+      "emitted_calls": [
+        {
+          "name": "get_invoice",
+          "arguments": {
+            "order_id": "ORD-6101"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "get_invoice",
+            "arguments": {
+              "order_id": "ORD-6101"
+            }
+          }
+        }
+      ],
+      "errors": [],
+      "final": "The invoice for order ORD-6101 is in \"invoice_ORD-6101.pdf\".",
+      "trace": [
+        {
+          "turn": 0,
+          "assistant": "<tool_call>\n{\"name\": \"get_invoice\", \"arguments\": {\"order_id\": \"ORD-6101\"}}\n</tool_call>",
+          "generated_tokens": 29,
+          "calls": [
+            {
+              "name": "get_invoice",
+              "arguments": {
+                "order_id": "ORD-6101"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": [
+            {
+              "call": {
+                "name": "get_invoice",
+                "arguments": {
+                  "order_id": "ORD-6101"
+                }
+              },
+              "result": {
+                "order_id": "ORD-6101",
+                "filename": "invoice_ORD-6101.pdf"
+              }
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "assistant": "The invoice for order ORD-6101 is in \"invoice_ORD-6101.pdf\".",
+          "generated_tokens": 19,
+          "calls": [],
+          "parse_error": null,
+          "observations": []
+        }
+      ],
+      "generated_tokens": 48,
+      "truncated": false,
+      "generator_and_controller_ms": 1051.5141477808356,
+      "route_ms": 65.37048798054457,
+      "total_ms": 1116.8846357613802,
+      "score": {
+        "calls_exact": true,
+        "sequential": true,
+        "answer_anchors_pass": true,
+        "behavior_heuristic_pass": true,
+        "strict_mechanical_pass": true,
+        "required_tools_available": true
+      }
+    },
+    {
+      "id": "simple_invoice/it",
+      "pair": "simple_invoice",
+      "category": "single",
+      "language": "it",
+      "message": "Recupera la fattura dell’ordine ORD-6101 e dimmi il nome del file.",
+      "arm": "nev_ranked",
+      "available_tools": [
+        "get_invoice",
+        "search_help_center",
+        "get_order_status",
+        "list_transactions"
+      ],
+      "ranking": {
+        "names": [
+          "get_invoice",
+          "search_help_center",
+          "get_order_status",
+          "list_transactions"
+        ],
+        "probabilities": {
+          "get_order_status": 0.00029116470250301063,
+          "get_invoice": 0.962827742099762,
+          "search_help_center": 0.03688082844018936,
+          "list_transactions": 2.298024242008978e-07
+        },
+        "elapsed_ms": 70.06463967263699
+      },
+      "emitted_calls": [
+        {
+          "name": "get_invoice",
+          "arguments": {
+            "order_id": "ORD-6101"
+          }
+        },
+        {
+          "name": "get_invoice",
+          "arguments": {
+            "order_id": "ORD-6101"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "get_invoice",
+            "arguments": {
+              "order_id": "ORD-6101"
+            }
+          }
+        }
+      ],
+      "errors": [
+        "duplicate_call"
+      ],
+      "final": "L'ordine è ORD-6101. Il nome del file è invoice_ORD-6101.pdf.",
+      "trace": [
+        {
+          "turn": 0,
+          "assistant": "<tool_call>\n{\"name\": \"get_invoice\", \"arguments\": {\"order_id\": \"ORD-6101\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_invoice\", \"arguments\": {\"order_id\": \"ORD-6101\"}}\n</tool_call>",
+          "generated_tokens": 57,
+          "calls": [
+            {
+              "name": "get_invoice",
+              "arguments": {
+                "order_id": "ORD-6101"
+              }
+            },
+            {
+              "name": "get_invoice",
+              "arguments": {
+                "order_id": "ORD-6101"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": [
+            {
+              "call": {
+                "name": "get_invoice",
+                "arguments": {
+                  "order_id": "ORD-6101"
+                }
+              },
+              "result": {
+                "order_id": "ORD-6101",
+                "filename": "invoice_ORD-6101.pdf"
+              }
+            },
+            {
+              "call": {
+                "name": "get_invoice",
+                "arguments": {
+                  "order_id": "ORD-6101"
+                }
+              },
+              "result": {
+                "error": "duplicate_call"
+              }
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "assistant": "L'ordine è ORD-6101. Il nome del file è invoice_ORD-6101.pdf.",
+          "generated_tokens": 23,
+          "calls": [],
+          "parse_error": null,
+          "observations": []
+        }
+      ],
+      "generated_tokens": 80,
+      "truncated": false,
+      "generator_and_controller_ms": 1776.2857591733336,
+      "route_ms": 70.06463967263699,
+      "total_ms": 1846.3503988459706,
+      "score": {
+        "calls_exact": false,
+        "sequential": true,
+        "answer_anchors_pass": true,
+        "behavior_heuristic_pass": true,
+        "strict_mechanical_pass": false,
+        "required_tools_available": true
+      }
+    },
+    {
+      "id": "simple_invoice/it",
+      "pair": "simple_invoice",
+      "category": "single",
+      "language": "it",
+      "message": "Recupera la fattura dell’ordine ORD-6101 e dimmi il nome del file.",
+      "arm": "nesso_only",
+      "available_tools": [
+        "get_order_status",
+        "get_invoice",
+        "search_help_center",
+        "list_transactions"
+      ],
+      "ranking": null,
+      "emitted_calls": [
+        {
+          "name": "get_invoice",
+          "arguments": {
+            "order_id": "ORD-6101"
+          }
+        },
+        {
+          "name": "get_invoice",
+          "arguments": {
+            "order_id": "ORD-6101"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "get_invoice",
+            "arguments": {
+              "order_id": "ORD-6101"
+            }
+          }
+        }
+      ],
+      "errors": [
+        "duplicate_call"
+      ],
+      "final": "Mi dispiace, non posso recuperare la fattura dell'ordine. Potresti fornirmi l'ordine corretto?",
+      "trace": [
+        {
+          "turn": 0,
+          "assistant": "<tool_call>\n{\"name\": \"get_invoice\", \"arguments\": {\"order_id\": \"ORD-6101\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_invoice\", \"arguments\": {\"order_id\": \"ORD-6101\"}}\n</tool_call>",
+          "generated_tokens": 57,
+          "calls": [
+            {
+              "name": "get_invoice",
+              "arguments": {
+                "order_id": "ORD-6101"
+              }
+            },
+            {
+              "name": "get_invoice",
+              "arguments": {
+                "order_id": "ORD-6101"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": [
+            {
+              "call": {
+                "name": "get_invoice",
+                "arguments": {
+                  "order_id": "ORD-6101"
+                }
+              },
+              "result": {
+                "order_id": "ORD-6101",
+                "filename": "invoice_ORD-6101.pdf"
+              }
+            },
+            {
+              "call": {
+                "name": "get_invoice",
+                "arguments": {
+                  "order_id": "ORD-6101"
+                }
+              },
+              "result": {
+                "error": "duplicate_call"
+              }
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "assistant": "Mi dispiace, non posso recuperare la fattura dell'ordine. Potresti fornirmi l'ordine corretto?",
+          "generated_tokens": 33,
+          "calls": [],
+          "parse_error": null,
+          "observations": []
+        }
+      ],
+      "generated_tokens": 90,
+      "truncated": false,
+      "generator_and_controller_ms": 1982.9194182530046,
+      "route_ms": 0,
+      "total_ms": 1982.9194182530046,
+      "score": {
+        "calls_exact": false,
+        "sequential": true,
+        "answer_anchors_pass": false,
+        "behavior_heuristic_pass": true,
+        "strict_mechanical_pass": false,
+        "required_tools_available": true
+      }
+    },
+    {
+      "id": "simple_guide/en",
+      "pair": "simple_guide",
+      "category": "single",
+      "language": "en",
+      "message": "Find the guide reference for product PX-7.",
+      "arm": "nesso_only",
+      "available_tools": [
+        "get_order_status",
+        "get_invoice",
+        "search_help_center",
+        "list_transactions"
+      ],
+      "ranking": null,
+      "emitted_calls": [
+        {
+          "name": "search_help_center",
+          "arguments": {
+            "product": "PX-7"
+          }
+        },
+        {
+          "name": "list_transactions",
+          "arguments": {
+            "month": "2023"
+          }
+        },
+        {
+          "name": "list_transactions",
+          "arguments": {
+            "month": "2023"
+          }
+        },
+        {
+          "name": "list_transactions",
+          "arguments": {
+            "month": "2023"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "search_help_center",
+            "arguments": {
+              "product": "PX-7"
+            }
+          }
+        }
+      ],
+      "errors": [
+        "invalid_argument_value",
+        "invalid_argument_value",
+        "tool_round_limit"
+      ],
+      "final": "",
+      "trace": [
+        {
+          "turn": 0,
+          "assistant": "<tool_call>\n{\"name\": \"search_help_center\", \"arguments\": {\"product\": \"PX-7\"}}\n</tool_call>",
+          "generated_tokens": 28,
+          "calls": [
+            {
+              "name": "search_help_center",
+              "arguments": {
+                "product": "PX-7"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": [
+            {
+              "call": {
+                "name": "search_help_center",
+                "arguments": {
+                  "product": "PX-7"
+                }
+              },
+              "result": {
+                "product": "PX-7",
+                "guide_reference": "GUIDE-PX-7"
+              }
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "assistant": "<tool_call>\n{\"name\": \"list_transactions\", \"arguments\": {\"month\": \"2023\"}}\n</tool_call>",
+          "generated_tokens": 26,
+          "calls": [
+            {
+              "name": "list_transactions",
+              "arguments": {
+                "month": "2023"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": [
+            {
+              "call": {
+                "name": "list_transactions",
+                "arguments": {
+                  "month": "2023"
+                }
+              },
+              "result": {
+                "error": "invalid_argument_value"
+              }
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "assistant": "<tool_call>\n{\"name\": \"list_transactions\", \"arguments\": {\"month\": \"2023\"}}\n</tool_call>",
+          "generated_tokens": 26,
+          "calls": [
+            {
+              "name": "list_transactions",
+              "arguments": {
+                "month": "2023"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": [
+            {
+              "call": {
+                "name": "list_transactions",
+                "arguments": {
+                  "month": "2023"
+                }
+              },
+              "result": {
+                "error": "invalid_argument_value"
+              }
+            }
+          ]
+        },
+        {
+          "turn": 3,
+          "assistant": "<tool_call>\n{\"name\": \"list_transactions\", \"arguments\": {\"month\": \"2023\"}}\n</tool_call>",
+          "generated_tokens": 26,
+          "calls": [
+            {
+              "name": "list_transactions",
+              "arguments": {
+                "month": "2023"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": []
+        }
+      ],
+      "generated_tokens": 106,
+      "truncated": false,
+      "generator_and_controller_ms": 2319.2043639719486,
+      "route_ms": 0,
+      "total_ms": 2319.2043639719486,
+      "score": {
+        "calls_exact": false,
+        "sequential": true,
+        "answer_anchors_pass": false,
+        "behavior_heuristic_pass": true,
+        "strict_mechanical_pass": false,
+        "required_tools_available": true
+      }
+    },
+    {
+      "id": "simple_guide/en",
+      "pair": "simple_guide",
+      "category": "single",
+      "language": "en",
+      "message": "Find the guide reference for product PX-7.",
+      "arm": "nev_ranked",
+      "available_tools": [
+        "search_help_center",
+        "get_order_status",
+        "get_invoice",
+        "list_transactions"
+      ],
+      "ranking": {
+        "names": [
+          "search_help_center",
+          "get_order_status",
+          "get_invoice",
+          "list_transactions"
+        ],
+        "probabilities": {
+          "get_order_status": 2.063032837895662e-07,
+          "get_invoice": 1.8302245052836952e-07,
+          "search_help_center": 0.9999995231628418,
+          "list_transactions": 1.4226897437907837e-09
+        },
+        "elapsed_ms": 52.50599421560764
+      },
+      "emitted_calls": [
+        {
+          "name": "search_help_center",
+          "arguments": {
+            "product": "PX-7"
+          }
+        },
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "PX-7"
+          }
+        },
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "PX-7"
+          }
+        },
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "PX-7"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "search_help_center",
+            "arguments": {
+              "product": "PX-7"
+            }
+          }
+        }
+      ],
+      "errors": [
+        "invalid_argument_value",
+        "invalid_argument_value",
+        "tool_round_limit"
+      ],
+      "final": "",
+      "trace": [
+        {
+          "turn": 0,
+          "assistant": "<tool_call>\n{\"name\": \"search_help_center\", \"arguments\": {\"product\": \"PX-7\"}}\n</tool_call>",
+          "generated_tokens": 28,
+          "calls": [
+            {
+              "name": "search_help_center",
+              "arguments": {
+                "product": "PX-7"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": [
+            {
+              "call": {
+                "name": "search_help_center",
+                "arguments": {
+                  "product": "PX-7"
+                }
+              },
+              "result": {
+                "product": "PX-7",
+                "guide_reference": "GUIDE-PX-7"
+              }
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "assistant": "<tool_call>\n{\"name\": \"get_order_status\", \"arguments\": {\"order_id\": \"PX-7\"}}\n</tool_call>",
+          "generated_tokens": 29,
+          "calls": [
+            {
+              "name": "get_order_status",
+              "arguments": {
+                "order_id": "PX-7"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": [
+            {
+              "call": {
+                "name": "get_order_status",
+                "arguments": {
+                  "order_id": "PX-7"
+                }
+              },
+              "result": {
+                "error": "invalid_argument_value"
+              }
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "assistant": "<tool_call>\n{\"name\": \"get_order_status\", \"arguments\": {\"order_id\": \"PX-7\"}}\n</tool_call>",
+          "generated_tokens": 29,
+          "calls": [
+            {
+              "name": "get_order_status",
+              "arguments": {
+                "order_id": "PX-7"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": [
+            {
+              "call": {
+                "name": "get_order_status",
+                "arguments": {
+                  "order_id": "PX-7"
+                }
+              },
+              "result": {
+                "error": "invalid_argument_value"
+              }
+            }
+          ]
+        },
+        {
+          "turn": 3,
+          "assistant": "<tool_call>\n{\"name\": \"get_order_status\", \"arguments\": {\"order_id\": \"PX-7\"}}\n</tool_call>",
+          "generated_tokens": 29,
+          "calls": [
+            {
+              "name": "get_order_status",
+              "arguments": {
+                "order_id": "PX-7"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": []
+        }
+      ],
+      "generated_tokens": 115,
+      "truncated": false,
+      "generator_and_controller_ms": 2490.335328504443,
+      "route_ms": 52.50599421560764,
+      "total_ms": 2542.841322720051,
+      "score": {
+        "calls_exact": false,
+        "sequential": true,
+        "answer_anchors_pass": false,
+        "behavior_heuristic_pass": true,
+        "strict_mechanical_pass": false,
+        "required_tools_available": true
+      }
+    },
+    {
+      "id": "simple_guide/it",
+      "pair": "simple_guide",
+      "category": "single",
+      "language": "it",
+      "message": "Trova il riferimento della guida del prodotto PX-7.",
+      "arm": "nev_ranked",
+      "available_tools": [
+        "search_help_center",
+        "get_order_status",
+        "get_invoice",
+        "list_transactions"
+      ],
+      "ranking": {
+        "names": [
+          "search_help_center",
+          "get_order_status",
+          "get_invoice",
+          "list_transactions"
+        ],
+        "probabilities": {
+          "get_order_status": 1.1619443966992549e-06,
+          "get_invoice": 7.016050176389399e-07,
+          "search_help_center": 0.9999980926513672,
+          "list_transactions": 1.3811279231390472e-08
+        },
+        "elapsed_ms": 69.74374782294035
+      },
+      "emitted_calls": [
+        {
+          "name": "search_help_center",
+          "arguments": {
+            "product": "PX-7"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "search_help_center",
+            "arguments": {
+              "product": "PX-7"
+            }
+          }
+        }
+      ],
+      "errors": [],
+      "final": "Il riferimento della guida del prodotto PX-7 è GUIDE-PX-7.",
+      "trace": [
+        {
+          "turn": 0,
+          "assistant": "<tool_call>\n{\"name\": \"search_help_center\", \"arguments\": {\"product\": \"PX-7\"}}\n</tool_call>",
+          "generated_tokens": 28,
+          "calls": [
+            {
+              "name": "search_help_center",
+              "arguments": {
+                "product": "PX-7"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": [
+            {
+              "call": {
+                "name": "search_help_center",
+                "arguments": {
+                  "product": "PX-7"
+                }
+              },
+              "result": {
+                "product": "PX-7",
+                "guide_reference": "GUIDE-PX-7"
+              }
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "assistant": "Il riferimento della guida del prodotto PX-7 è GUIDE-PX-7.",
+          "generated_tokens": 22,
+          "calls": [],
+          "parse_error": null,
+          "observations": []
+        }
+      ],
+      "generated_tokens": 50,
+      "truncated": false,
+      "generator_and_controller_ms": 1109.3361778184772,
+      "route_ms": 69.74374782294035,
+      "total_ms": 1179.0799256414175,
+      "score": {
+        "calls_exact": true,
+        "sequential": true,
+        "answer_anchors_pass": true,
+        "behavior_heuristic_pass": true,
+        "strict_mechanical_pass": true,
+        "required_tools_available": true
+      }
+    },
+    {
+      "id": "simple_guide/it",
+      "pair": "simple_guide",
+      "category": "single",
+      "language": "it",
+      "message": "Trova il riferimento della guida del prodotto PX-7.",
+      "arm": "nesso_only",
+      "available_tools": [
+        "get_order_status",
+        "get_invoice",
+        "search_help_center",
+        "list_transactions"
+      ],
+      "ranking": null,
+      "emitted_calls": [
+        {
+          "name": "search_help_center",
+          "arguments": {
+            "product": "PX-7"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "search_help_center",
+            "arguments": {
+              "product": "PX-7"
+            }
+          }
+        }
+      ],
+      "errors": [],
+      "final": "Il riferimento della guida del prodotto PX-7 è: GUIDE-PX-7",
+      "trace": [
+        {
+          "turn": 0,
+          "assistant": "<tool_call>\n{\"name\": \"search_help_center\", \"arguments\": {\"product\": \"PX-7\"}}\n</tool_call>",
+          "generated_tokens": 28,
+          "calls": [
+            {
+              "name": "search_help_center",
+              "arguments": {
+                "product": "PX-7"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": [
+            {
+              "call": {
+                "name": "search_help_center",
+                "arguments": {
+                  "product": "PX-7"
+                }
+              },
+              "result": {
+                "product": "PX-7",
+                "guide_reference": "GUIDE-PX-7"
+              }
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "assistant": "Il riferimento della guida del prodotto PX-7 è: GUIDE-PX-7",
+          "generated_tokens": 22,
+          "calls": [],
+          "parse_error": null,
+          "observations": []
+        }
+      ],
+      "generated_tokens": 50,
+      "truncated": false,
+      "generator_and_controller_ms": 1108.4784232079983,
+      "route_ms": 0,
+      "total_ms": 1108.4784232079983,
+      "score": {
+        "calls_exact": true,
+        "sequential": true,
+        "answer_anchors_pass": true,
+        "behavior_heuristic_pass": true,
+        "strict_mechanical_pass": true,
+        "required_tools_available": true
+      }
+    },
+    {
+      "id": "simple_payments/en",
+      "pair": "simple_payments",
+      "category": "single",
+      "language": "en",
+      "message": "List my payments for 2026-06 and tell me the total in EUR.",
+      "arm": "nesso_only",
+      "available_tools": [
+        "get_order_status",
+        "get_invoice",
+        "search_help_center",
+        "list_transactions"
+      ],
+      "ranking": null,
+      "emitted_calls": [
+        {
+          "name": "list_transactions",
+          "arguments": {
+            "month": "2026-06"
+          }
+        },
+        {
+          "name": "get_invoice",
+          "arguments": {
+            "order_id": "12345"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "list_transactions",
+            "arguments": {
+              "month": "2026-06"
+            }
+          }
+        }
+      ],
+      "errors": [
+        "invalid_argument_value"
+      ],
+      "final": "The call to list payments for 2026-06 and retrieve the total in EUR failed. The error indicates that the transaction was not found in the list. Please try again later.",
+      "trace": [
+        {
+          "turn": 0,
+          "assistant": "<tool_call>\n{\"name\": \"list_transactions\", \"arguments\": {\"month\": \"2026-06\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_invoice\", \"arguments\": {\"order_id\": \"12345\"}}\n</tool_call>",
+          "generated_tokens": 54,
+          "calls": [
+            {
+              "name": "list_transactions",
+              "arguments": {
+                "month": "2026-06"
+              }
+            },
+            {
+              "name": "get_invoice",
+              "arguments": {
+                "order_id": "12345"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": [
+            {
+              "call": {
+                "name": "list_transactions",
+                "arguments": {
+                  "month": "2026-06"
+                }
+              },
+              "result": {
+                "month": "2026-06",
+                "currency": "EUR",
+                "payments": [
+                  24.5,
+                  39.25
+                ],
+                "total": 63.75
+              }
+            },
+            {
+              "call": {
+                "name": "get_invoice",
+                "arguments": {
+                  "order_id": "12345"
+                }
+              },
+              "result": {
+                "error": "invalid_argument_value"
+              }
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "assistant": "The call to list payments for 2026-06 and retrieve the total in EUR failed. The error indicates that the transaction was not found in the list. Please try again later.",
+          "generated_tokens": 38,
+          "calls": [],
+          "parse_error": null,
+          "observations": []
+        }
+      ],
+      "generated_tokens": 92,
+      "truncated": false,
+      "generator_and_controller_ms": 2004.3893940746784,
+      "route_ms": 0,
+      "total_ms": 2004.3893940746784,
+      "score": {
+        "calls_exact": false,
+        "sequential": true,
+        "answer_anchors_pass": false,
+        "behavior_heuristic_pass": true,
+        "strict_mechanical_pass": false,
+        "required_tools_available": true
+      }
+    },
+    {
+      "id": "simple_payments/en",
+      "pair": "simple_payments",
+      "category": "single",
+      "language": "en",
+      "message": "List my payments for 2026-06 and tell me the total in EUR.",
+      "arm": "nev_ranked",
+      "available_tools": [
+        "list_transactions",
+        "get_order_status",
+        "get_invoice",
+        "search_help_center"
+      ],
+      "ranking": {
+        "names": [
+          "list_transactions",
+          "get_order_status",
+          "get_invoice",
+          "search_help_center"
+        ],
+        "probabilities": {
+          "get_order_status": 0.00012910352961625904,
+          "get_invoice": 0.00012550443352665752,
+          "search_help_center": 6.381361890817061e-05,
+          "list_transactions": 0.9996815919876099
+        },
+        "elapsed_ms": 65.03769848495722
+      },
+      "emitted_calls": [
+        {
+          "name": "list_transactions",
+          "arguments": {
+            "month": "2026-06"
+          }
+        },
+        {
+          "name": "get_order_status",
+          "arguments": {
+            "order_id": "12345"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "list_transactions",
+            "arguments": {
+              "month": "2026-06"
+            }
+          }
+        }
+      ],
+      "errors": [
+        "invalid_argument_value"
+      ],
+      "final": "The transaction for your payment of EUR for June 2026 is as follows:\n- Payment amount: 24.5 EUR\n- Total: 63.75 EUR",
+      "trace": [
+        {
+          "turn": 0,
+          "assistant": "<tool_call>\n{\"name\": \"list_transactions\", \"arguments\": {\"month\": \"2026-06\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_order_status\", \"arguments\": {\"order_id\": \"12345\"}}\n</tool_call>",
+          "generated_tokens": 55,
+          "calls": [
+            {
+              "name": "list_transactions",
+              "arguments": {
+                "month": "2026-06"
+              }
+            },
+            {
+              "name": "get_order_status",
+              "arguments": {
+                "order_id": "12345"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": [
+            {
+              "call": {
+                "name": "list_transactions",
+                "arguments": {
+                  "month": "2026-06"
+                }
+              },
+              "result": {
+                "month": "2026-06",
+                "currency": "EUR",
+                "payments": [
+                  24.5,
+                  39.25
+                ],
+                "total": 63.75
+              }
+            },
+            {
+              "call": {
+                "name": "get_order_status",
+                "arguments": {
+                  "order_id": "12345"
+                }
+              },
+              "result": {
+                "error": "invalid_argument_value"
+              }
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "assistant": "The transaction for your payment of EUR for June 2026 is as follows:\n- Payment amount: 24.5 EUR\n- Total: 63.75 EUR",
+          "generated_tokens": 35,
+          "calls": [],
+          "parse_error": null,
+          "observations": []
+        }
+      ],
+      "generated_tokens": 90,
+      "truncated": false,
+      "generator_and_controller_ms": 1940.0933142751455,
+      "route_ms": 65.03769848495722,
+      "total_ms": 2005.1310127601027,
+      "score": {
+        "calls_exact": false,
+        "sequential": true,
+        "answer_anchors_pass": true,
+        "behavior_heuristic_pass": true,
+        "strict_mechanical_pass": false,
+        "required_tools_available": true
+      }
+    },
+    {
+      "id": "simple_payments/it",
+      "pair": "simple_payments",
+      "category": "single",
+      "language": "it",
+      "message": "Elenca i miei pagamenti di 2026-06 e dimmi il totale in EUR.",
+      "arm": "nev_ranked",
+      "available_tools": [
+        "list_transactions",
+        "search_help_center",
+        "get_invoice",
+        "get_order_status"
+      ],
+      "ranking": {
+        "names": [
+          "list_transactions",
+          "search_help_center",
+          "get_invoice",
+          "get_order_status"
+        ],
+        "probabilities": {
+          "get_order_status": 0.0015967702493071556,
+          "get_invoice": 0.0521756187081337,
+          "search_help_center": 0.05807827040553093,
+          "list_transactions": 0.8881493806838989
+        },
+        "elapsed_ms": 68.98418068885803
+      },
+      "emitted_calls": [
+        {
+          "name": "list_transactions",
+          "arguments": {
+            "month": "2026-06"
+          }
+        },
+        {
+          "name": "get_invoice",
+          "arguments": {
+            "order_id": "1234567890"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "list_transactions",
+            "arguments": {
+              "month": "2026-06"
+            }
+          }
+        }
+      ],
+      "errors": [
+        "invalid_argument_value"
+      ],
+      "final": "Mi dispiace, ma non posso eseguire tali attività.",
+      "trace": [
+        {
+          "turn": 0,
+          "assistant": "<tool_call>\n{\"name\": \"list_transactions\", \"arguments\": {\"month\": \"2026-06\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_invoice\", \"arguments\": {\"order_id\": \"1234567890\"}}\n</tool_call>",
+          "generated_tokens": 56,
+          "calls": [
+            {
+              "name": "list_transactions",
+              "arguments": {
+                "month": "2026-06"
+              }
+            },
+            {
+              "name": "get_invoice",
+              "arguments": {
+                "order_id": "1234567890"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": [
+            {
+              "call": {
+                "name": "list_transactions",
+                "arguments": {
+                  "month": "2026-06"
+                }
+              },
+              "result": {
+                "month": "2026-06",
+                "currency": "EUR",
+                "payments": [
+                  24.5,
+                  39.25
+                ],
+                "total": 63.75
+              }
+            },
+            {
+              "call": {
+                "name": "get_invoice",
+                "arguments": {
+                  "order_id": "1234567890"
+                }
+              },
+              "result": {
+                "error": "invalid_argument_value"
+              }
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "assistant": "Mi dispiace, ma non posso eseguire tali attività.",
+          "generated_tokens": 18,
+          "calls": [],
+          "parse_error": null,
+          "observations": []
+        }
+      ],
+      "generated_tokens": 74,
+      "truncated": false,
+      "generator_and_controller_ms": 1630.0608208402991,
+      "route_ms": 68.98418068885803,
+      "total_ms": 1699.0450015291572,
+      "score": {
+        "calls_exact": false,
+        "sequential": true,
+        "answer_anchors_pass": false,
+        "behavior_heuristic_pass": true,
+        "strict_mechanical_pass": false,
+        "required_tools_available": true
+      }
+    },
+    {
+      "id": "simple_payments/it",
+      "pair": "simple_payments",
+      "category": "single",
+      "language": "it",
+      "message": "Elenca i miei pagamenti di 2026-06 e dimmi il totale in EUR.",
+      "arm": "nesso_only",
+      "available_tools": [
+        "get_order_status",
+        "get_invoice",
+        "search_help_center",
+        "list_transactions"
+      ],
+      "ranking": null,
+      "emitted_calls": [
+        {
+          "name": "list_transactions",
+          "arguments": {
+            "month": "06"
+          }
+        },
+        {
+          "name": "list_transactions",
+          "arguments": {
+            "month": "2026"
+          }
+        }
+      ],
+      "executed_calls": [],
+      "errors": [
+        "invalid_argument_value",
+        "invalid_argument_value"
+      ],
+      "final": "Mi dispiace, non posso eseguire quelle attività.",
+      "trace": [
+        {
+          "turn": 0,
+          "assistant": "<tool_call>\n{\"name\": \"list_transactions\", \"arguments\": {\"month\": \"06\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"list_transactions\", \"arguments\": {\"month\": \"2026\"}}\n</tool_call>",
+          "generated_tokens": 50,
+          "calls": [
+            {
+              "name": "list_transactions",
+              "arguments": {
+                "month": "06"
+              }
+            },
+            {
+              "name": "list_transactions",
+              "arguments": {
+                "month": "2026"
+              }
+            }
+          ],
+          "parse_error": null,
+          "observations": [
+            {
+              "call": {
+                "name": "list_transactions",
+                "arguments": {
+                  "month": "06"
+                }
+              },
+              "result": {
+                "error": "invalid_argument_value"
+              }
+            },
+            {
+              "call": {
+                "name": "list_transactions",
+                "arguments": {
+                  "month": "2026"
+                }
+              },
+              "result": {
+                "error": "invalid_argument_value"
+              }
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "assistant": "Mi dispiace, non posso eseguire quelle attività.",
+          "generated_tokens": 16,
+          "calls": [],
+          "parse_error": null,
+          "observations": []
+        }
+      ],
+      "generated_tokens": 66,
+      "truncated": false,
+      "generator_and_controller_ms": 1446.1840307340026,
+      "route_ms": 0,
+      "total_ms": 1446.1840307340026,
+      "score": {
+        "calls_exact": false,
+        "sequential": true,
+        "answer_anchors_pass": false,
+        "behavior_heuristic_pass": true,
+        "strict_mechanical_pass": false,
+        "required_tools_available": true
+      }
+    }
+  ],
+  "torch": "2.10.0+cu126",
+  "transformers": "5.17.0",
+  "cuda": "12.6",
+  "summary": {
+    "nesso_only": {
+      "en": {
+        "n": 4,
+        "calls_exact": 2,
+        "strict_mechanical_pass": 2,
+        "median_ms": 1590.287677012384,
+        "mean_ms": 1638.071468565613,
+        "mean_generated_tokens": 74.5,
+        "by_category": {
+          "single": {
+            "n": 4,
+            "calls_exact": 2,
+            "strict_mechanical_pass": 2
+          }
+        }
+      },
+      "it": {
+        "n": 4,
+        "calls_exact": 2,
+        "strict_mechanical_pass": 2,
+        "median_ms": 1390.4019482433796,
+        "mean_ms": 1468.0504344869405,
+        "mean_generated_tokens": 66.75,
+        "by_category": {
+          "single": {
+            "n": 4,
+            "calls_exact": 2,
+            "strict_mechanical_pass": 2
+          }
+        }
+      }
+    },
+    "nev_ranked": {
+      "en": {
+        "n": 4,
+        "calls_exact": 2,
+        "strict_mechanical_pass": 2,
+        "median_ms": 1611.2487418577075,
+        "mean_ms": 1720.5558605492115,
+        "mean_generated_tokens": 76.25,
+        "by_category": {
+          "single": {
+            "n": 4,
+            "calls_exact": 2,
+            "strict_mechanical_pass": 2
+          }
+        }
+      },
+      "it": {
+        "n": 4,
+        "calls_exact": 2,
+        "strict_mechanical_pass": 2,
+        "median_ms": 1555.6576997041702,
+        "mean_ms": 1534.1864309739321,
+        "mean_generated_tokens": 66.25,
+        "by_category": {
+          "single": {
+            "n": 4,
+            "calls_exact": 2,
+            "strict_mechanical_pass": 2
+          }
+        }
+      }
+    }
+  },
+  "elapsed_seconds": 25.491710842587054,
+  "peak_allocated_mib": 2562.5693359375,
+  "peak_reserved_mib": 2582.0
+}

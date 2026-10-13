@@ -633,3 +633,17 @@ analysis and qualitative audit retained under experiments/hybrid_agent and
 
 Final EN/IT CLI commands also passed with generated order_id and actual mock
 observations; their outputs are retained as a100-hybrid-demo-en/it.json.
+
+## 2026-10-13 — Nesso3 generator substitution
+
+Read the requested giux78/nesso3-0.4B-agentic card and mii-llm/zagreus-nesso-slm
+nesso3 report. Pinned Nesso3 at 56f42f1c7eb82fbd48b0c4ee46aae7b8bed203b8,
+kept Nev v3 and the compact controller unchanged. Eight simple authored
+requests (four bilingual pairs) were fixed before inference, with both baseline
+and ranked modes. Same 2/4 EN + 2/4 IT passes in each mode; 25.5 seconds,
+2.50 GiB peak allocation, shared A100. Four successful gallery entries selected
+after inspection; all 16 runs and human-readable events retained under
+docs/nesso3. Italian invoice had correct final data but duplicate call; English
+guide and both payment cases had unrelated calls. No Nesso2 rerun or broad
+model-improvement claim. Added --generator and --format text; old model and
+all prior experiment artifacts retained. No model training or HF weight changes.

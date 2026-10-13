@@ -1,0 +1,83 @@
+{
+  "date": "2026-10-13",
+  "generator": {
+    "repository": "giux78/nesso3-0.4B-agentic",
+    "revision": "56f42f1c7eb82fbd48b0c4ee46aae7b8bed203b8",
+    "precision": "bf16"
+  },
+  "nev": {
+    "repository": "giux78/nev",
+    "revision": "c5c84121263b423f8846811a24790ab96e66cee3",
+    "variant": "v3",
+    "precision": "fp32"
+  },
+  "source_documents": [
+    {
+      "url": "https://huggingface.co/giux78/nesso3-0.4B-agentic/blob/56f42f1c7eb82fbd48b0c4ee46aae7b8bed203b8/README.md",
+      "sha256": "4a31c24c10a204e3b3caa37a06d66b9466367c5c788af7146068f7bf518bb58d",
+      "hash_note": "UTF-8 model-card text with trailing newlines removed"
+    },
+    {
+      "url": "https://github.com/mii-llm/zagreus-nesso-slm/tree/main/nesso3",
+      "readme_sha256": "e2947d35793156c9e84db501538fe96e9ca659e212255a025685273d0295d44b"
+    }
+  ],
+  "integration": [
+    "Native saved Llama-3 template; exactly one BOS",
+    "Short system context with inline compact tool schemas",
+    "Pure greedy decoding; no repetition penalty",
+    "Raw JSON tool results; all results of parallel calls in one tool turn",
+    "All four tools retained; Nev ranks only once per request"
+  ],
+  "scope": "Eight simple authored demonstration candidates (4 EN/IT pairs), frozen before inference, both modes. Successful gallery selected after inspecting all outputs. No benchmark/generalization claim. No Nesso2 rerun on this set.",
+  "review": [
+    {
+      "id": "simple_shipping/en",
+      "arm": "nev_ranked",
+      "strict_pass": true,
+      "final": "The shipment status is \"in transit\", and the tracking reference is TRK-ORD-6101."
+    },
+    {
+      "id": "simple_shipping/it",
+      "arm": "nev_ranked",
+      "strict_pass": true,
+      "final": "Lo stato della spedizione è \"in_transit\" e il riferimento di tracciamento è \"TRK-ORD-6101\"."
+    },
+    {
+      "id": "simple_invoice/en",
+      "arm": "nev_ranked",
+      "strict_pass": true,
+      "final": "The invoice for order ORD-6101 is in \"invoice_ORD-6101.pdf\"."
+    },
+    {
+      "id": "simple_invoice/it",
+      "arm": "nev_ranked",
+      "strict_pass": false,
+      "final": "L'ordine è ORD-6101. Il nome del file è invoice_ORD-6101.pdf."
+    },
+    {
+      "id": "simple_guide/en",
+      "arm": "nev_ranked",
+      "strict_pass": false,
+      "final": ""
+    },
+    {
+      "id": "simple_guide/it",
+      "arm": "nev_ranked",
+      "strict_pass": true,
+      "final": "Il riferimento della guida del prodotto PX-7 è GUIDE-PX-7."
+    },
+    {
+      "id": "simple_payments/en",
+      "arm": "nev_ranked",
+      "strict_pass": false,
+      "final": "The transaction for your payment of EUR for June 2026 is as follows:\n- Payment amount: 24.5 EUR\n- Total: 63.75 EUR"
+    },
+    {
+      "id": "simple_payments/it",
+      "arm": "nev_ranked",
+      "strict_pass": false,
+      "final": "Mi dispiace, ma non posso eseguire tali attività."
+    }
+  ]
+}

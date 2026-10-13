@@ -9,7 +9,7 @@ import statistics
 import subprocess
 import time
 
-from agent import ARMS, GENERATOR_REPO, GENERATOR_REVISION, NEV_REPO, NEV_REVISION, HybridAgent, schemas
+from agent import ARMS, GENERATORS, NEV_REPO, NEV_REVISION, HybridAgent, schemas
 
 
 def score(case, result):
@@ -54,6 +54,8 @@ def summarize(rows):
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)
+    p.add_argument('--generator',choices=GENERATORS,default='nesso3')
+    p.add_argument('--arms',choices=ARMS,nargs='+',default=ARMS)
     p.add_argument('--cases',type=Path,default=Path(__file__).with_name('cases.json'))
     p.add_argument('--output',type=Path,required=True)
     p.add_argument('--limit',type=int)
@@ -64,20 +66,22 @@ def main():
     data=json.loads(a.cases.read_text()); cases=data['cases']
     if a.limit:cases=cases[:a.limit]
     source=Path(__file__).parent
+    generator_repo,generator_revision=GENERATORS[a.generator]
+    if len(set(a.arms))!=len(a.arms):p.error('Duplicate arms are not allowed')
     report={'status':'incomplete','scope':data['scope'],'scoring':data['scoring'],
-        'generator':{'repository':GENERATOR_REPO,'revision':GENERATOR_REVISION,'precision':'bf16'},
+        'generator':{'repository':generator_repo,'revision':generator_revision,'precision':'bf16'},
         'nev':{'repository':NEV_REPO,'revision':NEV_REVISION,'variant':'v3','precision':'fp32'},
         'cases_sha256':hashlib.sha256(a.cases.read_bytes()).hexdigest(),
         'source_sha256':{f:hashlib.sha256((source/f).read_bytes()).hexdigest() for f in ['agent.py','run_pilot.py']},
         'tool_schemas':{lang:schemas(lang,a.schema_style) for lang in ['en','it']},'python':platform.python_version(),
         'settings':{'max_new_tokens_per_turn':192,'max_tool_rounds':3,'greedy':True,'memory_cap_gib':8,
-                    'schema_style':a.schema_style,'arm_order_seed':20261012,'shortlist_size':2,'timing':'Resident models, shared GPU, synchronized wall clock; mock tool overhead only. Nev rank is computed once per case and its measured cost attributed to each hybrid arm.'},
+                    'schema_style':a.schema_style,'arms':a.arms,'arm_order_seed':20261012,'shortlist_size':2,'timing':'Resident models, shared GPU, synchronized wall clock; mock tool overhead only. Nev rank is computed once per case and its measured cost attributed to each hybrid arm.'},
         'gpu_samples':[],'rows':[]}
     def sample_gpu():
         try:return subprocess.check_output(['nvidia-smi','--query-gpu=name,memory.used,utilization.gpu','--format=csv,noheader,nounits'],text=True,timeout=5).strip()
         except Exception:return 'unavailable'
     report['gpu_samples'].append(sample_gpu())
-    agent=HybridAgent(schema_style=a.schema_style)
+    agent=HybridAgent(schema_style=a.schema_style,generator=a.generator)
     import torch, transformers
     report.update(torch=torch.__version__,transformers=transformers.__version__,cuda=torch.version.cuda)
     # Separate engineering warmup; outputs are not scored.
@@ -86,19 +90,21 @@ def main():
     started=time.perf_counter()
     try:
         rng=random.Random(20261012)
-        base_order=ARMS.copy();rng.shuffle(base_order)
+        base_order=a.arms.copy();rng.shuffle(base_order)
         for i,case in enumerate(cases):
             ranking=agent.rank(case['message'],case['language'])
-            order=base_order[i%3:]+base_order[:i%3]
+            offset=i%len(base_order)
+            order=base_order[offset:]+base_order[:offset]
             for arm in order:
                 result=agent.run(case['message'],case['language'],arm,ranking)
                 row={k:case[k] for k in ['id','pair','category','language']}
+                row['message']=case['message']
                 row.update(result);row['score']=score(case,result)
                 report['rows'].append(row)
                 report['summary']=summarize(report['rows'])
                 report['elapsed_seconds']=time.perf_counter()-started
                 a.output.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
-                print(f"{len(report['rows'])}/{len(cases)*3} {case['id']} {arm} exact={row['score']['calls_exact']} pass={row['score']['strict_mechanical_pass']} ms={row['total_ms']:.0f}",flush=True)
+                print(f"{len(report['rows'])}/{len(cases)*len(a.arms)} {case['id']} {arm} exact={row['score']['calls_exact']} pass={row['score']['strict_mechanical_pass']} ms={row['total_ms']:.0f}",flush=True)
             if i%10==0:report['gpu_samples'].append(sample_gpu())
         report['status']='complete'
     finally:

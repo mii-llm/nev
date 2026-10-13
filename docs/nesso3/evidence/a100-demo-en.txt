@@ -1,0 +1,12 @@
+Simulation: local mock tools
+User (en): What is the shipment status and tracking reference for order ORD-6101?
+Nev tool order: get_order_status > search_help_center > get_invoice > list_transactions
+
+Nesso turn 1:
+  Requested: {"name": "get_order_status", "arguments": {"order_id": "ORD-6101"}}
+  Result for get_order_status: {"order_id": "ORD-6101", "status": "in_transit", "tracking_reference": "TRK-ORD-6101"}
+
+Nesso turn 2:
+The shipment status is "in transit", and the tracking reference is TRK-ORD-6101.
+
+Elapsed (excluding model load): 1.79 s

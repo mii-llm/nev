@@ -1,4 +1,4 @@
-# Nesso + Nev: a bounded agent pilot
+# Nesso3 + Nev: a bounded agent prototype
 
 This prototype serves one user request through a bounded tool-and-response loop.
 Nesso generates calls, arguments, clarification questions and final responses.
@@ -16,6 +16,45 @@ flowchart LR
     G --> A[Final response]
 ```
 
+## Current generator and simple examples
+
+The default generator is now `giux78/nesso3-0.4B-agentic`, pinned to
+`56f42f1c7eb82fbd48b0c4ee46aae7b8bed203b8`. Nev v3 and its revision are
+unchanged. `--generator nesso2` retains the original pinned generator.
+
+Read the [root README](../../README.md#try-nev-with-generative-nesso3-as-one-agent)
+for the four successful curated examples and [every readable trace](../../docs/nesso3/SIMPLE_TRACES.md)
+for all eight candidates in both modes. Eight examples were frozen before the
+run: four domains, exactly four English and four Italian requests. Both modes
+passed the same 2/4 EN + 2/4 IT strict checks; no ranking gain is established.
+There was no prompt retry or controller repair. All unsuccessful calls remain
+in `docs/nesso3/evidence/a100-simple-pilot.json`.
+
+```bash
+python experiments/hybrid_agent/run_pilot.py --generator nesso3 \
+  --arms nesso_only nev_ranked --cases experiments/hybrid_agent/simple_cases.json \
+  --output "../results/nesso3-simple-$(date +%Y%m%d-%H%M%S).json"
+```
+
+The A100 already has the pinned Nesso3 inference files cached. For a separate
+authenticated installation, download them into the same HF cache used by the
+runtime (alongside the Nev v3 snapshot):
+
+```python
+from huggingface_hub import snapshot_download
+snapshot_download("giux78/nesso3-0.4B-agentic",
+    revision="56f42f1c7eb82fbd48b0c4ee46aae7b8bed203b8",
+    allow_patterns=["*.json", "*.safetensors", "*.jinja", "tokenizer.model"])
+```
+
+The model card and GitHub report were read before integration; retrieval
+provenance is in `docs/nesso3/evidence/provenance.json`. The existing adapter
+already matches its native contract: saved Llama-3 template, one BOS, compact
+inline schemas, pure greedy calls and raw JSON observations. Generation and
+controller logic were left unchanged. `demo.py --format text` renders actual
+calls, observations, errors and answers; its JSON output records the generator
+repository and revision too.
+
 ## Try the prototype
 
 On the prepared A100:
@@ -24,11 +63,11 @@ On the prepared A100:
 source ~/nev-a100/activate-nev.sh
 cd ~/nev-a100/source
 
-python experiments/hybrid_agent/demo.py --arm nev_ranked --schema-style compact --language it \
-  --message "Puoi controllare l’avanzamento della consegna per ORD-6101? Includi il riferimento di tracciamento."
+python experiments/hybrid_agent/demo.py --generator nesso3 --arm nev_ranked --format text --language it \
+  --message "Qual è lo stato della spedizione e il riferimento di tracciamento dell’ordine ORD-6101?"
 
-python experiments/hybrid_agent/demo.py --arm nesso_only --schema-style compact --language en \
-  --message "Please retrieve the invoice for ORD-6101 and tell me the filename."
+python experiments/hybrid_agent/demo.py --generator nesso3 --arm nev_ranked --format text --language en \
+  --message "Get the invoice for order ORD-6101 and tell me the filename."
 ```
 
 The command prints model-selected calls, validation errors, mock observations,
@@ -42,7 +81,7 @@ Model loading requires the existing runtime and Transformers environment, the
 pinned snapshots cached locally and at least 8 GiB free GPU memory. The allocator
 is capped at 8 GiB. Model loading is outside pilot timings.
 
-## Frozen comparison
+## Historical Nesso2 frozen comparison
 
 - Generator: `giux78/nesso2-0.4B-agentic-v2` at
   `dc74c2f5ec3330d3e22d697078646b547669da1a`, BF16.
@@ -102,7 +141,7 @@ business-rule engine. The model never sees gold labels or expected answer anchor
 
 ```bash
 python -m unittest discover -s experiments/hybrid_agent -p test_agent.py
-python experiments/hybrid_agent/run_pilot.py --schema-style compact \
+python experiments/hybrid_agent/run_pilot.py --generator nesso2 --schema-style compact \
   --output "../results/hybrid-$(date +%Y%m%d-%H%M%S).json"
 ```
 
