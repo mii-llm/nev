@@ -1,0 +1,1171 @@
+{
+  "scope": "54 authored paired requests; 27 EN/27 IT; freeze before inference; not a held-out public benchmark. No case labels or expected plans are passed to the runtime.",
+  "cases": [
+    {
+      "id": "notes-single-en",
+      "toolset": "notes",
+      "kind": "single",
+      "language": "en",
+      "request": "Read note N-8R6 and tell me its access code.",
+      "expected_calls": [
+        {
+          "name": "read_note",
+          "arguments": {
+            "note_id": "N-8R6"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "7392"
+        ]
+      ],
+      "renamed": false
+    },
+    {
+      "id": "notes-single-it",
+      "toolset": "notes",
+      "kind": "single",
+      "language": "it",
+      "request": "Leggi la nota N-8R6 e dimmi il codice di accesso.",
+      "expected_calls": [
+        {
+          "name": "read_note",
+          "arguments": {
+            "note_id": "N-8R6"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "7392"
+        ]
+      ],
+      "renamed": false
+    },
+    {
+      "id": "notes-selection-en",
+      "toolset": "notes",
+      "kind": "selection",
+      "language": "en",
+      "request": "List the note titles in folder Work.",
+      "expected_calls": [
+        {
+          "name": "list_notes",
+          "arguments": {
+            "folder": "Work"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "Aurora"
+        ],
+        [
+          "Atlas"
+        ]
+      ],
+      "renamed": false
+    },
+    {
+      "id": "notes-selection-it",
+      "toolset": "notes",
+      "kind": "selection",
+      "language": "it",
+      "request": "Elenca i titoli delle note nella cartella Work.",
+      "expected_calls": [
+        {
+          "name": "list_notes",
+          "arguments": {
+            "folder": "Work"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "Aurora"
+        ],
+        [
+          "Atlas"
+        ]
+      ],
+      "renamed": false
+    },
+    {
+      "id": "notes-dependent-en",
+      "toolset": "notes",
+      "kind": "dependent",
+      "language": "en",
+      "request": "Find the note titled Aurora, then read it and tell me its access code.",
+      "expected_calls": [
+        {
+          "name": "find_note",
+          "arguments": {
+            "query": "Aurora"
+          }
+        },
+        {
+          "name": "read_note",
+          "arguments": {
+            "note_id": "N-7Q2"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "4821"
+        ]
+      ],
+      "renamed": false
+    },
+    {
+      "id": "notes-dependent-it",
+      "toolset": "notes",
+      "kind": "dependent",
+      "language": "it",
+      "request": "Trova la nota intitolata Aurora, poi leggila e dimmi il codice di accesso.",
+      "expected_calls": [
+        {
+          "name": "find_note",
+          "arguments": {
+            "query": "Aurora"
+          }
+        },
+        {
+          "name": "read_note",
+          "arguments": {
+            "note_id": "N-7Q2"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "4821"
+        ]
+      ],
+      "renamed": false
+    },
+    {
+      "id": "notes-parallel-en",
+      "toolset": "notes",
+      "kind": "parallel",
+      "language": "en",
+      "request": "List the note titles in folder Work and read note N-8R6 for its access code.",
+      "expected_calls": [
+        {
+          "name": "list_notes",
+          "arguments": {
+            "folder": "Work"
+          }
+        },
+        {
+          "name": "read_note",
+          "arguments": {
+            "note_id": "N-8R6"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "Aurora"
+        ],
+        [
+          "Atlas"
+        ],
+        [
+          "7392"
+        ]
+      ],
+      "renamed": false
+    },
+    {
+      "id": "notes-parallel-it",
+      "toolset": "notes",
+      "kind": "parallel",
+      "language": "it",
+      "request": "Elenca i titoli delle note nella cartella Work e leggi la nota N-8R6 per il codice di accesso.",
+      "expected_calls": [
+        {
+          "name": "list_notes",
+          "arguments": {
+            "folder": "Work"
+          }
+        },
+        {
+          "name": "read_note",
+          "arguments": {
+            "note_id": "N-8R6"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "Aurora"
+        ],
+        [
+          "Atlas"
+        ],
+        [
+          "7392"
+        ]
+      ],
+      "renamed": false
+    },
+    {
+      "id": "notes-missing-en",
+      "toolset": "notes",
+      "kind": "missing",
+      "language": "en",
+      "request": "Read my note and tell me its content.",
+      "expected_calls": [],
+      "answer_anchor_groups": [],
+      "renamed": false
+    },
+    {
+      "id": "notes-missing-it",
+      "toolset": "notes",
+      "kind": "missing",
+      "language": "it",
+      "request": "Leggi la mia nota e dimmi il contenuto.",
+      "expected_calls": [],
+      "answer_anchor_groups": [],
+      "renamed": false
+    },
+    {
+      "id": "notes-unsupported-en",
+      "toolset": "notes",
+      "kind": "unsupported",
+      "language": "en",
+      "request": "Delete note N-8R6.",
+      "expected_calls": [],
+      "answer_anchor_groups": [],
+      "renamed": false
+    },
+    {
+      "id": "notes-unsupported-it",
+      "toolset": "notes",
+      "kind": "unsupported",
+      "language": "it",
+      "request": "Elimina la nota N-8R6.",
+      "expected_calls": [],
+      "answer_anchor_groups": [],
+      "renamed": false
+    },
+    {
+      "id": "notes-no_tool-en",
+      "toolset": "notes",
+      "kind": "no_tool",
+      "language": "en",
+      "request": "What is 2 + 3?",
+      "expected_calls": [],
+      "answer_anchor_groups": [
+        [
+          "5",
+          "five",
+          "cinque"
+        ]
+      ],
+      "renamed": false
+    },
+    {
+      "id": "notes-no_tool-it",
+      "toolset": "notes",
+      "kind": "no_tool",
+      "language": "it",
+      "request": "Quanto fa 2 + 3?",
+      "expected_calls": [],
+      "answer_anchor_groups": [
+        [
+          "5",
+          "five",
+          "cinque"
+        ]
+      ],
+      "renamed": false
+    },
+    {
+      "id": "sensors-single-en",
+      "toolset": "sensors",
+      "kind": "single",
+      "language": "en",
+      "request": "Read temperature sensor S-6K3.",
+      "expected_calls": [
+        {
+          "name": "read_sensor",
+          "arguments": {
+            "sensor_id": "S-6K3"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "18.2",
+          "18,2"
+        ]
+      ],
+      "renamed": false
+    },
+    {
+      "id": "sensors-single-it",
+      "toolset": "sensors",
+      "kind": "single",
+      "language": "it",
+      "request": "Leggi la temperatura del sensore S-6K3.",
+      "expected_calls": [
+        {
+          "name": "read_sensor",
+          "arguments": {
+            "sensor_id": "S-6K3"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "18.2",
+          "18,2"
+        ]
+      ],
+      "renamed": false
+    },
+    {
+      "id": "sensors-selection-en",
+      "toolset": "sensors",
+      "kind": "selection",
+      "language": "en",
+      "request": "Convert 20 degrees C to F.",
+      "expected_calls": [
+        {
+          "name": "convert_temperature",
+          "arguments": {
+            "value": 20,
+            "from_unit": "C",
+            "to_unit": "F"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "68"
+        ]
+      ],
+      "renamed": false
+    },
+    {
+      "id": "sensors-selection-it",
+      "toolset": "sensors",
+      "kind": "selection",
+      "language": "it",
+      "request": "Converti 20 gradi C in F.",
+      "expected_calls": [
+        {
+          "name": "convert_temperature",
+          "arguments": {
+            "value": 20,
+            "from_unit": "C",
+            "to_unit": "F"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "68"
+        ]
+      ],
+      "renamed": false
+    },
+    {
+      "id": "sensors-dependent-en",
+      "toolset": "sensors",
+      "kind": "dependent",
+      "language": "en",
+      "request": "Find the temperature sensor in Studio, then read its temperature.",
+      "expected_calls": [
+        {
+          "name": "find_sensor",
+          "arguments": {
+            "room": "Studio"
+          }
+        },
+        {
+          "name": "read_sensor",
+          "arguments": {
+            "sensor_id": "S-4J9"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "21.5",
+          "21,5"
+        ]
+      ],
+      "renamed": false
+    },
+    {
+      "id": "sensors-dependent-it",
+      "toolset": "sensors",
+      "kind": "dependent",
+      "language": "it",
+      "request": "Trova il sensore di temperatura in Studio, poi leggi la sua temperatura.",
+      "expected_calls": [
+        {
+          "name": "find_sensor",
+          "arguments": {
+            "room": "Studio"
+          }
+        },
+        {
+          "name": "read_sensor",
+          "arguments": {
+            "sensor_id": "S-4J9"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "21.5",
+          "21,5"
+        ]
+      ],
+      "renamed": false
+    },
+    {
+      "id": "sensors-parallel-en",
+      "toolset": "sensors",
+      "kind": "parallel",
+      "language": "en",
+      "request": "Read temperature sensor S-6K3 and the battery percentage of device D-91.",
+      "expected_calls": [
+        {
+          "name": "read_sensor",
+          "arguments": {
+            "sensor_id": "S-6K3"
+          }
+        },
+        {
+          "name": "battery_status",
+          "arguments": {
+            "device_id": "D-91"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "18.2",
+          "18,2"
+        ],
+        [
+          "73"
+        ]
+      ],
+      "renamed": false
+    },
+    {
+      "id": "sensors-parallel-it",
+      "toolset": "sensors",
+      "kind": "parallel",
+      "language": "it",
+      "request": "Leggi la temperatura del sensore S-6K3 e la percentuale della batteria del dispositivo D-91.",
+      "expected_calls": [
+        {
+          "name": "read_sensor",
+          "arguments": {
+            "sensor_id": "S-6K3"
+          }
+        },
+        {
+          "name": "battery_status",
+          "arguments": {
+            "device_id": "D-91"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "18.2",
+          "18,2"
+        ],
+        [
+          "73"
+        ]
+      ],
+      "renamed": false
+    },
+    {
+      "id": "sensors-missing-en",
+      "toolset": "sensors",
+      "kind": "missing",
+      "language": "en",
+      "request": "Read the temperature from my sensor.",
+      "expected_calls": [],
+      "answer_anchor_groups": [],
+      "renamed": false
+    },
+    {
+      "id": "sensors-missing-it",
+      "toolset": "sensors",
+      "kind": "missing",
+      "language": "it",
+      "request": "Leggi la temperatura dal mio sensore.",
+      "expected_calls": [],
+      "answer_anchor_groups": [],
+      "renamed": false
+    },
+    {
+      "id": "sensors-unsupported-en",
+      "toolset": "sensors",
+      "kind": "unsupported",
+      "language": "en",
+      "request": "Set sensor S-6K3 to 25 degrees C.",
+      "expected_calls": [],
+      "answer_anchor_groups": [],
+      "renamed": false
+    },
+    {
+      "id": "sensors-unsupported-it",
+      "toolset": "sensors",
+      "kind": "unsupported",
+      "language": "it",
+      "request": "Imposta il sensore S-6K3 a 25 gradi C.",
+      "expected_calls": [],
+      "answer_anchor_groups": [],
+      "renamed": false
+    },
+    {
+      "id": "sensors-no_tool-en",
+      "toolset": "sensors",
+      "kind": "no_tool",
+      "language": "en",
+      "request": "What is 4 + 3?",
+      "expected_calls": [],
+      "answer_anchor_groups": [
+        [
+          "7",
+          "seven",
+          "sette"
+        ]
+      ],
+      "renamed": false
+    },
+    {
+      "id": "sensors-no_tool-it",
+      "toolset": "sensors",
+      "kind": "no_tool",
+      "language": "it",
+      "request": "Quanto fa 4 + 3?",
+      "expected_calls": [],
+      "answer_anchor_groups": [
+        [
+          "7",
+          "seven",
+          "sette"
+        ]
+      ],
+      "renamed": false
+    },
+    {
+      "id": "media-single-en",
+      "toolset": "media",
+      "kind": "single",
+      "language": "en",
+      "request": "Get the artist and duration in seconds of track T-9W2.",
+      "expected_calls": [
+        {
+          "name": "track_details",
+          "arguments": {
+            "track_id": "T-9W2"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "Elio"
+        ],
+        [
+          "204"
+        ]
+      ],
+      "renamed": false
+    },
+    {
+      "id": "media-single-it",
+      "toolset": "media",
+      "kind": "single",
+      "language": "it",
+      "request": "Dimmi artista e durata in secondi del brano T-9W2.",
+      "expected_calls": [
+        {
+          "name": "track_details",
+          "arguments": {
+            "track_id": "T-9W2"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "Elio"
+        ],
+        [
+          "204"
+        ]
+      ],
+      "renamed": false
+    },
+    {
+      "id": "media-selection-en",
+      "toolset": "media",
+      "kind": "selection",
+      "language": "en",
+      "request": "List the track titles in playlist Focus.",
+      "expected_calls": [
+        {
+          "name": "playlist_tracks",
+          "arguments": {
+            "playlist": "Focus"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "Aster"
+        ],
+        [
+          "Lumen"
+        ]
+      ],
+      "renamed": false
+    },
+    {
+      "id": "media-selection-it",
+      "toolset": "media",
+      "kind": "selection",
+      "language": "it",
+      "request": "Elenca i titoli dei brani nella playlist Focus.",
+      "expected_calls": [
+        {
+          "name": "playlist_tracks",
+          "arguments": {
+            "playlist": "Focus"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "Aster"
+        ],
+        [
+          "Lumen"
+        ]
+      ],
+      "renamed": false
+    },
+    {
+      "id": "media-dependent-en",
+      "toolset": "media",
+      "kind": "dependent",
+      "language": "en",
+      "request": "Find the track titled Aster, then get its artist and duration in seconds.",
+      "expected_calls": [
+        {
+          "name": "search_track",
+          "arguments": {
+            "title": "Aster"
+          }
+        },
+        {
+          "name": "track_details",
+          "arguments": {
+            "track_id": "T-3V8"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "Mira"
+        ],
+        [
+          "187"
+        ]
+      ],
+      "renamed": false
+    },
+    {
+      "id": "media-dependent-it",
+      "toolset": "media",
+      "kind": "dependent",
+      "language": "it",
+      "request": "Trova il brano intitolato Aster, poi dimmi artista e durata in secondi.",
+      "expected_calls": [
+        {
+          "name": "search_track",
+          "arguments": {
+            "title": "Aster"
+          }
+        },
+        {
+          "name": "track_details",
+          "arguments": {
+            "track_id": "T-3V8"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "Mira"
+        ],
+        [
+          "187"
+        ]
+      ],
+      "renamed": false
+    },
+    {
+      "id": "media-parallel-en",
+      "toolset": "media",
+      "kind": "parallel",
+      "language": "en",
+      "request": "List the track titles in playlist Focus and get the artist and duration in seconds of track T-9W2.",
+      "expected_calls": [
+        {
+          "name": "playlist_tracks",
+          "arguments": {
+            "playlist": "Focus"
+          }
+        },
+        {
+          "name": "track_details",
+          "arguments": {
+            "track_id": "T-9W2"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "Aster"
+        ],
+        [
+          "Lumen"
+        ],
+        [
+          "Elio"
+        ],
+        [
+          "204"
+        ]
+      ],
+      "renamed": false
+    },
+    {
+      "id": "media-parallel-it",
+      "toolset": "media",
+      "kind": "parallel",
+      "language": "it",
+      "request": "Elenca i titoli dei brani nella playlist Focus e dimmi artista e durata in secondi del brano T-9W2.",
+      "expected_calls": [
+        {
+          "name": "playlist_tracks",
+          "arguments": {
+            "playlist": "Focus"
+          }
+        },
+        {
+          "name": "track_details",
+          "arguments": {
+            "track_id": "T-9W2"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "Aster"
+        ],
+        [
+          "Lumen"
+        ],
+        [
+          "Elio"
+        ],
+        [
+          "204"
+        ]
+      ],
+      "renamed": false
+    },
+    {
+      "id": "media-missing-en",
+      "toolset": "media",
+      "kind": "missing",
+      "language": "en",
+      "request": "Get the artist and duration of my track.",
+      "expected_calls": [],
+      "answer_anchor_groups": [],
+      "renamed": false
+    },
+    {
+      "id": "media-missing-it",
+      "toolset": "media",
+      "kind": "missing",
+      "language": "it",
+      "request": "Dimmi artista e durata del mio brano.",
+      "expected_calls": [],
+      "answer_anchor_groups": [],
+      "renamed": false
+    },
+    {
+      "id": "media-unsupported-en",
+      "toolset": "media",
+      "kind": "unsupported",
+      "language": "en",
+      "request": "Delete playlist Focus.",
+      "expected_calls": [],
+      "answer_anchor_groups": [],
+      "renamed": false
+    },
+    {
+      "id": "media-unsupported-it",
+      "toolset": "media",
+      "kind": "unsupported",
+      "language": "it",
+      "request": "Elimina la playlist Focus.",
+      "expected_calls": [],
+      "answer_anchor_groups": [],
+      "renamed": false
+    },
+    {
+      "id": "media-no_tool-en",
+      "toolset": "media",
+      "kind": "no_tool",
+      "language": "en",
+      "request": "What is 5 + 4?",
+      "expected_calls": [],
+      "answer_anchor_groups": [
+        [
+          "9",
+          "nine",
+          "nove"
+        ]
+      ],
+      "renamed": false
+    },
+    {
+      "id": "media-no_tool-it",
+      "toolset": "media",
+      "kind": "no_tool",
+      "language": "it",
+      "request": "Quanto fa 5 + 4?",
+      "expected_calls": [],
+      "answer_anchor_groups": [
+        [
+          "9",
+          "nine",
+          "nove"
+        ]
+      ],
+      "renamed": false
+    },
+    {
+      "id": "notes_renamed-single-en",
+      "toolset": "notes_renamed",
+      "kind": "single",
+      "language": "en",
+      "request": "Read note N-8R6 and tell me its access code.",
+      "expected_calls": [
+        {
+          "name": "tool_b2",
+          "arguments": {
+            "note_id": "N-8R6"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "7392"
+        ]
+      ],
+      "renamed": true
+    },
+    {
+      "id": "notes_renamed-single-it",
+      "toolset": "notes_renamed",
+      "kind": "single",
+      "language": "it",
+      "request": "Leggi la nota N-8R6 e dimmi il codice di accesso.",
+      "expected_calls": [
+        {
+          "name": "tool_b2",
+          "arguments": {
+            "note_id": "N-8R6"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "7392"
+        ]
+      ],
+      "renamed": true
+    },
+    {
+      "id": "notes_renamed-dependent-en",
+      "toolset": "notes_renamed",
+      "kind": "dependent",
+      "language": "en",
+      "request": "Find the note titled Aurora, then read it and tell me its access code.",
+      "expected_calls": [
+        {
+          "name": "tool_a7",
+          "arguments": {
+            "query": "Aurora"
+          }
+        },
+        {
+          "name": "tool_b2",
+          "arguments": {
+            "note_id": "N-7Q2"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "4821"
+        ]
+      ],
+      "renamed": true
+    },
+    {
+      "id": "notes_renamed-dependent-it",
+      "toolset": "notes_renamed",
+      "kind": "dependent",
+      "language": "it",
+      "request": "Trova la nota intitolata Aurora, poi leggila e dimmi il codice di accesso.",
+      "expected_calls": [
+        {
+          "name": "tool_a7",
+          "arguments": {
+            "query": "Aurora"
+          }
+        },
+        {
+          "name": "tool_b2",
+          "arguments": {
+            "note_id": "N-7Q2"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "4821"
+        ]
+      ],
+      "renamed": true
+    },
+    {
+      "id": "sensors_renamed-single-en",
+      "toolset": "sensors_renamed",
+      "kind": "single",
+      "language": "en",
+      "request": "Read temperature sensor S-6K3.",
+      "expected_calls": [
+        {
+          "name": "tool_b2",
+          "arguments": {
+            "sensor_id": "S-6K3"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "18.2",
+          "18,2"
+        ]
+      ],
+      "renamed": true
+    },
+    {
+      "id": "sensors_renamed-single-it",
+      "toolset": "sensors_renamed",
+      "kind": "single",
+      "language": "it",
+      "request": "Leggi la temperatura del sensore S-6K3.",
+      "expected_calls": [
+        {
+          "name": "tool_b2",
+          "arguments": {
+            "sensor_id": "S-6K3"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "18.2",
+          "18,2"
+        ]
+      ],
+      "renamed": true
+    },
+    {
+      "id": "sensors_renamed-dependent-en",
+      "toolset": "sensors_renamed",
+      "kind": "dependent",
+      "language": "en",
+      "request": "Find the temperature sensor in Studio, then read its temperature.",
+      "expected_calls": [
+        {
+          "name": "tool_a7",
+          "arguments": {
+            "room": "Studio"
+          }
+        },
+        {
+          "name": "tool_b2",
+          "arguments": {
+            "sensor_id": "S-4J9"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "21.5",
+          "21,5"
+        ]
+      ],
+      "renamed": true
+    },
+    {
+      "id": "sensors_renamed-dependent-it",
+      "toolset": "sensors_renamed",
+      "kind": "dependent",
+      "language": "it",
+      "request": "Trova il sensore di temperatura in Studio, poi leggi la sua temperatura.",
+      "expected_calls": [
+        {
+          "name": "tool_a7",
+          "arguments": {
+            "room": "Studio"
+          }
+        },
+        {
+          "name": "tool_b2",
+          "arguments": {
+            "sensor_id": "S-4J9"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "21.5",
+          "21,5"
+        ]
+      ],
+      "renamed": true
+    },
+    {
+      "id": "media_renamed-single-en",
+      "toolset": "media_renamed",
+      "kind": "single",
+      "language": "en",
+      "request": "Get the artist and duration in seconds of track T-9W2.",
+      "expected_calls": [
+        {
+          "name": "tool_b2",
+          "arguments": {
+            "track_id": "T-9W2"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "Elio"
+        ],
+        [
+          "204"
+        ]
+      ],
+      "renamed": true
+    },
+    {
+      "id": "media_renamed-single-it",
+      "toolset": "media_renamed",
+      "kind": "single",
+      "language": "it",
+      "request": "Dimmi artista e durata in secondi del brano T-9W2.",
+      "expected_calls": [
+        {
+          "name": "tool_b2",
+          "arguments": {
+            "track_id": "T-9W2"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "Elio"
+        ],
+        [
+          "204"
+        ]
+      ],
+      "renamed": true
+    },
+    {
+      "id": "media_renamed-dependent-en",
+      "toolset": "media_renamed",
+      "kind": "dependent",
+      "language": "en",
+      "request": "Find the track titled Aster, then get its artist and duration in seconds.",
+      "expected_calls": [
+        {
+          "name": "tool_a7",
+          "arguments": {
+            "title": "Aster"
+          }
+        },
+        {
+          "name": "tool_b2",
+          "arguments": {
+            "track_id": "T-3V8"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "Mira"
+        ],
+        [
+          "187"
+        ]
+      ],
+      "renamed": true
+    },
+    {
+      "id": "media_renamed-dependent-it",
+      "toolset": "media_renamed",
+      "kind": "dependent",
+      "language": "it",
+      "request": "Trova il brano intitolato Aster, poi dimmi artista e durata in secondi.",
+      "expected_calls": [
+        {
+          "name": "tool_a7",
+          "arguments": {
+            "title": "Aster"
+          }
+        },
+        {
+          "name": "tool_b2",
+          "arguments": {
+            "track_id": "T-3V8"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "Mira"
+        ],
+        [
+          "187"
+        ]
+      ],
+      "renamed": true
+    }
+  ]
+}

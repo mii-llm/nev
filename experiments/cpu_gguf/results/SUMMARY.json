@@ -1,0 +1,194 @@
+{
+  "review": "Assistant inspected all 36 full final outputs and executed plans. Two answer-anchor false positives per backend are explicitly corrected. This is a selected 12-request diagnostic, not general accuracy.",
+  "backends": {
+    "torch": {
+      "supported_n": 10,
+      "exact_plans": 9,
+      "reviewed_complete": 7,
+      "reviewed_unsupported_refusals": 0,
+      "unsupported_n": 2,
+      "median_ms": 3392.504000104964,
+      "median_en_ms": 3019.602583604865,
+      "median_it_ms": 3583.4710630588233,
+      "peak_summed_rss_mib": 3336.21875,
+      "review": [
+        {
+          "id": "notes-single-en",
+          "complete": true,
+          "override": null
+        },
+        {
+          "id": "notes-single-it",
+          "complete": true,
+          "override": null
+        },
+        {
+          "id": "sensors-single-en",
+          "complete": true,
+          "override": null
+        },
+        {
+          "id": "sensors-single-it",
+          "complete": true,
+          "override": null
+        },
+        {
+          "id": "sensors-selection-en",
+          "complete": true,
+          "override": null
+        },
+        {
+          "id": "sensors-selection-it",
+          "complete": false,
+          "override": "Wrong unit: 68 C instead of 68 F."
+        },
+        {
+          "id": "sensors-dependent-en",
+          "complete": true,
+          "override": null
+        },
+        {
+          "id": "sensors-dependent-it",
+          "complete": false,
+          "override": null
+        },
+        {
+          "id": "media-single-en",
+          "complete": true,
+          "override": null
+        },
+        {
+          "id": "media-single-it",
+          "complete": false,
+          "override": "Artist Elio presented as track title."
+        }
+      ]
+    },
+    "f16": {
+      "supported_n": 10,
+      "exact_plans": 9,
+      "reviewed_complete": 7,
+      "reviewed_unsupported_refusals": 0,
+      "unsupported_n": 2,
+      "median_ms": 4243.599833571352,
+      "median_en_ms": 3725.165083538741,
+      "median_it_ms": 4606.301416526549,
+      "peak_summed_rss_mib": 2872.015625,
+      "review": [
+        {
+          "id": "notes-single-en",
+          "complete": true,
+          "override": null
+        },
+        {
+          "id": "notes-single-it",
+          "complete": true,
+          "override": null
+        },
+        {
+          "id": "sensors-single-en",
+          "complete": true,
+          "override": null
+        },
+        {
+          "id": "sensors-single-it",
+          "complete": true,
+          "override": null
+        },
+        {
+          "id": "sensors-selection-en",
+          "complete": true,
+          "override": null
+        },
+        {
+          "id": "sensors-selection-it",
+          "complete": false,
+          "override": "Wrong unit: 68 C instead of 68 F."
+        },
+        {
+          "id": "sensors-dependent-en",
+          "complete": true,
+          "override": null
+        },
+        {
+          "id": "sensors-dependent-it",
+          "complete": false,
+          "override": null
+        },
+        {
+          "id": "media-single-en",
+          "complete": true,
+          "override": null
+        },
+        {
+          "id": "media-single-it",
+          "complete": false,
+          "override": "Artist Elio presented as track title."
+        }
+      ]
+    },
+    "q8": {
+      "supported_n": 10,
+      "exact_plans": 9,
+      "reviewed_complete": 7,
+      "reviewed_unsupported_refusals": 0,
+      "unsupported_n": 2,
+      "median_ms": 1888.6094999033958,
+      "median_en_ms": 1837.6925414195284,
+      "median_it_ms": 2258.1704375334084,
+      "peak_summed_rss_mib": 2985.3125,
+      "review": [
+        {
+          "id": "notes-single-en",
+          "complete": true,
+          "override": null
+        },
+        {
+          "id": "notes-single-it",
+          "complete": true,
+          "override": null
+        },
+        {
+          "id": "sensors-single-en",
+          "complete": true,
+          "override": null
+        },
+        {
+          "id": "sensors-single-it",
+          "complete": true,
+          "override": null
+        },
+        {
+          "id": "sensors-selection-en",
+          "complete": true,
+          "override": null
+        },
+        {
+          "id": "sensors-selection-it",
+          "complete": false,
+          "override": "Wrong unit: 68 C instead of 68 F."
+        },
+        {
+          "id": "sensors-dependent-en",
+          "complete": true,
+          "override": null
+        },
+        {
+          "id": "sensors-dependent-it",
+          "complete": false,
+          "override": null
+        },
+        {
+          "id": "media-single-en",
+          "complete": true,
+          "override": null
+        },
+        {
+          "id": "media-single-it",
+          "complete": false,
+          "override": "Artist Elio presented as track title."
+        }
+      ]
+    }
+  }
+}

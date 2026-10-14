@@ -24,3 +24,23 @@ Validation for the code snapshot: all Python files parsed, all JSON files parsed
 comparison/regression tests passed, and the source snapshot was checked for
 embedded token/private-key patterns. The earlier GPU inference/export checks
 are recorded in `smoke-report.json` and `EXPORT_COMPARISON.md`.
+
+## CPU GGUF release — 2026-10-14
+
+- Private HF repository: https://huggingface.co/giux78/nev-nesso-cpu-gguf
+- Pinned revision: `3b7b4d8d74a3bfb520f782a54033424b3ca75549`.
+- Four GGUF files: Nesso3 and Nev v3, each in F16 and Q8_0.
+- Original Nev FP32 decision head, tokenizers, configuration and model provenance included.
+- All 14 inference artifact sizes and all seven LFS SHA-256 hashes were verified remotely, including all four GGUFs. Private visibility was verified after upload.
+- Source, install/download/conversion guide, bilingual examples and tests: `experiments/cpu_gguf/`.
+- Build and F16/Q8 smoke checks were rerun in the publication checkout using the existing Python environment. A fresh OS/environment installation was not tested.
+- Receipt: `experiments/cpu_gguf/results/huggingface-publication.json`; exact model card: `experiments/cpu_gguf/HF_MODEL_CARD.md`.
+
+The original model repositories and their visibility were preserved. The GGUF
+release retains the original source revisions; it does not use a newer model
+checkpoint or retrain/calibrate the decision head.
+
+The pinned HF download check passed in a separate folder: all ten ancillary
+files were fetched and verified; the existing Q8 pair passed remote-manifest
+SHA-256 checks, then bilingual and standalone inference passed. Large GGUFs
+were not redundantly downloaded. See the CPU download receipt and smoke trace.

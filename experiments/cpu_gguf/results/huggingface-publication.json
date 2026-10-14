@@ -1,0 +1,9 @@
+{
+  "repository": "giux78/nev-nesso-cpu-gguf",
+  "revision": "3b7b4d8d74a3bfb520f782a54033424b3ca75549",
+  "private": true,
+  "verified_sizes": 14,
+  "verified_lfs_sha256": 7,
+  "initial_artifact_commit": "14bc3e76a29f8edeae733f660ce24abe4da1f4a6",
+  "date": "2026-10-14"
+}

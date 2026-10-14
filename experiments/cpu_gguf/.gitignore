@@ -1,0 +1,11 @@
+/.venv
+/models
+/gguf
+/build
+/llama.cpp
+/models.json
+__pycache__/
+*.pyc
+*.log
+.env
+.env.*

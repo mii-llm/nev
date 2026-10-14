@@ -140,3 +140,28 @@ The accompanying recipes, frozen inference source, model identities, environment
 versions and result tables identify the two candidates. Original experiment
 archives preserve failed runs and selection history. Site-specific job logs and
 raw third-party dataset texts are kept separate from the public-facing draft.
+
+## 10. CPU conversion: fidelity, latency and retained failures
+
+The 14 October 2026 Mac experiment converted the pinned Nesso3 generator and
+Nev v3 decoder to F16 and Q8_0 GGUF. A separate llama.cpp bridge exposes Nev's
+final hidden states to its unchanged FP32 pointer head and calibration; each
+question uses an isolated causal row. Metal and CUDA were disabled. No training
+or quantization recalibration was performed.
+
+Twenty Nev verification requests contained 24 questions: F16 kept all decisions,
+Q8 changed one (maximum probability deltas 0.00541 and 0.06086). Eight Nesso
+first-generation probes matched the reference 8/8 in F16 and 7/8 in Q8, with
+identical tokenization. This establishes limited conversion fidelity, not global
+equivalence.
+
+The 12-request agent comparison used the original abstract controller and
+read-only mock fixtures. All three backends executed 9/10 supported plans, but
+full-answer inspection reduced success to 7/10 because matching an answer anchor
+did not catch a wrong unit or confusing artist and title. Unsupported-action
+refusals were 0/2. The same semantic weaknesses exist in the FP32 reference.
+Warm medians were 3.39 seconds FP32, 4.24 seconds F16 and 1.89 seconds Q8 on an
+M3 Pro with four CPU threads. Raw results and the corrected review are retained
+in `experiments/cpu_gguf/results/`; original measurement provenance and published
+source hashes are kept distinct. The CPU bridge was rebuilt and selected
+bilingual smoke examples rerun from the publication checkout.

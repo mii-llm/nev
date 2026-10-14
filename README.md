@@ -6,7 +6,7 @@ Use Nev to turn English or Italian requests into categorical, boolean, and ordin
 
 ## 1. Install and use Nev
 
-Use **Python 3.12** and install a PyTorch build appropriate for your hardware first. The original verified environment was LUMI ROCm with PyTorch 2.10.0, Transformers 5.17.0, PEFT 0.21.0, Safetensors 0.8.0, Accelerate 1.13.0 and Hugging Face Hub 1.27.0. A fresh Python 3.12 environment on an NVIDIA A100 has also passed the limited inference checks and timing measurements below, using PyTorch 2.10.0+cu126. CPU/mobile deployment and quantization remain unvalidated.
+Use **Python 3.12** and install a PyTorch build appropriate for your hardware first. The original verified environment was LUMI ROCm with PyTorch 2.10.0, Transformers 5.17.0, PEFT 0.21.0, Safetensors 0.8.0, Accelerate 1.13.0 and Hugging Face Hub 1.27.0. A fresh Python 3.12 environment on an NVIDIA A100 has also passed the limited inference checks and timing measurements below, using PyTorch 2.10.0+cu126. Apple M3 Pro CPU inference with F16 and Q8 GGUFs has now been tested (see below). Mobile deployment remains unvalidated.
 
 From a checkout of this repository:
 
@@ -64,6 +64,86 @@ The runtime enforces artifact-specific admission limits and rejects oversized in
 Transformers already loads the decoder inside the runtime. The whole released decision model is currently a custom `nn.Module` with `model_type=decision_model` and no `auto_map`. Therefore plain `transformers.AutoModel.from_pretrained("giux78/nev")` is not a supported loading command.
 
 A custom `PreTrainedConfig` / `PreTrainedModel` wrapper and Hub registration could provide that interface without retraining. It would need to preserve the renderer, head, tokenizer, calibration, and equivalent outputs. That wrapper is not implemented in this release. For now, use the HF download plus native loader shown above.
+
+### Run Nesso3 + Nev on a Mac CPU (GGUF)
+
+The private [CPU GGUF release](https://huggingface.co/giux78/nev-nesso-cpu-gguf)
+contains both models in **F16 and Q8_0**, plus Nev's original FP32 decision head,
+tokenizers and configuration. Use Python 3.12–3.13 and a C/C++ compiler (Xcode
+command-line tools on Mac). From this repository checkout:
+
+```bash
+cd experiments/cpu_gguf
+./setup.sh --precision q8       # builds CPU bridge, logs into HF if needed, downloads + checks hashes
+./run.sh --precision q8 --language both
+.venv/bin/python decide.py --precision q8
+.venv/bin/python test_smoke.py --precision q8 --output results/my-smoke.json
+
+# Download F16 for closer agreement with the FP32 reference:
+./setup.sh --precision f16
+./run.sh --language both
+
+# English request with a dependency between two calls:
+./run.sh --precision q8 --language en \
+  --message 'Find the temperature sensor in Studio, then read its temperature.'
+
+# Rerun the 12-request diagnostic, including known failures:
+.venv/bin/python benchmark.py --precision q8 --output results/my-cpu-eval.json
+```
+
+Inference runs offline, on four CPU threads, with no Metal or CUDA offload.
+Downloads are pinned and SHA-256 checked. Q8 uses about **902 MiB** for the two
+GGUFs; F16 uses about **1685 MiB**. These are file sizes, not memory requirements.
+The Python environment includes PyTorch for optional reference/conversion tests;
+the GGUF inference path uses llama.cpp and NumPy.
+
+**Nev needs its custom adapter and decision head.** It is not a chat GGUF that
+can be dropped into a generic chat app. Nesso3 generates calls and answers;
+Nev scores the supplied options from backbone hidden states. Each question runs
+in an isolated causal row with the original renderer and calibration.
+
+The passing bilingual smoke test produces this sequence (recorded F16 outputs):
+
+| Language | Request | Nev choice | Nesso3 function call | Tool result | Answer |
+| --- | --- | --- | --- | --- | --- |
+| EN | Read temperature sensor S-6K3. | `read_sensor` | `read_sensor(sensor_id="S-6K3")` | `18.2 C` | The temperature is 18.2°C. |
+| IT | Leggi la temperatura del sensore S-6K3. | `read_sensor` | `read_sensor(sensor_id="S-6K3")` | `18.2 C` | La temperatura è 18.2°C. |
+
+These are selected passing examples with deterministic read-only mock tools.
+The English dependent example finds `S-4J9`, then reads it and answers **21.5°C**.
+The corresponding Italian dependent request still fails.
+
+**CPU evaluation:** Apple M3 Pro, 18 GiB RAM, four threads, 14 October 2026.
+Twelve fixed requests, six English/six Italian, with warmed resident models;
+loading excluded. Shared desktop activity can affect these small-sample timings.
+
+| Backend | EN median request | IT median request | Overall median |
+| --- | ---: | ---: | ---: |
+| Original FP32 PyTorch CPU | 3.02 s | 3.58 s | 3.39 s |
+| F16 GGUF + FP32 head | 3.73 s | 4.61 s | 4.24 s |
+| Q8_0 GGUF + FP32 head | 1.84 s | 2.26 s | 1.89 s |
+
+F16 preserved **24/24 Nev decisions** on 20 verification requests (maximum
+probability difference 0.00541); Q8 preserved **23/24** (maximum difference
+0.06086). Nesso's eight first-generation sequences matched the FP32 reference
+8/8 with F16 and 7/8 with Q8. F16 is the default for fidelity; quantized
+probabilities have not been recalibrated.
+
+All three backends executed the expected plan on **9/10 supported requests**,
+but inspection found **7/10 fully grounded final answers**. Italian failures
+included a wrong temperature unit and confusing artist with title. Correct
+unsupported-action refusals were **0/2** for every backend. GGUF makes the
+prototype runnable locally; it does not resolve those model weaknesses.
+Sampled summed RSS was about 2.9 GiB for GGUF, but this can double-count shared
+or mapped pages and is not physical footprint. Phones and other platforms have
+not been validated.
+
+The [complete CPU guide and source](experiments/cpu_gguf/README.md) include the
+pinned build/conversion recipe, original raw traces, readable failures, numerical
+checks and smoke tests. A clean bridge build and inference checks were rerun for
+publication using the existing Python environment; a clean OS installation was
+not tested. The original experimental provenance is preserved separately from
+the hashes of the publication files.
 
 ### Run in the prepared A100 environment
 

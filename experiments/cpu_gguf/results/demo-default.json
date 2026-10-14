@@ -1,0 +1,261 @@
+{
+  "engine": "gguf",
+  "precision": "f16",
+  "cpu_only": true,
+  "threads": 4,
+  "load_seconds": 2.687416042201221,
+  "rows": [
+    {
+      "arm": "nev_ranked",
+      "status": "answered",
+      "final": "The temperature is 18.2°C.",
+      "emitted_calls": [
+        {
+          "name": "read_sensor",
+          "arguments": {
+            "sensor_id": "S-6K3"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "read_sensor",
+            "arguments": {
+              "sensor_id": "S-6K3"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "read_sensor",
+            "find_sensor",
+            "convert_temperature",
+            "battery_status"
+          ],
+          "ranking": {
+            "choice": "read_sensor",
+            "probabilities": {
+              "find_sensor": 0.0011478621745482087,
+              "read_sensor": 0.9980902075767517,
+              "convert_temperature": 0.0005090388003736734,
+              "battery_status": 0.0002529913035687059
+            },
+            "elapsed_ms": 2473.62191719003
+          },
+          "assistant": "<tool_call>\n{\"name\": \"read_sensor\", \"arguments\": {\"sensor_id\": \"S-6K3\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "read_sensor",
+              "arguments": {
+                "sensor_id": "S-6K3"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "read_sensor",
+                "arguments": {
+                  "sensor_id": "S-6K3"
+                }
+              },
+              "result": {
+                "temperature": 18.2,
+                "unit": "C"
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "read_sensor",
+                "arguments": {
+                  "sensor_id": "S-6K3"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "read_sensor",
+            "find_sensor",
+            "convert_temperature",
+            "battery_status"
+          ],
+          "ranking": {
+            "choice": "read_sensor",
+            "probabilities": {
+              "find_sensor": 0.00023976375814527273,
+              "read_sensor": 0.9995880722999573,
+              "convert_temperature": 0.00014061432739254087,
+              "battery_status": 3.154878140776418e-05
+            },
+            "elapsed_ms": 980.6319999042898
+          },
+          "assistant": "The temperature is 18.2°C.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 40,
+      "rank_ms": 3454.25391709432,
+      "total_ms": 7559.340375009924,
+      "language": "en",
+      "request": "Read temperature sensor S-6K3."
+    },
+    {
+      "arm": "nev_ranked",
+      "status": "answered",
+      "final": "La temperatura è 18.2°C.",
+      "emitted_calls": [
+        {
+          "name": "read_sensor",
+          "arguments": {
+            "sensor_id": "S-6K3"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "read_sensor",
+            "arguments": {
+              "sensor_id": "S-6K3"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "read_sensor",
+            "convert_temperature",
+            "battery_status",
+            "find_sensor"
+          ],
+          "ranking": {
+            "choice": "read_sensor",
+            "probabilities": {
+              "find_sensor": 0.0009416711982339621,
+              "read_sensor": 0.9874123334884644,
+              "convert_temperature": 0.009926367551088333,
+              "battery_status": 0.0017196069238707423
+            },
+            "elapsed_ms": 1062.2414161916822
+          },
+          "assistant": "<tool_call>\n{\"name\": \"read_sensor\", \"arguments\": {\"sensor_id\": \"S-6K3\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "read_sensor",
+              "arguments": {
+                "sensor_id": "S-6K3"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "read_sensor",
+                "arguments": {
+                  "sensor_id": "S-6K3"
+                }
+              },
+              "result": {
+                "temperature": 18.2,
+                "unit": "C"
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "read_sensor",
+                "arguments": {
+                  "sensor_id": "S-6K3"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "read_sensor",
+            "convert_temperature",
+            "battery_status",
+            "find_sensor"
+          ],
+          "ranking": {
+            "choice": "read_sensor",
+            "probabilities": {
+              "find_sensor": 0.00014829114661552012,
+              "read_sensor": 0.9984455704689026,
+              "convert_temperature": 0.0012317679356783628,
+              "battery_status": 0.00017442033276893198
+            },
+            "elapsed_ms": 2717.7095420192927
+          },
+          "assistant": "La temperatura è 18.2°C.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 40,
+      "rank_ms": 3779.950958210975,
+      "total_ms": 7619.711000006646,
+      "language": "it",
+      "request": "Leggi la temperatura del sensore S-6K3."
+    }
+  ],
+  "generation_metrics": [
+    {
+      "prompt_tokens": 262,
+      "generated_tokens": 30,
+      "prefill_ms": 2472.067917,
+      "elapsed_ms": 2838.189667
+    },
+    {
+      "prompt_tokens": 312,
+      "generated_tokens": 10,
+      "prefill_ms": 988.280375,
+      "elapsed_ms": 1089.345417
+    },
+    {
+      "prompt_tokens": 291,
+      "generated_tokens": 30,
+      "prefill_ms": 882.216375,
+      "elapsed_ms": 1266.720667
+    },
+    {
+      "prompt_tokens": 341,
+      "generated_tokens": 10,
+      "prefill_ms": 2355.359959,
+      "elapsed_ms": 2469.785209
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "date": "2026-10-14",
+  "timezone": "Europe/Rome",
+  "cpu": "Apple M3 Pro",
+  "physical_cores": 11,
+  "memory_bytes": 19327352832,
+  "python": "3.13.2",
+  "platform": "macOS-14.1-arm64-arm-64bit-Mach-O",
+  "threads": 4,
+  "cpu_only": true,
+  "llama_cpp_commit": "37d6d653e49aa73c947cc9631a5d499869a21cca",
+  "build": {
+    "GGML_METAL": false,
+    "GGML_CUDA": false,
+    "GGML_BLAS": false,
+    "GGML_OPENMP": false,
+    "n_gpu_layers": 0,
+    "offload_kqv": false,
+    "op_offload": false,
+    "kv_type": "FP32",
+    "context_tokens": 4096
+  },
+  "model_pins": {
+    "nesso3": {
+      "repository": "giux78/nesso3-0.4B-agentic",
+      "revision": "56f42f1c7eb82fbd48b0c4ee46aae7b8bed203b8"
+    },
+    "nev": {
+      "repository": "giux78/nev",
+      "revision": "c5c84121263b423f8846811a24790ab96e66cee3"
+    }
+  },
+  "source_repository": "mii-llm/nev",
+  "source_commit": "28fda72603c8c7fe6729f3db2f856f8991fba38f",
+  "files": {
+    "CMakeLists.txt": {
+      "bytes": 731,
+      "sha256": "7f2d9b63a2c6752fb6716d42b57a26be1f837456cb0eed42f4fb652417d778e6"
+    },
+    "README.md": {
+      "bytes": 8708,
+      "sha256": "e3ef27b73351a75557f829ec3b4052a84075c2e1173bb0dafb494b145e39e826"
+    },
+    "benchmark.py": {
+      "bytes": 3573,
+      "sha256": "b2e3c21ba69ced03f898834aa9ce934a80fe2cc7bb75bed8d9b5b8367169bb06"
+    },
+    "cpu_backend.py": {
+      "bytes": 7516,
+      "sha256": "bf494641d9b313020598086187936c6645e903ab08b7cbc29658be01f2d670e6"
+    },
+    "decide.py": {
+      "bytes": 843,
+      "sha256": "33e6beee4bd4d012edc46da8525c0658b6bb65227da65b67626012ac13a92cf1"
+    },
+    "demo.py": {
+      "bytes": 2023,
+      "sha256": "10e4dd986e1a6187eb22aeca03aba6587e84d8c92da0d6bbc192e4c9273e16f8"
+    },
+    "download_models.py": {
+      "bytes": 730,
+      "sha256": "7103c62379bc2dfadafb6d9a18184857ba521efc0ec250dfa2348e0333fdd959"
+    },
+    "gguf/nesso3-f16.gguf": {
+      "bytes": 883483456,
+      "sha256": "ee3f3fbb96b34a791dbfea34e1dbccb2096ef06519067de26a2bc4225c348013"
+    },
+    "gguf/nesso3-q8.gguf": {
+      "bytes": 473141056,
+      "sha256": "918d3f3da5cf13c79c9fd273fe407dd3be748bb1e430480deadadcd848faaa3e"
+    },
+    "gguf/nev-v3-f16.gguf": {
+      "bytes": 883484160,
+      "sha256": "6325b2d8ece94d7386b9cc367193605f74db8fb799c4a135530a0deb57a75eda"
+    },
+    "gguf/nev-v3-q8.gguf": {
+      "bytes": 473141760,
+      "sha256": "88a6484e8e6d8d7184c7a36230a9b8a22833b707389b815f2f03d38d6f6c1701"
+    },
+    "models/nev/v3/decision_head.safetensors": {
+      "bytes": 1968424,
+      "sha256": "76fc4342431d31732fdeae8185e22592ab6e4166d85c540a2f3aec3f6a660730"
+    },
+    "prepare_gguf.py": {
+      "bytes": 1039,
+      "sha256": "4e826ea391094e76da66207e558231d6c668e5dde23eba5a27cd33bff5ef3781"
+    },
+    "requirements-lock.txt": {
+      "bytes": 1306,
+      "sha256": "d10566f20c03e8dbeb83e1e528cca61fccc23d8819ae6e9214a20f361e21701f"
+    },
+    "results/SUMMARY.json": {
+      "bytes": 4913,
+      "sha256": "4f662f16b7e558380ba347174a6bceee06b719b58da416ac5012cee1debd7787"
+    },
+    "results/agent-f16.json": {
+      "bytes": 45831,
+      "sha256": "441c01073b4da22183f7f3201b20db0fa88835c7b7444b136a660ab0ee855dc8"
+    },
+    "results/agent-q8.json": {
+      "bytes": 45186,
+      "sha256": "5c5c70d440b4f06883f674c1ec7306f448613b63e5ac734986da1d5806b6a124"
+    },
+    "results/agent-torch.json": {
+      "bytes": 45200,
+      "sha256": "6d9ee4df5be6b85b8870b96176a299536d7c9c99b44f2cf8382e9fcad43f71c0"
+    },
+    "results/demo-default.json": {
+      "bytes": 6844,
+      "sha256": "c14ab43427bb40cfc67f35bff85dcf5d8592bf3df1b43c26941f75f783d27471"
+    },
+    "results/nev-standalone.json": {
+      "bytes": 545,
+      "sha256": "8acb604c2ebd5cc13197d05265f0caea9d71600687c7fa0416ff86c505fa886e"
+    },
+    "results/verify-nesso.json": {
+      "bytes": 60287,
+      "sha256": "40b2ff35b946c1ba6488fe900d3cbec638166b73c5867b64c299d8b3e13db918"
+    },
+    "results/verify-nev.json": {
+      "bytes": 86857,
+      "sha256": "50a0b9546933f5e51296aa4df18d5c2bde4208a23a65958b3e1eda8d8675fa29"
+    },
+    "run.sh": {
+      "bytes": 127,
+      "sha256": "9b4d0c0c21ff33975edb2ef6690163ebd6553f90517365aa46198d4bf02ec2da"
+    },
+    "setup.sh": {
+      "bytes": 1131,
+      "sha256": "e1b3614ad489b804b82faf443f6c7ff10641c02babcc960b25050bd24e140eb4"
+    },
+    "verify.py": {
+      "bytes": 7100,
+      "sha256": "0dde0707b230bc0df8fb651770cbcd9feff66dcd1c4e8ac0f6247da24db44d7e"
+    }
+  }
+}

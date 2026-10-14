@@ -1,0 +1,2546 @@
+{
+  "stage": "nev",
+  "threads": 4,
+  "device": "cpu",
+  "rows": [
+    {
+      "id": "notes-single-en",
+      "request": {
+        "state": "{\"request\":\"Read note N-8R6 and tell me its access code.\",\"completed_calls\":[],\"observations\":[]}",
+        "questions": {
+          "next": {
+            "type": "choice",
+            "instructions": "Select the next useful step to complete the request, considering results already received.",
+            "criteria": {
+              "find_note": "Find a note by its exact title and return its identifier. {\"type\":\"object\",\"properties\":{\"query\":{\"type\":\"string\"}},\"required\":[\"query\"]}",
+              "read_note": "Read the content of a note using its identifier. {\"type\":\"object\",\"properties\":{\"note_id\":{\"type\":\"string\"}},\"required\":[\"note_id\"]}",
+              "list_notes": "List note titles in a folder. {\"type\":\"object\",\"properties\":{\"folder\":{\"type\":\"string\"}},\"required\":[\"folder\"]}",
+              "note_count": "Count notes in a folder. {\"type\":\"object\",\"properties\":{\"folder\":{\"type\":\"string\"}},\"required\":[\"folder\"]}"
+            }
+          }
+        }
+      },
+      "reference": {
+        "answers": {
+          "next": {
+            "type": "choice",
+            "choice": "read_note",
+            "top_probability": 0.9945959448814392,
+            "probabilities": {
+              "find_note": 0.0023799880873411894,
+              "read_note": 0.9945959448814392,
+              "list_notes": 0.0006113550625741482,
+              "note_count": 0.0024126307107508183
+            }
+          }
+        },
+        "usage": {
+          "state_tokens": 25,
+          "branch_tokens": 146,
+          "questions": 1
+        },
+        "latency_ms": 3061.2556668929756,
+        "form": "rows"
+      },
+      "reference_ms": 3061.284250114113,
+      "f16": {
+        "result": {
+          "answers": {
+            "next": {
+              "type": "choice",
+              "choice": "read_note",
+              "top_probability": 0.9945646524429321,
+              "probabilities": {
+                "find_note": 0.0023835450410842896,
+                "read_note": 0.9945646524429321,
+                "list_notes": 0.0006161582423374057,
+                "note_count": 0.0024356553331017494
+              }
+            }
+          },
+          "latency_ms": 2172.5733750499785,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              -3.3835806846618652,
+              1.5173197984695435,
+              -4.482428550720215,
+              -3.366014242172241
+            ]
+          ],
+          "usage": {
+            "state_tokens": 25,
+            "branch_tokens": 146,
+            "questions": 1
+          }
+        },
+        "max_probability_error": 3.129243850708008e-05,
+        "all_choices_match": true,
+        "question_agreements": [
+          true
+        ]
+      },
+      "q8": {
+        "result": {
+          "answers": {
+            "next": {
+              "type": "choice",
+              "choice": "read_note",
+              "top_probability": 0.9938300251960754,
+              "probabilities": {
+                "find_note": 0.0029292928520590067,
+                "read_note": 0.9938300251960754,
+                "list_notes": 0.0006168603431433439,
+                "note_count": 0.0026238509453833103
+              }
+            }
+          },
+          "latency_ms": 260.6521660927683,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              -3.2101023197174072,
+              1.52273428440094,
+              -4.475488662719727,
+              -3.2995455265045166
+            ]
+          ],
+          "usage": {
+            "state_tokens": 25,
+            "branch_tokens": 146,
+            "questions": 1
+          }
+        },
+        "max_probability_error": 0.0007659196853637695,
+        "all_choices_match": true,
+        "question_agreements": [
+          true
+        ]
+      }
+    },
+    {
+      "id": "notes-single-it",
+      "request": {
+        "state": "{\"request\":\"Leggi la nota N-8R6 e dimmi il codice di accesso.\",\"completed_calls\":[],\"observations\":[]}",
+        "questions": {
+          "next": {
+            "type": "choice",
+            "instructions": "Seleziona il prossimo passo utile per completare la richiesta, considerando i risultati già ricevuti.",
+            "criteria": {
+              "find_note": "Trova una nota dal titolo esatto e restituisce il suo identificativo. {\"type\":\"object\",\"properties\":{\"query\":{\"type\":\"string\"}},\"required\":[\"query\"]}",
+              "read_note": "Leggi il contenuto di una nota usando il suo identificativo. {\"type\":\"object\",\"properties\":{\"note_id\":{\"type\":\"string\"}},\"required\":[\"note_id\"]}",
+              "list_notes": "Elenca i titoli delle note in una cartella. {\"type\":\"object\",\"properties\":{\"folder\":{\"type\":\"string\"}},\"required\":[\"folder\"]}",
+              "note_count": "Conta le note in una cartella. {\"type\":\"object\",\"properties\":{\"folder\":{\"type\":\"string\"}},\"required\":[\"folder\"]}"
+            }
+          }
+        }
+      },
+      "reference": {
+        "answers": {
+          "next": {
+            "type": "choice",
+            "choice": "read_note",
+            "top_probability": 0.7356547713279724,
+            "probabilities": {
+              "find_note": 0.26326024532318115,
+              "read_note": 0.7356547713279724,
+              "list_notes": 0.00011292399722151458,
+              "note_count": 0.0009720894740894437
+            }
+          }
+        },
+        "usage": {
+          "state_tokens": 30,
+          "branch_tokens": 181,
+          "questions": 1
+        },
+        "latency_ms": 279.4260000810027,
+        "form": "rows"
+      },
+      "reference_ms": 279.4448339845985,
+      "f16": {
+        "result": {
+          "answers": {
+            "next": {
+              "type": "choice",
+              "choice": "read_note",
+              "top_probability": 0.7368054389953613,
+              "probabilities": {
+                "find_note": 0.26209381222724915,
+                "read_note": 0.7368054389953613,
+                "list_notes": 0.00011743053619284183,
+                "note_count": 0.0009833149379119277
+              }
+            }
+          },
+          "latency_ms": 745.1882499735802,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              1.3959017992019653,
+              2.2354631423950195,
+              -4.867060661315918,
+              -3.1409571170806885
+            ]
+          ],
+          "usage": {
+            "state_tokens": 30,
+            "branch_tokens": 181,
+            "questions": 1
+          }
+        },
+        "max_probability_error": 0.0011664330959320068,
+        "all_choices_match": true,
+        "question_agreements": [
+          true
+        ]
+      },
+      "q8": {
+        "result": {
+          "answers": {
+            "next": {
+              "type": "choice",
+              "choice": "read_note",
+              "top_probability": 0.7710387706756592,
+              "probabilities": {
+                "find_note": 0.22794656455516815,
+                "read_note": 0.7710387706756592,
+                "list_notes": 0.0001059099959093146,
+                "note_count": 0.0009087634389288723
+              }
+            }
+          },
+          "latency_ms": 283.9462498668581,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              1.3083748817443848,
+              2.298207998275757,
+              -4.925074577331543,
+              -3.179142475128174
+            ]
+          ],
+          "usage": {
+            "state_tokens": 30,
+            "branch_tokens": 181,
+            "questions": 1
+          }
+        },
+        "max_probability_error": 0.03538399934768677,
+        "all_choices_match": true,
+        "question_agreements": [
+          true
+        ]
+      }
+    },
+    {
+      "id": "notes-selection-en",
+      "request": {
+        "state": "{\"request\":\"List the note titles in folder Work.\",\"completed_calls\":[],\"observations\":[]}",
+        "questions": {
+          "next": {
+            "type": "choice",
+            "instructions": "Select the next useful step to complete the request, considering results already received.",
+            "criteria": {
+              "find_note": "Find a note by its exact title and return its identifier. {\"type\":\"object\",\"properties\":{\"query\":{\"type\":\"string\"}},\"required\":[\"query\"]}",
+              "read_note": "Read the content of a note using its identifier. {\"type\":\"object\",\"properties\":{\"note_id\":{\"type\":\"string\"}},\"required\":[\"note_id\"]}",
+              "list_notes": "List note titles in a folder. {\"type\":\"object\",\"properties\":{\"folder\":{\"type\":\"string\"}},\"required\":[\"folder\"]}",
+              "note_count": "Count notes in a folder. {\"type\":\"object\",\"properties\":{\"folder\":{\"type\":\"string\"}},\"required\":[\"folder\"]}"
+            }
+          }
+        }
+      },
+      "reference": {
+        "answers": {
+          "next": {
+            "type": "choice",
+            "choice": "list_notes",
+            "top_probability": 0.9261407852172852,
+            "probabilities": {
+              "find_note": 7.772578828735277e-05,
+              "read_note": 0.00041435513412579894,
+              "list_notes": 0.9261407852172852,
+              "note_count": 0.07336711883544922
+            }
+          }
+        },
+        "usage": {
+          "state_tokens": 19,
+          "branch_tokens": 146,
+          "questions": 1
+        },
+        "latency_ms": 194.94612491689622,
+        "form": "rows"
+      },
+      "reference_ms": 194.96183400042355,
+      "f16": {
+        "result": {
+          "answers": {
+            "next": {
+              "type": "choice",
+              "choice": "list_notes",
+              "top_probability": 0.9254101514816284,
+              "probabilities": {
+                "find_note": 7.620335964020342e-05,
+                "read_note": 0.00041207013418897986,
+                "list_notes": 0.9254101514816284,
+                "note_count": 0.07410160452127457
+              }
+            }
+          },
+          "latency_ms": 571.7809160705656,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              -3.4401307106018066,
+              -2.069221019744873,
+              4.19876766204834,
+              2.1479928493499756
+            ]
+          ],
+          "usage": {
+            "state_tokens": 19,
+            "branch_tokens": 146,
+            "questions": 1
+          }
+        },
+        "max_probability_error": 0.0007344856858253479,
+        "all_choices_match": true,
+        "question_agreements": [
+          true
+        ]
+      },
+      "q8": {
+        "result": {
+          "answers": {
+            "next": {
+              "type": "choice",
+              "choice": "list_notes",
+              "top_probability": 0.9086547493934631,
+              "probabilities": {
+                "find_note": 9.152146958513185e-05,
+                "read_note": 0.0005199123988859355,
+                "list_notes": 0.9086547493934631,
+                "note_count": 0.09073378890752792
+              }
+            }
+          },
+          "latency_ms": 215.77495895326138,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              -3.3538200855255127,
+              -1.9428671598434448,
+              4.121458053588867,
+              2.249999761581421
+            ]
+          ],
+          "usage": {
+            "state_tokens": 19,
+            "branch_tokens": 146,
+            "questions": 1
+          }
+        },
+        "max_probability_error": 0.01748603582382202,
+        "all_choices_match": true,
+        "question_agreements": [
+          true
+        ]
+      }
+    },
+    {
+      "id": "notes-selection-it",
+      "request": {
+        "state": "{\"request\":\"Elenca i titoli delle note nella cartella Work.\",\"completed_calls\":[],\"observations\":[]}",
+        "questions": {
+          "next": {
+            "type": "choice",
+            "instructions": "Seleziona il prossimo passo utile per completare la richiesta, considerando i risultati già ricevuti.",
+            "criteria": {
+              "find_note": "Trova una nota dal titolo esatto e restituisce il suo identificativo. {\"type\":\"object\",\"properties\":{\"query\":{\"type\":\"string\"}},\"required\":[\"query\"]}",
+              "read_note": "Leggi il contenuto di una nota usando il suo identificativo. {\"type\":\"object\",\"properties\":{\"note_id\":{\"type\":\"string\"}},\"required\":[\"note_id\"]}",
+              "list_notes": "Elenca i titoli delle note in una cartella. {\"type\":\"object\",\"properties\":{\"folder\":{\"type\":\"string\"}},\"required\":[\"folder\"]}",
+              "note_count": "Conta le note in una cartella. {\"type\":\"object\",\"properties\":{\"folder\":{\"type\":\"string\"}},\"required\":[\"folder\"]}"
+            }
+          }
+        }
+      },
+      "reference": {
+        "answers": {
+          "next": {
+            "type": "choice",
+            "choice": "list_notes",
+            "top_probability": 0.9341225028038025,
+            "probabilities": {
+              "find_note": 0.0006514564738608897,
+              "read_note": 0.005431491881608963,
+              "list_notes": 0.9341225028038025,
+              "note_count": 0.059794552624225616
+            }
+          }
+        },
+        "usage": {
+          "state_tokens": 24,
+          "branch_tokens": 181,
+          "questions": 1
+        },
+        "latency_ms": 229.31662504561245,
+        "form": "rows"
+      },
+      "reference_ms": 229.33308314532042,
+      "f16": {
+        "result": {
+          "answers": {
+            "next": {
+              "type": "choice",
+              "choice": "list_notes",
+              "top_probability": 0.9343231320381165,
+              "probabilities": {
+                "find_note": 0.0006628537084907293,
+                "read_note": 0.005392173305153847,
+                "list_notes": 0.9343231320381165,
+                "note_count": 0.05962180346250534
+              }
+            }
+          },
+          "latency_ms": 711.7803751025349,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              -2.347055435180664,
+              -0.6444531083106995,
+              3.5426056385040283,
+              1.3074488639831543
+            ]
+          ],
+          "usage": {
+            "state_tokens": 24,
+            "branch_tokens": 181,
+            "questions": 1
+          }
+        },
+        "max_probability_error": 0.00020062923431396484,
+        "all_choices_match": true,
+        "question_agreements": [
+          true
+        ]
+      },
+      "q8": {
+        "result": {
+          "answers": {
+            "next": {
+              "type": "choice",
+              "choice": "list_notes",
+              "top_probability": 0.9311259984970093,
+              "probabilities": {
+                "find_note": 0.0010800171876326203,
+                "read_note": 0.006752954330295324,
+                "list_notes": 0.9311259984970093,
+                "note_count": 0.061041031032800674
+              }
+            }
+          },
+          "latency_ms": 269.7746669873595,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              -1.852968692779541,
+              -0.3641074299812317,
+              3.6373846530914307,
+              1.4241198301315308
+            ]
+          ],
+          "usage": {
+            "state_tokens": 24,
+            "branch_tokens": 181,
+            "questions": 1
+          }
+        },
+        "max_probability_error": 0.002996504306793213,
+        "all_choices_match": true,
+        "question_agreements": [
+          true
+        ]
+      }
+    },
+    {
+      "id": "notes-dependent-en",
+      "request": {
+        "state": "{\"request\":\"Find the note titled Aurora, then read it and tell me its access code.\",\"completed_calls\":[],\"observations\":[]}",
+        "questions": {
+          "next": {
+            "type": "choice",
+            "instructions": "Select the next useful step to complete the request, considering results already received.",
+            "criteria": {
+              "find_note": "Find a note by its exact title and return its identifier. {\"type\":\"object\",\"properties\":{\"query\":{\"type\":\"string\"}},\"required\":[\"query\"]}",
+              "read_note": "Read the content of a note using its identifier. {\"type\":\"object\",\"properties\":{\"note_id\":{\"type\":\"string\"}},\"required\":[\"note_id\"]}",
+              "list_notes": "List note titles in a folder. {\"type\":\"object\",\"properties\":{\"folder\":{\"type\":\"string\"}},\"required\":[\"folder\"]}",
+              "note_count": "Count notes in a folder. {\"type\":\"object\",\"properties\":{\"folder\":{\"type\":\"string\"}},\"required\":[\"folder\"]}"
+            }
+          }
+        }
+      },
+      "reference": {
+        "answers": {
+          "next": {
+            "type": "choice",
+            "choice": "read_note",
+            "top_probability": 0.8376306295394897,
+            "probabilities": {
+              "find_note": 0.1539761871099472,
+              "read_note": 0.8376306295394897,
+              "list_notes": 0.0019677814561873674,
+              "note_count": 0.006425393745303154
+            }
+          }
+        },
+        "usage": {
+          "state_tokens": 27,
+          "branch_tokens": 146,
+          "questions": 1
+        },
+        "latency_ms": 195.67479193210602,
+        "form": "rows"
+      },
+      "reference_ms": 195.69208403117955,
+      "f16": {
+        "result": {
+          "answers": {
+            "next": {
+              "type": "choice",
+              "choice": "read_note",
+              "top_probability": 0.8346947431564331,
+              "probabilities": {
+                "find_note": 0.15663719177246094,
+                "read_note": 0.8346947431564331,
+                "list_notes": 0.0020398045890033245,
+                "note_count": 0.006628189701586962
+              }
+            }
+          },
+          "latency_ms": 623.8649999722838,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              -0.6125918626785278,
+              0.7464150786399841,
+              -4.138643264770508,
+              -3.1814217567443848
+            ]
+          ],
+          "usage": {
+            "state_tokens": 27,
+            "branch_tokens": 146,
+            "questions": 1
+          }
+        },
+        "max_probability_error": 0.0029358863830566406,
+        "all_choices_match": true,
+        "question_agreements": [
+          true
+        ]
+      },
+      "q8": {
+        "result": {
+          "answers": {
+            "next": {
+              "type": "choice",
+              "choice": "read_note",
+              "top_probability": 0.8564327359199524,
+              "probabilities": {
+                "find_note": 0.1351315826177597,
+                "read_note": 0.8564327359199524,
+                "list_notes": 0.00168121000751853,
+                "note_count": 0.0067545026540756226
+              }
+            }
+          },
+          "latency_ms": 232.27983410470188,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              -0.7087719440460205,
+              0.7910739183425903,
+              -4.271908283233643,
+              -3.1423122882843018
+            ]
+          ],
+          "usage": {
+            "state_tokens": 27,
+            "branch_tokens": 146,
+            "questions": 1
+          }
+        },
+        "max_probability_error": 0.0188446044921875,
+        "all_choices_match": true,
+        "question_agreements": [
+          true
+        ]
+      }
+    },
+    {
+      "id": "notes-dependent-it",
+      "request": {
+        "state": "{\"request\":\"Trova la nota intitolata Aurora, poi leggila e dimmi il codice di accesso.\",\"completed_calls\":[],\"observations\":[]}",
+        "questions": {
+          "next": {
+            "type": "choice",
+            "instructions": "Seleziona il prossimo passo utile per completare la richiesta, considerando i risultati già ricevuti.",
+            "criteria": {
+              "find_note": "Trova una nota dal titolo esatto e restituisce il suo identificativo. {\"type\":\"object\",\"properties\":{\"query\":{\"type\":\"string\"}},\"required\":[\"query\"]}",
+              "read_note": "Leggi il contenuto di una nota usando il suo identificativo. {\"type\":\"object\",\"properties\":{\"note_id\":{\"type\":\"string\"}},\"required\":[\"note_id\"]}",
+              "list_notes": "Elenca i titoli delle note in una cartella. {\"type\":\"object\",\"properties\":{\"folder\":{\"type\":\"string\"}},\"required\":[\"folder\"]}",
+              "note_count": "Conta le note in una cartella. {\"type\":\"object\",\"properties\":{\"folder\":{\"type\":\"string\"}},\"required\":[\"folder\"]}"
+            }
+          }
+        }
+      },
+      "reference": {
+        "answers": {
+          "next": {
+            "type": "choice",
+            "choice": "read_note",
+            "top_probability": 0.5399649143218994,
+            "probabilities": {
+              "find_note": 0.4570753574371338,
+              "read_note": 0.5399649143218994,
+              "list_notes": 0.00042391137685626745,
+              "note_count": 0.0025357473641633987
+            }
+          }
+        },
+        "usage": {
+          "state_tokens": 34,
+          "branch_tokens": 181,
+          "questions": 1
+        },
+        "latency_ms": 236.56775010749698,
+        "form": "rows"
+      },
+      "reference_ms": 236.59220896661282,
+      "f16": {
+        "result": {
+          "answers": {
+            "next": {
+              "type": "choice",
+              "choice": "read_note",
+              "top_probability": 0.5362476110458374,
+              "probabilities": {
+                "find_note": 0.46080222725868225,
+                "read_note": 0.5362476110458374,
+                "list_notes": 0.00042669434333220124,
+                "note_count": 0.0025234136264771223
+              }
+            }
+          },
+          "latency_ms": 774.1727090906352,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              1.3388713598251343,
+              1.4620308876037598,
+              -4.334432601928711,
+              -2.8908164501190186
+            ]
+          ],
+          "usage": {
+            "state_tokens": 34,
+            "branch_tokens": 181,
+            "questions": 1
+          }
+        },
+        "max_probability_error": 0.003726869821548462,
+        "all_choices_match": true,
+        "question_agreements": [
+          true
+        ]
+      },
+      "q8": {
+        "result": {
+          "answers": {
+            "next": {
+              "type": "choice",
+              "choice": "find_note",
+              "top_probability": 0.5179386138916016,
+              "probabilities": {
+                "find_note": 0.5179386138916016,
+                "read_note": 0.4793722927570343,
+                "list_notes": 0.00037423576577566564,
+                "note_count": 0.0023149028420448303
+              }
+            }
+          },
+          "latency_ms": 293.16974990069866,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              1.514809012413025,
+              1.4519575834274292,
+              -4.359990119934082,
+              -2.879873752593994
+            ]
+          ],
+          "usage": {
+            "state_tokens": 34,
+            "branch_tokens": 181,
+            "questions": 1
+          }
+        },
+        "max_probability_error": 0.06086325645446777,
+        "all_choices_match": false,
+        "question_agreements": [
+          false
+        ]
+      }
+    },
+    {
+      "id": "sensors-single-en",
+      "request": {
+        "state": "{\"request\":\"Read temperature sensor S-6K3.\",\"completed_calls\":[],\"observations\":[]}",
+        "questions": {
+          "next": {
+            "type": "choice",
+            "instructions": "Select the next useful step to complete the request, considering results already received.",
+            "criteria": {
+              "find_sensor": "Find the temperature sensor in a room and return its identifier. {\"type\":\"object\",\"properties\":{\"room\":{\"type\":\"string\"}},\"required\":[\"room\"]}",
+              "read_sensor": "Read the current temperature from a sensor identifier. {\"type\":\"object\",\"properties\":{\"sensor_id\":{\"type\":\"string\"}},\"required\":[\"sensor_id\"]}",
+              "convert_temperature": "Convert a temperature between Celsius (C) and Fahrenheit (F). {\"type\":\"object\",\"properties\":{\"value\":{\"type\":\"number\"},\"from_unit\":{\"type\":\"string\",\"enum\":[\"C\",\"F\"]},\"to_unit\":{\"type\":\"string\",\"enum\":[\"C\",\"F\"]}},\"required\":[\"value\",\"from_unit\",\"to_unit\"]}",
+              "battery_status": "Read the battery percentage of a device. {\"type\":\"object\",\"properties\":{\"device_id\":{\"type\":\"string\"}},\"required\":[\"device_id\"]}"
+            }
+          }
+        }
+      },
+      "reference": {
+        "answers": {
+          "next": {
+            "type": "choice",
+            "choice": "read_sensor",
+            "top_probability": 0.9981065988540649,
+            "probabilities": {
+              "find_sensor": 0.001135045662522316,
+              "read_sensor": 0.9981065988540649,
+              "convert_temperature": 0.0005048285820521414,
+              "battery_status": 0.0002535623498260975
+            }
+          }
+        },
+        "usage": {
+          "state_tokens": 20,
+          "branch_tokens": 189,
+          "questions": 1
+        },
+        "latency_ms": 226.66829195804894,
+        "form": "rows"
+      },
+      "reference_ms": 226.68554191477597,
+      "f16": {
+        "result": {
+          "answers": {
+            "next": {
+              "type": "choice",
+              "choice": "read_sensor",
+              "top_probability": 0.9980902075767517,
+              "probabilities": {
+                "find_sensor": 0.0011478621745482087,
+                "read_sensor": 0.9980902075767517,
+                "convert_temperature": 0.0005090388003736734,
+                "battery_status": 0.0002529913035687059
+              }
+            }
+          },
+          "latency_ms": 839.6841250360012,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              -1.8275068998336792,
+              3.6697704792022705,
+              -2.487975597381592,
+              -3.055877685546875
+            ]
+          ],
+          "usage": {
+            "state_tokens": 20,
+            "branch_tokens": 189,
+            "questions": 1
+          }
+        },
+        "max_probability_error": 1.6391277313232422e-05,
+        "all_choices_match": true,
+        "question_agreements": [
+          true
+        ]
+      },
+      "q8": {
+        "result": {
+          "answers": {
+            "next": {
+              "type": "choice",
+              "choice": "read_sensor",
+              "top_probability": 0.9980777502059937,
+              "probabilities": {
+                "find_sensor": 0.0012302342802286148,
+                "read_sensor": 0.9980777502059937,
+                "convert_temperature": 0.00044070190051570535,
+                "battery_status": 0.0002513288345653564
+              }
+            }
+          },
+          "latency_ms": 268.77887500450015,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              -1.8725054264068604,
+              3.5684702396392822,
+              -2.7063567638397217,
+              -3.162523031234741
+            ]
+          ],
+          "usage": {
+            "state_tokens": 20,
+            "branch_tokens": 189,
+            "questions": 1
+          }
+        },
+        "max_probability_error": 9.518861770629883e-05,
+        "all_choices_match": true,
+        "question_agreements": [
+          true
+        ]
+      }
+    },
+    {
+      "id": "sensors-single-it",
+      "request": {
+        "state": "{\"request\":\"Leggi la temperatura del sensore S-6K3.\",\"completed_calls\":[],\"observations\":[]}",
+        "questions": {
+          "next": {
+            "type": "choice",
+            "instructions": "Seleziona il prossimo passo utile per completare la richiesta, considerando i risultati già ricevuti.",
+            "criteria": {
+              "find_sensor": "Trova il sensore di temperatura in una stanza e restituisce il suo identificativo. {\"type\":\"object\",\"properties\":{\"room\":{\"type\":\"string\"}},\"required\":[\"room\"]}",
+              "read_sensor": "Leggi la temperatura attuale usando un identificativo di sensore. {\"type\":\"object\",\"properties\":{\"sensor_id\":{\"type\":\"string\"}},\"required\":[\"sensor_id\"]}",
+              "convert_temperature": "Converti una temperatura tra Celsius (C) e Fahrenheit (F). {\"type\":\"object\",\"properties\":{\"value\":{\"type\":\"number\"},\"from_unit\":{\"type\":\"string\",\"enum\":[\"C\",\"F\"]},\"to_unit\":{\"type\":\"string\",\"enum\":[\"C\",\"F\"]}},\"required\":[\"value\",\"from_unit\",\"to_unit\"]}",
+              "battery_status": "Leggi la percentuale della batteria di un dispositivo. {\"type\":\"object\",\"properties\":{\"device_id\":{\"type\":\"string\"}},\"required\":[\"device_id\"]}"
+            }
+          }
+        }
+      },
+      "reference": {
+        "answers": {
+          "next": {
+            "type": "choice",
+            "choice": "read_sensor",
+            "top_probability": 0.9873877167701721,
+            "probabilities": {
+              "find_sensor": 0.000979093718342483,
+              "read_sensor": 0.9873877167701721,
+              "convert_temperature": 0.00988985039293766,
+              "battery_status": 0.0017433298053219914
+            }
+          }
+        },
+        "usage": {
+          "state_tokens": 24,
+          "branch_tokens": 222,
+          "questions": 1
+        },
+        "latency_ms": 255.05562499165535,
+        "form": "rows"
+      },
+      "reference_ms": 255.07170800119638,
+      "f16": {
+        "result": {
+          "answers": {
+            "next": {
+              "type": "choice",
+              "choice": "read_sensor",
+              "top_probability": 0.9874123334884644,
+              "probabilities": {
+                "find_sensor": 0.0009416711982339621,
+                "read_sensor": 0.9874123334884644,
+                "convert_temperature": 0.009926367551088333,
+                "battery_status": 0.0017196069238707423
+              }
+            }
+          },
+          "latency_ms": 871.831834083423,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              -2.756470203399658,
+              2.892897129058838,
+              -0.8433771133422852,
+              -2.267335891723633
+            ]
+          ],
+          "usage": {
+            "state_tokens": 24,
+            "branch_tokens": 222,
+            "questions": 1
+          }
+        },
+        "max_probability_error": 3.7422520108520985e-05,
+        "all_choices_match": true,
+        "question_agreements": [
+          true
+        ]
+      },
+      "q8": {
+        "result": {
+          "answers": {
+            "next": {
+              "type": "choice",
+              "choice": "read_sensor",
+              "top_probability": 0.9865956902503967,
+              "probabilities": {
+                "find_sensor": 0.0008619215223006904,
+                "read_sensor": 0.9865956902503967,
+                "convert_temperature": 0.01061405148357153,
+                "battery_status": 0.0019282306311652064
+              }
+            }
+          },
+          "latency_ms": 325.8151251357049,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              -2.914151668548584,
+              2.8064210414886475,
+              -0.8747731447219849,
+              -2.2601311206817627
+            ]
+          ],
+          "usage": {
+            "state_tokens": 24,
+            "branch_tokens": 222,
+            "questions": 1
+          }
+        },
+        "max_probability_error": 0.0007920265197753906,
+        "all_choices_match": true,
+        "question_agreements": [
+          true
+        ]
+      }
+    },
+    {
+      "id": "sensors-selection-en",
+      "request": {
+        "state": "{\"request\":\"Convert 20 degrees C to F.\",\"completed_calls\":[],\"observations\":[]}",
+        "questions": {
+          "next": {
+            "type": "choice",
+            "instructions": "Select the next useful step to complete the request, considering results already received.",
+            "criteria": {
+              "find_sensor": "Find the temperature sensor in a room and return its identifier. {\"type\":\"object\",\"properties\":{\"room\":{\"type\":\"string\"}},\"required\":[\"room\"]}",
+              "read_sensor": "Read the current temperature from a sensor identifier. {\"type\":\"object\",\"properties\":{\"sensor_id\":{\"type\":\"string\"}},\"required\":[\"sensor_id\"]}",
+              "convert_temperature": "Convert a temperature between Celsius (C) and Fahrenheit (F). {\"type\":\"object\",\"properties\":{\"value\":{\"type\":\"number\"},\"from_unit\":{\"type\":\"string\",\"enum\":[\"C\",\"F\"]},\"to_unit\":{\"type\":\"string\",\"enum\":[\"C\",\"F\"]}},\"required\":[\"value\",\"from_unit\",\"to_unit\"]}",
+              "battery_status": "Read the battery percentage of a device. {\"type\":\"object\",\"properties\":{\"device_id\":{\"type\":\"string\"}},\"required\":[\"device_id\"]}"
+            }
+          }
+        }
+      },
+      "reference": {
+        "answers": {
+          "next": {
+            "type": "choice",
+            "choice": "convert_temperature",
+            "top_probability": 0.8588836193084717,
+            "probabilities": {
+              "find_sensor": 0.004259470850229263,
+              "read_sensor": 0.12672464549541473,
+              "convert_temperature": 0.8588836193084717,
+              "battery_status": 0.010132202878594398
+            }
+          }
+        },
+        "usage": {
+          "state_tokens": 19,
+          "branch_tokens": 189,
+          "questions": 1
+        },
+        "latency_ms": 221.31141694262624,
+        "form": "rows"
+      },
+      "reference_ms": 221.32633393630385,
+      "f16": {
+        "result": {
+          "answers": {
+            "next": {
+              "type": "choice",
+              "choice": "convert_temperature",
+              "top_probability": 0.8567401170730591,
+              "probabilities": {
+                "find_sensor": 0.004270690493285656,
+                "read_sensor": 0.12870025634765625,
+                "convert_temperature": 0.8567401170730591,
+                "battery_status": 0.010288883931934834
+              }
+            }
+          },
+          "latency_ms": 714.7397499065846,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              -4.026800632476807,
+              -1.260503888130188,
+              0.27924105525016785,
+              -3.312596082687378
+            ]
+          ],
+          "usage": {
+            "state_tokens": 19,
+            "branch_tokens": 189,
+            "questions": 1
+          }
+        },
+        "max_probability_error": 0.0021435022354125977,
+        "all_choices_match": true,
+        "question_agreements": [
+          true
+        ]
+      },
+      "q8": {
+        "result": {
+          "answers": {
+            "next": {
+              "type": "choice",
+              "choice": "convert_temperature",
+              "top_probability": 0.8831031322479248,
+              "probabilities": {
+                "find_sensor": 0.002808363176882267,
+                "read_sensor": 0.10775835812091827,
+                "convert_temperature": 0.8831031322479248,
+                "battery_status": 0.006330123171210289
+              }
+            }
+          },
+          "latency_ms": 265.4544999822974,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              -4.123327255249023,
+              -1.1608076095581055,
+              0.547806441783905,
+              -3.463195323944092
+            ]
+          ],
+          "usage": {
+            "state_tokens": 19,
+            "branch_tokens": 189,
+            "questions": 1
+          }
+        },
+        "max_probability_error": 0.024219512939453125,
+        "all_choices_match": true,
+        "question_agreements": [
+          true
+        ]
+      }
+    },
+    {
+      "id": "sensors-selection-it",
+      "request": {
+        "state": "{\"request\":\"Converti 20 gradi C in F.\",\"completed_calls\":[],\"observations\":[]}",
+        "questions": {
+          "next": {
+            "type": "choice",
+            "instructions": "Seleziona il prossimo passo utile per completare la richiesta, considerando i risultati già ricevuti.",
+            "criteria": {
+              "find_sensor": "Trova il sensore di temperatura in una stanza e restituisce il suo identificativo. {\"type\":\"object\",\"properties\":{\"room\":{\"type\":\"string\"}},\"required\":[\"room\"]}",
+              "read_sensor": "Leggi la temperatura attuale usando un identificativo di sensore. {\"type\":\"object\",\"properties\":{\"sensor_id\":{\"type\":\"string\"}},\"required\":[\"sensor_id\"]}",
+              "convert_temperature": "Converti una temperatura tra Celsius (C) e Fahrenheit (F). {\"type\":\"object\",\"properties\":{\"value\":{\"type\":\"number\"},\"from_unit\":{\"type\":\"string\",\"enum\":[\"C\",\"F\"]},\"to_unit\":{\"type\":\"string\",\"enum\":[\"C\",\"F\"]}},\"required\":[\"value\",\"from_unit\",\"to_unit\"]}",
+              "battery_status": "Leggi la percentuale della batteria di un dispositivo. {\"type\":\"object\",\"properties\":{\"device_id\":{\"type\":\"string\"}},\"required\":[\"device_id\"]}"
+            }
+          }
+        }
+      },
+      "reference": {
+        "answers": {
+          "next": {
+            "type": "choice",
+            "choice": "convert_temperature",
+            "top_probability": 0.6298978328704834,
+            "probabilities": {
+              "find_sensor": 0.010520611889660358,
+              "read_sensor": 0.33946898579597473,
+              "convert_temperature": 0.6298978328704834,
+              "battery_status": 0.020112531259655952
+            }
+          }
+        },
+        "usage": {
+          "state_tokens": 21,
+          "branch_tokens": 222,
+          "questions": 1
+        },
+        "latency_ms": 250.9884589817375,
+        "form": "rows"
+      },
+      "reference_ms": 251.0055829770863,
+      "f16": {
+        "result": {
+          "answers": {
+            "next": {
+              "type": "choice",
+              "choice": "convert_temperature",
+              "top_probability": 0.6244900226593018,
+              "probabilities": {
+                "find_sensor": 0.010610959492623806,
+                "read_sensor": 0.3446005880832672,
+                "convert_temperature": 0.6244900226593018,
+                "battery_status": 0.02029842510819435
+              }
+            }
+          },
+          "latency_ms": 845.6011251546443,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              -3.8766825199127197,
+              -1.049639344215393,
+              -0.5667151212692261,
+              -3.3498103618621826
+            ]
+          ],
+          "usage": {
+            "state_tokens": 21,
+            "branch_tokens": 222,
+            "questions": 1
+          }
+        },
+        "max_probability_error": 0.005407810211181641,
+        "all_choices_match": true,
+        "question_agreements": [
+          true
+        ]
+      },
+      "q8": {
+        "result": {
+          "answers": {
+            "next": {
+              "type": "choice",
+              "choice": "convert_temperature",
+              "top_probability": 0.6082839369773865,
+              "probabilities": {
+                "find_sensor": 0.009881203062832355,
+                "read_sensor": 0.3632633686065674,
+                "convert_temperature": 0.6082839369773865,
+                "battery_status": 0.018571561202406883
+              }
+            }
+          },
+          "latency_ms": 328.42916692607105,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              -3.873812198638916,
+              -0.9460535049438477,
+              -0.5273263454437256,
+              -3.361283302307129
+            ]
+          ],
+          "usage": {
+            "state_tokens": 21,
+            "branch_tokens": 222,
+            "questions": 1
+          }
+        },
+        "max_probability_error": 0.02379438281059265,
+        "all_choices_match": true,
+        "question_agreements": [
+          true
+        ]
+      }
+    },
+    {
+      "id": "sensors-dependent-en",
+      "request": {
+        "state": "{\"request\":\"Find the temperature sensor in Studio, then read its temperature.\",\"completed_calls\":[],\"observations\":[]}",
+        "questions": {
+          "next": {
+            "type": "choice",
+            "instructions": "Select the next useful step to complete the request, considering results already received.",
+            "criteria": {
+              "find_sensor": "Find the temperature sensor in a room and return its identifier. {\"type\":\"object\",\"properties\":{\"room\":{\"type\":\"string\"}},\"required\":[\"room\"]}",
+              "read_sensor": "Read the current temperature from a sensor identifier. {\"type\":\"object\",\"properties\":{\"sensor_id\":{\"type\":\"string\"}},\"required\":[\"sensor_id\"]}",
+              "convert_temperature": "Convert a temperature between Celsius (C) and Fahrenheit (F). {\"type\":\"object\",\"properties\":{\"value\":{\"type\":\"number\"},\"from_unit\":{\"type\":\"string\",\"enum\":[\"C\",\"F\"]},\"to_unit\":{\"type\":\"string\",\"enum\":[\"C\",\"F\"]}},\"required\":[\"value\",\"from_unit\",\"to_unit\"]}",
+              "battery_status": "Read the battery percentage of a device. {\"type\":\"object\",\"properties\":{\"device_id\":{\"type\":\"string\"}},\"required\":[\"device_id\"]}"
+            }
+          }
+        }
+      },
+      "reference": {
+        "answers": {
+          "next": {
+            "type": "choice",
+            "choice": "read_sensor",
+            "top_probability": 0.9843662977218628,
+            "probabilities": {
+              "find_sensor": 0.011047628708183765,
+              "read_sensor": 0.9843662977218628,
+              "convert_temperature": 0.0037665581330657005,
+              "battery_status": 0.0008195041446015239
+            }
+          }
+        },
+        "usage": {
+          "state_tokens": 23,
+          "branch_tokens": 189,
+          "questions": 1
+        },
+        "latency_ms": 226.4074170961976,
+        "form": "rows"
+      },
+      "reference_ms": 226.42500000074506,
+      "f16": {
+        "result": {
+          "answers": {
+            "next": {
+              "type": "choice",
+              "choice": "read_sensor",
+              "top_probability": 0.984224796295166,
+              "probabilities": {
+                "find_sensor": 0.011152689345180988,
+                "read_sensor": 0.984224796295166,
+                "convert_temperature": 0.0038076976779848337,
+                "battery_status": 0.0008148580091074109
+              }
+            }
+          },
+          "latency_ms": 736.2551670521498,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              -1.3220267295837402,
+              2.317004919052124,
+              -2.194918632507324,
+              -3.4472219944000244
+            ]
+          ],
+          "usage": {
+            "state_tokens": 23,
+            "branch_tokens": 189,
+            "questions": 1
+          }
+        },
+        "max_probability_error": 0.00014150142669677734,
+        "all_choices_match": true,
+        "question_agreements": [
+          true
+        ]
+      },
+      "q8": {
+        "result": {
+          "answers": {
+            "next": {
+              "type": "choice",
+              "choice": "read_sensor",
+              "top_probability": 0.9883595705032349,
+              "probabilities": {
+                "find_sensor": 0.007653461769223213,
+                "read_sensor": 0.9883595705032349,
+                "convert_temperature": 0.0032971608452498913,
+                "battery_status": 0.000689856824465096
+              }
+            }
+          },
+          "latency_ms": 287.42924984544516,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              -1.5099846124649048,
+              2.438283681869507,
+              -2.193979501724243,
+              -3.4646127223968506
+            ]
+          ],
+          "usage": {
+            "state_tokens": 23,
+            "branch_tokens": 189,
+            "questions": 1
+          }
+        },
+        "max_probability_error": 0.00399327278137207,
+        "all_choices_match": true,
+        "question_agreements": [
+          true
+        ]
+      }
+    },
+    {
+      "id": "sensors-dependent-it",
+      "request": {
+        "state": "{\"request\":\"Trova il sensore di temperatura in Studio, poi leggi la sua temperatura.\",\"completed_calls\":[],\"observations\":[]}",
+        "questions": {
+          "next": {
+            "type": "choice",
+            "instructions": "Seleziona il prossimo passo utile per completare la richiesta, considerando i risultati già ricevuti.",
+            "criteria": {
+              "find_sensor": "Trova il sensore di temperatura in una stanza e restituisce il suo identificativo. {\"type\":\"object\",\"properties\":{\"room\":{\"type\":\"string\"}},\"required\":[\"room\"]}",
+              "read_sensor": "Leggi la temperatura attuale usando un identificativo di sensore. {\"type\":\"object\",\"properties\":{\"sensor_id\":{\"type\":\"string\"}},\"required\":[\"sensor_id\"]}",
+              "convert_temperature": "Converti una temperatura tra Celsius (C) e Fahrenheit (F). {\"type\":\"object\",\"properties\":{\"value\":{\"type\":\"number\"},\"from_unit\":{\"type\":\"string\",\"enum\":[\"C\",\"F\"]},\"to_unit\":{\"type\":\"string\",\"enum\":[\"C\",\"F\"]}},\"required\":[\"value\",\"from_unit\",\"to_unit\"]}",
+              "battery_status": "Leggi la percentuale della batteria di un dispositivo. {\"type\":\"object\",\"properties\":{\"device_id\":{\"type\":\"string\"}},\"required\":[\"device_id\"]}"
+            }
+          }
+        }
+      },
+      "reference": {
+        "answers": {
+          "next": {
+            "type": "choice",
+            "choice": "read_sensor",
+            "top_probability": 0.9907509684562683,
+            "probabilities": {
+              "find_sensor": 0.005851526744663715,
+              "read_sensor": 0.9907509684562683,
+              "convert_temperature": 0.0018466123146936297,
+              "battery_status": 0.0015509024960920215
+            }
+          }
+        },
+        "usage": {
+          "state_tokens": 28,
+          "branch_tokens": 222,
+          "questions": 1
+        },
+        "latency_ms": 262.803457910195,
+        "form": "rows"
+      },
+      "reference_ms": 262.82008294947445,
+      "f16": {
+        "result": {
+          "answers": {
+            "next": {
+              "type": "choice",
+              "choice": "read_sensor",
+              "top_probability": 0.9906629323959351,
+              "probabilities": {
+                "find_sensor": 0.005918751936405897,
+                "read_sensor": 0.9906629323959351,
+                "convert_temperature": 0.0018480239668861032,
+                "battery_status": 0.0015703141689300537
+              }
+            }
+          },
+          "latency_ms": 879.6652909368277,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              -2.6090786457061768,
+              1.5498559474945068,
+              -3.5545473098754883,
+              -3.6868155002593994
+            ]
+          ],
+          "usage": {
+            "state_tokens": 28,
+            "branch_tokens": 222,
+            "questions": 1
+          }
+        },
+        "max_probability_error": 8.803606033325195e-05,
+        "all_choices_match": true,
+        "question_agreements": [
+          true
+        ]
+      },
+      "q8": {
+        "result": {
+          "answers": {
+            "next": {
+              "type": "choice",
+              "choice": "read_sensor",
+              "top_probability": 0.9938257932662964,
+              "probabilities": {
+                "find_sensor": 0.0037795654498040676,
+                "read_sensor": 0.9938257932662964,
+                "convert_temperature": 0.0014363244408741593,
+                "battery_status": 0.0009583398932591081
+              }
+            }
+          },
+          "latency_ms": 337.8441659733653,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              -2.710160493850708,
+              1.8156718015670776,
+              -3.4960317611694336,
+              -3.824702024459839
+            ]
+          ],
+          "usage": {
+            "state_tokens": 28,
+            "branch_tokens": 222,
+            "questions": 1
+          }
+        },
+        "max_probability_error": 0.003074824810028076,
+        "all_choices_match": true,
+        "question_agreements": [
+          true
+        ]
+      }
+    },
+    {
+      "id": "media-single-en",
+      "request": {
+        "state": "{\"request\":\"Get the artist and duration in seconds of track T-9W2.\",\"completed_calls\":[],\"observations\":[]}",
+        "questions": {
+          "next": {
+            "type": "choice",
+            "instructions": "Select the next useful step to complete the request, considering results already received.",
+            "criteria": {
+              "search_track": "Find a music track by its exact title and return its identifier. {\"type\":\"object\",\"properties\":{\"title\":{\"type\":\"string\"}},\"required\":[\"title\"]}",
+              "track_details": "Read the artist and duration of a track using its identifier. {\"type\":\"object\",\"properties\":{\"track_id\":{\"type\":\"string\"}},\"required\":[\"track_id\"]}",
+              "playlist_tracks": "List track titles in a named playlist. {\"type\":\"object\",\"properties\":{\"playlist\":{\"type\":\"string\"}},\"required\":[\"playlist\"]}",
+              "playlist_duration": "Read the total duration in seconds of a named playlist. {\"type\":\"object\",\"properties\":{\"playlist\":{\"type\":\"string\"}},\"required\":[\"playlist\"]}"
+            }
+          }
+        }
+      },
+      "reference": {
+        "answers": {
+          "next": {
+            "type": "choice",
+            "choice": "track_details",
+            "top_probability": 0.7214293479919434,
+            "probabilities": {
+              "search_track": 0.0007370616658590734,
+              "track_details": 0.7214293479919434,
+              "playlist_tracks": 0.002954578259959817,
+              "playlist_duration": 0.27487897872924805
+            }
+          }
+        },
+        "usage": {
+          "state_tokens": 26,
+          "branch_tokens": 155,
+          "questions": 1
+        },
+        "latency_ms": 200.46600000932813,
+        "form": "rows"
+      },
+      "reference_ms": 200.4882909823209,
+      "f16": {
+        "result": {
+          "answers": {
+            "next": {
+              "type": "choice",
+              "choice": "track_details",
+              "top_probability": 0.7211127281188965,
+              "probabilities": {
+                "search_track": 0.0007353090913966298,
+                "track_details": 0.7211127281188965,
+                "playlist_tracks": 0.002933948300778866,
+                "playlist_duration": 0.2752179801464081
+              }
+            }
+          },
+          "latency_ms": 627.0755419973284,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              -4.960840702056885,
+              0.6341652870178223,
+              -3.8368349075317383,
+              -0.14822231233119965
+            ]
+          ],
+          "usage": {
+            "state_tokens": 26,
+            "branch_tokens": 155,
+            "questions": 1
+          }
+        },
+        "max_probability_error": 0.0003390014171600342,
+        "all_choices_match": true,
+        "question_agreements": [
+          true
+        ]
+      },
+      "q8": {
+        "result": {
+          "answers": {
+            "next": {
+              "type": "choice",
+              "choice": "track_details",
+              "top_probability": 0.7323585152626038,
+              "probabilities": {
+                "search_track": 0.0006482067983597517,
+                "track_details": 0.7323585152626038,
+                "playlist_tracks": 0.0027569590602070093,
+                "playlist_duration": 0.2642362713813782
+              }
+            }
+          },
+          "latency_ms": 238.02000004798174,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              -4.895149230957031,
+              0.8148353695869446,
+              -3.7192726135253906,
+              -0.013196229934692383
+            ]
+          ],
+          "usage": {
+            "state_tokens": 26,
+            "branch_tokens": 155,
+            "questions": 1
+          }
+        },
+        "max_probability_error": 0.0109291672706604,
+        "all_choices_match": true,
+        "question_agreements": [
+          true
+        ]
+      }
+    },
+    {
+      "id": "media-single-it",
+      "request": {
+        "state": "{\"request\":\"Dimmi artista e durata in secondi del brano T-9W2.\",\"completed_calls\":[],\"observations\":[]}",
+        "questions": {
+          "next": {
+            "type": "choice",
+            "instructions": "Seleziona il prossimo passo utile per completare la richiesta, considerando i risultati già ricevuti.",
+            "criteria": {
+              "search_track": "Trova un brano dal titolo esatto e restituisce il suo identificativo. {\"type\":\"object\",\"properties\":{\"title\":{\"type\":\"string\"}},\"required\":[\"title\"]}",
+              "track_details": "Leggi artista e durata di un brano usando il suo identificativo. {\"type\":\"object\",\"properties\":{\"track_id\":{\"type\":\"string\"}},\"required\":[\"track_id\"]}",
+              "playlist_tracks": "Elenca i titoli dei brani in una playlist. {\"type\":\"object\",\"properties\":{\"playlist\":{\"type\":\"string\"}},\"required\":[\"playlist\"]}",
+              "playlist_duration": "Leggi la durata totale in secondi di una playlist. {\"type\":\"object\",\"properties\":{\"playlist\":{\"type\":\"string\"}},\"required\":[\"playlist\"]}"
+            }
+          }
+        }
+      },
+      "reference": {
+        "answers": {
+          "next": {
+            "type": "choice",
+            "choice": "playlist_duration",
+            "top_probability": 0.9080607295036316,
+            "probabilities": {
+              "search_track": 0.00017681669851299375,
+              "track_details": 0.09071142226457596,
+              "playlist_tracks": 0.0010510067222639918,
+              "playlist_duration": 0.9080607295036316
+            }
+          }
+        },
+        "usage": {
+          "state_tokens": 30,
+          "branch_tokens": 190,
+          "questions": 1
+        },
+        "latency_ms": 239.75570918992162,
+        "form": "rows"
+      },
+      "reference_ms": 239.77466602809727,
+      "f16": {
+        "result": {
+          "answers": {
+            "next": {
+              "type": "choice",
+              "choice": "playlist_duration",
+              "top_probability": 0.9071431756019592,
+              "probabilities": {
+                "search_track": 0.0001772713876562193,
+                "track_details": 0.09165046364068985,
+                "playlist_tracks": 0.0010291131911799312,
+                "playlist_duration": 0.9071431756019592
+              }
+            }
+          },
+          "latency_ms": 767.757749883458,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              -5.952789306640625,
+              -0.8777910470962524,
+              -4.524223327636719,
+              0.9841499328613281
+            ]
+          ],
+          "usage": {
+            "state_tokens": 30,
+            "branch_tokens": 190,
+            "questions": 1
+          }
+        },
+        "max_probability_error": 0.0009390413761138916,
+        "all_choices_match": true,
+        "question_agreements": [
+          true
+        ]
+      },
+      "q8": {
+        "result": {
+          "answers": {
+            "next": {
+              "type": "choice",
+              "choice": "playlist_duration",
+              "top_probability": 0.892930805683136,
+              "probabilities": {
+                "search_track": 0.00018875222303904593,
+                "track_details": 0.1059027761220932,
+                "playlist_tracks": 0.0009777056984603405,
+                "playlist_duration": 0.892930805683136
+              }
+            }
+          },
+          "latency_ms": 284.69224995933473,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              -5.9324140548706055,
+              -0.7909853458404541,
+              -4.596443176269531,
+              0.940726637840271
+            ]
+          ],
+          "usage": {
+            "state_tokens": 30,
+            "branch_tokens": 190,
+            "questions": 1
+          }
+        },
+        "max_probability_error": 0.015191353857517242,
+        "all_choices_match": true,
+        "question_agreements": [
+          true
+        ]
+      }
+    },
+    {
+      "id": "media-selection-en",
+      "request": {
+        "state": "{\"request\":\"List the track titles in playlist Focus.\",\"completed_calls\":[],\"observations\":[]}",
+        "questions": {
+          "next": {
+            "type": "choice",
+            "instructions": "Select the next useful step to complete the request, considering results already received.",
+            "criteria": {
+              "search_track": "Find a music track by its exact title and return its identifier. {\"type\":\"object\",\"properties\":{\"title\":{\"type\":\"string\"}},\"required\":[\"title\"]}",
+              "track_details": "Read the artist and duration of a track using its identifier. {\"type\":\"object\",\"properties\":{\"track_id\":{\"type\":\"string\"}},\"required\":[\"track_id\"]}",
+              "playlist_tracks": "List track titles in a named playlist. {\"type\":\"object\",\"properties\":{\"playlist\":{\"type\":\"string\"}},\"required\":[\"playlist\"]}",
+              "playlist_duration": "Read the total duration in seconds of a named playlist. {\"type\":\"object\",\"properties\":{\"playlist\":{\"type\":\"string\"}},\"required\":[\"playlist\"]}"
+            }
+          }
+        }
+      },
+      "reference": {
+        "answers": {
+          "next": {
+            "type": "choice",
+            "choice": "playlist_tracks",
+            "top_probability": 0.9957850575447083,
+            "probabilities": {
+              "search_track": 0.0011701658368110657,
+              "track_details": 0.00020468416914809495,
+              "playlist_tracks": 0.9957850575447083,
+              "playlist_duration": 0.0028400488663464785
+            }
+          }
+        },
+        "usage": {
+          "state_tokens": 19,
+          "branch_tokens": 155,
+          "questions": 1
+        },
+        "latency_ms": 212.19120896421373,
+        "form": "rows"
+      },
+      "reference_ms": 212.2076670639217,
+      "f16": {
+        "result": {
+          "answers": {
+            "next": {
+              "type": "choice",
+              "choice": "playlist_tracks",
+              "top_probability": 0.9957808256149292,
+              "probabilities": {
+                "search_track": 0.0011976339155808091,
+                "track_details": 0.00020502244296949357,
+                "playlist_tracks": 0.9957808256149292,
+                "playlist_duration": 0.002816560911014676
+              }
+            }
+          },
+          "latency_ms": 604.2741250712425,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              -0.5441378355026245,
+              -1.977750301361084,
+              4.916780471801758,
+              0.1504748910665512
+            ]
+          ],
+          "usage": {
+            "state_tokens": 19,
+            "branch_tokens": 155,
+            "questions": 1
+          }
+        },
+        "max_probability_error": 2.7468078769743443e-05,
+        "all_choices_match": true,
+        "question_agreements": [
+          true
+        ]
+      },
+      "q8": {
+        "result": {
+          "answers": {
+            "next": {
+              "type": "choice",
+              "choice": "playlist_tracks",
+              "top_probability": 0.9955778121948242,
+              "probabilities": {
+                "search_track": 0.0016261708224192262,
+                "track_details": 0.00029763104976154864,
+                "playlist_tracks": 0.9955778121948242,
+                "playlist_duration": 0.0024983903858810663
+              }
+            }
+          },
+          "latency_ms": 235.7710839714855,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              -0.31905120611190796,
+              -1.6983602046966553,
+              4.893249988555908,
+              0.02974507212638855
+            ]
+          ],
+          "usage": {
+            "state_tokens": 19,
+            "branch_tokens": 155,
+            "questions": 1
+          }
+        },
+        "max_probability_error": 0.0004560049856081605,
+        "all_choices_match": true,
+        "question_agreements": [
+          true
+        ]
+      }
+    },
+    {
+      "id": "media-selection-it",
+      "request": {
+        "state": "{\"request\":\"Elenca i titoli dei brani nella playlist Focus.\",\"completed_calls\":[],\"observations\":[]}",
+        "questions": {
+          "next": {
+            "type": "choice",
+            "instructions": "Seleziona il prossimo passo utile per completare la richiesta, considerando i risultati già ricevuti.",
+            "criteria": {
+              "search_track": "Trova un brano dal titolo esatto e restituisce il suo identificativo. {\"type\":\"object\",\"properties\":{\"title\":{\"type\":\"string\"}},\"required\":[\"title\"]}",
+              "track_details": "Leggi artista e durata di un brano usando il suo identificativo. {\"type\":\"object\",\"properties\":{\"track_id\":{\"type\":\"string\"}},\"required\":[\"track_id\"]}",
+              "playlist_tracks": "Elenca i titoli dei brani in una playlist. {\"type\":\"object\",\"properties\":{\"playlist\":{\"type\":\"string\"}},\"required\":[\"playlist\"]}",
+              "playlist_duration": "Leggi la durata totale in secondi di una playlist. {\"type\":\"object\",\"properties\":{\"playlist\":{\"type\":\"string\"}},\"required\":[\"playlist\"]}"
+            }
+          }
+        }
+      },
+      "reference": {
+        "answers": {
+          "next": {
+            "type": "choice",
+            "choice": "playlist_tracks",
+            "top_probability": 0.9993358254432678,
+            "probabilities": {
+              "search_track": 0.00043569772969931364,
+              "track_details": 3.048772668989841e-05,
+              "playlist_tracks": 0.9993358254432678,
+              "playlist_duration": 0.0001980132656171918
+            }
+          }
+        },
+        "usage": {
+          "state_tokens": 24,
+          "branch_tokens": 190,
+          "questions": 1
+        },
+        "latency_ms": 236.68941692449152,
+        "form": "rows"
+      },
+      "reference_ms": 236.7065839935094,
+      "f16": {
+        "result": {
+          "answers": {
+            "next": {
+              "type": "choice",
+              "choice": "playlist_tracks",
+              "top_probability": 0.999351441860199,
+              "probabilities": {
+                "search_track": 0.00042330881115049124,
+                "track_details": 2.908516580646392e-05,
+                "playlist_tracks": 0.999351441860199,
+                "playlist_duration": 0.0001961878006113693
+              }
+            }
+          },
+          "latency_ms": 742.8604159504175,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              -1.2670331001281738,
+              -3.4421420097351074,
+              5.041536331176758,
+              -1.891679048538208
+            ]
+          ],
+          "usage": {
+            "state_tokens": 24,
+            "branch_tokens": 190,
+            "questions": 1
+          }
+        },
+        "max_probability_error": 1.5616416931152344e-05,
+        "all_choices_match": true,
+        "question_agreements": [
+          true
+        ]
+      },
+      "q8": {
+        "result": {
+          "answers": {
+            "next": {
+              "type": "choice",
+              "choice": "playlist_tracks",
+              "top_probability": 0.9992971420288086,
+              "probabilities": {
+                "search_track": 0.0004309536307118833,
+                "track_details": 2.4522245439584367e-05,
+                "playlist_tracks": 0.9992971420288086,
+                "playlist_duration": 0.00024745342670939863
+              }
+            }
+          },
+          "latency_ms": 292.41933417506516,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              -1.1721349954605103,
+              -3.500391960144043,
+              5.121851921081543,
+              -1.6227545738220215
+            ]
+          ],
+          "usage": {
+            "state_tokens": 24,
+            "branch_tokens": 190,
+            "questions": 1
+          }
+        },
+        "max_probability_error": 4.9440161092206836e-05,
+        "all_choices_match": true,
+        "question_agreements": [
+          true
+        ]
+      }
+    },
+    {
+      "id": "media-dependent-en",
+      "request": {
+        "state": "{\"request\":\"Find the track titled Aster, then get its artist and duration in seconds.\",\"completed_calls\":[],\"observations\":[]}",
+        "questions": {
+          "next": {
+            "type": "choice",
+            "instructions": "Select the next useful step to complete the request, considering results already received.",
+            "criteria": {
+              "search_track": "Find a music track by its exact title and return its identifier. {\"type\":\"object\",\"properties\":{\"title\":{\"type\":\"string\"}},\"required\":[\"title\"]}",
+              "track_details": "Read the artist and duration of a track using its identifier. {\"type\":\"object\",\"properties\":{\"track_id\":{\"type\":\"string\"}},\"required\":[\"track_id\"]}",
+              "playlist_tracks": "List track titles in a named playlist. {\"type\":\"object\",\"properties\":{\"playlist\":{\"type\":\"string\"}},\"required\":[\"playlist\"]}",
+              "playlist_duration": "Read the total duration in seconds of a named playlist. {\"type\":\"object\",\"properties\":{\"playlist\":{\"type\":\"string\"}},\"required\":[\"playlist\"]}"
+            }
+          }
+        }
+      },
+      "reference": {
+        "answers": {
+          "next": {
+            "type": "choice",
+            "choice": "playlist_duration",
+            "top_probability": 0.5496701598167419,
+            "probabilities": {
+              "search_track": 0.006126962602138519,
+              "track_details": 0.4361482262611389,
+              "playlist_tracks": 0.008054577745497227,
+              "playlist_duration": 0.5496701598167419
+            }
+          }
+        },
+        "usage": {
+          "state_tokens": 26,
+          "branch_tokens": 155,
+          "questions": 1
+        },
+        "latency_ms": 197.31733296066523,
+        "form": "rows"
+      },
+      "reference_ms": 197.33145809732378,
+      "f16": {
+        "result": {
+          "answers": {
+            "next": {
+              "type": "choice",
+              "choice": "playlist_duration",
+              "top_probability": 0.5541126728057861,
+              "probabilities": {
+                "search_track": 0.006193616893142462,
+                "track_details": 0.4315339922904968,
+                "playlist_tracks": 0.00815973524004221,
+                "playlist_duration": 0.5541126728057861
+              }
+            }
+          },
+          "latency_ms": 630.4843330290169,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              -3.0443012714385986,
+              0.4027577042579651,
+              -2.820369243621826,
+              0.605838418006897
+            ]
+          ],
+          "usage": {
+            "state_tokens": 26,
+            "branch_tokens": 155,
+            "questions": 1
+          }
+        },
+        "max_probability_error": 0.00461423397064209,
+        "all_choices_match": true,
+        "question_agreements": [
+          true
+        ]
+      },
+      "q8": {
+        "result": {
+          "answers": {
+            "next": {
+              "type": "choice",
+              "choice": "playlist_duration",
+              "top_probability": 0.5191375017166138,
+              "probabilities": {
+                "search_track": 0.007215577643364668,
+                "track_details": 0.46700674295425415,
+                "playlist_tracks": 0.006640182808041573,
+                "playlist_duration": 0.5191375017166138
+              }
+            }
+          },
+          "latency_ms": 233.72779204510152,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              -2.869150400161743,
+              0.5180246233940125,
+              -2.9366507530212402,
+              0.6039813756942749
+            ]
+          ],
+          "usage": {
+            "state_tokens": 26,
+            "branch_tokens": 155,
+            "questions": 1
+          }
+        },
+        "max_probability_error": 0.030858516693115234,
+        "all_choices_match": true,
+        "question_agreements": [
+          true
+        ]
+      }
+    },
+    {
+      "id": "media-dependent-it",
+      "request": {
+        "state": "{\"request\":\"Trova il brano intitolato Aster, poi dimmi artista e durata in secondi.\",\"completed_calls\":[],\"observations\":[]}",
+        "questions": {
+          "next": {
+            "type": "choice",
+            "instructions": "Seleziona il prossimo passo utile per completare la richiesta, considerando i risultati già ricevuti.",
+            "criteria": {
+              "search_track": "Trova un brano dal titolo esatto e restituisce il suo identificativo. {\"type\":\"object\",\"properties\":{\"title\":{\"type\":\"string\"}},\"required\":[\"title\"]}",
+              "track_details": "Leggi artista e durata di un brano usando il suo identificativo. {\"type\":\"object\",\"properties\":{\"track_id\":{\"type\":\"string\"}},\"required\":[\"track_id\"]}",
+              "playlist_tracks": "Elenca i titoli dei brani in una playlist. {\"type\":\"object\",\"properties\":{\"playlist\":{\"type\":\"string\"}},\"required\":[\"playlist\"]}",
+              "playlist_duration": "Leggi la durata totale in secondi di una playlist. {\"type\":\"object\",\"properties\":{\"playlist\":{\"type\":\"string\"}},\"required\":[\"playlist\"]}"
+            }
+          }
+        }
+      },
+      "reference": {
+        "answers": {
+          "next": {
+            "type": "choice",
+            "choice": "playlist_duration",
+            "top_probability": 0.9022445678710938,
+            "probabilities": {
+              "search_track": 0.013227280229330063,
+              "track_details": 0.08370697498321533,
+              "playlist_tracks": 0.0008211054373532534,
+              "playlist_duration": 0.9022445678710938
+            }
+          }
+        },
+        "usage": {
+          "state_tokens": 33,
+          "branch_tokens": 190,
+          "questions": 1
+        },
+        "latency_ms": 231.97041684761643,
+        "form": "rows"
+      },
+      "reference_ms": 231.98658390901983,
+      "f16": {
+        "result": {
+          "answers": {
+            "next": {
+              "type": "choice",
+              "choice": "playlist_duration",
+              "top_probability": 0.9018465876579285,
+              "probabilities": {
+                "search_track": 0.013497910462319851,
+                "track_details": 0.08383989334106445,
+                "playlist_tracks": 0.0008156090625561774,
+                "playlist_duration": 0.9018465876579285
+              }
+            }
+          },
+          "latency_ms": 770.7592078950256,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              -2.8387060165405273,
+              -1.355229377746582,
+              -5.1181745529174805,
+              0.5743051171302795
+            ]
+          ],
+          "usage": {
+            "state_tokens": 33,
+            "branch_tokens": 190,
+            "questions": 1
+          }
+        },
+        "max_probability_error": 0.0003979802131652832,
+        "all_choices_match": true,
+        "question_agreements": [
+          true
+        ]
+      },
+      "q8": {
+        "result": {
+          "answers": {
+            "next": {
+              "type": "choice",
+              "choice": "playlist_duration",
+              "top_probability": 0.9060683250427246,
+              "probabilities": {
+                "search_track": 0.013133415952324867,
+                "track_details": 0.08015938848257065,
+                "playlist_tracks": 0.000638885423541069,
+                "playlist_duration": 0.9060683250427246
+              }
+            }
+          },
+          "latency_ms": 288.34708291105926,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              -2.872504711151123,
+              -1.4032561779022217,
+              -5.328097820281982,
+              0.5665353536605835
+            ]
+          ],
+          "usage": {
+            "state_tokens": 33,
+            "branch_tokens": 190,
+            "questions": 1
+          }
+        },
+        "max_probability_error": 0.0038237571716308594,
+        "all_choices_match": true,
+        "question_agreements": [
+          true
+        ]
+      }
+    },
+    {
+      "id": "typed-en",
+      "request": {
+        "state": "The package arrived broken and I want a refund.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Select the request type.",
+            "criteria": {
+              "refund": "Refund or damaged goods",
+              "account": "Account access",
+              "info": "Product information"
+            }
+          },
+          "damage": {
+            "type": "noul",
+            "instructions": "Does the user report damage?"
+          },
+          "sentiment": {
+            "type": "score",
+            "instructions": "Assess sentiment.",
+            "criteria": [
+              "negative",
+              "neutral",
+              "positive"
+            ]
+          }
+        }
+      },
+      "reference": {
+        "answers": {
+          "route": {
+            "type": "choice",
+            "choice": "refund",
+            "top_probability": 0.9999018907546997,
+            "probabilities": {
+              "refund": 0.9999018907546997,
+              "account": 1.0344206913259768e-07,
+              "info": 9.797832899494097e-05
+            }
+          },
+          "damage": {
+            "type": "noul",
+            "p_true": 0.9899252653121948,
+            "decision": true,
+            "probabilities": {
+              "false": 0.01007476169615984,
+              "true": 0.9899252653121948
+            }
+          },
+          "sentiment": {
+            "type": "score",
+            "level": 1,
+            "expected_level": 0.6267021968960762,
+            "top_probability": 0.5550446510314941,
+            "levels": {
+              "0": "negative",
+              "1": "neutral",
+              "2": "positive"
+            },
+            "probabilities": {
+              "0": 0.4091265797615051,
+              "1": 0.5550446510314941,
+              "2": 0.03582877293229103
+            }
+          }
+        },
+        "usage": {
+          "state_tokens": 11,
+          "branch_tokens": 57,
+          "questions": 3
+        },
+        "latency_ms": 158.1999589689076,
+        "form": "rows"
+      },
+      "reference_ms": 158.22991589084268,
+      "f16": {
+        "result": {
+          "answers": {
+            "route": {
+              "type": "choice",
+              "choice": "refund",
+              "top_probability": 0.9999021291732788,
+              "probabilities": {
+                "refund": 0.9999021291732788,
+                "account": 1.0247532600260456e-07,
+                "info": 9.768603922566399e-05
+              }
+            },
+            "damage": {
+              "type": "noul",
+              "p_true": 0.990090012550354,
+              "decision": true,
+              "probabilities": {
+                "false": 0.00990993995219469,
+                "true": 0.990090012550354
+              }
+            },
+            "sentiment": {
+              "type": "score",
+              "level": 1,
+              "expected_level": 0.6261290311813354,
+              "top_probability": 0.5555201172828674,
+              "levels": {
+                "0": "negative",
+                "1": "neutral",
+                "2": "positive"
+              },
+              "probabilities": {
+                "0": 0.40917542576789856,
+                "1": 0.5555201172828674,
+                "2": 0.03530445694923401
+              }
+            }
+          },
+          "latency_ms": 340.58104106225073,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              4.332888603210449,
+              -8.73913288116455,
+              -3.1671690940856934
+            ],
+            [
+              -2.7578465938568115,
+              0.981972873210907
+            ],
+            [
+              -0.8623627424240112,
+              -0.6140077710151672,
+              -2.8524904251098633
+            ]
+          ],
+          "usage": {
+            "state_tokens": 11,
+            "branch_tokens": 57,
+            "questions": 3
+          }
+        },
+        "max_probability_error": 0.0005243159830570221,
+        "all_choices_match": true,
+        "question_agreements": [
+          true,
+          true,
+          true
+        ]
+      },
+      "q8": {
+        "result": {
+          "answers": {
+            "route": {
+              "type": "choice",
+              "choice": "refund",
+              "top_probability": 0.9999126195907593,
+              "probabilities": {
+                "refund": 0.9999126195907593,
+                "account": 7.722970707391141e-08,
+                "info": 8.721491758478805e-05
+              }
+            },
+            "damage": {
+              "type": "noul",
+              "p_true": 0.9904068112373352,
+              "decision": true,
+              "probabilities": {
+                "false": 0.009593210183084011,
+                "true": 0.9904068112373352
+              }
+            },
+            "sentiment": {
+              "type": "score",
+              "level": 1,
+              "expected_level": 0.6375093013048172,
+              "top_probability": 0.558443009853363,
+              "levels": {
+                "0": "negative",
+                "1": "neutral",
+                "2": "positive"
+              },
+              "probabilities": {
+                "0": 0.4020238518714905,
+                "1": 0.558443009853363,
+                "2": 0.03953314572572708
+              }
+            }
+          },
+          "latency_ms": 147.46062480844557,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              4.388384819030762,
+              -8.91338062286377,
+              -3.2037770748138428
+            ],
+            [
+              -2.898068428039551,
+              0.868394672870636
+            ],
+            [
+              -0.8787651062011719,
+              -0.6118255853652954,
+              -2.7626805305480957
+            ]
+          ],
+          "usage": {
+            "state_tokens": 11,
+            "branch_tokens": 57,
+            "questions": 3
+          }
+        },
+        "max_probability_error": 0.0071027278900146484,
+        "all_choices_match": true,
+        "question_agreements": [
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "id": "typed-it",
+      "request": {
+        "state": "Il pacco è arrivato rotto e voglio un rimborso.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Seleziona il tipo di richiesta.",
+            "criteria": {
+              "refund": "Refund or damaged goods",
+              "account": "Account access",
+              "info": "Product information"
+            }
+          },
+          "damage": {
+            "type": "noul",
+            "instructions": "L'utente segnala danni?"
+          },
+          "sentiment": {
+            "type": "score",
+            "instructions": "Valuta il sentimento.",
+            "criteria": [
+              "negative",
+              "neutral",
+              "positive"
+            ]
+          }
+        }
+      },
+      "reference": {
+        "answers": {
+          "route": {
+            "type": "choice",
+            "choice": "refund",
+            "top_probability": 0.9996777772903442,
+            "probabilities": {
+              "refund": 0.9996777772903442,
+              "account": 2.17112301470479e-06,
+              "info": 0.0003200549108441919
+            }
+          },
+          "damage": {
+            "type": "noul",
+            "p_true": 0.9808036684989929,
+            "decision": true,
+            "probabilities": {
+              "false": 0.01919635385274887,
+              "true": 0.9808036684989929
+            }
+          },
+          "sentiment": {
+            "type": "score",
+            "level": 0,
+            "expected_level": 0.4445909205824137,
+            "top_probability": 0.5690775513648987,
+            "levels": {
+              "0": "negative",
+              "1": "neutral",
+              "2": "positive"
+            },
+            "probabilities": {
+              "0": 0.5690775513648987,
+              "1": 0.41725394129753113,
+              "2": 0.013668489642441273
+            }
+          }
+        },
+        "usage": {
+          "state_tokens": 17,
+          "branch_tokens": 67,
+          "questions": 3
+        },
+        "latency_ms": 177.09908401593566,
+        "form": "rows"
+      },
+      "reference_ms": 177.12133401073515,
+      "f16": {
+        "result": {
+          "answers": {
+            "route": {
+              "type": "choice",
+              "choice": "refund",
+              "top_probability": 0.9996819496154785,
+              "probabilities": {
+                "refund": 0.9996819496154785,
+                "account": 2.141417780876509e-06,
+                "info": 0.00031586625846102834
+              }
+            },
+            "damage": {
+              "type": "noul",
+              "p_true": 0.9807312488555908,
+              "decision": true,
+              "probabilities": {
+                "false": 0.019268805161118507,
+                "true": 0.9807312488555908
+              }
+            },
+            "sentiment": {
+              "type": "score",
+              "level": 0,
+              "expected_level": 0.4415734000504017,
+              "top_probability": 0.5718015432357788,
+              "levels": {
+                "0": "negative",
+                "1": "neutral",
+                "2": "positive"
+              },
+              "probabilities": {
+                "0": 0.5718015432357788,
+                "1": 0.41482359170913696,
+                "2": 0.013374904170632362
+              }
+            }
+          },
+          "latency_ms": 432.6390828937292,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              3.3622469902038574,
+              -7.2406721115112305,
+              -3.1844043731689453
+            ],
+            [
+              -1.8265964984893799,
+              1.3654018640518188
+            ],
+            [
+              -0.16094553470611572,
+              -0.42162877321243286,
+              -3.2112879753112793
+            ]
+          ],
+          "usage": {
+            "state_tokens": 17,
+            "branch_tokens": 67,
+            "questions": 3
+          }
+        },
+        "max_probability_error": 0.002723991870880127,
+        "all_choices_match": true,
+        "question_agreements": [
+          true,
+          true,
+          true
+        ]
+      },
+      "q8": {
+        "result": {
+          "answers": {
+            "route": {
+              "type": "choice",
+              "choice": "refund",
+              "top_probability": 0.9995806813240051,
+              "probabilities": {
+                "refund": 0.9995806813240051,
+                "account": 3.0235194117267383e-06,
+                "info": 0.00041635948582552373
+              }
+            },
+            "damage": {
+              "type": "noul",
+              "p_true": 0.9807981848716736,
+              "decision": true,
+              "probabilities": {
+                "false": 0.01920185051858425,
+                "true": 0.9807981848716736
+              }
+            },
+            "sentiment": {
+              "type": "score",
+              "level": 0,
+              "expected_level": 0.47485969960689545,
+              "top_probability": 0.5413134098052979,
+              "levels": {
+                "0": "negative",
+                "1": "neutral",
+                "2": "positive"
+              },
+              "probabilities": {
+                "0": 0.5413134098052979,
+                "1": 0.44251349568367004,
+                "2": 0.0161731019616127
+              }
+            }
+          },
+          "latency_ms": 183.2517080474645,
+          "form": "gguf_rows",
+          "raw_logits": [
+            [
+              3.1969337463378906,
+              -7.125713348388672,
+              -3.1252670288085938
+            ],
+            [
+              -1.8495469093322754,
+              1.3453342914581299
+            ],
+            [
+              -0.2689961791038513,
+              -0.4326874017715454,
+              -3.1205291748046875
+            ]
+          ],
+          "usage": {
+            "state_tokens": 17,
+            "branch_tokens": 67,
+            "questions": 3
+          }
+        },
+        "max_probability_error": 0.02776414155960083,
+        "all_choices_match": true,
+        "question_agreements": [
+          true,
+          true,
+          true
+        ]
+      }
+    }
+  ],
+  "f16_hidden_errors": [
+    {
+      "max_abs": 0.0348668098449707,
+      "mean_abs": 0.0018804447274135328
+    },
+    {
+      "max_abs": 0.03969883918762207,
+      "mean_abs": 0.001510751595083093
+    },
+    {
+      "max_abs": 0.02365030348300934,
+      "mean_abs": 0.0014608373775445217
+    }
+  ],
+  "f16_tokenizer_exact": true,
+  "q8_hidden_errors": [
+    {
+      "max_abs": 0.4185914993286133,
+      "mean_abs": 0.02507395673899282
+    },
+    {
+      "max_abs": 0.43254828453063965,
+      "mean_abs": 0.018518932080400594
+    },
+    {
+      "max_abs": 0.3306920528411865,
+      "mean_abs": 0.019126923041297535
+    }
+  ],
+  "q8_tokenizer_exact": true,
+  "status": "complete"
+}

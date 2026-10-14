@@ -1,0 +1,37 @@
+.........................................................................
+.........................................................................
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer TokenizersBackend. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+User (en): Read temperature sensor S-6K3.
+Variant: nev_ranked
+
+Turn 1; tools: read_sensor, find_sensor, convert_temperature, battery_status
+Nev next choice: read_sensor
+Nesso3: <tool_call>
+{"name": "read_sensor", "arguments": {"sensor_id": "S-6K3"}}
+</tool_call>
+Tool result: {"call": {"name": "read_sensor", "arguments": {"sensor_id": "S-6K3"}}, "result": {"temperature": 18.2, "unit": "C"}, "cached": false}
+
+Turn 2; tools: read_sensor, find_sensor, convert_temperature, battery_status
+Nev next choice: read_sensor
+Nesso3: The temperature is 18.2°C.
+
+Status: answered
+Errors:
+Elapsed: 7.56 s
+User (it): Leggi la temperatura del sensore S-6K3.
+Variant: nev_ranked
+
+Turn 1; tools: read_sensor, convert_temperature, battery_status, find_sensor
+Nev next choice: read_sensor
+Nesso3: <tool_call>
+{"name": "read_sensor", "arguments": {"sensor_id": "S-6K3"}}
+</tool_call>
+Tool result: {"call": {"name": "read_sensor", "arguments": {"sensor_id": "S-6K3"}}, "result": {"temperature": 18.2, "unit": "C"}, "cached": false}
+
+Turn 2; tools: read_sensor, convert_temperature, battery_status, find_sensor
+Nev next choice: read_sensor
+Nesso3: La temperatura è 18.2°C.
+
+Status: answered
+Errors:
+Elapsed: 7.62 s

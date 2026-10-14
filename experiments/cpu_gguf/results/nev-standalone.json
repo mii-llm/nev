@@ -1,0 +1,28 @@
+{
+  "answers": {
+    "route": {
+      "type": "choice",
+      "choice": "refund",
+      "top_probability": 0.9997989535331726,
+      "probabilities": {
+        "refund": 0.9997989535331726,
+        "account": 6.64842502828833e-07,
+        "info": 0.00020033663895446807
+      }
+    }
+  },
+  "latency_ms": 350.8854159153998,
+  "form": "gguf_rows",
+  "raw_logits": [
+    [
+      3.197889804840088,
+      -8.355194091796875,
+      -3.718691110610962
+    ]
+  ],
+  "usage": {
+    "state_tokens": 17,
+    "branch_tokens": 43,
+    "questions": 1
+  }
+}

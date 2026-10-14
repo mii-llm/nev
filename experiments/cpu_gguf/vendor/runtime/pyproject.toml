@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nesso2-decision-runtime"
+version = "0.1.0"
+description = "Frozen Kev runtime for Nesso2 bilingual decision research artifacts"
+requires-python = ">=3.12,<3.14"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+dependencies = ["torch>=2.10,<2.11", "transformers==5.17.0", "peft==0.21.0", "safetensors==0.8.0", "accelerate==1.13.0", "huggingface-hub==1.27.0", "pydantic==2.13.4", "numpy>=2", "datasets>=3", "pyyaml>=6", "fastapi==0.141.1", "uvicorn>=0.30"]
+
+[tool.setuptools]
+packages = ["decision_model", "decision_model.backbones"]

@@ -34,3 +34,14 @@ multi-step requests completed. All 16 unsupported/out-of-scope cases executed
 nothing. 96 total records and audit retained under docs/nesso3. Application code
 plans and formats answers; unrestricted phrasing, conditionals and result-driven
 arguments remain unsupported. No general planning or model-accuracy claim.
+
+On 2026-10-14, Nesso3 + Nev v3 also ran on an Apple M3 Pro using a custom
+CPU-only llama.cpp bridge, F16/Q8 GGUF backbones and Nev's original FP32 head.
+F16 retained 24/24 tested Nev decisions; Q8 retained 23/24. On 12 authored
+bilingual requests, every backend had 9/10 correct supported plans but only
+7/10 reviewed grounded answers and 0/2 correct unsupported-action refusals.
+Q8's warm full-request median was 1.89 seconds, versus 4.24 seconds F16 and
+3.39 seconds original FP32 CPU. These are small diagnostic measurements,
+not broad accuracy or mobile validation. The build recipe, bilingual examples,
+raw traces, numerical checks and executable smoke tests are in
+`experiments/cpu_gguf/`. The generic agent's known weaknesses remain visible.
