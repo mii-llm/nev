@@ -1,0 +1,74 @@
+{
+  "status": "passed",
+  "model": "nev",
+  "precision": "q8",
+  "cpu_only": true,
+  "other_model_artifacts_present": false,
+  "scope": "Selected bilingual standalone smoke checks, not broad quality evaluation.",
+  "rows": [
+    {
+      "language": "en",
+      "state": "My parcel arrived broken. I want a refund.",
+      "result": {
+        "answers": {
+          "route": {
+            "type": "choice",
+            "choice": "refund",
+            "top_probability": 0.9999368190765381,
+            "probabilities": {
+              "refund": 0.9999368190765381,
+              "account": 6.289940756687429e-06,
+              "info": 5.6846482038963586e-05
+            }
+          }
+        },
+        "latency_ms": 125.79991691745818,
+        "form": "gguf_rows",
+        "raw_logits": [
+          [
+            3.684720754623413,
+            -6.043216228485107,
+            -4.255122184753418
+          ]
+        ],
+        "usage": {
+          "state_tokens": 11,
+          "branch_tokens": 28,
+          "questions": 1
+        }
+      }
+    },
+    {
+      "language": "it",
+      "state": "Il pacco è arrivato rotto e voglio un rimborso.",
+      "result": {
+        "answers": {
+          "route": {
+            "type": "choice",
+            "choice": "refund",
+            "top_probability": 0.9997639060020447,
+            "probabilities": {
+              "refund": 0.9997639060020447,
+              "account": 8.906306447897805e-07,
+              "info": 0.00023521903494838625
+            }
+          }
+        },
+        "latency_ms": 89.29291600361466,
+        "form": "gguf_rows",
+        "raw_logits": [
+          [
+            3.0292911529541016,
+            -8.286277770996094,
+            -3.756880283355713
+          ]
+        ],
+        "usage": {
+          "state_tokens": 17,
+          "branch_tokens": 43,
+          "questions": 1
+        }
+      }
+    }
+  ]
+}

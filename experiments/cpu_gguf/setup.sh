@@ -3,14 +3,20 @@ set -eu
 cd "$(dirname "$0")"
 precision=f16
 from_source=false
+model=both
 while [ "$#" -gt 0 ]; do
   case "$1" in
     --precision) precision="${2:?Expected f16, q8, or both}"; shift 2 ;;
+    --model) model="${2:?Expected nev, nesso3, or both}"; shift 2 ;;
     --from-source) from_source=true; shift ;;
-    *) echo 'Usage: ./setup.sh [--precision f16|q8|both] [--from-source]' >&2; exit 2 ;;
+    *) echo 'Usage: ./setup.sh [--precision f16|q8|both] [--model nev|nesso3|both] [--from-source]' >&2; exit 2 ;;
   esac
 done
 case "$precision" in f16|q8|both) ;; *) echo 'Invalid precision' >&2; exit 2 ;; esac
+case "$model" in nev|nesso3|both) ;; *) echo 'Invalid model' >&2; exit 2 ;; esac
+if [ "$from_source" = true ] && [ "$model" != both ]; then
+  echo '--from-source builds both models; omit --model for this recipe.' >&2; exit 2
+fi
 if [ ! -d .venv ]; then python3 -m venv .venv; fi
 .venv/bin/python -m pip install -r requirements-lock.txt
 if ! .venv/bin/hf auth whoami >/dev/null 2>&1; then .venv/bin/hf auth login; fi
@@ -26,7 +32,7 @@ mkdir -p results gguf
 .venv/bin/cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_MAKE_PROGRAM="$PWD/.venv/bin/ninja"
 .venv/bin/cmake --build build --target nev-cpu-worker llama-quantize -j 4
 if [ "$from_source" = false ]; then
-  HF_HUB_DISABLE_XET=1 .venv/bin/python download_gguf.py --precision "$precision"
+  HF_HUB_DISABLE_XET=1 .venv/bin/python download_gguf.py --precision "$precision" --model "$model"
 else
   HF_HUB_DISABLE_XET=1 .venv/bin/python download_models.py
   .venv/bin/python prepare_gguf.py

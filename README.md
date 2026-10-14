@@ -67,14 +67,15 @@ A custom `PreTrainedConfig` / `PreTrainedModel` wrapper and Hub registration cou
 
 ### Run Nesso3 + Nev on a Mac CPU (GGUF)
 
-The private [CPU GGUF release](https://huggingface.co/giux78/nev-nesso-cpu-gguf)
-contains both models in **F16 and Q8_0**, plus Nev's original FP32 decision head,
-tokenizers and configuration. Use Python 3.12–3.13 and a C/C++ compiler (Xcode
+There are two independent private **F16/Q8_0** releases:
+[Nev GGUF](https://huggingface.co/giux78/nev-gguf), including its original FP32
+decision head, and [Nesso3-0.4B-agentic GGUF](https://huggingface.co/giux78/nesso3-0.4B-agentic-gguf).
+Each HF card explains standalone use. The CPU combination is documented below. Use Python 3.12–3.13 and a C/C++ compiler (Xcode
 command-line tools on Mac). From this repository checkout:
 
 ```bash
 cd experiments/cpu_gguf
-./setup.sh --precision q8       # builds CPU bridge, logs into HF if needed, downloads + checks hashes
+./setup.sh --model both --precision q8  # downloads from the two pinned HF repositories
 ./run.sh --precision q8 --language both
 .venv/bin/python decide.py --precision q8
 .venv/bin/python test_smoke.py --precision q8 --output results/my-smoke.json
@@ -90,6 +91,24 @@ cd experiments/cpu_gguf
 # Rerun the 12-request diagnostic, including known failures:
 .venv/bin/python benchmark.py --precision q8 --output results/my-cpu-eval.json
 ```
+
+To use only one model (no weights for the other are needed):
+
+```bash
+./setup.sh --model nev --precision f16
+.venv/bin/python decide.py
+.venv/bin/python test_standalone.py --model nev --precision f16
+
+./setup.sh --model nesso3 --precision q8
+.venv/bin/python generate.py --precision q8 --language both
+.venv/bin/python test_standalone.py --model nesso3 --precision q8
+```
+
+`generate.py` produces text or tool-call proposals without loading Nev or
+executing tools. `decide.py` scores supplied options without loading Nesso3.
+For the combination, `run.sh` uses Nev to rank candidate tools, passes their
+ordered schemas to Nesso3, validates generated calls, supplies mock tool results,
+and asks Nesso3 for the answer. The models retain separate weights and roles.
 
 Inference runs offline, on four CPU threads, with no Metal or CUDA offload.
 Downloads are pinned and SHA-256 checked. Q8 uses about **902 MiB** for the two

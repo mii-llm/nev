@@ -45,3 +45,8 @@ Q8's warm full-request median was 1.89 seconds, versus 4.24 seconds F16 and
 not broad accuracy or mobile validation. The build recipe, bilingual examples,
 raw traces, numerical checks and executable smoke tests are in
 `experiments/cpu_gguf/`. The generic agent's known weaknesses remain visible.
+
+CPU weights are distributed independently in private `giux78/nev-gguf` and
+`giux78/nesso3-0.4B-agentic-gguf`. Each has standalone instructions; GitHub
+documents how to combine the models. The split uses the identical tested
+GGUF files, original model revisions and numerical calibration.

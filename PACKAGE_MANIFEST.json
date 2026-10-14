@@ -32,20 +32,20 @@
     "sha256": "5d945d5bde0ce86325016457b35aedbb2f341c82d09545aa26525d212c2ecdee"
   },
   "PUBLICATION.md": {
-    "bytes": 2927,
-    "sha256": "97c6066107453017fd7d869058f1d2ce9a7e7d45ed3f89a90c560422ab9a9dd0"
+    "bytes": 3935,
+    "sha256": "627d53fdc14bb85b341b2a30a81eab8b12b42126f08269f6fbc76c6e7c0b4b02"
   },
   "README.md": {
-    "bytes": 71220,
-    "sha256": "32b0846cd2b5dd9f4c4f30ea4fa22a0fa48b7e85c2f1ad1f862edd8c0bc5ab6b"
+    "bytes": 72093,
+    "sha256": "cb61eea3c3e564d367fec5e2e537a147a62acd8523abe81116483bab2aaba122"
   },
   "SCENARIO_RESULTS.md": {
     "bytes": 2828,
     "sha256": "fc40a9397e068b103fcf341fc88ef5d862c1563f9106c9dc860f7247bb9e39b5"
   },
   "STATUS.md": {
-    "bytes": 4086,
-    "sha256": "d9615f3cb0d6aaa4c22019341acee5733f2e37cf1dadd964f29667c71b937421"
+    "bytes": 4375,
+    "sha256": "df028e627f225a99f7034e9e0de5ef197634ac547e99fbee7a192efa3e765379"
   },
   "docs/abstract-agent/REPORT.md": {
     "bytes": 10512,
@@ -560,8 +560,8 @@
     "sha256": "1cbf764fa7699e850267d0b0a992248a9e9ada4a9c13b94d248d84089e04e83f"
   },
   "experiments/cpu_gguf/README.md": {
-    "bytes": 12688,
-    "sha256": "723c13d382e94f032ef661376df52d818dc91dde8e12de4fc63e574ed008a07f"
+    "bytes": 15465,
+    "sha256": "d330b4005bb9d2eab56d403ba0bdbb96844e14133270647ae21d898e0576b628"
   },
   "experiments/cpu_gguf/abstract_agent/cases.json": {
     "bytes": 25389,
@@ -596,20 +596,32 @@
     "sha256": "10e4dd986e1a6187eb22aeca03aba6587e84d8c92da0d6bbc192e4c9273e16f8"
   },
   "experiments/cpu_gguf/download_gguf.py": {
-    "bytes": 2152,
-    "sha256": "e66da26441286d1a6552e7d2092a25d263cda27bee62d3b08051b75dace4851d"
+    "bytes": 2445,
+    "sha256": "f5776426a62e4cf7dff11f69bf9a370b50ca4b13bf3dd7e1f6df106ef2430d3f"
   },
   "experiments/cpu_gguf/download_models.py": {
     "bytes": 730,
     "sha256": "7103c62379bc2dfadafb6d9a18184857ba521efc0ec250dfa2348e0333fdd959"
+  },
+  "experiments/cpu_gguf/generate.py": {
+    "bytes": 3910,
+    "sha256": "80a4ce7377eb7cba2b5895841f2d094ac5a822f656b91b629a41afd6ddf69eac"
+  },
+  "experiments/cpu_gguf/model_cards/nesso3.md": {
+    "bytes": 4830,
+    "sha256": "7d8ea5b95c67c5c5b20ec1a861823aaad7adc17609f55222ae70e91ce2f9aeef"
+  },
+  "experiments/cpu_gguf/model_cards/nev.md": {
+    "bytes": 5085,
+    "sha256": "7ef7fa26aa411bb553ab21e31b96f44e21d8c843b38066a94d573e1556df6712"
   },
   "experiments/cpu_gguf/prepare_gguf.py": {
     "bytes": 1108,
     "sha256": "858b953cc74ff9f4eb2f4fd24e4ff516d2ad8a651a4faf6b81419e18eb689c68"
   },
   "experiments/cpu_gguf/release.json": {
-    "bytes": 106,
-    "sha256": "d65503c1ff7cea2455c475c8bca3f767aa0bcc6fb1857442c8972f48117c3bc9"
+    "bytes": 303,
+    "sha256": "61844b4518da87edee82686bcfbfd8dd9dc3d39ec20ed0bf7f89fed16ee2e4f3"
   },
   "experiments/cpu_gguf/requirements-lock.txt": {
     "bytes": 1306,
@@ -659,6 +671,10 @@
     "bytes": 274,
     "sha256": "db0bcc82b2492d1d05a09aea6f1ac65c4a5af95d5fe60eb2d62bae0cb6b2f09a"
   },
+  "experiments/cpu_gguf/results/nesso3-standalone-q8.json": {
+    "bytes": 3676,
+    "sha256": "9fcde24b59d0f685768f76adc6da5b3977826f990f5eb8eacf6e1d6c62e3ec05"
+  },
   "experiments/cpu_gguf/results/nev-standalone.json": {
     "bytes": 545,
     "sha256": "8acb604c2ebd5cc13197d05265f0caea9d71600687c7fa0416ff86c505fa886e"
@@ -675,6 +691,34 @@
     "bytes": 8143,
     "sha256": "d3a9c49cdae5e14cc1a53f8d2fdceef117145ee4fe052e142f0acb08b9715b97"
   },
+  "experiments/cpu_gguf/results/split-combined-q8.json": {
+    "bytes": 8138,
+    "sha256": "86e236531f1932d96bc5aa13188fe5e535329b7565ef96302dd76a90534bdd5c"
+  },
+  "experiments/cpu_gguf/results/split-huggingface-publication.json": {
+    "bytes": 840,
+    "sha256": "9918e643bdb19d85bfce5a9c416a7e708852923adcecb945e61b43066579504f"
+  },
+  "experiments/cpu_gguf/results/split-nesso3-f16.json": {
+    "bytes": 3764,
+    "sha256": "86c4e3b8e05e6c5e20324b3b18fbecca9f2bcbd2c24851fc70d063c0da3a6f44"
+  },
+  "experiments/cpu_gguf/results/split-nesso3-q8.json": {
+    "bytes": 3762,
+    "sha256": "dbff9cbdda4a35097d13662ae72eddf1d5e1617f4ca208a69f43b4cab235cf6c"
+  },
+  "experiments/cpu_gguf/results/split-nev-f16.json": {
+    "bytes": 1881,
+    "sha256": "08584948e736858bb9579dbfd3fd43a1a3f638902c8a0ae1ec1bcfe8671dca43"
+  },
+  "experiments/cpu_gguf/results/split-nev-q8.json": {
+    "bytes": 1882,
+    "sha256": "3d43d08aa5cdb03b9ca4988433c1b6828129f3dbb09a116464185fec928b82bf"
+  },
+  "experiments/cpu_gguf/results/split-validation.json": {
+    "bytes": 1786,
+    "sha256": "e314b773fe4ca836067561c0deb06193512642d8a3696e6150fc32cfbf7d9744"
+  },
   "experiments/cpu_gguf/results/verify-nesso.json": {
     "bytes": 60287,
     "sha256": "40b2ff35b946c1ba6488fe900d3cbec638166b73c5867b64c299d8b3e13db918"
@@ -688,12 +732,16 @@
     "sha256": "9b4d0c0c21ff33975edb2ef6690163ebd6553f90517365aa46198d4bf02ec2da"
   },
   "experiments/cpu_gguf/setup.sh": {
-    "bytes": 1782,
-    "sha256": "07525bea2a7843b159565ecb636aeacccd2f6a3f6cdeb3e67111b48b8d5f16a5"
+    "bytes": 2133,
+    "sha256": "b6f7444fd77ae12a5d19cc82c3c6da0de71ed2ac807c71deed62d1e1aebdcef7"
   },
   "experiments/cpu_gguf/test_smoke.py": {
     "bytes": 2588,
     "sha256": "9e9ef3a39be8efaf5de76a2d9f725c1e5325a6368660a8c4064b3d036fe4d064"
+  },
+  "experiments/cpu_gguf/test_standalone.py": {
+    "bytes": 3175,
+    "sha256": "fe369fd84cdd6aaf954b2fd626f555c279239fb5c2728bc00e022ccc532094fb"
   },
   "experiments/cpu_gguf/vendor/runtime/LICENSE": {
     "bytes": 11358,

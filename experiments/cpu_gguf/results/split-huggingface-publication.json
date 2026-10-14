@@ -1,0 +1,28 @@
+[
+  {
+    "model": "nev",
+    "repository": "giux78/nev-gguf",
+    "revision": "55bc907d52a96717c9c61dd120d035083cfcae06",
+    "private": true,
+    "verified_sizes": 7,
+    "verified_lfs_sha256": 4,
+    "source": {
+      "repository": "giux78/nev-nesso-cpu-gguf",
+      "revision": "3b7b4d8d74a3bfb520f782a54033424b3ca75549"
+    },
+    "initial_artifact_commit": "9ca3319f10ee8dccc57b168b9323043b4b846afd"
+  },
+  {
+    "model": "nesso3",
+    "repository": "giux78/nesso3-0.4B-agentic-gguf",
+    "revision": "d5bdb315605a17422bcde77f36673d34adba2ae4",
+    "private": true,
+    "verified_sizes": 7,
+    "verified_lfs_sha256": 3,
+    "source": {
+      "repository": "giux78/nev-nesso-cpu-gguf",
+      "revision": "3b7b4d8d74a3bfb520f782a54033424b3ca75549"
+    },
+    "initial_artifact_commit": "f8b0f854048203138b9af4d5a4473eb5b3dec9c5"
+  }
+]

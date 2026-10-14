@@ -1,0 +1,65 @@
+{
+  "release": {
+    "format_version": 2,
+    "models": {
+      "nev": {
+        "repository": "giux78/nev-gguf",
+        "revision": "55bc907d52a96717c9c61dd120d035083cfcae06"
+      },
+      "nesso3": {
+        "repository": "giux78/nesso3-0.4B-agentic-gguf",
+        "revision": "d5bdb315605a17422bcde77f36673d34adba2ae4"
+      }
+    }
+  },
+  "standalone_checks": [
+    {
+      "model": "nev",
+      "precision": "f16",
+      "languages": [
+        "en",
+        "it"
+      ],
+      "status": "passed",
+      "other_model_artifacts_present": false,
+      "evidence": "split-nev-f16.json"
+    },
+    {
+      "model": "nev",
+      "precision": "q8",
+      "languages": [
+        "en",
+        "it"
+      ],
+      "status": "passed",
+      "other_model_artifacts_present": false,
+      "evidence": "split-nev-q8.json"
+    },
+    {
+      "model": "nesso3",
+      "precision": "f16",
+      "languages": [
+        "en",
+        "it"
+      ],
+      "status": "passed",
+      "other_model_artifacts_present": false,
+      "evidence": "split-nesso3-f16.json"
+    },
+    {
+      "model": "nesso3",
+      "precision": "q8",
+      "languages": [
+        "en",
+        "it"
+      ],
+      "status": "passed",
+      "other_model_artifacts_present": false,
+      "evidence": "split-nesso3-q8.json"
+    }
+  ],
+  "combined_q8_smoke": "passed",
+  "combined_evidence": "split-combined-q8.json",
+  "download_validation": "Downloaded each model's supporting files into an isolated folder; verified local GGUFs against the remote SHA-256 manifests. Large GGUFs were reused, not downloaded a second time. Final model-card commits do not change inference artifacts.",
+  "environment": "Existing Python environment and freshly rebuilt CPU worker from the previous publication; no clean OS install claimed."
+}

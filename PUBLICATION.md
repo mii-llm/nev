@@ -44,3 +44,17 @@ The pinned HF download check passed in a separate folder: all ten ancillary
 files were fetched and verified; the existing Q8 pair passed remote-manifest
 SHA-256 checks, then bilingual and standalone inference passed. Large GGUFs
 were not redundantly downloaded. See the CPU download receipt and smoke trace.
+
+## Independent GGUF model repositories
+
+The user-requested distribution now separates Nev and Nesso3:
+
+- `giux78/nev-gguf`: Nev v3 backbone, original FP32 decision head and tokenizer, with standalone decision instructions.
+- `giux78/nesso3-0.4B-agentic-gguf`: Nesso3 F16/Q8 generation weights and tokenizer, with standalone generation instructions.
+- Both repositories are private. The existing GGUF artifacts were copied server-side without conversion or retraining, and their sizes/LFS hashes verified.
+- GitHub retains the combined CPU workflow and adds model-selective downloads and independent smoke tests.
+- `experiments/cpu_gguf/release.json` pins both repositories; `model_cards/` stores their model cards.
+- `results/split-huggingface-publication.json` records the split publication; earlier combined-release receipts remain historical evidence.
+
+The previous combined private repository is retained for pinned-download
+compatibility. Its model card directs new users to the two separate releases.

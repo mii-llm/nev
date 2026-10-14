@@ -3,13 +3,14 @@
 Both models now run locally on this **Apple M3 Pro, 18 GiB RAM**, using four CPU
 threads. Metal and CUDA are disabled. No server or network connection is needed
 after setup. This experiment publishes the CPU bridge and recorded test results. Model files
-are downloaded separately from the private HF repository
-[`giux78/nev-nesso-cpu-gguf`](https://huggingface.co/giux78/nev-nesso-cpu-gguf).
+are in two private HF repositories: [Nev GGUF](https://huggingface.co/giux78/nev-gguf)
+and [Nesso3-0.4B-agentic GGUF](https://huggingface.co/giux78/nesso3-0.4B-agentic-gguf).
+Each model card describes independent use; this guide also shows the combined agent.
 
 ## Install and run
 
 Requirements: Python **3.12 or 3.13**, Git, a C/C++ compiler (on Mac, Xcode
-command-line tools), access to both private repositories, and several GiB of
+command-line tools), access to GitHub and the selected private HF repositories, and several GiB of
 free disk space. The tested host is Apple Silicon macOS; Linux/Windows/phones
 have not been validated. Setup builds the pinned llama.cpp CPU bridge, downloads
 the selected GGUF pair plus required head/tokenizers, and verifies their SHA-256
@@ -18,7 +19,7 @@ hashes. A saved HF login is reused; otherwise setup runs `hf auth login`.
 ```bash
 git clone git@github.com:mii-llm/nev.git
 cd nev/experiments/cpu_gguf
-./setup.sh --precision f16
+./setup.sh --model both --precision f16
 
 # Alternatively, download the faster/smaller Q8 pair:
 # ./setup.sh --precision q8
@@ -26,10 +27,42 @@ cd nev/experiments/cpu_gguf
 # ./setup.sh --precision both
 ```
 
-The downloaded release is pinned in `release.json`; the downloader refuses to
+Both model revisions are pinned separately in `release.json`; the downloader refuses to
 replace an existing artifact with a different hash. No original safetensors
 backbone is needed for GGUF inference. The exact lock includes PyTorch for the
 optional reference/conversion path; GGUF inference itself uses C++ and NumPy.
+
+### Run one model independently
+
+```bash
+# Nev only: downloads its backbone, head and tokenizer; no Nesso3 weights.
+./setup.sh --model nev --precision f16
+.venv/bin/python decide.py
+.venv/bin/python decide.py --request /absolute/path/request.json
+.venv/bin/python test_standalone.py --model nev --precision f16
+
+# Nesso3 only: downloads its generative backbone and tokenizer; no Nev weights.
+./setup.sh --model nesso3 --precision q8
+.venv/bin/python generate.py --precision q8 --language both
+.venv/bin/python generate.py --precision q8 --language it --message 'Scrivi un breve saluto.'
+.venv/bin/python test_standalone.py --model nesso3 --precision q8
+```
+
+The default Nesso3 example prints the proposed `read_sensor(sensor_id="S-6K3")`
+call in both languages. It does not execute any tool or invent a sensor reading.
+`--messages path.json` accepts a native role/content message array for custom
+schemas and tool results. Nev independently returns decisions over supplied
+options, including the default Italian refund example. Both commands share the
+CPU build and Python environment; neither loads the other model.
+
+### Combine the models on CPU
+
+Run `./setup.sh --model both --precision q8` to fetch both pinned releases.
+The combined flow is **request → Nev ranks tool options → Nesso3 proposes a call
+→ controller validates and executes a mock tool → result returns to Nesso3**.
+It repeats within the controller limits and ends with a generated answer. The
+controller uses supplied schemas and fixtures; it does not merge model weights.
+The known multi-step and unsupported-action weaknesses below still apply.
 
 From this experiment folder:
 
@@ -158,6 +191,10 @@ reference and are not solved by changing storage/inference format.
 
 - `run.sh`, `demo.py`: user-facing bilingual agent runner.
 - `decide.py`: standalone Nev CLI; accepts the existing request JSON format.
+- `generate.py`: standalone Nesso3 generation; no Nev loading or tool execution.
+- `test_standalone.py`: bilingual integration checks for one model at a time.
+- `model_cards/nev.md`, `model_cards/nesso3.md`: current independent HF model cards.
+- `HF_MODEL_CARD.md`: historical combined-repository card, kept with the original release evidence.
 - `cpu_backend.py`: model adapters and NumPy implementation of the released Nev
   pointer head, with the frozen request renderer.
 - `worker.cpp`: persistent CPU-only llama.cpp workers for generation and selected
@@ -175,7 +212,7 @@ reference and are not solved by changing storage/inference format.
 - `PROVENANCE.json`: original measurement revisions, hashes and host/build facts.
   Its script hashes describe the local experiment before publication edits.
   The repository-level `PACKAGE_MANIFEST.json` hashes the published source.
-- `release.json`, `download_gguf.py`: pinned private HF release and verified downloads.
+- `release.json`, `download_gguf.py`: separately pinned private HF releases and model-specific verified downloads.
 - `test_smoke.py`: executable bilingual CPU integration check.
 - `results/publication-smoke-*.json`: checks rerun from the publication checkout.
 
@@ -224,3 +261,14 @@ The optional original FP32 CPU reference needs `download_models.py` first:
 refuse to replace the saved results. Run them in a fresh experiment copy if you
 want an independent conversion validation. Keeping Q4 out of this first version
 avoids another unmeasured accuracy tradeoff; no phone runtime is claimed.
+
+## Separate model release checks
+
+`results/split-huggingface-publication.json` records the private repositories and
+verified artifact hashes. Both F16 and Q8 standalone checks passed in English and Italian, in separate
+folders with only the selected model artifacts. The combined Q8 CPU smoke test
+also passed. `results/split-validation.json` indexes these checks. Supporting
+files were freshly downloaded; existing GGUFs were verified against remote
+SHA-256 manifests and reused.
+The original combined private repository remains available for old pinned
+commands; new downloads use the two independent releases.

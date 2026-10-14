@@ -1,0 +1,46 @@
+{
+  "status": "passed",
+  "model": "nesso3",
+  "precision": "f16",
+  "cpu_only": true,
+  "other_model_artifacts_present": false,
+  "scope": "Selected bilingual standalone smoke checks, not broad quality evaluation.",
+  "rows": [
+    {
+      "language": "en",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are an operational assistant. Use the available tools when needed.\n<tools>\n[{\"type\":\"function\",\"function\":{\"name\":\"find_sensor\",\"description\":\"Find the temperature sensor in a room and return its identifier.\",\"parameters\":{\"type\":\"object\",\"properties\":{\"room\":{\"type\":\"string\"}},\"required\":[\"room\"]}}},{\"type\":\"function\",\"function\":{\"name\":\"read_sensor\",\"description\":\"Read the current temperature from a sensor identifier.\",\"parameters\":{\"type\":\"object\",\"properties\":{\"sensor_id\":{\"type\":\"string\"}},\"required\":[\"sensor_id\"]}}},{\"type\":\"function\",\"function\":{\"name\":\"convert_temperature\",\"description\":\"Convert a temperature between Celsius (C) and Fahrenheit (F).\",\"parameters\":{\"type\":\"object\",\"properties\":{\"value\":{\"type\":\"number\"},\"from_unit\":{\"type\":\"string\",\"enum\":[\"C\",\"F\"]},\"to_unit\":{\"type\":\"string\",\"enum\":[\"C\",\"F\"]}},\"required\":[\"value\",\"from_unit\",\"to_unit\"]}}},{\"type\":\"function\",\"function\":{\"name\":\"battery_status\",\"description\":\"Read the battery percentage of a device.\",\"parameters\":{\"type\":\"object\",\"properties\":{\"device_id\":{\"type\":\"string\"}},\"required\":[\"device_id\"]}}}]\n</tools>"
+        },
+        {
+          "role": "user",
+          "content": "Read temperature sensor S-6K3."
+        }
+      ],
+      "text": "<tool_call>\n{\"name\": \"read_sensor\", \"arguments\": {\"sensor_id\": \"S-6K3\"}}\n</tool_call>",
+      "truncated": false,
+      "elapsed_ms": 2306.580957956612,
+      "prompt_tokens": 262,
+      "generated_tokens": 30
+    },
+    {
+      "language": "it",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Sei un assistente operativo. Usa gli strumenti disponibili quando servono.\n<tools>\n[{\"type\":\"function\",\"function\":{\"name\":\"find_sensor\",\"description\":\"Trova il sensore di temperatura in una stanza e restituisce il suo identificativo.\",\"parameters\":{\"type\":\"object\",\"properties\":{\"room\":{\"type\":\"string\"}},\"required\":[\"room\"]}}},{\"type\":\"function\",\"function\":{\"name\":\"read_sensor\",\"description\":\"Leggi la temperatura attuale usando un identificativo di sensore.\",\"parameters\":{\"type\":\"object\",\"properties\":{\"sensor_id\":{\"type\":\"string\"}},\"required\":[\"sensor_id\"]}}},{\"type\":\"function\",\"function\":{\"name\":\"convert_temperature\",\"description\":\"Converti una temperatura tra Celsius (C) e Fahrenheit (F).\",\"parameters\":{\"type\":\"object\",\"properties\":{\"value\":{\"type\":\"number\"},\"from_unit\":{\"type\":\"string\",\"enum\":[\"C\",\"F\"]},\"to_unit\":{\"type\":\"string\",\"enum\":[\"C\",\"F\"]}},\"required\":[\"value\",\"from_unit\",\"to_unit\"]}}},{\"type\":\"function\",\"function\":{\"name\":\"battery_status\",\"description\":\"Leggi la percentuale della batteria di un dispositivo.\",\"parameters\":{\"type\":\"object\",\"properties\":{\"device_id\":{\"type\":\"string\"}},\"required\":[\"device_id\"]}}}]\n</tools>"
+        },
+        {
+          "role": "user",
+          "content": "Leggi la temperatura del sensore S-6K3."
+        }
+      ],
+      "text": "<tool_call>\n{\"name\": \"read_sensor\", \"arguments\": {\"sensor_id\": \"S-6K3\"}}\n</tool_call>",
+      "truncated": false,
+      "elapsed_ms": 1206.7527088802308,
+      "prompt_tokens": 292,
+      "generated_tokens": 30
+    }
+  ]
+}
