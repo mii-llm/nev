@@ -77,3 +77,17 @@ and source-model revisions remain unchanged. Current generators use
 Historical result/provenance JSON retains the identity and visibility observed
 when each experiment ran. Current visibility and revisions are recorded in
 `experiments/cpu_gguf/results/public-organization-migration.json`.
+
+## Model-card usage clarification — 2026-10-16
+
+The root Hugging Face card now separates the GitHub code repository from the
+Hugging Face weight repository and includes fresh-environment installation,
+automatic downloads, bilingual CLI examples and a native Python API example.
+Prepared-machine paths were replaced with commands from a normal GitHub clone.
+The inference guide uses the same installation sequence.
+
+- Hugging Face documentation commit: `94e337ab50c4ff8078697b712ea29462872c421d`.
+- Only the root `README.md` changed on Hugging Face; model artifacts are unchanged.
+- The published card was downloaded anonymously and matched `models/README.md`
+  byte for byte. Shell/Python snippets were syntax-checked and example paths
+  verified; inference was not rerun for this documentation-only update.

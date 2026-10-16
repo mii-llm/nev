@@ -22,17 +22,95 @@ Two English/Italian research variants built using Kev on the ~0.4B Nesso2 backbo
 
 The exact identities are original 74k +256 updates (v2) and selected v2 +512 (v3). These were fixed before the final evaluations. Both folders contain standalone FP32 merged weights, the tokenizer, decision head, exact runtime, artifact checksums and model-specific conversion/evaluation metadata.
 
-## Load a variant
+## Install and run Nev
 
-This repository is public; no Hugging Face login is required. Install the accompanying frozen runtime and its dependencies as described in the [inference guide](https://github.com/mii-llm/nev/blob/main/INFERENCE.md).
+**Two repositories, two purposes:**
+
+- **Hugging Face — [mii-llm/nev](https://huggingface.co/mii-llm/nev/tree/main):** this page hosts the model weights, tokenizer and decision head in the `v2/` and `v3/` folders. Downloads are public; no Hugging Face account or login is needed.
+- **GitHub — [mii-llm/nev](https://github.com/mii-llm/nev):** clone this repository to get the Python runtime (`runtime/`) and runnable examples (`examples/`). The commands below install that runtime and download the Hugging Face weights automatically.
+
+### 1. Install the Python runtime
+
+Use **Python 3.12**. This quick start targets a Linux machine with an NVIDIA GPU. The function-selection and reference-example runners need at least **4 GiB of free GPU memory**. For a Mac CPU, use the separate [Nev GGUF instructions](https://huggingface.co/mii-llm/nev-gguf).
 
 ```bash
-# From the mii-llm/nev checkout, after installing the runtime:
-python examples/hf_decide.py --variant v3 --download-only
+# Clone the CODE repository from GitHub, not the model repository from HF.
+git clone https://github.com/mii-llm/nev.git
+cd nev
+
+python3.12 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install "torch>=2.10,<2.11"
+python -m pip install -r runtime/requirements-inference.txt
+python -m pip install --no-deps ./runtime
+
+# Confirm that PyTorch can see your GPU.
+python -c "import torch; print('GPU available:', torch.cuda.is_available())"
+```
+
+If this prints `False`, install the [PyTorch build for your hardware](https://pytorch.org/get-started/locally/) before continuing with the GPU examples. The `decision_model` Python module comes from the `./runtime` installation above.
+
+### 2. Run your first English and Italian decisions
+
+Run these commands from the **GitHub checkout directory `nev/`**, with `.venv` activated:
+
+```bash
+# Downloads v3 from Hugging Face on the first run, then evaluates both languages.
+python examples/hf_decide.py --variant v3 --language both --device cuda
+
+# A function-selection example using your own request file.
+python examples/hf_decide.py --variant v3 --device cuda \
+  --request examples/request-function-it.json
+
+# Show invoice-function selection in both languages and an application-built call.
 python examples/function_calling_demo.py --variant v3 --language both
 ```
 
-Pin `revision` to a commit for reproducible downloads. The example uses native cached FP32 serving; benchmark tables used documented rows/packed BF16-autocast paths. Close decisions can change with execution form and precision. Both packaged variants passed offline reload and English/Italian inference checks on LUMI ROCm. A fresh A100 CUDA environment also passed the recorded inference checks. Quantization is not validated here.
+The first command caches the pinned v3 files from `mii-llm/nev` on Hugging Face. The third command reuses that cache. There is no need to download weights manually or clone the Hugging Face repository. To try v2, replace `--variant v3` with `--variant v2`; run the first command for v2 before its function demo.
+
+The output is JSON: `answers` contains each selected label and its option probabilities. In the function demo, `model_selected_function` is Nev's prediction; `application_built_call` contains arguments supplied by the application. **Nev selects an option; it does not generate arguments or execute a tool.** The bilingual examples and their recorded outputs appear below.
+
+To define a different task, copy a request file and edit its `state`, question `instructions`, and `criteria` (the allowed labels and their descriptions), then pass its path with `--request`. After the initial download, add `--offline` to `hf_decide.py` to reuse cached weights without contacting Hugging Face.
+
+### 3. Use Nev in your Python application
+
+After the same installation, download a variant and load it with the `decision_model` runtime:
+
+```python
+from pathlib import Path
+from huggingface_hub import snapshot_download
+from decision_model import DecisionModel
+
+variant = "v3"  # or "v2"
+folder = Path(snapshot_download(
+    repo_id="mii-llm/nev",                 # Hugging Face model repository
+    revision="c5c84121263b423f8846811a24790ab96e66cee3",
+    allow_patterns=[f"{variant}/**"],
+    token=False,
+)) / variant
+model = DecisionModel.from_pretrained(folder, device="cuda")
+
+result = model.evaluate(
+    state="Mi serve la fattura dell'ordine ORD-2048.",
+    questions={"action": {
+        "type": "choice",
+        "instructions": "Scegli la funzione adatta alla richiesta.",
+        "criteria": {
+            "get_invoice": "Recupera la fattura di un ordine.",
+            "get_order_status": "Controlla lo stato della spedizione.",
+            "no_tool": "Nessuna funzione disponibile è adatta.",
+        },
+    }},
+)
+print(result["answers"]["action"])
+```
+
+This illustrates the API; it is not an additional benchmark result. You can supply English text and descriptions in the same structure. The runtime supports `choice` (categorical), `noul` (boolean) and `score` (ordered levels).
+
+**Use `DecisionModel.from_pretrained`, not Transformers' `AutoModelForCausalLM`.** Nev needs its trained decision head and input renderer as well as its backbone. The runtime uses Transformers internally. See the [inference guide](https://github.com/mii-llm/nev/blob/main/INFERENCE.md) for artifact layout and execution details.
+
+These examples use native cached FP32 inference; benchmark tables use the documented rows/packed BF16-autocast paths. Close decisions can change with precision. CPU F16/Q8 checks and installation are documented in the separate [Nev GGUF release](https://huggingface.co/mii-llm/nev-gguf).
 
 ### Example gallery: English and Italian
 
@@ -88,7 +166,7 @@ Available choices: `cash_withdrawal`, `card_payment`, `bank_transfer`, `card_del
 | Italian | Il bancomat ha addebitato il mio conto, ma non ha erogato contanti. Come posso segnalare il prelievo non riuscito? | `cash_withdrawal` | ✓ `cash_withdrawal` |
 
 The complete editable inputs are in `examples/reference_examples.json`.
-Use the commands immediately below to run them on the prepared A100. The full
+Use the commands immediately below to run them on your GPU. The full
 32-candidate record, including unsuccessful cases, is retained in
 `docs/nesso2/evidence/a100-reference-candidates.json` in the GitHub repository.
 
@@ -100,36 +178,31 @@ inference. The complete candidate results, including failures, appear in the
 evaluation section; the successful gallery is a **curated demonstration**, not
 an accuracy benchmark. No model was retrained for these examples.
 
-In the prepared A100 environment:
+After completing the installation above, run from the **GitHub `nev/` checkout**:
 
 ```bash
-source ~/nev-a100/activate-nev.sh
-cd ~/nev-a100/source
+# Cache both variants for the reference runner, which loads offline.
+python examples/hf_decide.py --variant v2 --download-only
+python examples/hf_decide.py --variant v3 --download-only
+mkdir -p results
 
-# See the English and Italian requests, selected function, probabilities,
-# and the proposed call with application-supplied arguments.
+# Show requests, selected functions, probabilities and application-supplied arguments.
 python examples/function_calling_demo.py --variant v3 --language both
 
-# Other read-only function selections: order, guide, payments.
+# Another function-selection example: searching a help guide.
 python examples/function_calling_demo.py --variant v3 --example guide
 
 # Run all 16 curated requests (8 parallel bilingual pairs).
 python examples/run_reference_examples.py --variants v2 v3 \
   --cases examples/reference_examples.json \
-  --output "../results/reference-$(date +%Y%m%d-%H%M%S).json"
+  --output "results/reference-$(date +%Y%m%d-%H%M%S).json"
 
-# Run every candidate, including the unsuccessful account-recovery example.
+# Run all 32 candidates, including unsuccessful examples.
 python examples/run_reference_examples.py --variants v2 v3 \
-  --output "../results/candidates-$(date +%Y%m%d-%H%M%S).json"
+  --output "results/candidates-$(date +%Y%m%d-%H%M%S).json"
 ```
 
-From a different machine, first install `runtime/` and cache the public pinned weights using
-`python examples/hf_decide.py --variant v3 --download-only` (repeat for v2).
-Create an output directory and adjust the output path. These runners require a
-CUDA-compatible GPU and at least 4 GiB free memory, cap their PyTorch allocator
-at 4 GiB, and load only locally cached weights. The normal request helper also
-accepts `examples/request-function-en.json` or
-`examples/request-function-it.json` with `--request`.
+These reference runners require a CUDA-compatible GPU with at least 4 GiB free memory and load the weights cached by the first two commands. Reports are saved in the `results/` directory you just created. The normal request helper also accepts `examples/request-function-en.json` or `examples/request-function-it.json` with `--request`.
 
 The function demo runs the invoice-retrieval example in the gallery by default.
 The application then constructs a dry-run call with argument provenance:

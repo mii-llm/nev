@@ -1,14 +1,28 @@
 # Loading the released decision artifacts
 
-Use Python 3.12 and the accompanying frozen runtime. Install a PyTorch build for
-your hardware separately; the recorded environment was LUMI ROCm, not a portable
-CUDA requirements lock. From this package:
+Nev's **weights** are hosted on [Hugging Face](https://huggingface.co/mii-llm/nev),
+under `v2/` and `v3/`. Its **Python runtime and examples** are in the
+[GitHub code repository](https://github.com/mii-llm/nev).
+Clone the GitHub repository and run the following with Python 3.12:
 
 ```sh
+git clone https://github.com/mii-llm/nev.git
+cd nev
+python3.12 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install "torch>=2.10,<2.11"
 python -m pip install -r runtime/requirements-inference.txt
 python -m pip install --no-deps ./runtime
-python examples/decide.py --model /path/to/downloaded/model --language it
+python examples/hf_decide.py --variant v3 --language both --device cuda
 ```
+
+These commands target an NVIDIA GPU; install the appropriate PyTorch build for
+other hardware. For Mac CPU inference, use the [GGUF guide](experiments/cpu_gguf/README.md).
+The final command downloads the public pinned Hugging Face weights automatically,
+then prints English and Italian decisions. No Hugging Face login is needed.
+The `decision_model` module is installed from `./runtime` above. Keep the virtual
+environment activated and run `examples/` commands from this GitHub checkout.
 
 The requirements record primary tested library versions; they are not a complete
 transitive lockfile. Install the hardware-specific PyTorch build first.

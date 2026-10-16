@@ -20,8 +20,8 @@
     "sha256": "6bce3f3489462b7148b9fa229e2f30030dd65e94c0443410c5bdcb94cfd4cdd3"
   },
   "INFERENCE.md": {
-    "bytes": 5530,
-    "sha256": "4872cbfa2e772da68a79f61265c55833437dd26cbf795cc1a29a829e5e234af0"
+    "bytes": 6275,
+    "sha256": "ad6f3b9df5f727e2faca426efd7f4c941c02ecd02a57b30f909a5b90041792b5"
   },
   "LICENSE": {
     "bytes": 11358,
@@ -32,8 +32,8 @@
     "sha256": "5d945d5bde0ce86325016457b35aedbb2f341c82d09545aa26525d212c2ecdee"
   },
   "PUBLICATION.md": {
-    "bytes": 5054,
-    "sha256": "ab4c36a539790f5c80400907b864b521f69399de088797ba3a27b697c42aef3b"
+    "bytes": 5865,
+    "sha256": "14b5910ba72fd9b2cab344a51ef64e7e74498283922767c08aef2ac40868ef1a"
   },
   "README.md": {
     "bytes": 7943,
@@ -1332,8 +1332,8 @@
     "sha256": "e440b6614137550d55a0f30f5fba58f48d243453baec13266fd48823e6c5e7f7"
   },
   "models/README.md": {
-    "bytes": 13349,
-    "sha256": "f094c373b4de5568f9bd61672bec560004795ef69457eeba35c13f893b354757"
+    "bytes": 17563,
+    "sha256": "2452c050381dd2883d6ad1042190f56c4755b0ebe2a91265ee5bced6f76cf15c"
   },
   "models/v2/README.md": {
     "bytes": 5256,
