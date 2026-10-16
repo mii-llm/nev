@@ -2,12 +2,12 @@
   "format_version": 2,
   "models": {
     "nev": {
-      "repository": "giux78/nev-gguf",
-      "revision": "55bc907d52a96717c9c61dd120d035083cfcae06"
+      "repository": "mii-llm/nev-gguf",
+      "revision": "d3be0de4ea15a54c0b09b9f3cfa27ca62c47c51e"
     },
     "nesso3": {
-      "repository": "giux78/nesso3-0.4B-agentic-gguf",
-      "revision": "d5bdb315605a17422bcde77f36673d34adba2ae4"
+      "repository": "mii-llm/nesso3-0.4B-agentic-gguf",
+      "revision": "2058a05f2e139c5bc4a5e57405a4806f65615e93"
     }
   }
 }

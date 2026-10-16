@@ -45,9 +45,10 @@ All bad raw calls remain recorded; raw strict checks were 9 / 9 / 12.
 
 ## Current generator and simple examples
 
-The default generator is now `giux78/nesso3-0.4B-agentic`, pinned to
+The default generator is now `mii-llm/nesso3-0.4B-agentic`, pinned to
 `56f42f1c7eb82fbd48b0c4ee46aae7b8bed203b8`. Nev v3 and its revision are
-unchanged. `--generator nesso2` retains the original pinned generator.
+unchanged. Current runners use Nesso3; the older Nesso2 comparison is retained
+in the historical evidence and earlier Git revisions.
 
 Read the [root README](../../README.md#try-nev-with-generative-nesso3-as-one-agent)
 for the four successful curated examples and [every readable trace](../../docs/nesso3/SIMPLE_TRACES.md)
@@ -64,12 +65,12 @@ python experiments/hybrid_agent/run_pilot.py --generator nesso3 \
 ```
 
 The A100 already has the pinned Nesso3 inference files cached. For a separate
-authenticated installation, download them into the same HF cache used by the
+installation, download them into the same HF cache used by the
 runtime (alongside the Nev v3 snapshot):
 
 ```python
 from huggingface_hub import snapshot_download
-snapshot_download("giux78/nesso3-0.4B-agentic",
+snapshot_download("mii-llm/nesso3-0.4B-agentic",
     revision="56f42f1c7eb82fbd48b0c4ee46aae7b8bed203b8",
     allow_patterns=["*.json", "*.safetensors", "*.jinja", "tokenizer.model"])
 ```
@@ -110,9 +111,9 @@ is capped at 8 GiB. Model loading is outside pilot timings.
 
 ## Historical Nesso2 frozen comparison
 
-- Generator: `giux78/nesso2-0.4B-agentic-v2` at
+- Historical generator: Nesso2-v2 at
   `dc74c2f5ec3330d3e22d697078646b547669da1a`, BF16.
-- Decision model: `giux78/nev`, v3 at
+- Decision model: `mii-llm/nev`, v3 at
   `c5c84121263b423f8846811a24790ab96e66cee3`, native FP32 cached inference.
 - `nesso_only`: four tools in their fixed original order.
 - `nev_ranked`: all four tools, ordered by Nev's probabilities.
@@ -213,8 +214,7 @@ engineering smoke check passed all three modes. Its outputs are retained too.
 
 ## Results and interpretation
 
-A runnable prototype combines generative
-`giux78/nesso2-0.4B-agentic-v2` with Nev v3. Nev ranks four available tools;
+The historical prototype combined the Nesso2-v2 generator with Nev v3. Nev ranks four available tools;
 Nesso generates the function name and arguments, receives a simulated tool
 result, and attempts a final response. Python enforces schema and argument
 checks. All tools are local read-only simulations, with no real account actions.

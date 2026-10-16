@@ -1,4 +1,4 @@
-"""Publish both evaluated Nev variants to the explicitly requested private HF repo."""
+"""Publish both evaluated Nev variants to the public mii-llm HF repository."""
 import fcntl
 import hashlib
 import json
@@ -14,8 +14,10 @@ lock=(work/'upload.lock').open('a')
 fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
 receipt_path=work/'huggingface-receipt.json'
 if receipt_path.exists():
-    print(receipt_path.read_text(), flush=True)
-    raise SystemExit(0)
+    previous=json.loads(receipt_path.read_text())
+    if previous.get('repository')=='mii-llm/nev' and previous.get('private') is False:
+        print(receipt_path.read_text(), flush=True)
+        raise SystemExit(0)
 print('Uploader started; verifying candidate hashes', flush=True)
 
 def sha(p):
@@ -38,18 +40,15 @@ for variant in ('v2','v3'):
     (dest/'FILE_MANIFEST.json').write_text(json.dumps(files,indent=2)+'\n')
 for name in ('README.md','LICENSE','NOTICE'):
     shutil.copy2(work/'cards'/name,folder/name)
-api=HfApi(token=os.environ['HF_TOKEN'])
-assert api.whoami()['name']=='giux78'
-api.create_repo(repo_id='giux78/nev',repo_type='model',private=True,exist_ok=True)
-if not api.model_info('giux78/nev').private:
-    api.update_repo_settings(repo_id='giux78/nev',repo_type='model',private=True)
-assert api.model_info('giux78/nev').private
-print('PRIVATE REPOSITORY VERIFIED; uploading both variants',flush=True)
-commit=api.upload_folder(repo_id='giux78/nev',repo_type='model',folder_path=str(folder),
+api=HfApi(token=os.environ.get('HF_TOKEN'))
+api.create_repo(repo_id='mii-llm/nev',repo_type='model',private=False,exist_ok=True)
+assert not api.model_info('mii-llm/nev').private, 'Expected the existing public release'
+print('PUBLIC REPOSITORY VERIFIED; uploading both variants',flush=True)
+commit=api.upload_folder(repo_id='mii-llm/nev',repo_type='model',folder_path=str(folder),
     commit_message='Release Nev bilingual decision variants, model cards and measured provenance',
     ignore_patterns=['**/__pycache__/**','**/.cache/**','**/*.pyc'])
-info=api.model_info('giux78/nev',files_metadata=True)
-assert info.private
+info=api.model_info('mii-llm/nev',files_metadata=True)
+assert not info.private
 remote={s.rfilename:s for s in info.siblings}
 for variant in ('v2','v3'):
     for name in ('backbone/model.safetensors','decision_head.safetensors','config.json','README.md'):
@@ -58,7 +57,7 @@ for variant in ('v2','v3'):
         assert remote[path].size==local.stat().st_size,path
         lfs=remote[path].lfs
         if lfs:assert lfs.sha256==sha(local),path
-receipt={'status':'complete','repository':'giux78/nev','private':info.private,'commit':info.sha,
+receipt={'status':'complete','repository':'mii-llm/nev','private':info.private,'commit':info.sha,
          'commit_url':commit.commit_url,'variants':['v2','v3'],
          'verification':'remote file sizes and LFS SHA-256 checked for both model weights; evaluated core files unchanged',
          'card_sha256':sha(folder/'README.md')}

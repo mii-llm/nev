@@ -5,11 +5,10 @@ from pathlib import Path
 import time
 
 GENERATORS = {
-    'nesso3': ('giux78/nesso3-0.4B-agentic', '56f42f1c7eb82fbd48b0c4ee46aae7b8bed203b8'),
-    'nesso2': ('giux78/nesso2-0.4B-agentic-v2', 'dc74c2f5ec3330d3e22d697078646b547669da1a'),
+    'nesso3': ('mii-llm/nesso3-0.4B-agentic', '56f42f1c7eb82fbd48b0c4ee46aae7b8bed203b8'),
 }
 GENERATOR_REPO, GENERATOR_REVISION = GENERATORS['nesso3']
-NEV_REPO = 'giux78/nev'
+NEV_REPO = 'mii-llm/nev'
 NEV_REVISION = 'c5c84121263b423f8846811a24790ab96e66cee3'
 ARMS = ['nesso_only', 'nev_ranked', 'nev_top2']
 POLICIES = ['baseline', 'prompt_once', 'single_read']

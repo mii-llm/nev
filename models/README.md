@@ -24,10 +24,10 @@ The exact identities are original 74k +256 updates (v2) and selected v2 +512 (v3
 
 ## Load a variant
 
-Authenticate with an account that has access to this private repository. Install the accompanying frozen runtime and its dependencies as described in the [inference guide](https://github.com/mii-llm/nev/blob/main/INFERENCE.md).
+This repository is public; no Hugging Face login is required. Install the accompanying frozen runtime and its dependencies as described in the [inference guide](https://github.com/mii-llm/nev/blob/main/INFERENCE.md).
 
 ```bash
-# From the mii-llm/nev checkout, after installing the runtime and logging in:
+# From the mii-llm/nev checkout, after installing the runtime:
 python examples/hf_decide.py --variant v3 --download-only
 python examples/function_calling_demo.py --variant v3 --language both
 ```
@@ -123,8 +123,7 @@ python examples/run_reference_examples.py --variants v2 v3 \
   --output "../results/candidates-$(date +%Y%m%d-%H%M%S).json"
 ```
 
-From a different machine, first install `runtime/`, authenticate for the private
-HF repository and cache the pinned weights using
+From a different machine, first install `runtime/` and cache the public pinned weights using
 `python examples/hf_decide.py --variant v3 --download-only` (repeat for v2).
 Create an output directory and adjust the output path. These runners require a
 CUDA-compatible GPU and at least 4 GiB free memory, cap their PyTorch allocator

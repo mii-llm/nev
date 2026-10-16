@@ -15,7 +15,7 @@ transitive lockfile. Install the hardware-specific PyTorch build first.
 
 The model directory must contain `config.json`, `backbone/`, `tokenizer/`,
 `decision_head.safetensors`, `calibration.json` and conversion metadata. Model
-weights are in the private Hugging Face repository `giux78/nev`, under `v2/` and
+weights are in the public Hugging Face repository `mii-llm/nev`, under `v2/` and
 `v3/`; they are not included in this GitHub source package. The same API works for both variants. It supports `choice`, `noul`
 (boolean) and `score` (ordinal) questions. Read the artifact's admission limits;
 excessively long inputs fail rather than being silently truncated.
@@ -32,14 +32,14 @@ Neither candidate has a validated confidence threshold from these experiments.
 
 ## Download one variant
 
-Authenticate with a Hugging Face account that has access to `giux78/nev`, then:
+Download the public model without an HF account:
 
 ```python
 from pathlib import Path
 from huggingface_hub import snapshot_download
 
 variant = "v3"  # or "v2"
-folder = Path(snapshot_download("giux78/nev", revision="c5c84121263b423f8846811a24790ab96e66cee3", allow_patterns=[f"{variant}/**"])) / variant
+folder = Path(snapshot_download("mii-llm/nev", revision="c5c84121263b423f8846811a24790ab96e66cee3", allow_patterns=[f"{variant}/**"])) / variant
 print(folder)
 ```
 
@@ -57,8 +57,8 @@ bash examples/lumi_nev.sh fetch v3
 sbatch examples/lumi_nev.sbatch --variant v3 --language both
 ```
 
-The first command downloads the pinned private HF variant into the scratch cache.
-It uses your existing HF login; it never prints or copies the token. The job runs
+The first command downloads the pinned public HF variant into the scratch cache
+without an HF login. The job runs
 inference offline on one AMD GPU with the frozen runtime. The log path is:
 
 ```sh
@@ -106,8 +106,7 @@ python examples/hf_decide.py --variant v3 --language both
 ```
 
 This helper is pinned to the verified model revision and supports `--state`,
-`--request`, `--offline` and `--device`. A private HF account with repository
-access is required for the first download.
+`--request`, `--offline` and `--device`. No HF login is required for downloads.
 
 Verified on LUMI: jobs 22720431 (v2) and 22720432 (v3). All four EN/IT
 example answers and probabilities exactly match the previous local-export

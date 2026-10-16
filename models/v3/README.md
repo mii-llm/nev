@@ -12,7 +12,7 @@ tags:
 
 # Nesso2 Decision V3 Routing
 
-Research release in the private repository `giux78/nev`, subdirectory `v3/`. Code and experiment documentation: https://github.com/mii-llm/nev.
+Research release in the public repository `mii-llm/nev`, subdirectory `v3/`. Code and experiment documentation: https://github.com/mii-llm/nev.
 
 A small typed decision model built with Kev. Input: state, instructions and explicit options. Output: categorical (`choice`), boolean (`noul`) or ordinal (`score`) decisions with probabilities. The model does not expose ordinary text generation.
 
@@ -66,7 +66,7 @@ Italian evaluation text is synthetic and only partially reviewed; pretraining co
 
 ## Inference and provenance
 
-Use the accompanying frozen `decision_model` runtime and the artifact-specific `config.json`, not a generic text-generation pipeline. See the shared `INFERENCE.md`, `BUILD.md` and `EXPERIMENTS.md`. The artifact manifest identifies the exact weights; the source manifest identifies the runtime. The Hugging Face variant directory contains the standalone weights; this GitHub repository contains the model card and reproducibility code.
+Use the accompanying frozen `decision_model` runtime and the artifact-specific `config.json`, not a generic text-generation pipeline. See the shared `INFERENCE.md`, `BUILD.md` and `EXPERIMENTS.md`. The artifact manifest identifies the exact weights; the source manifest identifies the runtime. This variant directory contains the standalone evaluated weights, runtime and reproducibility documentation.
 
 The parent revision declares Apache-2.0 in its model metadata; Kev code attribution and upstream notices are preserved in `NOTICE`. Dataset terms remain separate. See `parent-provenance.json`.
 

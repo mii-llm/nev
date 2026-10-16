@@ -2,7 +2,7 @@
 
 Use Nev to turn English or Italian requests into categorical, boolean, and ordinal decisions over options you supply. Install and try either released variant with the commands below, then compare their evaluation results—including the harder policy-following examples—to judge where each model is useful and where it fails.
 
-**Weights:** [giux78/nev on Hugging Face](https://huggingface.co/giux78/nev), with separate `v2/` and `v3/` folders. Both the model repository and this GitHub repository are currently private.
+**Weights:** [mii-llm/nev on Hugging Face](https://huggingface.co/mii-llm/nev), with separate `v2/` and `v3/` folders. The model and code repositories are public; no HF account is required for downloads.
 
 ## 1. Install and use Nev
 
@@ -13,10 +13,9 @@ From a checkout of this repository:
 ```bash
 python -m pip install -r runtime/requirements-inference.txt
 python -m pip install --no-deps ./runtime
-hf auth login
 ```
 
-Use an HF account that has access to the private model repository. The requirements record tested primary versions, not a complete transitive or hardware lockfile.
+Downloads work without an HF login. The requirements record tested primary versions, not a complete transitive or hardware lockfile.
 
 The simplest CLI downloads the pinned artifact and runs the native runtime:
 
@@ -44,7 +43,7 @@ from decision_model import DecisionModel
 revision = "c5c84121263b423f8846811a24790ab96e66cee3"
 variant = "v3"  # or "v2"
 folder = Path(snapshot_download(
-    "giux78/nev",
+    "mii-llm/nev",
     revision=revision,
     allow_patterns=[f"{variant}/**"],
 )) / variant
@@ -61,15 +60,15 @@ The runtime enforces artifact-specific admission limits and rejects oversized in
 
 ### Can Transformers load Nev directly?
 
-Transformers already loads the decoder inside the runtime. The whole released decision model is currently a custom `nn.Module` with `model_type=decision_model` and no `auto_map`. Therefore plain `transformers.AutoModel.from_pretrained("giux78/nev")` is not a supported loading command.
+Transformers already loads the decoder inside the runtime. The whole released decision model is currently a custom `nn.Module` with `model_type=decision_model` and no `auto_map`. Therefore plain `transformers.AutoModel.from_pretrained("mii-llm/nev")` is not a supported loading command.
 
 A custom `PreTrainedConfig` / `PreTrainedModel` wrapper and Hub registration could provide that interface without retraining. It would need to preserve the renderer, head, tokenizer, calibration, and equivalent outputs. That wrapper is not implemented in this release. For now, use the HF download plus native loader shown above.
 
 ### Run Nesso3 + Nev on a Mac CPU (GGUF)
 
-There are two independent private **F16/Q8_0** releases:
-[Nev GGUF](https://huggingface.co/giux78/nev-gguf), including its original FP32
-decision head, and [Nesso3-0.4B-agentic GGUF](https://huggingface.co/giux78/nesso3-0.4B-agentic-gguf).
+There are two independent public **F16/Q8_0** releases:
+[Nev GGUF](https://huggingface.co/mii-llm/nev-gguf), including its original FP32
+decision head, and [Nesso3-0.4B-agentic GGUF](https://huggingface.co/mii-llm/nesso3-0.4B-agentic-gguf).
 Each HF card explains standalone use. The CPU combination is documented below. Use Python 3.12–3.13 and a C/C++ compiler (Xcode
 command-line tools on Mac). From this repository checkout:
 
@@ -286,8 +285,7 @@ python examples/run_reference_examples.py --variants v2 v3 \
   --output "../results/candidates-$(date +%Y%m%d-%H%M%S).json"
 ```
 
-From a different machine, first install `runtime/`, authenticate for the private
-HF repository and cache the pinned weights using
+From a different machine, first install `runtime/` and cache the public pinned weights using
 `python examples/hf_decide.py --variant v3 --download-only` (repeat for v2).
 Create an output directory and adjust the output path. These runners require a
 CUDA-compatible GPU and at least 4 GiB free memory, cap their PyTorch allocator
@@ -316,7 +314,7 @@ set. Multi-step tool use and out-of-scope detection are not established here.
 
 ### Try Nev with generative Nesso3 as one agent
 
-The A100 prototype now uses **`giux78/nesso3-0.4B-agentic`** for generated calls
+The A100 prototype now uses **`mii-llm/nesso3-0.4B-agentic`** for generated calls
 and answers, with **Nev v3** ranking all four available tools. Python validates
 arguments and runs **local simulated read-only tools**. Nesso3 is pinned to
 `56f42f1c7eb82fbd48b0c4ee46aae7b8bed203b8`; Nev's weights are unchanged.
@@ -361,7 +359,7 @@ All candidates, including failures, appear in the
 [readable step-by-step traces](docs/nesso3/SIMPLE_TRACES.md). This is a curated
 demonstration, not a general accuracy claim. The comparison is reported below.
 The adapter follows the compact tool contract in the
-[Nesso3 model card](https://huggingface.co/giux78/nesso3-0.4B-agentic) and
+[Nesso3 model card](https://huggingface.co/mii-llm/nesso3-0.4B-agentic) and
 [training report](https://github.com/mii-llm/zagreus-nesso-slm/tree/main/nesso3).
 
 
@@ -479,7 +477,7 @@ A ready copy of the examples and frozen runtime is staged in the existing projec
 ```bash
 cd /scratch/project_465002563/decision-models/kev-nesso2/releases/publication-nev/demo
 
-# Download the pinned private variants into the scratch cache.
+# Download the pinned public variants into the scratch cache.
 bash examples/lumi_nev.sh fetch v2
 bash examples/lumi_nev.sh fetch v3
 
@@ -487,7 +485,7 @@ bash examples/lumi_nev.sh fetch v3
 sbatch examples/lumi_scenarios.sbatch
 ```
 
-The fetch commands use the existing HF login. GPU inference then runs offline in the recorded container. The job loads each model once, warms it up, and prints every prediction, assigned probability, expected answer and success/failure. A full JSON report is saved alongside the log.
+The fetch commands download public weights without an HF login. GPU inference then runs offline in the recorded container. The job loads each model once, warms it up, and prints every prediction, assigned probability, expected answer and success/failure. A full JSON report is saved alongside the log.
 
 Replace `JOBID` with the number returned by `sbatch`:
 
@@ -759,8 +757,7 @@ execution-status stage to reduce factual errors without adding domain templates.
 
 ### Nesso2 + Nev: historical first agent comparison
 
-A runnable prototype combines generative
-`giux78/nesso2-0.4B-agentic-v2` with Nev v3. Nev ranks four available tools;
+The historical prototype combined the Nesso2-v2 generator with Nev v3. Nev ranks four available tools;
 Nesso generates the function name and arguments, receives a simulated tool
 result, and attempts a final response. Python enforces schema and argument
 checks. All tools are local read-only simulations, with no real account actions.
@@ -896,12 +893,12 @@ FP32 merging and isolated reload were checked independently:
 
 Small FP32 merge differences do not imply identical BF16-autocast benchmark answers. V3's merged model changed 12 of 1,024 predictions on the new synthetic test relative to its adapter. The release tables therefore score the actual exports separately.
 
-The packaged runtime preserves 17 frozen source files identified by SHA-256. An isolated installation passed offline inference for both languages and variants. Later, both variants were downloaded from the private HF repository and tested on LUMI again; all four original smoke-example answers and probabilities matched the local-export results exactly.
+The packaged runtime preserves 17 frozen source files identified by SHA-256. An isolated installation passed offline inference for both languages and variants. Later, both variants were downloaded from Hugging Face and tested on LUMI again; all four original smoke-example answers and probabilities matched the local-export results exactly.
 
 The immutable model revision is:
 
 ```text
-giux78/nev@c5c84121263b423f8846811a24790ab96e66cee3
+mii-llm/nev@c5c84121263b423f8846811a24790ab96e66cee3
 ```
 
 HF privacy, remote weight sizes, and LFS SHA-256 were verified after upload. The evaluated core model files were unchanged. Weights are stored on Hugging Face; this repository contains source, recipes, descriptions, result evidence, and provenance.

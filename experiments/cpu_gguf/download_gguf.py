@@ -24,7 +24,7 @@ def main():
     for model_name, model in release['models'].items():
         if args.model != 'both' and args.model != model_name:
             continue
-        manifest_path = hf_hub_download(model['repository'], 'ARTIFACTS.json', revision=model['revision'])
+        manifest_path = hf_hub_download(model['repository'], 'ARTIFACTS.json', revision=model['revision'], token=False)
         manifest = json.loads(Path(manifest_path).read_text())
         selected = {name: spec for name, spec in manifest.items()
                     if not name.startswith('gguf/') or args.precision == 'both'
@@ -39,7 +39,7 @@ def main():
                     raise ValueError(f'Existing file differs from release; move it aside first: {target}')
                 print(f'Verified existing {name}', flush=True)
                 continue
-            downloaded = Path(hf_hub_download(model['repository'], name, revision=model['revision'], local_dir=args.destination))
+            downloaded = Path(hf_hub_download(model['repository'], name, revision=model['revision'], local_dir=args.destination, token=False))
             if downloaded.stat().st_size != spec['bytes'] or sha256(downloaded) != spec['sha256']:
                 raise ValueError(f'Integrity check failed: {name}')
             print(f'Downloaded and verified {name}', flush=True)

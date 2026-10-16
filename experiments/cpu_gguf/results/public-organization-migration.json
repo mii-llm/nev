@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-16",
+  "models": [
+    {
+      "repository": "mii-llm/nev",
+      "revision": "0d3fffb2b6068d3e8c96974adf8f4f211f6c0eb7",
+      "previous_revision": "d109f37999dcd5c90cb476e4ef16efd0402c6f9f",
+      "public": true,
+      "gated": false,
+      "updated_files": [
+        "README.md",
+        "v2/README.md",
+        "v3/README.md",
+        "v2/FILE_MANIFEST.json",
+        "v3/FILE_MANIFEST.json"
+      ]
+    },
+    {
+      "repository": "mii-llm/nev-gguf",
+      "revision": "d3be0de4ea15a54c0b09b9f3cfa27ca62c47c51e",
+      "previous_revision": "55bc907d52a96717c9c61dd120d035083cfcae06",
+      "public": true,
+      "gated": false,
+      "updated_files": [
+        "README.md"
+      ]
+    },
+    {
+      "repository": "mii-llm/nesso3-0.4B-agentic-gguf",
+      "revision": "2058a05f2e139c5bc4a5e57405a4806f65615e93",
+      "previous_revision": "d5bdb315605a17422bcde77f36673d34adba2ae4",
+      "public": true,
+      "gated": false,
+      "updated_files": [
+        "README.md"
+      ]
+    },
+    {
+      "repository": "mii-llm/nesso3-0.4B-agentic",
+      "revision": "56f42f1c7eb82fbd48b0c4ee46aae7b8bed203b8",
+      "previous_revision": "56f42f1c7eb82fbd48b0c4ee46aae7b8bed203b8",
+      "public": true,
+      "gated": false,
+      "updated_files": []
+    }
+  ],
+  "weights_changed": false,
+  "note": "Historical evidence records retain their original repository identities and visibility. Current entry points use public mii-llm repositories."
+}

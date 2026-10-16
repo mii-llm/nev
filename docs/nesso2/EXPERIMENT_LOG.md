@@ -464,7 +464,7 @@ replace old reports. Append newly verified results with their source artifacts.
 
 ## 2026-10-11 — Private Nev publication
 
-Published both standalone evaluated variants to `giux78/nev` in `v2/` and `v3/`,
+Published both standalone evaluated variants to `mii-llm/nev` in `v2/` and `v3/`,
 revision `c5c84121263b423f8846811a24790ab96e66cee3`. Remote weight sizes/LFS SHA-256 and repository privacy were
 verified; evaluated core model hashes are unchanged. Code, model descriptions,
 recipes and experiment evidence were published to the existing private
@@ -636,7 +636,7 @@ observations; their outputs are retained as a100-hybrid-demo-en/it.json.
 
 ## 2026-10-13 — Nesso3 generator substitution
 
-Read the requested giux78/nesso3-0.4B-agentic card and mii-llm/zagreus-nesso-slm
+Read the requested mii-llm/nesso3-0.4B-agentic card and mii-llm/zagreus-nesso-slm
 nesso3 report. Pinned Nesso3 at 56f42f1c7eb82fbd48b0c4ee46aae7b8bed203b8,
 kept Nev v3 and the compact controller unchanged. Eight simple authored
 requests (four bilingual pairs) were fixed before inference, with both baseline

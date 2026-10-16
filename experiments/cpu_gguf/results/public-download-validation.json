@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-16",
+  "authentication": "No HF_TOKEN, legacy token environment variable, or saved login; fresh isolated HF_HOME; token=False on public downloads.",
+  "native_access": [
+    {
+      "repository": "mii-llm/nev",
+      "revision": "c5c84121263b423f8846811a24790ab96e66cee3",
+      "weight": "v2/backbone/model.safetensors",
+      "bytes": 1751074840,
+      "public": true,
+      "gated": false,
+      "config_downloaded_without_login": true,
+      "weight_metadata_accessible_without_login": true
+    },
+    {
+      "repository": "mii-llm/nev",
+      "revision": "c5c84121263b423f8846811a24790ab96e66cee3",
+      "weight": "v3/backbone/model.safetensors",
+      "bytes": 1751074840,
+      "public": true,
+      "gated": false,
+      "config_downloaded_without_login": true,
+      "weight_metadata_accessible_without_login": true
+    },
+    {
+      "repository": "mii-llm/nesso3-0.4B-agentic",
+      "revision": "56f42f1c7eb82fbd48b0c4ee46aae7b8bed203b8",
+      "weight": "model.safetensors",
+      "bytes": 875554600,
+      "public": true,
+      "gated": false,
+      "config_downloaded_without_login": true,
+      "weight_metadata_accessible_without_login": true
+    }
+  ],
+  "gguf_releases": {
+    "format_version": 2,
+    "models": {
+      "nev": {
+        "repository": "mii-llm/nev-gguf",
+        "revision": "d3be0de4ea15a54c0b09b9f3cfa27ca62c47c51e"
+      },
+      "nesso3": {
+        "repository": "mii-llm/nesso3-0.4B-agentic-gguf",
+        "revision": "2058a05f2e139c5bc4a5e57405a4806f65615e93"
+      }
+    }
+  },
+  "gguf_validation": "Both manifests and all ten supporting files downloaded anonymously and SHA-256 checked. Existing local Q8 GGUFs verified against the remote manifest; no redundant full GGUF download.",
+  "combined_q8_smoke": "passed",
+  "languages": [
+    "en",
+    "it"
+  ],
+  "smoke_evidence": "public-anonymous-smoke-q8.json",
+  "helper_check": "Native download-only helper invoked with mocked network: mii-llm/nev and token=False, without reading Path.home().",
+  "source_scan": "No old personal-namespace references remain in tracked Python, shell or Markdown. Historical JSON evidence is preserved."
+}

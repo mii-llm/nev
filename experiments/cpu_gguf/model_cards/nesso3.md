@@ -3,7 +3,7 @@ language:
 - en
 - it
 license: apache-2.0
-base_model: giux78/nesso3-0.4B-agentic
+base_model: mii-llm/nesso3-0.4B-agentic
 pipeline_tag: text-generation
 tags:
 - gguf
@@ -13,17 +13,17 @@ tags:
 ---
 # Nesso3-0.4B-agentic — GGUF
 
-**Nesso3-0.4B-agentic** is a small generative language model with English/Italian text and tool-call generation. This private repository provides **F16 and Q8_0 GGUF** versions of the original [Nesso3 model](https://huggingface.co/giux78/nesso3-0.4B-agentic). It can run independently: **Nev is not required**.
+**Nesso3-0.4B-agentic** is a small generative language model with English/Italian text and tool-call generation. This public repository provides **F16 and Q8_0 GGUF** versions of the original [Nesso3 model](https://huggingface.co/mii-llm/nesso3-0.4B-agentic). It can run independently: **Nev is not required**.
 
 ## Install and run Nesso3 alone on CPU
 
-The verified path uses the original tokenizer/chat template and a pinned llama.cpp CPU worker. Requires Python 3.12 or 3.13, Git, a C/C++ compiler (Xcode command-line tools on Mac), and access to this model repository and the private GitHub source.
+The verified path uses the original tokenizer/chat template and a pinned llama.cpp CPU worker. Requires Python 3.12 or 3.13, Git, a C/C++ compiler (Xcode command-line tools on Mac), and network access to Hugging Face and GitHub.
 
 ```bash
-git clone git@github.com:mii-llm/nev.git
+git clone https://github.com/mii-llm/nev.git
 cd nev/experiments/cpu_gguf
 ./setup.sh --model nesso3 --precision q8
-# Uses your saved HF login, or prompts for one.
+# Public download; no Hugging Face login is required.
 .venv/bin/python generate.py --precision q8 --language both
 .venv/bin/python test_standalone.py --model nesso3 --precision q8
 ```
@@ -75,6 +75,6 @@ The model can choose wrong arguments, add unwanted calls, misstate units or tool
 - `ARTIFACTS.json`: exact inference-file sizes and SHA-256 hashes.
 - `PROVENANCE.json`: pinned source and conversion metadata.
 
-Source: `giux78/nesso3-0.4B-agentic` at `56f42f1c7eb82fbd48b0c4ee46aae7b8bed203b8`. Conversion uses unmodified llama.cpp `37d6d653e49aa73c947cc9631a5d499869a21cca`. No retraining during conversion. Apache-2.0; source notices included.
+Source: `mii-llm/nesso3-0.4B-agentic` at `56f42f1c7eb82fbd48b0c4ee46aae7b8bed203b8`. Conversion uses unmodified llama.cpp `37d6d653e49aa73c947cc9631a5d499869a21cca`. No retraining during conversion. Apache-2.0; source notices included.
 
-The optional **Nesso3 + Nev CPU agent** is documented in the [GitHub combination guide](https://github.com/mii-llm/nev/tree/main/experiments/cpu_gguf), including runnable bilingual examples, timings, raw traces and known failures. The independent decision model is [giux78/nev-gguf](https://huggingface.co/giux78/nev-gguf).
+The optional **Nesso3 + Nev CPU agent** is documented in the [GitHub combination guide](https://github.com/mii-llm/nev/tree/main/experiments/cpu_gguf), including runnable bilingual examples, timings, raw traces and known failures. The independent decision model is [mii-llm/nev-gguf](https://huggingface.co/mii-llm/nev-gguf).

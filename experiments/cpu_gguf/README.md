@@ -3,21 +3,21 @@
 Both models now run locally on this **Apple M3 Pro, 18 GiB RAM**, using four CPU
 threads. Metal and CUDA are disabled. No server or network connection is needed
 after setup. This experiment publishes the CPU bridge and recorded test results. Model files
-are in two private HF repositories: [Nev GGUF](https://huggingface.co/giux78/nev-gguf)
-and [Nesso3-0.4B-agentic GGUF](https://huggingface.co/giux78/nesso3-0.4B-agentic-gguf).
+are in two public HF repositories: [Nev GGUF](https://huggingface.co/mii-llm/nev-gguf)
+and [Nesso3-0.4B-agentic GGUF](https://huggingface.co/mii-llm/nesso3-0.4B-agentic-gguf).
 Each model card describes independent use; this guide also shows the combined agent.
 
 ## Install and run
 
 Requirements: Python **3.12 or 3.13**, Git, a C/C++ compiler (on Mac, Xcode
-command-line tools), access to GitHub and the selected private HF repositories, and several GiB of
+command-line tools), GitHub and Hugging Face network access, and several GiB of
 free disk space. The tested host is Apple Silicon macOS; Linux/Windows/phones
 have not been validated. Setup builds the pinned llama.cpp CPU bridge, downloads
 the selected GGUF pair plus required head/tokenizers, and verifies their SHA-256
-hashes. A saved HF login is reused; otherwise setup runs `hf auth login`.
+hashes. Downloads are public and do not prompt for an HF login.
 
 ```bash
-git clone git@github.com:mii-llm/nev.git
+git clone https://github.com/mii-llm/nev.git
 cd nev/experiments/cpu_gguf
 ./setup.sh --model both --precision f16
 
@@ -212,7 +212,7 @@ reference and are not solved by changing storage/inference format.
 - `PROVENANCE.json`: original measurement revisions, hashes and host/build facts.
   Its script hashes describe the local experiment before publication edits.
   The repository-level `PACKAGE_MANIFEST.json` hashes the published source.
-- `release.json`, `download_gguf.py`: separately pinned private HF releases and model-specific verified downloads.
+- `release.json`, `download_gguf.py`: separately pinned public HF releases and model-specific verified downloads.
 - `test_smoke.py`: executable bilingual CPU integration check.
 - `results/publication-smoke-*.json`: checks rerun from the publication checkout.
 
@@ -264,11 +264,20 @@ avoids another unmeasured accuracy tradeoff; no phone runtime is claimed.
 
 ## Separate model release checks
 
-`results/split-huggingface-publication.json` records the private repositories and
+`results/split-huggingface-publication.json` records the original split publication and
 verified artifact hashes. Both F16 and Q8 standalone checks passed in English and Italian, in separate
 folders with only the selected model artifacts. The combined Q8 CPU smoke test
 also passed. `results/split-validation.json` indexes these checks. Supporting
 files were freshly downloaded; existing GGUFs were verified against remote
 SHA-256 manifests and reused.
-The original combined private repository remains available for old pinned
-commands; new downloads use the two independent releases.
+The old combined repository is retired. Current downloads use the two public
+releases under `mii-llm`; historical receipts preserve the original publication identities.
+
+## Public download verification — 2026-10-16
+
+The current `mii-llm` releases were checked using an empty HF cache and no saved
+login or token. Both GGUF manifests and all supporting files downloaded and
+passed hash checks; the bilingual combined Q8 smoke test passed. Existing GGUF
+files were verified against the remote hashes and reused. Native Nev v2/v3 and
+Nesso3 configuration downloads and weight-file metadata access also passed
+anonymously. See `results/public-download-validation.json`.

@@ -4,8 +4,8 @@ from pathlib import Path
 import re
 import time
 
-GENERATOR=('giux78/nesso3-0.4B-agentic','56f42f1c7eb82fbd48b0c4ee46aae7b8bed203b8')
-NEV=('giux78/nev','c5c84121263b423f8846811a24790ab96e66cee3')
+GENERATOR=('mii-llm/nesso3-0.4B-agentic','56f42f1c7eb82fbd48b0c4ee46aae7b8bed203b8')
+NEV=('mii-llm/nev','c5c84121263b423f8846811a24790ab96e66cee3')
 
 class Backend:
     def __init__(self):

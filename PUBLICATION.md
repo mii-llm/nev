@@ -1,8 +1,14 @@
 # Published release
 
+Current downloads are public under `mii-llm`: [Nev](https://huggingface.co/mii-llm/nev),
+[Nev GGUF](https://huggingface.co/mii-llm/nev-gguf), and
+[Nesso3 GGUF](https://huggingface.co/mii-llm/nesso3-0.4B-agentic-gguf).
+The sections below record the initial publication history.
+
+
 Published 2026-10-11 to the user-requested private destinations.
 
-- Models: https://huggingface.co/giux78/nev/tree/c5c84121263b423f8846811a24790ab96e66cee3
+- Models: https://huggingface.co/mii-llm/nev/tree/c5c84121263b423f8846811a24790ab96e66cee3
 - Model revision: `c5c84121263b423f8846811a24790ab96e66cee3`
 - Separate standalone folders: `v2/` and `v3/`.
 - Code: https://github.com/mii-llm/nev
@@ -27,7 +33,7 @@ are recorded in `smoke-report.json` and `EXPORT_COMPARISON.md`.
 
 ## CPU GGUF release — 2026-10-14
 
-- Private HF repository: https://huggingface.co/giux78/nev-nesso-cpu-gguf
+- Historical combined package: see `experiments/cpu_gguf/results/huggingface-publication.json` (retired; use the separate public models).
 - Pinned revision: `3b7b4d8d74a3bfb520f782a54033424b3ca75549`.
 - Four GGUF files: Nesso3 and Nev v3, each in F16 and Q8_0.
 - Original Nev FP32 decision head, tokenizers, configuration and model provenance included.
@@ -49,12 +55,25 @@ were not redundantly downloaded. See the CPU download receipt and smoke trace.
 
 The user-requested distribution now separates Nev and Nesso3:
 
-- `giux78/nev-gguf`: Nev v3 backbone, original FP32 decision head and tokenizer, with standalone decision instructions.
-- `giux78/nesso3-0.4B-agentic-gguf`: Nesso3 F16/Q8 generation weights and tokenizer, with standalone generation instructions.
-- Both repositories are private. The existing GGUF artifacts were copied server-side without conversion or retraining, and their sizes/LFS hashes verified.
+- `mii-llm/nev-gguf`: Nev v3 backbone, original FP32 decision head and tokenizer, with standalone decision instructions.
+- `mii-llm/nesso3-0.4B-agentic-gguf`: Nesso3 F16/Q8 generation weights and tokenizer, with standalone generation instructions.
+- Both repositories were private at initial publication and are now public under `mii-llm`. The existing GGUF artifacts were copied server-side without conversion or retraining, and their sizes/LFS hashes verified.
 - GitHub retains the combined CPU workflow and adds model-selective downloads and independent smoke tests.
 - `experiments/cpu_gguf/release.json` pins both repositories; `model_cards/` stores their model cards.
 - `results/split-huggingface-publication.json` records the split publication; earlier combined-release receipts remain historical evidence.
 
-The previous combined private repository is retained for pinned-download
-compatibility. Its model card directs new users to the two separate releases.
+The previous combined repository has been retired. Use the two separate public
+releases; the original receipts remain as historical evidence.
+
+## Public organization migration — 2026-10-16
+
+Nev, Nesso3 and their two GGUF releases are public and ungated under `mii-llm`.
+The GitHub repository is also public. The install guides use HTTPS cloning and
+public model downloads without requiring HF login. Runtime download IDs and
+GGUF release pins use the organization repositories; evaluated model weights
+and source-model revisions remain unchanged. Current generators use
+`mii-llm/nesso3-0.4B-agentic`; Nesso2 remains a historical comparison.
+
+Historical result/provenance JSON retains the identity and visibility observed
+when each experiment ran. Current visibility and revisions are recorded in
+`experiments/cpu_gguf/results/public-organization-migration.json`.

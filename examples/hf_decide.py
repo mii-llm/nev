@@ -1,11 +1,11 @@
-"""Download the pinned private Nev release and run typed decisions with its runtime."""
+"""Download the pinned public Nev release and run typed decisions with its runtime."""
 import argparse
 import json
 from pathlib import Path
 
 from huggingface_hub import snapshot_download
 
-REPO = 'giux78/nev'
+REPO = 'mii-llm/nev'
 REVISION = 'c5c84121263b423f8846811a24790ab96e66cee3'
 
 
@@ -20,17 +20,8 @@ def main():
     p.add_argument('--offline', action='store_true')
     p.add_argument('--device', default=None)
     a = p.parse_args()
-    # The existing LUMI login is in the default token location, while HF_HOME
-    # deliberately points to scratch. Never print or copy the token.
-    token = None
-    if not a.offline:
-        import os
-        token = os.environ.get('HF_TOKEN')
-        default_token = Path.home() / '.cache/huggingface/token'
-        if not token and default_token.exists():
-            token = default_token.read_text().strip()
     folder = Path(snapshot_download(REPO, revision=REVISION,
-        allow_patterns=[f'{a.variant}/**'], local_files_only=a.offline, token=token)) / a.variant
+        allow_patterns=[f'{a.variant}/**'], local_files_only=a.offline, token=False)) / a.variant
     if a.download_only:
         print(json.dumps({'repository': REPO, 'revision': REVISION, 'variant': a.variant, 'folder': str(folder)}))
         return

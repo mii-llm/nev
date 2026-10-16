@@ -3,7 +3,7 @@ language:
 - en
 - it
 license: apache-2.0
-base_model: giux78/nev
+base_model: mii-llm/nev
 tags:
 - gguf
 - decision-model
@@ -12,17 +12,17 @@ tags:
 ---
 # Nev GGUF — standalone bilingual decisions
 
-**Nev v3** is a small English/Italian decision model. Given state, instructions and candidate options, it returns categorical, boolean or ordinal decisions with probabilities. It does not generate conversational text. This private repository contains its decoder in **F16 and Q8_0**, plus the original FP32 pointer head, tokenizer and calibration configuration. **Nesso3 is not required.**
+**Nev v3** is a small English/Italian decision model. Given state, instructions and candidate options, it returns categorical, boolean or ordinal decisions with probabilities. It does not generate conversational text. This public repository contains its decoder in **F16 and Q8_0**, plus the original FP32 pointer head, tokenizer and calibration configuration. **Nesso3 is not required.**
 
 ## Install and use Nev alone on CPU
 
-The tested runtime is an Apple M3 Pro with four CPU threads, Metal/CUDA disabled. Requires Python 3.12 or 3.13, Git, a C/C++ compiler (Xcode command-line tools on Mac), and access to this repository and the private GitHub source.
+The tested runtime is an Apple M3 Pro with four CPU threads, Metal/CUDA disabled. Requires Python 3.12 or 3.13, Git, a C/C++ compiler (Xcode command-line tools on Mac), and network access to Hugging Face and GitHub.
 
 ```bash
-git clone git@github.com:mii-llm/nev.git
+git clone https://github.com/mii-llm/nev.git
 cd nev/experiments/cpu_gguf
 ./setup.sh --model nev --precision f16
-# Uses your saved HF login, or prompts for one.
+# Public download; no Hugging Face login is required.
 .venv/bin/python decide.py
 .venv/bin/python test_standalone.py --model nev --precision f16
 ```
@@ -99,6 +99,6 @@ One F16 file is approximately **843 MiB**; Q8 approximately **451 MiB**. These a
 - `ARTIFACTS.json`: exact inference-file sizes and SHA-256 hashes.
 - `PROVENANCE.json`: source model and conversion revisions.
 
-Source: `giux78/nev`, folder `v3/`, revision `c5c84121263b423f8846811a24790ab96e66cee3`. Conversion uses unmodified llama.cpp `37d6d653e49aa73c947cc9631a5d499869a21cca`, with a separate CPU bridge. No retraining or recalibration occurred during conversion. Apache-2.0; source notices included.
+Source: `mii-llm/nev`, folder `v3/`, revision `c5c84121263b423f8846811a24790ab96e66cee3`. Conversion uses unmodified llama.cpp `37d6d653e49aa73c947cc9631a5d499869a21cca`, with a separate CPU bridge. No retraining or recalibration occurred during conversion. Apache-2.0; source notices included.
 
-For the optional **Nesso3 + Nev agent on CPU**, see the [GitHub combination guide](https://github.com/mii-llm/nev/tree/main/experiments/cpu_gguf). Nesso3's independent generative GGUF release is [giux78/nesso3-0.4B-agentic-gguf](https://huggingface.co/giux78/nesso3-0.4B-agentic-gguf).
+For the optional **Nesso3 + Nev agent on CPU**, see the [GitHub combination guide](https://github.com/mii-llm/nev/tree/main/experiments/cpu_gguf). Nesso3's independent generative GGUF release is [mii-llm/nesso3-0.4B-agentic-gguf](https://huggingface.co/mii-llm/nesso3-0.4B-agentic-gguf).

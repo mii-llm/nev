@@ -1,6 +1,6 @@
 # Research release status
 
-Targets: private Hugging Face `giux78/nev` (v2/ and v3/) and the existing private GitHub repository `mii-llm/nev`.
+Targets: public Hugging Face `mii-llm/nev` (v2/ and v3/) and the public GitHub repository `mii-llm/nev`.
 
 Both fixed candidates have standalone FP32 exports, merge/reload checks, bilingual evaluation and successful offline inference from an isolated installation of the packaged runtime. The exact evaluated weights are retained. English/Italian training weight is 50/50.
 
@@ -46,7 +46,7 @@ not broad accuracy or mobile validation. The build recipe, bilingual examples,
 raw traces, numerical checks and executable smoke tests are in
 `experiments/cpu_gguf/`. The generic agent's known weaknesses remain visible.
 
-CPU weights are distributed independently in private `giux78/nev-gguf` and
-`giux78/nesso3-0.4B-agentic-gguf`. Each has standalone instructions; GitHub
+CPU weights are distributed independently in public `mii-llm/nev-gguf` and
+`mii-llm/nesso3-0.4B-agentic-gguf`. Each has standalone instructions; GitHub
 documents how to combine the models. The split uses the identical tested
 GGUF files, original model revisions and numerical calibration.

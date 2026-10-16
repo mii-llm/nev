@@ -20,8 +20,8 @@
     "sha256": "6bce3f3489462b7148b9fa229e2f30030dd65e94c0443410c5bdcb94cfd4cdd3"
   },
   "INFERENCE.md": {
-    "bytes": 5651,
-    "sha256": "6b00090f430e15adac56ee68c932d5003400fbbe92855cda975e307b8824fb18"
+    "bytes": 5530,
+    "sha256": "4872cbfa2e772da68a79f61265c55833437dd26cbf795cc1a29a829e5e234af0"
   },
   "LICENSE": {
     "bytes": 11358,
@@ -32,20 +32,20 @@
     "sha256": "5d945d5bde0ce86325016457b35aedbb2f341c82d09545aa26525d212c2ecdee"
   },
   "PUBLICATION.md": {
-    "bytes": 3935,
-    "sha256": "627d53fdc14bb85b341b2a30a81eab8b12b42126f08269f6fbc76c6e7c0b4b02"
+    "bytes": 5054,
+    "sha256": "ab4c36a539790f5c80400907b864b521f69399de088797ba3a27b697c42aef3b"
   },
   "README.md": {
-    "bytes": 72093,
-    "sha256": "cb61eea3c3e564d367fec5e2e537a147a62acd8523abe81116483bab2aaba122"
+    "bytes": 72017,
+    "sha256": "ba4c9cb6954296949803dfa2715a12e236447faf029670536416863e4dfa8d76"
   },
   "SCENARIO_RESULTS.md": {
     "bytes": 2828,
     "sha256": "fc40a9397e068b103fcf341fc88ef5d862c1563f9106c9dc860f7247bb9e39b5"
   },
   "STATUS.md": {
-    "bytes": 4375,
-    "sha256": "df028e627f225a99f7034e9e0de5ef197634ac547e99fbee7a192efa3e765379"
+    "bytes": 4366,
+    "sha256": "95e65055b01bfe655b8a86eba1537d5620650c7b20caabb2b755cd1422667a5e"
   },
   "docs/abstract-agent/REPORT.md": {
     "bytes": 10512,
@@ -72,8 +72,8 @@
     "sha256": "1119b75cda0724388e6569fb20f78ec324706bc086bc1d914baf7edd9f4339e7"
   },
   "docs/nesso2/EXPERIMENT_LOG.md": {
-    "bytes": 40895,
-    "sha256": "7331ff12bcf3b7e8a3b0a0d2265c173e4bc1c2af6f9d9d5f5e448915ae3d1d08"
+    "bytes": 40897,
+    "sha256": "aeaa5e701d651a846a8294f4dadc5d27da739801f49280548aa91feb84685e87"
   },
   "docs/nesso2/FOCUSED_V3.md": {
     "bytes": 5445,
@@ -440,8 +440,8 @@
     "sha256": "dbe2777a077a941f8c30bdeb6e8fca378caaef350e8d72b490629a0c479986a2"
   },
   "examples/hf_decide.py": {
-    "bytes": 3110,
-    "sha256": "9d6a55ae7a50209bc4d9b17a0732e90daeddfe26b63161b2b7fb426a6fcbc234"
+    "bytes": 2695,
+    "sha256": "55e7e99d255af68530f8019f76e0dc3c9e43c22adebc58e283f16c50ffcc734f"
   },
   "examples/lumi_nev.sbatch": {
     "bytes": 1094,
@@ -500,8 +500,8 @@
     "sha256": "06b2df32606c412fa6f31e29abf29d62652b461d344907eefb824d46535220ba"
   },
   "experiments/abstract_agent/backend.py": {
-    "bytes": 4127,
-    "sha256": "eaeb42c88169fc10bf8e83bb20616cb20803b87161b113d238abaaa7424252ca"
+    "bytes": 4129,
+    "sha256": "e8e8dcbb2900214013764bc0f2c26341740e5afc15380aaba4d29209bd0e358c"
   },
   "experiments/abstract_agent/build_cases.py": {
     "bytes": 9392,
@@ -552,16 +552,16 @@
     "sha256": "7f2d9b63a2c6752fb6716d42b57a26be1f837456cb0eed42f4fb652417d778e6"
   },
   "experiments/cpu_gguf/HF_MODEL_CARD.md": {
-    "bytes": 6324,
-    "sha256": "02cb7b6663dd8a168cc39bd742d5d16525368c40fc4ce2249119a1701d38538b"
+    "bytes": 626,
+    "sha256": "9ba0831535d898a67cbb1ab902aff52b64935ab3b7137e62a1ff20787c8f4939"
   },
   "experiments/cpu_gguf/PROVENANCE.json": {
     "bytes": 4435,
     "sha256": "1cbf764fa7699e850267d0b0a992248a9e9ada4a9c13b94d248d84089e04e83f"
   },
   "experiments/cpu_gguf/README.md": {
-    "bytes": 15465,
-    "sha256": "d330b4005bb9d2eab56d403ba0bdbb96844e14133270647ae21d898e0576b628"
+    "bytes": 15982,
+    "sha256": "20cc3f6c345f93007958d2e794fedd6b35ee41d2a938f0db0fb076663bdaf8dd"
   },
   "experiments/cpu_gguf/abstract_agent/cases.json": {
     "bytes": 25389,
@@ -596,32 +596,32 @@
     "sha256": "10e4dd986e1a6187eb22aeca03aba6587e84d8c92da0d6bbc192e4c9273e16f8"
   },
   "experiments/cpu_gguf/download_gguf.py": {
-    "bytes": 2445,
-    "sha256": "f5776426a62e4cf7dff11f69bf9a370b50ca4b13bf3dd7e1f6df106ef2430d3f"
+    "bytes": 2471,
+    "sha256": "879177f835fbe2c604ed1e57c6ce9df3aa7af90d9e7aa30ada4865085aced9de"
   },
   "experiments/cpu_gguf/download_models.py": {
-    "bytes": 730,
-    "sha256": "7103c62379bc2dfadafb6d9a18184857ba521efc0ec250dfa2348e0333fdd959"
+    "bytes": 744,
+    "sha256": "8d10ddc03a387ce9e636afaae8fb85262f991ed57df40687b9176d9d2d910067"
   },
   "experiments/cpu_gguf/generate.py": {
     "bytes": 3910,
     "sha256": "80a4ce7377eb7cba2b5895841f2d094ac5a822f656b91b629a41afd6ddf69eac"
   },
   "experiments/cpu_gguf/model_cards/nesso3.md": {
-    "bytes": 4830,
-    "sha256": "7d8ea5b95c67c5c5b20ec1a861823aaad7adc17609f55222ae70e91ce2f9aeef"
+    "bytes": 4824,
+    "sha256": "600475b44e8b99d0ff862b301af5defd2338ac3d31e2bbef2aa4b220fd222ef3"
   },
   "experiments/cpu_gguf/model_cards/nev.md": {
-    "bytes": 5085,
-    "sha256": "7ef7fa26aa411bb553ab21e31b96f44e21d8c843b38066a94d573e1556df6712"
+    "bytes": 5084,
+    "sha256": "a1a52dcd2aaefe953feebd02e9ccf26dce843ef5e614ddd61df84b72fc838e8d"
   },
   "experiments/cpu_gguf/prepare_gguf.py": {
     "bytes": 1108,
     "sha256": "858b953cc74ff9f4eb2f4fd24e4ff516d2ad8a651a4faf6b81419e18eb689c68"
   },
   "experiments/cpu_gguf/release.json": {
-    "bytes": 303,
-    "sha256": "61844b4518da87edee82686bcfbfd8dd9dc3d39ec20ed0bf7f89fed16ee2e4f3"
+    "bytes": 305,
+    "sha256": "d1bf6e2b74d07b16ea4e00dd441b3c2310965d6f1fbf5f688e5ee868ce212a08"
   },
   "experiments/cpu_gguf/requirements-lock.txt": {
     "bytes": 1306,
@@ -679,6 +679,18 @@
     "bytes": 545,
     "sha256": "8acb604c2ebd5cc13197d05265f0caea9d71600687c7fa0416ff86c505fa886e"
   },
+  "experiments/cpu_gguf/results/public-anonymous-smoke-q8.json": {
+    "bytes": 8148,
+    "sha256": "2d30add85b07fa5733883abea9d1de39258f4358e779ffbcc6211fe40e73288d"
+  },
+  "experiments/cpu_gguf/results/public-download-validation.json": {
+    "bytes": 2156,
+    "sha256": "bc6a8c505578480ae3ab038e388a7c60c1fa290077679b973b2f4281e050af80"
+  },
+  "experiments/cpu_gguf/results/public-organization-migration.json": {
+    "bytes": 1469,
+    "sha256": "623e8bf04eaf1736dd9cba566d21d47e8d3ae0f92dd886aaf7b98a843f831b85"
+  },
   "experiments/cpu_gguf/results/publication-hf-smoke-q8.json": {
     "bytes": 8142,
     "sha256": "f0e1c250bdf7535ae37b2b4e726a28383b807c6ee175b667265b826066aa1acb"
@@ -732,8 +744,8 @@
     "sha256": "9b4d0c0c21ff33975edb2ef6690163ebd6553f90517365aa46198d4bf02ec2da"
   },
   "experiments/cpu_gguf/setup.sh": {
-    "bytes": 2133,
-    "sha256": "b6f7444fd77ae12a5d19cc82c3c6da0de71ed2ac807c71deed62d1e1aebdcef7"
+    "bytes": 2053,
+    "sha256": "7ff985ade6d71b5bd8502d4c5e618bab895c0686b64bf946720bea567e2f1175"
   },
   "experiments/cpu_gguf/test_smoke.py": {
     "bytes": 2588,
@@ -840,12 +852,12 @@
     "sha256": "9b0eacff6ec69cf91f1066875692c7f76cb2699b54008aa6235d7a873fc227da"
   },
   "experiments/hybrid_agent/README.md": {
-    "bytes": 15411,
-    "sha256": "8e5f1846487a54e1bac1f7a21fefc5ce20c2f9e274b9928f15e10ea092374bb1"
+    "bytes": 15436,
+    "sha256": "f08046b042577082d98316a1952d2c3d59f4df43a8d8e2c1e67686d253590b9e"
   },
   "experiments/hybrid_agent/agent.py": {
-    "bytes": 13246,
-    "sha256": "00cde4e02b95b16d4b2c611daed77f75e0705c1c31503c5b1a6226d754ae25b4"
+    "bytes": 13155,
+    "sha256": "2e0399fc69a80e80e715a9d22025e4ab946da58bd94c618ed81851b77be0d635"
   },
   "experiments/hybrid_agent/analyze.py": {
     "bytes": 4040,
@@ -1308,24 +1320,24 @@
     "sha256": "7a8e41467ff07e3c8d3275eafa37f7577c6b8d6331bdee0dff056c9bfa4bd301"
   },
   "experiments/publication/upload_nev.py": {
-    "bytes": 3350,
-    "sha256": "0cfd13dede7db3ab994af4caf0f5fc3f7071e91dad25c3431eff96ba1aba36c3"
+    "bytes": 3379,
+    "sha256": "720f57a8588e0669247ac60fc6e35d594bbb442dcbef65d69351b598d5dafb36"
   },
   "export-comparison.json": {
     "bytes": 40943,
     "sha256": "e440b6614137550d55a0f30f5fba58f48d243453baec13266fd48823e6c5e7f7"
   },
   "models/README.md": {
-    "bytes": 13412,
-    "sha256": "ccf76b6140bd01c14a9e59d83b89f196257e8429446a32091ca3d58b862b2403"
+    "bytes": 13349,
+    "sha256": "f094c373b4de5568f9bd61672bec560004795ef69457eeba35c13f893b354757"
   },
   "models/v2/README.md": {
-    "bytes": 5288,
-    "sha256": "5b4af9441b99356a194c68e6bf46782a6db16ed7d10158436d71345c9739d0c1"
+    "bytes": 5256,
+    "sha256": "15f3f36a5e3a01a4c2c96e5bd8c985d79b65c3a3d0475df0d7d9744bede7145d"
   },
   "models/v3/README.md": {
-    "bytes": 5317,
-    "sha256": "35cf87eecc1c74cb92e64c9bdb7a0327dd979eb9e9d31347f55ff97c4012fe12"
+    "bytes": 5285,
+    "sha256": "24fa15a7013109e8b9efbf6776e743a4f72ab1b75b365e282225c0fe48960cc9"
   },
   "parent-provenance.json": {
     "bytes": 279,

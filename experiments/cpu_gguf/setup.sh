@@ -19,7 +19,6 @@ if [ "$from_source" = true ] && [ "$model" != both ]; then
 fi
 if [ ! -d .venv ]; then python3 -m venv .venv; fi
 .venv/bin/python -m pip install -r requirements-lock.txt
-if ! .venv/bin/hf auth whoami >/dev/null 2>&1; then .venv/bin/hf auth login; fi
 if [ ! -d llama.cpp/.git ]; then
   git clone --depth 1 https://github.com/ggml-org/llama.cpp.git llama.cpp
   git -C llama.cpp fetch --depth 1 origin 37d6d653e49aa73c947cc9631a5d499869a21cca
