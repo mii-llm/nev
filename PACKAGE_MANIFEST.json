@@ -36,8 +36,8 @@
     "sha256": "ab4c36a539790f5c80400907b864b521f69399de088797ba3a27b697c42aef3b"
   },
   "README.md": {
-    "bytes": 72017,
-    "sha256": "ba4c9cb6954296949803dfa2715a12e236447faf029670536416863e4dfa8d76"
+    "bytes": 7943,
+    "sha256": "b2e858114cb2a876a245aaad958d3db59b4cc612eacbfbf839fde66ea55acef0"
   },
   "SCENARIO_RESULTS.md": {
     "bytes": 2828,
@@ -46,6 +46,10 @@
   "STATUS.md": {
     "bytes": 4366,
     "sha256": "95e65055b01bfe655b8a86eba1537d5620650c7b20caabb2b755cd1422667a5e"
+  },
+  "docs/RESEARCH.md": {
+    "bytes": 45789,
+    "sha256": "b0b42aba6db73221dbd86d36dc935a307b1b865423be409846f22492bab0b4d5"
   },
   "docs/abstract-agent/REPORT.md": {
     "bytes": 10512,
@@ -852,8 +856,8 @@
     "sha256": "9b0eacff6ec69cf91f1066875692c7f76cb2699b54008aa6235d7a873fc227da"
   },
   "experiments/hybrid_agent/README.md": {
-    "bytes": 15436,
-    "sha256": "f08046b042577082d98316a1952d2c3d59f4df43a8d8e2c1e67686d253590b9e"
+    "bytes": 15421,
+    "sha256": "b4084005298927660345c6d330074905847711823185bfaf61ca5879e40b2a93"
   },
   "experiments/hybrid_agent/agent.py": {
     "bytes": 13155,
