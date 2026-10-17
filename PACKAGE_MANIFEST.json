@@ -36,8 +36,8 @@
     "sha256": "14b5910ba72fd9b2cab344a51ef64e7e74498283922767c08aef2ac40868ef1a"
   },
   "README.md": {
-    "bytes": 7943,
-    "sha256": "b2e858114cb2a876a245aaad958d3db59b4cc612eacbfbf839fde66ea55acef0"
+    "bytes": 8320,
+    "sha256": "e86797ccb45f8cc604b895faca6c9a4a0801a53d6c5ff14d8b03c563f646ae4c"
   },
   "SCENARIO_RESULTS.md": {
     "bytes": 2828,
@@ -564,8 +564,12 @@
     "sha256": "1cbf764fa7699e850267d0b0a992248a9e9ada4a9c13b94d248d84089e04e83f"
   },
   "experiments/cpu_gguf/README.md": {
-    "bytes": 15982,
-    "sha256": "20cc3f6c345f93007958d2e794fedd6b35ee41d2a938f0db0fb076663bdaf8dd"
+    "bytes": 16725,
+    "sha256": "97b38420bb99e3a9aa7f005e64701341611238541c656110b780c341c927c89c"
+  },
+  "experiments/cpu_gguf/ROUTING_COMPARISON.md": {
+    "bytes": 7760,
+    "sha256": "4b583769845f1f53cf5409b4331eb3017aaee7b990972a6aff180060b0518c93"
   },
   "experiments/cpu_gguf/abstract_agent/cases.json": {
     "bytes": 25389,
@@ -586,6 +590,10 @@
   "experiments/cpu_gguf/benchmark.py": {
     "bytes": 3573,
     "sha256": "b2e3c21ba69ced03f898834aa9ce934a80fe2cc7bb75bed8d9b5b8367169bb06"
+  },
+  "experiments/cpu_gguf/compare_routing.py": {
+    "bytes": 6503,
+    "sha256": "352bfee7a32fd136bd831846079654ae00bffac561cde4147e9f45e791dae08a"
   },
   "experiments/cpu_gguf/cpu_backend.py": {
     "bytes": 7516,
@@ -707,6 +715,22 @@
     "bytes": 8143,
     "sha256": "d3a9c49cdae5e14cc1a53f8d2fdceef117145ee4fe052e142f0acb08b9715b97"
   },
+  "experiments/cpu_gguf/results/routing-comparison-q8.json": {
+    "bytes": 295808,
+    "sha256": "b80a52f109d66c3e7ecfc6144dddd5962167568d61d1d367a32abdc0694e18c0"
+  },
+  "experiments/cpu_gguf/results/routing-comparison-q8.txt": {
+    "bytes": 74521,
+    "sha256": "dbd4aecce422355695a2e3ea102aee47a9a7410ddfef3d22c672978d1f1c995a"
+  },
+  "experiments/cpu_gguf/results/routing-example-it-q8.json": {
+    "bytes": 19330,
+    "sha256": "d07776233883d073e35cf895cd0a523565daef21d3e0630014979c96b2bf9fb9"
+  },
+  "experiments/cpu_gguf/results/routing-example-it-q8.txt": {
+    "bytes": 2751,
+    "sha256": "c0e928fe83b54408a9f37bc4423d64ff91bc714923b6fc33ab0dd17958b00a57"
+  },
   "experiments/cpu_gguf/results/split-combined-q8.json": {
     "bytes": 8138,
     "sha256": "86e236531f1932d96bc5aa13188fe5e535329b7565ef96302dd76a90534bdd5c"
@@ -742,6 +766,10 @@
   "experiments/cpu_gguf/results/verify-nev.json": {
     "bytes": 86857,
     "sha256": "50a0b9546933f5e51296aa4df18d5c2bde4208a23a65958b3e1eda8d8675fa29"
+  },
+  "experiments/cpu_gguf/routing_cases.json": {
+    "bytes": 9615,
+    "sha256": "89871fc53550d37318ae9ed73ad548b69d2826687da20f9e9eead00e2aa7691d"
   },
   "experiments/cpu_gguf/run.sh": {
     "bytes": 127,

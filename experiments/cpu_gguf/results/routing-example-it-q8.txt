@@ -1,0 +1,62 @@
+
+
+find_note-it | score: {'exact_execution': True, 'answer_anchor_proxy': True}
+Nev initial choice: find_note
+Expected call: [{"name": "find_note", "arguments": {"query": "Aurora"}}]
+User (it): Trova l’identificativo della nota intitolata Aurora.
+Variant: nev_ranked
+
+Turn 1; tools: find_note, read_note, search_track, note_count, list_notes, playlist_duration, track_details, playlist_tracks, battery_status, read_sensor, convert_temperature, find_sensor
+Nesso3: <tool_call>
+{"name": "find_note", "arguments": {"query": "Aurora"}}
+</tool_call>
+Tool result: {"call": {"name": "find_note", "arguments": {"query": "Aurora"}}, "result": {"note_id": "N-7Q2", "title": "Aurora"}, "cached": false}
+
+Turn 2; tools: find_note, read_note, search_track, note_count, list_notes, playlist_duration, track_details, playlist_tracks, battery_status, read_sensor, convert_temperature, find_sensor
+Nesso3: La nota intitolata Aurora ha l'identificativo N-7Q2.
+
+Status: answered
+Errors: 
+Elapsed: 4.46 s
+
+======================================================================
+
+find_note-it | score: {'exact_execution': True, 'answer_anchor_proxy': True}
+Nev initial choice: find_note
+Expected call: [{"name": "find_note", "arguments": {"query": "Aurora"}}]
+User (it): Trova l’identificativo della nota intitolata Aurora.
+Variant: nev_selected
+
+Turn 1; tools: find_note
+Nesso3: <tool_call>
+{"name": "find_note", "arguments": {"query": "Aurora"}}
+</tool_call>
+Tool result: {"call": {"name": "find_note", "arguments": {"query": "Aurora"}}, "result": {"note_id": "N-7Q2", "title": "Aurora"}, "cached": false}
+
+Turn 2; tools: find_note
+Nesso3: La nota Aurora ha l'identificativo N-7Q2.
+
+Status: answered
+Errors: 
+Elapsed: 2.10 s
+
+======================================================================
+
+find_note-it | score: {'exact_execution': False, 'answer_anchor_proxy': False}
+Nev initial choice: not used
+Expected call: [{"name": "find_note", "arguments": {"query": "Aurora"}}]
+User (it): Trova l’identificativo della nota intitolata Aurora.
+Variant: nesso_only
+
+Turn 1; tools: battery_status, playlist_tracks, read_sensor, search_track, playlist_duration, list_notes, note_count, find_sensor, read_note, find_note, track_details, convert_temperature
+Nesso3: <tool_call>
+{"name": "note_count", "arguments": {"folder": "Aurora"}}
+</tool_call>
+Tool result: {"call": {"name": "note_count", "arguments": {"folder": "Aurora"}}, "result": {"error": "not_found"}, "cached": false}
+
+Turn 2; tools: battery_status, playlist_tracks, read_sensor, search_track, playlist_duration, list_notes, note_count, find_sensor, read_note, find_note, track_details, convert_temperature
+Nesso3: L'identificativo della nota Aurora non è presente.
+
+Status: answered
+Errors: 
+Elapsed: 2.77 s

@@ -95,6 +95,8 @@ Try the complete CPU example from `experiments/cpu_gguf`:
 
 The English and Italian sensor examples both return **18.2°C** from a simulated tool result. All demo tools are read-only mocks. On the 12-request diagnostic, the combined workflow executed 9/10 supported plans and produced 7/10 fully grounded answers; correct unsupported-action refusals were 0/2. The controller validates calls, but does not guarantee a correct final answer.
 
+For a measured comparison with Nesso3 alone, try the **[12-tool routing example](experiments/cpu_gguf/ROUTING_COMPARISON.md)**. Nev selects one tool, and Nesso3 generates its call and answer. Across 24 authored English/Italian requests on Mac CPU, exact execution improved from **18/24 to 22/24** and reviewed task success from **14/24 to 20/24**, with all failures retained.
+
 Nesso3 also runs independently with `generate.py`. Its [GGUF release](https://huggingface.co/mii-llm/nesso3-0.4B-agentic-gguf) has standalone instructions.
 
 ## From foundation to decision model

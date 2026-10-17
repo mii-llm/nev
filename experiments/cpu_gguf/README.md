@@ -55,6 +55,22 @@ schemas and tool results. Nev independently returns decisions over supplied
 options, including the default Italian refund example. Both commands share the
 CPU build and Python environment; neither loads the other model.
 
+### Compare Nesso3 alone with Nev selecting a tool
+
+The [routing comparison](ROUTING_COMPARISON.md) demonstrates a clearer division
+of work: Nev selects one of 12 tools; Nesso3 fills its arguments and answers from
+the result. On 24 authored bilingual requests, exact execution improved from
+18/24 to 22/24, reviewed task success from 14/24 to 20/24, and warm median time
+fell from 2.57 s to 1.72 s on this Mac. All failures and readable traces are included.
+
+```bash
+.venv/bin/python compare_routing.py --precision q8 \
+  --output "results/routing-$(date +%Y%m%d-%H%M%S).json"
+```
+
+This is a single-tool development demonstration, not a general-agent benchmark.
+Use the guide for the English/Italian walkthrough and individual-case commands.
+
 ### Combine the models on CPU
 
 Run `./setup.sh --model both --precision q8` to fetch both pinned releases.
