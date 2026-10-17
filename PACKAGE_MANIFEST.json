@@ -555,6 +555,10 @@
     "bytes": 731,
     "sha256": "7f2d9b63a2c6752fb6716d42b57a26be1f837456cb0eed42f4fb652417d778e6"
   },
+  "experiments/cpu_gguf/GREENHOUSE_COMPARISON.md": {
+    "bytes": 7854,
+    "sha256": "ee82d51062d6984f16c1d77e1c80fd07f576372074e6592647a44d7ada315305"
+  },
   "experiments/cpu_gguf/HF_MODEL_CARD.md": {
     "bytes": 626,
     "sha256": "9ba0831535d898a67cbb1ab902aff52b64935ab3b7137e62a1ff20787c8f4939"
@@ -564,12 +568,12 @@
     "sha256": "1cbf764fa7699e850267d0b0a992248a9e9ada4a9c13b94d248d84089e04e83f"
   },
   "experiments/cpu_gguf/README.md": {
-    "bytes": 16725,
-    "sha256": "97b38420bb99e3a9aa7f005e64701341611238541c656110b780c341c927c89c"
+    "bytes": 16887,
+    "sha256": "316ac108a72624c13ca7a5cb17626ab644d0ebc70ddfc0cb4645d9ae42bc2bbc"
   },
   "experiments/cpu_gguf/ROUTING_COMPARISON.md": {
-    "bytes": 7760,
-    "sha256": "4b583769845f1f53cf5409b4331eb3017aaee7b990972a6aff180060b0518c93"
+    "bytes": 7900,
+    "sha256": "6b83c95845290a046c5338b8477941e2bdb4cf1e41f3023ea19796d2665d8210"
   },
   "experiments/cpu_gguf/abstract_agent/cases.json": {
     "bytes": 25389,
@@ -592,8 +596,8 @@
     "sha256": "b2e3c21ba69ced03f898834aa9ce934a80fe2cc7bb75bed8d9b5b8367169bb06"
   },
   "experiments/cpu_gguf/compare_routing.py": {
-    "bytes": 6503,
-    "sha256": "352bfee7a32fd136bd831846079654ae00bffac561cde4147e9f45e791dae08a"
+    "bytes": 7268,
+    "sha256": "567728c4a351e1f21420ebf12e3c8671cae3840a850ab0e9ab2a41a9edac8a24"
   },
   "experiments/cpu_gguf/cpu_backend.py": {
     "bytes": 7516,
@@ -618,6 +622,10 @@
   "experiments/cpu_gguf/generate.py": {
     "bytes": 3910,
     "sha256": "80a4ce7377eb7cba2b5895841f2d094ac5a822f656b91b629a41afd6ddf69eac"
+  },
+  "experiments/cpu_gguf/greenhouse_suite.json": {
+    "bytes": 26350,
+    "sha256": "592b9247f41757d2adff628dda0a1feaabb2342e1b128a2036c24a0749abf2bf"
   },
   "experiments/cpu_gguf/model_cards/nesso3.md": {
     "bytes": 4824,
@@ -674,6 +682,26 @@
   "experiments/cpu_gguf/results/demo-default.txt": {
     "bytes": 1765,
     "sha256": "b92f8f1ff1a31635edb580d8ce0303eb73a0affdf0056f0fc38f4a378ad387f8"
+  },
+  "experiments/cpu_gguf/results/greenhouse-default-regression.json": {
+    "bytes": 20211,
+    "sha256": "95648613645c436e337b1b17ed81a30529becb4f6a557cb978ed71622a844fe1"
+  },
+  "experiments/cpu_gguf/results/greenhouse-ph-it-q8.json": {
+    "bytes": 48873,
+    "sha256": "523ffac4d37f914cb73187ed9908617e4c126ee6aa7465d5d9b00714704c7fde"
+  },
+  "experiments/cpu_gguf/results/greenhouse-ph-it-q8.txt": {
+    "bytes": 3023,
+    "sha256": "9b883b530a058790c21ceea01cbe8f1d9e1fead276bf93ff30bf82d6e437dfd7"
+  },
+  "experiments/cpu_gguf/results/greenhouse-q8.json": {
+    "bytes": 334297,
+    "sha256": "569ca010c178a2a82e2609e37ec68f13dfddbaa1fcbab839bfbed23f03c6f8d9"
+  },
+  "experiments/cpu_gguf/results/greenhouse-q8.txt": {
+    "bytes": 82376,
+    "sha256": "5853ef8a006ac675385c31c34718f32b8cda635c152f9dc3c09c604abf143745"
   },
   "experiments/cpu_gguf/results/huggingface-download-check.json": {
     "bytes": 606,

@@ -1,0 +1,1493 @@
+{
+  "status": "complete",
+  "scope": "New authored greenhouse development demonstration: 12 supported single-tool requests in parallel English/Italian, all required identifiers present. Frozen before inference; synthetic read-only fixtures, not a representative or independent benchmark.",
+  "precision": "q8",
+  "threads": 4,
+  "cpu_only": true,
+  "method": "Same tool registry, requests, generator, validation, mocks and turn limits. Nev ranks once before generation; selected arm exposes only its top tool for this supported single-tool task. Rotated arm order; fixed seeded registry order. No answer keys passed to either model. Both models resident in every arm. Timings include Nev but exclude loading and warmup. Answer anchors are a proxy requiring manual review.",
+  "source_sha256": {
+    "compare_routing.py": "567728c4a351e1f21420ebf12e3c8671cae3840a850ab0e9ab2a41a9edac8a24",
+    "cpu_backend.py": "bf494641d9b313020598086187936c6645e903ab08b7cbc29658be01f2d670e6",
+    "abstract_agent/runtime.py": "85e1943b5117893ad2ecff14be1c6e11894371aac830eb19c0ee1862a937c9f4",
+    "release.json": "d1bf6e2b74d07b16ea4e00dd441b3c2310965d6f1fbf5f688e5ee868ce212a08"
+  },
+  "release": {
+    "format_version": 2,
+    "models": {
+      "nev": {
+        "repository": "mii-llm/nev-gguf",
+        "revision": "d3be0de4ea15a54c0b09b9f3cfa27ca62c47c51e"
+      },
+      "nesso3": {
+        "repository": "mii-llm/nesso3-0.4B-agentic-gguf",
+        "revision": "2058a05f2e139c5bc4a5e57405a4806f65615e93"
+      }
+    }
+  },
+  "runner_source": "\"\"\"Compare Nesso3 with all tools, Nev ordering, and a Nev-selected single tool on CPU.\"\"\"\nimport argparse\nimport hashlib\nimport json\nimport os\nfrom pathlib import Path\nimport random\nimport statistics\nimport time\n\nARMS = ['nesso_only', 'nev_ranked', 'nev_selected']\n\n\ndef score(case, row):\n    calls = [item['call'] for item in row['executed_calls']]\n    exact = calls == case['expected_calls']\n    final = row['final'].casefold()\n    anchors = bool(final) and all(any(a.casefold() in final for a in group)\n                                for group in case['answer_anchor_groups'])\n    return {'exact_execution': exact,\n            'answer_anchor_proxy': exact and anchors and row['status'] == 'answered'}\n\n\ndef summarize(rows):\n    return {arm: {lang: {\n        'n': len(selected),\n        'exact_execution': sum(r['score']['exact_execution'] for r in selected),\n        'answer_anchor_proxy': sum(r['score']['answer_anchor_proxy'] for r in selected),\n        'median_ms': statistics.median(r['total_ms'] for r in selected),\n        'mean_prompt_tokens': statistics.mean(r['prompt_tokens'] for r in selected),\n    } for lang in ['en', 'it']\n       if (selected := [r for r in rows if r['arm'] == arm and r['language'] == lang])}\n       for arm in ARMS}\n\n\ndef main():\n    p = argparse.ArgumentParser(description=__doc__)\n    p.add_argument('--precision', choices=['q8', 'f16'], default='q8')\n    p.add_argument('--threads', type=int, default=4)\n    p.add_argument('--suite', type=Path, help='JSON with cases and toolsets; defaults to the original notes/sensors/music suite')\n    p.add_argument('--language', choices=['en', 'it', 'both'], default='both')\n    p.add_argument('--case', help='Optional case ID, e.g. playlist_duration-it')\n    p.add_argument('--output', type=Path, required=True)\n    a = p.parse_args()\n    if a.output.exists() or a.output.with_suffix('.txt').exists():\n        p.error('Choose a new output filename; existing results are preserved')\n    os.environ['USE_TORCH'] = '0'\n    os.environ['HF_HUB_OFFLINE'] = '1'\n    os.environ['TOKENIZERS_PARALLELISM'] = 'false'\n    from cpu_backend import Backend, ROOT\n    from abstract_agent.runtime import GenericAgent, render\n    from abstract_agent.fixtures import FixtureExecutor\n    cases_path = a.suite.resolve() if a.suite else ROOT/'routing_cases.json'\n    data = json.loads(cases_path.read_text())\n    cases = [(i, c) for i, c in enumerate(data['cases']) if (a.language == 'both' or c['language'] == a.language)\n             and (not a.case or c['id'] == a.case)]\n    if not cases:\n        p.error('No matching cases')\n    kits = data['toolsets'] if a.suite else json.loads((ROOT/'abstract_agent/toolsets.json').read_text())\n    domains = list(kits) if a.suite else ['notes', 'sensors', 'media']\n    if not domains:\n        p.error('Suite must contain at least one toolset')\n    for lang in ['en', 'it']:\n        names = [s['function']['name'] for domain in domains for s in kits[domain]['schemas'][lang]]\n        if len(names) != len(set(names)) or not names:\n            p.error('Suite needs unique tool names for each language')\n    responses = [r for name in domains for r in kits[name]['responses']]\n    report = {'status': 'incomplete', 'scope': data['scope'], 'precision': a.precision,\n              'threads': a.threads, 'cpu_only': True,\n              'method': 'Same tool registry, requests, generator, validation, mocks and turn limits. Nev ranks once before generation; selected arm exposes only its top tool for this supported single-tool task. Rotated arm order; fixed seeded registry order. No answer keys passed to either model. Both models resident in every arm. Timings include Nev but exclude loading and warmup. Answer anchors are a proxy requiring manual review.',\n              'source_sha256': {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()\n                                for name in ['compare_routing.py', 'cpu_backend.py',\n                                             'abstract_agent/runtime.py', 'release.json']\n                                + ([] if a.suite else ['routing_cases.json', 'abstract_agent/toolsets.json'])},\n              'release': json.loads((ROOT/'release.json').read_text()),\n              'runner_source': Path(__file__).read_text(),\n              'suite': data if a.suite else None,\n              'suite_sha256': hashlib.sha256(cases_path.read_bytes()).hexdigest(), 'rows': []}\n    a.output.parent.mkdir(parents=True, exist_ok=True)\n    def save():\n        report['summary'] = summarize(report['rows'])\n        a.output.write_text(json.dumps(report, ensure_ascii=False, indent=2)+'\\n')\n    started = time.perf_counter()\n    backend = Backend(a.precision, a.threads)\n    report['load_seconds'] = time.perf_counter()-started\n    try:\n        backend.generate([{'role': 'system', 'content': 'Reply briefly.'},\n                          {'role': 'user', 'content': 'Hello.'}])\n        backend.rank('Hello.', 'en', kits[domains[0]]['schemas']['en'], [], [], False)\n        for i, case in cases:\n            schemas = [s for name in domains for s in kits[name]['schemas'][case['language']]]\n            random.Random(7100+i//2).shuffle(schemas)\n            for arm in ARMS[i%3:]+ARMS[:i%3]:\n                start = time.perf_counter()\n                ranking = None\n                available = schemas\n                if arm != 'nesso_only':\n                    ranking = backend.rank(case['request'], case['language'], schemas, [], [], False)\n                    available = sorted(schemas, key=lambda s: -ranking['probabilities'][s['function']['name']])\n                    if arm == 'nev_selected':\n                        available = [next(s for s in schemas if s['function']['name'] == ranking['choice'])]\n                metric_start = len(backend.generation_metrics)\n                row = GenericAgent(backend).run(case['request'], case['language'], available,\n                                               FixtureExecutor(responses), 'nesso_only', 7100+i)\n                row.update(id=case['id'], language=case['language'], request=case['request'], arm=arm,\n                           total_ms=(time.perf_counter()-start)*1000, initial_ranking=ranking,\n                           expected_calls=case['expected_calls'],\n                           prompt_tokens=sum(m['prompt_tokens'] for m in backend.generation_metrics[metric_start:]))\n                row['score'] = score(case, row)\n                report['rows'].append(row)\n                save()\n                print(f\"{case['id']} {arm}: {row['score']} {row['total_ms']/1000:.2f}s\", flush=True)\n        report['status'] = 'complete'\n    finally:\n        backend.close()\n        save()\n        a.output.with_suffix('.txt').write_text('\\n\\n' + ('\\n\\n'+'='*70+'\\n\\n').join(\n            f\"{r['id']} | score: {r['score']}\\nNev initial choice: \"\n            + (r['initial_ranking']['choice'] if r['initial_ranking'] else 'not used')\n            + '\\nExpected call: '+json.dumps(r['expected_calls'], ensure_ascii=False)+'\\n'+render(r)\n            for r in report['rows']), encoding='utf-8')\n    print(json.dumps(report['summary'], ensure_ascii=False, indent=2))\n    print(f'Results: {a.output}\\nReadable traces: {a.output.with_suffix(\".txt\")}')\n\n\nif __name__ == '__main__':\n    main()\n",
+  "suite": {
+    "scope": "New authored greenhouse development demonstration: 12 supported single-tool requests in parallel English/Italian, all required identifiers present. Frozen before inference; synthetic read-only fixtures, not a representative or independent benchmark.",
+    "domain_selection": {
+      "candidates": [
+        "museum visitor services",
+        "bicycle rental",
+        "greenhouse monitoring",
+        "airport information",
+        "public library"
+      ],
+      "method": "Python random.Random(20261017).choice(candidates), before writing cases or running models",
+      "selected": "greenhouse monitoring"
+    },
+    "toolsets": {
+      "greenhouse": {
+        "schemas": {
+          "en": [
+            {
+              "type": "function",
+              "function": {
+                "name": "read_air_temperature",
+                "description": "Read the air temperature in degrees Celsius for a greenhouse zone.",
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "zone_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "zone_id"
+                  ]
+                }
+              }
+            },
+            {
+              "type": "function",
+              "function": {
+                "name": "read_air_humidity",
+                "description": "Read the relative air humidity percentage for a greenhouse zone.",
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "zone_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "zone_id"
+                  ]
+                }
+              }
+            },
+            {
+              "type": "function",
+              "function": {
+                "name": "read_soil_moisture",
+                "description": "Read the soil moisture percentage in a planting bed.",
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "bed_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "bed_id"
+                  ]
+                }
+              }
+            },
+            {
+              "type": "function",
+              "function": {
+                "name": "read_soil_ph",
+                "description": "Read the soil pH measurement for a planting bed.",
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "bed_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "bed_id"
+                  ]
+                }
+              }
+            },
+            {
+              "type": "function",
+              "function": {
+                "name": "read_light_level",
+                "description": "Read the light level in lux for a greenhouse zone.",
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "zone_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "zone_id"
+                  ]
+                }
+              }
+            },
+            {
+              "type": "function",
+              "function": {
+                "name": "get_irrigation_schedule",
+                "description": "Read the next scheduled watering time for a planting bed. Does not start watering.",
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "bed_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "bed_id"
+                  ]
+                }
+              }
+            },
+            {
+              "type": "function",
+              "function": {
+                "name": "read_water_tank_level",
+                "description": "Read the percentage of water remaining in a storage tank.",
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "tank_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "tank_id"
+                  ]
+                }
+              }
+            },
+            {
+              "type": "function",
+              "function": {
+                "name": "get_crop_name",
+                "description": "Read the crop planted in a specific bed.",
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "bed_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "bed_id"
+                  ]
+                }
+              }
+            },
+            {
+              "type": "function",
+              "function": {
+                "name": "get_planting_date",
+                "description": "Read the recorded date when a planting bed was planted.",
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "bed_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "bed_id"
+                  ]
+                }
+              }
+            },
+            {
+              "type": "function",
+              "function": {
+                "name": "get_harvest_date",
+                "description": "Read the planned harvest date for a planting bed.",
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "bed_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "bed_id"
+                  ]
+                }
+              }
+            },
+            {
+              "type": "function",
+              "function": {
+                "name": "get_ventilation_status",
+                "description": "Read whether the ventilation fan in a greenhouse zone is running or stopped. Does not control it.",
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "zone_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "zone_id"
+                  ]
+                }
+              }
+            },
+            {
+              "type": "function",
+              "function": {
+                "name": "get_fertilizer_schedule",
+                "description": "Read the next scheduled fertilizer application time for a planting bed. Does not apply fertilizer.",
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "bed_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "bed_id"
+                  ]
+                }
+              }
+            }
+          ],
+          "it": [
+            {
+              "type": "function",
+              "function": {
+                "name": "read_air_temperature",
+                "description": "Leggi la temperatura dell’aria in gradi Celsius di una zona della serra.",
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "zone_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "zone_id"
+                  ]
+                }
+              }
+            },
+            {
+              "type": "function",
+              "function": {
+                "name": "read_air_humidity",
+                "description": "Leggi la percentuale di umidità relativa dell’aria in una zona della serra.",
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "zone_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "zone_id"
+                  ]
+                }
+              }
+            },
+            {
+              "type": "function",
+              "function": {
+                "name": "read_soil_moisture",
+                "description": "Leggi la percentuale di umidità del terreno in un’aiuola.",
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "bed_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "bed_id"
+                  ]
+                }
+              }
+            },
+            {
+              "type": "function",
+              "function": {
+                "name": "read_soil_ph",
+                "description": "Leggi il valore del pH del terreno in un’aiuola.",
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "bed_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "bed_id"
+                  ]
+                }
+              }
+            },
+            {
+              "type": "function",
+              "function": {
+                "name": "read_light_level",
+                "description": "Leggi il livello di illuminazione in lux di una zona della serra.",
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "zone_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "zone_id"
+                  ]
+                }
+              }
+            },
+            {
+              "type": "function",
+              "function": {
+                "name": "get_irrigation_schedule",
+                "description": "Leggi il prossimo orario di irrigazione programmato per un’aiuola. Non avvia l’irrigazione.",
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "bed_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "bed_id"
+                  ]
+                }
+              }
+            },
+            {
+              "type": "function",
+              "function": {
+                "name": "read_water_tank_level",
+                "description": "Leggi la percentuale di acqua rimasta in un serbatoio.",
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "tank_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "tank_id"
+                  ]
+                }
+              }
+            },
+            {
+              "type": "function",
+              "function": {
+                "name": "get_crop_name",
+                "description": "Leggi il nome della coltura piantata in una specifica aiuola.",
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "bed_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "bed_id"
+                  ]
+                }
+              }
+            },
+            {
+              "type": "function",
+              "function": {
+                "name": "get_planting_date",
+                "description": "Leggi la data registrata della semina in un’aiuola.",
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "bed_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "bed_id"
+                  ]
+                }
+              }
+            },
+            {
+              "type": "function",
+              "function": {
+                "name": "get_harvest_date",
+                "description": "Leggi la data di raccolta prevista per un’aiuola.",
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "bed_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "bed_id"
+                  ]
+                }
+              }
+            },
+            {
+              "type": "function",
+              "function": {
+                "name": "get_ventilation_status",
+                "description": "Leggi se la ventola di ventilazione di una zona della serra è in funzione o ferma. Non la comanda.",
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "zone_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "zone_id"
+                  ]
+                }
+              }
+            },
+            {
+              "type": "function",
+              "function": {
+                "name": "get_fertilizer_schedule",
+                "description": "Leggi il prossimo orario programmato di concimazione di un’aiuola. Non applica fertilizzante.",
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "bed_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "bed_id"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "responses": [
+          {
+            "call": {
+              "name": "read_air_temperature",
+              "arguments": {
+                "zone_id": "Z-41"
+              }
+            },
+            "result": {
+              "temperature_c": 24.7
+            }
+          },
+          {
+            "call": {
+              "name": "read_air_humidity",
+              "arguments": {
+                "zone_id": "Z-41"
+              }
+            },
+            "result": {
+              "relative_humidity_percent": 62
+            }
+          },
+          {
+            "call": {
+              "name": "read_soil_moisture",
+              "arguments": {
+                "bed_id": "B-73"
+              }
+            },
+            "result": {
+              "soil_moisture_percent": 38
+            }
+          },
+          {
+            "call": {
+              "name": "read_soil_ph",
+              "arguments": {
+                "bed_id": "B-73"
+              }
+            },
+            "result": {
+              "soil_ph": 6.4
+            }
+          },
+          {
+            "call": {
+              "name": "read_light_level",
+              "arguments": {
+                "zone_id": "Z-41"
+              }
+            },
+            "result": {
+              "light_lux": 12500
+            }
+          },
+          {
+            "call": {
+              "name": "get_irrigation_schedule",
+              "arguments": {
+                "bed_id": "B-73"
+              }
+            },
+            "result": {
+              "next_watering_time": "06:30"
+            }
+          },
+          {
+            "call": {
+              "name": "read_water_tank_level",
+              "arguments": {
+                "tank_id": "W-26"
+              }
+            },
+            "result": {
+              "water_remaining_percent": 81
+            }
+          },
+          {
+            "call": {
+              "name": "get_crop_name",
+              "arguments": {
+                "bed_id": "B-73"
+              }
+            },
+            "result": {
+              "crop_en": "basil",
+              "crop_it": "basilico"
+            }
+          },
+          {
+            "call": {
+              "name": "get_planting_date",
+              "arguments": {
+                "bed_id": "B-73"
+              }
+            },
+            "result": {
+              "planting_date": "2026-09-02"
+            }
+          },
+          {
+            "call": {
+              "name": "get_harvest_date",
+              "arguments": {
+                "bed_id": "B-73"
+              }
+            },
+            "result": {
+              "harvest_date": "2026-11-18"
+            }
+          },
+          {
+            "call": {
+              "name": "get_ventilation_status",
+              "arguments": {
+                "zone_id": "Z-41"
+              }
+            },
+            "result": {
+              "fan_status": "running"
+            }
+          },
+          {
+            "call": {
+              "name": "get_fertilizer_schedule",
+              "arguments": {
+                "bed_id": "B-73"
+              }
+            },
+            "result": {
+              "next_fertilizer_time": "17:45"
+            }
+          }
+        ]
+      }
+    },
+    "cases": [
+      {
+        "id": "read_air_temperature-en",
+        "language": "en",
+        "request": "What is the air temperature in zone Z-41?",
+        "expected_calls": [
+          {
+            "name": "read_air_temperature",
+            "arguments": {
+              "zone_id": "Z-41"
+            }
+          }
+        ],
+        "answer_anchor_groups": [
+          [
+            "24.7",
+            "24,7"
+          ]
+        ]
+      },
+      {
+        "id": "read_air_temperature-it",
+        "language": "it",
+        "request": "Qual è la temperatura dell’aria nella zona Z-41?",
+        "expected_calls": [
+          {
+            "name": "read_air_temperature",
+            "arguments": {
+              "zone_id": "Z-41"
+            }
+          }
+        ],
+        "answer_anchor_groups": [
+          [
+            "24.7",
+            "24,7"
+          ]
+        ]
+      },
+      {
+        "id": "read_air_humidity-en",
+        "language": "en",
+        "request": "What is the relative air humidity in zone Z-41?",
+        "expected_calls": [
+          {
+            "name": "read_air_humidity",
+            "arguments": {
+              "zone_id": "Z-41"
+            }
+          }
+        ],
+        "answer_anchor_groups": [
+          [
+            "62"
+          ]
+        ]
+      },
+      {
+        "id": "read_air_humidity-it",
+        "language": "it",
+        "request": "Qual è l’umidità relativa dell’aria nella zona Z-41?",
+        "expected_calls": [
+          {
+            "name": "read_air_humidity",
+            "arguments": {
+              "zone_id": "Z-41"
+            }
+          }
+        ],
+        "answer_anchor_groups": [
+          [
+            "62"
+          ]
+        ]
+      },
+      {
+        "id": "read_soil_moisture-en",
+        "language": "en",
+        "request": "How moist is the soil in bed B-73, as a percentage?",
+        "expected_calls": [
+          {
+            "name": "read_soil_moisture",
+            "arguments": {
+              "bed_id": "B-73"
+            }
+          }
+        ],
+        "answer_anchor_groups": [
+          [
+            "38"
+          ]
+        ]
+      },
+      {
+        "id": "read_soil_moisture-it",
+        "language": "it",
+        "request": "Qual è la percentuale di umidità del terreno nell’aiuola B-73?",
+        "expected_calls": [
+          {
+            "name": "read_soil_moisture",
+            "arguments": {
+              "bed_id": "B-73"
+            }
+          }
+        ],
+        "answer_anchor_groups": [
+          [
+            "38"
+          ]
+        ]
+      },
+      {
+        "id": "read_soil_ph-en",
+        "language": "en",
+        "request": "Read the soil pH in bed B-73.",
+        "expected_calls": [
+          {
+            "name": "read_soil_ph",
+            "arguments": {
+              "bed_id": "B-73"
+            }
+          }
+        ],
+        "answer_anchor_groups": [
+          [
+            "6.4",
+            "6,4"
+          ]
+        ]
+      },
+      {
+        "id": "read_soil_ph-it",
+        "language": "it",
+        "request": "Leggi il pH del terreno nell’aiuola B-73.",
+        "expected_calls": [
+          {
+            "name": "read_soil_ph",
+            "arguments": {
+              "bed_id": "B-73"
+            }
+          }
+        ],
+        "answer_anchor_groups": [
+          [
+            "6.4",
+            "6,4"
+          ]
+        ]
+      },
+      {
+        "id": "read_light_level-en",
+        "language": "en",
+        "request": "How much light, in lux, is measured in zone Z-41?",
+        "expected_calls": [
+          {
+            "name": "read_light_level",
+            "arguments": {
+              "zone_id": "Z-41"
+            }
+          }
+        ],
+        "answer_anchor_groups": [
+          [
+            "12500",
+            "12,500",
+            "12.500",
+            "12 500"
+          ]
+        ]
+      },
+      {
+        "id": "read_light_level-it",
+        "language": "it",
+        "request": "Quanta luce, in lux, viene misurata nella zona Z-41?",
+        "expected_calls": [
+          {
+            "name": "read_light_level",
+            "arguments": {
+              "zone_id": "Z-41"
+            }
+          }
+        ],
+        "answer_anchor_groups": [
+          [
+            "12500",
+            "12,500",
+            "12.500",
+            "12 500"
+          ]
+        ]
+      },
+      {
+        "id": "get_irrigation_schedule-en",
+        "language": "en",
+        "request": "At what time is bed B-73 next scheduled to be watered?",
+        "expected_calls": [
+          {
+            "name": "get_irrigation_schedule",
+            "arguments": {
+              "bed_id": "B-73"
+            }
+          }
+        ],
+        "answer_anchor_groups": [
+          [
+            "06:30",
+            "6:30"
+          ]
+        ]
+      },
+      {
+        "id": "get_irrigation_schedule-it",
+        "language": "it",
+        "request": "A che ora è prevista la prossima irrigazione dell’aiuola B-73?",
+        "expected_calls": [
+          {
+            "name": "get_irrigation_schedule",
+            "arguments": {
+              "bed_id": "B-73"
+            }
+          }
+        ],
+        "answer_anchor_groups": [
+          [
+            "06:30",
+            "6:30"
+          ]
+        ]
+      },
+      {
+        "id": "read_water_tank_level-en",
+        "language": "en",
+        "request": "What percentage of water remains in tank W-26?",
+        "expected_calls": [
+          {
+            "name": "read_water_tank_level",
+            "arguments": {
+              "tank_id": "W-26"
+            }
+          }
+        ],
+        "answer_anchor_groups": [
+          [
+            "81"
+          ]
+        ]
+      },
+      {
+        "id": "read_water_tank_level-it",
+        "language": "it",
+        "request": "Quale percentuale di acqua rimane nel serbatoio W-26?",
+        "expected_calls": [
+          {
+            "name": "read_water_tank_level",
+            "arguments": {
+              "tank_id": "W-26"
+            }
+          }
+        ],
+        "answer_anchor_groups": [
+          [
+            "81"
+          ]
+        ]
+      },
+      {
+        "id": "get_crop_name-en",
+        "language": "en",
+        "request": "Which crop is planted in bed B-73?",
+        "expected_calls": [
+          {
+            "name": "get_crop_name",
+            "arguments": {
+              "bed_id": "B-73"
+            }
+          }
+        ],
+        "answer_anchor_groups": [
+          [
+            "basil",
+            "basilico"
+          ]
+        ]
+      },
+      {
+        "id": "get_crop_name-it",
+        "language": "it",
+        "request": "Quale coltura è piantata nell’aiuola B-73?",
+        "expected_calls": [
+          {
+            "name": "get_crop_name",
+            "arguments": {
+              "bed_id": "B-73"
+            }
+          }
+        ],
+        "answer_anchor_groups": [
+          [
+            "basil",
+            "basilico"
+          ]
+        ]
+      },
+      {
+        "id": "get_planting_date-en",
+        "language": "en",
+        "request": "On which date was bed B-73 planted? Return the date as YYYY-MM-DD.",
+        "expected_calls": [
+          {
+            "name": "get_planting_date",
+            "arguments": {
+              "bed_id": "B-73"
+            }
+          }
+        ],
+        "answer_anchor_groups": [
+          [
+            "2026-09-02"
+          ]
+        ]
+      },
+      {
+        "id": "get_planting_date-it",
+        "language": "it",
+        "request": "In quale data è stata seminata l’aiuola B-73? Restituisci la data come YYYY-MM-DD.",
+        "expected_calls": [
+          {
+            "name": "get_planting_date",
+            "arguments": {
+              "bed_id": "B-73"
+            }
+          }
+        ],
+        "answer_anchor_groups": [
+          [
+            "2026-09-02"
+          ]
+        ]
+      },
+      {
+        "id": "get_harvest_date-en",
+        "language": "en",
+        "request": "What is the planned harvest date for bed B-73? Return the date as YYYY-MM-DD.",
+        "expected_calls": [
+          {
+            "name": "get_harvest_date",
+            "arguments": {
+              "bed_id": "B-73"
+            }
+          }
+        ],
+        "answer_anchor_groups": [
+          [
+            "2026-11-18"
+          ]
+        ]
+      },
+      {
+        "id": "get_harvest_date-it",
+        "language": "it",
+        "request": "Qual è la data di raccolta prevista per l’aiuola B-73? Restituisci la data come YYYY-MM-DD.",
+        "expected_calls": [
+          {
+            "name": "get_harvest_date",
+            "arguments": {
+              "bed_id": "B-73"
+            }
+          }
+        ],
+        "answer_anchor_groups": [
+          [
+            "2026-11-18"
+          ]
+        ]
+      },
+      {
+        "id": "get_ventilation_status-en",
+        "language": "en",
+        "request": "Is the ventilation fan in zone Z-41 running or stopped?",
+        "expected_calls": [
+          {
+            "name": "get_ventilation_status",
+            "arguments": {
+              "zone_id": "Z-41"
+            }
+          }
+        ],
+        "answer_anchor_groups": [
+          [
+            "running",
+            "in funzione",
+            "attiva",
+            "accesa"
+          ]
+        ]
+      },
+      {
+        "id": "get_ventilation_status-it",
+        "language": "it",
+        "request": "La ventola di ventilazione nella zona Z-41 è in funzione o ferma?",
+        "expected_calls": [
+          {
+            "name": "get_ventilation_status",
+            "arguments": {
+              "zone_id": "Z-41"
+            }
+          }
+        ],
+        "answer_anchor_groups": [
+          [
+            "running",
+            "in funzione",
+            "attiva",
+            "accesa"
+          ]
+        ]
+      },
+      {
+        "id": "get_fertilizer_schedule-en",
+        "language": "en",
+        "request": "When is the next fertilizer application scheduled for bed B-73? Give the time.",
+        "expected_calls": [
+          {
+            "name": "get_fertilizer_schedule",
+            "arguments": {
+              "bed_id": "B-73"
+            }
+          }
+        ],
+        "answer_anchor_groups": [
+          [
+            "17:45"
+          ]
+        ]
+      },
+      {
+        "id": "get_fertilizer_schedule-it",
+        "language": "it",
+        "request": "Quando è programmata la prossima concimazione dell’aiuola B-73? Indica l’orario.",
+        "expected_calls": [
+          {
+            "name": "get_fertilizer_schedule",
+            "arguments": {
+              "bed_id": "B-73"
+            }
+          }
+        ],
+        "answer_anchor_groups": [
+          [
+            "17:45"
+          ]
+        ]
+      }
+    ]
+  },
+  "suite_sha256": "592b9247f41757d2adff628dda0a1feaabb2342e1b128a2036c24a0749abf2bf",
+  "rows": [
+    {
+      "arm": "nev_ranked",
+      "status": "answered",
+      "final": "Il pH del terreno nell’aiuola B-73 è 6.4.",
+      "emitted_calls": [
+        {
+          "name": "read_soil_ph",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "read_soil_ph",
+            "arguments": {
+              "bed_id": "B-73"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "read_soil_ph",
+            "read_soil_moisture",
+            "read_air_humidity",
+            "read_light_level",
+            "get_crop_name",
+            "get_planting_date",
+            "get_ventilation_status",
+            "get_irrigation_schedule",
+            "get_harvest_date",
+            "read_water_tank_level",
+            "read_air_temperature",
+            "get_fertilizer_schedule"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"read_soil_ph\", \"arguments\": {\"bed_id\": \"B-73\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "read_soil_ph",
+              "arguments": {
+                "bed_id": "B-73"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "read_soil_ph",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "result": {
+                "soil_ph": 6.4
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "read_soil_ph",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "read_soil_ph",
+            "read_soil_moisture",
+            "read_air_humidity",
+            "read_light_level",
+            "get_crop_name",
+            "get_planting_date",
+            "get_ventilation_status",
+            "get_irrigation_schedule",
+            "get_harvest_date",
+            "read_water_tank_level",
+            "read_air_temperature",
+            "get_fertilizer_schedule"
+          ],
+          "ranking": null,
+          "assistant": "Il pH del terreno nell’aiuola B-73 è 6.4.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 49,
+      "rank_ms": 0.0,
+      "total_ms": 4075.3620420582592,
+      "id": "read_soil_ph-it",
+      "language": "it",
+      "request": "Leggi il pH del terreno nell’aiuola B-73.",
+      "initial_ranking": {
+        "choice": "read_soil_ph",
+        "probabilities": {
+          "read_air_temperature": 0.0008928013849072158,
+          "get_fertilizer_schedule": 0.0007296762778423727,
+          "read_air_humidity": 0.023679019883275032,
+          "get_ventilation_status": 0.005633355118334293,
+          "read_soil_ph": 0.5090550184249878,
+          "get_planting_date": 0.008043911308050156,
+          "read_soil_moisture": 0.424960196018219,
+          "read_water_tank_level": 0.0025735727977007627,
+          "get_crop_name": 0.008550185710191727,
+          "get_irrigation_schedule": 0.0035378378815948963,
+          "get_harvest_date": 0.00275625241920352,
+          "read_light_level": 0.009588075801730156
+        },
+        "elapsed_ms": 1134.7755417227745
+      },
+      "expected_calls": [
+        {
+          "name": "read_soil_ph",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "prompt_tokens": 1558,
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true
+      }
+    },
+    {
+      "arm": "nev_selected",
+      "status": "answered",
+      "final": "Il valore del pH del terreno nell’aiuola B-73 è 6.4.",
+      "emitted_calls": [
+        {
+          "name": "read_soil_ph",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "read_soil_ph",
+            "arguments": {
+              "bed_id": "B-73"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "read_soil_ph"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"read_soil_ph\", \"arguments\": {\"bed_id\": \"B-73\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "read_soil_ph",
+              "arguments": {
+                "bed_id": "B-73"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "read_soil_ph",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "result": {
+                "soil_ph": 6.4
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "read_soil_ph",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "read_soil_ph"
+          ],
+          "ranking": null,
+          "assistant": "Il valore del pH del terreno nell’aiuola B-73 è 6.4.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 51,
+      "rank_ms": 0.0,
+      "total_ms": 1714.9680834263563,
+      "id": "read_soil_ph-it",
+      "language": "it",
+      "request": "Leggi il pH del terreno nell’aiuola B-73.",
+      "initial_ranking": {
+        "choice": "read_soil_ph",
+        "probabilities": {
+          "read_air_temperature": 0.0008928013849072158,
+          "get_fertilizer_schedule": 0.0007296762778423727,
+          "read_air_humidity": 0.023679019883275032,
+          "get_ventilation_status": 0.005633355118334293,
+          "read_soil_ph": 0.5090550184249878,
+          "get_planting_date": 0.008043911308050156,
+          "read_soil_moisture": 0.424960196018219,
+          "read_water_tank_level": 0.0025735727977007627,
+          "get_crop_name": 0.008550185710191727,
+          "get_irrigation_schedule": 0.0035378378815948963,
+          "get_harvest_date": 0.00275625241920352,
+          "read_light_level": 0.009588075801730156
+        },
+        "elapsed_ms": 1104.4377917423844
+      },
+      "expected_calls": [
+        {
+          "name": "read_soil_ph",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "prompt_tokens": 266,
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true
+      }
+    },
+    {
+      "arm": "nesso_only",
+      "status": "answered",
+      "final": "La percentuale di umidità del terreno in un’aiuola B-73 è del 38%.",
+      "emitted_calls": [
+        {
+          "name": "read_soil_moisture",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "read_soil_moisture",
+            "arguments": {
+              "bed_id": "B-73"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "read_air_temperature",
+            "get_fertilizer_schedule",
+            "read_air_humidity",
+            "get_ventilation_status",
+            "read_soil_ph",
+            "get_planting_date",
+            "read_soil_moisture",
+            "read_water_tank_level",
+            "get_crop_name",
+            "get_irrigation_schedule",
+            "get_harvest_date",
+            "read_light_level"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"read_soil_moisture\", \"arguments\": {\"bed_id\": \"B-73\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "read_soil_moisture",
+              "arguments": {
+                "bed_id": "B-73"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "read_soil_moisture",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "result": {
+                "soil_moisture_percent": 38
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "read_soil_moisture",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "read_air_temperature",
+            "get_fertilizer_schedule",
+            "read_air_humidity",
+            "get_ventilation_status",
+            "read_soil_ph",
+            "get_planting_date",
+            "read_soil_moisture",
+            "read_water_tank_level",
+            "get_crop_name",
+            "get_irrigation_schedule",
+            "get_harvest_date",
+            "read_light_level"
+          ],
+          "ranking": null,
+          "assistant": "La percentuale di umidità del terreno in un’aiuola B-73 è del 38%.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 56,
+      "rank_ms": 0.0,
+      "total_ms": 3064.898209180683,
+      "id": "read_soil_ph-it",
+      "language": "it",
+      "request": "Leggi il pH del terreno nell’aiuola B-73.",
+      "initial_ranking": null,
+      "expected_calls": [
+        {
+          "name": "read_soil_ph",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "prompt_tokens": 1561,
+      "score": {
+        "exact_execution": false,
+        "answer_anchor_proxy": false
+      }
+    }
+  ],
+  "load_seconds": 2.3720762920565903,
+  "summary": {
+    "nesso_only": {
+      "it": {
+        "n": 1,
+        "exact_execution": 0,
+        "answer_anchor_proxy": 0,
+        "median_ms": 3064.898209180683,
+        "mean_prompt_tokens": 1561
+      }
+    },
+    "nev_ranked": {
+      "it": {
+        "n": 1,
+        "exact_execution": 1,
+        "answer_anchor_proxy": 1,
+        "median_ms": 4075.3620420582592,
+        "mean_prompt_tokens": 1558
+      }
+    },
+    "nev_selected": {
+      "it": {
+        "n": 1,
+        "exact_execution": 1,
+        "answer_anchor_proxy": 1,
+        "median_ms": 1714.9680834263563,
+        "mean_prompt_tokens": 266
+      }
+    }
+  }
+}

@@ -1,0 +1,453 @@
+{
+  "status": "complete",
+  "scope": "Authored development demonstration: 12 supported single-tool intents, parallel English/Italian. Reuses existing mock tools and some earlier request patterns. Frozen before this comparison; not an independent benchmark. All candidates retained.",
+  "precision": "q8",
+  "threads": 4,
+  "cpu_only": true,
+  "method": "Same tool registry, requests, generator, validation, mocks and turn limits. Nev ranks once before generation; selected arm exposes only its top tool for this supported single-tool task. Rotated arm order; fixed seeded registry order. No answer keys passed to either model. Both models resident in every arm. Timings include Nev but exclude loading and warmup. Answer anchors are a proxy requiring manual review.",
+  "source_sha256": {
+    "compare_routing.py": "567728c4a351e1f21420ebf12e3c8671cae3840a850ab0e9ab2a41a9edac8a24",
+    "cpu_backend.py": "bf494641d9b313020598086187936c6645e903ab08b7cbc29658be01f2d670e6",
+    "abstract_agent/runtime.py": "85e1943b5117893ad2ecff14be1c6e11894371aac830eb19c0ee1862a937c9f4",
+    "release.json": "d1bf6e2b74d07b16ea4e00dd441b3c2310965d6f1fbf5f688e5ee868ce212a08",
+    "routing_cases.json": "89871fc53550d37318ae9ed73ad548b69d2826687da20f9e9eead00e2aa7691d",
+    "abstract_agent/toolsets.json": "3f4839c2d5ab6cf6fa56a3afba1d398f698a04f738ee8c805b2a5b195da12a8c"
+  },
+  "release": {
+    "format_version": 2,
+    "models": {
+      "nev": {
+        "repository": "mii-llm/nev-gguf",
+        "revision": "d3be0de4ea15a54c0b09b9f3cfa27ca62c47c51e"
+      },
+      "nesso3": {
+        "repository": "mii-llm/nesso3-0.4B-agentic-gguf",
+        "revision": "2058a05f2e139c5bc4a5e57405a4806f65615e93"
+      }
+    }
+  },
+  "runner_source": "\"\"\"Compare Nesso3 with all tools, Nev ordering, and a Nev-selected single tool on CPU.\"\"\"\nimport argparse\nimport hashlib\nimport json\nimport os\nfrom pathlib import Path\nimport random\nimport statistics\nimport time\n\nARMS = ['nesso_only', 'nev_ranked', 'nev_selected']\n\n\ndef score(case, row):\n    calls = [item['call'] for item in row['executed_calls']]\n    exact = calls == case['expected_calls']\n    final = row['final'].casefold()\n    anchors = bool(final) and all(any(a.casefold() in final for a in group)\n                                for group in case['answer_anchor_groups'])\n    return {'exact_execution': exact,\n            'answer_anchor_proxy': exact and anchors and row['status'] == 'answered'}\n\n\ndef summarize(rows):\n    return {arm: {lang: {\n        'n': len(selected),\n        'exact_execution': sum(r['score']['exact_execution'] for r in selected),\n        'answer_anchor_proxy': sum(r['score']['answer_anchor_proxy'] for r in selected),\n        'median_ms': statistics.median(r['total_ms'] for r in selected),\n        'mean_prompt_tokens': statistics.mean(r['prompt_tokens'] for r in selected),\n    } for lang in ['en', 'it']\n       if (selected := [r for r in rows if r['arm'] == arm and r['language'] == lang])}\n       for arm in ARMS}\n\n\ndef main():\n    p = argparse.ArgumentParser(description=__doc__)\n    p.add_argument('--precision', choices=['q8', 'f16'], default='q8')\n    p.add_argument('--threads', type=int, default=4)\n    p.add_argument('--suite', type=Path, help='JSON with cases and toolsets; defaults to the original notes/sensors/music suite')\n    p.add_argument('--language', choices=['en', 'it', 'both'], default='both')\n    p.add_argument('--case', help='Optional case ID, e.g. playlist_duration-it')\n    p.add_argument('--output', type=Path, required=True)\n    a = p.parse_args()\n    if a.output.exists() or a.output.with_suffix('.txt').exists():\n        p.error('Choose a new output filename; existing results are preserved')\n    os.environ['USE_TORCH'] = '0'\n    os.environ['HF_HUB_OFFLINE'] = '1'\n    os.environ['TOKENIZERS_PARALLELISM'] = 'false'\n    from cpu_backend import Backend, ROOT\n    from abstract_agent.runtime import GenericAgent, render\n    from abstract_agent.fixtures import FixtureExecutor\n    cases_path = a.suite.resolve() if a.suite else ROOT/'routing_cases.json'\n    data = json.loads(cases_path.read_text())\n    cases = [(i, c) for i, c in enumerate(data['cases']) if (a.language == 'both' or c['language'] == a.language)\n             and (not a.case or c['id'] == a.case)]\n    if not cases:\n        p.error('No matching cases')\n    kits = data['toolsets'] if a.suite else json.loads((ROOT/'abstract_agent/toolsets.json').read_text())\n    domains = list(kits) if a.suite else ['notes', 'sensors', 'media']\n    if not domains:\n        p.error('Suite must contain at least one toolset')\n    for lang in ['en', 'it']:\n        names = [s['function']['name'] for domain in domains for s in kits[domain]['schemas'][lang]]\n        if len(names) != len(set(names)) or not names:\n            p.error('Suite needs unique tool names for each language')\n    responses = [r for name in domains for r in kits[name]['responses']]\n    report = {'status': 'incomplete', 'scope': data['scope'], 'precision': a.precision,\n              'threads': a.threads, 'cpu_only': True,\n              'method': 'Same tool registry, requests, generator, validation, mocks and turn limits. Nev ranks once before generation; selected arm exposes only its top tool for this supported single-tool task. Rotated arm order; fixed seeded registry order. No answer keys passed to either model. Both models resident in every arm. Timings include Nev but exclude loading and warmup. Answer anchors are a proxy requiring manual review.',\n              'source_sha256': {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()\n                                for name in ['compare_routing.py', 'cpu_backend.py',\n                                             'abstract_agent/runtime.py', 'release.json']\n                                + ([] if a.suite else ['routing_cases.json', 'abstract_agent/toolsets.json'])},\n              'release': json.loads((ROOT/'release.json').read_text()),\n              'runner_source': Path(__file__).read_text(),\n              'suite': data if a.suite else None,\n              'suite_sha256': hashlib.sha256(cases_path.read_bytes()).hexdigest(), 'rows': []}\n    a.output.parent.mkdir(parents=True, exist_ok=True)\n    def save():\n        report['summary'] = summarize(report['rows'])\n        a.output.write_text(json.dumps(report, ensure_ascii=False, indent=2)+'\\n')\n    started = time.perf_counter()\n    backend = Backend(a.precision, a.threads)\n    report['load_seconds'] = time.perf_counter()-started\n    try:\n        backend.generate([{'role': 'system', 'content': 'Reply briefly.'},\n                          {'role': 'user', 'content': 'Hello.'}])\n        backend.rank('Hello.', 'en', kits[domains[0]]['schemas']['en'], [], [], False)\n        for i, case in cases:\n            schemas = [s for name in domains for s in kits[name]['schemas'][case['language']]]\n            random.Random(7100+i//2).shuffle(schemas)\n            for arm in ARMS[i%3:]+ARMS[:i%3]:\n                start = time.perf_counter()\n                ranking = None\n                available = schemas\n                if arm != 'nesso_only':\n                    ranking = backend.rank(case['request'], case['language'], schemas, [], [], False)\n                    available = sorted(schemas, key=lambda s: -ranking['probabilities'][s['function']['name']])\n                    if arm == 'nev_selected':\n                        available = [next(s for s in schemas if s['function']['name'] == ranking['choice'])]\n                metric_start = len(backend.generation_metrics)\n                row = GenericAgent(backend).run(case['request'], case['language'], available,\n                                               FixtureExecutor(responses), 'nesso_only', 7100+i)\n                row.update(id=case['id'], language=case['language'], request=case['request'], arm=arm,\n                           total_ms=(time.perf_counter()-start)*1000, initial_ranking=ranking,\n                           expected_calls=case['expected_calls'],\n                           prompt_tokens=sum(m['prompt_tokens'] for m in backend.generation_metrics[metric_start:]))\n                row['score'] = score(case, row)\n                report['rows'].append(row)\n                save()\n                print(f\"{case['id']} {arm}: {row['score']} {row['total_ms']/1000:.2f}s\", flush=True)\n        report['status'] = 'complete'\n    finally:\n        backend.close()\n        save()\n        a.output.with_suffix('.txt').write_text('\\n\\n' + ('\\n\\n'+'='*70+'\\n\\n').join(\n            f\"{r['id']} | score: {r['score']}\\nNev initial choice: \"\n            + (r['initial_ranking']['choice'] if r['initial_ranking'] else 'not used')\n            + '\\nExpected call: '+json.dumps(r['expected_calls'], ensure_ascii=False)+'\\n'+render(r)\n            for r in report['rows']), encoding='utf-8')\n    print(json.dumps(report['summary'], ensure_ascii=False, indent=2))\n    print(f'Results: {a.output}\\nReadable traces: {a.output.with_suffix(\".txt\")}')\n\n\nif __name__ == '__main__':\n    main()\n",
+  "suite": null,
+  "suite_sha256": "89871fc53550d37318ae9ed73ad548b69d2826687da20f9e9eead00e2aa7691d",
+  "rows": [
+    {
+      "arm": "nev_ranked",
+      "status": "answered",
+      "final": "La nota intitolata Aurora ha l'identificativo N-7Q2.",
+      "emitted_calls": [
+        {
+          "name": "find_note",
+          "arguments": {
+            "query": "Aurora"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "find_note",
+            "arguments": {
+              "query": "Aurora"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "find_note",
+            "read_note",
+            "search_track",
+            "note_count",
+            "list_notes",
+            "playlist_duration",
+            "track_details",
+            "playlist_tracks",
+            "battery_status",
+            "read_sensor",
+            "convert_temperature",
+            "find_sensor"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"find_note\", \"arguments\": {\"query\": \"Aurora\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "find_note",
+              "arguments": {
+                "query": "Aurora"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "find_note",
+                "arguments": {
+                  "query": "Aurora"
+                }
+              },
+              "result": {
+                "note_id": "N-7Q2",
+                "title": "Aurora"
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "find_note",
+                "arguments": {
+                  "query": "Aurora"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "find_note",
+            "read_note",
+            "search_track",
+            "note_count",
+            "list_notes",
+            "playlist_duration",
+            "track_details",
+            "playlist_tracks",
+            "battery_status",
+            "read_sensor",
+            "convert_temperature",
+            "find_sensor"
+          ],
+          "ranking": null,
+          "assistant": "La nota intitolata Aurora ha l'identificativo N-7Q2.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 46,
+      "rank_ms": 0.0,
+      "total_ms": 3598.0896251276135,
+      "id": "find_note-it",
+      "language": "it",
+      "request": "Trova l’identificativo della nota intitolata Aurora.",
+      "initial_ranking": {
+        "choice": "find_note",
+        "probabilities": {
+          "battery_status": 3.1489512366533745e-06,
+          "playlist_tracks": 8.902228728402406e-06,
+          "read_sensor": 2.7513065106177237e-06,
+          "search_track": 0.031096842139959335,
+          "playlist_duration": 0.00013567037240136415,
+          "list_notes": 0.00013970561849419028,
+          "note_count": 0.00020194923854433,
+          "find_sensor": 1.8265690187035943e-06,
+          "read_note": 0.25733786821365356,
+          "find_note": 0.7110311985015869,
+          "track_details": 3.74921910406556e-05,
+          "convert_temperature": 2.717876213864656e-06
+        },
+        "elapsed_ms": 1060.875415802002
+      },
+      "expected_calls": [
+        {
+          "name": "find_note",
+          "arguments": {
+            "query": "Aurora"
+          }
+        }
+      ],
+      "prompt_tokens": 1432,
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true
+      }
+    },
+    {
+      "arm": "nev_selected",
+      "status": "answered",
+      "final": "La nota Aurora ha l'identificativo N-7Q2.",
+      "emitted_calls": [
+        {
+          "name": "find_note",
+          "arguments": {
+            "query": "Aurora"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "find_note",
+            "arguments": {
+              "query": "Aurora"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "find_note"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"find_note\", \"arguments\": {\"query\": \"Aurora\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "find_note",
+              "arguments": {
+                "query": "Aurora"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "find_note",
+                "arguments": {
+                  "query": "Aurora"
+                }
+              },
+              "result": {
+                "note_id": "N-7Q2",
+                "title": "Aurora"
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "find_note",
+                "arguments": {
+                  "query": "Aurora"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "find_note"
+          ],
+          "ranking": null,
+          "assistant": "La nota Aurora ha l'identificativo N-7Q2.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 43,
+      "rank_ms": 0.0,
+      "total_ms": 1743.2567910291255,
+      "id": "find_note-it",
+      "language": "it",
+      "request": "Trova l’identificativo della nota intitolata Aurora.",
+      "initial_ranking": {
+        "choice": "find_note",
+        "probabilities": {
+          "battery_status": 3.1489512366533745e-06,
+          "playlist_tracks": 8.902228728402406e-06,
+          "read_sensor": 2.7513065106177237e-06,
+          "search_track": 0.031096842139959335,
+          "playlist_duration": 0.00013567037240136415,
+          "list_notes": 0.00013970561849419028,
+          "note_count": 0.00020194923854433,
+          "find_sensor": 1.8265690187035943e-06,
+          "read_note": 0.25733786821365356,
+          "find_note": 0.7110311985015869,
+          "track_details": 3.74921910406556e-05,
+          "convert_temperature": 2.717876213864656e-06
+        },
+        "elapsed_ms": 1057.5375827029347
+      },
+      "expected_calls": [
+        {
+          "name": "find_note",
+          "arguments": {
+            "query": "Aurora"
+          }
+        }
+      ],
+      "prompt_tokens": 270,
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true
+      }
+    },
+    {
+      "arm": "nesso_only",
+      "status": "answered",
+      "final": "L'identificativo della nota Aurora non è presente.",
+      "emitted_calls": [
+        {
+          "name": "note_count",
+          "arguments": {
+            "folder": "Aurora"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "note_count",
+            "arguments": {
+              "folder": "Aurora"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "battery_status",
+            "playlist_tracks",
+            "read_sensor",
+            "search_track",
+            "playlist_duration",
+            "list_notes",
+            "note_count",
+            "find_sensor",
+            "read_note",
+            "find_note",
+            "track_details",
+            "convert_temperature"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"note_count\", \"arguments\": {\"folder\": \"Aurora\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "note_count",
+              "arguments": {
+                "folder": "Aurora"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "note_count",
+                "arguments": {
+                  "folder": "Aurora"
+                }
+              },
+              "result": {
+                "error": "not_found"
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "note_count",
+                "arguments": {
+                  "folder": "Aurora"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "battery_status",
+            "playlist_tracks",
+            "read_sensor",
+            "search_track",
+            "playlist_duration",
+            "list_notes",
+            "note_count",
+            "find_sensor",
+            "read_note",
+            "find_note",
+            "track_details",
+            "convert_temperature"
+          ],
+          "ranking": null,
+          "assistant": "L'identificativo della nota Aurora non è presente.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 40,
+      "rank_ms": 0.0,
+      "total_ms": 2444.8710000142455,
+      "id": "find_note-it",
+      "language": "it",
+      "request": "Trova l’identificativo della nota intitolata Aurora.",
+      "initial_ranking": null,
+      "expected_calls": [
+        {
+          "name": "find_note",
+          "arguments": {
+            "query": "Aurora"
+          }
+        }
+      ],
+      "prompt_tokens": 1422,
+      "score": {
+        "exact_execution": false,
+        "answer_anchor_proxy": false
+      }
+    }
+  ],
+  "load_seconds": 4.037498166784644,
+  "summary": {
+    "nesso_only": {
+      "it": {
+        "n": 1,
+        "exact_execution": 0,
+        "answer_anchor_proxy": 0,
+        "median_ms": 2444.8710000142455,
+        "mean_prompt_tokens": 1422
+      }
+    },
+    "nev_ranked": {
+      "it": {
+        "n": 1,
+        "exact_execution": 1,
+        "answer_anchor_proxy": 1,
+        "median_ms": 3598.0896251276135,
+        "mean_prompt_tokens": 1432
+      }
+    },
+    "nev_selected": {
+      "it": {
+        "n": 1,
+        "exact_execution": 1,
+        "answer_anchor_proxy": 1,
+        "median_ms": 1743.2567910291255,
+        "mean_prompt_tokens": 270
+      }
+    }
+  }
+}

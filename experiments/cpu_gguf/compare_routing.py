@@ -37,6 +37,7 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--precision', choices=['q8', 'f16'], default='q8')
     p.add_argument('--threads', type=int, default=4)
+    p.add_argument('--suite', type=Path, help='JSON with cases and toolsets; defaults to the original notes/sensors/music suite')
     p.add_argument('--language', choices=['en', 'it', 'both'], default='both')
     p.add_argument('--case', help='Optional case ID, e.g. playlist_duration-it')
     p.add_argument('--output', type=Path, required=True)
@@ -49,22 +50,32 @@ def main():
     from cpu_backend import Backend, ROOT
     from abstract_agent.runtime import GenericAgent, render
     from abstract_agent.fixtures import FixtureExecutor
-    data = json.loads((ROOT/'routing_cases.json').read_text())
+    cases_path = a.suite.resolve() if a.suite else ROOT/'routing_cases.json'
+    data = json.loads(cases_path.read_text())
     cases = [(i, c) for i, c in enumerate(data['cases']) if (a.language == 'both' or c['language'] == a.language)
              and (not a.case or c['id'] == a.case)]
     if not cases:
         p.error('No matching cases')
-    kits = json.loads((ROOT/'abstract_agent/toolsets.json').read_text())
-    domains = ['notes', 'sensors', 'media']
+    kits = data['toolsets'] if a.suite else json.loads((ROOT/'abstract_agent/toolsets.json').read_text())
+    domains = list(kits) if a.suite else ['notes', 'sensors', 'media']
+    if not domains:
+        p.error('Suite must contain at least one toolset')
+    for lang in ['en', 'it']:
+        names = [s['function']['name'] for domain in domains for s in kits[domain]['schemas'][lang]]
+        if len(names) != len(set(names)) or not names:
+            p.error('Suite needs unique tool names for each language')
     responses = [r for name in domains for r in kits[name]['responses']]
     report = {'status': 'incomplete', 'scope': data['scope'], 'precision': a.precision,
               'threads': a.threads, 'cpu_only': True,
-              'method': 'Same 12-tool registry, requests, generator, validation, mocks and turn limits. Nev ranks once before generation; selected arm exposes only its top tool for this supported single-tool task. Rotated arm order; fixed seeded registry order. No answer keys passed to either model. Both models resident in every arm. Timings include Nev but exclude loading and warmup. Answer anchors are a proxy requiring manual review.',
+              'method': 'Same tool registry, requests, generator, validation, mocks and turn limits. Nev ranks once before generation; selected arm exposes only its top tool for this supported single-tool task. Rotated arm order; fixed seeded registry order. No answer keys passed to either model. Both models resident in every arm. Timings include Nev but exclude loading and warmup. Answer anchors are a proxy requiring manual review.',
               'source_sha256': {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-                                for name in ['routing_cases.json', 'compare_routing.py', 'cpu_backend.py',
-                                             'abstract_agent/runtime.py', 'abstract_agent/toolsets.json', 'release.json']},
+                                for name in ['compare_routing.py', 'cpu_backend.py',
+                                             'abstract_agent/runtime.py', 'release.json']
+                                + ([] if a.suite else ['routing_cases.json', 'abstract_agent/toolsets.json'])},
               'release': json.loads((ROOT/'release.json').read_text()),
-              'runner_source': Path(__file__).read_text(), 'rows': []}
+              'runner_source': Path(__file__).read_text(),
+              'suite': data if a.suite else None,
+              'suite_sha256': hashlib.sha256(cases_path.read_bytes()).hexdigest(), 'rows': []}
     a.output.parent.mkdir(parents=True, exist_ok=True)
     def save():
         report['summary'] = summarize(report['rows'])
@@ -75,7 +86,7 @@ def main():
     try:
         backend.generate([{'role': 'system', 'content': 'Reply briefly.'},
                           {'role': 'user', 'content': 'Hello.'}])
-        backend.rank('Read note N-8R6.', 'en', kits['notes']['schemas']['en'], [], [], False)
+        backend.rank('Hello.', 'en', kits[domains[0]]['schemas']['en'], [], [], False)
         for i, case in cases:
             schemas = [s for name in domains for s in kits[name]['schemas'][case['language']]]
             random.Random(7100+i//2).shuffle(schemas)

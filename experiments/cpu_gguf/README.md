@@ -69,7 +69,9 @@ fell from 2.57 s to 1.72 s on this Mac. All failures and readable traces are inc
 ```
 
 This is a single-tool development demonstration, not a general-agent benchmark.
-Use the guide for the English/Italian walkthrough and individual-case commands.
+Use the guide for the English/Italian walkthrough and individual-case commands. A separate
+[greenhouse example](GREENHOUSE_COMPARISON.md) uses the same runner and controller
+with a new domain supplied through `--suite greenhouse_suite.json`.
 
 ### Combine the models on CPU
 

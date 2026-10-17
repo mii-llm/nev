@@ -9,6 +9,8 @@ The catalog contains 12 read-only mock tools for notes, temperature sensors,
 battery readings and music. The same controller validates calls in every arm.
 No real files, sensors or accounts are accessed.
 
+The same controller is also tested with a [greenhouse tool catalog](GREENHOUSE_COMPARISON.md), supplied entirely through a new JSON suite.
+
 ## Run it on your Mac
 
 From the GitHub checkout, after the CPU setup:
