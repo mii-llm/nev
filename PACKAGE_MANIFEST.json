@@ -424,8 +424,8 @@
     "sha256": "5df8fcf14d6a108578fbb1d052727814080cab1c6bf0d19b6bfbe8d5903ce026"
   },
   "docs/nevso/RELEASE_PLAN.md": {
-    "bytes": 7021,
-    "sha256": "d2971623b91653279dd27cce18721414a684b0dea7156990d812304e8f12ddf0"
+    "bytes": 8477,
+    "sha256": "3b3b0dfdf964c95b0c0ad80999455b5eccdd96ad67355cdbfad8c66be637cb71"
   },
   "docs/nevso/evidence/cpu-regression.json": {
     "bytes": 50586,
@@ -1427,6 +1427,10 @@
     "bytes": 216,
     "sha256": "44d85edeeeb8a29d30994dec4a09eee9eadc7aeff63368edd475295470a95a36"
   },
+  "experiments/nevso_stress/EXPLAINED.md": {
+    "bytes": 4851,
+    "sha256": "a1330aa2095a15d71602379ee4a3944561f54d6ac5e432315a9e3141cecc891c"
+  },
   "experiments/nevso_stress/FREEZE.json": {
     "bytes": 1839,
     "sha256": "a21ff7ebd7be2ad579c8c11e959f18940b1d2372350ceeab9ccb3e95c32a9dc8"
@@ -1436,8 +1440,8 @@
     "sha256": "f57863d8b1444d8580d007997a68e2d9215d772cc06bbf59e290a031363b8c57"
   },
   "experiments/nevso_stress/README.md": {
-    "bytes": 3996,
-    "sha256": "71b62df73fe4f12ec520d05fd176cc8b32ae36e3b32274da8de58526cb233b02"
+    "bytes": 4187,
+    "sha256": "4eb35c4b89746e73753812f05f0ce8611bca00635a27708314b7ff46a32860e5"
   },
   "experiments/nevso_stress/REVIEW.md": {
     "bytes": 5129,
@@ -1502,6 +1506,50 @@
   "experiments/nevso_stress/pilot.json": {
     "bytes": 18558,
     "sha256": "3c9565d466d9489f90e86f0a279433bc7400d4908181c9eec8713b119b20d75a"
+  },
+  "experiments/nevso_stress/qwen_baseline/FREEZE.json": {
+    "bytes": 1076,
+    "sha256": "c7e8ccbd6bc2f984a558e0d414979ff1098fcc6ef49478ece2213317437e3bd8"
+  },
+  "experiments/nevso_stress/qwen_baseline/PROTOCOL.md": {
+    "bytes": 3876,
+    "sha256": "43a6203544e525fdc58c5d220d4b065fa728e0c4d48f412ae5f866c95b5c85c0"
+  },
+  "experiments/nevso_stress/qwen_baseline/README.md": {
+    "bytes": 1035,
+    "sha256": "b70dd8f3852b5118375d72d67452436622653f4950e5851c023f6634aad21fb4"
+  },
+  "experiments/nevso_stress/qwen_baseline/backend.py": {
+    "bytes": 4549,
+    "sha256": "48b4b78f2ac92d0aa03d028b5a100c86606139901980c7d48363479b0e58b56c"
+  },
+  "experiments/nevso_stress/qwen_baseline/evidence/pilot/metadata.json": {
+    "bytes": 1555,
+    "sha256": "7dd692ac07098f441c1c44ba4eec9def8daf42f268633946f3589a7e3ecb34d8"
+  },
+  "experiments/nevso_stress/qwen_baseline/evidence/pilot/rows.jsonl": {
+    "bytes": 8306,
+    "sha256": "23494c524968523363006bb5fb47dfc5c7a2aaa05b7bef748fab9edbaefaa916"
+  },
+  "experiments/nevso_stress/qwen_baseline/evidence/pilot/summary.json": {
+    "bytes": 1805,
+    "sha256": "b5d56fecbb2f0507cf327433332897861da4dd4d72ea1fed5cc6706c8ff60414"
+  },
+  "experiments/nevso_stress/qwen_baseline/evidence/pilot/traces.txt": {
+    "bytes": 3208,
+    "sha256": "03638a155c3cef0bf79f9dec7083722b4a11ef2cf517c8a503166812b15c6f92"
+  },
+  "experiments/nevso_stress/qwen_baseline/report.py": {
+    "bytes": 3934,
+    "sha256": "dbca0d1122871ed302a7c42f450e257496be1c1837ae81c51a31feecfdbdf13c"
+  },
+  "experiments/nevso_stress/qwen_baseline/run.py": {
+    "bytes": 6922,
+    "sha256": "3480ce06c398bc25603dd394b60afe85a56f771b13a395027e0747c35e351f31"
+  },
+  "experiments/nevso_stress/qwen_baseline/test_adapter.py": {
+    "bytes": 2007,
+    "sha256": "6e534a0756938da7df418f7476d2c5eeceb1b1c2f1da3ef404cd11455f77e66a"
   },
   "experiments/nevso_stress/run_eval.py": {
     "bytes": 14544,

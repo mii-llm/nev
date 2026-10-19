@@ -1,0 +1,54 @@
+
+======================================================================
+pilot-call-en | qwen_only | order 0
+User: Multiply 7 by 8.
+Qwen3: <tool_call>
+{"name": "multiply", "arguments": {"a": 7, "b": 8}}
+</tool_call>
+Score: {"tool_name_correct": true, "reference_arguments_match": true, "call_correct": true, "completion_proxy": null, "no_call_behavior_proxy": null, "attempted_calls": 1, "blocked_calls": 0}
+
+======================================================================
+pilot-call-it | qwen_only | order 0
+User: Moltiplica 7 per 8.
+Qwen3: <tool_call>
+{"name": "multiply", "arguments": {"a": 7, "b": 8}}
+</tool_call>
+Score: {"tool_name_correct": true, "reference_arguments_match": true, "call_correct": true, "completion_proxy": null, "no_call_behavior_proxy": null, "attempted_calls": 1, "blocked_calls": 0}
+
+======================================================================
+pilot-read_soil_ph-en | qwen_only | order 0
+User (en): Read the soil pH in bed B-73.
+Variant: qwen_only
+
+Turn 1; tools: get_planting_date, get_ventilation_status, get_harvest_date, read_air_temperature, read_water_tank_level, read_soil_moisture, get_irrigation_schedule, read_soil_ph, get_crop_name, get_fertilizer_schedule, read_air_humidity, read_light_level
+Qwen3: <tool_call>
+{"name": "read_soil_ph", "arguments": {"bed_id": "B-73"}}
+</tool_call>
+Tool result: {"call": {"name": "read_soil_ph", "arguments": {"bed_id": "B-73"}}, "result": {"soil_ph": 6.4}, "cached": false}
+
+Turn 2; tools: get_planting_date, get_ventilation_status, get_harvest_date, read_air_temperature, read_water_tank_level, read_soil_moisture, get_irrigation_schedule, read_soil_ph, get_crop_name, get_fertilizer_schedule, read_air_humidity, read_light_level
+Qwen3: The soil pH in bed B-73 is 6.4.
+
+Status: answered
+Errors:
+Elapsed: 1.14 s
+Score: {"call_correct": true, "completion_proxy": true, "strict_completion_proxy": true, "no_call_behavior_proxy": null, "attempted_calls": 1, "blocked_calls": 0, "answer_assertions_pass": true}
+
+======================================================================
+pilot-read_soil_ph-it | qwen_only | order 0
+User (it): Leggi il pH del terreno nell’aiuola B-73.
+Variant: qwen_only
+
+Turn 1; tools: get_planting_date, get_ventilation_status, get_harvest_date, read_air_temperature, read_water_tank_level, read_soil_moisture, get_irrigation_schedule, read_soil_ph, get_crop_name, get_fertilizer_schedule, read_air_humidity, read_light_level
+Qwen3: <tool_call>
+{"name": "read_soil_ph", "arguments": {"bed_id": "B-73"}}
+</tool_call>
+Tool result: {"call": {"name": "read_soil_ph", "arguments": {"bed_id": "B-73"}}, "result": {"soil_ph": 6.4}, "cached": false}
+
+Turn 2; tools: get_planting_date, get_ventilation_status, get_harvest_date, read_air_temperature, read_water_tank_level, read_soil_moisture, get_irrigation_schedule, read_soil_ph, get_crop_name, get_fertilizer_schedule, read_air_humidity, read_light_level
+Qwen3: Il pH del terreno nell’aiuola B-73 è 6.4.
+
+Status: answered
+Errors:
+Elapsed: 1.24 s
+Score: {"call_correct": true, "completion_proxy": true, "strict_completion_proxy": true, "no_call_behavior_proxy": null, "attempted_calls": 1, "blocked_calls": 0, "answer_assertions_pass": true}

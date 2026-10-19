@@ -115,3 +115,29 @@ clarification. Other completion proxies remain provisional. Multi-step, no-tool,
 error stopping and exact formatting remain weak. Some date-format failures
 contained factually correct dates written in words. No fixes or retraining have
 been applied as part of this evaluation.
+
+
+### Qwen3-0.6B baseline requested
+
+The user requested Qwen3-0.6B on the same dataset and a clearer explanation.
+[EXPLAINED.md](../../experiments/nevso_stress/EXPLAINED.md) distinguishes call
+selection, arguments, final answers and workflow completion using real traces.
+The Qwen-only runner is in
+[qwen_baseline](../../experiments/nevso_stress/qwen_baseline/README.md).
+
+Pinned Qwen revision: `c1899de289a04d12100db370d81485cdf75e47ca`.
+Native Qwen tools template, thinking disabled, greedy BF16, 192 new tokens per
+turn, unchanged controller/fixtures/data/scoring. This is the same runtime
+budget, not Qwen's maximum thinking-mode capability or recommended sampling.
+Only Qwen is loaded; shared-GPU timings remain illustrative. Nev + Qwen is not
+part of this run.
+
+Four adapter tests and the separate four-trial pilot passed. A cache-only
+preflight failure occurred before model loading and was repaired by matching
+the download file patterns; no test prompts or scoring were tuned. The full
+600-trial run launched on the existing A100 checkout with PID `941970`, relative
+output `results/qwen3-stress-a100-20261019`, and sibling log
+`qwen3-stress-a100-20261019.log`. Its runner writes COMPARISON.md on completion.
+Results are pending at this entry. Check status/count before claiming completion,
+preserve all evidence, and review Qwen clarification outputs using the same
+review criteria before comparing them with reviewed Nesso clarification scores.

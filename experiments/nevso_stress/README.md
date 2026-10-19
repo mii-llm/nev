@@ -7,6 +7,10 @@ Nev improves the authored tool-selection cases, but does not improve the
 external BFCL subset. The clarification proxy overcounted successes; reviewed
 clarification scores are provided separately.
 
+For a plain-language walkthrough, read **[what the results mean](EXPLAINED.md)**.
+The [Qwen3-0.6B baseline](qwen_baseline/README.md) uses the same frozen test; its
+full results are pending.
+
 The [frozen protocol](PROTOCOL.md) defines the data, comparison and scoring.
 [suite.json](suite.json) contains the exact inputs and references, and
 [FREEZE.json](FREEZE.json) pins the evaluation source files by SHA-256.

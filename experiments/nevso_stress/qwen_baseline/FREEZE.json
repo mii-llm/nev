@@ -1,0 +1,13 @@
+{
+  "frozen_utc": "2026-10-19T16:39:05Z",
+  "qwen_stress_outputs_seen": false,
+  "nesso_rows_sha256": "6bae5123f472bb47593bb44f1ba980ac0ef020377b1d3aaa5b7afe38717b6da5",
+  "sha256": {
+    "experiments/nevso_stress/qwen_baseline/PROTOCOL.md": "43a6203544e525fdc58c5d220d4b065fa728e0c4d48f412ae5f866c95b5c85c0",
+    "experiments/nevso_stress/qwen_baseline/backend.py": "48b4b78f2ac92d0aa03d028b5a100c86606139901980c7d48363479b0e58b56c",
+    "experiments/nevso_stress/qwen_baseline/report.py": "dbca0d1122871ed302a7c42f450e257496be1c1837ae81c51a31feecfdbdf13c",
+    "experiments/nevso_stress/qwen_baseline/run.py": "3480ce06c398bc25603dd394b60afe85a56f771b13a395027e0747c35e351f31",
+    "experiments/nevso_stress/qwen_baseline/test_adapter.py": "6e534a0756938da7df418f7476d2c5eeceb1b1c2f1da3ef404cd11455f77e66a"
+  },
+  "preflight_repair": "First pilot stopped before model loading: Hugging Face required non-downloaded README/license files. Offline snapshot now uses the same allow_patterns as the documented download. No Qwen model outputs were generated before this repair."
+}
