@@ -1,0 +1,398 @@
+[
+  {
+    "metric": "Confusable: correct calls",
+    "language": "en",
+    "scores": {
+      "nesso_only": {
+        "correct": 17,
+        "n": 60
+      },
+      "nev_ranked": {
+        "correct": 40,
+        "n": 60
+      },
+      "nev_selected": {
+        "correct": 56,
+        "n": 60
+      },
+      "qwen_only": {
+        "correct": 44,
+        "n": 60
+      }
+    }
+  },
+  {
+    "metric": "Confusable: correct calls",
+    "language": "it",
+    "scores": {
+      "nesso_only": {
+        "correct": 23,
+        "n": 60
+      },
+      "nev_ranked": {
+        "correct": 44,
+        "n": 60
+      },
+      "nev_selected": {
+        "correct": 43,
+        "n": 60
+      },
+      "qwen_only": {
+        "correct": 45,
+        "n": 60
+      }
+    }
+  },
+  {
+    "metric": "Confusable: answer proxy",
+    "language": "en",
+    "scores": {
+      "nesso_only": {
+        "correct": 7,
+        "n": 60
+      },
+      "nev_ranked": {
+        "correct": 28,
+        "n": 60
+      },
+      "nev_selected": {
+        "correct": 41,
+        "n": 60
+      },
+      "qwen_only": {
+        "correct": 44,
+        "n": 60
+      }
+    }
+  },
+  {
+    "metric": "Confusable: answer proxy",
+    "language": "it",
+    "scores": {
+      "nesso_only": {
+        "correct": 15,
+        "n": 60
+      },
+      "nev_ranked": {
+        "correct": 26,
+        "n": 60
+      },
+      "nev_selected": {
+        "correct": 29,
+        "n": 60
+      },
+      "qwen_only": {
+        "correct": 43,
+        "n": 60
+      }
+    }
+  },
+  {
+    "metric": "BFCL-derived: correct calls",
+    "language": "en",
+    "scores": {
+      "nesso_only": {
+        "correct": 19,
+        "n": 90
+      },
+      "nev_ranked": {
+        "correct": 15,
+        "n": 90
+      },
+      "nev_selected": {
+        "correct": 16,
+        "n": 90
+      },
+      "qwen_only": {
+        "correct": 45,
+        "n": 90
+      }
+    }
+  },
+  {
+    "metric": "BFCL-derived: correct calls",
+    "language": "it",
+    "scores": {
+      "nesso_only": {
+        "correct": 21,
+        "n": 90
+      },
+      "nev_ranked": {
+        "correct": 13,
+        "n": 90
+      },
+      "nev_selected": {
+        "correct": 18,
+        "n": 90
+      },
+      "qwen_only": {
+        "correct": 43,
+        "n": 90
+      }
+    }
+  },
+  {
+    "metric": "Missing input: RAW clarification proxy",
+    "language": "en",
+    "scores": {
+      "nesso_only": {
+        "correct": 2,
+        "n": 45
+      },
+      "nev_ranked": {
+        "correct": 0,
+        "n": 45
+      },
+      "nev_selected": {
+        "correct": 32,
+        "n": 45
+      },
+      "qwen_only": {
+        "correct": 20,
+        "n": 45
+      }
+    }
+  },
+  {
+    "metric": "Missing input: RAW clarification proxy",
+    "language": "it",
+    "scores": {
+      "nesso_only": {
+        "correct": 8,
+        "n": 45
+      },
+      "nev_ranked": {
+        "correct": 5,
+        "n": 45
+      },
+      "nev_selected": {
+        "correct": 28,
+        "n": 45
+      },
+      "qwen_only": {
+        "correct": 1,
+        "n": 45
+      }
+    }
+  },
+  {
+    "metric": "Dependent: completion proxy",
+    "language": "en",
+    "scores": {
+      "nesso_only": {
+        "correct": 1,
+        "n": 30
+      },
+      "nev_ranked": {
+        "correct": 1,
+        "n": 30
+      },
+      "nev_selected": {
+        "correct": 0,
+        "n": 30
+      },
+      "qwen_only": {
+        "correct": 0,
+        "n": 30
+      }
+    }
+  },
+  {
+    "metric": "Dependent: completion proxy",
+    "language": "it",
+    "scores": {
+      "nesso_only": {
+        "correct": 0,
+        "n": 30
+      },
+      "nev_ranked": {
+        "correct": 0,
+        "n": 30
+      },
+      "nev_selected": {
+        "correct": 0,
+        "n": 30
+      },
+      "qwen_only": {
+        "correct": 0,
+        "n": 30
+      }
+    }
+  },
+  {
+    "metric": "Unsupported: behavior proxy",
+    "language": "en",
+    "scores": {
+      "nesso_only": {
+        "correct": 12,
+        "n": 30
+      },
+      "nev_ranked": {
+        "correct": 12,
+        "n": 30
+      },
+      "nev_selected": {
+        "correct": 18,
+        "n": 30
+      },
+      "qwen_only": {
+        "correct": 18,
+        "n": 30
+      }
+    }
+  },
+  {
+    "metric": "Unsupported: behavior proxy",
+    "language": "it",
+    "scores": {
+      "nesso_only": {
+        "correct": 3,
+        "n": 30
+      },
+      "nev_ranked": {
+        "correct": 4,
+        "n": 30
+      },
+      "nev_selected": {
+        "correct": 21,
+        "n": 30
+      },
+      "qwen_only": {
+        "correct": 3,
+        "n": 30
+      }
+    }
+  },
+  {
+    "metric": "Direct: exact answer, no calls",
+    "language": "en",
+    "scores": {
+      "nesso_only": {
+        "correct": 0,
+        "n": 15
+      },
+      "nev_ranked": {
+        "correct": 0,
+        "n": 15
+      },
+      "nev_selected": {
+        "correct": 0,
+        "n": 15
+      },
+      "qwen_only": {
+        "correct": 4,
+        "n": 15
+      }
+    }
+  },
+  {
+    "metric": "Direct: exact answer, no calls",
+    "language": "it",
+    "scores": {
+      "nesso_only": {
+        "correct": 0,
+        "n": 15
+      },
+      "nev_ranked": {
+        "correct": 0,
+        "n": 15
+      },
+      "nev_selected": {
+        "correct": 0,
+        "n": 15
+      },
+      "qwen_only": {
+        "correct": 4,
+        "n": 15
+      }
+    }
+  },
+  {
+    "metric": "Tool error: completion proxy",
+    "language": "en",
+    "scores": {
+      "nesso_only": {
+        "correct": 0,
+        "n": 15
+      },
+      "nev_ranked": {
+        "correct": 0,
+        "n": 15
+      },
+      "nev_selected": {
+        "correct": 0,
+        "n": 15
+      },
+      "qwen_only": {
+        "correct": 10,
+        "n": 15
+      }
+    }
+  },
+  {
+    "metric": "Tool error: completion proxy",
+    "language": "it",
+    "scores": {
+      "nesso_only": {
+        "correct": 0,
+        "n": 15
+      },
+      "nev_ranked": {
+        "correct": 1,
+        "n": 15
+      },
+      "nev_selected": {
+        "correct": 0,
+        "n": 15
+      },
+      "qwen_only": {
+        "correct": 3,
+        "n": 15
+      }
+    }
+  },
+  {
+    "metric": "Date: exact requested format",
+    "language": "en",
+    "scores": {
+      "nesso_only": {
+        "correct": 0,
+        "n": 15
+      },
+      "nev_ranked": {
+        "correct": 0,
+        "n": 15
+      },
+      "nev_selected": {
+        "correct": 0,
+        "n": 15
+      },
+      "qwen_only": {
+        "correct": 1,
+        "n": 15
+      }
+    }
+  },
+  {
+    "metric": "Date: exact requested format",
+    "language": "it",
+    "scores": {
+      "nesso_only": {
+        "correct": 0,
+        "n": 15
+      },
+      "nev_ranked": {
+        "correct": 0,
+        "n": 15
+      },
+      "nev_selected": {
+        "correct": 0,
+        "n": 15
+      },
+      "qwen_only": {
+        "correct": 7,
+        "n": 15
+      }
+    }
+  }
+]

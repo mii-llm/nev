@@ -1,0 +1,756 @@
+{
+  "reviewer": "Assistant trace review; not an independent human audit",
+  "scope": "All 90 missing-information trials. All 46 distinct (case ID, final answer) no-call answered outputs inspected; any emitted call or nonanswered outcome fails the frozen clarification contract.",
+  "rubric": "Same clean-clarification principle as Nesso review: request relevant identifying information, without invented requirements or contradictory capability claims. Two conditional offers about ticket type are recorded separately as borderline rather than silently counted. No user continuation is tested. Frozen scores remain unchanged.",
+  "raw_rows_sha256": "880fb53e05d90221cafebac98b0144bc6e3ba74f92d5bd99aa1007c9b5857ab2",
+  "summary": [
+    {
+      "language": "en",
+      "arm": "qwen_only",
+      "n": 45,
+      "automatic_proxy": 20,
+      "reviewed_clean": 20,
+      "conditional_borderline": 0
+    },
+    {
+      "language": "it",
+      "arm": "qwen_only",
+      "n": 45,
+      "automatic_proxy": 1,
+      "reviewed_clean": 0,
+      "conditional_borderline": 2
+    }
+  ],
+  "reviewed_outputs": [
+    {
+      "index": 0,
+      "id": "bicycle-missing-1-en",
+      "final": "The bicycle battery charge percentage can be found by calling the `get_bike_battery` function with the bike's ID. Please provide the bike ID for this information.",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 0,
+          "proxy": true
+        }
+      ],
+      "clean_clarification": true,
+      "conditional_clarification": false,
+      "review_reason": "Requests relevant identifying information without a fabricated requirement; user follow-up not tested."
+    },
+    {
+      "index": 1,
+      "id": "bicycle-missing-2-en",
+      "final": "To determine if there are empty docks where you can return your bike, I would need the station ID. Could you please provide the station ID?",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 0,
+          "proxy": true
+        }
+      ],
+      "clean_clarification": true,
+      "conditional_clarification": false,
+      "review_reason": "Requests relevant identifying information without a fabricated requirement; user follow-up not tested."
+    },
+    {
+      "index": 2,
+      "id": "bicycle-missing-2-en",
+      "final": "To determine if there are empty docks where you can return your bike, I would need to know the station ID associated with the bike. Could you please provide the station ID?",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 2,
+          "proxy": true
+        }
+      ],
+      "clean_clarification": true,
+      "conditional_clarification": false,
+      "review_reason": "Requests relevant identifying information without a fabricated requirement; user follow-up not tested."
+    },
+    {
+      "index": 3,
+      "id": "lab-missing-1-en",
+      "final": "The temperature of the sample cannot be read directly. Please provide the sample identifier.",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 2,
+          "proxy": true
+        }
+      ],
+      "clean_clarification": true,
+      "conditional_clarification": false,
+      "review_reason": "Requests relevant identifying information without a fabricated requirement; user follow-up not tested."
+    },
+    {
+      "index": 4,
+      "id": "lab-missing-2-en",
+      "final": "The instrument is online.",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 2,
+          "proxy": false
+        }
+      ],
+      "clean_clarification": false,
+      "conditional_clarification": false,
+      "review_reason": "Does not make a clean request for the missing identifier/category; gives an unsupported answer, generic advice, wrong-domain information or an unclear request."
+    },
+    {
+      "index": 5,
+      "id": "lab-missing-2-en",
+      "final": "The instrument status is currently online.",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 0,
+          "proxy": false
+        }
+      ],
+      "clean_clarification": false,
+      "conditional_clarification": false,
+      "review_reason": "Does not make a clean request for the missing identifier/category; gives an unsupported answer, generic advice, wrong-domain information or an unclear request."
+    },
+    {
+      "index": 6,
+      "id": "lab-missing-2-en",
+      "final": "The instrument's status is currently online.",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 1,
+          "proxy": false
+        }
+      ],
+      "clean_clarification": false,
+      "conditional_clarification": false,
+      "review_reason": "Does not make a clean request for the missing identifier/category; gives an unsupported answer, generic advice, wrong-domain information or an unclear request."
+    },
+    {
+      "index": 7,
+      "id": "lab-missing-2-it",
+      "final": "Il strumento non è online.",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 1,
+          "proxy": false
+        }
+      ],
+      "clean_clarification": false,
+      "conditional_clarification": false,
+      "review_reason": "Does not make a clean request for the missing identifier/category; gives an unsupported answer, generic advice, wrong-domain information or an unclear request."
+    },
+    {
+      "index": 8,
+      "id": "lab-missing-2-it",
+      "final": "Il strumento è online.",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 0,
+          "proxy": false
+        }
+      ],
+      "clean_clarification": false,
+      "conditional_clarification": false,
+      "review_reason": "Does not make a clean request for the missing identifier/category; gives an unsupported answer, generic advice, wrong-domain information or an unclear request."
+    },
+    {
+      "index": 9,
+      "id": "lab-missing-2-it",
+      "final": "Sì, lo strumento è online.",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 2,
+          "proxy": false
+        }
+      ],
+      "clean_clarification": false,
+      "conditional_clarification": false,
+      "review_reason": "Does not make a clean request for the missing identifier/category; gives an unsupported answer, generic advice, wrong-domain information or an unclear request."
+    },
+    {
+      "index": 10,
+      "id": "library-missing-0-en",
+      "final": "The number of copies available for the book can be found by checking the book's availability. However, I don't have access to the specific details of the book's availability unless you provide the book's ID. Could you please provide the book's ID?",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 0,
+          "proxy": true
+        }
+      ],
+      "clean_clarification": true,
+      "conditional_clarification": false,
+      "review_reason": "Requests relevant identifying information without a fabricated requirement; user follow-up not tested."
+    },
+    {
+      "index": 11,
+      "id": "library-missing-0-en",
+      "final": "The number of copies of the book available depends on the specific book_id. Could you provide the book_id for the book you're asking about?",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 1,
+          "proxy": true
+        }
+      ],
+      "clean_clarification": true,
+      "conditional_clarification": false,
+      "review_reason": "Requests relevant identifying information without a fabricated requirement; user follow-up not tested."
+    },
+    {
+      "index": 12,
+      "id": "library-missing-0-en",
+      "final": "The number of copies of the book available is not provided in the query. Please provide the book ID to check the availability.",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 2,
+          "proxy": true
+        }
+      ],
+      "clean_clarification": true,
+      "conditional_clarification": false,
+      "review_reason": "Requests relevant identifying information without a fabricated requirement; user follow-up not tested."
+    },
+    {
+      "index": 13,
+      "id": "library-missing-1-en",
+      "final": "The due date for a library loan is typically determined by the library's policy and the specific loan agreement. If you have a specific loan ID, I can check the due date for you. Please provide the loan ID to get the exact due date.",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 0,
+          "proxy": true
+        }
+      ],
+      "clean_clarification": true,
+      "conditional_clarification": false,
+      "review_reason": "Requests relevant identifying information without a fabricated requirement; user follow-up not tested."
+    },
+    {
+      "index": 14,
+      "id": "library-missing-1-en",
+      "final": "The due date for a library loan is typically determined by the loan agreement, and it's best to check with the library or the loan system for the exact date.",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 1,
+          "proxy": false
+        }
+      ],
+      "clean_clarification": false,
+      "conditional_clarification": false,
+      "review_reason": "Does not make a clean request for the missing identifier/category; gives an unsupported answer, generic advice, wrong-domain information or an unclear request."
+    },
+    {
+      "index": 15,
+      "id": "library-missing-1-en",
+      "final": "The due date for your library loan is typically determined by the library's policy and the specific terms of your loan agreement. If you need to know the exact due date, please provide the loan ID or reference number, and I will help you retrieve the information.",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 2,
+          "proxy": true
+        }
+      ],
+      "clean_clarification": true,
+      "conditional_clarification": false,
+      "review_reason": "Requests relevant identifying information without a fabricated requirement; user follow-up not tested."
+    },
+    {
+      "index": 16,
+      "id": "library-missing-1-it",
+      "final": "Il prestito bibliotecario è restituito quando la data di scadenza prevista è raggiunta. Per informarti su quando è prevista la scadenza, potresti richiedere il prestito bibliotecario.",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 1,
+          "proxy": false
+        }
+      ],
+      "clean_clarification": false,
+      "conditional_clarification": false,
+      "review_reason": "Does not make a clean request for the missing identifier/category; gives an unsupported answer, generic advice, wrong-domain information or an unclear request."
+    },
+    {
+      "index": 17,
+      "id": "library-missing-1-it",
+      "final": "Il prestito bibliotecario è restituito quando la spedizione è completata e il cliente ha completato il processo di restituzione. Per informarti su quando è prevista la restituzione, potresti richiedere informazioni su un prestito specifico. Se hai un codice di prestito, posso aiutarti a verificarlo.",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 2,
+          "proxy": false
+        }
+      ],
+      "clean_clarification": false,
+      "conditional_clarification": false,
+      "review_reason": "Does not make a clean request for the missing identifier/category; gives an unsupported answer, generic advice, wrong-domain information or an unclear request."
+    },
+    {
+      "index": 18,
+      "id": "library-missing-1-it",
+      "final": "Il prestito bibliotecario è scadenza la data prevista di consegna. Se hai un prestito specifico, posso aiutarti a trovare la data prevista di consegna.",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 0,
+          "proxy": false
+        }
+      ],
+      "clean_clarification": false,
+      "conditional_clarification": false,
+      "review_reason": "Does not make a clean request for the missing identifier/category; gives an unsupported answer, generic advice, wrong-domain information or an unclear request."
+    },
+    {
+      "index": 19,
+      "id": "library-missing-2-en",
+      "final": "The library branch closes at 10:00 PM.",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 0,
+          "proxy": false
+        },
+        {
+          "arm": "qwen_only",
+          "order": 2,
+          "proxy": false
+        }
+      ],
+      "clean_clarification": false,
+      "conditional_clarification": false,
+      "review_reason": "Does not make a clean request for the missing identifier/category; gives an unsupported answer, generic advice, wrong-domain information or an unclear request."
+    },
+    {
+      "index": 20,
+      "id": "library-missing-2-en",
+      "final": "The library branch closes at 5:00 PM.",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 1,
+          "proxy": false
+        }
+      ],
+      "clean_clarification": false,
+      "conditional_clarification": false,
+      "review_reason": "Does not make a clean request for the missing identifier/category; gives an unsupported answer, generic advice, wrong-domain information or an unclear request."
+    },
+    {
+      "index": 21,
+      "id": "library-missing-2-it",
+      "final": "La sede della biblioteca chiude le ore 23.00.",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 0,
+          "proxy": false
+        }
+      ],
+      "clean_clarification": false,
+      "conditional_clarification": false,
+      "review_reason": "Does not make a clean request for the missing identifier/category; gives an unsupported answer, generic advice, wrong-domain information or an unclear request."
+    },
+    {
+      "index": 22,
+      "id": "library-missing-2-it",
+      "final": "La sede della biblioteca chiude le ore 23:00.",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 1,
+          "proxy": false
+        },
+        {
+          "arm": "qwen_only",
+          "order": 2,
+          "proxy": false
+        }
+      ],
+      "clean_clarification": false,
+      "conditional_clarification": false,
+      "review_reason": "Does not make a clean request for the missing identifier/category; gives an unsupported answer, generic advice, wrong-domain information or an unclear request."
+    },
+    {
+      "index": 23,
+      "id": "museum-missing-0-en",
+      "final": "The room containing the exhibit is not provided in the query. Please provide the exhibit ID to find the room.",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 2,
+          "proxy": true
+        }
+      ],
+      "clean_clarification": true,
+      "conditional_clarification": false,
+      "review_reason": "Requests relevant identifying information without a fabricated requirement; user follow-up not tested."
+    },
+    {
+      "index": 24,
+      "id": "museum-missing-0-en",
+      "final": "The room containing the exhibit is not specified in the query. Could you provide the exhibit ID?",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 1,
+          "proxy": true
+        }
+      ],
+      "clean_clarification": true,
+      "conditional_clarification": false,
+      "review_reason": "Requests relevant identifying information without a fabricated requirement; user follow-up not tested."
+    },
+    {
+      "index": 25,
+      "id": "museum-missing-0-en",
+      "final": "To find out which room contains the exhibit, I would need the exhibit's ID. Could you please provide the exhibit ID?",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 0,
+          "proxy": true
+        }
+      ],
+      "clean_clarification": true,
+      "conditional_clarification": false,
+      "review_reason": "Requests relevant identifying information without a fabricated requirement; user follow-up not tested."
+    },
+    {
+      "index": 26,
+      "id": "museum-missing-0-it",
+      "final": "La sala in cui si trova l’opera è **Sala 3**.",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 2,
+          "proxy": false
+        }
+      ],
+      "clean_clarification": false,
+      "conditional_clarification": false,
+      "review_reason": "Does not make a clean request for the missing identifier/category; gives an unsupported answer, generic advice, wrong-domain information or an unclear request."
+    },
+    {
+      "index": 27,
+      "id": "museum-missing-1-en",
+      "final": "The ticket price for a museum depends on the ticket type. Could you specify which type of ticket you are interested in?",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 2,
+          "proxy": true
+        }
+      ],
+      "clean_clarification": true,
+      "conditional_clarification": false,
+      "review_reason": "Requests relevant identifying information without a fabricated requirement; user follow-up not tested."
+    },
+    {
+      "index": 28,
+      "id": "museum-missing-1-en",
+      "final": "The ticket price in euros for a ticket category depends on the type of ticket. Could you specify the ticket type (e.g., general admission, VIP, etc.)?",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 1,
+          "proxy": true
+        }
+      ],
+      "clean_clarification": true,
+      "conditional_clarification": false,
+      "review_reason": "Requests relevant identifying information without a fabricated requirement; user follow-up not tested."
+    },
+    {
+      "index": 29,
+      "id": "museum-missing-1-en",
+      "final": "The ticket price in euros for a ticket category is not specified. Could you provide the ticket type?",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 0,
+          "proxy": true
+        }
+      ],
+      "clean_clarification": true,
+      "conditional_clarification": false,
+      "review_reason": "Requests relevant identifying information without a fabricated requirement; user follow-up not tested."
+    },
+    {
+      "index": 30,
+      "id": "museum-missing-1-it",
+      "final": "Il prezzo del biglietto del museo varia in base alla categoria e al tipo di biglietto richiesto. Se hai specificato la categoria (es. \"libri\", \"cinesi\", \"cinesi\"), posso aiutarti a trovare il prezzo.",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 2,
+          "proxy": true
+        }
+      ],
+      "clean_clarification": false,
+      "conditional_clarification": false,
+      "review_reason": "Does not make a clean request for the missing identifier/category; gives an unsupported answer, generic advice, wrong-domain information or an unclear request."
+    },
+    {
+      "index": 31,
+      "id": "museum-missing-1-it",
+      "final": "Il prezzo del biglietto varia in base alla categoria. Se hai un specifico tipo di biglietto (es. adulto, bambino, etc.), posso ti fornire informazioni su quel prezzo.",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 1,
+          "proxy": false
+        }
+      ],
+      "clean_clarification": false,
+      "conditional_clarification": true,
+      "review_reason": "Identifies ticket type as missing and conditionally offers help, but does not explicitly ask the user to provide it. Report as borderline separately."
+    },
+    {
+      "index": 32,
+      "id": "museum-missing-1-it",
+      "final": "Il prezzo in euro del biglietto per una categoria è determinato dal tipo di biglietto (es. adulto, bambino, etc.) e non da un titolo specifico. Se hai un tipo di biglietto in mente, posso aiutarti a trovare il prezzo.",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 0,
+          "proxy": false
+        }
+      ],
+      "clean_clarification": false,
+      "conditional_clarification": true,
+      "review_reason": "Identifies ticket type as missing and conditionally offers help, but does not explicitly ask the user to provide it. Report as borderline separately."
+    },
+    {
+      "index": 33,
+      "id": "museum-missing-2-en",
+      "final": "The museum closes at 5:00 PM.",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 0,
+          "proxy": false
+        },
+        {
+          "arm": "qwen_only",
+          "order": 1,
+          "proxy": false
+        },
+        {
+          "arm": "qwen_only",
+          "order": 2,
+          "proxy": false
+        }
+      ],
+      "clean_clarification": false,
+      "conditional_clarification": false,
+      "review_reason": "Does not make a clean request for the missing identifier/category; gives an unsupported answer, generic advice, wrong-domain information or an unclear request."
+    },
+    {
+      "index": 34,
+      "id": "museum-missing-2-it",
+      "final": "Il museo chiude alle ore 20.00.",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 2,
+          "proxy": false
+        }
+      ],
+      "clean_clarification": false,
+      "conditional_clarification": false,
+      "review_reason": "Does not make a clean request for the missing identifier/category; gives an unsupported answer, generic advice, wrong-domain information or an unclear request."
+    },
+    {
+      "index": 35,
+      "id": "museum-missing-2-it",
+      "final": "Il museo chiude le ore di apertura a partire da 17:00.",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 1,
+          "proxy": false
+        }
+      ],
+      "clean_clarification": false,
+      "conditional_clarification": false,
+      "review_reason": "Does not make a clean request for the missing identifier/category; gives an unsupported answer, generic advice, wrong-domain information or an unclear request."
+    },
+    {
+      "index": 36,
+      "id": "museum-missing-2-it",
+      "final": "Il museo chiude le ore di apertura al termine della giornata.",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 0,
+          "proxy": false
+        }
+      ],
+      "clean_clarification": false,
+      "conditional_clarification": false,
+      "review_reason": "Does not make a clean request for the missing identifier/category; gives an unsupported answer, generic advice, wrong-domain information or an unclear request."
+    },
+    {
+      "index": 37,
+      "id": "parcel-missing-0-en",
+      "final": "I don't have access to the delivery status of your shipment. Please provide the shipment ID for me to check.",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 2,
+          "proxy": true
+        }
+      ],
+      "clean_clarification": true,
+      "conditional_clarification": false,
+      "review_reason": "Requests relevant identifying information without a fabricated requirement; user follow-up not tested."
+    },
+    {
+      "index": 38,
+      "id": "parcel-missing-0-en",
+      "final": "To determine if your shipment has been delivered, I would need the shipment ID. Could you please provide the shipment ID?",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 0,
+          "proxy": true
+        },
+        {
+          "arm": "qwen_only",
+          "order": 1,
+          "proxy": true
+        }
+      ],
+      "clean_clarification": true,
+      "conditional_clarification": false,
+      "review_reason": "Requests relevant identifying information without a fabricated requirement; user follow-up not tested."
+    },
+    {
+      "index": 39,
+      "id": "parcel-missing-0-it",
+      "final": "La consegna della spedizione è stata effettuata.",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 0,
+          "proxy": false
+        },
+        {
+          "arm": "qwen_only",
+          "order": 1,
+          "proxy": false
+        },
+        {
+          "arm": "qwen_only",
+          "order": 2,
+          "proxy": false
+        }
+      ],
+      "clean_clarification": false,
+      "conditional_clarification": false,
+      "review_reason": "Does not make a clean request for the missing identifier/category; gives an unsupported answer, generic advice, wrong-domain information or an unclear request."
+    },
+    {
+      "index": 40,
+      "id": "parcel-missing-1-en",
+      "final": "To find the weight of your parcel, I'll need the shipment ID. Could you please provide the shipment ID?",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 0,
+          "proxy": true
+        }
+      ],
+      "clean_clarification": true,
+      "conditional_clarification": false,
+      "review_reason": "Requests relevant identifying information without a fabricated requirement; user follow-up not tested."
+    },
+    {
+      "index": 41,
+      "id": "parcel-missing-2-en",
+      "final": "I don't have access to your pickup point information. Could you please provide the point ID?",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 0,
+          "proxy": true
+        }
+      ],
+      "clean_clarification": true,
+      "conditional_clarification": false,
+      "review_reason": "Requests relevant identifying information without a fabricated requirement; user follow-up not tested."
+    },
+    {
+      "index": 42,
+      "id": "parcel-missing-2-en",
+      "final": "The pickup point opens at 8:00 AM.",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 1,
+          "proxy": false
+        }
+      ],
+      "clean_clarification": false,
+      "conditional_clarification": false,
+      "review_reason": "Does not make a clean request for the missing identifier/category; gives an unsupported answer, generic advice, wrong-domain information or an unclear request."
+    },
+    {
+      "index": 43,
+      "id": "parcel-missing-2-en",
+      "final": "The pickup point opens at 9:00 AM.",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 2,
+          "proxy": false
+        }
+      ],
+      "clean_clarification": false,
+      "conditional_clarification": false,
+      "review_reason": "Does not make a clean request for the missing identifier/category; gives an unsupported answer, generic advice, wrong-domain information or an unclear request."
+    },
+    {
+      "index": 44,
+      "id": "parcel-missing-2-it",
+      "final": "Il punto di ritiro apre a partire da **10:00**.",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 0,
+          "proxy": false
+        },
+        {
+          "arm": "qwen_only",
+          "order": 1,
+          "proxy": false
+        }
+      ],
+      "clean_clarification": false,
+      "conditional_clarification": false,
+      "review_reason": "Does not make a clean request for the missing identifier/category; gives an unsupported answer, generic advice, wrong-domain information or an unclear request."
+    },
+    {
+      "index": 45,
+      "id": "parcel-missing-2-it",
+      "final": "Il punto di ritiro apre gli orari di apertura a seconda della sede bibliotecaria. Se hai un codice di sede, posso aiutarti a verificarlo.",
+      "trials": [
+        {
+          "arm": "qwen_only",
+          "order": 2,
+          "proxy": false
+        }
+      ],
+      "clean_clarification": false,
+      "conditional_clarification": false,
+      "review_reason": "Does not make a clean request for the missing identifier/category; gives an unsupported answer, generic advice, wrong-domain information or an unclear request."
+    }
+  ]
+}

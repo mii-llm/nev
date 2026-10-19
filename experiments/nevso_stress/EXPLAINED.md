@@ -69,9 +69,14 @@ On that panel, Nesso3 alone scored 19/90 EN and 21/90 IT. Nev-selected scored
 16/90 EN and 18/90 IT. There is no improvement in these point estimates, although
 the small paired comparison does not establish a general regression. The
 success on authored catalogs does not automatically transfer to these APIs.
-Qwen3-0.6B is now being run on the same frozen test to put this difficulty in
-context. Model size is only one difference between generators; this comparison
-does not isolate size from training or architecture.
+Qwen3-0.6B completed the same test and scored **45/90 EN (50.0%) and 43/90 IT
+(47.8%)** on BFCL calls. Small parameter count alone therefore does not explain
+the gap; this comparison still does not isolate size from training or
+architecture. On the authored panel Qwen made 44/60 correct calls in English
+and 45/60 in Italian, while passing answer checks on 44/60 and 43/60. Nev-selected
++ Nesso3 has stronger English tool-call accuracy, but Qwen more often turns
+successful calls into complete answers under these checks. See the
+[full Qwen comparison](qwen_baseline/REVIEW.md).
 
 ## Other scores need care
 

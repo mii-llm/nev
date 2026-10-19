@@ -141,3 +141,21 @@ output `results/qwen3-stress-a100-20261019`, and sibling log
 Results are pending at this entry. Check status/count before claiming completion,
 preserve all evidence, and review Qwen clarification outputs using the same
 review criteria before comparing them with reviewed Nesso clarification scores.
+
+
+### Qwen comparison completed
+
+All 600 Qwen trials completed on 19 October, 16:41:00–16:52:29 UTC (11m29s),
+without infrastructure errors. Evidence and the reviewed interpretation are in
+[qwen_baseline/REVIEW.md](../../experiments/nevso_stress/qwen_baseline/REVIEW.md).
+Qwen BFCL calls: 45/90 EN, 43/90 IT. Authored confusable correct calls: 44/60 EN,
+45/60 IT; answer proxy: 44/60 EN, 43/60 IT. Nev-selected + Nesso3 remains stronger
+on authored English executed calls (56/60), but not its answer proxy (41/60).
+Qwen dependent completion was 0/60 in the unchanged controller; sampled outputs
+attempted the dependent call with placeholders in the same batch as the lookup.
+
+All 90 Qwen clarification trials were assistant-reviewed: clean clarification
+20/45 EN, 0/45 IT; two additional Italian responses were borderline conditional
+offers about ticket type (2/45 if accepted). Preserve labels and the explicit
+rubric, not just raw proxy counts. No blanket model superiority claim. Nev +
+Qwen remains an untested possible follow-up, not a completed experiment.
