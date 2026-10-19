@@ -6,6 +6,8 @@ language, runtime tool schemas, and an executor callback. It receives no task
 category, expected plan, answer anchor, or case ID. All final prose is generated
 by Nesso3. The mock executor is deliberately separate from the evaluation labels.
 
+For the newer three-arm greenhouse comparison and the simple `examples/nevso_demo.py` entry point, see the [Nevso GPU guide](../../docs/nevso/GPU_GUIDE.md).
+
 ## Run
 
 In the prepared A100 environment, with both pinned models already cached:

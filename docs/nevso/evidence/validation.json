@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-19",
+  "gpu_full_trials": 72,
+  "gpu_full_status": "complete",
+  "controller_unit_tests": {
+    "passed": 7,
+    "environment": "A100 prepared Python environment",
+    "command": "python -m unittest discover -s experiments/abstract_agent -p 'test_runtime.py' -v"
+  },
+  "gpu_subset_and_cli": "All three arms reproduce full-run calls, final text, scores and tool order.",
+  "mac_q8_regression": "All three Italian pH arms reproduce previous calls, final text and scores.",
+  "wrapper_sha256": "2bc601af2def7f207028b38bd5d823a9aacc28368ce4f061fcd78985790e3bfd",
+  "suite_sha256": "592b9247f41757d2adff628dda0a1feaabb2342e1b128a2036c24a0749abf2bf",
+  "controller_sources_identical": true,
+  "source_hashes_verified": true
+}

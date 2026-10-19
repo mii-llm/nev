@@ -36,8 +36,8 @@
     "sha256": "14b5910ba72fd9b2cab344a51ef64e7e74498283922767c08aef2ac40868ef1a"
   },
   "README.md": {
-    "bytes": 8320,
-    "sha256": "e86797ccb45f8cc604b895faca6c9a4a0801a53d6c5ff14d8b03c563f646ae4c"
+    "bytes": 8860,
+    "sha256": "a60f8e1a97fee99bf8683aae4281292fb28bbb0d8888280742da85c6822e2711"
   },
   "SCENARIO_RESULTS.md": {
     "bytes": 2828,
@@ -419,6 +419,46 @@
     "bytes": 2898,
     "sha256": "65156546e2cf6ea409eb2b6f0fb3bd7a9de1d6cb62fc2a57024b85aa65cf1d3e"
   },
+  "docs/nevso/GPU_GUIDE.md": {
+    "bytes": 8182,
+    "sha256": "5df8fcf14d6a108578fbb1d052727814080cab1c6bf0d19b6bfbe8d5903ce026"
+  },
+  "docs/nevso/RELEASE_PLAN.md": {
+    "bytes": 4188,
+    "sha256": "6b910e263113d08bd083099c33fddf170a58f2110a1815630d18414de78eeb94"
+  },
+  "docs/nevso/evidence/cpu-regression.json": {
+    "bytes": 50586,
+    "sha256": "e2cb1dcd61905bab2aa25e3be569907c9f75c43982dd8f158d449a36544a377b"
+  },
+  "docs/nevso/evidence/greenhouse-a100.json": {
+    "bytes": 333056,
+    "sha256": "e25660f90f9ce5dde5a2778683819a12797f9a59ac39e59ff8a3655193770671"
+  },
+  "docs/nevso/evidence/greenhouse-a100.txt": {
+    "bytes": 81396,
+    "sha256": "82154f8b2b4e25b6fb573f9e21b2cb0981c558e3ec2c5de151ccd8563914517e"
+  },
+  "docs/nevso/evidence/greenhouse-ph-it-a100.json": {
+    "bytes": 50986,
+    "sha256": "bd1ba0cd32f0aa60af8edd625767cd4338c9636d4c9b884295b7ea79f5dd7635"
+  },
+  "docs/nevso/evidence/greenhouse-ph-it-a100.txt": {
+    "bytes": 3023,
+    "sha256": "e20621788af88d8db36be6247d67358859c0f8ec6eb9736886e4f4f3a8c92162"
+  },
+  "docs/nevso/evidence/nevso-cli-ph-it-a100.json": {
+    "bytes": 50978,
+    "sha256": "dc751afa1d09664ffed90e4fc28a77953fb1bb71acc7003f4f60c23e60e127eb"
+  },
+  "docs/nevso/evidence/nevso-cli-ph-it-a100.txt": {
+    "bytes": 3023,
+    "sha256": "343375e27bfc8e730cd24d7c07403f69962289c0983d2ddfe3f7969c08c0137f"
+  },
+  "docs/nevso/evidence/validation.json": {
+    "bytes": 742,
+    "sha256": "c6505c07fb7144a5b7f43cda23e41a0e28a1a8179f5304c979285c85e60a7aa7"
+  },
   "environment.json": {
     "bytes": 411,
     "sha256": "66b71701a8aae70a895e44a7c048b0b7cdf9c404d127e72d414f0da27eabdbb6"
@@ -458,6 +498,10 @@
   "examples/lumi_scenarios.sbatch": {
     "bytes": 1160,
     "sha256": "43a8fdc557fbceed3e46ef3a02edeb34877aa8b13fb5aa80ee7a4bea54245fce"
+  },
+  "examples/nevso_demo.py": {
+    "bytes": 773,
+    "sha256": "2bc601af2def7f207028b38bd5d823a9aacc28368ce4f061fcd78985790e3bfd"
   },
   "examples/reference_candidates.json": {
     "bytes": 33669,
@@ -500,12 +544,12 @@
     "sha256": "992f332b16e728dd25bc9bdaf847353a9e2aa7d0eec19ad894dbaa5d4f0b679c"
   },
   "experiments/abstract_agent/README.md": {
-    "bytes": 6445,
-    "sha256": "06b2df32606c412fa6f31e29abf29d62652b461d344907eefb824d46535220ba"
+    "bytes": 6603,
+    "sha256": "7ddd93ab917595ca87dc1a8ab9824c47fcf405810ac7a5db0d0c1b70cdccf73e"
   },
   "experiments/abstract_agent/backend.py": {
-    "bytes": 4129,
-    "sha256": "e8e8dcbb2900214013764bc0f2c26341740e5afc15380aaba4d29209bd0e358c"
+    "bytes": 4550,
+    "sha256": "0901ff98fed9f66d969898f4568a1c5674d49a1382eb865f39040979ae82df3b"
   },
   "experiments/abstract_agent/build_cases.py": {
     "bytes": 9392,
@@ -556,8 +600,8 @@
     "sha256": "7f2d9b63a2c6752fb6716d42b57a26be1f837456cb0eed42f4fb652417d778e6"
   },
   "experiments/cpu_gguf/GREENHOUSE_COMPARISON.md": {
-    "bytes": 7854,
-    "sha256": "ee82d51062d6984f16c1d77e1c80fd07f576372074e6592647a44d7ada315305"
+    "bytes": 8041,
+    "sha256": "18857499ffe839913536031fce02fcac8ca773440d4eaf35a9d8b4cfcac9148f"
   },
   "experiments/cpu_gguf/HF_MODEL_CARD.md": {
     "bytes": 626,
@@ -596,8 +640,8 @@
     "sha256": "b2e3c21ba69ced03f898834aa9ce934a80fe2cc7bb75bed8d9b5b8367169bb06"
   },
   "experiments/cpu_gguf/compare_routing.py": {
-    "bytes": 7268,
-    "sha256": "567728c4a351e1f21420ebf12e3c8671cae3840a850ab0e9ab2a41a9edac8a24"
+    "bytes": 8940,
+    "sha256": "3cc14e69c0c9b1a302a06b0026b5d06455e890dadbc912f1ea0dbac04852b834"
   },
   "experiments/cpu_gguf/cpu_backend.py": {
     "bytes": 7516,

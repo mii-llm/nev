@@ -14,18 +14,20 @@ class Backend:
         from huggingface_hub import snapshot_download
         from decision_model import DecisionModel
         self.torch=torch
+        self.generation_metrics=[]
         free,total=torch.cuda.mem_get_info();cap=4*1024**3
         if free<cap:raise RuntimeError('Need 4 GiB free GPU memory')
         torch.cuda.set_per_process_memory_fraction(cap/total)
-        path=snapshot_download(GENERATOR[0],revision=GENERATOR[1],allow_patterns=['*.json','*.safetensors','*.jinja','tokenizer.model'],local_files_only=True)
+        path=snapshot_download(GENERATOR[0],revision=GENERATOR[1],allow_patterns=['*.json','*.safetensors','*.jinja','tokenizer.model'],local_files_only=True,token=False)
         self.tokenizer=AutoTokenizer.from_pretrained(path,local_files_only=True)
         self.generator=AutoModelForCausalLM.from_pretrained(path,dtype=torch.bfloat16,attn_implementation='sdpa',local_files_only=True).to('cuda').eval()
         self.memory={'after_generator_mib':torch.cuda.memory_allocated()/1024**2}
-        npath=Path(snapshot_download(NEV[0],revision=NEV[1],allow_patterns=['v3/**'],local_files_only=True))/'v3'
+        npath=Path(snapshot_download(NEV[0],revision=NEV[1],allow_patterns=['v3/**'],local_files_only=True,token=False))/'v3'
         self.nev=DecisionModel.from_pretrained(npath,device='cuda')
         self.memory['after_both_models_mib']=torch.cuda.memory_allocated()/1024**2
     def synchronize(self):self.torch.cuda.synchronize()
     def generate(self,messages):
+        self.synchronize();start=time.perf_counter()
         prompt=self.tokenizer.apply_chat_template(messages,tokenize=False,add_generation_prompt=True)
         inputs=self.tokenizer(prompt,return_tensors='pt',add_special_tokens=True).to('cuda');ids=inputs['input_ids'][0]
         if ids[0].item()!=self.tokenizer.bos_token_id or ids[1].item()==self.tokenizer.bos_token_id:raise RuntimeError('BOS contract mismatch')
@@ -34,6 +36,9 @@ class Backend:
                 eos_token_id=self.tokenizer.eos_token_id,pad_token_id=self.tokenizer.pad_token_id)
         generated=out[0,ids.shape[0]:]
         text=self.tokenizer.decode(generated,skip_special_tokens=False)
+        self.synchronize()
+        self.generation_metrics.append({'prompt_tokens':int(ids.shape[0]),'generated_tokens':int(len(generated)),
+            'elapsed_ms':(time.perf_counter()-start)*1000})
         return re.split(r'<\|eot_id\|>|<\|end_of_text\|>',text)[0].strip(),len(generated),len(generated)==192
     def rank(self,request,language,tools,executed,observations,gate):
         criteria={s['function']['name']:s['function']['description']+' '+json.dumps(s['function']['parameters'],ensure_ascii=False,separators=(',',':')) for s in tools}
@@ -48,3 +53,8 @@ class Backend:
         with self.torch.inference_mode():result=self.nev.evaluate(state=state,questions={'next':{'type':'choice','instructions':instructions,'criteria':criteria}})
         self.synchronize();a=result['answers']['next']
         return {'choice':a['choice'],'probabilities':a['probabilities'],'elapsed_ms':(time.perf_counter()-start)*1000}
+
+    def close(self):
+        del self.generator
+        del self.nev
+        self.torch.cuda.empty_cache()

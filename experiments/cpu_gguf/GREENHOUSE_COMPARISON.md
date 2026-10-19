@@ -17,6 +17,8 @@ irrigation schedules, tank levels, crop names, planting dates, harvest dates,
 ventilation state and fertilizer schedules. They do not actuate equipment or
 provide agricultural recommendations. Every tool is a local read-only mock.
 
+For the same frozen example on NVIDIA GPUs, see the [GPU guide](../../docs/nevso/GPU_GUIDE.md). GPU measurements use native BF16/FP32 models and are kept separate from these Q8 results.
+
 ## Run on Mac CPU
 
 After the existing setup, from `experiments/cpu_gguf`:

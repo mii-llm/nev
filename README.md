@@ -85,6 +85,15 @@ Request → Nev ranks tools → Nesso3 proposes a call
         → controller validates and runs a tool → Nesso3 answers
 ```
 
+**[Try the GPU example](docs/nevso/GPU_GUIDE.md)** — the working preview for the planned **Nevso** agent. On the A100 greenhouse demonstration, Nev ranking improved exact tool calls from **13/24 to 23/24**, with **22/24 factually successful tasks** versus 12/24 for Nesso3 alone. The guide includes installation, bilingual examples, every trace, and failures.
+
+After caching both models as shown in the GPU guide:
+
+```bash
+python examples/nevso_demo.py --case read_soil_ph-it \
+  --output "results/nevso-$(date +%Y%m%d-%H%M%S).json"
+```
+
 Try the complete CPU example from `experiments/cpu_gguf`:
 
 ```bash

@@ -1,4 +1,4 @@
-"""Compare Nesso3 with all tools, Nev ordering, and a Nev-selected single tool on CPU."""
+"""Compare Nesso3 with all tools, Nev ordering, and a Nev-selected single tool on Mac CPU or CUDA."""
 import argparse
 import hashlib
 import json
@@ -35,7 +35,8 @@ def summarize(rows):
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--precision', choices=['q8', 'f16'], default='q8')
+    p.add_argument('--engine', choices=['gguf', 'cuda'], default='gguf')
+    p.add_argument('--precision', choices=['q8', 'f16'], default='q8', help='GGUF only; CUDA uses Nesso3 BF16 and Nev FP32')
     p.add_argument('--threads', type=int, default=4)
     p.add_argument('--suite', type=Path, help='JSON with cases and toolsets; defaults to the original notes/sensors/music suite')
     p.add_argument('--language', choices=['en', 'it', 'both'], default='both')
@@ -44,10 +45,21 @@ def main():
     a = p.parse_args()
     if a.output.exists() or a.output.with_suffix('.txt').exists():
         p.error('Choose a new output filename; existing results are preserved')
-    os.environ['USE_TORCH'] = '0'
+    os.environ['USE_TORCH'] = '1' if a.engine == 'cuda' else '0'
     os.environ['HF_HUB_OFFLINE'] = '1'
     os.environ['TOKENIZERS_PARALLELISM'] = 'false'
-    from cpu_backend import Backend, ROOT
+    ROOT = Path(__file__).resolve().parent
+    if a.engine == 'cuda':
+        import importlib.util
+        spec = importlib.util.spec_from_file_location('nev_cuda_backend', ROOT.parent/'abstract_agent/backend.py')
+        cuda_module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(cuda_module)
+        Backend = cuda_module.Backend
+        release = {'generator': dict(zip(['repository', 'revision'], cuda_module.GENERATOR)),
+                   'nev': dict(zip(['repository', 'revision'], cuda_module.NEV)), 'variant': 'v3'}
+    else:
+        from cpu_backend import Backend
+        release = json.loads((ROOT/'release.json').read_text())
     from abstract_agent.runtime import GenericAgent, render
     from abstract_agent.fixtures import FixtureExecutor
     cases_path = a.suite.resolve() if a.suite else ROOT/'routing_cases.json'
@@ -65,14 +77,15 @@ def main():
         if len(names) != len(set(names)) or not names:
             p.error('Suite needs unique tool names for each language')
     responses = [r for name in domains for r in kits[name]['responses']]
-    report = {'status': 'incomplete', 'scope': data['scope'], 'precision': a.precision,
-              'threads': a.threads, 'cpu_only': True,
+    report = {'status': 'incomplete', 'scope': data['scope'], 'engine': a.engine,
+              'precision': a.precision if a.engine == 'gguf' else 'nesso3_bf16_nev_fp32',
+              'threads': a.threads if a.engine == 'gguf' else None, 'cpu_only': a.engine == 'gguf',
               'method': 'Same tool registry, requests, generator, validation, mocks and turn limits. Nev ranks once before generation; selected arm exposes only its top tool for this supported single-tool task. Rotated arm order; fixed seeded registry order. No answer keys passed to either model. Both models resident in every arm. Timings include Nev but exclude loading and warmup. Answer anchors are a proxy requiring manual review.',
               'source_sha256': {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
-                                for name in ['compare_routing.py', 'cpu_backend.py',
-                                             'abstract_agent/runtime.py', 'release.json']
+                                for name in ['compare_routing.py', 'abstract_agent/runtime.py']
+                                + (['../abstract_agent/backend.py'] if a.engine == 'cuda' else ['cpu_backend.py', 'release.json'])
                                 + ([] if a.suite else ['routing_cases.json', 'abstract_agent/toolsets.json'])},
-              'release': json.loads((ROOT/'release.json').read_text()),
+              'release': release,
               'runner_source': Path(__file__).read_text(),
               'suite': data if a.suite else None,
               'suite_sha256': hashlib.sha256(cases_path.read_bytes()).hexdigest(), 'rows': []}
@@ -81,8 +94,14 @@ def main():
         report['summary'] = summarize(report['rows'])
         a.output.write_text(json.dumps(report, ensure_ascii=False, indent=2)+'\n')
     started = time.perf_counter()
-    backend = Backend(a.precision, a.threads)
+    backend = Backend() if a.engine == 'cuda' else Backend(a.precision, a.threads)
     report['load_seconds'] = time.perf_counter()-started
+    if a.engine == 'cuda':
+        import subprocess
+        report['gpu'] = subprocess.check_output(['nvidia-smi', '--query-gpu=name,memory.total,memory.used,utilization.gpu', '--format=csv'], text=True)
+        report['torch_version'] = backend.torch.__version__
+        report['model_memory_mib'] = backend.memory
+        report['timing_note'] = 'Shared A100; synchronized request timings. Not directly comparable to CPU Q8: different precision, kernels and workload contention.'
     try:
         backend.generate([{'role': 'system', 'content': 'Reply briefly.'},
                           {'role': 'user', 'content': 'Hello.'}])
@@ -112,6 +131,9 @@ def main():
                 print(f"{case['id']} {arm}: {row['score']} {row['total_ms']/1000:.2f}s", flush=True)
         report['status'] = 'complete'
     finally:
+        if a.engine == 'cuda':
+            report['peak_allocated_mib'] = backend.torch.cuda.max_memory_allocated()/1024**2
+            report['peak_reserved_mib'] = backend.torch.cuda.max_memory_reserved()/1024**2
         backend.close()
         save()
         a.output.with_suffix('.txt').write_text('\n\n' + ('\n\n'+'='*70+'\n\n').join(
