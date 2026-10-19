@@ -59,6 +59,66 @@ On a separate **synthetic 16-intent/routing panel**, the v3 export reached **54.
 
 These are different workloads from small diagnostic runs, excluding model loading. F16 preserved **24/24** tested Nev decisions versus FP32; Q8 preserved **23/24**. The Q8 Nev backbone is approximately **451 MiB**; both Q8 models together are approximately **902 MiB**. File size is not total memory use.
 
+## Use Nev with Nesso3: a bilingual agent
+
+Use **Nev to rank the available functions** and **Nesso3 to generate the call and answer**. This is the working preview of **Nevso**, our planned agent combining the two models. The greenhouse example supplies 12 tools through JSON; the same controller can use another tool catalog.
+
+```text
+Request → Nev ranks tools → Nesso3 generates the function and arguments
+        → controller validates and runs a mock tool → Nesso3 answers
+```
+
+### Run it on an NVIDIA GPU
+
+Complete **Get started** above, then run these commands from the **GitHub checkout directory `nev/`**, using a CUDA-enabled PyTorch 2.10 environment with at least **4 GiB free GPU memory**. The code comes from GitHub; the two public model downloads come from Hugging Face, with no login required.
+
+```bash
+python -m pip install -r experiments/abstract_agent/requirements.txt
+python examples/hf_decide.py --variant v3 --download-only
+python - <<'PYTHON'
+from huggingface_hub import snapshot_download
+snapshot_download(
+    'mii-llm/nesso3-0.4B-agentic',
+    revision='56f42f1c7eb82fbd48b0c4ee46aae7b8bed203b8',
+    allow_patterns=['*.json', '*.safetensors', '*.jinja', 'tokenizer.model'],
+    token=False,
+)
+PYTHON
+
+# Italian: compare Nesso3 alone, Nev-ranked tools, and Nev-selected tools.
+RUN="results/nevso-$(date +%Y%m%d-%H%M%S)"
+python examples/nevso_demo.py --case read_soil_ph-it --output "$RUN-it.json"
+cat "$RUN-it.txt"
+
+# English: retrieve a water-tank reading.
+python examples/nevso_demo.py --case read_water_tank_level-en --output "$RUN-en.json"
+cat "$RUN-en.txt"
+```
+
+The runner creates the results directory. Each `.txt` file shows the request, Nev's selection, Nesso3's calls, mock observations and final answer; `.json` stores the full results. Omit `--case` to run all 24 English/Italian requests. Use a new output filename for each run.
+
+### What the combination improves
+
+These selected examples come from the recorded A100 run:
+
+| Language | Request | Nesso3 alone | Nev-ranked + Nesso3 |
+| --- | --- | --- | --- |
+| IT | Leggi il pH del terreno nell’aiuola B-73. | Calls the moisture tool and answers **38%**, the wrong measurement. | Calls `read_soil_ph(bed_id="B-73")` and answers **6.4**. |
+| EN | What percentage of water remains in tank W-26? | Chooses the wrong tool and reports the level was not found. | Calls `read_water_tank_level(tank_id="W-26")` and answers **81%**. |
+
+Across the full **24-request demonstration** on a shared A100, using Nesso3 BF16 + Nev v3 FP32:
+
+| Result | Nesso3 alone | Nev-ranked + Nesso3 |
+| --- | ---: | ---: |
+| Exact tool calls, English | 7/12 | **12/12** |
+| Exact tool calls, Italian | 6/12 | **11/12** |
+| Reviewed factual task success | 12/24 | **22/24** |
+| Warm median request | 1.38 s | **1.44 s** |
+
+These are authored examples with read-only mock tools. The factual scores come from assistant trace review; requiring the requested date format reduces combined task success to **19/24**. Wrong calls and incorrect final answers remain in the full results. Shared-GPU timings exclude loading and are illustrative.
+
+The **[GPU guide](docs/nevso/GPU_GUIDE.md)** includes fresh-environment installation, all traces and failures. For the Mac Q8 version, use the **[CPU guide](experiments/cpu_gguf/README.md)**; after its setup, the same example accepts `--engine gguf --precision q8`.
+
 ## English and Italian in action
 
 These selected examples passed on both variants; outputs shown are from v3. The application supplies the candidate labels.
@@ -75,38 +135,6 @@ These selected examples passed on both variants; outputs shown are from v3. The 
 | Banking intent | IT | Il bancomat ha addebitato il mio conto, ma non ha erogato contanti. Come posso segnalare il prelievo non riuscito? | `cash_withdrawal` |
 
 Nev selects the function; the application supplies arguments and controls execution. Full inputs and candidate labels are in `examples/reference_examples.json`. These are curated successes, not a representative accuracy sample.
-
-## Add Nesso3 for an agent workflow
-
-Pair Nev with [Nesso3-0.4B-agentic](https://huggingface.co/mii-llm/nesso3-0.4B-agentic) to combine decisions and generation:
-
-```text
-Request → Nev ranks tools → Nesso3 proposes a call
-        → controller validates and runs a tool → Nesso3 answers
-```
-
-**[Try the GPU example](docs/nevso/GPU_GUIDE.md)** — the working preview for the planned **Nevso** agent. On the A100 greenhouse demonstration, Nev ranking improved exact tool calls from **13/24 to 23/24**, with **22/24 factually successful tasks** versus 12/24 for Nesso3 alone. The guide includes installation, bilingual examples, every trace, and failures.
-
-After caching both models as shown in the GPU guide:
-
-```bash
-python examples/nevso_demo.py --case read_soil_ph-it \
-  --output "results/nevso-$(date +%Y%m%d-%H%M%S).json"
-```
-
-Try the complete CPU example from `experiments/cpu_gguf`:
-
-```bash
-./setup.sh --model both --precision q8
-./run.sh --precision q8 --language both
-.venv/bin/python test_smoke.py --precision q8
-```
-
-The English and Italian sensor examples both return **18.2°C** from a simulated tool result. All demo tools are read-only mocks. On the 12-request diagnostic, the combined workflow executed 9/10 supported plans and produced 7/10 fully grounded answers; correct unsupported-action refusals were 0/2. The controller validates calls, but does not guarantee a correct final answer.
-
-For a measured comparison with Nesso3 alone, try the **[12-tool routing example](experiments/cpu_gguf/ROUTING_COMPARISON.md)**. Nev selects one tool, and Nesso3 generates its call and answer. Across 24 authored English/Italian requests on Mac CPU, exact execution improved from **18/24 to 22/24** and reviewed task success from **14/24 to 20/24**, with all failures retained.
-
-Nesso3 also runs independently with `generate.py`. Its [GGUF release](https://huggingface.co/mii-llm/nesso3-0.4B-agentic-gguf) has standalone instructions.
 
 ## From foundation to decision model
 

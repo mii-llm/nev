@@ -50,7 +50,7 @@ The default generator is now `mii-llm/nesso3-0.4B-agentic`, pinned to
 unchanged. Current runners use Nesso3; the older Nesso2 comparison is retained
 in the historical evidence and earlier Git revisions.
 
-Read the [root README](../../README.md#add-nesso3-for-an-agent-workflow)
+Read the [root README](../../README.md#use-nev-with-nesso3-a-bilingual-agent)
 for the current combination workflow and [every readable trace](../../docs/nesso3/SIMPLE_TRACES.md)
 for all eight candidates in both modes. Eight examples were frozen before the
 run: four domains, exactly four English and four Italian requests. Both modes
