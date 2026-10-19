@@ -1,0 +1,755 @@
+{
+  "cases": [
+    {
+      "id": "pilot-read_soil_ph-en",
+      "language": "en",
+      "request": "Read the soil pH in bed B-73.",
+      "expected_calls": [
+        {
+          "name": "read_soil_ph",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "6.4",
+          "6,4"
+        ]
+      ],
+      "pair_id": "pilot-greenhouse-ph",
+      "category": "confusable",
+      "source": "pilot_reused",
+      "domain": "greenhouse",
+      "schemas": [
+        {
+          "type": "function",
+          "function": {
+            "name": "read_air_temperature",
+            "description": "Read the air temperature in degrees Celsius for a greenhouse zone.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "zone_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "zone_id"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "read_air_humidity",
+            "description": "Read the relative air humidity percentage for a greenhouse zone.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "zone_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "zone_id"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "read_soil_moisture",
+            "description": "Read the soil moisture percentage in a planting bed.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "bed_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "bed_id"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "read_soil_ph",
+            "description": "Read the soil pH measurement for a planting bed.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "bed_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "bed_id"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "read_light_level",
+            "description": "Read the light level in lux for a greenhouse zone.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "zone_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "zone_id"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "get_irrigation_schedule",
+            "description": "Read the next scheduled watering time for a planting bed. Does not start watering.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "bed_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "bed_id"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "read_water_tank_level",
+            "description": "Read the percentage of water remaining in a storage tank.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "tank_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "tank_id"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "get_crop_name",
+            "description": "Read the crop planted in a specific bed.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "bed_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "bed_id"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "get_planting_date",
+            "description": "Read the recorded date when a planting bed was planted.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "bed_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "bed_id"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "get_harvest_date",
+            "description": "Read the planned harvest date for a planting bed.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "bed_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "bed_id"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "get_ventilation_status",
+            "description": "Read whether the ventilation fan in a greenhouse zone is running or stopped. Does not control it.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "zone_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "zone_id"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "get_fertilizer_schedule",
+            "description": "Read the next scheduled fertilizer application time for a planting bed. Does not apply fertilizer.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "bed_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "bed_id"
+              ]
+            }
+          }
+        }
+      ],
+      "expected_behavior": "answer"
+    },
+    {
+      "id": "pilot-read_soil_ph-it",
+      "language": "it",
+      "request": "Leggi il pH del terreno nell’aiuola B-73.",
+      "expected_calls": [
+        {
+          "name": "read_soil_ph",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "answer_anchor_groups": [
+        [
+          "6.4",
+          "6,4"
+        ]
+      ],
+      "pair_id": "pilot-greenhouse-ph",
+      "category": "confusable",
+      "source": "pilot_reused",
+      "domain": "greenhouse",
+      "schemas": [
+        {
+          "type": "function",
+          "function": {
+            "name": "read_air_temperature",
+            "description": "Leggi la temperatura dell’aria in gradi Celsius di una zona della serra.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "zone_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "zone_id"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "read_air_humidity",
+            "description": "Leggi la percentuale di umidità relativa dell’aria in una zona della serra.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "zone_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "zone_id"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "read_soil_moisture",
+            "description": "Leggi la percentuale di umidità del terreno in un’aiuola.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "bed_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "bed_id"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "read_soil_ph",
+            "description": "Leggi il valore del pH del terreno in un’aiuola.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "bed_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "bed_id"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "read_light_level",
+            "description": "Leggi il livello di illuminazione in lux di una zona della serra.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "zone_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "zone_id"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "get_irrigation_schedule",
+            "description": "Leggi il prossimo orario di irrigazione programmato per un’aiuola. Non avvia l’irrigazione.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "bed_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "bed_id"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "read_water_tank_level",
+            "description": "Leggi la percentuale di acqua rimasta in un serbatoio.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "tank_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "tank_id"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "get_crop_name",
+            "description": "Leggi il nome della coltura piantata in una specifica aiuola.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "bed_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "bed_id"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "get_planting_date",
+            "description": "Leggi la data registrata della semina in un’aiuola.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "bed_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "bed_id"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "get_harvest_date",
+            "description": "Leggi la data di raccolta prevista per un’aiuola.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "bed_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "bed_id"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "get_ventilation_status",
+            "description": "Leggi se la ventola di ventilazione di una zona della serra è in funzione o ferma. Non la comanda.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "zone_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "zone_id"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "get_fertilizer_schedule",
+            "description": "Leggi il prossimo orario programmato di concimazione di un’aiuola. Non applica fertilizzante.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "bed_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "bed_id"
+              ]
+            }
+          }
+        }
+      ],
+      "expected_behavior": "answer"
+    },
+    {
+      "id": "pilot-call-en",
+      "pair_id": "pilot-call",
+      "category": "external_single",
+      "source": "pilot_authored",
+      "domain": "arithmetic",
+      "schemas": [
+        {
+          "type": "function",
+          "function": {
+            "name": "multiply",
+            "description": "Multiply two integers.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "a": {
+                  "type": "integer"
+                },
+                "b": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "a",
+                "b"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "add",
+            "description": "Add two integers.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "a": {
+                  "type": "integer"
+                },
+                "b": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "a",
+                "b"
+              ]
+            }
+          }
+        }
+      ],
+      "request": "Multiply 7 by 8.",
+      "language": "en",
+      "expected_behavior": "call_only",
+      "reference": {
+        "multiply": {
+          "a": [
+            7
+          ],
+          "b": [
+            8
+          ]
+        }
+      }
+    },
+    {
+      "id": "pilot-call-it",
+      "pair_id": "pilot-call",
+      "category": "external_single",
+      "source": "pilot_authored",
+      "domain": "arithmetic",
+      "schemas": [
+        {
+          "type": "function",
+          "function": {
+            "name": "multiply",
+            "description": "Multiply two integers.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "a": {
+                  "type": "integer"
+                },
+                "b": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "a",
+                "b"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "add",
+            "description": "Add two integers.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "a": {
+                  "type": "integer"
+                },
+                "b": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "a",
+                "b"
+              ]
+            }
+          }
+        }
+      ],
+      "request": "Moltiplica 7 per 8.",
+      "language": "it",
+      "expected_behavior": "call_only",
+      "reference": {
+        "multiply": {
+          "a": [
+            7
+          ],
+          "b": [
+            8
+          ]
+        }
+      }
+    }
+  ],
+  "fixtures": [
+    {
+      "call": {
+        "name": "read_air_temperature",
+        "arguments": {
+          "zone_id": "Z-41"
+        }
+      },
+      "result": {
+        "temperature_c": 24.7
+      }
+    },
+    {
+      "call": {
+        "name": "read_air_humidity",
+        "arguments": {
+          "zone_id": "Z-41"
+        }
+      },
+      "result": {
+        "relative_humidity_percent": 62
+      }
+    },
+    {
+      "call": {
+        "name": "read_soil_moisture",
+        "arguments": {
+          "bed_id": "B-73"
+        }
+      },
+      "result": {
+        "soil_moisture_percent": 38
+      }
+    },
+    {
+      "call": {
+        "name": "read_soil_ph",
+        "arguments": {
+          "bed_id": "B-73"
+        }
+      },
+      "result": {
+        "soil_ph": 6.4
+      }
+    },
+    {
+      "call": {
+        "name": "read_light_level",
+        "arguments": {
+          "zone_id": "Z-41"
+        }
+      },
+      "result": {
+        "light_lux": 12500
+      }
+    },
+    {
+      "call": {
+        "name": "get_irrigation_schedule",
+        "arguments": {
+          "bed_id": "B-73"
+        }
+      },
+      "result": {
+        "next_watering_time": "06:30"
+      }
+    },
+    {
+      "call": {
+        "name": "read_water_tank_level",
+        "arguments": {
+          "tank_id": "W-26"
+        }
+      },
+      "result": {
+        "water_remaining_percent": 81
+      }
+    },
+    {
+      "call": {
+        "name": "get_crop_name",
+        "arguments": {
+          "bed_id": "B-73"
+        }
+      },
+      "result": {
+        "crop_en": "basil",
+        "crop_it": "basilico"
+      }
+    },
+    {
+      "call": {
+        "name": "get_planting_date",
+        "arguments": {
+          "bed_id": "B-73"
+        }
+      },
+      "result": {
+        "planting_date": "2026-09-02"
+      }
+    },
+    {
+      "call": {
+        "name": "get_harvest_date",
+        "arguments": {
+          "bed_id": "B-73"
+        }
+      },
+      "result": {
+        "harvest_date": "2026-11-18"
+      }
+    },
+    {
+      "call": {
+        "name": "get_ventilation_status",
+        "arguments": {
+          "zone_id": "Z-41"
+        }
+      },
+      "result": {
+        "fan_status": "running"
+      }
+    },
+    {
+      "call": {
+        "name": "get_fertilizer_schedule",
+        "arguments": {
+          "bed_id": "B-73"
+        }
+      },
+      "result": {
+        "next_fertilizer_time": "17:45"
+      }
+    }
+  ]
+}

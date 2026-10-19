@@ -1,0 +1,16 @@
+{
+  "repository": "https://github.com/ShishirPatil/gorilla",
+  "revision": "6ea57973c7a6097fd7c5915698c54c17c5b1b6c8",
+  "dataset": "berkeley-function-call-leaderboard/bfcl_eval/data/BFCL_v4_live_multiple.json",
+  "answers": "berkeley-function-call-leaderboard/bfcl_eval/data/possible_answer/BFCL_v4_live_multiple.json",
+  "source_sha256": {
+    "multiple": "fd8ccfad4d911420d0e3341dbe2fff77d1d341da934248b9bb2bda24ab3a10c8",
+    "answers": "97e90d59c5bd76c55a2920ce93e5566e9046307d3f558578f085f9d3a56c3084"
+  },
+  "selection_seed": 20261019,
+  "eligible_pool": 687,
+  "selection": "Single user message; ASCII request <=450 characters; 2..6 functions; total schema JSON <=9000 characters; flat primitive schemas; one reference call with <=4 arguments and primitive alternatives. Shuffle eligible pool with seed; take first 30 with distinct sorted function-name catalogs. No model outputs used.",
+  "adaptation": "Original English requests and schemas retained; assistant-authored Italian request translations; English API descriptions and literal enum/query values retained in both languages. dict->object and float->number JSON Schema normalization. Custom exact flat-alternative checker, not official BFCL score. No external tool executes.",
+  "known_source_issue": "live_multiple_808-175-14 says Wednesday but specifies 2023-10-1 (Sunday); report this source ID separately in sensitivity results. Some upstream optional answer alternatives conflict with schema; schema validity and reference agreement are separate metrics.",
+  "training_overlap": "Available local recipe metadata does not establish absence from Nesso foundation/SFT data. Exact-match scan of locally available training/configuration files will be recorded; contamination remains unknown."
+}

@@ -1,0 +1,21 @@
+{
+  "frozen_utc": "2026-10-19T15:29:29Z",
+  "model_outputs_seen": false,
+  "sha256": {
+    "experiments/abstract_agent/backend.py": "0901ff98fed9f66d969898f4568a1c5674d49a1382eb865f39040979ae82df3b",
+    "experiments/cpu_gguf/abstract_agent/fixtures.py": "c37a26fb2fa5ec79fb9e43de7449cf2a0550975c608cd64f8525a0261b291697",
+    "experiments/cpu_gguf/abstract_agent/runtime.py": "85e1943b5117893ad2ecff14be1c6e11894371aac830eb19c0ee1862a937c9f4",
+    "experiments/cpu_gguf/cpu_backend.py": "bf494641d9b313020598086187936c6645e903ab08b7cbc29658be01f2d670e6",
+    "experiments/cpu_gguf/release.json": "d1bf6e2b74d07b16ea4e00dd441b3c2310965d6f1fbf5f688e5ee868ce212a08",
+    "experiments/nevso_stress/PROTOCOL.md": "f57863d8b1444d8580d007997a68e2d9215d772cc06bbf59e290a031363b8c57",
+    "experiments/nevso_stress/build_suite.py": "8c95d591f30eb1c9e203ce8f5970d6f12bf72b2d88aafff04eb1747b9640b255",
+    "experiments/nevso_stress/pilot.json": "3c9565d466d9489f90e86f0a279433bc7400d4908181c9eec8713b119b20d75a",
+    "experiments/nevso_stress/run_eval.py": "e5be0e48fae6862c027e0e6a922d6f356427097730b9d8e63bca415428f4653e",
+    "experiments/nevso_stress/source/BFCL_LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "experiments/nevso_stress/source/bfcl_selected.json": "b187473a76ef7044f3022bf6575600e0146b87ee9481fefecd7bbb713c031bc4",
+    "experiments/nevso_stress/source/overlap_check.json": "78096057a0bdd58138d213ce0301a0c53a410a4a809a1972848007512ae52de6",
+    "experiments/nevso_stress/source/provenance.json": "37bb04909207ec277b8804da25331240bdf6105a3045cf3bc288bd947ae02be7",
+    "experiments/nevso_stress/suite.json": "1ce4212e7bf155ceda4aa4da686727f963753af551314df7ff85bf2e30a23423",
+    "experiments/nevso_stress/test_eval.py": "0db8e7e8f4453932c3ba2ade2836fd1729fbc4d707412760f36919c54da85694"
+  }
+}

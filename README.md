@@ -185,6 +185,7 @@ The foundation was pretrained on [Seeweb](https://seeweb.it/) infrastructure usi
 
 - **[Research and evaluation](docs/RESEARCH.md):** complete benchmarks, Laya comparisons, data, training, calibration, failure analysis and reproducibility.
 - **[CPU guide](experiments/cpu_gguf/README.md):** standalone models, the combined agent, GGUF conversion, timings and executable tests.
+- **[Bilingual agent stress test](experiments/nevso_stress/README.md):** 200 frozen requests across external API calls and five workflow domains; full results pending.
 - **[Inference guide](INFERENCE.md):** Python loading, request structure and runtime details.
 
 Nev is a small research model with useful bilingual routing and classification behavior. Policy-sensitive decisions, large intent sets and unsupported actions remain challenging; probabilities are not correctness guarantees. Code and model releases use Apache-2.0; upstream notices are retained in `NOTICE`.

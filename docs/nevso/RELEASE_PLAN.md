@@ -69,3 +69,28 @@ catalog; do not market one strategy as universally best.
   confusions. No demonstrated production reliability or autonomous safety claim.
 - Preserve the CPU and GPU regression checks. Memory optimization is a separate
   future experiment, not a prerequisite for the example requested here.
+
+## Stronger evaluation started on 19 October 2026
+
+User approved a larger external-plus-authored evaluation. The frozen package is
+[experiments/nevso_stress](../../experiments/nevso_stress/README.md): 100 EN/IT
+pairs, three strategies, three seeded tool-order draws, 1,800 trials. It keeps
+60 BFCL-derived call-only cases separate from 140 authored workflow cases across
+five domains. This is an adapted diagnostic evaluation, not an official BFCL
+score or a contamination-free benchmark.
+
+The 12-trial pilot and six evaluation-contract checks completed on the A100.
+The full run was launched in the existing GPU checkout, with relative output
+`results/nevso-stress-a100-20261019`; its PID at launch was `3587245`. Logs are
+saved beside the checkout as `nevso-stress-a100-20261019.log`. Results remain
+pending as of this entry. Verify metadata status and trial count before reporting
+completion. The runner saves every trial and supports matching-source resume.
+After completion, use `experiments/nevso_stress/analyze.py` to produce the paired
+report, then review traces and preserve evidence before publishing performance
+claims. Do not replace earlier greenhouse results with partial stress results.
+
+Nesso3's training card discloses When2Call, whose source fields refer to BFCL.
+Actual overlap with the selected BFCL IDs is unknown. Disclose this possible
+indirect exposure. The 70 freshly authored pairs are separate; they still do not
+constitute an independent audit. The full test preserves the one-shot selection
+strategy, whose multi-step restriction is reported separately.

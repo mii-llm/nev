@@ -29,8 +29,9 @@ retains the parent's LICENSE and identifies the merged adapter and added decisio
 Datasets
 The training and evaluation corpora are prepared from public datasets whose repositories, revisions and recorded
 license terms are recorded in the generated data manifests during preparation.
-Those datasets retain their own terms; this repository's software license does not relicense them. Original dataset source
-texts are not distributed in this repository. The checkpoint contains no dataset files.
+Those datasets retain their own terms; this repository's software license does not relicense them. Original decision-training dataset source
+texts are not distributed in this repository. Selected BFCL evaluation texts are
+included under the separate notice below. The checkpoint contains no dataset files.
 
 --------------------------------------------------------------------------------
 Nesso2 Decision bilingual adaptation
@@ -48,5 +49,20 @@ Merged exports modify the parent decoder and add a pointer head. They do not
 provide the parent's ordinary text-generation interface.
 
 Dataset texts retain their source terms. The software/model license does not
-relicense training datasets. This preparation package includes no raw third-party
-training or benchmark texts.
+relicense training datasets. This preparation package includes no raw third-party training texts. The selected
+BFCL evaluation records described below retain their upstream terms.
+
+--------------------------------------------------------------------------------
+Berkeley Function Calling Leaderboard (BFCL) evaluation subset
+Source: https://github.com/ShishirPatil/gorilla
+Revision: 6ea57973c7a6097fd7c5915698c54c17c5b1b6c8
+Licensed under the Apache License, Version 2.0; the upstream license is retained
+at experiments/nevso_stress/source/BFCL_LICENSE.
+
+Thirty source requests, schemas and reference calls are preserved in
+experiments/nevso_stress/source/bfcl_selected.json. Modifications in the derived
+suite: assistant-authored Italian request translations and normalization of
+schema type names. English API descriptions and function/argument identifiers
+are preserved. This is a filtered, adapted evaluation with a custom checker,
+not an official BFCL leaderboard result. Provenance and sampling rules accompany
+the subset. These data are for evaluation, not additions to the released weights.
