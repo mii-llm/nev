@@ -117,7 +117,39 @@ Across the full **24-request demonstration** on a shared A100, using Nesso3 BF16
 
 These are authored examples with read-only mock tools. The factual scores come from assistant trace review; requiring the requested date format reduces combined task success to **19/24**. Wrong calls and incorrect final answers remain in the full results. Shared-GPU timings exclude loading and are illustrative.
 
-The **[GPU guide](docs/nevso/GPU_GUIDE.md)** includes fresh-environment installation, all traces and failures. For the Mac Q8 version, use the **[CPU guide](experiments/cpu_gguf/README.md)**; after its setup, the same example accepts `--engine gguf --precision q8`.
+The **[GPU guide](docs/nevso/GPU_GUIDE.md)** includes fresh-environment installation, all traces and failures.
+
+### Run the same agent on a Mac CPU
+
+Run Nev + Nesso3 locally with **both models in Q8**, without a GPU. From the **GitHub checkout directory `nev/`**, with `python3` pointing to Python 3.12–3.13 and Xcode command-line tools installed:
+
+```bash
+# Build the CPU runtime and download both public Q8 models into a dedicated environment.
+./experiments/cpu_gguf/setup.sh --model both --precision q8
+
+# Italian: soil pH. Compare Nesso3 alone, Nev-ranked tools and Nev-selected tools.
+RUN="results/nevso-cpu-$(date +%Y%m%d-%H%M%S)"
+experiments/cpu_gguf/.venv/bin/python examples/nevso_demo.py \
+  --engine gguf --precision q8 --case read_soil_ph-it --output "$RUN-it.json"
+cat "$RUN-it.txt"
+
+# English: water remaining in a tank.
+experiments/cpu_gguf/.venv/bin/python examples/nevso_demo.py \
+  --engine gguf --precision q8 --case read_water_tank_level-en --output "$RUN-en.json"
+cat "$RUN-en.txt"
+```
+
+No Hugging Face login is needed; inference works offline after setup. The readable traces show each tool call, mock result and final answer. Omit `--case` to compare all 24 requests. In the recorded CPU examples, Nev-ranked + Nesso3 retrieves the correct **pH of 6.4** in Italian and **tank level of 81%** in English; Nesso3 alone chooses the wrong tool in both cases.
+
+Across the full demonstration on an **Apple M3 Pro, four CPU threads, Q8 models**:
+
+| Approach | Exact calls EN | Exact calls IT | Reviewed factual success | Warm median request |
+| --- | ---: | ---: | ---: | ---: |
+| Nesso3 alone | 6/12 | 6/12 | 10/24 | 2.92 s |
+| **Nev ranks tools + Nesso3** | **12/12** | **11/12** | **22/24** | 4.16 s |
+| Nev selects one tool + Nesso3 | 9/12 | 10/12 | 18/24 | **1.88 s** |
+
+Ranking gives the best accuracy in this run; selecting one tool is faster but retains more routing mistakes. These are the same authored mock-tool requests used above, with separate CPU measurements excluding loading. Factual success comes from assistant trace review; also enforcing the requested date format gives **9/24, 19/24 and 15/24**, respectively. See the **[CPU comparison](experiments/cpu_gguf/GREENHOUSE_COMPARISON.md)** for all traces and failures, or the **[CPU guide](experiments/cpu_gguf/README.md)** for setup details.
 
 ## English and Italian in action
 
