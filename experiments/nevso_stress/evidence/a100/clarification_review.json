@@ -1,0 +1,1338 @@
+{
+  "reviewer": "Assistant trace review; not independent human audit",
+  "scope": "All 270 missing-information trials. All 66 distinct (case ID, final answer) combinations for answered no-call trials reviewed. Any emitted call or nonanswered outcome fails by the frozen clarification contract.",
+  "rubric": "Relevant: explicitly requests identifying information for the requested entity; names/labels are accepted as identification although continuation is not tested. Clean: relevant and no fabricated schema requirements or contradictory capability claims. Merely refusing, requesting the answer itself or wrong entity/attribute fails. Post-run review adds labels; it does not alter frozen automatic scores.",
+  "raw_rows_sha256": "6bae5123f472bb47593bb44f1ba980ac0ef020377b1d3aaa5b7afe38717b6da5",
+  "summary": [
+    {
+      "language": "en",
+      "arm": "nesso_only",
+      "n": 45,
+      "automatic_proxy": 2,
+      "reviewed_relevant": 0,
+      "reviewed_clean": 0
+    },
+    {
+      "language": "en",
+      "arm": "nev_ranked",
+      "n": 45,
+      "automatic_proxy": 0,
+      "reviewed_relevant": 0,
+      "reviewed_clean": 0
+    },
+    {
+      "language": "en",
+      "arm": "nev_selected",
+      "n": 45,
+      "automatic_proxy": 32,
+      "reviewed_relevant": 20,
+      "reviewed_clean": 16
+    },
+    {
+      "language": "it",
+      "arm": "nesso_only",
+      "n": 45,
+      "automatic_proxy": 8,
+      "reviewed_relevant": 7,
+      "reviewed_clean": 7
+    },
+    {
+      "language": "it",
+      "arm": "nev_ranked",
+      "n": 45,
+      "automatic_proxy": 5,
+      "reviewed_relevant": 5,
+      "reviewed_clean": 5
+    },
+    {
+      "language": "it",
+      "arm": "nev_selected",
+      "n": 45,
+      "automatic_proxy": 28,
+      "reviewed_relevant": 26,
+      "reviewed_clean": 20
+    }
+  ],
+  "reviewed_outputs": [
+    {
+      "index": 0,
+      "id": "bicycle-missing-0-en",
+      "final": "I'm sorry, I can't provide the number of bicycles. I don't have a function to retrieve that information.",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 1,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Does not request the required identifying information; refuses, gives generic advice, or answers without the missing input."
+    },
+    {
+      "index": 1,
+      "id": "bicycle-missing-0-it",
+      "final": "Mi dispiace, non posso fornire il numero di biciclette alla stazione. Potresti controllare il numero di biciclette disponibili online o chiamare direttamente la stazione.",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 1,
+          "proxy": false
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Does not request the required identifying information; refuses, gives generic advice, or answers without the missing input."
+    },
+    {
+      "index": 2,
+      "id": "bicycle-missing-0-it",
+      "final": "Per fornirti le biciclette disponibili, potresti specificare il numero di stazioni?",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 0,
+          "proxy": false
+        },
+        {
+          "arm": "nev_selected",
+          "order": 2,
+          "proxy": false
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Asks for the number of stations, not which station."
+    },
+    {
+      "index": 3,
+      "id": "bicycle-missing-1-en",
+      "final": "The function \"get_bike_battery\" can provide the battery charge percentage, but it lacks the required \"additionalProperties\" parameter. Please provide the battery charge percentage.",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 0,
+          "proxy": true
+        },
+        {
+          "arm": "nev_selected",
+          "order": 1,
+          "proxy": true
+        },
+        {
+          "arm": "nev_selected",
+          "order": 2,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Invents additionalProperties as an argument and asks for the desired battery reading."
+    },
+    {
+      "index": 4,
+      "id": "bicycle-missing-1-it",
+      "final": "Per fornirti le informazioni più accurate, potresti specificare il modello di bicicletta?",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 0,
+          "proxy": true
+        },
+        {
+          "arm": "nev_selected",
+          "order": 1,
+          "proxy": true
+        },
+        {
+          "arm": "nev_selected",
+          "order": 2,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Bicycle model does not identify the particular bicycle."
+    },
+    {
+      "index": 5,
+      "id": "bicycle-missing-1-it",
+      "final": "Per procedere, ho bisogno del nome dell'autore del libro.",
+      "trials": [
+        {
+          "arm": "nesso_only",
+          "order": 2,
+          "proxy": false
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Asks for a book author in a bicycle task."
+    },
+    {
+      "index": 6,
+      "id": "bicycle-missing-1-it",
+      "final": "Per procedere, ho bisogno della batteria della bicicletta. Potresti fornirla?",
+      "trials": [
+        {
+          "arm": "nesso_only",
+          "order": 0,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Asks for the battery itself, not a bicycle identifier."
+    },
+    {
+      "index": 7,
+      "id": "bicycle-missing-2-en",
+      "final": "The given question lacks the required \"additionalProperties\" argument. Please provide the name of the dock or station where you want to return the bike.",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 2,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": true,
+      "clean_clarification": false,
+      "review_reason": "Asks for a station but invents a required additionalProperties argument."
+    },
+    {
+      "index": 8,
+      "id": "bicycle-missing-2-it",
+      "final": "La funzione \"find_station\" non può trovare posti liberi per questa bicicletta.",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 1,
+          "proxy": false
+        },
+        {
+          "arm": "nev_selected",
+          "order": 2,
+          "proxy": false
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Does not request the required identifying information; refuses, gives generic advice, or answers without the missing input."
+    },
+    {
+      "index": 9,
+      "id": "bicycle-missing-2-it",
+      "final": "La funzione \"get_book_availability\" non è in grado di fornire informazioni sui posti liberi.",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 0,
+          "proxy": false
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Does not request the required identifying information; refuses, gives generic advice, or answers without the missing input."
+    },
+    {
+      "index": 10,
+      "id": "lab-missing-0-en",
+      "final": "I'm sorry, I can't provide the pH of your sample. I'm here to assist with information and tasks.",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 1,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Does not request the required identifying information; refuses, gives generic advice, or answers without the missing input."
+    },
+    {
+      "index": 11,
+      "id": "lab-missing-0-en",
+      "final": "To provide you with the pH of your sample, could you please provide me with the sample ID?",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 0,
+          "proxy": true
+        },
+        {
+          "arm": "nev_selected",
+          "order": 2,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": true,
+      "clean_clarification": true,
+      "review_reason": "Requests relevant identifying information without inventing schema requirements. A later user turn is not tested."
+    },
+    {
+      "index": 12,
+      "id": "lab-missing-0-it",
+      "final": "Mi scuso, ma non posso eseguire questo compito. Non posso accedere a dati o informazioni in tempo reale.",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 1,
+          "proxy": false
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Does not request the required identifying information; refuses, gives generic advice, or answers without the missing input."
+    },
+    {
+      "index": 13,
+      "id": "lab-missing-0-it",
+      "final": "Per fornirti il pH, potresti specificare il campione di laboratorio?",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 0,
+          "proxy": true
+        },
+        {
+          "arm": "nev_selected",
+          "order": 2,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": true,
+      "clean_clarification": true,
+      "review_reason": "Requests relevant identifying information without inventing schema requirements. A later user turn is not tested."
+    },
+    {
+      "index": 14,
+      "id": "lab-missing-0-it",
+      "final": "Per fornirti il pH, potresti specificare il campione?",
+      "trials": [
+        {
+          "arm": "nesso_only",
+          "order": 1,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": true,
+      "clean_clarification": true,
+      "review_reason": "Requests relevant identifying information without inventing schema requirements. A later user turn is not tested."
+    },
+    {
+      "index": 15,
+      "id": "lab-missing-0-it",
+      "final": "Per procedere, ho bisogno dell'etichetta del campione. Potresti fornirla?",
+      "trials": [
+        {
+          "arm": "nev_ranked",
+          "order": 1,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": true,
+      "clean_clarification": true,
+      "review_reason": "Requests relevant identifying information without inventing schema requirements. A later user turn is not tested."
+    },
+    {
+      "index": 16,
+      "id": "lab-missing-0-it",
+      "final": "Per procedere, ho bisogno di conoscere il campione. Potresti indicarmi il nome del campione?",
+      "trials": [
+        {
+          "arm": "nesso_only",
+          "order": 2,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": true,
+      "clean_clarification": true,
+      "review_reason": "Requests relevant identifying information without inventing schema requirements. A later user turn is not tested."
+    },
+    {
+      "index": 17,
+      "id": "lab-missing-0-it",
+      "final": "Per procedere, ho bisogno di conoscere il titolo del libro. Potresti indicarmi il titolo?",
+      "trials": [
+        {
+          "arm": "nesso_only",
+          "order": 0,
+          "proxy": false
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Asks for a book title in a laboratory task."
+    },
+    {
+      "index": 18,
+      "id": "lab-missing-1-en",
+      "final": "To proceed, I need to know the sample temperature. Could you please provide it?",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 0,
+          "proxy": true
+        },
+        {
+          "arm": "nev_selected",
+          "order": 1,
+          "proxy": true
+        },
+        {
+          "arm": "nev_selected",
+          "order": 2,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Asks the user for the temperature that the tool should retrieve."
+    },
+    {
+      "index": 19,
+      "id": "lab-missing-1-it",
+      "final": "Per procedere, ho bisogno dell'ID del campione. Potresti fornirmelo?",
+      "trials": [
+        {
+          "arm": "nesso_only",
+          "order": 2,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": true,
+      "clean_clarification": true,
+      "review_reason": "Requests relevant identifying information without inventing schema requirements. A later user turn is not tested."
+    },
+    {
+      "index": 20,
+      "id": "lab-missing-1-it",
+      "final": "Per procedere, ho bisogno di conoscere il campione specifico. Potresti indicarmi il titolo del libro?",
+      "trials": [
+        {
+          "arm": "nesso_only",
+          "order": 0,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Mentions a sample but actually asks for a book title."
+    },
+    {
+      "index": 21,
+      "id": "lab-missing-1-it",
+      "final": "Per procedere, ho bisogno di conoscere l'etichetta del campione.",
+      "trials": [
+        {
+          "arm": "nesso_only",
+          "order": 1,
+          "proxy": false
+        }
+      ],
+      "relevant_clarification": true,
+      "clean_clarification": true,
+      "review_reason": "Requests relevant identifying information without inventing schema requirements. A later user turn is not tested."
+    },
+    {
+      "index": 22,
+      "id": "lab-missing-1-it",
+      "final": "Per procedere, potresti specificare il campione da analizzare?",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 0,
+          "proxy": true
+        },
+        {
+          "arm": "nev_selected",
+          "order": 1,
+          "proxy": true
+        },
+        {
+          "arm": "nev_selected",
+          "order": 2,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": true,
+      "clean_clarification": true,
+      "review_reason": "Requests relevant identifying information without inventing schema requirements. A later user turn is not tested."
+    },
+    {
+      "index": 23,
+      "id": "lab-missing-1-it",
+      "final": "Per procedere, potresti specificare il campione di laboratorio?",
+      "trials": [
+        {
+          "arm": "nev_ranked",
+          "order": 0,
+          "proxy": true
+        },
+        {
+          "arm": "nev_ranked",
+          "order": 1,
+          "proxy": true
+        },
+        {
+          "arm": "nev_ranked",
+          "order": 2,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": true,
+      "clean_clarification": true,
+      "review_reason": "Requests relevant identifying information without inventing schema requirements. A later user turn is not tested."
+    },
+    {
+      "index": 24,
+      "id": "lab-missing-2-en",
+      "final": "The function \"get_instrument_status\" can provide the answer, but I need to know the specific instrument's ID.",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 0,
+          "proxy": true
+        },
+        {
+          "arm": "nev_selected",
+          "order": 1,
+          "proxy": true
+        },
+        {
+          "arm": "nev_selected",
+          "order": 2,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": true,
+      "clean_clarification": true,
+      "review_reason": "Requests relevant identifying information without inventing schema requirements. A later user turn is not tested."
+    },
+    {
+      "index": 25,
+      "id": "lab-missing-2-it",
+      "final": "La funzione \"get_instrument_status\" può fornire informazioni sullo stato operativo, ma non è in grado di verificare se lo strumento è online.",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 0,
+          "proxy": false
+        },
+        {
+          "arm": "nev_selected",
+          "order": 1,
+          "proxy": false
+        },
+        {
+          "arm": "nev_selected",
+          "order": 2,
+          "proxy": false
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Does not request the required identifying information; refuses, gives generic advice, or answers without the missing input."
+    },
+    {
+      "index": 26,
+      "id": "lab-missing-2-it",
+      "final": "Sì, lo strumento è online.",
+      "trials": [
+        {
+          "arm": "nesso_only",
+          "order": 0,
+          "proxy": false
+        },
+        {
+          "arm": "nev_ranked",
+          "order": 0,
+          "proxy": false
+        },
+        {
+          "arm": "nesso_only",
+          "order": 1,
+          "proxy": false
+        },
+        {
+          "arm": "nev_ranked",
+          "order": 1,
+          "proxy": false
+        },
+        {
+          "arm": "nev_ranked",
+          "order": 2,
+          "proxy": false
+        },
+        {
+          "arm": "nesso_only",
+          "order": 2,
+          "proxy": false
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Claims instrument is online without identifying or inspecting it."
+    },
+    {
+      "index": 27,
+      "id": "library-missing-0-en",
+      "final": "The function \"get_book_availability\" can provide the number of copies, but it requires the book ID. Please provide the book ID.",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 0,
+          "proxy": true
+        },
+        {
+          "arm": "nev_selected",
+          "order": 1,
+          "proxy": true
+        },
+        {
+          "arm": "nev_selected",
+          "order": 2,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": true,
+      "clean_clarification": true,
+      "review_reason": "Requests relevant identifying information without inventing schema requirements. A later user turn is not tested."
+    },
+    {
+      "index": 28,
+      "id": "library-missing-0-it",
+      "final": "La funzione \"get_book_availability\" può fornire il numero di copie disponibili, ma non ha gli argomenti richiesti. Specifica \"book_id\" e \"additionalProperties\" per poter eseguire il calcolo.",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 0,
+          "proxy": true
+        },
+        {
+          "arm": "nev_selected",
+          "order": 1,
+          "proxy": true
+        },
+        {
+          "arm": "nev_selected",
+          "order": 2,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": true,
+      "clean_clarification": false,
+      "review_reason": "Requests book_id together with invented additionalProperties argument."
+    },
+    {
+      "index": 29,
+      "id": "library-missing-1-en",
+      "final": "The library loan must be returned within 30 days.",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 0,
+          "proxy": false
+        },
+        {
+          "arm": "nev_selected",
+          "order": 1,
+          "proxy": false
+        },
+        {
+          "arm": "nev_selected",
+          "order": 2,
+          "proxy": false
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Does not request the required identifying information; refuses, gives generic advice, or answers without the missing input."
+    },
+    {
+      "index": 30,
+      "id": "library-missing-1-en",
+      "final": "You must return your library loan as soon as possible to avoid any issues.",
+      "trials": [
+        {
+          "arm": "nev_ranked",
+          "order": 1,
+          "proxy": false
+        },
+        {
+          "arm": "nev_ranked",
+          "order": 2,
+          "proxy": false
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Does not request the required identifying information; refuses, gives generic advice, or answers without the missing input."
+    },
+    {
+      "index": 31,
+      "id": "library-missing-1-en",
+      "final": "You must return your library loan as soon as possible to avoid any penalties.",
+      "trials": [
+        {
+          "arm": "nev_ranked",
+          "order": 0,
+          "proxy": false
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Does not request the required identifying information; refuses, gives generic advice, or answers without the missing input."
+    },
+    {
+      "index": 32,
+      "id": "library-missing-1-en",
+      "final": "You must return your library loan at least 30 days after the due date.",
+      "trials": [
+        {
+          "arm": "nesso_only",
+          "order": 2,
+          "proxy": false
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Does not request the required identifying information; refuses, gives generic advice, or answers without the missing input."
+    },
+    {
+      "index": 33,
+      "id": "library-missing-1-en",
+      "final": "You must return your library loan by a specific date.",
+      "trials": [
+        {
+          "arm": "nesso_only",
+          "order": 0,
+          "proxy": false
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Does not request the required identifying information; refuses, gives generic advice, or answers without the missing input."
+    },
+    {
+      "index": 34,
+      "id": "library-missing-1-en",
+      "final": "You must return your library loan within 30 days.",
+      "trials": [
+        {
+          "arm": "nesso_only",
+          "order": 1,
+          "proxy": false
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Does not request the required identifying information; refuses, gives generic advice, or answers without the missing input."
+    },
+    {
+      "index": 35,
+      "id": "library-missing-1-it",
+      "final": "Non ho a disposizione uno strumento per questa richiesta.",
+      "trials": [
+        {
+          "arm": "nesso_only",
+          "order": 0,
+          "proxy": false
+        },
+        {
+          "arm": "nev_ranked",
+          "order": 0,
+          "proxy": false
+        },
+        {
+          "arm": "nev_ranked",
+          "order": 1,
+          "proxy": false
+        },
+        {
+          "arm": "nev_ranked",
+          "order": 2,
+          "proxy": false
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Does not request the required identifying information; refuses, gives generic advice, or answers without the missing input."
+    },
+    {
+      "index": 36,
+      "id": "library-missing-1-it",
+      "final": "Per procedere, ho bisogno dell'ID del prestito. Potresti fornirmelo?",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 0,
+          "proxy": true
+        },
+        {
+          "arm": "nev_selected",
+          "order": 1,
+          "proxy": true
+        },
+        {
+          "arm": "nev_selected",
+          "order": 2,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": true,
+      "clean_clarification": true,
+      "review_reason": "Requests relevant identifying information without inventing schema requirements. A later user turn is not tested."
+    },
+    {
+      "index": 37,
+      "id": "library-missing-1-it",
+      "final": "Per procedere, ho bisogno di conoscere il numero di prestito. Potresti fornirmelo?",
+      "trials": [
+        {
+          "arm": "nesso_only",
+          "order": 2,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": true,
+      "clean_clarification": true,
+      "review_reason": "Requests relevant identifying information without inventing schema requirements. A later user turn is not tested."
+    },
+    {
+      "index": 38,
+      "id": "library-missing-1-it",
+      "final": "Per procedere, potresti specificare il numero di pagine del libro che ti interessa?",
+      "trials": [
+        {
+          "arm": "nesso_only",
+          "order": 1,
+          "proxy": false
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Asks for page count instead of loan identifier."
+    },
+    {
+      "index": 39,
+      "id": "library-missing-2-en",
+      "final": "The \"get_branch_hours\" function can provide the opening hours, but it lacks the \"additionalProperties\" parameter. Please provide the branch ID for the opening hours.",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 0,
+          "proxy": true
+        },
+        {
+          "arm": "nev_selected",
+          "order": 1,
+          "proxy": true
+        },
+        {
+          "arm": "nev_selected",
+          "order": 2,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": true,
+      "clean_clarification": false,
+      "review_reason": "Requests the branch ID but falsely treats additionalProperties as a missing parameter."
+    },
+    {
+      "index": 40,
+      "id": "library-missing-2-it",
+      "final": "Per fornirti l'orario di chiusura, potresti gentilmente specificare il branch id?",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 0,
+          "proxy": true
+        },
+        {
+          "arm": "nev_selected",
+          "order": 1,
+          "proxy": true
+        },
+        {
+          "arm": "nev_selected",
+          "order": 2,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": true,
+      "clean_clarification": true,
+      "review_reason": "Requests relevant identifying information without inventing schema requirements. A later user turn is not tested."
+    },
+    {
+      "index": 41,
+      "id": "museum-missing-0-en",
+      "final": "The function \"get_exhibit_location\" can help you with that, but I need to know the name of the exhibit.",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 0,
+          "proxy": true
+        },
+        {
+          "arm": "nev_selected",
+          "order": 1,
+          "proxy": true
+        },
+        {
+          "arm": "nev_selected",
+          "order": 2,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": true,
+      "clean_clarification": true,
+      "review_reason": "Requests relevant identifying information without inventing schema requirements. A later user turn is not tested."
+    },
+    {
+      "index": 42,
+      "id": "museum-missing-0-it",
+      "final": "Per fornirti la risposta, potresti specificare l'opera che ti interessa?",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 0,
+          "proxy": true
+        },
+        {
+          "arm": "nev_selected",
+          "order": 1,
+          "proxy": true
+        },
+        {
+          "arm": "nev_selected",
+          "order": 2,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": true,
+      "clean_clarification": true,
+      "review_reason": "Requests relevant identifying information without inventing schema requirements. A later user turn is not tested."
+    },
+    {
+      "index": 43,
+      "id": "museum-missing-1-en",
+      "final": "I need to know the museum's ID.",
+      "trials": [
+        {
+          "arm": "nev_ranked",
+          "order": 2,
+          "proxy": false
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Requests museum ID instead of ticket category."
+    },
+    {
+      "index": 44,
+      "id": "museum-missing-1-en",
+      "final": "I'm sorry, I'm unable to provide a specific ticket price. I don't have real-time access to ticket databases or the ability to perform calculations.",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 1,
+          "proxy": false
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Does not request the required identifying information; refuses, gives generic advice, or answers without the missing input."
+    },
+    {
+      "index": 45,
+      "id": "museum-missing-1-en",
+      "final": "I'm sorry, I'm unable to provide a ticket price. I'm designed to provide information and assistance, but I don't have the capability to perform external tasks such as ticket sales.",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 0,
+          "proxy": false
+        },
+        {
+          "arm": "nev_selected",
+          "order": 2,
+          "proxy": false
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Does not request the required identifying information; refuses, gives generic advice, or answers without the missing input."
+    },
+    {
+      "index": 46,
+      "id": "museum-missing-1-it",
+      "final": "Mi scuso, ma non posso fornire informazioni sui prezzi dei biglietti poiché non ho accesso a dati in tempo reale.",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 0,
+          "proxy": false
+        },
+        {
+          "arm": "nev_selected",
+          "order": 1,
+          "proxy": false
+        },
+        {
+          "arm": "nev_selected",
+          "order": 2,
+          "proxy": false
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Does not request the required identifying information; refuses, gives generic advice, or answers without the missing input."
+    },
+    {
+      "index": 47,
+      "id": "museum-missing-2-en",
+      "final": "The given question has no supported function.",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 2,
+          "proxy": false
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Does not request the required identifying information; refuses, gives generic advice, or answers without the missing input."
+    },
+    {
+      "index": 48,
+      "id": "museum-missing-2-it",
+      "final": "Per fornirti l'orario di chiusura, potresti gentilmente specificare il museo?",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 0,
+          "proxy": true
+        },
+        {
+          "arm": "nev_selected",
+          "order": 1,
+          "proxy": true
+        },
+        {
+          "arm": "nev_selected",
+          "order": 2,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": true,
+      "clean_clarification": true,
+      "review_reason": "Requests relevant identifying information without inventing schema requirements. A later user turn is not tested."
+    },
+    {
+      "index": 49,
+      "id": "parcel-missing-0-en",
+      "final": "The function \"get_shipment_status\" can provide the current delivery status, but it lacks the required \"additionalProperties\" parameter. Please provide the \"additionalProperties\" parameter.",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 0,
+          "proxy": true
+        },
+        {
+          "arm": "nev_selected",
+          "order": 1,
+          "proxy": true
+        },
+        {
+          "arm": "nev_selected",
+          "order": 2,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Requests additionalProperties instead of shipment_id."
+    },
+    {
+      "index": 50,
+      "id": "parcel-missing-0-it",
+      "final": "La funzione \"get_shipment_status\" può fornire informazioni sullo stato attuale di consegna, ma non è in grado di verificare la consegna effettiva. Per ottenere informazioni più precise, potresti fornire il numero di spedizione o il nome della spedizione.",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 0,
+          "proxy": false
+        },
+        {
+          "arm": "nev_selected",
+          "order": 1,
+          "proxy": false
+        },
+        {
+          "arm": "nev_selected",
+          "order": 2,
+          "proxy": false
+        }
+      ],
+      "relevant_clarification": true,
+      "clean_clarification": false,
+      "review_reason": "Requests a shipment identifier but falsely claims the status tool cannot verify delivery."
+    },
+    {
+      "index": 51,
+      "id": "parcel-missing-0-it",
+      "final": "Per procedere, ho bisogno del numero di serie della tua spedizione.",
+      "trials": [
+        {
+          "arm": "nesso_only",
+          "order": 0,
+          "proxy": false
+        }
+      ],
+      "relevant_clarification": true,
+      "clean_clarification": true,
+      "review_reason": "Requests relevant identifying information without inventing schema requirements. A later user turn is not tested."
+    },
+    {
+      "index": 52,
+      "id": "parcel-missing-1-en",
+      "final": "I'm sorry, I can't retrieve that information. I can't perform physical measurements or physical tasks.",
+      "trials": [
+        {
+          "arm": "nesso_only",
+          "order": 0,
+          "proxy": false
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Does not request the required identifying information; refuses, gives generic advice, or answers without the missing input."
+    },
+    {
+      "index": 53,
+      "id": "parcel-missing-1-en",
+      "final": "I'm sorry, I can't retrieve that information. I can't perform physical tasks like weight measurement.",
+      "trials": [
+        {
+          "arm": "nev_ranked",
+          "order": 1,
+          "proxy": false
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Does not request the required identifying information; refuses, gives generic advice, or answers without the missing input."
+    },
+    {
+      "index": 54,
+      "id": "parcel-missing-1-en",
+      "final": "I'm sorry, I'm unable to provide the weight of a specific parcel. I don't have real-time location data or the ability to perform tasks that require that.",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 1,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Does not request the required identifying information; refuses, gives generic advice, or answers without the missing input."
+    },
+    {
+      "index": 55,
+      "id": "parcel-missing-1-en",
+      "final": "The function \"get_parcel_weight\" can provide the weight of your parcel, but it requires the \"shipment_id\" parameter. Please provide it.",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 0,
+          "proxy": true
+        },
+        {
+          "arm": "nev_selected",
+          "order": 2,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": true,
+      "clean_clarification": true,
+      "review_reason": "Requests relevant identifying information without inventing schema requirements. A later user turn is not tested."
+    },
+    {
+      "index": 56,
+      "id": "parcel-missing-1-it",
+      "final": "Mi dispiace, non posso eseguire questo compito poiché non ho la capacità di effettuare ricerche o calcoli di peso.",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 1,
+          "proxy": false
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Does not request the required identifying information; refuses, gives generic advice, or answers without the missing input."
+    },
+    {
+      "index": 57,
+      "id": "parcel-missing-1-it",
+      "final": "Per fornirti il peso, potresti specificare il codice di spedizione?",
+      "trials": [
+        {
+          "arm": "nev_ranked",
+          "order": 1,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": true,
+      "clean_clarification": true,
+      "review_reason": "Requests relevant identifying information without inventing schema requirements. A later user turn is not tested."
+    },
+    {
+      "index": 58,
+      "id": "parcel-missing-1-it",
+      "final": "Per fornirti il peso, potresti specificare il codice di tracciamento del pacco?",
+      "trials": [
+        {
+          "arm": "nesso_only",
+          "order": 0,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": true,
+      "clean_clarification": true,
+      "review_reason": "Requests relevant identifying information without inventing schema requirements. A later user turn is not tested."
+    },
+    {
+      "index": 59,
+      "id": "parcel-missing-1-it",
+      "final": "Per fornirti il peso, potresti specificare il titolo del pacco?",
+      "trials": [
+        {
+          "arm": "nesso_only",
+          "order": 2,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Requests a parcel title, not a shipment/tracking identifier."
+    },
+    {
+      "index": 60,
+      "id": "parcel-missing-1-it",
+      "final": "Per fornirti il peso, potresti specificare l'indirizzo del pacco?",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 0,
+          "proxy": true
+        },
+        {
+          "arm": "nev_selected",
+          "order": 2,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Requests parcel address, not shipment/tracking identifier."
+    },
+    {
+      "index": 61,
+      "id": "parcel-missing-2-en",
+      "final": "I'm sorry, I can't open a location for you. I don't have a suitable tool for this task.",
+      "trials": [
+        {
+          "arm": "nesso_only",
+          "order": 0,
+          "proxy": false
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Does not request the required identifying information; refuses, gives generic advice, or answers without the missing input."
+    },
+    {
+      "index": 62,
+      "id": "parcel-missing-2-en",
+      "final": "I'm sorry, I can't open a pickup point. I'm here to provide information and assist you with tools and functions.",
+      "trials": [
+        {
+          "arm": "nesso_only",
+          "order": 2,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Does not request the required identifying information; refuses, gives generic advice, or answers without the missing input."
+    },
+    {
+      "index": 63,
+      "id": "parcel-missing-2-en",
+      "final": "I'm sorry, I can't open a specific point. I can provide you with the opening hours of a library branch, but I can't access external information.",
+      "trials": [
+        {
+          "arm": "nesso_only",
+          "order": 1,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": false,
+      "clean_clarification": false,
+      "review_reason": "Does not request the required identifying information; refuses, gives generic advice, or answers without the missing input."
+    },
+    {
+      "index": 64,
+      "id": "parcel-missing-2-en",
+      "final": "The function \"get_pickup_hours\" can provide the opening hours of a pickup point, but it requires the point ID. Please provide the point ID for me to fetch the opening hours.",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 0,
+          "proxy": true
+        },
+        {
+          "arm": "nev_selected",
+          "order": 1,
+          "proxy": true
+        },
+        {
+          "arm": "nev_selected",
+          "order": 2,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": true,
+      "clean_clarification": true,
+      "review_reason": "Requests relevant identifying information without inventing schema requirements. A later user turn is not tested."
+    },
+    {
+      "index": 65,
+      "id": "parcel-missing-2-it",
+      "final": "Per fornirti l'orario di apertura, potresti specificare il punto di ritiro?",
+      "trials": [
+        {
+          "arm": "nev_selected",
+          "order": 0,
+          "proxy": true
+        },
+        {
+          "arm": "nev_selected",
+          "order": 1,
+          "proxy": true
+        },
+        {
+          "arm": "nev_selected",
+          "order": 2,
+          "proxy": true
+        }
+      ],
+      "relevant_clarification": true,
+      "clean_clarification": true,
+      "review_reason": "Requests relevant identifying information without inventing schema requirements. A later user turn is not tested."
+    }
+  ]
+}

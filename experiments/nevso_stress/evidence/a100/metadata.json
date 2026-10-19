@@ -1,0 +1,33 @@
+{
+  "status": "complete",
+  "engine": "cuda",
+  "precision": "nesso3_bf16_nev_fp32",
+  "freeze_sha256": "a21ff7ebd7be2ad579c8c11e959f18940b1d2372350ceeab9ccb3e95c32a9dc8",
+  "suite_sha256": "1ce4212e7bf155ceda4aa4da686727f963753af551314df7ff85bf2e30a23423",
+  "orders": [
+    0,
+    1,
+    2
+  ],
+  "expected_trials": 1800,
+  "python": "3.12.13",
+  "scoring": "Custom BFCL reference/schema comparison; workflow completion assertions are proxies pending trace review. No combined overall score.",
+  "selected_boundary": "Single initial Nev selection is deliberately unchanged; dependent tasks expose its architectural restriction.",
+  "started_utc": "2026-10-19T15:32:13Z",
+  "load_seconds": 8.448201834224164,
+  "gpu": "name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]\nNVIDIA A100 80GB PCIe, 52392 MiB, 81920 MiB, 100 %\n",
+  "torch_version": "2.10.0+cu126",
+  "model_revisions": {
+    "nesso3": [
+      "mii-llm/nesso3-0.4B-agentic",
+      "56f42f1c7eb82fbd48b0c4ee46aae7b8bed203b8"
+    ],
+    "nev": [
+      "mii-llm/nev",
+      "c5c84121263b423f8846811a24790ab96e66cee3"
+    ]
+  },
+  "peak_allocated_mib": 2717.6328125,
+  "peak_reserved_mib": 2864.0,
+  "finished_utc": "2026-10-19T16:19:33Z"
+}

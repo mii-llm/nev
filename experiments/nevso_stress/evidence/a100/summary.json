@@ -1,0 +1,830 @@
+[
+  {
+    "category": "confusable",
+    "language": "en",
+    "arm": "nesso_only",
+    "trials": 60,
+    "requests": 20,
+    "infrastructure_errors": 0,
+    "median_ms": 1327.6890469715,
+    "p95_ms": 3277.508524246514,
+    "call_correct": {
+      "correct": 17,
+      "n": 60
+    },
+    "completion_proxy": {
+      "correct": 7,
+      "n": 60
+    },
+    "strict_completion_proxy": {
+      "correct": 7,
+      "n": 60
+    },
+    "blocked_calls": 5
+  },
+  {
+    "category": "confusable",
+    "language": "en",
+    "arm": "nev_ranked",
+    "trials": 60,
+    "requests": 20,
+    "infrastructure_errors": 0,
+    "median_ms": 1377.9855887405574,
+    "p95_ms": 3680.902256630361,
+    "call_correct": {
+      "correct": 40,
+      "n": 60
+    },
+    "completion_proxy": {
+      "correct": 28,
+      "n": 60
+    },
+    "strict_completion_proxy": {
+      "correct": 28,
+      "n": 60
+    },
+    "blocked_calls": 0
+  },
+  {
+    "category": "confusable",
+    "language": "en",
+    "arm": "nev_selected",
+    "trials": 60,
+    "requests": 20,
+    "infrastructure_errors": 0,
+    "median_ms": 1243.8149242661893,
+    "p95_ms": 3470.7541707903147,
+    "call_correct": {
+      "correct": 56,
+      "n": 60
+    },
+    "completion_proxy": {
+      "correct": 41,
+      "n": 60
+    },
+    "strict_completion_proxy": {
+      "correct": 41,
+      "n": 60
+    },
+    "blocked_calls": 0
+  },
+  {
+    "category": "confusable",
+    "language": "it",
+    "arm": "nesso_only",
+    "trials": 60,
+    "requests": 20,
+    "infrastructure_errors": 0,
+    "median_ms": 1542.4001011997461,
+    "p95_ms": 3238.476579077542,
+    "call_correct": {
+      "correct": 23,
+      "n": 60
+    },
+    "completion_proxy": {
+      "correct": 15,
+      "n": 60
+    },
+    "strict_completion_proxy": {
+      "correct": 15,
+      "n": 60
+    },
+    "blocked_calls": 14
+  },
+  {
+    "category": "confusable",
+    "language": "it",
+    "arm": "nev_ranked",
+    "trials": 60,
+    "requests": 20,
+    "infrastructure_errors": 0,
+    "median_ms": 1338.329944293946,
+    "p95_ms": 3567.4612084403634,
+    "call_correct": {
+      "correct": 44,
+      "n": 60
+    },
+    "completion_proxy": {
+      "correct": 26,
+      "n": 60
+    },
+    "strict_completion_proxy": {
+      "correct": 26,
+      "n": 60
+    },
+    "blocked_calls": 6
+  },
+  {
+    "category": "confusable",
+    "language": "it",
+    "arm": "nev_selected",
+    "trials": 60,
+    "requests": 20,
+    "infrastructure_errors": 0,
+    "median_ms": 1300.5967335775495,
+    "p95_ms": 3483.2647014409304,
+    "call_correct": {
+      "correct": 43,
+      "n": 60
+    },
+    "completion_proxy": {
+      "correct": 29,
+      "n": 60
+    },
+    "strict_completion_proxy": {
+      "correct": 29,
+      "n": 60
+    },
+    "blocked_calls": 6
+  },
+  {
+    "category": "dependent",
+    "language": "en",
+    "arm": "nesso_only",
+    "trials": 30,
+    "requests": 10,
+    "infrastructure_errors": 0,
+    "median_ms": 1821.7160301283002,
+    "p95_ms": 3922.135055065155,
+    "call_correct": {
+      "correct": 1,
+      "n": 30
+    },
+    "completion_proxy": {
+      "correct": 1,
+      "n": 30
+    },
+    "strict_completion_proxy": {
+      "correct": 1,
+      "n": 30
+    },
+    "blocked_calls": 1
+  },
+  {
+    "category": "dependent",
+    "language": "en",
+    "arm": "nev_ranked",
+    "trials": 30,
+    "requests": 10,
+    "infrastructure_errors": 0,
+    "median_ms": 1712.5824382528663,
+    "p95_ms": 3314.4252533093095,
+    "call_correct": {
+      "correct": 1,
+      "n": 30
+    },
+    "completion_proxy": {
+      "correct": 1,
+      "n": 30
+    },
+    "strict_completion_proxy": {
+      "correct": 1,
+      "n": 30
+    },
+    "blocked_calls": 0
+  },
+  {
+    "category": "dependent",
+    "language": "en",
+    "arm": "nev_selected",
+    "trials": 30,
+    "requests": 10,
+    "infrastructure_errors": 0,
+    "median_ms": 2938.8866843655705,
+    "p95_ms": 3801.4339664950967,
+    "call_correct": {
+      "correct": 0,
+      "n": 30
+    },
+    "completion_proxy": {
+      "correct": 0,
+      "n": 30
+    },
+    "strict_completion_proxy": {
+      "correct": 0,
+      "n": 30
+    },
+    "blocked_calls": 0
+  },
+  {
+    "category": "dependent",
+    "language": "it",
+    "arm": "nesso_only",
+    "trials": 30,
+    "requests": 10,
+    "infrastructure_errors": 0,
+    "median_ms": 1990.2753718197346,
+    "p95_ms": 3575.930368155241,
+    "call_correct": {
+      "correct": 0,
+      "n": 30
+    },
+    "completion_proxy": {
+      "correct": 0,
+      "n": 30
+    },
+    "strict_completion_proxy": {
+      "correct": 0,
+      "n": 30
+    },
+    "blocked_calls": 12
+  },
+  {
+    "category": "dependent",
+    "language": "it",
+    "arm": "nev_ranked",
+    "trials": 30,
+    "requests": 10,
+    "infrastructure_errors": 0,
+    "median_ms": 2109.0051564387977,
+    "p95_ms": 3838.952830992639,
+    "call_correct": {
+      "correct": 0,
+      "n": 30
+    },
+    "completion_proxy": {
+      "correct": 0,
+      "n": 30
+    },
+    "strict_completion_proxy": {
+      "correct": 0,
+      "n": 30
+    },
+    "blocked_calls": 7
+  },
+  {
+    "category": "dependent",
+    "language": "it",
+    "arm": "nev_selected",
+    "trials": 30,
+    "requests": 10,
+    "infrastructure_errors": 0,
+    "median_ms": 1894.6553459390998,
+    "p95_ms": 3428.1857507303357,
+    "call_correct": {
+      "correct": 0,
+      "n": 30
+    },
+    "completion_proxy": {
+      "correct": 0,
+      "n": 30
+    },
+    "strict_completion_proxy": {
+      "correct": 0,
+      "n": 30
+    },
+    "blocked_calls": 0
+  },
+  {
+    "category": "error_or_format",
+    "language": "en",
+    "arm": "nesso_only",
+    "trials": 30,
+    "requests": 10,
+    "infrastructure_errors": 0,
+    "median_ms": 1293.76839986071,
+    "p95_ms": 3613.943338394165,
+    "call_correct": {
+      "correct": 13,
+      "n": 30
+    },
+    "completion_proxy": {
+      "correct": 4,
+      "n": 30
+    },
+    "strict_completion_proxy": {
+      "correct": 0,
+      "n": 30
+    },
+    "blocked_calls": 9
+  },
+  {
+    "category": "error_or_format",
+    "language": "en",
+    "arm": "nev_ranked",
+    "trials": 30,
+    "requests": 10,
+    "infrastructure_errors": 0,
+    "median_ms": 1307.75033403188,
+    "p95_ms": 3447.9250637814403,
+    "call_correct": {
+      "correct": 21,
+      "n": 30
+    },
+    "completion_proxy": {
+      "correct": 3,
+      "n": 30
+    },
+    "strict_completion_proxy": {
+      "correct": 0,
+      "n": 30
+    },
+    "blocked_calls": 0
+  },
+  {
+    "category": "error_or_format",
+    "language": "en",
+    "arm": "nev_selected",
+    "trials": 30,
+    "requests": 10,
+    "infrastructure_errors": 0,
+    "median_ms": 2757.2962660342455,
+    "p95_ms": 3502.3662531748414,
+    "call_correct": {
+      "correct": 29,
+      "n": 30
+    },
+    "completion_proxy": {
+      "correct": 0,
+      "n": 30
+    },
+    "strict_completion_proxy": {
+      "correct": 0,
+      "n": 30
+    },
+    "blocked_calls": 0
+  },
+  {
+    "category": "error_or_format",
+    "language": "it",
+    "arm": "nesso_only",
+    "trials": 30,
+    "requests": 10,
+    "infrastructure_errors": 0,
+    "median_ms": 1389.099354390055,
+    "p95_ms": 3671.5269405394793,
+    "call_correct": {
+      "correct": 15,
+      "n": 30
+    },
+    "completion_proxy": {
+      "correct": 0,
+      "n": 30
+    },
+    "strict_completion_proxy": {
+      "correct": 0,
+      "n": 30
+    },
+    "blocked_calls": 6
+  },
+  {
+    "category": "error_or_format",
+    "language": "it",
+    "arm": "nev_ranked",
+    "trials": 30,
+    "requests": 10,
+    "infrastructure_errors": 0,
+    "median_ms": 1522.73871563375,
+    "p95_ms": 3467.4250446259975,
+    "call_correct": {
+      "correct": 21,
+      "n": 30
+    },
+    "completion_proxy": {
+      "correct": 1,
+      "n": 30
+    },
+    "strict_completion_proxy": {
+      "correct": 1,
+      "n": 30
+    },
+    "blocked_calls": 0
+  },
+  {
+    "category": "error_or_format",
+    "language": "it",
+    "arm": "nev_selected",
+    "trials": 30,
+    "requests": 10,
+    "infrastructure_errors": 0,
+    "median_ms": 1677.4972854182124,
+    "p95_ms": 3245.4016841948032,
+    "call_correct": {
+      "correct": 23,
+      "n": 30
+    },
+    "completion_proxy": {
+      "correct": 0,
+      "n": 30
+    },
+    "strict_completion_proxy": {
+      "correct": 0,
+      "n": 30
+    },
+    "blocked_calls": 0
+  },
+  {
+    "category": "external_single",
+    "language": "en",
+    "arm": "nesso_only",
+    "trials": 90,
+    "requests": 30,
+    "infrastructure_errors": 0,
+    "median_ms": 1190.5867755413055,
+    "p95_ms": 2060.966182500124,
+    "tool_name_correct": {
+      "correct": 46,
+      "n": 90
+    },
+    "call_correct": {
+      "correct": 19,
+      "n": 90
+    },
+    "reference_arguments_match": {
+      "correct": 19,
+      "n": 90
+    },
+    "blocked_calls": 0
+  },
+  {
+    "category": "external_single",
+    "language": "en",
+    "arm": "nev_ranked",
+    "trials": 90,
+    "requests": 30,
+    "infrastructure_errors": 0,
+    "median_ms": 1292.8037783131003,
+    "p95_ms": 2262.5112254172564,
+    "tool_name_correct": {
+      "correct": 42,
+      "n": 90
+    },
+    "call_correct": {
+      "correct": 15,
+      "n": 90
+    },
+    "reference_arguments_match": {
+      "correct": 15,
+      "n": 90
+    },
+    "blocked_calls": 0
+  },
+  {
+    "category": "external_single",
+    "language": "en",
+    "arm": "nev_selected",
+    "trials": 90,
+    "requests": 30,
+    "infrastructure_errors": 0,
+    "median_ms": 1279.075704049319,
+    "p95_ms": 2157.4394796043634,
+    "tool_name_correct": {
+      "correct": 38,
+      "n": 90
+    },
+    "call_correct": {
+      "correct": 16,
+      "n": 90
+    },
+    "reference_arguments_match": {
+      "correct": 16,
+      "n": 90
+    },
+    "blocked_calls": 0
+  },
+  {
+    "category": "external_single",
+    "language": "it",
+    "arm": "nesso_only",
+    "trials": 90,
+    "requests": 30,
+    "infrastructure_errors": 0,
+    "median_ms": 1116.682359483093,
+    "p95_ms": 2045.8140820264816,
+    "tool_name_correct": {
+      "correct": 44,
+      "n": 90
+    },
+    "call_correct": {
+      "correct": 21,
+      "n": 90
+    },
+    "reference_arguments_match": {
+      "correct": 21,
+      "n": 90
+    },
+    "blocked_calls": 0
+  },
+  {
+    "category": "external_single",
+    "language": "it",
+    "arm": "nev_ranked",
+    "trials": 90,
+    "requests": 30,
+    "infrastructure_errors": 0,
+    "median_ms": 1249.7780220583081,
+    "p95_ms": 2134.001336991787,
+    "tool_name_correct": {
+      "correct": 42,
+      "n": 90
+    },
+    "call_correct": {
+      "correct": 13,
+      "n": 90
+    },
+    "reference_arguments_match": {
+      "correct": 13,
+      "n": 90
+    },
+    "blocked_calls": 0
+  },
+  {
+    "category": "external_single",
+    "language": "it",
+    "arm": "nev_selected",
+    "trials": 90,
+    "requests": 30,
+    "infrastructure_errors": 0,
+    "median_ms": 1249.912116676569,
+    "p95_ms": 1801.7007801681757,
+    "tool_name_correct": {
+      "correct": 37,
+      "n": 90
+    },
+    "call_correct": {
+      "correct": 18,
+      "n": 90
+    },
+    "reference_arguments_match": {
+      "correct": 18,
+      "n": 90
+    },
+    "blocked_calls": 0
+  },
+  {
+    "category": "missing",
+    "language": "en",
+    "arm": "nesso_only",
+    "trials": 45,
+    "requests": 15,
+    "infrastructure_errors": 0,
+    "median_ms": 1037.2340036556125,
+    "p95_ms": 3027.7476981282234,
+    "completion_proxy": {
+      "correct": 2,
+      "n": 45
+    },
+    "strict_completion_proxy": {
+      "correct": 2,
+      "n": 45
+    },
+    "no_call_behavior_proxy": {
+      "correct": 2,
+      "n": 45
+    },
+    "blocked_calls": 51
+  },
+  {
+    "category": "missing",
+    "language": "en",
+    "arm": "nev_ranked",
+    "trials": 45,
+    "requests": 15,
+    "infrastructure_errors": 0,
+    "median_ms": 1049.0561546757817,
+    "p95_ms": 2589.3437638878822,
+    "completion_proxy": {
+      "correct": 0,
+      "n": 45
+    },
+    "strict_completion_proxy": {
+      "correct": 0,
+      "n": 45
+    },
+    "no_call_behavior_proxy": {
+      "correct": 0,
+      "n": 45
+    },
+    "blocked_calls": 46
+  },
+  {
+    "category": "missing",
+    "language": "en",
+    "arm": "nev_selected",
+    "trials": 45,
+    "requests": 15,
+    "infrastructure_errors": 0,
+    "median_ms": 836.8824319913983,
+    "p95_ms": 1598.207799717784,
+    "completion_proxy": {
+      "correct": 32,
+      "n": 45
+    },
+    "strict_completion_proxy": {
+      "correct": 32,
+      "n": 45
+    },
+    "no_call_behavior_proxy": {
+      "correct": 32,
+      "n": 45
+    },
+    "blocked_calls": 8
+  },
+  {
+    "category": "missing",
+    "language": "it",
+    "arm": "nesso_only",
+    "trials": 45,
+    "requests": 15,
+    "infrastructure_errors": 0,
+    "median_ms": 998.1329590082169,
+    "p95_ms": 2882.384082302451,
+    "completion_proxy": {
+      "correct": 8,
+      "n": 45
+    },
+    "strict_completion_proxy": {
+      "correct": 8,
+      "n": 45
+    },
+    "no_call_behavior_proxy": {
+      "correct": 8,
+      "n": 45
+    },
+    "blocked_calls": 40
+  },
+  {
+    "category": "missing",
+    "language": "it",
+    "arm": "nev_ranked",
+    "trials": 45,
+    "requests": 15,
+    "infrastructure_errors": 0,
+    "median_ms": 1152.8219431638718,
+    "p95_ms": 2925.8872494101524,
+    "completion_proxy": {
+      "correct": 5,
+      "n": 45
+    },
+    "strict_completion_proxy": {
+      "correct": 5,
+      "n": 45
+    },
+    "no_call_behavior_proxy": {
+      "correct": 5,
+      "n": 45
+    },
+    "blocked_calls": 41
+  },
+  {
+    "category": "missing",
+    "language": "it",
+    "arm": "nev_selected",
+    "trials": 45,
+    "requests": 15,
+    "infrastructure_errors": 0,
+    "median_ms": 714.55570589751,
+    "p95_ms": 1453.0185284093022,
+    "completion_proxy": {
+      "correct": 28,
+      "n": 45
+    },
+    "strict_completion_proxy": {
+      "correct": 28,
+      "n": 45
+    },
+    "no_call_behavior_proxy": {
+      "correct": 28,
+      "n": 45
+    },
+    "blocked_calls": 0
+  },
+  {
+    "category": "unsupported_or_direct",
+    "language": "en",
+    "arm": "nesso_only",
+    "trials": 45,
+    "requests": 15,
+    "infrastructure_errors": 0,
+    "median_ms": 862.9563795402646,
+    "p95_ms": 3195.439387112856,
+    "completion_proxy": {
+      "correct": 12,
+      "n": 45
+    },
+    "strict_completion_proxy": {
+      "correct": 12,
+      "n": 45
+    },
+    "no_call_behavior_proxy": {
+      "correct": 12,
+      "n": 45
+    },
+    "blocked_calls": 3
+  },
+  {
+    "category": "unsupported_or_direct",
+    "language": "en",
+    "arm": "nev_ranked",
+    "trials": 45,
+    "requests": 15,
+    "infrastructure_errors": 0,
+    "median_ms": 966.6561214253306,
+    "p95_ms": 3180.7246953248978,
+    "completion_proxy": {
+      "correct": 12,
+      "n": 45
+    },
+    "strict_completion_proxy": {
+      "correct": 12,
+      "n": 45
+    },
+    "no_call_behavior_proxy": {
+      "correct": 12,
+      "n": 45
+    },
+    "blocked_calls": 1
+  },
+  {
+    "category": "unsupported_or_direct",
+    "language": "en",
+    "arm": "nev_selected",
+    "trials": 45,
+    "requests": 15,
+    "infrastructure_errors": 0,
+    "median_ms": 1497.6594168692827,
+    "p95_ms": 3250.1348946243525,
+    "completion_proxy": {
+      "correct": 18,
+      "n": 45
+    },
+    "strict_completion_proxy": {
+      "correct": 18,
+      "n": 45
+    },
+    "no_call_behavior_proxy": {
+      "correct": 18,
+      "n": 45
+    },
+    "blocked_calls": 0
+  },
+  {
+    "category": "unsupported_or_direct",
+    "language": "it",
+    "arm": "nesso_only",
+    "trials": 45,
+    "requests": 15,
+    "infrastructure_errors": 0,
+    "median_ms": 1310.0196467712522,
+    "p95_ms": 3161.9275053963065,
+    "completion_proxy": {
+      "correct": 3,
+      "n": 45
+    },
+    "strict_completion_proxy": {
+      "correct": 3,
+      "n": 45
+    },
+    "no_call_behavior_proxy": {
+      "correct": 3,
+      "n": 45
+    },
+    "blocked_calls": 8
+  },
+  {
+    "category": "unsupported_or_direct",
+    "language": "it",
+    "arm": "nev_ranked",
+    "trials": 45,
+    "requests": 15,
+    "infrastructure_errors": 0,
+    "median_ms": 1305.9213040396571,
+    "p95_ms": 3306.4538398757577,
+    "completion_proxy": {
+      "correct": 4,
+      "n": 45
+    },
+    "strict_completion_proxy": {
+      "correct": 4,
+      "n": 45
+    },
+    "no_call_behavior_proxy": {
+      "correct": 4,
+      "n": 45
+    },
+    "blocked_calls": 4
+  },
+  {
+    "category": "unsupported_or_direct",
+    "language": "it",
+    "arm": "nev_selected",
+    "trials": 45,
+    "requests": 15,
+    "infrastructure_errors": 0,
+    "median_ms": 1137.8403371199965,
+    "p95_ms": 3372.0203107222915,
+    "completion_proxy": {
+      "correct": 21,
+      "n": 45
+    },
+    "strict_completion_proxy": {
+      "correct": 21,
+      "n": 45
+    },
+    "no_call_behavior_proxy": {
+      "correct": 21,
+      "n": 45
+    },
+    "blocked_calls": 30
+  }
+]

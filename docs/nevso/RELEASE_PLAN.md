@@ -94,3 +94,24 @@ Actual overlap with the selected BFCL IDs is unknown. Disclose this possible
 indirect exposure. The 70 freshly authored pairs are separate; they still do not
 constitute an independent audit. The full test preserves the one-shot selection
 strategy, whose multi-step restriction is reported separately.
+
+
+### Completed stress test and scoring audit
+
+The full run completed all 1,800 trials on 19 October, 15:32:13–16:19:33 UTC
+(47m20s), without infrastructure failures. Evidence is now in
+[the stress-test review](../../experiments/nevso_stress/REVIEW.md).
+Authored confusable exact calls improved from 17/60 EN and 23/60 IT standalone to
+56/60 EN and 43/60 IT with selection; ranking achieved 40/60 EN and 44/60 IT.
+External BFCL point estimates did not improve: 19/90 EN and 21/90 IT standalone,
+15/90 and 13/90 ranking, 16/90 and 18/90 selection. Preserve this counterevidence.
+
+The clarification proxy falsely accepted refusals, wrong fields and fabricated
+`additionalProperties` arguments. Exhaustive assistant review of the 270
+clarification trials gives clean clarification 0/45 EN and 7/45 IT standalone,
+0/45 and 5/45 ranking, 16/45 and 20/45 selection. Keep original proxy scores and
+new review labels separate; never market the raw 71.1%/62.2% proxy as reliable
+clarification. Other completion proxies remain provisional. Multi-step, no-tool,
+error stopping and exact formatting remain weak. Some date-format failures
+contained factually correct dates written in words. No fixes or retraining have
+been applied as part of this evaluation.

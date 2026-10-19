@@ -1,0 +1,1341 @@
+{
+  "status": "complete",
+  "trials": 1800,
+  "expected_trials": 1800,
+  "groups": {
+    "confusable": {
+      "metric": "completion_proxy",
+      "languages": {
+        "en": {
+          "nesso_only": {
+            "correct": 7,
+            "n": 60,
+            "requests": 20,
+            "all_orders_correct": 0,
+            "per_order": {
+              "0": {
+                "correct": 2,
+                "n": 20
+              },
+              "1": {
+                "correct": 2,
+                "n": 20
+              },
+              "2": {
+                "correct": 3,
+                "n": 20
+              }
+            },
+            "median_ms": 1327.6890469715,
+            "blocked_calls": 5
+          },
+          "nev_ranked": {
+            "correct": 28,
+            "n": 60,
+            "requests": 20,
+            "all_orders_correct": 7,
+            "per_order": {
+              "0": {
+                "correct": 10,
+                "n": 20
+              },
+              "1": {
+                "correct": 9,
+                "n": 20
+              },
+              "2": {
+                "correct": 9,
+                "n": 20
+              }
+            },
+            "median_ms": 1377.9855887405574,
+            "blocked_calls": 0
+          },
+          "nev_selected": {
+            "correct": 41,
+            "n": 60,
+            "requests": 20,
+            "all_orders_correct": 13,
+            "per_order": {
+              "0": {
+                "correct": 14,
+                "n": 20
+              },
+              "1": {
+                "correct": 13,
+                "n": 20
+              },
+              "2": {
+                "correct": 14,
+                "n": 20
+              }
+            },
+            "median_ms": 1243.8149242661893,
+            "blocked_calls": 0
+          }
+        },
+        "it": {
+          "nesso_only": {
+            "correct": 15,
+            "n": 60,
+            "requests": 20,
+            "all_orders_correct": 1,
+            "per_order": {
+              "0": {
+                "correct": 7,
+                "n": 20
+              },
+              "1": {
+                "correct": 5,
+                "n": 20
+              },
+              "2": {
+                "correct": 3,
+                "n": 20
+              }
+            },
+            "median_ms": 1542.4001011997461,
+            "blocked_calls": 14
+          },
+          "nev_ranked": {
+            "correct": 26,
+            "n": 60,
+            "requests": 20,
+            "all_orders_correct": 8,
+            "per_order": {
+              "0": {
+                "correct": 9,
+                "n": 20
+              },
+              "1": {
+                "correct": 9,
+                "n": 20
+              },
+              "2": {
+                "correct": 8,
+                "n": 20
+              }
+            },
+            "median_ms": 1338.329944293946,
+            "blocked_calls": 6
+          },
+          "nev_selected": {
+            "correct": 29,
+            "n": 60,
+            "requests": 20,
+            "all_orders_correct": 7,
+            "per_order": {
+              "0": {
+                "correct": 11,
+                "n": 20
+              },
+              "1": {
+                "correct": 9,
+                "n": 20
+              },
+              "2": {
+                "correct": 9,
+                "n": 20
+              }
+            },
+            "median_ms": 1300.5967335775495,
+            "blocked_calls": 6
+          }
+        }
+      },
+      "paired_difference": {
+        "nev_ranked": {
+          "mean_delta_pp": 26.666666666666668,
+          "cluster_bootstrap_95_pp": [
+            11.666666666666666,
+            43.333333333333336
+          ],
+          "independent_bilingual_pairs": 20,
+          "trial_wins": 38,
+          "trial_losses": 6,
+          "trial_ties": 76
+        },
+        "nev_selected": {
+          "mean_delta_pp": 40.0,
+          "cluster_bootstrap_95_pp": [
+            24.166666666666668,
+            56.666666666666664
+          ],
+          "independent_bilingual_pairs": 20,
+          "trial_wins": 54,
+          "trial_losses": 6,
+          "trial_ties": 60
+        }
+      }
+    },
+    "date_format": {
+      "metric": "strict_completion_proxy",
+      "languages": {
+        "en": {
+          "nesso_only": {
+            "correct": 0,
+            "n": 15,
+            "requests": 5,
+            "all_orders_correct": 0,
+            "per_order": {
+              "0": {
+                "correct": 0,
+                "n": 5
+              },
+              "1": {
+                "correct": 0,
+                "n": 5
+              },
+              "2": {
+                "correct": 0,
+                "n": 5
+              }
+            },
+            "median_ms": 1254.2228810489178,
+            "blocked_calls": 4
+          },
+          "nev_ranked": {
+            "correct": 0,
+            "n": 15,
+            "requests": 5,
+            "all_orders_correct": 0,
+            "per_order": {
+              "0": {
+                "correct": 0,
+                "n": 5
+              },
+              "1": {
+                "correct": 0,
+                "n": 5
+              },
+              "2": {
+                "correct": 0,
+                "n": 5
+              }
+            },
+            "median_ms": 1193.3412915095687,
+            "blocked_calls": 0
+          },
+          "nev_selected": {
+            "correct": 0,
+            "n": 15,
+            "requests": 5,
+            "all_orders_correct": 0,
+            "per_order": {
+              "0": {
+                "correct": 0,
+                "n": 5
+              },
+              "1": {
+                "correct": 0,
+                "n": 5
+              },
+              "2": {
+                "correct": 0,
+                "n": 5
+              }
+            },
+            "median_ms": 1298.6983582377434,
+            "blocked_calls": 0
+          }
+        },
+        "it": {
+          "nesso_only": {
+            "correct": 0,
+            "n": 15,
+            "requests": 5,
+            "all_orders_correct": 0,
+            "per_order": {
+              "0": {
+                "correct": 0,
+                "n": 5
+              },
+              "1": {
+                "correct": 0,
+                "n": 5
+              },
+              "2": {
+                "correct": 0,
+                "n": 5
+              }
+            },
+            "median_ms": 1379.2306007817388,
+            "blocked_calls": 4
+          },
+          "nev_ranked": {
+            "correct": 0,
+            "n": 15,
+            "requests": 5,
+            "all_orders_correct": 0,
+            "per_order": {
+              "0": {
+                "correct": 0,
+                "n": 5
+              },
+              "1": {
+                "correct": 0,
+                "n": 5
+              },
+              "2": {
+                "correct": 0,
+                "n": 5
+              }
+            },
+            "median_ms": 1429.563868790865,
+            "blocked_calls": 0
+          },
+          "nev_selected": {
+            "correct": 0,
+            "n": 15,
+            "requests": 5,
+            "all_orders_correct": 0,
+            "per_order": {
+              "0": {
+                "correct": 0,
+                "n": 5
+              },
+              "1": {
+                "correct": 0,
+                "n": 5
+              },
+              "2": {
+                "correct": 0,
+                "n": 5
+              }
+            },
+            "median_ms": 1504.5155100524426,
+            "blocked_calls": 0
+          }
+        }
+      },
+      "paired_difference": {
+        "nev_ranked": {
+          "mean_delta_pp": 0,
+          "cluster_bootstrap_95_pp": [
+            0,
+            0
+          ],
+          "independent_bilingual_pairs": 5,
+          "trial_wins": 0,
+          "trial_losses": 0,
+          "trial_ties": 30
+        },
+        "nev_selected": {
+          "mean_delta_pp": 0,
+          "cluster_bootstrap_95_pp": [
+            0,
+            0
+          ],
+          "independent_bilingual_pairs": 5,
+          "trial_wins": 0,
+          "trial_losses": 0,
+          "trial_ties": 30
+        }
+      }
+    },
+    "dependent": {
+      "metric": "completion_proxy",
+      "languages": {
+        "en": {
+          "nesso_only": {
+            "correct": 1,
+            "n": 30,
+            "requests": 10,
+            "all_orders_correct": 0,
+            "per_order": {
+              "0": {
+                "correct": 0,
+                "n": 10
+              },
+              "1": {
+                "correct": 0,
+                "n": 10
+              },
+              "2": {
+                "correct": 1,
+                "n": 10
+              }
+            },
+            "median_ms": 1821.7160301283002,
+            "blocked_calls": 1
+          },
+          "nev_ranked": {
+            "correct": 1,
+            "n": 30,
+            "requests": 10,
+            "all_orders_correct": 0,
+            "per_order": {
+              "0": {
+                "correct": 1,
+                "n": 10
+              },
+              "1": {
+                "correct": 0,
+                "n": 10
+              },
+              "2": {
+                "correct": 0,
+                "n": 10
+              }
+            },
+            "median_ms": 1712.5824382528663,
+            "blocked_calls": 0
+          },
+          "nev_selected": {
+            "correct": 0,
+            "n": 30,
+            "requests": 10,
+            "all_orders_correct": 0,
+            "per_order": {
+              "0": {
+                "correct": 0,
+                "n": 10
+              },
+              "1": {
+                "correct": 0,
+                "n": 10
+              },
+              "2": {
+                "correct": 0,
+                "n": 10
+              }
+            },
+            "median_ms": 2938.8866843655705,
+            "blocked_calls": 0
+          }
+        },
+        "it": {
+          "nesso_only": {
+            "correct": 0,
+            "n": 30,
+            "requests": 10,
+            "all_orders_correct": 0,
+            "per_order": {
+              "0": {
+                "correct": 0,
+                "n": 10
+              },
+              "1": {
+                "correct": 0,
+                "n": 10
+              },
+              "2": {
+                "correct": 0,
+                "n": 10
+              }
+            },
+            "median_ms": 1990.2753718197346,
+            "blocked_calls": 12
+          },
+          "nev_ranked": {
+            "correct": 0,
+            "n": 30,
+            "requests": 10,
+            "all_orders_correct": 0,
+            "per_order": {
+              "0": {
+                "correct": 0,
+                "n": 10
+              },
+              "1": {
+                "correct": 0,
+                "n": 10
+              },
+              "2": {
+                "correct": 0,
+                "n": 10
+              }
+            },
+            "median_ms": 2109.0051564387977,
+            "blocked_calls": 7
+          },
+          "nev_selected": {
+            "correct": 0,
+            "n": 30,
+            "requests": 10,
+            "all_orders_correct": 0,
+            "per_order": {
+              "0": {
+                "correct": 0,
+                "n": 10
+              },
+              "1": {
+                "correct": 0,
+                "n": 10
+              },
+              "2": {
+                "correct": 0,
+                "n": 10
+              }
+            },
+            "median_ms": 1894.6553459390998,
+            "blocked_calls": 0
+          }
+        }
+      },
+      "paired_difference": {
+        "nev_ranked": {
+          "mean_delta_pp": 0.0,
+          "cluster_bootstrap_95_pp": [
+            -5.0,
+            5.0
+          ],
+          "independent_bilingual_pairs": 10,
+          "trial_wins": 1,
+          "trial_losses": 1,
+          "trial_ties": 58
+        },
+        "nev_selected": {
+          "mean_delta_pp": -1.6666666666666667,
+          "cluster_bootstrap_95_pp": [
+            -5.0,
+            0
+          ],
+          "independent_bilingual_pairs": 10,
+          "trial_wins": 0,
+          "trial_losses": 1,
+          "trial_ties": 59
+        }
+      }
+    },
+    "direct": {
+      "metric": "completion_proxy",
+      "languages": {
+        "en": {
+          "nesso_only": {
+            "correct": 0,
+            "n": 15,
+            "requests": 5,
+            "all_orders_correct": 0,
+            "per_order": {
+              "0": {
+                "correct": 0,
+                "n": 5
+              },
+              "1": {
+                "correct": 0,
+                "n": 5
+              },
+              "2": {
+                "correct": 0,
+                "n": 5
+              }
+            },
+            "median_ms": 2773.5300390049815,
+            "blocked_calls": 3
+          },
+          "nev_ranked": {
+            "correct": 0,
+            "n": 15,
+            "requests": 5,
+            "all_orders_correct": 0,
+            "per_order": {
+              "0": {
+                "correct": 0,
+                "n": 5
+              },
+              "1": {
+                "correct": 0,
+                "n": 5
+              },
+              "2": {
+                "correct": 0,
+                "n": 5
+              }
+            },
+            "median_ms": 2883.273079060018,
+            "blocked_calls": 1
+          },
+          "nev_selected": {
+            "correct": 0,
+            "n": 15,
+            "requests": 5,
+            "all_orders_correct": 0,
+            "per_order": {
+              "0": {
+                "correct": 0,
+                "n": 5
+              },
+              "1": {
+                "correct": 0,
+                "n": 5
+              },
+              "2": {
+                "correct": 0,
+                "n": 5
+              }
+            },
+            "median_ms": 2836.5685157477856,
+            "blocked_calls": 0
+          }
+        },
+        "it": {
+          "nesso_only": {
+            "correct": 0,
+            "n": 15,
+            "requests": 5,
+            "all_orders_correct": 0,
+            "per_order": {
+              "0": {
+                "correct": 0,
+                "n": 5
+              },
+              "1": {
+                "correct": 0,
+                "n": 5
+              },
+              "2": {
+                "correct": 0,
+                "n": 5
+              }
+            },
+            "median_ms": 2881.1745466664433,
+            "blocked_calls": 3
+          },
+          "nev_ranked": {
+            "correct": 0,
+            "n": 15,
+            "requests": 5,
+            "all_orders_correct": 0,
+            "per_order": {
+              "0": {
+                "correct": 0,
+                "n": 5
+              },
+              "1": {
+                "correct": 0,
+                "n": 5
+              },
+              "2": {
+                "correct": 0,
+                "n": 5
+              }
+            },
+            "median_ms": 2936.7789812386036,
+            "blocked_calls": 0
+          },
+          "nev_selected": {
+            "correct": 0,
+            "n": 15,
+            "requests": 5,
+            "all_orders_correct": 0,
+            "per_order": {
+              "0": {
+                "correct": 0,
+                "n": 5
+              },
+              "1": {
+                "correct": 0,
+                "n": 5
+              },
+              "2": {
+                "correct": 0,
+                "n": 5
+              }
+            },
+            "median_ms": 2907.143549993634,
+            "blocked_calls": 30
+          }
+        }
+      },
+      "paired_difference": {
+        "nev_ranked": {
+          "mean_delta_pp": 0,
+          "cluster_bootstrap_95_pp": [
+            0,
+            0
+          ],
+          "independent_bilingual_pairs": 5,
+          "trial_wins": 0,
+          "trial_losses": 0,
+          "trial_ties": 30
+        },
+        "nev_selected": {
+          "mean_delta_pp": 0,
+          "cluster_bootstrap_95_pp": [
+            0,
+            0
+          ],
+          "independent_bilingual_pairs": 5,
+          "trial_wins": 0,
+          "trial_losses": 0,
+          "trial_ties": 30
+        }
+      }
+    },
+    "external_single": {
+      "metric": "call_correct",
+      "languages": {
+        "en": {
+          "nesso_only": {
+            "correct": 19,
+            "n": 90,
+            "requests": 30,
+            "all_orders_correct": 5,
+            "per_order": {
+              "0": {
+                "correct": 7,
+                "n": 30
+              },
+              "1": {
+                "correct": 5,
+                "n": 30
+              },
+              "2": {
+                "correct": 7,
+                "n": 30
+              }
+            },
+            "median_ms": 1190.5867755413055,
+            "blocked_calls": 0
+          },
+          "nev_ranked": {
+            "correct": 15,
+            "n": 90,
+            "requests": 30,
+            "all_orders_correct": 5,
+            "per_order": {
+              "0": {
+                "correct": 5,
+                "n": 30
+              },
+              "1": {
+                "correct": 5,
+                "n": 30
+              },
+              "2": {
+                "correct": 5,
+                "n": 30
+              }
+            },
+            "median_ms": 1292.8037783131003,
+            "blocked_calls": 0
+          },
+          "nev_selected": {
+            "correct": 16,
+            "n": 90,
+            "requests": 30,
+            "all_orders_correct": 5,
+            "per_order": {
+              "0": {
+                "correct": 5,
+                "n": 30
+              },
+              "1": {
+                "correct": 5,
+                "n": 30
+              },
+              "2": {
+                "correct": 6,
+                "n": 30
+              }
+            },
+            "median_ms": 1279.075704049319,
+            "blocked_calls": 0
+          }
+        },
+        "it": {
+          "nesso_only": {
+            "correct": 21,
+            "n": 90,
+            "requests": 30,
+            "all_orders_correct": 4,
+            "per_order": {
+              "0": {
+                "correct": 7,
+                "n": 30
+              },
+              "1": {
+                "correct": 6,
+                "n": 30
+              },
+              "2": {
+                "correct": 8,
+                "n": 30
+              }
+            },
+            "median_ms": 1116.682359483093,
+            "blocked_calls": 0
+          },
+          "nev_ranked": {
+            "correct": 13,
+            "n": 90,
+            "requests": 30,
+            "all_orders_correct": 4,
+            "per_order": {
+              "0": {
+                "correct": 4,
+                "n": 30
+              },
+              "1": {
+                "correct": 4,
+                "n": 30
+              },
+              "2": {
+                "correct": 5,
+                "n": 30
+              }
+            },
+            "median_ms": 1249.7780220583081,
+            "blocked_calls": 0
+          },
+          "nev_selected": {
+            "correct": 18,
+            "n": 90,
+            "requests": 30,
+            "all_orders_correct": 6,
+            "per_order": {
+              "0": {
+                "correct": 6,
+                "n": 30
+              },
+              "1": {
+                "correct": 6,
+                "n": 30
+              },
+              "2": {
+                "correct": 6,
+                "n": 30
+              }
+            },
+            "median_ms": 1249.912116676569,
+            "blocked_calls": 0
+          }
+        }
+      },
+      "paired_difference": {
+        "nev_ranked": {
+          "mean_delta_pp": -6.666666666666667,
+          "cluster_bootstrap_95_pp": [
+            -15.0,
+            0.5555555555555552
+          ],
+          "independent_bilingual_pairs": 30,
+          "trial_wins": 3,
+          "trial_losses": 15,
+          "trial_ties": 162
+        },
+        "nev_selected": {
+          "mean_delta_pp": -3.3333333333333335,
+          "cluster_bootstrap_95_pp": [
+            -15.555555555555555,
+            7.777777777777778
+          ],
+          "independent_bilingual_pairs": 30,
+          "trial_wins": 10,
+          "trial_losses": 16,
+          "trial_ties": 154
+        }
+      }
+    },
+    "missing": {
+      "metric": "completion_proxy",
+      "languages": {
+        "en": {
+          "nesso_only": {
+            "correct": 2,
+            "n": 45,
+            "requests": 15,
+            "all_orders_correct": 0,
+            "per_order": {
+              "0": {
+                "correct": 0,
+                "n": 15
+              },
+              "1": {
+                "correct": 1,
+                "n": 15
+              },
+              "2": {
+                "correct": 1,
+                "n": 15
+              }
+            },
+            "median_ms": 1037.2340036556125,
+            "blocked_calls": 51
+          },
+          "nev_ranked": {
+            "correct": 0,
+            "n": 45,
+            "requests": 15,
+            "all_orders_correct": 0,
+            "per_order": {
+              "0": {
+                "correct": 0,
+                "n": 15
+              },
+              "1": {
+                "correct": 0,
+                "n": 15
+              },
+              "2": {
+                "correct": 0,
+                "n": 15
+              }
+            },
+            "median_ms": 1049.0561546757817,
+            "blocked_calls": 46
+          },
+          "nev_selected": {
+            "correct": 32,
+            "n": 45,
+            "requests": 15,
+            "all_orders_correct": 10,
+            "per_order": {
+              "0": {
+                "correct": 10,
+                "n": 15
+              },
+              "1": {
+                "correct": 11,
+                "n": 15
+              },
+              "2": {
+                "correct": 11,
+                "n": 15
+              }
+            },
+            "median_ms": 836.8824319913983,
+            "blocked_calls": 8
+          }
+        },
+        "it": {
+          "nesso_only": {
+            "correct": 8,
+            "n": 45,
+            "requests": 15,
+            "all_orders_correct": 0,
+            "per_order": {
+              "0": {
+                "correct": 3,
+                "n": 15
+              },
+              "1": {
+                "correct": 1,
+                "n": 15
+              },
+              "2": {
+                "correct": 4,
+                "n": 15
+              }
+            },
+            "median_ms": 998.1329590082169,
+            "blocked_calls": 40
+          },
+          "nev_ranked": {
+            "correct": 5,
+            "n": 45,
+            "requests": 15,
+            "all_orders_correct": 1,
+            "per_order": {
+              "0": {
+                "correct": 1,
+                "n": 15
+              },
+              "1": {
+                "correct": 3,
+                "n": 15
+              },
+              "2": {
+                "correct": 1,
+                "n": 15
+              }
+            },
+            "median_ms": 1152.8219431638718,
+            "blocked_calls": 41
+          },
+          "nev_selected": {
+            "correct": 28,
+            "n": 45,
+            "requests": 15,
+            "all_orders_correct": 8,
+            "per_order": {
+              "0": {
+                "correct": 10,
+                "n": 15
+              },
+              "1": {
+                "correct": 8,
+                "n": 15
+              },
+              "2": {
+                "correct": 10,
+                "n": 15
+              }
+            },
+            "median_ms": 714.55570589751,
+            "blocked_calls": 0
+          }
+        }
+      },
+      "paired_difference": {
+        "nev_ranked": {
+          "mean_delta_pp": -5.555555555555555,
+          "cluster_bootstrap_95_pp": [
+            -11.11111111111111,
+            0.0
+          ],
+          "independent_bilingual_pairs": 15,
+          "trial_wins": 2,
+          "trial_losses": 7,
+          "trial_ties": 81
+        },
+        "nev_selected": {
+          "mean_delta_pp": 55.55555555555556,
+          "cluster_bootstrap_95_pp": [
+            40.0,
+            71.11111111111111
+          ],
+          "independent_bilingual_pairs": 15,
+          "trial_wins": 51,
+          "trial_losses": 1,
+          "trial_ties": 38
+        }
+      }
+    },
+    "tool_error": {
+      "metric": "completion_proxy",
+      "languages": {
+        "en": {
+          "nesso_only": {
+            "correct": 0,
+            "n": 15,
+            "requests": 5,
+            "all_orders_correct": 0,
+            "per_order": {
+              "0": {
+                "correct": 0,
+                "n": 5
+              },
+              "1": {
+                "correct": 0,
+                "n": 5
+              },
+              "2": {
+                "correct": 0,
+                "n": 5
+              }
+            },
+            "median_ms": 1395.3098943457007,
+            "blocked_calls": 5
+          },
+          "nev_ranked": {
+            "correct": 0,
+            "n": 15,
+            "requests": 5,
+            "all_orders_correct": 0,
+            "per_order": {
+              "0": {
+                "correct": 0,
+                "n": 5
+              },
+              "1": {
+                "correct": 0,
+                "n": 5
+              },
+              "2": {
+                "correct": 0,
+                "n": 5
+              }
+            },
+            "median_ms": 1527.0997006446123,
+            "blocked_calls": 0
+          },
+          "nev_selected": {
+            "correct": 0,
+            "n": 15,
+            "requests": 5,
+            "all_orders_correct": 0,
+            "per_order": {
+              "0": {
+                "correct": 0,
+                "n": 5
+              },
+              "1": {
+                "correct": 0,
+                "n": 5
+              },
+              "2": {
+                "correct": 0,
+                "n": 5
+              }
+            },
+            "median_ms": 3208.26711691916,
+            "blocked_calls": 0
+          }
+        },
+        "it": {
+          "nesso_only": {
+            "correct": 0,
+            "n": 15,
+            "requests": 5,
+            "all_orders_correct": 0,
+            "per_order": {
+              "0": {
+                "correct": 0,
+                "n": 5
+              },
+              "1": {
+                "correct": 0,
+                "n": 5
+              },
+              "2": {
+                "correct": 0,
+                "n": 5
+              }
+            },
+            "median_ms": 1395.0718818232417,
+            "blocked_calls": 2
+          },
+          "nev_ranked": {
+            "correct": 1,
+            "n": 15,
+            "requests": 5,
+            "all_orders_correct": 0,
+            "per_order": {
+              "0": {
+                "correct": 0,
+                "n": 5
+              },
+              "1": {
+                "correct": 0,
+                "n": 5
+              },
+              "2": {
+                "correct": 1,
+                "n": 5
+              }
+            },
+            "median_ms": 1905.967510305345,
+            "blocked_calls": 0
+          },
+          "nev_selected": {
+            "correct": 0,
+            "n": 15,
+            "requests": 5,
+            "all_orders_correct": 0,
+            "per_order": {
+              "0": {
+                "correct": 0,
+                "n": 5
+              },
+              "1": {
+                "correct": 0,
+                "n": 5
+              },
+              "2": {
+                "correct": 0,
+                "n": 5
+              }
+            },
+            "median_ms": 2872.8991532698274,
+            "blocked_calls": 0
+          }
+        }
+      },
+      "paired_difference": {
+        "nev_ranked": {
+          "mean_delta_pp": 3.3333333333333335,
+          "cluster_bootstrap_95_pp": [
+            0,
+            10.0
+          ],
+          "independent_bilingual_pairs": 5,
+          "trial_wins": 1,
+          "trial_losses": 0,
+          "trial_ties": 29
+        },
+        "nev_selected": {
+          "mean_delta_pp": 0,
+          "cluster_bootstrap_95_pp": [
+            0,
+            0
+          ],
+          "independent_bilingual_pairs": 5,
+          "trial_wins": 0,
+          "trial_losses": 0,
+          "trial_ties": 30
+        }
+      }
+    },
+    "unsupported": {
+      "metric": "completion_proxy",
+      "languages": {
+        "en": {
+          "nesso_only": {
+            "correct": 12,
+            "n": 30,
+            "requests": 10,
+            "all_orders_correct": 4,
+            "per_order": {
+              "0": {
+                "correct": 4,
+                "n": 10
+              },
+              "1": {
+                "correct": 4,
+                "n": 10
+              },
+              "2": {
+                "correct": 4,
+                "n": 10
+              }
+            },
+            "median_ms": 819.9887424707413,
+            "blocked_calls": 0
+          },
+          "nev_ranked": {
+            "correct": 12,
+            "n": 30,
+            "requests": 10,
+            "all_orders_correct": 4,
+            "per_order": {
+              "0": {
+                "correct": 4,
+                "n": 10
+              },
+              "1": {
+                "correct": 4,
+                "n": 10
+              },
+              "2": {
+                "correct": 4,
+                "n": 10
+              }
+            },
+            "median_ms": 901.1771269142628,
+            "blocked_calls": 0
+          },
+          "nev_selected": {
+            "correct": 18,
+            "n": 30,
+            "requests": 10,
+            "all_orders_correct": 6,
+            "per_order": {
+              "0": {
+                "correct": 6,
+                "n": 10
+              },
+              "1": {
+                "correct": 6,
+                "n": 10
+              },
+              "2": {
+                "correct": 6,
+                "n": 10
+              }
+            },
+            "median_ms": 590.3681921772659,
+            "blocked_calls": 0
+          }
+        },
+        "it": {
+          "nesso_only": {
+            "correct": 3,
+            "n": 30,
+            "requests": 10,
+            "all_orders_correct": 0,
+            "per_order": {
+              "0": {
+                "correct": 1,
+                "n": 10
+              },
+              "1": {
+                "correct": 1,
+                "n": 10
+              },
+              "2": {
+                "correct": 1,
+                "n": 10
+              }
+            },
+            "median_ms": 1206.4842702820897,
+            "blocked_calls": 5
+          },
+          "nev_ranked": {
+            "correct": 4,
+            "n": 30,
+            "requests": 10,
+            "all_orders_correct": 1,
+            "per_order": {
+              "0": {
+                "correct": 1,
+                "n": 10
+              },
+              "1": {
+                "correct": 2,
+                "n": 10
+              },
+              "2": {
+                "correct": 1,
+                "n": 10
+              }
+            },
+            "median_ms": 1263.3788636885583,
+            "blocked_calls": 4
+          },
+          "nev_selected": {
+            "correct": 21,
+            "n": 30,
+            "requests": 10,
+            "all_orders_correct": 7,
+            "per_order": {
+              "0": {
+                "correct": 7,
+                "n": 10
+              },
+              "1": {
+                "correct": 7,
+                "n": 10
+              },
+              "2": {
+                "correct": 7,
+                "n": 10
+              }
+            },
+            "median_ms": 885.490579996258,
+            "blocked_calls": 0
+          }
+        }
+      },
+      "paired_difference": {
+        "nev_ranked": {
+          "mean_delta_pp": 1.6666666666666667,
+          "cluster_bootstrap_95_pp": [
+            0,
+            5.0
+          ],
+          "independent_bilingual_pairs": 10,
+          "trial_wins": 2,
+          "trial_losses": 1,
+          "trial_ties": 57
+        },
+        "nev_selected": {
+          "mean_delta_pp": 40.0,
+          "cluster_bootstrap_95_pp": [
+            18.333333333333332,
+            61.66666666666667
+          ],
+          "independent_bilingual_pairs": 10,
+          "trial_wins": 24,
+          "trial_losses": 0,
+          "trial_ties": 36
+        }
+      }
+    }
+  },
+  "sensitivity_excluding_flagged": {
+    "nesso_only": {
+      "correct": 34,
+      "n": 174
+    },
+    "nev_ranked": {
+      "correct": 22,
+      "n": 174
+    },
+    "nev_selected": {
+      "correct": 34,
+      "n": 174
+    }
+  }
+}

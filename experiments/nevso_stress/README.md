@@ -1,9 +1,11 @@
 # Stronger bilingual evaluation for Nev + Nesso3
 
 **200 requests, 100 English + 100 Italian, three strategies and three seeded
-starting tool-order draws: 1,800 trials.** The full native-GPU run was launched on
-19 October 2026. Results are pending; the earlier greenhouse scores are not
-results for this test.
+starting tool-order draws: 1,800 trials.** The native-GPU run completed all 1,800 trials on
+19 October 2026 in 47 minutes 20 seconds. **Read the [results and trace review](REVIEW.md)**:
+Nev improves the authored tool-selection cases, but does not improve the
+external BFCL subset. The clarification proxy overcounted successes; reviewed
+clarification scores are provided separately.
 
 The [frozen protocol](PROTOCOL.md) defines the data, comparison and scoring.
 [suite.json](suite.json) contains the exact inputs and references, and
@@ -62,8 +64,9 @@ Six evaluation-contract tests pass locally and on the A100. The separate
 [12-trial pilot](evidence/pilot/metadata.json) completed; it uses old greenhouse
 and synthetic arithmetic examples and is not part of the new 200 requests.
 
-Full-run workflow completion scores are **automatic proxies** until separately
-reviewed. Correct tool names, correct arguments, controller blocks, final-answer
+Full-run workflow completion scores are **automatic proxies**. The missing-argument
+category has a separate exhaustive assistant trace review in [REVIEW.md](REVIEW.md);
+other categories have only sample review. Correct tool names, correct arguments, controller blocks, final-answer
 assertions and strict output formatting must be distinguished. We do not combine
 the external call-only score and workflow completion into one headline accuracy.
 
