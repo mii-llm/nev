@@ -159,3 +159,17 @@ All 90 Qwen clarification trials were assistant-reviewed: clean clarification
 offers about ticket type (2/45 if accepted). Preserve labels and the explicit
 rubric, not just raw proxy counts. No blanket model superiority claim. Nev +
 Qwen remains an untested possible follow-up, not a completed experiment.
+
+### Launch articles prepared — 21 October 2026
+
+Prepared two standalone drafts in [docs/launch](../launch/EVIDENCE.md):
+[Nev](../launch/nev.md) and [Nevso](../launch/nevso.md). User direction is to
+highlight compact size, local/edge inference, fast decisions and favorable
+measured use cases. Nevso is positioned as a runnable developer preview of the
+existing two-model workflow, with no new checkpoint implied.
+
+The evidence index maps each launch claim to the saved reports. The articles
+keep backbone file size separate from runtime RAM, standalone GPU decision
+latency separate from full CPU workflow latency, and tool calls separate from
+final-answer success. Earlier experiments and raw results remain unchanged.
+The articles are local drafts; no external blog publication has taken place.

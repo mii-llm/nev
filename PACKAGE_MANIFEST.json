@@ -67,6 +67,18 @@
     "bytes": 774149,
     "sha256": "3f23a5b063df3f472320aa5bd67922250a81e1288abc382a654d15b8ac727f9b"
   },
+  "docs/launch/EVIDENCE.md": {
+    "bytes": 5152,
+    "sha256": "4d14ce22b4eb3185a24bfd322e2ca2d53fa02a34be0b131467115c8e8c6eaf08"
+  },
+  "docs/launch/nev.md": {
+    "bytes": 5866,
+    "sha256": "906248a59c383da36dc3c001370117f3c1680c4bce614eda8a9f2be7578fc9f1"
+  },
+  "docs/launch/nevso.md": {
+    "bytes": 7261,
+    "sha256": "04f88bc829560fd6fac00d857c5fe56822ade31e3524e128c9d43e2f727cadcc"
+  },
   "docs/nesso2/BUILD_RECIPE.md": {
     "bytes": 6243,
     "sha256": "76267b45da5f31e30c3351d1075b7d1dbc643d0930788c3ec0e1ebe7865a44b8"
@@ -424,8 +436,8 @@
     "sha256": "5df8fcf14d6a108578fbb1d052727814080cab1c6bf0d19b6bfbe8d5903ce026"
   },
   "docs/nevso/RELEASE_PLAN.md": {
-    "bytes": 9541,
-    "sha256": "d313497a8fc7744af4a4543ff325935e77582e1eb9bfecc544af0458f3f2ba2a"
+    "bytes": 10341,
+    "sha256": "46c4426f018d48c1824ab7a3fcbf3650b535bdded202f0d2cf1938d7dd70a298"
   },
   "docs/nevso/evidence/cpu-regression.json": {
     "bytes": 50586,
