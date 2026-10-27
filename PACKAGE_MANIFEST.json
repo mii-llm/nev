@@ -68,12 +68,12 @@
     "sha256": "3f23a5b063df3f472320aa5bd67922250a81e1288abc382a654d15b8ac727f9b"
   },
   "docs/launch/EVIDENCE.md": {
-    "bytes": 5152,
-    "sha256": "4d14ce22b4eb3185a24bfd322e2ca2d53fa02a34be0b131467115c8e8c6eaf08"
+    "bytes": 8888,
+    "sha256": "8aa520f0ddc4226ed5f5f4bc5ee5163ae050c19a73deead50c5ada4567d50177"
   },
   "docs/launch/nev.md": {
-    "bytes": 5866,
-    "sha256": "906248a59c383da36dc3c001370117f3c1680c4bce614eda8a9f2be7578fc9f1"
+    "bytes": 10764,
+    "sha256": "7cefc909225d1c431111144e8420c49e4e007a92ba4e0a8b27adff40cee9a96b"
   },
   "docs/launch/nevso.md": {
     "bytes": 7261,
@@ -1038,6 +1038,22 @@
   "experiments/hybrid_agent/workflow_cases.json": {
     "bytes": 34014,
     "sha256": "0724a86a14eef2a8b1805261fdfe98518777960ad3aa110cf5facf1836b54432"
+  },
+  "experiments/kev_comparison/PROTOCOL.md": {
+    "bytes": 3293,
+    "sha256": "e713648ec400a49c52197ca319f1ccca38edfb39eec5cc4f85c3d49e7bbc86be"
+  },
+  "experiments/kev_comparison/evidence/FREEZE.json": {
+    "bytes": 28581,
+    "sha256": "82e1a31ff6a5553148682d2089cce0672d42c0360b316bf58e583028d0e0467a"
+  },
+  "experiments/kev_comparison/evidence/results/README.md": {
+    "bytes": 2650,
+    "sha256": "25367d356982da92a3f27cecfa373188930bd4ef83ea7aff9112e5ed85a3ddfe"
+  },
+  "experiments/kev_comparison/evidence/results/report.json": {
+    "bytes": 121555,
+    "sha256": "4a1457a10abf2b11e5d4e4fcdc82de071bf7348ba706a75dd4e8ae862957b1d9"
   },
   "experiments/lumi/CHECKPOINT_EVAL_PLAN.md": {
     "bytes": 3484,
