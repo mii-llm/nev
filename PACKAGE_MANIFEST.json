@@ -36,8 +36,8 @@
     "sha256": "14b5910ba72fd9b2cab344a51ef64e7e74498283922767c08aef2ac40868ef1a"
   },
   "README.md": {
-    "bytes": 12533,
-    "sha256": "7c3177e2f18803304625ebd87367f79aa2fa9566d6667e49862e32877feb540e"
+    "bytes": 12689,
+    "sha256": "f5112e5bf163200754d81b792440790a7a21678fd2a8aed43b04aa00f0818f70"
   },
   "SCENARIO_RESULTS.md": {
     "bytes": 2828,
@@ -68,16 +68,16 @@
     "sha256": "3f23a5b063df3f472320aa5bd67922250a81e1288abc382a654d15b8ac727f9b"
   },
   "docs/launch/EVIDENCE.md": {
-    "bytes": 8888,
-    "sha256": "8aa520f0ddc4226ed5f5f4bc5ee5163ae050c19a73deead50c5ada4567d50177"
+    "bytes": 9890,
+    "sha256": "cbb229de0408c8ca4d6fd51ace9216886227d1361889c88a7eb51cf6e779d0e3"
   },
   "docs/launch/nev.md": {
     "bytes": 10764,
     "sha256": "7cefc909225d1c431111144e8420c49e4e007a92ba4e0a8b27adff40cee9a96b"
   },
   "docs/launch/nevso.md": {
-    "bytes": 7261,
-    "sha256": "04f88bc829560fd6fac00d857c5fe56822ade31e3524e128c9d43e2f727cadcc"
+    "bytes": 8804,
+    "sha256": "dfe6bf146a921f23dcc90cb0a6a02b409b5b173c39e4168899d0f118c2a3324b"
   },
   "docs/nesso2/BUILD_RECIPE.md": {
     "bytes": 6243,
@@ -432,8 +432,16 @@
     "sha256": "65156546e2cf6ea409eb2b6f0fb3bd7a9de1d6cb62fc2a57024b85aa65cf1d3e"
   },
   "docs/nevso/GPU_GUIDE.md": {
-    "bytes": 8182,
-    "sha256": "5df8fcf14d6a108578fbb1d052727814080cab1c6bf0d19b6bfbe8d5903ce026"
+    "bytes": 8249,
+    "sha256": "d7bd80a863aca17f5014adc6f87794fa5f7bbb690419eed01106397fe5084854"
+  },
+  "docs/nevso/LINUX_VALIDATION.md": {
+    "bytes": 3745,
+    "sha256": "1084b630565bc9482bb7170cff000cbd2d3322168dcffbea7ce58ed12aae7456"
+  },
+  "docs/nevso/QUICKSTART.md": {
+    "bytes": 6004,
+    "sha256": "d20da1beac06aab70a3828a2390d2bf87caed4afe5fca6b0ad884c7e40a518a7"
   },
   "docs/nevso/RELEASE_PLAN.md": {
     "bytes": 10341,
@@ -458,6 +466,30 @@
   "docs/nevso/evidence/greenhouse-ph-it-a100.txt": {
     "bytes": 3023,
     "sha256": "e20621788af88d8db36be6247d67358859c0f8ec6eb9736886e4f4f3a8c92162"
+  },
+  "docs/nevso/evidence/linux-cpu-20261103/environment.json": {
+    "bytes": 8478,
+    "sha256": "c139a2d01f80ed00be0cf944ff5aa288e1deb78f42e62f90197b5621954db8dd"
+  },
+  "docs/nevso/evidence/linux-cpu-20261103/ph-it.json": {
+    "bytes": 50528,
+    "sha256": "a62ba6199ad0c1f951fac7411831463294440409214773ce2194cbcc6b2feb3a"
+  },
+  "docs/nevso/evidence/linux-cpu-20261103/ph-it.txt": {
+    "bytes": 2997,
+    "sha256": "72be411562112bb29a019245deb4617fefd5c7c47050a7c0cbfc5646ad9f0e02"
+  },
+  "docs/nevso/evidence/linux-cpu-20261103/smoke.json": {
+    "bytes": 8140,
+    "sha256": "9712e1990c660bc290ee7e580316cd86d814858838dd10b041feeab390ff4b6f"
+  },
+  "docs/nevso/evidence/linux-cpu-20261103/tank-en.json": {
+    "bytes": 50836,
+    "sha256": "287e70f97254bfac046cf7eb26fac2ab2c22a69d43df286887aea2b3e273c5a9"
+  },
+  "docs/nevso/evidence/linux-cpu-20261103/tank-en.txt": {
+    "bytes": 3185,
+    "sha256": "61143e4d90276f666afdddf79364a7b84f5ff84837357fd2dd8f8d92634b69cd"
   },
   "docs/nevso/evidence/nevso-cli-ph-it-a100.json": {
     "bytes": 50978,
@@ -512,8 +544,8 @@
     "sha256": "43a8fdc557fbceed3e46ef3a02edeb34877aa8b13fb5aa80ee7a4bea54245fce"
   },
   "examples/nevso_demo.py": {
-    "bytes": 773,
-    "sha256": "2bc601af2def7f207028b38bd5d823a9aacc28368ce4f061fcd78985790e3bfd"
+    "bytes": 781,
+    "sha256": "a75033d0d9542ccb37fc01ff218970e038e6555272e9fc9bef0c6ba1842b12db"
   },
   "examples/reference_candidates.json": {
     "bytes": 33669,
@@ -624,8 +656,8 @@
     "sha256": "1cbf764fa7699e850267d0b0a992248a9e9ada4a9c13b94d248d84089e04e83f"
   },
   "experiments/cpu_gguf/README.md": {
-    "bytes": 16887,
-    "sha256": "316ac108a72624c13ca7a5cb17626ab644d0ebc70ddfc0cb4645d9ae42bc2bbc"
+    "bytes": 17329,
+    "sha256": "fc97098b988f8398ea4d31643bc4fe5e8403454f5fca3414763adffad27342c6"
   },
   "experiments/cpu_gguf/ROUTING_COMPARISON.md": {
     "bytes": 7900,
@@ -652,8 +684,8 @@
     "sha256": "b2e3c21ba69ced03f898834aa9ce934a80fe2cc7bb75bed8d9b5b8367169bb06"
   },
   "experiments/cpu_gguf/compare_routing.py": {
-    "bytes": 8940,
-    "sha256": "3cc14e69c0c9b1a302a06b0026b5d06455e890dadbc912f1ea0dbac04852b834"
+    "bytes": 8936,
+    "sha256": "c06faacb2e967752031d369113b26d963947ca628db15b457c08583748c19ae7"
   },
   "experiments/cpu_gguf/cpu_backend.py": {
     "bytes": 7516,
@@ -698,6 +730,10 @@
   "experiments/cpu_gguf/release.json": {
     "bytes": 305,
     "sha256": "d1bf6e2b74d07b16ea4e00dd441b3c2310965d6f1fbf5f688e5ee868ce212a08"
+  },
+  "experiments/cpu_gguf/requirements-gguf.txt": {
+    "bytes": 426,
+    "sha256": "924c19c75f1fd9414f017d1f355fdb3308b9d4e30f2468e0855c130dbb8e896d"
   },
   "experiments/cpu_gguf/requirements-lock.txt": {
     "bytes": 1306,
@@ -860,8 +896,8 @@
     "sha256": "9b4d0c0c21ff33975edb2ef6690163ebd6553f90517365aa46198d4bf02ec2da"
   },
   "experiments/cpu_gguf/setup.sh": {
-    "bytes": 2053,
-    "sha256": "7ff985ade6d71b5bd8502d4c5e618bab895c0686b64bf946720bea567e2f1175"
+    "bytes": 2889,
+    "sha256": "1a7f6ce9656459ec6873d3fb0957ce3a30e51543b813f9ab7ae9c283f3252adf"
   },
   "experiments/cpu_gguf/test_smoke.py": {
     "bytes": 2588,

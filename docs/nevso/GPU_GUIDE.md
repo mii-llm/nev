@@ -10,12 +10,13 @@ User request → Nev ranks functions → Nesso3 proposes a call
              → controller validates → mock tool returns data → Nesso3 answers
 ```
 
-The controller and domain definitions are the same ones used on Mac. The GPU
+The controller and domain definitions are the same ones used by the Linux/macOS
+CPU path in the [quick start](QUICKSTART.md). The GPU
 backend runs **Nesso3 BF16 + Nev v3 FP32**, using PyTorch/Transformers and CUDA.
 It does not load GGUF files or require the llama.cpp CPU build. Changing precision
 and kernels can change outputs; GPU results are recorded separately from Mac Q8.
 
-## Install on an NVIDIA GPU machine
+## Install on Linux with an NVIDIA GPU
 
 The recorded environment uses Python 3.12, PyTorch 2.10.0+cu126 and Transformers
 5.17.0 on an A100. Install a CUDA-enabled PyTorch 2.10 build compatible with your
@@ -84,7 +85,7 @@ This runs 24 requests under all three approaches, retaining all 72 trials. Add
 fixtures without changing the controller. Output paths must be new.
 
 The wrapper uses the shared runner under `experiments/cpu_gguf/`; its `--engine
-cuda` default selects the native GPU backend. Existing Mac installations can use
+cuda` default selects the native GPU backend. Linux and macOS CPU installations can use
 `--engine gguf --precision q8` with the same wrapper.
 
 ## A100 results — 19 October 2026

@@ -1,0 +1,14 @@
+# Inference-only dependencies for the published GGUF files on Linux/macOS.
+# Direct versions match the recorded CPU environment; transitive dependencies
+# are resolved by pip. The full conversion/reference lock is requirements-lock.txt.
+cmake==4.4.4
+ninja==1.13.2
+numpy==2.5.4
+safetensors==0.8.0
+transformers==5.17.0
+huggingface_hub==1.27.0
+pydantic==2.13.4
+jsonschema==4.23.0
+Jinja2==3.1.6
+psutil==7.2.2
+sentencepiece==0.2.2

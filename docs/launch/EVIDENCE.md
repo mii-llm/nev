@@ -55,3 +55,21 @@ The more specialized research candidates are excluded from the launch artifacts.
 
 This documentation revision imports the completed 26 October evaluation; it does
 not run new inference, alter model weights or publish the posts externally.
+
+
+## 3 November Nevso portability revision
+
+The Nevso launch now leads with one Linux/macOS CPU installation and test path,
+with the existing Linux/NVIDIA CUDA guide as an alternative. The new
+[quick start](../nevso/QUICKSTART.md) includes supported Python versions,
+bilingual real-inference smoke checks, three-arm comparisons, readable traces
+and custom JSON catalogs. `setup.sh --gguf-only` installs the published-GGUF
+inference dependencies without the training/reference stack in a fresh venv;
+`--python` chooses Python 3.12 or 3.13 explicitly. Model pins, controller logic,
+prompts and evaluation cases are unchanged.
+
+[Linux validation](../nevso/LINUX_VALIDATION.md) records fresh-host installation
+and CPU results separately from the historical Mac and CUDA scores. This is
+portability validation on authored development examples, not new independent
+quality evidence. Platform-specific measurements remain labelled. No new model
+training or general multi-step reliability claim is introduced.

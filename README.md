@@ -119,13 +119,13 @@ These are authored examples with read-only mock tools. The factual scores come f
 
 The **[GPU guide](docs/nevso/GPU_GUIDE.md)** includes fresh-environment installation, all traces and failures.
 
-### Run the same agent on a Mac CPU
+### Run the same agent on Linux or macOS CPU
 
-Run Nev + Nesso3 locally with **both models in Q8**, without a GPU. From the **GitHub checkout directory `nev/`**, with `python3` pointing to Python 3.12–3.13 and Xcode command-line tools installed:
+Run Nev + Nesso3 locally with **both models in Q8**, without a GPU. From the **GitHub checkout directory `nev/`**, with Python 3.12–3.13 and a C/C++ compiler installed. The **[Nevso quick start](docs/nevso/QUICKSTART.md)** provides Linux and macOS prerequisites, an installation check and the full bilingual test:
 
 ```bash
 # Build the CPU runtime and download both public Q8 models into a dedicated environment.
-./experiments/cpu_gguf/setup.sh --model both --precision q8
+./experiments/cpu_gguf/setup.sh --python python3.12 --gguf-only --model both --precision q8
 
 # Italian: soil pH. Compare Nesso3 alone, Nev-ranked tools and Nev-selected tools.
 RUN="results/nevso-cpu-$(date +%Y%m%d-%H%M%S)"

@@ -1,4 +1,4 @@
-"""Compare Nesso3 with all tools, Nev ordering, and a Nev-selected single tool on Mac CPU or CUDA."""
+"""Compare Nesso3 with all tools, Nev ordering, and a Nev-selected single tool on CPU or CUDA."""
 import argparse
 import hashlib
 import json

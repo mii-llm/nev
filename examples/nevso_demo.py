@@ -1,6 +1,6 @@
 """Experimental Nevso preview: Nev + Nesso3 on the greenhouse fixture suite.
 
-Defaults to native CUDA serving. Pass --engine gguf for the prepared Mac CPU
+Defaults to native CUDA serving. Pass --engine gguf for the prepared Linux/macOS CPU
 runtime, or --suite /path/to/suite.json for another domain. All tools are mocks.
 """
 from pathlib import Path

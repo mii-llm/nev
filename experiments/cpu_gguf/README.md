@@ -1,7 +1,9 @@
 # Nesso3 + Nev on CPU — installation, examples and test results
 
-Both models now run locally on this **Apple M3 Pro, 18 GiB RAM**, using four CPU
-threads. Metal and CUDA are disabled. No server or network connection is needed
+Both models run locally through the same CPU bridge on Linux and macOS. The
+historical measurements below use an **Apple M3 Pro, 18 GiB RAM**, with four CPU
+threads. See the [Nevso quick start](../../docs/nevso/QUICKSTART.md) for Linux and
+macOS installation and comparison commands. Metal and CUDA are disabled. No server or network connection is needed
 after setup. This experiment publishes the CPU bridge and recorded test results. Model files
 are in two public HF repositories: [Nev GGUF](https://huggingface.co/mii-llm/nev-gguf)
 and [Nesso3-0.4B-agentic GGUF](https://huggingface.co/mii-llm/nesso3-0.4B-agentic-gguf).
@@ -11,7 +13,8 @@ Each model card describes independent use; this guide also shows the combined ag
 
 Requirements: Python **3.12 or 3.13**, Git, a C/C++ compiler (on Mac, Xcode
 command-line tools), GitHub and Hugging Face network access, and several GiB of
-free disk space. The tested host is Apple Silicon macOS; Linux/Windows/phones
+free disk space. The original test host is Apple Silicon macOS; see the separate
+[Linux validation record](../../docs/nevso/LINUX_VALIDATION.md). Windows and phones
 have not been validated. Setup builds the pinned llama.cpp CPU bridge, downloads
 the selected GGUF pair plus required head/tokenizers, and verifies their SHA-256
 hashes. Downloads are public and do not prompt for an HF login.
@@ -19,18 +22,19 @@ hashes. Downloads are public and do not prompt for an HF login.
 ```bash
 git clone https://github.com/mii-llm/nev.git
 cd nev/experiments/cpu_gguf
-./setup.sh --model both --precision f16
+./setup.sh --python python3.12 --gguf-only --model both --precision f16
 
 # Alternatively, download the faster/smaller Q8 pair:
-# ./setup.sh --precision q8
+# ./setup.sh --gguf-only --precision q8
 # Or download both pairs:
-# ./setup.sh --precision both
+# ./setup.sh --gguf-only --precision both
 ```
 
 Both model revisions are pinned separately in `release.json`; the downloader refuses to
 replace an existing artifact with a different hash. No original safetensors
-backbone is needed for GGUF inference. The exact lock includes PyTorch for the
-optional reference/conversion path; GGUF inference itself uses C++ and NumPy.
+backbone is needed for GGUF inference. The `--gguf-only` recipe installs inference dependencies without PyTorch in
+a fresh environment. Omit it to install the historical full lock for optional
+reference/conversion work. GGUF inference itself uses C++ and NumPy.
 
 ### Run one model independently
 

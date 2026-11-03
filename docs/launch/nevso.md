@@ -2,11 +2,46 @@
 
 **Nev chooses. Nesso3 calls and answers. Your application controls execution.**
 
-Today we’re introducing the **Nevso developer preview**: a runnable agent workflow combining **Nev** and **Nesso3-0.4B-agentic**. Each has a roughly 0.4B backbone. Together, their Q8 backbone files occupy approximately **902 MiB**, and the workflow already runs on a Mac CPU in English and Italian.
+Today we’re introducing the **Nevso developer preview**: a runnable agent workflow combining **Nev** and **Nesso3-0.4B-agentic**. Each has a roughly 0.4B backbone. Together, their Q8 backbone files occupy approximately **902 MiB**, with English and Italian workflows and installation paths for **Linux CPU, macOS CPU and Linux/NVIDIA GPU**.
 
 Nevso brings a focused division of work to local AI. Nev helps select the right function. Nesso3 generates its arguments and turns the returned data into an answer. A controller validates the call and dispatches it to the supplied executor.
 
 The preview combines two existing public models and open-source code. You can run it today from the Nev repository, without a separate Nevso checkpoint or hosted inference service.
+
+## Run it on Linux or macOS
+
+Use Python 3.12–3.13, Git and a C/C++ compiler. On Ubuntu 24.04, install
+`git build-essential python3.12 python3.12-venv`; on macOS, install Python and
+Xcode command-line tools. The [quick start](https://github.com/mii-llm/nev/blob/main/docs/nevso/QUICKSTART.md)
+includes exact prerequisites, an installation check and the full comparison:
+
+```bash
+git clone https://github.com/mii-llm/nev.git
+cd nev
+./experiments/cpu_gguf/setup.sh --python python3.12 --gguf-only --model both --precision q8
+
+RUN="results/nevso-launch-$(date +%Y%m%d-%H%M%S)"
+
+# Verify bilingual CPU inference before the comparison.
+experiments/cpu_gguf/.venv/bin/python experiments/cpu_gguf/test_smoke.py \
+  --precision q8 --output "$RUN-smoke.json"
+
+# Italian: retrieve soil pH.
+experiments/cpu_gguf/.venv/bin/python examples/nevso_demo.py \
+  --engine gguf --precision q8 --case read_soil_ph-it \
+  --output "$RUN-it.json"
+cat "$RUN-it.txt"
+
+# English: retrieve the water-tank level.
+experiments/cpu_gguf/.venv/bin/python examples/nevso_demo.py \
+  --engine gguf --precision q8 --case read_water_tank_level-en \
+  --output "$RUN-en.json"
+cat "$RUN-en.txt"
+```
+
+Each output compares Nesso3 alone, Nev-ranked tools and Nev-selected tools. You can read the request, calls, mock observations and final answer. Omit `--case` to run all 24 greenhouse requests. Supply `--suite /path/to/your-suite.json` to change the catalog and fixtures without rewriting the controller. NVIDIA users can follow the [Linux GPU guide](https://github.com/mii-llm/nev/blob/main/docs/nevso/GPU_GUIDE.md).
+
+The CPU setup uses published GGUF files and skips training dependencies. No account, GPU or hosted inference service is needed for these examples. The performance numbers below belong to the named test hosts, not every Linux machine or Mac.
 
 ## A smaller prompt can produce a better result
 
@@ -48,6 +83,13 @@ For this catalog, **ranking all available tools with Nev** produced the stronges
 
 The combined exact-call score was **12/12 English and 11/12 Italian** on both backends. CPU and GPU were separate runs: the Mac used Q8; the shared A100 used Nesso3 BF16 and Nev FP32.
 
+We also reproduced the two examples below on a **Linux x86_64 CPU** in a fresh
+GGUF-only environment: both Nev-ranked and Nev-selected workflows returned the
+correct values, while Nesso3 alone chose the wrong tools. The
+[Linux validation record](https://github.com/mii-llm/nev/blob/main/docs/nevso/LINUX_VALIDATION.md)
+includes the bilingual smoke test, all six comparison traces and host details.
+This checks installation and example reproducibility, not the full benchmark.
+
 Two selected GPU examples show what changes:
 
 | Request | Nesso3 alone | Nev ranks + Nesso3 |
@@ -65,37 +107,11 @@ Each language had 20 distinct requests repeated under three tool orders. These p
 
 ## Local inference you can inspect
 
-The Mac implementation uses four CPU threads with GPU acceleration disabled. Inference works offline after setup. The pair of Q8 backbone files, **totaling approximately 902 MiB**, represents disk storage, not a total RAM requirement: a separate CPU diagnostic sampled approximately **2.9 GiB of summed process RSS** for the combined runtime. That sampling can count shared pages more than once and is not a physical-footprint measurement. Phone deployment has not been tested.
+The GGUF CPU implementation uses llama.cpp with GPU acceleration disabled; the recorded Mac tests used four CPU threads. Linux CPU validation is recorded separately in the [installation guide](https://github.com/mii-llm/nev/blob/main/docs/nevso/QUICKSTART.md). Inference works offline after setup. The pair of Q8 backbone files, **totaling approximately 902 MiB**, represents disk storage, not a total RAM requirement: a separate CPU diagnostic sampled approximately **2.9 GiB of summed process RSS** for the combined runtime. That sampling can count shared pages more than once and is not a physical-footprint measurement. Phone deployment has not been tested.
 
 The examples use read-only mock tools, so every call and returned value is reproducible. The controller checks schemas and argument provenance; it does not generate the final prose. For a real integration, the application supplies its tool executor and permissions.
 
 The 24-request demonstrations are authored development examples, with factual success assessed by assistant trace review. Requiring the requested date formatting reduces greenhouse combined success to **19/24** on both backends. Their results support focused tool workflows; the full reports retain every trial and describe the wider evaluation scope.
-
-## Run the bilingual preview
-
-On a Mac with Python 3.12–3.13, Git and Xcode command-line tools:
-
-```bash
-git clone https://github.com/mii-llm/nev.git
-cd nev
-./experiments/cpu_gguf/setup.sh --model both --precision q8
-
-RUN="results/nevso-launch-$(date +%Y%m%d-%H%M%S)"
-
-# Italian: retrieve soil pH.
-experiments/cpu_gguf/.venv/bin/python examples/nevso_demo.py \
-  --engine gguf --precision q8 --case read_soil_ph-it \
-  --output "$RUN-it.json"
-cat "$RUN-it.txt"
-
-# English: retrieve the water-tank level.
-experiments/cpu_gguf/.venv/bin/python examples/nevso_demo.py \
-  --engine gguf --precision q8 --case read_water_tank_level-en \
-  --output "$RUN-en.json"
-cat "$RUN-en.txt"
-```
-
-Each output compares Nesso3 alone, Nev-ranked tools and Nev-selected tools. You can read the request, calls, mock observations and final answer. Omit `--case` to run all 24 greenhouse requests. NVIDIA users can follow the [GPU guide](https://github.com/mii-llm/nev/blob/main/docs/nevso/GPU_GUIDE.md).
 
 **Download two small models. Run the comparison locally. Bring your own tool catalog.**
 

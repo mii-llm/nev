@@ -1,0 +1,295 @@
+{
+  "status": "passed",
+  "precision": "q8",
+  "cpu_only": true,
+  "scope": "Selected bilingual sensor smoke and Italian refund decision; not broad accuracy.",
+  "agent": {
+    "engine": "gguf",
+    "precision": "q8",
+    "cpu_only": true,
+    "threads": 4,
+    "load_seconds": 4.353521203622222,
+    "rows": [
+      {
+        "arm": "nev_ranked",
+        "status": "answered",
+        "final": "The reading is 18.2°C.",
+        "emitted_calls": [
+          {
+            "name": "read_sensor",
+            "arguments": {
+              "sensor_id": "S-6K3"
+            }
+          }
+        ],
+        "executed_calls": [
+          {
+            "turn": 0,
+            "call": {
+              "name": "read_sensor",
+              "arguments": {
+                "sensor_id": "S-6K3"
+              }
+            }
+          }
+        ],
+        "trace": [
+          {
+            "turn": 0,
+            "tool_order": [
+              "read_sensor",
+              "find_sensor",
+              "convert_temperature",
+              "battery_status"
+            ],
+            "ranking": {
+              "choice": "read_sensor",
+              "probabilities": {
+                "find_sensor": 0.0012205811217427254,
+                "read_sensor": 0.9980313181877136,
+                "convert_temperature": 0.0004839328757952899,
+                "battery_status": 0.00026409694692119956
+              },
+              "elapsed_ms": 1141.1196403205395
+            },
+            "assistant": "<tool_call>\n{\"name\": \"read_sensor\", \"arguments\": {\"sensor_id\": \"S-6K3\"}}\n</tool_call>",
+            "calls": [
+              {
+                "name": "read_sensor",
+                "arguments": {
+                  "sensor_id": "S-6K3"
+                }
+              }
+            ],
+            "parse_error": null,
+            "truncated": false,
+            "observations": [
+              {
+                "call": {
+                  "name": "read_sensor",
+                  "arguments": {
+                    "sensor_id": "S-6K3"
+                  }
+                },
+                "result": {
+                  "temperature": 18.2,
+                  "unit": "C"
+                },
+                "cached": false
+              }
+            ],
+            "validation": [
+              {
+                "call": {
+                  "name": "read_sensor",
+                  "arguments": {
+                    "sensor_id": "S-6K3"
+                  }
+                },
+                "error": null
+              }
+            ]
+          },
+          {
+            "turn": 1,
+            "tool_order": [
+              "read_sensor",
+              "find_sensor",
+              "convert_temperature",
+              "battery_status"
+            ],
+            "ranking": {
+              "choice": "read_sensor",
+              "probabilities": {
+                "find_sensor": 0.00018987861403729767,
+                "read_sensor": 0.9996706247329712,
+                "convert_temperature": 0.00011169820936629549,
+                "battery_status": 2.78507995972177e-05
+              },
+              "elapsed_ms": 1224.1700775921345
+            },
+            "assistant": "The reading is 18.2°C.",
+            "calls": [],
+            "parse_error": null,
+            "truncated": false,
+            "observations": [],
+            "validation": []
+          }
+        ],
+        "errors": [],
+        "generated_tokens": 40,
+        "rank_ms": 2365.289717912674,
+        "total_ms": 5515.582596883178,
+        "language": "en",
+        "request": "Read temperature sensor S-6K3."
+      },
+      {
+        "arm": "nev_ranked",
+        "status": "answered",
+        "final": "La temperatura è 18.2°C.",
+        "emitted_calls": [
+          {
+            "name": "read_sensor",
+            "arguments": {
+              "sensor_id": "S-6K3"
+            }
+          }
+        ],
+        "executed_calls": [
+          {
+            "turn": 0,
+            "call": {
+              "name": "read_sensor",
+              "arguments": {
+                "sensor_id": "S-6K3"
+              }
+            }
+          }
+        ],
+        "trace": [
+          {
+            "turn": 0,
+            "tool_order": [
+              "read_sensor",
+              "convert_temperature",
+              "battery_status",
+              "find_sensor"
+            ],
+            "ranking": {
+              "choice": "read_sensor",
+              "probabilities": {
+                "find_sensor": 0.0007272929651662707,
+                "read_sensor": 0.9872434735298157,
+                "convert_temperature": 0.01027247030287981,
+                "battery_status": 0.0017567815957590938
+              },
+              "elapsed_ms": 1271.5100161731243
+            },
+            "assistant": "<tool_call>\n{\"name\": \"read_sensor\", \"arguments\": {\"sensor_id\": \"S-6K3\"}}\n</tool_call>",
+            "calls": [
+              {
+                "name": "read_sensor",
+                "arguments": {
+                  "sensor_id": "S-6K3"
+                }
+              }
+            ],
+            "parse_error": null,
+            "truncated": false,
+            "observations": [
+              {
+                "call": {
+                  "name": "read_sensor",
+                  "arguments": {
+                    "sensor_id": "S-6K3"
+                  }
+                },
+                "result": {
+                  "temperature": 18.2,
+                  "unit": "C"
+                },
+                "cached": false
+              }
+            ],
+            "validation": [
+              {
+                "call": {
+                  "name": "read_sensor",
+                  "arguments": {
+                    "sensor_id": "S-6K3"
+                  }
+                },
+                "error": null
+              }
+            ]
+          },
+          {
+            "turn": 1,
+            "tool_order": [
+              "read_sensor",
+              "convert_temperature",
+              "battery_status",
+              "find_sensor"
+            ],
+            "ranking": {
+              "choice": "read_sensor",
+              "probabilities": {
+                "find_sensor": 8.984978921944275e-05,
+                "read_sensor": 0.9988840222358704,
+                "convert_temperature": 0.0009064676705747843,
+                "battery_status": 0.00011970100604230538
+              },
+              "elapsed_ms": 1532.4741825461388
+            },
+            "assistant": "La temperatura è 18.2°C.",
+            "calls": [],
+            "parse_error": null,
+            "truncated": false,
+            "observations": [],
+            "validation": []
+          }
+        ],
+        "errors": [],
+        "generated_tokens": 40,
+        "rank_ms": 2803.984198719263,
+        "total_ms": 6006.952496245503,
+        "language": "it",
+        "request": "Leggi la temperatura del sensore S-6K3."
+      }
+    ],
+    "generation_metrics": [
+      {
+        "prompt_tokens": 262,
+        "generated_tokens": 30,
+        "prefill_ms": 1070.158632,
+        "elapsed_ms": 1676.48419
+      },
+      {
+        "prompt_tokens": 312,
+        "generated_tokens": 10,
+        "prefill_ms": 1228.598357,
+        "elapsed_ms": 1414.903319
+      },
+      {
+        "prompt_tokens": 291,
+        "generated_tokens": 30,
+        "prefill_ms": 1156.236026,
+        "elapsed_ms": 1749.759058
+      },
+      {
+        "prompt_tokens": 341,
+        "generated_tokens": 10,
+        "prefill_ms": 1205.641669,
+        "elapsed_ms": 1397.937756
+      }
+    ]
+  },
+  "nev": {
+    "answers": {
+      "route": {
+        "type": "choice",
+        "choice": "refund",
+        "top_probability": 0.9969885945320129,
+        "probabilities": {
+          "refund": 0.9969885945320129,
+          "account": 0.0001727715425658971,
+          "info": 0.002838616259396076
+        }
+      }
+    },
+    "latency_ms": 316.1838874220848,
+    "form": "gguf_rows",
+    "raw_logits": [
+      [
+        1.0908499956130981,
+        -5.943681716918945,
+        -3.670104503631592
+      ]
+    ],
+    "usage": {
+      "state_tokens": 16,
+      "branch_tokens": 36,
+      "questions": 1
+    }
+  }
+}
