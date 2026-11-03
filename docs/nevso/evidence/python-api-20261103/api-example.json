@@ -1,0 +1,213 @@
+{
+  "scope": "Three Python mock tools, two example requests; not a benchmark.",
+  "rows": [
+    {
+      "arm": "nev_ranked",
+      "status": "answered",
+      "final": "Il terreno ha un pH di 6.4.",
+      "emitted_calls": [
+        {
+          "name": "read_soil_ph",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "read_soil_ph",
+            "arguments": {
+              "bed_id": "B-73"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "read_soil_ph",
+            "read_soil_moisture",
+            "read_water_tank_level"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"read_soil_ph\", \"arguments\": {\"bed_id\": \"B-73\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "read_soil_ph",
+              "arguments": {
+                "bed_id": "B-73"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "read_soil_ph",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "result": {
+                "soil_ph": 6.4
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "read_soil_ph",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "read_soil_ph",
+            "read_soil_moisture",
+            "read_water_tank_level"
+          ],
+          "ranking": null,
+          "assistant": "Il terreno ha un pH di 6.4.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 43,
+      "rank_ms": 900.4699438810349,
+      "total_ms": 3900.627164170146,
+      "request": "Leggi il pH del terreno nell’aiuola B-73.",
+      "language": "it",
+      "strategy": "rank",
+      "engine": "gguf",
+      "precision": "q8",
+      "initial_ranking": {
+        "choice": "read_soil_ph",
+        "probabilities": {
+          "read_soil_moisture": 0.06831017136573792,
+          "read_soil_ph": 0.8994327187538147,
+          "read_water_tank_level": 0.03225712105631828
+        },
+        "elapsed_ms": 900.4699438810349
+      }
+    },
+    {
+      "arm": "nev_ranked",
+      "status": "answered",
+      "final": "The percentage of water remaining in tank W-26 is 81%.",
+      "emitted_calls": [
+        {
+          "name": "read_water_tank_level",
+          "arguments": {
+            "tank_id": "W-26"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "read_water_tank_level",
+            "arguments": {
+              "tank_id": "W-26"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "read_water_tank_level",
+            "read_soil_ph",
+            "read_soil_moisture"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"read_water_tank_level\", \"arguments\": {\"tank_id\": \"W-26\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "read_water_tank_level",
+              "arguments": {
+                "tank_id": "W-26"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "read_water_tank_level",
+                "arguments": {
+                  "tank_id": "W-26"
+                }
+              },
+              "result": {
+                "water_remaining_percent": 81
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "read_water_tank_level",
+                "arguments": {
+                  "tank_id": "W-26"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "read_water_tank_level",
+            "read_soil_ph",
+            "read_soil_moisture"
+          ],
+          "ranking": null,
+          "assistant": "The percentage of water remaining in tank W-26 is 81%.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 46,
+      "rank_ms": 698.2293426990509,
+      "total_ms": 3403.880823403597,
+      "request": "What percentage of water remains in tank W-26?",
+      "language": "en",
+      "strategy": "rank",
+      "engine": "gguf",
+      "precision": "q8",
+      "initial_ranking": {
+        "choice": "read_water_tank_level",
+        "probabilities": {
+          "read_soil_moisture": 0.00135026965290308,
+          "read_soil_ph": 0.0060963137075304985,
+          "read_water_tank_level": 0.9925534129142761
+        },
+        "elapsed_ms": 698.2293426990509
+      }
+    }
+  ]
+}

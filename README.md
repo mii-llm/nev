@@ -151,6 +151,22 @@ Across the full demonstration on an **Apple M3 Pro, four CPU threads, Q8 models*
 
 Ranking gives the best accuracy in this run; selecting one tool is faster but retains more routing mistakes. These are the same authored mock-tool requests used above, with separate CPU measurements excluding loading. Factual success comes from assistant trace review; also enforcing the requested date format gives **9/24, 19/24 and 15/24**, respectively. See the **[CPU comparison](experiments/cpu_gguf/GREENHOUSE_COMPARISON.md)** for all traces and failures, or the **[CPU guide](experiments/cpu_gguf/README.md)** for setup details.
 
+### Use Nevso from Python
+
+Register your own functions with `Tool`, then call `Agent.run()`. The CPU setup
+installs the API; existing installations can add it with
+`experiments/cpu_gguf/.venv/bin/python -m pip install --no-deps -e .`.
+The included example supplies three read-only Python mock functions:
+
+```bash
+experiments/cpu_gguf/.venv/bin/python examples/nevso_api.py \
+  --output "results/nevso-api-$(date +%Y%m%d-%H%M%S).json"
+```
+
+It prints the English/Italian answers and traces. Choose `--strategy rank`,
+`select`, or `none` to control tool exposure. See the **[Python API guide](docs/nevso/PYTHON_API.md)**
+for custom handlers, installation, result fields and controller limits.
+
 ## English and Italian in action
 
 These selected examples passed on both variants; outputs shown are from v3. The application supplies the candidate labels.

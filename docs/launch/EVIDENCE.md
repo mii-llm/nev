@@ -73,3 +73,19 @@ and CPU results separately from the historical Mac and CUDA scores. This is
 portability validation on authored development examples, not new independent
 quality evidence. Platform-specific measurements remain labelled. No new model
 training or general multi-step reliability claim is introduced.
+
+## 3 November Python API
+
+The [source-checkout API](../nevso/PYTHON_API.md) registers Python handlers with
+JSON schemas and bilingual descriptions. It uses the same controller and
+one-time per-request selection/ranking as the launch comparison. It preserves
+validation, argument-grounding checks and turn/call limits. The wrapper's
+`none` strategy skips ranking but retains both loaded models.
+
+Nine scripted-backend tests passed locally and on Linux. The three-function
+example returned correct Italian pH and English tank readings, and six actual
+Linux Q8 trials matched the previous CLI calls, answers, statuses and errors.
+The [validation record](../nevso/evidence/python-api-20261103/validation.json)
+pins the new source and evidence. This adds an integration interface, not new
+model weights, new benchmark accuracy or a validated general agent. No fresh
+CUDA API inference was run for this change.

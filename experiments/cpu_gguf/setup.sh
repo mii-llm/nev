@@ -35,6 +35,11 @@ if [ "$gguf_only" = true ]; then
 else
   .venv/bin/python -m pip install -r requirements-lock.txt
 fi
+# The API keeps using this checkout's controller, build and downloaded models.
+# Standalone copies of the CPU experiment can still install without the API.
+if [ -f ../../nevso/api.py ]; then
+  .venv/bin/python -m pip install --no-deps -e ../..
+fi
 if [ ! -d llama.cpp/.git ]; then
   git clone --depth 1 https://github.com/ggml-org/llama.cpp.git llama.cpp
   git -C llama.cpp fetch --depth 1 origin 37d6d653e49aa73c947cc9631a5d499869a21cca

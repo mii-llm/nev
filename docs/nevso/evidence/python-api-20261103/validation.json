@@ -1,0 +1,49 @@
+{
+  "date": "2026-11-03",
+  "status": "passed",
+  "scope": "API integration and regression; no new model training or broad benchmark.",
+  "host_reference": "../linux-cpu-20261103/environment.json",
+  "engine": "gguf",
+  "precision": "q8",
+  "threads": 4,
+  "api_version": "0.1.0",
+  "checks": {
+    "unit_tests": 9,
+    "unit_test_hosts": [
+      "macOS with scripted backend",
+      "Linux with scripted backend"
+    ],
+    "bilingual_python_example": {
+      "requests": 2,
+      "correct_calls": 2,
+      "correct_answers_reviewed": 2
+    },
+    "cli_parity": {
+      "trials": 6,
+      "fields": [
+        "status",
+        "final",
+        "executed_calls",
+        "errors"
+      ],
+      "all_matched": true
+    },
+    "editable_install": true,
+    "import_outside_checkout": true,
+    "new_cuda_api_inference": false
+  },
+  "source_sha256": {
+    "pyproject.toml": "6c3593452a8ec94ca274d56a114959fd189fac3a6fc3496e29cc3516fafe134a",
+    "nevso/__init__.py": "4c01bb871bc54a5999aa018c1217b23490008d99b516281c9f6d7e5d201386ac",
+    "nevso/api.py": "5dd8075145cbbfbafb0b41ec41165e71a5fdd3ef73a87f211adaa6b750c7c347",
+    "examples/nevso_api.py": "710b7eb2e3e030fb539804602d9dfa33ba9adff4d1f1428bf2e945b2f4d6188c",
+    "tests/test_nevso_api.py": "4fe9dfbca9ffe28c92de03097de887ac1d47cc5d3ef08adefcb5706c1817152b",
+    "tests/check_nevso_api_inference.py": "9b953f3faae12477f1b3da42f69aed3ace1b097b575ec18459eb403155dd7beb",
+    "experiments/cpu_gguf/setup.sh": "1a4b208026c10f80912726e0f497306300897c96b49a8c17c547d3dfae6af5fc"
+  },
+  "evidence_sha256": {
+    "api-parity.json": "5164d01abe3160d5c8a4906d1956185a483af4188825e22afde36c0fde927432",
+    "api-example.json": "0797edf0d646f7f86e2095b3901ab410d5aba32bda970ba2eb049d87d259fba3",
+    "unit-tests.txt": "f7c1b8c0cef6ee43a57d002d39328dd88f4d1c809e19a6601cc7cbb1c820798d"
+  }
+}

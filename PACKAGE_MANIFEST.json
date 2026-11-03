@@ -36,8 +36,8 @@
     "sha256": "14b5910ba72fd9b2cab344a51ef64e7e74498283922767c08aef2ac40868ef1a"
   },
   "README.md": {
-    "bytes": 12689,
-    "sha256": "f5112e5bf163200754d81b792440790a7a21678fd2a8aed43b04aa00f0818f70"
+    "bytes": 13380,
+    "sha256": "6043d0aab656a26dbc09703eab82118a3a511e398fe666569cac39b7b80c4b67"
   },
   "SCENARIO_RESULTS.md": {
     "bytes": 2828,
@@ -68,16 +68,16 @@
     "sha256": "3f23a5b063df3f472320aa5bd67922250a81e1288abc382a654d15b8ac727f9b"
   },
   "docs/launch/EVIDENCE.md": {
-    "bytes": 9890,
-    "sha256": "cbb229de0408c8ca4d6fd51ace9216886227d1361889c88a7eb51cf6e779d0e3"
+    "bytes": 10796,
+    "sha256": "e49d48c069758d07b85712ba40b2758ea855c865a088cf4f99476d2664a9e581"
   },
   "docs/launch/nev.md": {
     "bytes": 10764,
     "sha256": "7cefc909225d1c431111144e8420c49e4e007a92ba4e0a8b27adff40cee9a96b"
   },
   "docs/launch/nevso.md": {
-    "bytes": 8804,
-    "sha256": "dfe6bf146a921f23dcc90cb0a6a02b409b5b173c39e4168899d0f118c2a3324b"
+    "bytes": 9229,
+    "sha256": "b68737d989c3a6c30b7b976a2b6728a1d7b8b18c3b7407c796154f0cff06e349"
   },
   "docs/nesso2/BUILD_RECIPE.md": {
     "bytes": 6243,
@@ -439,9 +439,13 @@
     "bytes": 3745,
     "sha256": "1084b630565bc9482bb7170cff000cbd2d3322168dcffbea7ce58ed12aae7456"
   },
+  "docs/nevso/PYTHON_API.md": {
+    "bytes": 8239,
+    "sha256": "2e31304244e6cc9db53d7c27d473af5a8981d360bf763c5b9651767ee9d2f2f7"
+  },
   "docs/nevso/QUICKSTART.md": {
-    "bytes": 6004,
-    "sha256": "d20da1beac06aab70a3828a2390d2bf87caed4afe5fca6b0ad884c7e40a518a7"
+    "bytes": 6222,
+    "sha256": "6452aa7693916057b06b8d3ba9b5bab108a8077742bcfffb5b2b0a845b8747b2"
   },
   "docs/nevso/RELEASE_PLAN.md": {
     "bytes": 10341,
@@ -499,6 +503,22 @@
     "bytes": 3023,
     "sha256": "343375e27bfc8e730cd24d7c07403f69962289c0983d2ddfe3f7969c08c0137f"
   },
+  "docs/nevso/evidence/python-api-20261103/api-example.json": {
+    "bytes": 5560,
+    "sha256": "0797edf0d646f7f86e2095b3901ab410d5aba32bda970ba2eb049d87d259fba3"
+  },
+  "docs/nevso/evidence/python-api-20261103/api-parity.json": {
+    "bytes": 22207,
+    "sha256": "5164d01abe3160d5c8a4906d1956185a483af4188825e22afde36c0fde927432"
+  },
+  "docs/nevso/evidence/python-api-20261103/unit-tests.txt": {
+    "bytes": 1279,
+    "sha256": "f7c1b8c0cef6ee43a57d002d39328dd88f4d1c809e19a6601cc7cbb1c820798d"
+  },
+  "docs/nevso/evidence/python-api-20261103/validation.json": {
+    "bytes": 1838,
+    "sha256": "c8f7f1a4acf9c9c00b0e7fe934757a68435a67d8c9f4f7e900972cbcbfc5699e"
+  },
   "docs/nevso/evidence/validation.json": {
     "bytes": 742,
     "sha256": "c6505c07fb7144a5b7f43cda23e41a0e28a1a8179f5304c979285c85e60a7aa7"
@@ -542,6 +562,10 @@
   "examples/lumi_scenarios.sbatch": {
     "bytes": 1160,
     "sha256": "43a8fdc557fbceed3e46ef3a02edeb34877aa8b13fb5aa80ee7a4bea54245fce"
+  },
+  "examples/nevso_api.py": {
+    "bytes": 2807,
+    "sha256": "710b7eb2e3e030fb539804602d9dfa33ba9adff4d1f1428bf2e945b2f4d6188c"
   },
   "examples/nevso_demo.py": {
     "bytes": 781,
@@ -896,8 +920,8 @@
     "sha256": "9b4d0c0c21ff33975edb2ef6690163ebd6553f90517365aa46198d4bf02ec2da"
   },
   "experiments/cpu_gguf/setup.sh": {
-    "bytes": 2889,
-    "sha256": "1a7f6ce9656459ec6873d3fb0957ce3a30e51543b813f9ab7ae9c283f3252adf"
+    "bytes": 3136,
+    "sha256": "1a4b208026c10f80912726e0f497306300897c96b49a8c17c547d3dfae6af5fc"
   },
   "experiments/cpu_gguf/test_smoke.py": {
     "bytes": 2588,
@@ -1695,9 +1719,21 @@
     "bytes": 5285,
     "sha256": "24fa15a7013109e8b9efbf6776e743a4f72ab1b75b365e282225c0fe48960cc9"
   },
+  "nevso/__init__.py": {
+    "bytes": 161,
+    "sha256": "4c01bb871bc54a5999aa018c1217b23490008d99b516281c9f6d7e5d201386ac"
+  },
+  "nevso/api.py": {
+    "bytes": 9576,
+    "sha256": "5dd8075145cbbfbafb0b41ec41165e71a5fdd3ef73a87f211adaa6b750c7c347"
+  },
   "parent-provenance.json": {
     "bytes": 279,
     "sha256": "5da9c84d2ed2d4b80487e1b55a867ebd4e8abb27ee8237d1c9fe8a2a1bf432d7"
+  },
+  "pyproject.toml": {
+    "bytes": 387,
+    "sha256": "6c3593452a8ec94ca274d56a114959fd189fac3a6fc3496e29cc3516fafe134a"
   },
   "recipe-source/MANIFEST.json": {
     "bytes": 11685,
@@ -1979,6 +2015,10 @@
     "bytes": 2981,
     "sha256": "08ec5865ecba8b79c8aa1f5d96fd793d1dd7a85c0198571e8b02dbc750276938"
   },
+  "tests/check_nevso_api_inference.py": {
+    "bytes": 3470,
+    "sha256": "9b953f3faae12477f1b3da42f69aed3ace1b097b575ec18459eb403155dd7beb"
+  },
   "tests/test_bilingual_pilot.py": {
     "bytes": 5564,
     "sha256": "8383fece768daa87e9f6a8f675dfb78623c17ff735387b25b93cfd4ebec5b8b3"
@@ -2022,6 +2062,10 @@
   "tests/test_model.py": {
     "bytes": 8709,
     "sha256": "2bfa300258ae69a4860426a38ae4c15d4d09bd4dca9aa0e366e28fe617ccbd4f"
+  },
+  "tests/test_nevso_api.py": {
+    "bytes": 6109,
+    "sha256": "4fe9dfbca9ffe28c92de03097de887ac1d47cc5d3ef08adefcb5706c1817152b"
   },
   "tests/test_okapi_eval.py": {
     "bytes": 1975,

@@ -1,0 +1,770 @@
+{
+  "status": "passed",
+  "engine": "gguf",
+  "precision": "q8",
+  "threads": 4,
+  "scope": "Six launch-case parity trials, not a new benchmark.",
+  "source_sha256": {
+    "nevso/api.py": "5dd8075145cbbfbafb0b41ec41165e71a5fdd3ef73a87f211adaa6b750c7c347",
+    "tests/check_nevso_api_inference.py": "9b953f3faae12477f1b3da42f69aed3ace1b097b575ec18459eb403155dd7beb"
+  },
+  "suite_sha256": "592b9247f41757d2adff628dda0a1feaabb2342e1b128a2036c24a0749abf2bf",
+  "rows": [
+    {
+      "arm": "nesso_only",
+      "status": "answered",
+      "final": "Il terreno nell’aiuola B-73 ha un pH di 38.",
+      "emitted_calls": [
+        {
+          "name": "read_soil_moisture",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "read_soil_moisture",
+            "arguments": {
+              "bed_id": "B-73"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "read_air_temperature",
+            "get_fertilizer_schedule",
+            "read_air_humidity",
+            "get_ventilation_status",
+            "read_soil_ph",
+            "get_planting_date",
+            "read_soil_moisture",
+            "read_water_tank_level",
+            "get_crop_name",
+            "get_irrigation_schedule",
+            "get_harvest_date",
+            "read_light_level"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"read_soil_moisture\", \"arguments\": {\"bed_id\": \"B-73\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "read_soil_moisture",
+              "arguments": {
+                "bed_id": "B-73"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "read_soil_moisture",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "result": {
+                "soil_moisture_percent": 38
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "read_soil_moisture",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "read_air_temperature",
+            "get_fertilizer_schedule",
+            "read_air_humidity",
+            "get_ventilation_status",
+            "read_soil_ph",
+            "get_planting_date",
+            "read_soil_moisture",
+            "read_water_tank_level",
+            "get_crop_name",
+            "get_irrigation_schedule",
+            "get_harvest_date",
+            "read_light_level"
+          ],
+          "ranking": null,
+          "assistant": "Il terreno nell’aiuola B-73 ha un pH di 38.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 50,
+      "rank_ms": 0.0,
+      "total_ms": 8077.479012310505,
+      "request": "Leggi il pH del terreno nell’aiuola B-73.",
+      "language": "it",
+      "strategy": "none",
+      "engine": "gguf",
+      "precision": "q8",
+      "initial_ranking": null,
+      "id": "read_soil_ph-it",
+      "parity": {
+        "status": true,
+        "final": true,
+        "executed_calls": true,
+        "errors": true
+      },
+      "reference_sha256": "a62ba6199ad0c1f951fac7411831463294440409214773ce2194cbcc6b2feb3a"
+    },
+    {
+      "arm": "nev_ranked",
+      "status": "answered",
+      "final": "Il pH del terreno nell’aiuola B-73 è 6.4.",
+      "emitted_calls": [
+        {
+          "name": "read_soil_ph",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "read_soil_ph",
+            "arguments": {
+              "bed_id": "B-73"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "read_soil_ph",
+            "read_soil_moisture",
+            "read_air_humidity",
+            "read_light_level",
+            "get_crop_name",
+            "get_planting_date",
+            "get_ventilation_status",
+            "get_irrigation_schedule",
+            "read_water_tank_level",
+            "get_harvest_date",
+            "read_air_temperature",
+            "get_fertilizer_schedule"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"read_soil_ph\", \"arguments\": {\"bed_id\": \"B-73\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "read_soil_ph",
+              "arguments": {
+                "bed_id": "B-73"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "read_soil_ph",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "result": {
+                "soil_ph": 6.4
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "read_soil_ph",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "read_soil_ph",
+            "read_soil_moisture",
+            "read_air_humidity",
+            "read_light_level",
+            "get_crop_name",
+            "get_planting_date",
+            "get_ventilation_status",
+            "get_irrigation_schedule",
+            "read_water_tank_level",
+            "get_harvest_date",
+            "read_air_temperature",
+            "get_fertilizer_schedule"
+          ],
+          "ranking": null,
+          "assistant": "Il pH del terreno nell’aiuola B-73 è 6.4.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 49,
+      "rank_ms": 3529.3591916561127,
+      "total_ms": 11368.473386391997,
+      "request": "Leggi il pH del terreno nell’aiuola B-73.",
+      "language": "it",
+      "strategy": "rank",
+      "engine": "gguf",
+      "precision": "q8",
+      "initial_ranking": {
+        "choice": "read_soil_ph",
+        "probabilities": {
+          "read_air_temperature": 0.0008699243771843612,
+          "get_fertilizer_schedule": 0.000738085771445185,
+          "read_air_humidity": 0.022893136367201805,
+          "get_ventilation_status": 0.0055403574369847775,
+          "read_soil_ph": 0.5089432597160339,
+          "get_planting_date": 0.007974915206432343,
+          "read_soil_moisture": 0.4259730577468872,
+          "read_water_tank_level": 0.002807538490742445,
+          "get_crop_name": 0.009025713428854942,
+          "get_irrigation_schedule": 0.003573118709027767,
+          "get_harvest_date": 0.002546013332903385,
+          "read_light_level": 0.009114951826632023
+        },
+        "elapsed_ms": 3529.3591916561127
+      },
+      "id": "read_soil_ph-it",
+      "parity": {
+        "status": true,
+        "final": true,
+        "executed_calls": true,
+        "errors": true
+      },
+      "reference_sha256": "a62ba6199ad0c1f951fac7411831463294440409214773ce2194cbcc6b2feb3a"
+    },
+    {
+      "arm": "nev_selected",
+      "status": "answered",
+      "final": "Il valore del pH del terreno nell’aiuola B-73 è 6.4.",
+      "emitted_calls": [
+        {
+          "name": "read_soil_ph",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "read_soil_ph",
+            "arguments": {
+              "bed_id": "B-73"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "read_soil_ph"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"read_soil_ph\", \"arguments\": {\"bed_id\": \"B-73\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "read_soil_ph",
+              "arguments": {
+                "bed_id": "B-73"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "read_soil_ph",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "result": {
+                "soil_ph": 6.4
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "read_soil_ph",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "read_soil_ph"
+          ],
+          "ranking": null,
+          "assistant": "Il valore del pH del terreno nell’aiuola B-73 è 6.4.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 51,
+      "rank_ms": 3311.6622511297464,
+      "total_ms": 5377.875791862607,
+      "request": "Leggi il pH del terreno nell’aiuola B-73.",
+      "language": "it",
+      "strategy": "select",
+      "engine": "gguf",
+      "precision": "q8",
+      "initial_ranking": {
+        "choice": "read_soil_ph",
+        "probabilities": {
+          "read_air_temperature": 0.0008699243771843612,
+          "get_fertilizer_schedule": 0.000738085771445185,
+          "read_air_humidity": 0.022893136367201805,
+          "get_ventilation_status": 0.0055403574369847775,
+          "read_soil_ph": 0.5089432597160339,
+          "get_planting_date": 0.007974915206432343,
+          "read_soil_moisture": 0.4259730577468872,
+          "read_water_tank_level": 0.002807538490742445,
+          "get_crop_name": 0.009025713428854942,
+          "get_irrigation_schedule": 0.003573118709027767,
+          "get_harvest_date": 0.002546013332903385,
+          "read_light_level": 0.009114951826632023
+        },
+        "elapsed_ms": 3311.6622511297464
+      },
+      "id": "read_soil_ph-it",
+      "parity": {
+        "status": true,
+        "final": true,
+        "executed_calls": true,
+        "errors": true
+      },
+      "reference_sha256": "a62ba6199ad0c1f951fac7411831463294440409214773ce2194cbcc6b2feb3a"
+    },
+    {
+      "arm": "nesso_only",
+      "status": "answered",
+      "final": "The water level in the tank W-26 is not found.",
+      "emitted_calls": [
+        {
+          "name": "get_ventilation_status",
+          "arguments": {
+            "zone_id": "W-26"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "get_ventilation_status",
+            "arguments": {
+              "zone_id": "W-26"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "read_air_humidity",
+            "get_fertilizer_schedule",
+            "read_air_temperature",
+            "read_light_level",
+            "read_soil_moisture",
+            "get_harvest_date",
+            "read_soil_ph",
+            "get_ventilation_status",
+            "read_water_tank_level",
+            "get_crop_name",
+            "get_planting_date",
+            "get_irrigation_schedule"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"get_ventilation_status\", \"arguments\": {\"zone_id\": \"W-26\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "get_ventilation_status",
+              "arguments": {
+                "zone_id": "W-26"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "get_ventilation_status",
+                "arguments": {
+                  "zone_id": "W-26"
+                }
+              },
+              "result": {
+                "error": "not_found"
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "get_ventilation_status",
+                "arguments": {
+                  "zone_id": "W-26"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "read_air_humidity",
+            "get_fertilizer_schedule",
+            "read_air_temperature",
+            "read_light_level",
+            "read_soil_moisture",
+            "get_harvest_date",
+            "read_soil_ph",
+            "get_ventilation_status",
+            "read_water_tank_level",
+            "get_crop_name",
+            "get_planting_date",
+            "get_irrigation_schedule"
+          ],
+          "ranking": null,
+          "assistant": "The water level in the tank W-26 is not found.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 45,
+      "rank_ms": 0.0,
+      "total_ms": 6433.164240792394,
+      "request": "What percentage of water remains in tank W-26?",
+      "language": "en",
+      "strategy": "none",
+      "engine": "gguf",
+      "precision": "q8",
+      "initial_ranking": null,
+      "id": "read_water_tank_level-en",
+      "parity": {
+        "status": true,
+        "final": true,
+        "executed_calls": true,
+        "errors": true
+      },
+      "reference_sha256": "287e70f97254bfac046cf7eb26fac2ab2c22a69d43df286887aea2b3e273c5a9"
+    },
+    {
+      "arm": "nev_ranked",
+      "status": "answered",
+      "final": "The percentage of water remaining in the tank W-26 is 81%.",
+      "emitted_calls": [
+        {
+          "name": "read_water_tank_level",
+          "arguments": {
+            "tank_id": "W-26"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "read_water_tank_level",
+            "arguments": {
+              "tank_id": "W-26"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "read_water_tank_level",
+            "read_soil_moisture",
+            "read_soil_ph",
+            "get_crop_name",
+            "get_planting_date",
+            "get_ventilation_status",
+            "read_light_level",
+            "read_air_temperature",
+            "get_harvest_date",
+            "read_air_humidity",
+            "get_irrigation_schedule",
+            "get_fertilizer_schedule"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"read_water_tank_level\", \"arguments\": {\"tank_id\": \"W-26\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "read_water_tank_level",
+              "arguments": {
+                "tank_id": "W-26"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "read_water_tank_level",
+                "arguments": {
+                  "tank_id": "W-26"
+                }
+              },
+              "result": {
+                "water_remaining_percent": 81
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "read_water_tank_level",
+                "arguments": {
+                  "tank_id": "W-26"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "read_water_tank_level",
+            "read_soil_moisture",
+            "read_soil_ph",
+            "get_crop_name",
+            "get_planting_date",
+            "get_ventilation_status",
+            "read_light_level",
+            "read_air_temperature",
+            "get_harvest_date",
+            "read_air_humidity",
+            "get_irrigation_schedule",
+            "get_fertilizer_schedule"
+          ],
+          "ranking": null,
+          "assistant": "The percentage of water remaining in the tank W-26 is 81%.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 47,
+      "rank_ms": 2830.746302381158,
+      "total_ms": 9451.590260490775,
+      "request": "What percentage of water remains in tank W-26?",
+      "language": "en",
+      "strategy": "rank",
+      "engine": "gguf",
+      "precision": "q8",
+      "initial_ranking": {
+        "choice": "read_water_tank_level",
+        "probabilities": {
+          "read_air_humidity": 0.0008689194801263511,
+          "get_fertilizer_schedule": 0.0003043798205908388,
+          "read_air_temperature": 0.0022188518196344376,
+          "read_light_level": 0.002363660139963031,
+          "read_soil_moisture": 0.053908154368400574,
+          "get_harvest_date": 0.0017882657703012228,
+          "read_soil_ph": 0.00964058842509985,
+          "get_ventilation_status": 0.002635294571518898,
+          "read_water_tank_level": 0.9121047258377075,
+          "get_crop_name": 0.007964991964399815,
+          "get_planting_date": 0.005512810777872801,
+          "get_irrigation_schedule": 0.0006893747486174107
+        },
+        "elapsed_ms": 2830.746302381158
+      },
+      "id": "read_water_tank_level-en",
+      "parity": {
+        "status": true,
+        "final": true,
+        "executed_calls": true,
+        "errors": true
+      },
+      "reference_sha256": "287e70f97254bfac046cf7eb26fac2ab2c22a69d43df286887aea2b3e273c5a9"
+    },
+    {
+      "arm": "nev_selected",
+      "status": "answered",
+      "final": "The percentage of water remaining in tank W-26 is 81%.",
+      "emitted_calls": [
+        {
+          "name": "read_water_tank_level",
+          "arguments": {
+            "tank_id": "W-26"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "read_water_tank_level",
+            "arguments": {
+              "tank_id": "W-26"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "read_water_tank_level"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"read_water_tank_level\", \"arguments\": {\"tank_id\": \"W-26\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "read_water_tank_level",
+              "arguments": {
+                "tank_id": "W-26"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "read_water_tank_level",
+                "arguments": {
+                  "tank_id": "W-26"
+                }
+              },
+              "result": {
+                "water_remaining_percent": 81
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "read_water_tank_level",
+                "arguments": {
+                  "tank_id": "W-26"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "read_water_tank_level"
+          ],
+          "ranking": null,
+          "assistant": "The percentage of water remaining in tank W-26 is 81%.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 46,
+      "rank_ms": 2755.085440352559,
+      "total_ms": 4494.941089302301,
+      "request": "What percentage of water remains in tank W-26?",
+      "language": "en",
+      "strategy": "select",
+      "engine": "gguf",
+      "precision": "q8",
+      "initial_ranking": {
+        "choice": "read_water_tank_level",
+        "probabilities": {
+          "read_air_humidity": 0.0008689194801263511,
+          "get_fertilizer_schedule": 0.0003043798205908388,
+          "read_air_temperature": 0.0022188518196344376,
+          "read_light_level": 0.002363660139963031,
+          "read_soil_moisture": 0.053908154368400574,
+          "get_harvest_date": 0.0017882657703012228,
+          "read_soil_ph": 0.00964058842509985,
+          "get_ventilation_status": 0.002635294571518898,
+          "read_water_tank_level": 0.9121047258377075,
+          "get_crop_name": 0.007964991964399815,
+          "get_planting_date": 0.005512810777872801,
+          "get_irrigation_schedule": 0.0006893747486174107
+        },
+        "elapsed_ms": 2755.085440352559
+      },
+      "id": "read_water_tank_level-en",
+      "parity": {
+        "status": true,
+        "final": true,
+        "executed_calls": true,
+        "errors": true
+      },
+      "reference_sha256": "287e70f97254bfac046cf7eb26fac2ab2c22a69d43df286887aea2b3e273c5a9"
+    }
+  ]
+}

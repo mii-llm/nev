@@ -114,6 +114,10 @@ loading and warmup, and depend on the CPU and contention.
 
 ## 5. Bring a different catalog
 
+For ordinary Python functions, use the **[Python API](PYTHON_API.md)**:
+register descriptions, JSON schemas and handlers with `Tool`, then call
+`Agent.run()`. The CPU setup installs it editable alongside the runtime.
+
 Copy `experiments/cpu_gguf/greenhouse_suite.json` and adapt its tool descriptions,
 JSON schemas, mock responses and test cases, preserving the structure. Run it
 with `--suite /absolute/path/my-suite.json` using the same command and controller.

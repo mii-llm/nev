@@ -43,6 +43,12 @@ Each output compares Nesso3 alone, Nev-ranked tools and Nev-selected tools. You 
 
 The CPU setup uses published GGUF files and skips training dependencies. No account, GPU or hosted inference service is needed for these examples. The performance numbers below belong to the named test hosts, not every Linux machine or Mac.
 
+For your own application, the [Python API](https://github.com/mii-llm/nev/blob/main/docs/nevso/PYTHON_API.md)
+accepts tool descriptions, JSON schemas and Python handlers. Create an `Agent`,
+call `agent.run(request, language="it")`, and inspect the answer and tool trace.
+The [runnable API example](https://github.com/mii-llm/nev/blob/main/examples/nevso_api.py)
+shows this with three local functions in English and Italian.
+
 ## A smaller prompt can produce a better result
 
 In our notes, sensors and music demonstration, Nesso3 receives a catalog of 12 tools. Adding Nev lets us choose one relevant schema before asking Nesso3 to generate the call.
