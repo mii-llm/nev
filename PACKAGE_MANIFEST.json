@@ -1511,6 +1511,214 @@
     "bytes": 5393,
     "sha256": "7a8e41467ff07e3c8d3275eafa37f7577c6b8d6331bdee0dff056c9bfa4bd301"
   },
+  "experiments/nevso_q4/PROTOCOL.md": {
+    "bytes": 2981,
+    "sha256": "dd26fdd02f0e7e529bde2ae60235e5b15f67eba9cdbb479e942bf83b2e356f41"
+  },
+  "experiments/nevso_q4/PROTOCOL_Q4_0.md": {
+    "bytes": 1348,
+    "sha256": "7bbfd1dddd9389db7d8d01db7af0a61c752d7dc22b15476d72dfef28536d24e6"
+  },
+  "experiments/nevso_q4/PROTOCOL_Q4_0_PURE.md": {
+    "bytes": 1285,
+    "sha256": "162b44404cbc4ca3df23aae723345194bf7ab27c2ac429006242b6ee7e728760"
+  },
+  "experiments/nevso_q4/README.md": {
+    "bytes": 3401,
+    "sha256": "8fe2313222bdaeadfbf29f7bb53adb2f121a9f50af8eb8d347db1e49668aea78"
+  },
+  "experiments/nevso_q4/REPORT.md": {
+    "bytes": 6999,
+    "sha256": "15f5fa97b0b799cd1886406bdecab0d71a5a1c5405e107ae8831269d4800894b"
+  },
+  "experiments/nevso_q4/analyze.py": {
+    "bytes": 4827,
+    "sha256": "492215efb10eae5cf05a39ff097bdb2be121f17d08d2d27f2d6a7042cb50e9cc"
+  },
+  "experiments/nevso_q4/evidence/FREEZE.sha256": {
+    "bytes": 1470,
+    "sha256": "8f184ac5bd45978edbdfc209fc082a7c43f8d4a32861058cf88282c8b1f5034d"
+  },
+  "experiments/nevso_q4/evidence/FREEZE_Q4_0.sha256": {
+    "bytes": 655,
+    "sha256": "3f4e2e8775018a3b0e040c8911d8d8bfd1146d186dc9395e1828576b536dcfa7"
+  },
+  "experiments/nevso_q4/evidence/FREEZE_Q4_0_PURE.sha256": {
+    "bytes": 680,
+    "sha256": "df75200493484f7b354bd6ddd2122d0cf0500255efc4ff037dfcb5bfcffde8c3"
+  },
+  "experiments/nevso_q4/evidence/answer_review.json": {
+    "bytes": 47906,
+    "sha256": "3a7c11559a6b321cff1dd525ceab77432b818f417e4725e88a40e2397efd2d10"
+  },
+  "experiments/nevso_q4/evidence/artifacts/quantization-q4_0.json": {
+    "bytes": 1353,
+    "sha256": "754de91625ccea0e958f362c60fb9aca239e0d42aaab455750331059277e2d87"
+  },
+  "experiments/nevso_q4/evidence/artifacts/quantization-q4_0_pure.json": {
+    "bytes": 1415,
+    "sha256": "bf0e8b0b5261988dec0ce4959be7893228e222bc810667908989f4c7dfe3ccd7"
+  },
+  "experiments/nevso_q4/evidence/artifacts/quantization.json": {
+    "bytes": 1363,
+    "sha256": "c0cd6d0098b284e81e3b7e2e84cb6d2d326d069a79e61374ad338f083129ff0c"
+  },
+  "experiments/nevso_q4/evidence/artifacts/quantize-nesso3.log": {
+    "bytes": 73697,
+    "sha256": "245077a1b32952b9d94f351a9162cb42ff7d66cf270a6744a081ccf171e1fd6c"
+  },
+  "experiments/nevso_q4/evidence/artifacts/quantize-nev-v3.log": {
+    "bytes": 73705,
+    "sha256": "60f3bb7902337da116c57cfe92c8ac379234d297dc6d146af3ed0beb60a780d8"
+  },
+  "experiments/nevso_q4/evidence/artifacts/quantize-q4_0-nesso3.log": {
+    "bytes": 47524,
+    "sha256": "93328f5b07b97c0376084f2cf7d427a44873514cf85203750bc6c3ddef991f6e"
+  },
+  "experiments/nevso_q4/evidence/artifacts/quantize-q4_0-nev-v3.log": {
+    "bytes": 47532,
+    "sha256": "04f3a7591ac6098c8a5f9a73f72a0045c8c261e44f206b42c2ac96c1756e160b"
+  },
+  "experiments/nevso_q4/evidence/artifacts/quantize-q4_0_pure-nesso3.log": {
+    "bytes": 47306,
+    "sha256": "1bc27927b76549601b4d557ce92e7fafc06821d02d342e0f0ff540f6ad7834c1"
+  },
+  "experiments/nevso_q4/evidence/artifacts/quantize-q4_0_pure-nev-v3.log": {
+    "bytes": 47314,
+    "sha256": "b0ca091ee774fabc7f230b1b3bbe7e2272db067fa127cf9bd5649a80a7e50494"
+  },
+  "experiments/nevso_q4/evidence/environment.txt": {
+    "bytes": 960,
+    "sha256": "48e3f260c2399916d8d5ace6c9cc841e88b04d59c7dac5de403a1f9b0c5c6f0a"
+  },
+  "experiments/nevso_q4/evidence/host.txt": {
+    "bytes": 3045,
+    "sha256": "5a36b06b1ec9f3fda567d7165ba0a0c5d1574c0cb52e6f4d161f76518f4ad50f"
+  },
+  "experiments/nevso_q4/evidence/results/RESULTS.md": {
+    "bytes": 2740,
+    "sha256": "b6df291a1ab02989cfde0ccc63f0cf1a3262c387624c01e3d209b81375de6f29"
+  },
+  "experiments/nevso_q4/evidence/results/REVIEW_INPUT.md": {
+    "bytes": 89835,
+    "sha256": "6afaab5cbf7f77f70866f3e6c879122d22500802fdf9ff768e0452630f3d35a6"
+  },
+  "experiments/nevso_q4/evidence/results/greenhouse-q4_0.json": {
+    "bytes": 139701,
+    "sha256": "7c1dcb8e5c53cdbc21e8f8449d6ea8a8f53c84957dc3c9b927def2b42ecdf4b5"
+  },
+  "experiments/nevso_q4/evidence/results/greenhouse-q4_0.txt": {
+    "bytes": 32551,
+    "sha256": "6c1d209e2924bea1c07114e1aef168f3e306481e8dfb9b50f2f902fe20f87bcf"
+  },
+  "experiments/nevso_q4/evidence/results/greenhouse-q4_0_pure.json": {
+    "bytes": 116537,
+    "sha256": "d008d02243b45a809ac241482549dceb43ebfde331f99034757ac21355f310b5"
+  },
+  "experiments/nevso_q4/evidence/results/greenhouse-q4_0_pure.txt": {
+    "bytes": 26528,
+    "sha256": "d5dce3d1c618b018d7f73b1c1f3e621248f74e3fc4f7a8979a9ca0527fbc7cf8"
+  },
+  "experiments/nevso_q4/evidence/results/greenhouse-q4_k_m.json": {
+    "bytes": 111209,
+    "sha256": "25748766c44bf992ea986061eeaa1671b681645f68a375d011bc9043b45177ed"
+  },
+  "experiments/nevso_q4/evidence/results/greenhouse-q4_k_m.txt": {
+    "bytes": 23612,
+    "sha256": "42f50728ea19ae900ceb39dbf30ad65eb384313220ce1ec36669b5d01f7049cc"
+  },
+  "experiments/nevso_q4/evidence/results/greenhouse-q8.json": {
+    "bytes": 117404,
+    "sha256": "a9789b00138a31da62365e587baf28200c971edf4c39318b576663b19e305c77"
+  },
+  "experiments/nevso_q4/evidence/results/greenhouse-q8.txt": {
+    "bytes": 25177,
+    "sha256": "2be642ca23f3a907a86589143586cdf3635dcb04382f147079a53cef0a69e08d"
+  },
+  "experiments/nevso_q4/evidence/results/routing-q4_0.json": {
+    "bytes": 126019,
+    "sha256": "7e9161d66421e82fd5cd6434efe34377e44c959fc15107df7e88ffab472d8fab"
+  },
+  "experiments/nevso_q4/evidence/results/routing-q4_0.txt": {
+    "bytes": 19348,
+    "sha256": "6b617dc3e8ddbb57525583ea8ee501b4874a3576a1c1406e90f84c37e23b3962"
+  },
+  "experiments/nevso_q4/evidence/results/routing-q4_0_pure.json": {
+    "bytes": 91122,
+    "sha256": "abbd33b56aee71b21ef9076c4401a9a210ad355af32fe786dee220c0dfd0a3fb"
+  },
+  "experiments/nevso_q4/evidence/results/routing-q4_0_pure.txt": {
+    "bytes": 13013,
+    "sha256": "0260d879f93a78156b385fc988cb0c02ef5bae5428c708ec329ae74eb30434d2"
+  },
+  "experiments/nevso_q4/evidence/results/routing-q4_k_m.json": {
+    "bytes": 91568,
+    "sha256": "ac78f3c6e63d91dca528603e2b8a197070407d0a0387e338b1b7d7c88ceac11c"
+  },
+  "experiments/nevso_q4/evidence/results/routing-q4_k_m.txt": {
+    "bytes": 12660,
+    "sha256": "a3e4945481e6fe54afc253d84d75ffd6f181e2e6a865e8df66d8316e51d4708e"
+  },
+  "experiments/nevso_q4/evidence/results/routing-q8.json": {
+    "bytes": 98081,
+    "sha256": "23d3ff69ce1bde0260b5b5ede61390abe05dd63ca5e39e112d0eb71975e66c46"
+  },
+  "experiments/nevso_q4/evidence/results/routing-q8.txt": {
+    "bytes": 13944,
+    "sha256": "8b4f4a15cc4b704d6360e94a14afa590cf02fc6f39be6d09d81ff057f48f8107"
+  },
+  "experiments/nevso_q4/evidence/results/summary.json": {
+    "bytes": 44632,
+    "sha256": "9f1fd71bd045b5b4ee91fce2f334fb6098f75c94102c19921ba25a9344a8aa93"
+  },
+  "experiments/nevso_q4/evidence/status-q4_0.txt": {
+    "bytes": 9,
+    "sha256": "37a40f08d8548dba289b9b0bb35bcf63b359f6d37ee86044ebc6b6da080b9ec1"
+  },
+  "experiments/nevso_q4/evidence/status-q4_0_pure.txt": {
+    "bytes": 9,
+    "sha256": "37a40f08d8548dba289b9b0bb35bcf63b359f6d37ee86044ebc6b6da080b9ec1"
+  },
+  "experiments/nevso_q4/evidence/status.txt": {
+    "bytes": 9,
+    "sha256": "37a40f08d8548dba289b9b0bb35bcf63b359f6d37ee86044ebc6b6da080b9ec1"
+  },
+  "experiments/nevso_q4/quantize.py": {
+    "bytes": 2034,
+    "sha256": "783336a2332ebd884acae7fdfd708003f3e0aa5da0085c0aa6187bc096b74352"
+  },
+  "experiments/nevso_q4/quantize_q4_0.py": {
+    "bytes": 2036,
+    "sha256": "cc3c86ea9606dcd002c327134864034bbd90c294d05fb1d8294784bab27c67ba"
+  },
+  "experiments/nevso_q4/quantize_q4_0_pure.py": {
+    "bytes": 2075,
+    "sha256": "3a253389fbc7d2bfac94d86fad9481b95f2c97263a1ec68171780fa376b96744"
+  },
+  "experiments/nevso_q4/run.py": {
+    "bytes": 8013,
+    "sha256": "0c8584c2f7deac6bc8ba80cdf3ca0cb76cbd237a7bde568e2a422769ae603dc6"
+  },
+  "experiments/nevso_q4/run_linux.sh": {
+    "bytes": 1425,
+    "sha256": "f4f22c694f26ebf52c09e2479c60716df92a3ed676b494f402c1335d63303df7"
+  },
+  "experiments/nevso_q4/run_q4_0.py": {
+    "bytes": 8010,
+    "sha256": "198aae6287138875f776b7851ef454849c7e9f5feb9b221e5d91db296d460a8f"
+  },
+  "experiments/nevso_q4/run_q4_0_linux.sh": {
+    "bytes": 1016,
+    "sha256": "c39b95c3314707c46674e2dadf7b9c9c23e717cc652027852f1b6855e26942f8"
+  },
+  "experiments/nevso_q4/run_q4_0_pure.py": {
+    "bytes": 8020,
+    "sha256": "574b1afa97c80af0d6c3b40701bce7a119fd5453ddc0d28866ec14e4c499a058"
+  },
+  "experiments/nevso_q4/run_q4_0_pure_linux.sh": {
+    "bytes": 1072,
+    "sha256": "5e256c1a8dd44eb8aa892f8a796048c681ad0494b14ce285e7b6b6237d03dd0e"
+  },
   "experiments/nevso_stress/ANALYSIS_FREEZE.json": {
     "bytes": 216,
     "sha256": "44d85edeeeb8a29d30994dec4a09eee9eadc7aeff63368edd475295470a95a36"

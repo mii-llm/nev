@@ -1,0 +1,36 @@
+{
+  "status": "complete",
+  "format": "Q4_0",
+  "pure": true,
+  "quantizer_sha256": "5526afb8c5091cc94ef94a2ee9ef8c3278d4c517713543ae6a8996fd1b2b0da6",
+  "models": {
+    "nev-v3": {
+      "source_bytes": 883484160,
+      "source_sha256": "6325b2d8ece94d7386b9cc367193605f74db8fb799c4a135530a0deb57a75eda",
+      "output_bytes": 254292480,
+      "output_sha256": "84683a6094847947c80af5dca97bfc14a9380f47cb2f25cdfc7228492a8be5c7",
+      "command": [
+        "/home/ecuser/nev-a100/nevso-linux-20261103/experiments/cpu_gguf/build/bin/llama-quantize",
+        "--pure",
+        "/home/ecuser/nev-a100/nevso-q4-20261105/artifacts/gguf/nev-v3-f16.gguf",
+        "/home/ecuser/nev-a100/nevso-q4-20261105/artifacts/gguf/nev-v3-q4_0_pure.partial.gguf",
+        "Q4_0",
+        "4"
+      ]
+    },
+    "nesso3": {
+      "source_bytes": 883483456,
+      "source_sha256": "ee3f3fbb96b34a791dbfea34e1dbccb2096ef06519067de26a2bc4225c348013",
+      "output_bytes": 254291776,
+      "output_sha256": "fcd18c6f49af2598f540b6f5e7e755558521c4d4a32d71122e37ab7c3ddaab9c",
+      "command": [
+        "/home/ecuser/nev-a100/nevso-linux-20261103/experiments/cpu_gguf/build/bin/llama-quantize",
+        "--pure",
+        "/home/ecuser/nev-a100/nevso-q4-20261105/artifacts/gguf/nesso3-f16.gguf",
+        "/home/ecuser/nev-a100/nevso-q4-20261105/artifacts/gguf/nesso3-q4_0_pure.partial.gguf",
+        "Q4_0",
+        "4"
+      ]
+    }
+  }
+}

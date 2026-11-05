@@ -1,0 +1,4080 @@
+{
+  "status": "complete",
+  "suite": "greenhouse",
+  "precision": "q8",
+  "arm": "nev_ranked",
+  "cpu_only": true,
+  "threads": 4,
+  "platform": "Linux-6.8.0-1008-nvidia-x86_64-with-glibc2.35",
+  "python": "3.12.13 (main, Mar  4 2026, 09:23:07) [GCC 11.4.0]",
+  "release": {
+    "format_version": 2,
+    "models": {
+      "nev": {
+        "repository": "mii-llm/nev-gguf",
+        "revision": "d3be0de4ea15a54c0b09b9f3cfa27ca62c47c51e"
+      },
+      "nesso3": {
+        "repository": "mii-llm/nesso3-0.4B-agentic-gguf",
+        "revision": "2058a05f2e139c5bc4a5e57405a4806f65615e93"
+      }
+    }
+  },
+  "suite_sha256": "592b9247f41757d2adff628dda0a1feaabb2342e1b128a2036c24a0749abf2bf",
+  "source_sha256": {
+    "cpu_backend.py": "bf494641d9b313020598086187936c6645e903ab08b7cbc29658be01f2d670e6",
+    "worker.cpp": "9b0eacff6ec69cf91f1066875692c7f76cb2699b54008aa6235d7a873fc227da",
+    "abstract_agent/runtime.py": "85e1943b5117893ad2ecff14be1c6e11894371aac830eb19c0ee1862a937c9f4",
+    "abstract_agent/fixtures.py": "c37a26fb2fa5ec79fb9e43de7449cf2a0550975c608cd64f8525a0261b291697",
+    "release.json": "d1bf6e2b74d07b16ea4e00dd441b3c2310965d6f1fbf5f688e5ee868ce212a08"
+  },
+  "runner_sha256": "0c8584c2f7deac6bc8ba80cdf3ca0cb76cbd237a7bde568e2a422769ae603dc6",
+  "quantization": {
+    "status": "complete",
+    "format": "Q4_K_M",
+    "quantizer_sha256": "5526afb8c5091cc94ef94a2ee9ef8c3278d4c517713543ae6a8996fd1b2b0da6",
+    "models": {
+      "nev-v3": {
+        "source_bytes": 883484160,
+        "source_sha256": "6325b2d8ece94d7386b9cc367193605f74db8fb799c4a135530a0deb57a75eda",
+        "output_bytes": 357327360,
+        "output_sha256": "67d5dcf145c096a1abde7185a37e60dc60a5404d49e1c47a1bedda3975f5bc31",
+        "command": [
+          "/home/ecuser/nev-a100/nevso-linux-20261103/experiments/cpu_gguf/build/bin/llama-quantize",
+          "/home/ecuser/nev-a100/nevso-q4-20261105/artifacts/gguf/nev-v3-f16.gguf",
+          "/home/ecuser/nev-a100/nevso-q4-20261105/artifacts/gguf/nev-v3-q4_k_m.partial.gguf",
+          "Q4_K_M",
+          "4"
+        ]
+      },
+      "nesso3": {
+        "source_bytes": 883483456,
+        "source_sha256": "ee3f3fbb96b34a791dbfea34e1dbccb2096ef06519067de26a2bc4225c348013",
+        "output_bytes": 357326656,
+        "output_sha256": "de2d28d21d478cac69600784d1c33ab935e356292cbd2178624c5c9106076e55",
+        "command": [
+          "/home/ecuser/nev-a100/nevso-linux-20261103/experiments/cpu_gguf/build/bin/llama-quantize",
+          "/home/ecuser/nev-a100/nevso-q4-20261105/artifacts/gguf/nesso3-f16.gguf",
+          "/home/ecuser/nev-a100/nevso-q4-20261105/artifacts/gguf/nesso3-q4_k_m.partial.gguf",
+          "Q4_K_M",
+          "4"
+        ]
+      }
+    }
+  },
+  "rows": [
+    {
+      "arm": "nev_ranked",
+      "status": "answered",
+      "final": "The air temperature in zone Z-41 is 24.7°C.",
+      "emitted_calls": [
+        {
+          "name": "read_air_temperature",
+          "arguments": {
+            "zone_id": "Z-41"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "read_air_temperature",
+            "arguments": {
+              "zone_id": "Z-41"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "read_air_temperature",
+            "read_air_humidity",
+            "read_soil_moisture",
+            "read_light_level",
+            "read_soil_ph",
+            "get_ventilation_status",
+            "get_harvest_date",
+            "get_fertilizer_schedule",
+            "get_planting_date",
+            "get_irrigation_schedule",
+            "get_crop_name",
+            "read_water_tank_level"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"read_air_temperature\", \"arguments\": {\"zone_id\": \"Z-41\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "read_air_temperature",
+              "arguments": {
+                "zone_id": "Z-41"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "read_air_temperature",
+                "arguments": {
+                  "zone_id": "Z-41"
+                }
+              },
+              "result": {
+                "temperature_c": 24.7
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "read_air_temperature",
+                "arguments": {
+                  "zone_id": "Z-41"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "read_air_temperature",
+            "read_air_humidity",
+            "read_soil_moisture",
+            "read_light_level",
+            "read_soil_ph",
+            "get_ventilation_status",
+            "get_harvest_date",
+            "get_fertilizer_schedule",
+            "get_planting_date",
+            "get_irrigation_schedule",
+            "get_crop_name",
+            "read_water_tank_level"
+          ],
+          "ranking": null,
+          "assistant": "The air temperature in zone Z-41 is 24.7°C.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 45,
+      "rank_ms": 0.0,
+      "total_ms": 10097.877183929086,
+      "id": "read_air_temperature-en",
+      "request": "What is the air temperature in zone Z-41?",
+      "language": "en",
+      "initial_ranking": {
+        "choice": "read_air_temperature",
+        "probabilities": {
+          "get_crop_name": 0.0008987074252218008,
+          "get_ventilation_status": 0.008878585882484913,
+          "get_irrigation_schedule": 0.0009036943083629012,
+          "get_planting_date": 0.0011953409994021058,
+          "get_fertilizer_schedule": 0.003092567203566432,
+          "read_soil_moisture": 0.11390555649995804,
+          "read_soil_ph": 0.046330925077199936,
+          "read_light_level": 0.06284480541944504,
+          "read_air_humidity": 0.22445125877857208,
+          "read_air_temperature": 0.532316267490387,
+          "get_harvest_date": 0.004361981526017189,
+          "read_water_tank_level": 0.0008202916360460222
+        },
+        "elapsed_ms": 2865.3163220733404
+      },
+      "expected_calls": [
+        {
+          "name": "read_air_temperature",
+          "arguments": {
+            "zone_id": "Z-41"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 655,
+          "generated_tokens": 29,
+          "prefill_ms": 2880.965725,
+          "elapsed_ms": 3572.087713
+        },
+        {
+          "prompt_tokens": 701,
+          "generated_tokens": 16,
+          "prefill_ms": 3204.775476,
+          "elapsed_ms": 3572.564772
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_ranked",
+      "status": "answered",
+      "final": "La temperatura dell’aria nella zona Z-41 è 24.7°C.",
+      "emitted_calls": [
+        {
+          "name": "read_air_temperature",
+          "arguments": {
+            "zone_id": "Z-41"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "read_air_temperature",
+            "arguments": {
+              "zone_id": "Z-41"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "read_air_temperature",
+            "read_air_humidity",
+            "read_soil_moisture",
+            "read_soil_ph",
+            "read_light_level",
+            "get_harvest_date",
+            "get_ventilation_status",
+            "get_fertilizer_schedule",
+            "get_planting_date",
+            "get_irrigation_schedule",
+            "read_water_tank_level",
+            "get_crop_name"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"read_air_temperature\", \"arguments\": {\"zone_id\": \"Z-41\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "read_air_temperature",
+              "arguments": {
+                "zone_id": "Z-41"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "read_air_temperature",
+                "arguments": {
+                  "zone_id": "Z-41"
+                }
+              },
+              "result": {
+                "temperature_c": 24.7
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "read_air_temperature",
+                "arguments": {
+                  "zone_id": "Z-41"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "read_air_temperature",
+            "read_air_humidity",
+            "read_soil_moisture",
+            "read_soil_ph",
+            "read_light_level",
+            "get_harvest_date",
+            "get_ventilation_status",
+            "get_fertilizer_schedule",
+            "get_planting_date",
+            "get_irrigation_schedule",
+            "read_water_tank_level",
+            "get_crop_name"
+          ],
+          "ranking": null,
+          "assistant": "La temperatura dell’aria nella zona Z-41 è 24.7°C.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 47,
+      "rank_ms": 0.0,
+      "total_ms": 11605.516772717237,
+      "id": "read_air_temperature-it",
+      "request": "Qual è la temperatura dell’aria nella zona Z-41?",
+      "language": "it",
+      "initial_ranking": {
+        "choice": "read_air_temperature",
+        "probabilities": {
+          "get_crop_name": 0.0003725695423781872,
+          "get_ventilation_status": 0.013912837021052837,
+          "get_irrigation_schedule": 0.004549071192741394,
+          "get_planting_date": 0.00806941743940115,
+          "get_fertilizer_schedule": 0.009221686981618404,
+          "read_soil_moisture": 0.05554063990712166,
+          "read_soil_ph": 0.038627684116363525,
+          "read_light_level": 0.036765020340681076,
+          "read_air_humidity": 0.33301785588264465,
+          "read_air_temperature": 0.4829874336719513,
+          "get_harvest_date": 0.014464364387094975,
+          "read_water_tank_level": 0.0024713745806366205
+        },
+        "elapsed_ms": 3562.7146679908037
+      },
+      "expected_calls": [
+        {
+          "name": "read_air_temperature",
+          "arguments": {
+            "zone_id": "Z-41"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 753,
+          "generated_tokens": 29,
+          "prefill_ms": 3206.701502,
+          "elapsed_ms": 3909.350103
+        },
+        {
+          "prompt_tokens": 799,
+          "generated_tokens": 18,
+          "prefill_ms": 3611.836097,
+          "elapsed_ms": 4047.381872
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_ranked",
+      "status": "answered",
+      "final": "The relative humidity in zone Z-41 is 62%.",
+      "emitted_calls": [
+        {
+          "name": "read_air_humidity",
+          "arguments": {
+            "zone_id": "Z-41"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "read_air_humidity",
+            "arguments": {
+              "zone_id": "Z-41"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "read_soil_moisture",
+            "read_air_humidity",
+            "read_light_level",
+            "read_air_temperature",
+            "read_soil_ph",
+            "get_crop_name",
+            "get_ventilation_status",
+            "get_harvest_date",
+            "read_water_tank_level",
+            "get_fertilizer_schedule",
+            "get_irrigation_schedule",
+            "get_planting_date"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"read_air_humidity\", \"arguments\": {\"zone_id\": \"Z-41\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "read_air_humidity",
+              "arguments": {
+                "zone_id": "Z-41"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "read_air_humidity",
+                "arguments": {
+                  "zone_id": "Z-41"
+                }
+              },
+              "result": {
+                "relative_humidity_percent": 62
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "read_air_humidity",
+                "arguments": {
+                  "zone_id": "Z-41"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "read_soil_moisture",
+            "read_air_humidity",
+            "read_light_level",
+            "read_air_temperature",
+            "read_soil_ph",
+            "get_crop_name",
+            "get_ventilation_status",
+            "get_harvest_date",
+            "read_water_tank_level",
+            "get_fertilizer_schedule",
+            "get_irrigation_schedule",
+            "get_planting_date"
+          ],
+          "ranking": null,
+          "assistant": "The relative humidity in zone Z-41 is 62%.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 43,
+      "rank_ms": 0.0,
+      "total_ms": 9742.193140089512,
+      "id": "read_air_humidity-en",
+      "request": "What is the relative air humidity in zone Z-41?",
+      "language": "en",
+      "initial_ranking": {
+        "choice": "read_soil_moisture",
+        "probabilities": {
+          "get_planting_date": 0.0009313122718594968,
+          "read_soil_moisture": 0.3914632797241211,
+          "read_air_humidity": 0.3539692163467407,
+          "read_soil_ph": 0.03897545486688614,
+          "read_water_tank_level": 0.004624906461685896,
+          "get_ventilation_status": 0.021941833198070526,
+          "get_fertilizer_schedule": 0.002919313032180071,
+          "get_irrigation_schedule": 0.0028124109376221895,
+          "get_crop_name": 0.026501305401325226,
+          "get_harvest_date": 0.0079104108735919,
+          "read_air_temperature": 0.05053147301077843,
+          "read_light_level": 0.09741908311843872
+        },
+        "elapsed_ms": 2762.284142896533
+      },
+      "expected_calls": [
+        {
+          "name": "read_air_humidity",
+          "arguments": {
+            "zone_id": "Z-41"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 656,
+          "generated_tokens": 30,
+          "prefill_ms": 2788.555325,
+          "elapsed_ms": 3498.151046
+        },
+        {
+          "prompt_tokens": 703,
+          "generated_tokens": 13,
+          "prefill_ms": 3108.58555,
+          "elapsed_ms": 3394.2628
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true,
+        "nev_top_choice": false
+      }
+    },
+    {
+      "arm": "nev_ranked",
+      "status": "answered",
+      "final": "La percentuale di umidità relativa dell’aria nella zona Z-41 è del 62%.",
+      "emitted_calls": [
+        {
+          "name": "read_air_humidity",
+          "arguments": {
+            "zone_id": "Z-41"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "read_air_humidity",
+            "arguments": {
+              "zone_id": "Z-41"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "read_air_humidity",
+            "read_soil_moisture",
+            "read_air_temperature",
+            "read_light_level",
+            "read_soil_ph",
+            "get_ventilation_status",
+            "get_irrigation_schedule",
+            "get_fertilizer_schedule",
+            "read_water_tank_level",
+            "get_harvest_date",
+            "get_crop_name",
+            "get_planting_date"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"read_air_humidity\", \"arguments\": {\"zone_id\": \"Z-41\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "read_air_humidity",
+              "arguments": {
+                "zone_id": "Z-41"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "read_air_humidity",
+                "arguments": {
+                  "zone_id": "Z-41"
+                }
+              },
+              "result": {
+                "relative_humidity_percent": 62
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "read_air_humidity",
+                "arguments": {
+                  "zone_id": "Z-41"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "read_air_humidity",
+            "read_soil_moisture",
+            "read_air_temperature",
+            "read_light_level",
+            "read_soil_ph",
+            "get_ventilation_status",
+            "get_irrigation_schedule",
+            "get_fertilizer_schedule",
+            "read_water_tank_level",
+            "get_harvest_date",
+            "get_crop_name",
+            "get_planting_date"
+          ],
+          "ranking": null,
+          "assistant": "La percentuale di umidità relativa dell’aria nella zona Z-41 è del 62%.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 53,
+      "rank_ms": 0.0,
+      "total_ms": 11754.430314525962,
+      "id": "read_air_humidity-it",
+      "request": "Qual è l’umidità relativa dell’aria nella zona Z-41?",
+      "language": "it",
+      "initial_ranking": {
+        "choice": "read_air_humidity",
+        "probabilities": {
+          "get_planting_date": 0.0008449691231362522,
+          "read_soil_moisture": 0.21763594448566437,
+          "read_air_humidity": 0.5196037292480469,
+          "read_soil_ph": 0.03383331373333931,
+          "read_water_tank_level": 0.008888179436326027,
+          "get_ventilation_status": 0.03134465962648392,
+          "get_fertilizer_schedule": 0.010469534434378147,
+          "get_irrigation_schedule": 0.015015697106719017,
+          "get_crop_name": 0.006577582564204931,
+          "get_harvest_date": 0.007647949270904064,
+          "read_air_temperature": 0.0915406122803688,
+          "read_light_level": 0.05659791827201843
+        },
+        "elapsed_ms": 3646.029634401202
+      },
+      "expected_calls": [
+        {
+          "name": "read_air_humidity",
+          "arguments": {
+            "zone_id": "Z-41"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 758,
+          "generated_tokens": 30,
+          "prefill_ms": 3138.568687,
+          "elapsed_ms": 3852.626834
+        },
+        {
+          "prompt_tokens": 805,
+          "generated_tokens": 23,
+          "prefill_ms": 3605.240513,
+          "elapsed_ms": 4167.494891
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_ranked",
+      "status": "answered",
+      "final": "The soil in bed B-73 is 38% moist.",
+      "emitted_calls": [
+        {
+          "name": "read_soil_moisture",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "read_soil_moisture",
+            "arguments": {
+              "bed_id": "B-73"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "read_soil_moisture",
+            "read_soil_ph",
+            "get_crop_name",
+            "read_air_humidity",
+            "get_harvest_date",
+            "get_irrigation_schedule",
+            "read_air_temperature",
+            "get_fertilizer_schedule",
+            "get_planting_date",
+            "read_light_level",
+            "read_water_tank_level",
+            "get_ventilation_status"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"read_soil_moisture\", \"arguments\": {\"bed_id\": \"B-73\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "read_soil_moisture",
+              "arguments": {
+                "bed_id": "B-73"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "read_soil_moisture",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "result": {
+                "soil_moisture_percent": 38
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "read_soil_moisture",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "read_soil_moisture",
+            "read_soil_ph",
+            "get_crop_name",
+            "read_air_humidity",
+            "get_harvest_date",
+            "get_irrigation_schedule",
+            "read_air_temperature",
+            "get_fertilizer_schedule",
+            "get_planting_date",
+            "read_light_level",
+            "read_water_tank_level",
+            "get_ventilation_status"
+          ],
+          "ranking": null,
+          "assistant": "The soil in bed B-73 is 38% moist.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 46,
+      "rank_ms": 0.0,
+      "total_ms": 9766.756799072027,
+      "id": "read_soil_moisture-en",
+      "request": "How moist is the soil in bed B-73, as a percentage?",
+      "language": "en",
+      "initial_ranking": {
+        "choice": "read_soil_moisture",
+        "probabilities": {
+          "get_ventilation_status": 0.0002646507346071303,
+          "get_fertilizer_schedule": 0.002240536967292428,
+          "read_air_temperature": 0.0025649445597082376,
+          "get_planting_date": 0.0021044814493507147,
+          "read_light_level": 0.0019388289656490088,
+          "read_water_tank_level": 0.0003869781503453851,
+          "read_air_humidity": 0.02466149628162384,
+          "get_harvest_date": 0.0036422323901206255,
+          "read_soil_moisture": 0.8874655365943909,
+          "get_irrigation_schedule": 0.003060042392462492,
+          "get_crop_name": 0.02476036548614502,
+          "read_soil_ph": 0.04690989851951599
+        },
+        "elapsed_ms": 2807.881113141775
+      },
+      "expected_calls": [
+        {
+          "name": "read_soil_moisture",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 659,
+          "generated_tokens": 32,
+          "prefill_ms": 2774.930321,
+          "elapsed_ms": 3518.526106
+        },
+        {
+          "prompt_tokens": 710,
+          "generated_tokens": 14,
+          "prefill_ms": 3039.253158,
+          "elapsed_ms": 3352.436737
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_ranked",
+      "status": "answered",
+      "final": "La percentuale di umidità del terreno nell’aiuola B-73 è del 38%.",
+      "emitted_calls": [
+        {
+          "name": "read_soil_moisture",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "read_soil_moisture",
+            "arguments": {
+              "bed_id": "B-73"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "read_soil_moisture",
+            "read_air_humidity",
+            "read_soil_ph",
+            "get_irrigation_schedule",
+            "get_crop_name",
+            "read_air_temperature",
+            "read_light_level",
+            "get_harvest_date",
+            "get_planting_date",
+            "read_water_tank_level",
+            "get_ventilation_status",
+            "get_fertilizer_schedule"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"read_soil_moisture\", \"arguments\": {\"bed_id\": \"B-73\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "read_soil_moisture",
+              "arguments": {
+                "bed_id": "B-73"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "read_soil_moisture",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "result": {
+                "soil_moisture_percent": 38
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "read_soil_moisture",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "read_soil_moisture",
+            "read_air_humidity",
+            "read_soil_ph",
+            "get_irrigation_schedule",
+            "get_crop_name",
+            "read_air_temperature",
+            "read_light_level",
+            "get_harvest_date",
+            "get_planting_date",
+            "read_water_tank_level",
+            "get_ventilation_status",
+            "get_fertilizer_schedule"
+          ],
+          "ranking": null,
+          "assistant": "La percentuale di umidità del terreno nell’aiuola B-73 è del 38%.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 55,
+      "rank_ms": 0.0,
+      "total_ms": 11825.885094702244,
+      "id": "read_soil_moisture-it",
+      "request": "Qual è la percentuale di umidità del terreno nell’aiuola B-73?",
+      "language": "it",
+      "initial_ranking": {
+        "choice": "read_soil_moisture",
+        "probabilities": {
+          "get_ventilation_status": 0.0013519861968234181,
+          "get_fertilizer_schedule": 0.0004924872773699462,
+          "read_air_temperature": 0.004121537785977125,
+          "get_planting_date": 0.0021065901964902878,
+          "read_light_level": 0.0033871387131512165,
+          "read_water_tank_level": 0.0019461361225694418,
+          "read_air_humidity": 0.032189544290304184,
+          "get_harvest_date": 0.0031663209665566683,
+          "read_soil_moisture": 0.9231777787208557,
+          "get_irrigation_schedule": 0.005414839833974838,
+          "get_crop_name": 0.005320998374372721,
+          "read_soil_ph": 0.017324581742286682
+        },
+        "elapsed_ms": 3623.0314038693905
+      },
+      "expected_calls": [
+        {
+          "name": "read_soil_moisture",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 760,
+          "generated_tokens": 32,
+          "prefill_ms": 3152.990114,
+          "elapsed_ms": 3922.695472
+        },
+        {
+          "prompt_tokens": 811,
+          "generated_tokens": 23,
+          "prefill_ms": 3637.685462,
+          "elapsed_ms": 4192.665292
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_ranked",
+      "status": "answered",
+      "final": "The soil pH in bed B-73 is 6.4.",
+      "emitted_calls": [
+        {
+          "name": "read_soil_ph",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "read_soil_ph",
+            "arguments": {
+              "bed_id": "B-73"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "read_soil_ph",
+            "read_soil_moisture",
+            "get_crop_name",
+            "get_planting_date",
+            "read_air_humidity",
+            "read_light_level",
+            "get_ventilation_status",
+            "get_harvest_date",
+            "get_fertilizer_schedule",
+            "get_irrigation_schedule",
+            "read_water_tank_level",
+            "read_air_temperature"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"read_soil_ph\", \"arguments\": {\"bed_id\": \"B-73\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "read_soil_ph",
+              "arguments": {
+                "bed_id": "B-73"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "read_soil_ph",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "result": {
+                "soil_ph": 6.4
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "read_soil_ph",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "read_soil_ph",
+            "read_soil_moisture",
+            "get_crop_name",
+            "get_planting_date",
+            "read_air_humidity",
+            "read_light_level",
+            "get_ventilation_status",
+            "get_harvest_date",
+            "get_fertilizer_schedule",
+            "get_irrigation_schedule",
+            "read_water_tank_level",
+            "read_air_temperature"
+          ],
+          "ranking": null,
+          "assistant": "The soil pH in bed B-73 is 6.4.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 45,
+      "rank_ms": 0.0,
+      "total_ms": 9466.966530308127,
+      "id": "read_soil_ph-en",
+      "request": "Read the soil pH in bed B-73.",
+      "language": "en",
+      "initial_ranking": {
+        "choice": "read_soil_ph",
+        "probabilities": {
+          "read_air_temperature": 4.2788786231540143e-05,
+          "get_fertilizer_schedule": 0.0017054977361112833,
+          "read_air_humidity": 0.0035816894378513098,
+          "get_ventilation_status": 0.0022232483606785536,
+          "read_soil_ph": 0.6885167956352234,
+          "get_planting_date": 0.017245564609766006,
+          "read_soil_moisture": 0.23863179981708527,
+          "read_water_tank_level": 0.0008730615372769535,
+          "get_crop_name": 0.04059995338320732,
+          "get_irrigation_schedule": 0.0011711366241797805,
+          "get_harvest_date": 0.0020200044382363558,
+          "read_light_level": 0.0033885298762470484
+        },
+        "elapsed_ms": 2650.0519551336765
+      },
+      "expected_calls": [
+        {
+          "name": "read_soil_ph",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 654,
+          "generated_tokens": 30,
+          "prefill_ms": 2723.393779,
+          "elapsed_ms": 3416.658648
+        },
+        {
+          "prompt_tokens": 702,
+          "generated_tokens": 15,
+          "prefill_ms": 2976.167506,
+          "elapsed_ms": 3312.980884
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_ranked",
+      "status": "answered",
+      "final": "Il pH del terreno nell’aiuola B-73 è 6.4.",
+      "emitted_calls": [
+        {
+          "name": "read_soil_ph",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "read_soil_ph",
+            "arguments": {
+              "bed_id": "B-73"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "read_soil_ph",
+            "read_soil_moisture",
+            "read_air_humidity",
+            "read_light_level",
+            "get_crop_name",
+            "get_planting_date",
+            "get_ventilation_status",
+            "get_irrigation_schedule",
+            "read_water_tank_level",
+            "get_harvest_date",
+            "read_air_temperature",
+            "get_fertilizer_schedule"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"read_soil_ph\", \"arguments\": {\"bed_id\": \"B-73\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "read_soil_ph",
+              "arguments": {
+                "bed_id": "B-73"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "read_soil_ph",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "result": {
+                "soil_ph": 6.4
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "read_soil_ph",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "read_soil_ph",
+            "read_soil_moisture",
+            "read_air_humidity",
+            "read_light_level",
+            "get_crop_name",
+            "get_planting_date",
+            "get_ventilation_status",
+            "get_irrigation_schedule",
+            "read_water_tank_level",
+            "get_harvest_date",
+            "read_air_temperature",
+            "get_fertilizer_schedule"
+          ],
+          "ranking": null,
+          "assistant": "Il pH del terreno nell’aiuola B-73 è 6.4.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 49,
+      "rank_ms": 0.0,
+      "total_ms": 11209.805553779006,
+      "id": "read_soil_ph-it",
+      "request": "Leggi il pH del terreno nell’aiuola B-73.",
+      "language": "it",
+      "initial_ranking": {
+        "choice": "read_soil_ph",
+        "probabilities": {
+          "read_air_temperature": 0.0008699243771843612,
+          "get_fertilizer_schedule": 0.000738085771445185,
+          "read_air_humidity": 0.022893136367201805,
+          "get_ventilation_status": 0.0055403574369847775,
+          "read_soil_ph": 0.5089432597160339,
+          "get_planting_date": 0.007974915206432343,
+          "read_soil_moisture": 0.4259730577468872,
+          "read_water_tank_level": 0.002807538490742445,
+          "get_crop_name": 0.009025713428854942,
+          "get_irrigation_schedule": 0.003573118709027767,
+          "get_harvest_date": 0.002546013332903385,
+          "read_light_level": 0.009114951826632023
+        },
+        "elapsed_ms": 3391.495591029525
+      },
+      "expected_calls": [
+        {
+          "name": "read_soil_ph",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 755,
+          "generated_tokens": 30,
+          "prefill_ms": 3106.346496,
+          "elapsed_ms": 3817.057593
+        },
+        {
+          "prompt_tokens": 803,
+          "generated_tokens": 19,
+          "prefill_ms": 3456.018409,
+          "elapsed_ms": 3913.254883
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_ranked",
+      "status": "answered",
+      "final": "The light level in zone Z-41 is 12500 lux.",
+      "emitted_calls": [
+        {
+          "name": "read_light_level",
+          "arguments": {
+            "zone_id": "Z-41"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "read_light_level",
+            "arguments": {
+              "zone_id": "Z-41"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "read_light_level",
+            "read_air_temperature",
+            "get_ventilation_status",
+            "read_air_humidity",
+            "read_soil_moisture",
+            "get_crop_name",
+            "read_soil_ph",
+            "get_harvest_date",
+            "get_fertilizer_schedule",
+            "read_water_tank_level",
+            "get_irrigation_schedule",
+            "get_planting_date"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"read_light_level\", \"arguments\": {\"zone_id\": \"Z-41\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "read_light_level",
+              "arguments": {
+                "zone_id": "Z-41"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "read_light_level",
+                "arguments": {
+                  "zone_id": "Z-41"
+                }
+              },
+              "result": {
+                "light_lux": 12500
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "read_light_level",
+                "arguments": {
+                  "zone_id": "Z-41"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "read_light_level",
+            "read_air_temperature",
+            "get_ventilation_status",
+            "read_air_humidity",
+            "read_soil_moisture",
+            "get_crop_name",
+            "read_soil_ph",
+            "get_harvest_date",
+            "get_fertilizer_schedule",
+            "read_water_tank_level",
+            "get_irrigation_schedule",
+            "get_planting_date"
+          ],
+          "ranking": null,
+          "assistant": "The light level in zone Z-41 is 12500 lux.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 44,
+      "rank_ms": 0.0,
+      "total_ms": 9399.324115365744,
+      "id": "read_light_level-en",
+      "request": "How much light, in lux, is measured in zone Z-41?",
+      "language": "en",
+      "initial_ranking": {
+        "choice": "read_light_level",
+        "probabilities": {
+          "get_planting_date": 0.0027414176147431135,
+          "read_light_level": 0.515880286693573,
+          "read_air_temperature": 0.10261289030313492,
+          "get_fertilizer_schedule": 0.0057424637489020824,
+          "read_air_humidity": 0.08763076364994049,
+          "get_harvest_date": 0.02210261858999729,
+          "read_soil_ph": 0.03994777798652649,
+          "get_crop_name": 0.04765889421105385,
+          "get_ventilation_status": 0.09667496383190155,
+          "get_irrigation_schedule": 0.00418438483029604,
+          "read_soil_moisture": 0.07060147076845169,
+          "read_water_tank_level": 0.004222051706165075
+        },
+        "elapsed_ms": 2659.58633646369
+      },
+      "expected_calls": [
+        {
+          "name": "read_light_level",
+          "arguments": {
+            "zone_id": "Z-41"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 659,
+          "generated_tokens": 29,
+          "prefill_ms": 2803.368109,
+          "elapsed_ms": 3440.878853
+        },
+        {
+          "prompt_tokens": 705,
+          "generated_tokens": 15,
+          "prefill_ms": 2912.940425,
+          "elapsed_ms": 3229.612878
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_ranked",
+      "status": "answered",
+      "final": "La luce misurata è di 12500 lux.",
+      "emitted_calls": [
+        {
+          "name": "read_light_level",
+          "arguments": {
+            "zone_id": "Z-41"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "read_light_level",
+            "arguments": {
+              "zone_id": "Z-41"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "read_light_level",
+            "read_air_temperature",
+            "read_air_humidity",
+            "read_soil_moisture",
+            "get_ventilation_status",
+            "get_crop_name",
+            "get_irrigation_schedule",
+            "get_fertilizer_schedule",
+            "read_soil_ph",
+            "get_harvest_date",
+            "read_water_tank_level",
+            "get_planting_date"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"read_light_level\", \"arguments\": {\"zone_id\": \"Z-41\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "read_light_level",
+              "arguments": {
+                "zone_id": "Z-41"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "read_light_level",
+                "arguments": {
+                  "zone_id": "Z-41"
+                }
+              },
+              "result": {
+                "light_lux": 12500
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "read_light_level",
+                "arguments": {
+                  "zone_id": "Z-41"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "read_light_level",
+            "read_air_temperature",
+            "read_air_humidity",
+            "read_soil_moisture",
+            "get_ventilation_status",
+            "get_crop_name",
+            "get_irrigation_schedule",
+            "get_fertilizer_schedule",
+            "read_soil_ph",
+            "get_harvest_date",
+            "read_water_tank_level",
+            "get_planting_date"
+          ],
+          "ranking": null,
+          "assistant": "La luce misurata è di 12500 lux.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 43,
+      "rank_ms": 0.0,
+      "total_ms": 11394.429257139564,
+      "id": "read_light_level-it",
+      "request": "Quanta luce, in lux, viene misurata nella zona Z-41?",
+      "language": "it",
+      "initial_ranking": {
+        "choice": "read_light_level",
+        "probabilities": {
+          "get_planting_date": 0.00020041428797412664,
+          "read_light_level": 0.846812903881073,
+          "read_air_temperature": 0.06136549636721611,
+          "get_fertilizer_schedule": 0.0037254984490573406,
+          "read_air_humidity": 0.03428377956151962,
+          "get_harvest_date": 0.0026728606317192316,
+          "read_soil_ph": 0.003307352075353265,
+          "get_crop_name": 0.004164850804954767,
+          "get_ventilation_status": 0.01641957461833954,
+          "get_irrigation_schedule": 0.004041966050863266,
+          "read_soil_moisture": 0.021518772467970848,
+          "read_water_tank_level": 0.0014867095742374659
+        },
+        "elapsed_ms": 3541.413139551878
+      },
+      "expected_calls": [
+        {
+          "name": "read_light_level",
+          "arguments": {
+            "zone_id": "Z-41"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 758,
+          "generated_tokens": 29,
+          "prefill_ms": 3218.46175,
+          "elapsed_ms": 3862.309199
+        },
+        {
+          "prompt_tokens": 804,
+          "generated_tokens": 14,
+          "prefill_ms": 3614.012838,
+          "elapsed_ms": 3921.417153
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_ranked",
+      "status": "answered",
+      "final": "The next scheduled watering time for bed B-73 is at 06:30.",
+      "emitted_calls": [
+        {
+          "name": "get_irrigation_schedule",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "get_irrigation_schedule",
+            "arguments": {
+              "bed_id": "B-73"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "get_crop_name",
+            "get_irrigation_schedule",
+            "read_soil_moisture",
+            "read_soil_ph",
+            "get_fertilizer_schedule",
+            "get_planting_date",
+            "get_harvest_date",
+            "get_ventilation_status",
+            "read_air_humidity",
+            "read_water_tank_level",
+            "read_light_level",
+            "read_air_temperature"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"get_irrigation_schedule\", \"arguments\": {\"bed_id\": \"B-73\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "get_irrigation_schedule",
+              "arguments": {
+                "bed_id": "B-73"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "get_irrigation_schedule",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "result": {
+                "next_watering_time": "06:30"
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "get_irrigation_schedule",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "get_crop_name",
+            "get_irrigation_schedule",
+            "read_soil_moisture",
+            "read_soil_ph",
+            "get_fertilizer_schedule",
+            "get_planting_date",
+            "get_harvest_date",
+            "get_ventilation_status",
+            "read_air_humidity",
+            "read_water_tank_level",
+            "read_light_level",
+            "read_air_temperature"
+          ],
+          "ranking": null,
+          "assistant": "The next scheduled watering time for bed B-73 is at 06:30.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 49,
+      "rank_ms": 0.0,
+      "total_ms": 9573.013039305806,
+      "id": "get_irrigation_schedule-en",
+      "request": "At what time is bed B-73 next scheduled to be watered?",
+      "language": "en",
+      "initial_ranking": {
+        "choice": "get_crop_name",
+        "probabilities": {
+          "read_water_tank_level": 0.0010623381240293384,
+          "read_air_temperature": 0.00022360729053616524,
+          "read_light_level": 0.00034267763840034604,
+          "read_air_humidity": 0.0018076082924380898,
+          "read_soil_ph": 0.03831169754266739,
+          "get_irrigation_schedule": 0.25331881642341614,
+          "get_ventilation_status": 0.0029932691249996424,
+          "read_soil_moisture": 0.17969639599323273,
+          "get_crop_name": 0.45005637407302856,
+          "get_harvest_date": 0.017631513997912407,
+          "get_fertilizer_schedule": 0.02932772785425186,
+          "get_planting_date": 0.0252279844135046
+        },
+        "elapsed_ms": 2735.412748530507
+      },
+      "expected_calls": [
+        {
+          "name": "get_irrigation_schedule",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 659,
+          "generated_tokens": 31,
+          "prefill_ms": 2739.305122,
+          "elapsed_ms": 3400.506991
+        },
+        {
+          "prompt_tokens": 709,
+          "generated_tokens": 18,
+          "prefill_ms": 2993.356496,
+          "elapsed_ms": 3368.373354
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true,
+        "nev_top_choice": false
+      }
+    },
+    {
+      "arm": "nev_ranked",
+      "status": "limit",
+      "final": "",
+      "emitted_calls": [
+        {
+          "name": "get_irrigation_schedule",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        },
+        {
+          "name": "get_ventilation_status",
+          "arguments": {
+            "zone_id": "B-73"
+          }
+        },
+        {
+          "name": "read_air_humidity",
+          "arguments": {
+            "zone_id": "B-73"
+          }
+        },
+        {
+          "name": "read_light_level",
+          "arguments": {
+            "zone_id": "B-73"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "get_irrigation_schedule",
+            "arguments": {
+              "bed_id": "B-73"
+            }
+          }
+        },
+        {
+          "turn": 1,
+          "call": {
+            "name": "get_ventilation_status",
+            "arguments": {
+              "zone_id": "B-73"
+            }
+          }
+        },
+        {
+          "turn": 2,
+          "call": {
+            "name": "read_air_humidity",
+            "arguments": {
+              "zone_id": "B-73"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "get_crop_name",
+            "read_soil_moisture",
+            "get_fertilizer_schedule",
+            "get_irrigation_schedule",
+            "get_ventilation_status",
+            "read_air_humidity",
+            "get_planting_date",
+            "get_harvest_date",
+            "read_soil_ph",
+            "read_light_level",
+            "read_water_tank_level",
+            "read_air_temperature"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"get_irrigation_schedule\", \"arguments\": {\"bed_id\": \"B-73\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "get_irrigation_schedule",
+              "arguments": {
+                "bed_id": "B-73"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "get_irrigation_schedule",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "result": {
+                "next_watering_time": "06:30"
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "get_irrigation_schedule",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "get_crop_name",
+            "read_soil_moisture",
+            "get_fertilizer_schedule",
+            "get_irrigation_schedule",
+            "get_ventilation_status",
+            "read_air_humidity",
+            "get_planting_date",
+            "get_harvest_date",
+            "read_soil_ph",
+            "read_light_level",
+            "read_water_tank_level",
+            "read_air_temperature"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"get_ventilation_status\", \"arguments\": {\"zone_id\": \"B-73\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "get_ventilation_status",
+              "arguments": {
+                "zone_id": "B-73"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "get_ventilation_status",
+                "arguments": {
+                  "zone_id": "B-73"
+                }
+              },
+              "result": {
+                "error": "not_found"
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "get_ventilation_status",
+                "arguments": {
+                  "zone_id": "B-73"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "tool_order": [
+            "get_crop_name",
+            "read_soil_moisture",
+            "get_fertilizer_schedule",
+            "get_irrigation_schedule",
+            "get_ventilation_status",
+            "read_air_humidity",
+            "get_planting_date",
+            "get_harvest_date",
+            "read_soil_ph",
+            "read_light_level",
+            "read_water_tank_level",
+            "read_air_temperature"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"read_air_humidity\", \"arguments\": {\"zone_id\": \"B-73\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "read_air_humidity",
+              "arguments": {
+                "zone_id": "B-73"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "read_air_humidity",
+                "arguments": {
+                  "zone_id": "B-73"
+                }
+              },
+              "result": {
+                "error": "not_found"
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "read_air_humidity",
+                "arguments": {
+                  "zone_id": "B-73"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 3,
+          "tool_order": [
+            "get_crop_name",
+            "read_soil_moisture",
+            "get_fertilizer_schedule",
+            "get_irrigation_schedule",
+            "get_ventilation_status",
+            "read_air_humidity",
+            "get_planting_date",
+            "get_harvest_date",
+            "read_soil_ph",
+            "read_light_level",
+            "read_water_tank_level",
+            "read_air_temperature"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"read_light_level\", \"arguments\": {\"zone_id\": \"B-73\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "read_light_level",
+              "arguments": {
+                "zone_id": "B-73"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [
+        "call_or_turn_limit"
+      ],
+      "generated_tokens": 121,
+      "rank_ms": 0.0,
+      "total_ms": 20410.518338903785,
+      "id": "get_irrigation_schedule-it",
+      "request": "A che ora è prevista la prossima irrigazione dell’aiuola B-73?",
+      "language": "it",
+      "initial_ranking": {
+        "choice": "get_crop_name",
+        "probabilities": {
+          "read_water_tank_level": 0.009509831666946411,
+          "read_air_temperature": 0.003448658622801304,
+          "read_light_level": 0.012811752036213875,
+          "read_air_humidity": 0.06485912203788757,
+          "read_soil_ph": 0.013856619596481323,
+          "get_irrigation_schedule": 0.0810299813747406,
+          "get_ventilation_status": 0.07273727655410767,
+          "read_soil_moisture": 0.18950673937797546,
+          "get_crop_name": 0.28870320320129395,
+          "get_harvest_date": 0.0434299036860466,
+          "get_fertilizer_schedule": 0.1615585833787918,
+          "get_planting_date": 0.05854835733771324
+        },
+        "elapsed_ms": 3325.7373198866844
+      },
+      "expected_calls": [
+        {
+          "name": "get_irrigation_schedule",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 760,
+          "generated_tokens": 31,
+          "prefill_ms": 3175.668825,
+          "elapsed_ms": 3879.404257
+        },
+        {
+          "prompt_tokens": 810,
+          "generated_tokens": 31,
+          "prefill_ms": 3628.154683,
+          "elapsed_ms": 4337.452177
+        },
+        {
+          "prompt_tokens": 856,
+          "generated_tokens": 30,
+          "prefill_ms": 3842.430142,
+          "elapsed_ms": 4522.073429
+        },
+        {
+          "prompt_tokens": 901,
+          "generated_tokens": 29,
+          "prefill_ms": 3465.558866,
+          "elapsed_ms": 4214.982224
+        }
+      ],
+      "score": {
+        "exact_execution": false,
+        "answer_anchor_proxy": false,
+        "nev_top_choice": false
+      }
+    },
+    {
+      "arm": "nev_ranked",
+      "status": "answered",
+      "final": "The percentage of water remaining in the tank W-26 is 81%.",
+      "emitted_calls": [
+        {
+          "name": "read_water_tank_level",
+          "arguments": {
+            "tank_id": "W-26"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "read_water_tank_level",
+            "arguments": {
+              "tank_id": "W-26"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "read_water_tank_level",
+            "read_soil_moisture",
+            "read_soil_ph",
+            "get_crop_name",
+            "get_planting_date",
+            "get_ventilation_status",
+            "read_light_level",
+            "read_air_temperature",
+            "get_harvest_date",
+            "read_air_humidity",
+            "get_irrigation_schedule",
+            "get_fertilizer_schedule"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"read_water_tank_level\", \"arguments\": {\"tank_id\": \"W-26\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "read_water_tank_level",
+              "arguments": {
+                "tank_id": "W-26"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "read_water_tank_level",
+                "arguments": {
+                  "tank_id": "W-26"
+                }
+              },
+              "result": {
+                "water_remaining_percent": 81
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "read_water_tank_level",
+                "arguments": {
+                  "tank_id": "W-26"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "read_water_tank_level",
+            "read_soil_moisture",
+            "read_soil_ph",
+            "get_crop_name",
+            "get_planting_date",
+            "get_ventilation_status",
+            "read_light_level",
+            "read_air_temperature",
+            "get_harvest_date",
+            "read_air_humidity",
+            "get_irrigation_schedule",
+            "get_fertilizer_schedule"
+          ],
+          "ranking": null,
+          "assistant": "The percentage of water remaining in the tank W-26 is 81%.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 47,
+      "rank_ms": 0.0,
+      "total_ms": 9873.480586335063,
+      "id": "read_water_tank_level-en",
+      "request": "What percentage of water remains in tank W-26?",
+      "language": "en",
+      "initial_ranking": {
+        "choice": "read_water_tank_level",
+        "probabilities": {
+          "read_air_humidity": 0.0008689194801263511,
+          "get_fertilizer_schedule": 0.0003043798205908388,
+          "read_air_temperature": 0.0022188518196344376,
+          "read_light_level": 0.002363660139963031,
+          "read_soil_moisture": 0.053908154368400574,
+          "get_harvest_date": 0.0017882657703012228,
+          "read_soil_ph": 0.00964058842509985,
+          "get_ventilation_status": 0.002635294571518898,
+          "read_water_tank_level": 0.9121047258377075,
+          "get_crop_name": 0.007964991964399815,
+          "get_planting_date": 0.005512810777872801,
+          "get_irrigation_schedule": 0.0006893747486174107
+        },
+        "elapsed_ms": 2761.435719206929
+      },
+      "expected_calls": [
+        {
+          "name": "read_water_tank_level",
+          "arguments": {
+            "tank_id": "W-26"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 655,
+          "generated_tokens": 31,
+          "prefill_ms": 2845.21923,
+          "elapsed_ms": 3578.916876
+        },
+        {
+          "prompt_tokens": 702,
+          "generated_tokens": 16,
+          "prefill_ms": 3074.433908,
+          "elapsed_ms": 3442.330466
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_ranked",
+      "status": "answered",
+      "final": "Il 81% dell'acqua rimane nel serbatoio W-26.",
+      "emitted_calls": [
+        {
+          "name": "read_water_tank_level",
+          "arguments": {
+            "tank_id": "W-26"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "read_water_tank_level",
+            "arguments": {
+              "tank_id": "W-26"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "read_water_tank_level",
+            "read_soil_moisture",
+            "read_light_level",
+            "read_soil_ph",
+            "get_crop_name",
+            "get_ventilation_status",
+            "read_air_humidity",
+            "get_planting_date",
+            "read_air_temperature",
+            "get_irrigation_schedule",
+            "get_harvest_date",
+            "get_fertilizer_schedule"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"read_water_tank_level\", \"arguments\": {\"tank_id\": \"W-26\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "read_water_tank_level",
+              "arguments": {
+                "tank_id": "W-26"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "read_water_tank_level",
+                "arguments": {
+                  "tank_id": "W-26"
+                }
+              },
+              "result": {
+                "water_remaining_percent": 81
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "read_water_tank_level",
+                "arguments": {
+                  "tank_id": "W-26"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "read_water_tank_level",
+            "read_soil_moisture",
+            "read_light_level",
+            "read_soil_ph",
+            "get_crop_name",
+            "get_ventilation_status",
+            "read_air_humidity",
+            "get_planting_date",
+            "read_air_temperature",
+            "get_irrigation_schedule",
+            "get_harvest_date",
+            "get_fertilizer_schedule"
+          ],
+          "ranking": null,
+          "assistant": "Il 81% dell'acqua rimane nel serbatoio W-26.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 51,
+      "rank_ms": 0.0,
+      "total_ms": 11728.880358859897,
+      "id": "read_water_tank_level-it",
+      "request": "Quale percentuale di acqua rimane nel serbatoio W-26?",
+      "language": "it",
+      "initial_ranking": {
+        "choice": "read_water_tank_level",
+        "probabilities": {
+          "read_air_humidity": 0.005541876889765263,
+          "get_fertilizer_schedule": 0.000264147442067042,
+          "read_air_temperature": 0.005095125641673803,
+          "read_light_level": 0.013692788779735565,
+          "read_soil_moisture": 0.02917306125164032,
+          "get_harvest_date": 0.002526799915358424,
+          "read_soil_ph": 0.010667585767805576,
+          "get_ventilation_status": 0.007808563765138388,
+          "read_water_tank_level": 0.9079558849334717,
+          "get_crop_name": 0.00920702051371336,
+          "get_planting_date": 0.005135616287589073,
+          "get_irrigation_schedule": 0.002931467955932021
+        },
+        "elapsed_ms": 3473.433420062065
+      },
+      "expected_calls": [
+        {
+          "name": "read_water_tank_level",
+          "arguments": {
+            "tank_id": "W-26"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 758,
+          "generated_tokens": 31,
+          "prefill_ms": 3276.727516,
+          "elapsed_ms": 4040.124576
+        },
+        {
+          "prompt_tokens": 805,
+          "generated_tokens": 20,
+          "prefill_ms": 3646.231168,
+          "elapsed_ms": 4124.861634
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_ranked",
+      "status": "answered",
+      "final": "The crop is basil.",
+      "emitted_calls": [
+        {
+          "name": "get_crop_name",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "get_crop_name",
+            "arguments": {
+              "bed_id": "B-73"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "get_crop_name",
+            "read_soil_moisture",
+            "get_harvest_date",
+            "read_soil_ph",
+            "get_planting_date",
+            "get_fertilizer_schedule",
+            "get_irrigation_schedule",
+            "read_light_level",
+            "read_air_humidity",
+            "read_air_temperature",
+            "get_ventilation_status",
+            "read_water_tank_level"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"get_crop_name\", \"arguments\": {\"bed_id\": \"B-73\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "get_crop_name",
+              "arguments": {
+                "bed_id": "B-73"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "get_crop_name",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "result": {
+                "crop_en": "basil",
+                "crop_it": "basilico"
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "get_crop_name",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "get_crop_name",
+            "read_soil_moisture",
+            "get_harvest_date",
+            "read_soil_ph",
+            "get_planting_date",
+            "get_fertilizer_schedule",
+            "get_irrigation_schedule",
+            "read_light_level",
+            "read_air_humidity",
+            "read_air_temperature",
+            "get_ventilation_status",
+            "read_water_tank_level"
+          ],
+          "ranking": null,
+          "assistant": "The crop is basil.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 35,
+      "rank_ms": 0.0,
+      "total_ms": 9215.516032651067,
+      "id": "get_crop_name-en",
+      "request": "Which crop is planted in bed B-73?",
+      "language": "en",
+      "initial_ranking": {
+        "choice": "get_crop_name",
+        "probabilities": {
+          "read_water_tank_level": 5.12033921040711e-06,
+          "get_planting_date": 0.0024261365178972483,
+          "read_air_humidity": 0.0002127335756085813,
+          "read_soil_moisture": 0.009847941808402538,
+          "get_harvest_date": 0.0048180148005485535,
+          "get_fertilizer_schedule": 0.0017335452139377594,
+          "get_crop_name": 0.9755364656448364,
+          "read_light_level": 0.0003355324442964047,
+          "get_ventilation_status": 0.00017098676471505314,
+          "read_soil_ph": 0.00407798495143652,
+          "get_irrigation_schedule": 0.0006539321038872004,
+          "read_air_temperature": 0.0001816751027945429
+        },
+        "elapsed_ms": 2602.5061644613743
+      },
+      "expected_calls": [
+        {
+          "name": "get_crop_name",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 654,
+          "generated_tokens": 29,
+          "prefill_ms": 2680.069484,
+          "elapsed_ms": 3349.199149
+        },
+        {
+          "prompt_tokens": 706,
+          "generated_tokens": 6,
+          "prefill_ms": 3058.967837,
+          "elapsed_ms": 3176.123144
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_ranked",
+      "status": "answered",
+      "final": "Il basilico è piantato nell’aiuola B-73.",
+      "emitted_calls": [
+        {
+          "name": "get_crop_name",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "get_crop_name",
+            "arguments": {
+              "bed_id": "B-73"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "get_crop_name",
+            "read_soil_moisture",
+            "read_soil_ph",
+            "get_harvest_date",
+            "get_irrigation_schedule",
+            "get_ventilation_status",
+            "get_fertilizer_schedule",
+            "read_air_humidity",
+            "read_air_temperature",
+            "get_planting_date",
+            "read_light_level",
+            "read_water_tank_level"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"get_crop_name\", \"arguments\": {\"bed_id\": \"B-73\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "get_crop_name",
+              "arguments": {
+                "bed_id": "B-73"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "get_crop_name",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "result": {
+                "crop_en": "basil",
+                "crop_it": "basilico"
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "get_crop_name",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "get_crop_name",
+            "read_soil_moisture",
+            "read_soil_ph",
+            "get_harvest_date",
+            "get_irrigation_schedule",
+            "get_ventilation_status",
+            "get_fertilizer_schedule",
+            "read_air_humidity",
+            "read_air_temperature",
+            "get_planting_date",
+            "read_light_level",
+            "read_water_tank_level"
+          ],
+          "ranking": null,
+          "assistant": "Il basilico è piantato nell’aiuola B-73.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 45,
+      "rank_ms": 0.0,
+      "total_ms": 11144.15729045868,
+      "id": "get_crop_name-it",
+      "request": "Quale coltura è piantata nell’aiuola B-73?",
+      "language": "it",
+      "initial_ranking": {
+        "choice": "get_crop_name",
+        "probabilities": {
+          "read_water_tank_level": 0.0005099418922327459,
+          "get_planting_date": 0.0010595822241157293,
+          "read_air_humidity": 0.0017913792980834842,
+          "read_soil_moisture": 0.010504856705665588,
+          "get_harvest_date": 0.002436871873214841,
+          "get_fertilizer_schedule": 0.0018883043667301536,
+          "get_crop_name": 0.9677422046661377,
+          "read_light_level": 0.0008316212915815413,
+          "get_ventilation_status": 0.0018919111462309957,
+          "read_soil_ph": 0.007592972368001938,
+          "get_irrigation_schedule": 0.0019977211486548185,
+          "read_air_temperature": 0.0017523805145174265
+        },
+        "elapsed_ms": 3236.6090435534716
+      },
+      "expected_calls": [
+        {
+          "name": "get_crop_name",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 756,
+          "generated_tokens": 29,
+          "prefill_ms": 3147.229052,
+          "elapsed_ms": 3834.274026
+        },
+        {
+          "prompt_tokens": 808,
+          "generated_tokens": 16,
+          "prefill_ms": 3608.360836,
+          "elapsed_ms": 3984.619151
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_ranked",
+      "status": "answered",
+      "final": "The planting date was 2026-09-02.",
+      "emitted_calls": [
+        {
+          "name": "get_planting_date",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "get_planting_date",
+            "arguments": {
+              "bed_id": "B-73"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "get_crop_name",
+            "get_planting_date",
+            "get_harvest_date",
+            "read_soil_moisture",
+            "read_air_humidity",
+            "read_soil_ph",
+            "get_fertilizer_schedule",
+            "read_light_level",
+            "get_ventilation_status",
+            "get_irrigation_schedule",
+            "read_water_tank_level",
+            "read_air_temperature"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"get_planting_date\", \"arguments\": {\"bed_id\": \"B-73\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "get_planting_date",
+              "arguments": {
+                "bed_id": "B-73"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "get_planting_date",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "result": {
+                "planting_date": "2026-09-02"
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "get_planting_date",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "get_crop_name",
+            "get_planting_date",
+            "get_harvest_date",
+            "read_soil_moisture",
+            "read_air_humidity",
+            "read_soil_ph",
+            "get_fertilizer_schedule",
+            "read_light_level",
+            "get_ventilation_status",
+            "get_irrigation_schedule",
+            "read_water_tank_level",
+            "read_air_temperature"
+          ],
+          "ranking": null,
+          "assistant": "The planting date was 2026-09-02.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 44,
+      "rank_ms": 0.0,
+      "total_ms": 9433.527331799269,
+      "id": "get_planting_date-en",
+      "request": "On which date was bed B-73 planted? Return the date as YYYY-MM-DD.",
+      "language": "en",
+      "initial_ranking": {
+        "choice": "get_crop_name",
+        "probabilities": {
+          "read_soil_moisture": 0.016240529716014862,
+          "read_air_temperature": 0.00019630801398307085,
+          "read_soil_ph": 0.006685658823698759,
+          "get_planting_date": 0.3432932198047638,
+          "get_ventilation_status": 0.0028558997437357903,
+          "read_air_humidity": 0.007936808280646801,
+          "read_light_level": 0.0037880123127251863,
+          "get_harvest_date": 0.03117542900145054,
+          "get_crop_name": 0.5791570544242859,
+          "read_water_tank_level": 0.001329635619185865,
+          "get_irrigation_schedule": 0.0027567341458052397,
+          "get_fertilizer_schedule": 0.004584717098623514
+        },
+        "elapsed_ms": 2631.58499635756
+      },
+      "expected_calls": [
+        {
+          "name": "get_planting_date",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 662,
+          "generated_tokens": 31,
+          "prefill_ms": 2703.716174,
+          "elapsed_ms": 3414.125618
+        },
+        {
+          "prompt_tokens": 714,
+          "generated_tokens": 13,
+          "prefill_ms": 3013.408364,
+          "elapsed_ms": 3298.748537
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true,
+        "nev_top_choice": false
+      }
+    },
+    {
+      "arm": "nev_ranked",
+      "status": "answered",
+      "final": "La semina è avvenuta il 2 settembre 2026.",
+      "emitted_calls": [
+        {
+          "name": "get_planting_date",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "get_planting_date",
+            "arguments": {
+              "bed_id": "B-73"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "get_planting_date",
+            "get_crop_name",
+            "read_air_humidity",
+            "read_light_level",
+            "get_fertilizer_schedule",
+            "get_ventilation_status",
+            "get_harvest_date",
+            "read_soil_ph",
+            "get_irrigation_schedule",
+            "read_water_tank_level",
+            "read_soil_moisture",
+            "read_air_temperature"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"get_planting_date\", \"arguments\": {\"bed_id\": \"B-73\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "get_planting_date",
+              "arguments": {
+                "bed_id": "B-73"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "get_planting_date",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "result": {
+                "planting_date": "2026-09-02"
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "get_planting_date",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "get_planting_date",
+            "get_crop_name",
+            "read_air_humidity",
+            "read_light_level",
+            "get_fertilizer_schedule",
+            "get_ventilation_status",
+            "get_harvest_date",
+            "read_soil_ph",
+            "get_irrigation_schedule",
+            "read_water_tank_level",
+            "read_soil_moisture",
+            "read_air_temperature"
+          ],
+          "ranking": null,
+          "assistant": "La semina è avvenuta il 2 settembre 2026.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 49,
+      "rank_ms": 0.0,
+      "total_ms": 11584.73358862102,
+      "id": "get_planting_date-it",
+      "request": "In quale data è stata seminata l’aiuola B-73? Restituisci la data come YYYY-MM-DD.",
+      "language": "it",
+      "initial_ranking": {
+        "choice": "get_planting_date",
+        "probabilities": {
+          "read_soil_moisture": 0.0012047484051436186,
+          "read_air_temperature": 0.0008901219116523862,
+          "read_soil_ph": 0.0067636677995324135,
+          "get_planting_date": 0.8099711537361145,
+          "get_ventilation_status": 0.008463645353913307,
+          "read_air_humidity": 0.020209329202771187,
+          "read_light_level": 0.014393162913620472,
+          "get_harvest_date": 0.008402397856116295,
+          "get_crop_name": 0.11292950809001923,
+          "read_water_tank_level": 0.0017319300677627325,
+          "get_irrigation_schedule": 0.006091258954256773,
+          "get_fertilizer_schedule": 0.008949152193963528
+        },
+        "elapsed_ms": 3337.919907644391
+      },
+      "expected_calls": [
+        {
+          "name": "get_planting_date",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 766,
+          "generated_tokens": 31,
+          "prefill_ms": 3215.248796,
+          "elapsed_ms": 3961.751281
+        },
+        {
+          "prompt_tokens": 818,
+          "generated_tokens": 18,
+          "prefill_ms": 3771.108612,
+          "elapsed_ms": 4196.451877
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": false,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_ranked",
+      "status": "answered",
+      "final": "The harvest date is November 18, 2026.",
+      "emitted_calls": [
+        {
+          "name": "get_harvest_date",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "get_harvest_date",
+            "arguments": {
+              "bed_id": "B-73"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "get_harvest_date",
+            "get_crop_name",
+            "read_soil_moisture",
+            "get_planting_date",
+            "read_soil_ph",
+            "get_fertilizer_schedule",
+            "get_irrigation_schedule",
+            "read_air_temperature",
+            "read_air_humidity",
+            "get_ventilation_status",
+            "read_water_tank_level",
+            "read_light_level"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"get_harvest_date\", \"arguments\": {\"bed_id\": \"B-73\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "get_harvest_date",
+              "arguments": {
+                "bed_id": "B-73"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "get_harvest_date",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "result": {
+                "harvest_date": "2026-11-18"
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "get_harvest_date",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "get_harvest_date",
+            "get_crop_name",
+            "read_soil_moisture",
+            "get_planting_date",
+            "read_soil_ph",
+            "get_fertilizer_schedule",
+            "get_irrigation_schedule",
+            "read_air_temperature",
+            "read_air_humidity",
+            "get_ventilation_status",
+            "read_water_tank_level",
+            "read_light_level"
+          ],
+          "ranking": null,
+          "assistant": "The harvest date is November 18, 2026.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 44,
+      "rank_ms": 0.0,
+      "total_ms": 9614.297652617097,
+      "id": "get_harvest_date-en",
+      "request": "What is the planned harvest date for bed B-73? Return the date as YYYY-MM-DD.",
+      "language": "en",
+      "initial_ranking": {
+        "choice": "get_harvest_date",
+        "probabilities": {
+          "get_planting_date": 0.015254252590239048,
+          "read_light_level": 0.00013028286048211157,
+          "read_air_humidity": 0.0006511882529594004,
+          "get_crop_name": 0.1920764297246933,
+          "read_water_tank_level": 0.00027979357400909066,
+          "get_ventilation_status": 0.0005989583441987634,
+          "get_fertilizer_schedule": 0.011306699365377426,
+          "read_soil_ph": 0.013897716999053955,
+          "get_irrigation_schedule": 0.01034655049443245,
+          "read_soil_moisture": 0.019585072994232178,
+          "get_harvest_date": 0.734437108039856,
+          "read_air_temperature": 0.0014359339838847518
+        },
+        "elapsed_ms": 2705.7748436927795
+      },
+      "expected_calls": [
+        {
+          "name": "get_harvest_date",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 664,
+          "generated_tokens": 31,
+          "prefill_ms": 2743.617601,
+          "elapsed_ms": 3450.311412
+        },
+        {
+          "prompt_tokens": 716,
+          "generated_tokens": 13,
+          "prefill_ms": 3082.48507,
+          "elapsed_ms": 3369.734818
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": false,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_ranked",
+      "status": "answered",
+      "final": "La data di raccolta prevista per l’aiuola B-73 è il 18 novembre 2026.",
+      "emitted_calls": [
+        {
+          "name": "get_harvest_date",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "get_harvest_date",
+            "arguments": {
+              "bed_id": "B-73"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "get_harvest_date",
+            "get_crop_name",
+            "read_soil_moisture",
+            "get_planting_date",
+            "get_irrigation_schedule",
+            "read_soil_ph",
+            "get_fertilizer_schedule",
+            "read_air_temperature",
+            "read_air_humidity",
+            "get_ventilation_status",
+            "read_water_tank_level",
+            "read_light_level"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"get_harvest_date\", \"arguments\": {\"bed_id\": \"B-73\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "get_harvest_date",
+              "arguments": {
+                "bed_id": "B-73"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "get_harvest_date",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "result": {
+                "harvest_date": "2026-11-18"
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "get_harvest_date",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "get_harvest_date",
+            "get_crop_name",
+            "read_soil_moisture",
+            "get_planting_date",
+            "get_irrigation_schedule",
+            "read_soil_ph",
+            "get_fertilizer_schedule",
+            "read_air_temperature",
+            "read_air_humidity",
+            "get_ventilation_status",
+            "read_water_tank_level",
+            "read_light_level"
+          ],
+          "ranking": null,
+          "assistant": "La data di raccolta prevista per l’aiuola B-73 è il 18 novembre 2026.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 57,
+      "rank_ms": 0.0,
+      "total_ms": 11548.221752047539,
+      "id": "get_harvest_date-it",
+      "request": "Qual è la data di raccolta prevista per l’aiuola B-73? Restituisci la data come YYYY-MM-DD.",
+      "language": "it",
+      "initial_ranking": {
+        "choice": "get_harvest_date",
+        "probabilities": {
+          "get_planting_date": 0.08695428818464279,
+          "read_light_level": 0.002846353454515338,
+          "read_air_humidity": 0.01555605512112379,
+          "get_crop_name": 0.23313544690608978,
+          "read_water_tank_level": 0.0036475162487477064,
+          "get_ventilation_status": 0.011389513500034809,
+          "get_fertilizer_schedule": 0.034390639513731,
+          "read_soil_ph": 0.04108166694641113,
+          "get_irrigation_schedule": 0.04317770153284073,
+          "read_soil_moisture": 0.09180013090372086,
+          "get_harvest_date": 0.419039785861969,
+          "read_air_temperature": 0.01698102056980133
+        },
+        "elapsed_ms": 3371.6501221060753
+      },
+      "expected_calls": [
+        {
+          "name": "get_harvest_date",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 769,
+          "generated_tokens": 31,
+          "prefill_ms": 3317.116774,
+          "elapsed_ms": 4007.460752
+        },
+        {
+          "prompt_tokens": 821,
+          "generated_tokens": 26,
+          "prefill_ms": 3522.431572,
+          "elapsed_ms": 4090.90485
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": false,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_ranked",
+      "status": "answered",
+      "final": "The ventilation fan in zone Z-41 is running.",
+      "emitted_calls": [
+        {
+          "name": "get_ventilation_status",
+          "arguments": {
+            "zone_id": "Z-41"
+          }
+        },
+        {
+          "name": "get_ventilation_status",
+          "arguments": {
+            "zone_id": "Z-41"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "get_ventilation_status",
+            "arguments": {
+              "zone_id": "Z-41"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "get_ventilation_status",
+            "read_air_temperature",
+            "read_light_level",
+            "read_soil_moisture",
+            "read_air_humidity",
+            "read_soil_ph",
+            "get_planting_date",
+            "get_fertilizer_schedule",
+            "get_harvest_date",
+            "get_irrigation_schedule",
+            "read_water_tank_level",
+            "get_crop_name"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"get_ventilation_status\", \"arguments\": {\"zone_id\": \"Z-41\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "get_ventilation_status",
+              "arguments": {
+                "zone_id": "Z-41"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "get_ventilation_status",
+                "arguments": {
+                  "zone_id": "Z-41"
+                }
+              },
+              "result": {
+                "fan_status": "running"
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "get_ventilation_status",
+                "arguments": {
+                  "zone_id": "Z-41"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "get_ventilation_status",
+            "read_air_temperature",
+            "read_light_level",
+            "read_soil_moisture",
+            "read_air_humidity",
+            "read_soil_ph",
+            "get_planting_date",
+            "get_fertilizer_schedule",
+            "get_harvest_date",
+            "get_irrigation_schedule",
+            "read_water_tank_level",
+            "get_crop_name"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"get_ventilation_status\", \"arguments\": {\"zone_id\": \"Z-41\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "get_ventilation_status",
+              "arguments": {
+                "zone_id": "Z-41"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "get_ventilation_status",
+                "arguments": {
+                  "zone_id": "Z-41"
+                }
+              },
+              "result": {
+                "fan_status": "running"
+              },
+              "cached": true
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "get_ventilation_status",
+                "arguments": {
+                  "zone_id": "Z-41"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "tool_order": [
+            "get_ventilation_status",
+            "read_air_temperature",
+            "read_light_level",
+            "read_soil_moisture",
+            "read_air_humidity",
+            "read_soil_ph",
+            "get_planting_date",
+            "get_fertilizer_schedule",
+            "get_harvest_date",
+            "get_irrigation_schedule",
+            "read_water_tank_level",
+            "get_crop_name"
+          ],
+          "ranking": null,
+          "assistant": "The ventilation fan in zone Z-41 is running.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 74,
+      "rank_ms": 0.0,
+      "total_ms": 13136.24176569283,
+      "id": "get_ventilation_status-en",
+      "request": "Is the ventilation fan in zone Z-41 running or stopped?",
+      "language": "en",
+      "initial_ranking": {
+        "choice": "get_ventilation_status",
+        "probabilities": {
+          "get_crop_name": 0.0012927353382110596,
+          "read_air_humidity": 0.010448751971125603,
+          "read_soil_ph": 0.0055945985950529575,
+          "get_ventilation_status": 0.783507764339447,
+          "get_fertilizer_schedule": 0.004496739245951176,
+          "read_water_tank_level": 0.0023828321136534214,
+          "get_harvest_date": 0.00330321304500103,
+          "get_irrigation_schedule": 0.002571323188021779,
+          "read_air_temperature": 0.11177514493465424,
+          "get_planting_date": 0.005121706053614616,
+          "read_light_level": 0.042700935155153275,
+          "read_soil_moisture": 0.026804257184267044
+        },
+        "elapsed_ms": 2697.7739706635475
+      },
+      "expected_calls": [
+        {
+          "name": "get_ventilation_status",
+          "arguments": {
+            "zone_id": "Z-41"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 657,
+          "generated_tokens": 31,
+          "prefill_ms": 2691.336572,
+          "elapsed_ms": 3341.292462
+        },
+        {
+          "prompt_tokens": 703,
+          "generated_tokens": 31,
+          "prefill_ms": 2984.689058,
+          "elapsed_ms": 3638.284816
+        },
+        {
+          "prompt_tokens": 749,
+          "generated_tokens": 12,
+          "prefill_ms": 3117.759785,
+          "elapsed_ms": 3360.442744
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_ranked",
+      "status": "answered",
+      "final": "La ventola di ventilazione è in funzione.",
+      "emitted_calls": [
+        {
+          "name": "get_ventilation_status",
+          "arguments": {
+            "zone_id": "Z-41"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "get_ventilation_status",
+            "arguments": {
+              "zone_id": "Z-41"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "get_ventilation_status",
+            "read_soil_moisture",
+            "get_fertilizer_schedule",
+            "read_light_level",
+            "read_air_temperature",
+            "read_air_humidity",
+            "get_harvest_date",
+            "read_soil_ph",
+            "get_planting_date",
+            "get_irrigation_schedule",
+            "read_water_tank_level",
+            "get_crop_name"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"get_ventilation_status\", \"arguments\": {\"zone_id\": \"Z-41\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "get_ventilation_status",
+              "arguments": {
+                "zone_id": "Z-41"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "get_ventilation_status",
+                "arguments": {
+                  "zone_id": "Z-41"
+                }
+              },
+              "result": {
+                "fan_status": "running"
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "get_ventilation_status",
+                "arguments": {
+                  "zone_id": "Z-41"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "get_ventilation_status",
+            "read_soil_moisture",
+            "get_fertilizer_schedule",
+            "read_light_level",
+            "read_air_temperature",
+            "read_air_humidity",
+            "get_harvest_date",
+            "read_soil_ph",
+            "get_planting_date",
+            "get_irrigation_schedule",
+            "read_water_tank_level",
+            "get_crop_name"
+          ],
+          "ranking": null,
+          "assistant": "La ventola di ventilazione è in funzione.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 43,
+      "rank_ms": 0.0,
+      "total_ms": 11133.45379754901,
+      "id": "get_ventilation_status-it",
+      "request": "La ventola di ventilazione nella zona Z-41 è in funzione o ferma?",
+      "language": "it",
+      "initial_ranking": {
+        "choice": "get_ventilation_status",
+        "probabilities": {
+          "get_crop_name": 0.0002589489158708602,
+          "read_air_humidity": 0.01766803115606308,
+          "read_soil_ph": 0.008396152406930923,
+          "get_ventilation_status": 0.8267953991889954,
+          "get_fertilizer_schedule": 0.030267130583524704,
+          "read_water_tank_level": 0.006018087733536959,
+          "get_harvest_date": 0.012488660402595997,
+          "get_irrigation_schedule": 0.006679912097752094,
+          "read_air_temperature": 0.020679868757724762,
+          "get_planting_date": 0.006814014632254839,
+          "read_light_level": 0.027282066643238068,
+          "read_soil_moisture": 0.03665164113044739
+        },
+        "elapsed_ms": 3337.2883703559637
+      },
+      "expected_calls": [
+        {
+          "name": "get_ventilation_status",
+          "arguments": {
+            "zone_id": "Z-41"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 759,
+          "generated_tokens": 31,
+          "prefill_ms": 3250.617242,
+          "elapsed_ms": 3925.343967
+        },
+        {
+          "prompt_tokens": 805,
+          "generated_tokens": 12,
+          "prefill_ms": 3552.017838,
+          "elapsed_ms": 3802.132249
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_ranked",
+      "status": "answered",
+      "final": "The next scheduled fertilizer application time for bed B-73 is 17:45.",
+      "emitted_calls": [
+        {
+          "name": "get_fertilizer_schedule",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "get_fertilizer_schedule",
+            "arguments": {
+              "bed_id": "B-73"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "get_fertilizer_schedule",
+            "get_crop_name",
+            "read_soil_moisture",
+            "get_irrigation_schedule",
+            "read_soil_ph",
+            "get_harvest_date",
+            "get_planting_date",
+            "read_air_humidity",
+            "read_light_level",
+            "get_ventilation_status",
+            "read_air_temperature",
+            "read_water_tank_level"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"get_fertilizer_schedule\", \"arguments\": {\"bed_id\": \"B-73\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "get_fertilizer_schedule",
+              "arguments": {
+                "bed_id": "B-73"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "get_fertilizer_schedule",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "result": {
+                "next_fertilizer_time": "17:45"
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "get_fertilizer_schedule",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "get_fertilizer_schedule",
+            "get_crop_name",
+            "read_soil_moisture",
+            "get_irrigation_schedule",
+            "read_soil_ph",
+            "get_harvest_date",
+            "get_planting_date",
+            "read_air_humidity",
+            "read_light_level",
+            "get_ventilation_status",
+            "read_air_temperature",
+            "read_water_tank_level"
+          ],
+          "ranking": null,
+          "assistant": "The next scheduled fertilizer application time for bed B-73 is 17:45.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 49,
+      "rank_ms": 0.0,
+      "total_ms": 9574.720911681652,
+      "id": "get_fertilizer_schedule-en",
+      "request": "When is the next fertilizer application scheduled for bed B-73? Give the time.",
+      "language": "en",
+      "initial_ranking": {
+        "choice": "get_fertilizer_schedule",
+        "probabilities": {
+          "get_fertilizer_schedule": 0.3683372139930725,
+          "read_air_temperature": 0.0016290233470499516,
+          "get_harvest_date": 0.04444029927253723,
+          "get_planting_date": 0.017582986503839493,
+          "get_irrigation_schedule": 0.12332316488027573,
+          "read_water_tank_level": 0.0010234168730676174,
+          "read_air_humidity": 0.01183868944644928,
+          "read_soil_moisture": 0.14757393300533295,
+          "read_soil_ph": 0.10028934478759766,
+          "read_light_level": 0.0060608042404055595,
+          "get_crop_name": 0.17462365329265594,
+          "get_ventilation_status": 0.0032774414867162704
+        },
+        "elapsed_ms": 2763.388767838478
+      },
+      "expected_calls": [
+        {
+          "name": "get_fertilizer_schedule",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 661,
+          "generated_tokens": 31,
+          "prefill_ms": 2780.612146,
+          "elapsed_ms": 3432.446986
+        },
+        {
+          "prompt_tokens": 712,
+          "generated_tokens": 18,
+          "prefill_ms": 2936.712683,
+          "elapsed_ms": 3311.907352
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_ranked",
+      "status": "answered",
+      "final": "L’irrigazione è programmata per l'orario 17:45.",
+      "emitted_calls": [
+        {
+          "name": "get_fertilizer_schedule",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "get_fertilizer_schedule",
+            "arguments": {
+              "bed_id": "B-73"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "get_irrigation_schedule",
+            "get_fertilizer_schedule",
+            "get_crop_name",
+            "read_soil_moisture",
+            "read_soil_ph",
+            "get_harvest_date",
+            "get_planting_date",
+            "read_air_humidity",
+            "get_ventilation_status",
+            "read_water_tank_level",
+            "read_light_level",
+            "read_air_temperature"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"get_fertilizer_schedule\", \"arguments\": {\"bed_id\": \"B-73\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "get_fertilizer_schedule",
+              "arguments": {
+                "bed_id": "B-73"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "get_fertilizer_schedule",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "result": {
+                "next_fertilizer_time": "17:45"
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "get_fertilizer_schedule",
+                "arguments": {
+                  "bed_id": "B-73"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "get_irrigation_schedule",
+            "get_fertilizer_schedule",
+            "get_crop_name",
+            "read_soil_moisture",
+            "read_soil_ph",
+            "get_harvest_date",
+            "get_planting_date",
+            "read_air_humidity",
+            "get_ventilation_status",
+            "read_water_tank_level",
+            "read_light_level",
+            "read_air_temperature"
+          ],
+          "ranking": null,
+          "assistant": "L’irrigazione è programmata per l'orario 17:45.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 50,
+      "rank_ms": 0.0,
+      "total_ms": 10713.862355798483,
+      "id": "get_fertilizer_schedule-it",
+      "request": "Quando è programmata la prossima concimazione dell’aiuola B-73? Indica l’orario.",
+      "language": "it",
+      "initial_ranking": {
+        "choice": "get_irrigation_schedule",
+        "probabilities": {
+          "get_fertilizer_schedule": 0.219967320561409,
+          "read_air_temperature": 0.0014431023737415671,
+          "get_harvest_date": 0.034481026232242584,
+          "get_planting_date": 0.02724537067115307,
+          "get_irrigation_schedule": 0.37975388765335083,
+          "read_water_tank_level": 0.008988951332867146,
+          "read_air_humidity": 0.01593143306672573,
+          "read_soil_moisture": 0.08959599584341049,
+          "read_soil_ph": 0.04778154939413071,
+          "read_light_level": 0.008366047404706478,
+          "get_crop_name": 0.155193492770195,
+          "get_ventilation_status": 0.011251899413764477
+        },
+        "elapsed_ms": 2934.041939675808
+      },
+      "expected_calls": [
+        {
+          "name": "get_fertilizer_schedule",
+          "arguments": {
+            "bed_id": "B-73"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 767,
+          "generated_tokens": 31,
+          "prefill_ms": 3041.123876,
+          "elapsed_ms": 3733.990563
+        },
+        {
+          "prompt_tokens": 818,
+          "generated_tokens": 19,
+          "prefill_ms": 3571.250672,
+          "elapsed_ms": 3979.290395
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true,
+        "nev_top_choice": false
+      }
+    }
+  ],
+  "load_seconds": 3.8340293765068054,
+  "memory": {
+    "peak_mib": {
+      "all": {
+        "rss": 2652.734375,
+        "pss": 2637.76171875,
+        "uss": 2631.03515625
+      },
+      "inference": {
+        "rss": 2652.734375,
+        "pss": 2637.76171875,
+        "uss": 2631.03515625
+      }
+    },
+    "samples": 2616,
+    "inference_samples": 2555,
+    "failed_samples": 0,
+    "sampling_interval_seconds": 0.05,
+    "scope": "Python plus worker children; OS excluded. PSS apportions shared pages; RSS can double count. Sampled peaks, not a device minimum or hard ceiling."
+  },
+  "summary": {
+    "en": {
+      "n": 12,
+      "exact_execution": 12,
+      "answer_anchor_proxy": 11,
+      "nev_top_choice": 9,
+      "median_ms": 9594.509282149374
+    },
+    "it": {
+      "n": 12,
+      "exact_execution": 11,
+      "answer_anchor_proxy": 9,
+      "nev_top_choice": 10,
+      "median_ms": 11566.47767033428
+    }
+  }
+}

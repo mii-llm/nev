@@ -1,0 +1,3334 @@
+{
+  "status": "complete",
+  "suite": "routing",
+  "precision": "q4_k_m",
+  "arm": "nev_selected",
+  "cpu_only": true,
+  "threads": 4,
+  "platform": "Linux-6.8.0-1008-nvidia-x86_64-with-glibc2.35",
+  "python": "3.12.13 (main, Mar  4 2026, 09:23:07) [GCC 11.4.0]",
+  "release": {
+    "format_version": 2,
+    "models": {
+      "nev": {
+        "repository": "mii-llm/nev-gguf",
+        "revision": "d3be0de4ea15a54c0b09b9f3cfa27ca62c47c51e"
+      },
+      "nesso3": {
+        "repository": "mii-llm/nesso3-0.4B-agentic-gguf",
+        "revision": "2058a05f2e139c5bc4a5e57405a4806f65615e93"
+      }
+    }
+  },
+  "suite_sha256": "89871fc53550d37318ae9ed73ad548b69d2826687da20f9e9eead00e2aa7691d",
+  "source_sha256": {
+    "cpu_backend.py": "bf494641d9b313020598086187936c6645e903ab08b7cbc29658be01f2d670e6",
+    "worker.cpp": "9b0eacff6ec69cf91f1066875692c7f76cb2699b54008aa6235d7a873fc227da",
+    "abstract_agent/runtime.py": "85e1943b5117893ad2ecff14be1c6e11894371aac830eb19c0ee1862a937c9f4",
+    "abstract_agent/fixtures.py": "c37a26fb2fa5ec79fb9e43de7449cf2a0550975c608cd64f8525a0261b291697",
+    "release.json": "d1bf6e2b74d07b16ea4e00dd441b3c2310965d6f1fbf5f688e5ee868ce212a08"
+  },
+  "runner_sha256": "0c8584c2f7deac6bc8ba80cdf3ca0cb76cbd237a7bde568e2a422769ae603dc6",
+  "quantization": {
+    "status": "complete",
+    "format": "Q4_K_M",
+    "quantizer_sha256": "5526afb8c5091cc94ef94a2ee9ef8c3278d4c517713543ae6a8996fd1b2b0da6",
+    "models": {
+      "nev-v3": {
+        "source_bytes": 883484160,
+        "source_sha256": "6325b2d8ece94d7386b9cc367193605f74db8fb799c4a135530a0deb57a75eda",
+        "output_bytes": 357327360,
+        "output_sha256": "67d5dcf145c096a1abde7185a37e60dc60a5404d49e1c47a1bedda3975f5bc31",
+        "command": [
+          "/home/ecuser/nev-a100/nevso-linux-20261103/experiments/cpu_gguf/build/bin/llama-quantize",
+          "/home/ecuser/nev-a100/nevso-q4-20261105/artifacts/gguf/nev-v3-f16.gguf",
+          "/home/ecuser/nev-a100/nevso-q4-20261105/artifacts/gguf/nev-v3-q4_k_m.partial.gguf",
+          "Q4_K_M",
+          "4"
+        ]
+      },
+      "nesso3": {
+        "source_bytes": 883483456,
+        "source_sha256": "ee3f3fbb96b34a791dbfea34e1dbccb2096ef06519067de26a2bc4225c348013",
+        "output_bytes": 357326656,
+        "output_sha256": "de2d28d21d478cac69600784d1c33ab935e356292cbd2178624c5c9106076e55",
+        "command": [
+          "/home/ecuser/nev-a100/nevso-linux-20261103/experiments/cpu_gguf/build/bin/llama-quantize",
+          "/home/ecuser/nev-a100/nevso-q4-20261105/artifacts/gguf/nesso3-f16.gguf",
+          "/home/ecuser/nev-a100/nevso-q4-20261105/artifacts/gguf/nesso3-q4_k_m.partial.gguf",
+          "Q4_K_M",
+          "4"
+        ]
+      }
+    }
+  },
+  "rows": [
+    {
+      "arm": "nev_selected",
+      "status": "answered",
+      "final": "The identifier of the note titled Aurora is N-7Q2.",
+      "emitted_calls": [
+        {
+          "name": "find_note",
+          "arguments": {
+            "query": "Aurora"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "find_note",
+            "arguments": {
+              "query": "Aurora"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "find_note"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"find_note\", \"arguments\": {\"query\": \"Aurora\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "find_note",
+              "arguments": {
+                "query": "Aurora"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "find_note",
+                "arguments": {
+                  "query": "Aurora"
+                }
+              },
+              "result": {
+                "note_id": "N-7Q2",
+                "title": "Aurora"
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "find_note",
+                "arguments": {
+                  "query": "Aurora"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "find_note"
+          ],
+          "ranking": null,
+          "assistant": "The identifier of the note titled Aurora is N-7Q2.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 42,
+      "rank_ms": 0.0,
+      "total_ms": 4596.42437659204,
+      "id": "find_note-en",
+      "request": "Find the identifier of the note titled Aurora.",
+      "language": "en",
+      "initial_ranking": {
+        "choice": "find_note",
+        "probabilities": {
+          "battery_status": 1.2150770999141969e-05,
+          "playlist_tracks": 0.00021361082326620817,
+          "read_sensor": 5.761425563832745e-05,
+          "search_track": 0.05245993286371231,
+          "playlist_duration": 0.0004652781062759459,
+          "list_notes": 0.000712741632014513,
+          "note_count": 0.0006208638660609722,
+          "find_sensor": 2.9141485356376506e-05,
+          "read_note": 0.3551732301712036,
+          "find_note": 0.5886715054512024,
+          "track_details": 0.0015589793911203742,
+          "convert_temperature": 2.4885443053790368e-05
+        },
+        "elapsed_ms": 2765.0821153074503
+      },
+      "expected_calls": [
+        {
+          "name": "find_note",
+          "arguments": {
+            "query": "Aurora"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 91,
+          "generated_tokens": 27,
+          "prefill_ms": 361.799225,
+          "elapsed_ms": 880.448893
+        },
+        {
+          "prompt_tokens": 143,
+          "generated_tokens": 15,
+          "prefill_ms": 555.176079,
+          "elapsed_ms": 875.09293
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_selected",
+      "status": "answered",
+      "final": "La nota Aurora ha l'identificativo N-7Q2.",
+      "emitted_calls": [
+        {
+          "name": "find_note",
+          "arguments": {
+            "query": "Aurora"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "find_note",
+            "arguments": {
+              "query": "Aurora"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "find_note"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"find_note\", \"arguments\": {\"query\": \"Aurora\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "find_note",
+              "arguments": {
+                "query": "Aurora"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "find_note",
+                "arguments": {
+                  "query": "Aurora"
+                }
+              },
+              "result": {
+                "note_id": "N-7Q2",
+                "title": "Aurora"
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "find_note",
+                "arguments": {
+                  "query": "Aurora"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "find_note"
+          ],
+          "ranking": null,
+          "assistant": "La nota Aurora ha l'identificativo N-7Q2.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 43,
+      "rank_ms": 0.0,
+      "total_ms": 5341.437943279743,
+      "id": "find_note-it",
+      "request": "Trova l’identificativo della nota intitolata Aurora.",
+      "language": "it",
+      "initial_ranking": {
+        "choice": "find_note",
+        "probabilities": {
+          "battery_status": 5.126456017023884e-06,
+          "playlist_tracks": 1.4984776498749852e-05,
+          "read_sensor": 2.0837524061789736e-05,
+          "search_track": 0.030438456684350967,
+          "playlist_duration": 0.00017581436259206384,
+          "list_notes": 0.00037260973476804793,
+          "note_count": 0.0003828944463748485,
+          "find_sensor": 1.3793767720926553e-05,
+          "read_note": 0.41600537300109863,
+          "find_note": 0.5522614121437073,
+          "track_details": 0.00029698439175263047,
+          "convert_temperature": 1.1748076758522075e-05
+        },
+        "elapsed_ms": 3329.3705005198717
+      },
+      "expected_calls": [
+        {
+          "name": "find_note",
+          "arguments": {
+            "query": "Aurora"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 109,
+          "generated_tokens": 27,
+          "prefill_ms": 456.679373,
+          "elapsed_ms": 995.636845
+        },
+        {
+          "prompt_tokens": 161,
+          "generated_tokens": 16,
+          "prefill_ms": 635.879782,
+          "elapsed_ms": 939.82233
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_selected",
+      "status": "answered",
+      "final": "The access code is 7392.",
+      "emitted_calls": [
+        {
+          "name": "read_note",
+          "arguments": {
+            "note_id": "N-8R6"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "read_note",
+            "arguments": {
+              "note_id": "N-8R6"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "read_note"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"read_note\", \"arguments\": {\"note_id\": \"N-8R6\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "read_note",
+              "arguments": {
+                "note_id": "N-8R6"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "read_note",
+                "arguments": {
+                  "note_id": "N-8R6"
+                }
+              },
+              "result": {
+                "content": "Access code: 7392"
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "read_note",
+                "arguments": {
+                  "note_id": "N-8R6"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "read_note"
+          ],
+          "ranking": null,
+          "assistant": "The access code is 7392.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 39,
+      "rank_ms": 0.0,
+      "total_ms": 4459.812896326184,
+      "id": "read_note-en",
+      "request": "Read note N-8R6 and tell me the access code.",
+      "language": "en",
+      "initial_ranking": {
+        "choice": "read_note",
+        "probabilities": {
+          "search_track": 0.0002604211331345141,
+          "list_notes": 0.0188397578895092,
+          "read_note": 0.8527296781539917,
+          "note_count": 0.05438069626688957,
+          "convert_temperature": 0.0005416171043179929,
+          "playlist_tracks": 0.006616063416004181,
+          "playlist_duration": 0.0013491110876202583,
+          "read_sensor": 0.009297807700932026,
+          "battery_status": 0.010835912078619003,
+          "track_details": 0.01225302740931511,
+          "find_note": 0.02386028692126274,
+          "find_sensor": 0.009035764262080193
+        },
+        "elapsed_ms": 2700.215319171548
+      },
+      "expected_calls": [
+        {
+          "name": "read_note",
+          "arguments": {
+            "note_id": "N-8R6"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 96,
+          "generated_tokens": 30,
+          "prefill_ms": 389.652014,
+          "elapsed_ms": 962.518126
+        },
+        {
+          "prompt_tokens": 145,
+          "generated_tokens": 9,
+          "prefill_ms": 558.075616,
+          "elapsed_ms": 721.11175
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_selected",
+      "status": "answered",
+      "final": "Mi dispiace, non posso leggere la nota specifica. Non ho la capacità di effettuare attività di lettura come questo.",
+      "emitted_calls": [],
+      "executed_calls": [],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "read_note"
+          ],
+          "ranking": null,
+          "assistant": "Mi dispiace, non posso leggere la nota specifica. Non ho la capacità di effettuare attività di lettura come questo.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 34,
+      "rank_ms": 0.0,
+      "total_ms": 4464.597750455141,
+      "id": "read_note-it",
+      "request": "Leggi la nota N-8R6 e dimmi il codice di accesso.",
+      "language": "it",
+      "initial_ranking": {
+        "choice": "read_note",
+        "probabilities": {
+          "search_track": 0.002428641775622964,
+          "list_notes": 0.0014698952436447144,
+          "read_note": 0.8953154683113098,
+          "note_count": 0.013050107285380363,
+          "convert_temperature": 0.0002764933742582798,
+          "playlist_tracks": 0.0012327117146924138,
+          "playlist_duration": 0.0003155729209538549,
+          "read_sensor": 0.0011511605698615313,
+          "battery_status": 0.001746871042996645,
+          "track_details": 0.0011471365578472614,
+          "find_note": 0.08071251213550568,
+          "find_sensor": 0.0011535872472450137
+        },
+        "elapsed_ms": 3317.436955869198
+      },
+      "expected_calls": [
+        {
+          "name": "read_note",
+          "arguments": {
+            "note_id": "N-8R6"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 111,
+          "generated_tokens": 34,
+          "prefill_ms": 443.943157,
+          "elapsed_ms": 1108.307486
+        }
+      ],
+      "score": {
+        "exact_execution": false,
+        "answer_anchor_proxy": false,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_selected",
+      "status": "limit",
+      "final": "",
+      "emitted_calls": [
+        {
+          "name": "list_notes",
+          "arguments": {
+            "folder": "Work"
+          }
+        },
+        {
+          "name": "list_notes",
+          "arguments": {
+            "folder": "Work"
+          }
+        },
+        {
+          "name": "list_notes",
+          "arguments": {
+            "folder": "Work"
+          }
+        },
+        {
+          "name": "list_notes",
+          "arguments": {
+            "folder": "Work"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "list_notes",
+            "arguments": {
+              "folder": "Work"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "list_notes"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"list_notes\", \"arguments\": {\"folder\": \"Work\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "list_notes",
+              "arguments": {
+                "folder": "Work"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "list_notes",
+                "arguments": {
+                  "folder": "Work"
+                }
+              },
+              "result": {
+                "titles": [
+                  "Aurora",
+                  "Atlas"
+                ]
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "list_notes",
+                "arguments": {
+                  "folder": "Work"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "list_notes"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"list_notes\", \"arguments\": {\"folder\": \"Work\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "list_notes",
+              "arguments": {
+                "folder": "Work"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "list_notes",
+                "arguments": {
+                  "folder": "Work"
+                }
+              },
+              "result": {
+                "titles": [
+                  "Aurora",
+                  "Atlas"
+                ]
+              },
+              "cached": true
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "list_notes",
+                "arguments": {
+                  "folder": "Work"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "tool_order": [
+            "list_notes"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"list_notes\", \"arguments\": {\"folder\": \"Work\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "list_notes",
+              "arguments": {
+                "folder": "Work"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "list_notes",
+                "arguments": {
+                  "folder": "Work"
+                }
+              },
+              "result": {
+                "titles": [
+                  "Aurora",
+                  "Atlas"
+                ]
+              },
+              "cached": true
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "list_notes",
+                "arguments": {
+                  "folder": "Work"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 3,
+          "tool_order": [
+            "list_notes"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"list_notes\", \"arguments\": {\"folder\": \"Work\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "list_notes",
+              "arguments": {
+                "folder": "Work"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [
+        "call_or_turn_limit"
+      ],
+      "generated_tokens": 100,
+      "rank_ms": 0.0,
+      "total_ms": 7049.6211759746075,
+      "id": "list_notes-en",
+      "request": "Show the titles of the notes in folder Work.",
+      "language": "en",
+      "initial_ranking": {
+        "choice": "list_notes",
+        "probabilities": {
+          "playlist_tracks": 0.00025388741050846875,
+          "playlist_duration": 1.9243920178269036e-05,
+          "find_note": 0.0020912818145006895,
+          "search_track": 0.0014492712216451764,
+          "find_sensor": 4.877949322690256e-05,
+          "convert_temperature": 1.183637050417019e-05,
+          "read_note": 0.10442524403333664,
+          "track_details": 0.0008318425389006734,
+          "list_notes": 0.8680093288421631,
+          "read_sensor": 0.00017464060510974377,
+          "battery_status": 5.730595876229927e-05,
+          "note_count": 0.0226273313164711
+        },
+        "elapsed_ms": 2635.8507201075554
+      },
+      "expected_calls": [
+        {
+          "name": "list_notes",
+          "arguments": {
+            "folder": "Work"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 87,
+          "generated_tokens": 25,
+          "prefill_ms": 367.076919,
+          "elapsed_ms": 840.4155
+        },
+        {
+          "prompt_tokens": 130,
+          "generated_tokens": 25,
+          "prefill_ms": 501.633181,
+          "elapsed_ms": 987.780834
+        },
+        {
+          "prompt_tokens": 173,
+          "generated_tokens": 25,
+          "prefill_ms": 658.730361,
+          "elapsed_ms": 1135.09939
+        },
+        {
+          "prompt_tokens": 216,
+          "generated_tokens": 25,
+          "prefill_ms": 825.951546,
+          "elapsed_ms": 1299.906081
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": false,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_selected",
+      "status": "answered",
+      "final": "Perfetto! Ti aiuto a visualizzare i titoli delle note nella cartella Work.",
+      "emitted_calls": [],
+      "executed_calls": [],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "list_notes"
+          ],
+          "ranking": null,
+          "assistant": "Perfetto! Ti aiuto a visualizzare i titoli delle note nella cartella Work.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 21,
+      "rank_ms": 0.0,
+      "total_ms": 3994.8553759604692,
+      "id": "list_notes-it",
+      "request": "Mostrami i titoli delle note nella cartella Work.",
+      "language": "it",
+      "initial_ranking": {
+        "choice": "list_notes",
+        "probabilities": {
+          "playlist_tracks": 5.8170535339741036e-05,
+          "playlist_duration": 2.1412257410702296e-05,
+          "find_note": 0.002162851160392165,
+          "search_track": 0.012117700651288033,
+          "find_sensor": 3.629687853390351e-05,
+          "convert_temperature": 6.747919542249292e-05,
+          "read_note": 0.15149517357349396,
+          "track_details": 0.004364413674920797,
+          "list_notes": 0.7022256851196289,
+          "read_sensor": 0.0005104560405015945,
+          "battery_status": 8.408275607507676e-05,
+          "note_count": 0.12685635685920715
+        },
+        "elapsed_ms": 3152.5685861706734
+      },
+      "expected_calls": [
+        {
+          "name": "list_notes",
+          "arguments": {
+            "folder": "Work"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 101,
+          "generated_tokens": 21,
+          "prefill_ms": 411.097227,
+          "elapsed_ms": 803.030894
+        }
+      ],
+      "score": {
+        "exact_execution": false,
+        "answer_anchor_proxy": false,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_selected",
+      "status": "answered",
+      "final": "The tool has counted 2 notes in the folder \"Work\".",
+      "emitted_calls": [
+        {
+          "name": "note_count",
+          "arguments": {
+            "folder": "Work"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "note_count",
+            "arguments": {
+              "folder": "Work"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "note_count"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"note_count\", \"arguments\": {\"folder\": \"Work\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "note_count",
+              "arguments": {
+                "folder": "Work"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "note_count",
+                "arguments": {
+                  "folder": "Work"
+                }
+              },
+              "result": {
+                "count": 2
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "note_count",
+                "arguments": {
+                  "folder": "Work"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "note_count"
+          ],
+          "ranking": null,
+          "assistant": "The tool has counted 2 notes in the folder \"Work\".",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 39,
+      "rank_ms": 0.0,
+      "total_ms": 4155.493142083287,
+      "id": "note_count-en",
+      "request": "How many notes are in folder Work?",
+      "language": "en",
+      "initial_ranking": {
+        "choice": "note_count",
+        "probabilities": {
+          "find_note": 0.00019755515677388757,
+          "playlist_duration": 8.727638487471268e-06,
+          "read_note": 0.0026712878607213497,
+          "playlist_tracks": 3.9816706703277305e-05,
+          "note_count": 0.9000945687294006,
+          "search_track": 0.00017199019202962518,
+          "list_notes": 0.09507381170988083,
+          "convert_temperature": 0.0016749589703977108,
+          "battery_status": 1.6757025150582194e-05,
+          "read_sensor": 6.152255537017481e-06,
+          "track_details": 3.886868944391608e-05,
+          "find_sensor": 5.617741862806724e-06
+        },
+        "elapsed_ms": 2535.800199955702
+      },
+      "expected_calls": [
+        {
+          "name": "note_count",
+          "arguments": {
+            "folder": "Work"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 84,
+          "generated_tokens": 25,
+          "prefill_ms": 341.860184,
+          "elapsed_ms": 806.278469
+        },
+        {
+          "prompt_tokens": 123,
+          "generated_tokens": 14,
+          "prefill_ms": 484.629799,
+          "elapsed_ms": 736.876869
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_selected",
+      "status": "answered",
+      "final": "Mi dispiace, non posso determinare il numero di note nella cartella Work. Non ho la capacità di accedere a file o cartelle.",
+      "emitted_calls": [],
+      "executed_calls": [],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "note_count"
+          ],
+          "ranking": null,
+          "assistant": "Mi dispiace, non posso determinare il numero di note nella cartella Work. Non ho la capacità di accedere a file o cartelle.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 34,
+      "rank_ms": 0.0,
+      "total_ms": 4234.114725142717,
+      "id": "note_count-it",
+      "request": "Quante note ci sono nella cartella Work?",
+      "language": "it",
+      "initial_ranking": {
+        "choice": "note_count",
+        "probabilities": {
+          "find_note": 0.0006599636399187148,
+          "playlist_duration": 1.3879503057978582e-05,
+          "read_note": 0.0042266761884093285,
+          "playlist_tracks": 8.285415970021859e-05,
+          "note_count": 0.763174831867218,
+          "search_track": 0.00045973563101142645,
+          "list_notes": 0.21589529514312744,
+          "convert_temperature": 0.015265927650034428,
+          "battery_status": 4.8869227612158284e-05,
+          "read_sensor": 3.1034654966788366e-05,
+          "track_details": 0.000108740983705502,
+          "find_sensor": 3.2247244234895334e-05
+        },
+        "elapsed_ms": 3171.8078199774027
+      },
+      "expected_calls": [
+        {
+          "name": "note_count",
+          "arguments": {
+            "folder": "Work"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 93,
+          "generated_tokens": 34,
+          "prefill_ms": 379.059706,
+          "elapsed_ms": 1023.426056
+        }
+      ],
+      "score": {
+        "exact_execution": false,
+        "answer_anchor_proxy": false,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_selected",
+      "status": "answered",
+      "final": "The temperature sensor in room Studio has the identifier S-4J9.",
+      "emitted_calls": [
+        {
+          "name": "find_sensor",
+          "arguments": {
+            "room": "Studio"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "find_sensor",
+            "arguments": {
+              "room": "Studio"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "find_sensor"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"find_sensor\", \"arguments\": {\"room\": \"Studio\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "find_sensor",
+              "arguments": {
+                "room": "Studio"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "find_sensor",
+                "arguments": {
+                  "room": "Studio"
+                }
+              },
+              "result": {
+                "sensor_id": "S-4J9"
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "find_sensor",
+                "arguments": {
+                  "room": "Studio"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "find_sensor"
+          ],
+          "ranking": null,
+          "assistant": "The temperature sensor in room Studio has the identifier S-4J9.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 41,
+      "rank_ms": 0.0,
+      "total_ms": 4455.675853416324,
+      "id": "find_sensor-en",
+      "request": "Find the identifier of the temperature sensor in room Studio.",
+      "language": "en",
+      "initial_ranking": {
+        "choice": "find_sensor",
+        "probabilities": {
+          "search_track": 6.311705874395557e-06,
+          "find_sensor": 0.5297346711158752,
+          "find_note": 0.012048467993736267,
+          "playlist_duration": 2.1782434487249702e-05,
+          "read_note": 5.4867437029315624e-06,
+          "track_details": 8.19286797195673e-05,
+          "note_count": 5.3199455578578636e-05,
+          "battery_status": 0.000734113622456789,
+          "playlist_tracks": 3.226864282623865e-05,
+          "read_sensor": 0.4569013714790344,
+          "list_notes": 0.0003043161705136299,
+          "convert_temperature": 7.608097075717524e-05
+        },
+        "elapsed_ms": 2682.6762091368437
+      },
+      "expected_calls": [
+        {
+          "name": "find_sensor",
+          "arguments": {
+            "room": "Studio"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 93,
+          "generated_tokens": 25,
+          "prefill_ms": 380.687401,
+          "elapsed_ms": 852.029992
+        },
+        {
+          "prompt_tokens": 137,
+          "generated_tokens": 16,
+          "prefill_ms": 545.805751,
+          "elapsed_ms": 844.574523
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_selected",
+      "status": "answered",
+      "final": "L'identificativo del sensore di temperatura nella stanza Studio è S-4.",
+      "emitted_calls": [
+        {
+          "name": "find_sensor",
+          "arguments": {
+            "room": "Studio"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "find_sensor",
+            "arguments": {
+              "room": "Studio"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "find_sensor"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"find_sensor\", \"arguments\": {\"room\": \"Studio\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "find_sensor",
+              "arguments": {
+                "room": "Studio"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "find_sensor",
+                "arguments": {
+                  "room": "Studio"
+                }
+              },
+              "result": {
+                "sensor_id": "S-4J9"
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "find_sensor",
+                "arguments": {
+                  "room": "Studio"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "find_sensor"
+          ],
+          "ranking": null,
+          "assistant": "L'identificativo del sensore di temperatura nella stanza Studio è S-4.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 44,
+      "rank_ms": 0.0,
+      "total_ms": 5042.658530175686,
+      "id": "find_sensor-it",
+      "request": "Trova l’identificativo del sensore di temperatura nella stanza Studio.",
+      "language": "it",
+      "initial_ranking": {
+        "choice": "find_sensor",
+        "probabilities": {
+          "search_track": 0.00013505719834938645,
+          "find_sensor": 0.41809380054473877,
+          "find_note": 0.10467430204153061,
+          "playlist_duration": 6.787262827856466e-05,
+          "read_note": 1.261066245206166e-05,
+          "track_details": 7.507973350584507e-05,
+          "note_count": 4.347694630268961e-05,
+          "battery_status": 0.08480387181043625,
+          "playlist_tracks": 0.00012592617713380605,
+          "read_sensor": 0.3912757337093353,
+          "list_notes": 0.0005407597054727376,
+          "convert_temperature": 0.00015151458501350135
+        },
+        "elapsed_ms": 3173.8655269145966
+      },
+      "expected_calls": [
+        {
+          "name": "find_sensor",
+          "arguments": {
+            "room": "Studio"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 112,
+          "generated_tokens": 25,
+          "prefill_ms": 433.794583,
+          "elapsed_ms": 884.036725
+        },
+        {
+          "prompt_tokens": 156,
+          "generated_tokens": 19,
+          "prefill_ms": 590.18903,
+          "elapsed_ms": 919.990714
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": false,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_selected",
+      "status": "answered",
+      "final": "The temperature is 18.2°C.",
+      "emitted_calls": [
+        {
+          "name": "read_sensor",
+          "arguments": {
+            "sensor_id": "S-6K3"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "read_sensor",
+            "arguments": {
+              "sensor_id": "S-6K3"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "read_sensor"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"read_sensor\", \"arguments\": {\"sensor_id\": \"S-6K3\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "read_sensor",
+              "arguments": {
+                "sensor_id": "S-6K3"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "read_sensor",
+                "arguments": {
+                  "sensor_id": "S-6K3"
+                }
+              },
+              "result": {
+                "temperature": 18.2,
+                "unit": "C"
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "read_sensor",
+                "arguments": {
+                  "sensor_id": "S-6K3"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "read_sensor"
+          ],
+          "ranking": null,
+          "assistant": "The temperature is 18.2°C.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 40,
+      "rank_ms": 0.0,
+      "total_ms": 4354.904839769006,
+      "id": "read_sensor-en",
+      "request": "Read the temperature measured by sensor S-6K3.",
+      "language": "en",
+      "initial_ranking": {
+        "choice": "read_sensor",
+        "probabilities": {
+          "convert_temperature": 7.398070738418028e-05,
+          "find_note": 8.179098949767649e-05,
+          "find_sensor": 0.001976964995265007,
+          "read_note": 0.00013198111264500767,
+          "note_count": 2.875356403819751e-05,
+          "read_sensor": 0.9962193369865417,
+          "playlist_tracks": 0.0010042765643447638,
+          "list_notes": 0.00015911007358226925,
+          "battery_status": 0.0002068010944640264,
+          "track_details": 7.298580749193206e-05,
+          "playlist_duration": 3.510246460791677e-05,
+          "search_track": 8.951184099714737e-06
+        },
+        "elapsed_ms": 2648.0139326304197
+      },
+      "expected_calls": [
+        {
+          "name": "read_sensor",
+          "arguments": {
+            "sensor_id": "S-6K3"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 93,
+          "generated_tokens": 30,
+          "prefill_ms": 368.047491,
+          "elapsed_ms": 925.597363
+        },
+        {
+          "prompt_tokens": 143,
+          "generated_tokens": 10,
+          "prefill_ms": 557.546182,
+          "elapsed_ms": 723.169169
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_selected",
+      "status": "answered",
+      "final": "La temperatura misurata dal sensore S-6K3 è 18.2°C.",
+      "emitted_calls": [
+        {
+          "name": "read_sensor",
+          "arguments": {
+            "sensor_id": "S-6K3"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "read_sensor",
+            "arguments": {
+              "sensor_id": "S-6K3"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "read_sensor"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"read_sensor\", \"arguments\": {\"sensor_id\": \"S-6K3\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "read_sensor",
+              "arguments": {
+                "sensor_id": "S-6K3"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "read_sensor",
+                "arguments": {
+                  "sensor_id": "S-6K3"
+                }
+              },
+              "result": {
+                "temperature": 18.2,
+                "unit": "C"
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "read_sensor",
+                "arguments": {
+                  "sensor_id": "S-6K3"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "read_sensor"
+          ],
+          "ranking": null,
+          "assistant": "La temperatura misurata dal sensore S-6K3 è 18.2°C.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 51,
+      "rank_ms": 0.0,
+      "total_ms": 5233.473751693964,
+      "id": "read_sensor-it",
+      "request": "Leggi la temperatura misurata dal sensore S-6K3.",
+      "language": "it",
+      "initial_ranking": {
+        "choice": "read_sensor",
+        "probabilities": {
+          "convert_temperature": 0.0002566918556112796,
+          "find_note": 0.00029953470220789313,
+          "find_sensor": 0.0003490004746709019,
+          "read_note": 0.0002334935707040131,
+          "note_count": 6.049022340448573e-05,
+          "read_sensor": 0.9947155117988586,
+          "playlist_tracks": 0.0031655447091907263,
+          "list_notes": 0.0004051143769174814,
+          "battery_status": 0.00026837241603061557,
+          "track_details": 5.575863542617299e-05,
+          "playlist_duration": 0.00017752092389855534,
+          "search_track": 1.3060387573204935e-05
+        },
+        "elapsed_ms": 3160.6223732233047
+      },
+      "expected_calls": [
+        {
+          "name": "read_sensor",
+          "arguments": {
+            "sensor_id": "S-6K3"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 108,
+          "generated_tokens": 30,
+          "prefill_ms": 421.264981,
+          "elapsed_ms": 983.292395
+        },
+        {
+          "prompt_tokens": 158,
+          "generated_tokens": 21,
+          "prefill_ms": 624.137754,
+          "elapsed_ms": 1021.807217
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_selected",
+      "status": "answered",
+      "final": "The temperature is 68 degrees Fahrenheit.",
+      "emitted_calls": [
+        {
+          "name": "convert_temperature",
+          "arguments": {
+            "value": 20,
+            "from_unit": "C",
+            "to_unit": "F"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "convert_temperature",
+            "arguments": {
+              "value": 20,
+              "from_unit": "C",
+              "to_unit": "F"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "convert_temperature"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"convert_temperature\", \"arguments\": {\"value\": 20, \"from_unit\": \"C\", \"to_unit\": \"F\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "convert_temperature",
+              "arguments": {
+                "value": 20,
+                "from_unit": "C",
+                "to_unit": "F"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "convert_temperature",
+                "arguments": {
+                  "value": 20,
+                  "from_unit": "C",
+                  "to_unit": "F"
+                }
+              },
+              "result": {
+                "temperature": 68,
+                "unit": "F"
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "convert_temperature",
+                "arguments": {
+                  "value": 20,
+                  "from_unit": "C",
+                  "to_unit": "F"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "convert_temperature"
+          ],
+          "ranking": null,
+          "assistant": "The temperature is 68 degrees Fahrenheit.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 48,
+      "rank_ms": 0.0,
+      "total_ms": 4858.112886548042,
+      "id": "convert_temperature-en",
+      "request": "Convert 20 C to F.",
+      "language": "en",
+      "initial_ranking": {
+        "choice": "convert_temperature",
+        "probabilities": {
+          "read_note": 2.8908556487294845e-05,
+          "playlist_duration": 7.622509292559698e-05,
+          "find_note": 6.400066922651604e-05,
+          "find_sensor": 0.000516011961735785,
+          "list_notes": 0.00020464029512368143,
+          "track_details": 5.2513336413539946e-05,
+          "note_count": 0.0002151852095266804,
+          "playlist_tracks": 0.0008819387294352055,
+          "convert_temperature": 0.9903415441513062,
+          "battery_status": 0.0005875639035366476,
+          "search_track": 7.111629383871332e-05,
+          "read_sensor": 0.006960330996662378
+        },
+        "elapsed_ms": 2665.4130816459656
+      },
+      "expected_calls": [
+        {
+          "name": "convert_temperature",
+          "arguments": {
+            "value": 20,
+            "from_unit": "C",
+            "to_unit": "F"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 125,
+          "generated_tokens": 39,
+          "prefill_ms": 498.590277,
+          "elapsed_ms": 1235.272718
+        },
+        {
+          "prompt_tokens": 182,
+          "generated_tokens": 9,
+          "prefill_ms": 710.077568,
+          "elapsed_ms": 871.15227
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_selected",
+      "status": "answered",
+      "final": "La temperatura è 68°C.",
+      "emitted_calls": [
+        {
+          "name": "convert_temperature",
+          "arguments": {
+            "value": 20,
+            "from_unit": "C",
+            "to_unit": "F"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "convert_temperature",
+            "arguments": {
+              "value": 20,
+              "from_unit": "C",
+              "to_unit": "F"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "convert_temperature"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"convert_temperature\", \"arguments\": {\"value\": 20, \"from_unit\": \"C\", \"to_unit\": \"F\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "convert_temperature",
+              "arguments": {
+                "value": 20,
+                "from_unit": "C",
+                "to_unit": "F"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "convert_temperature",
+                "arguments": {
+                  "value": 20,
+                  "from_unit": "C",
+                  "to_unit": "F"
+                }
+              },
+              "result": {
+                "temperature": 68,
+                "unit": "F"
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "convert_temperature",
+                "arguments": {
+                  "value": 20,
+                  "from_unit": "C",
+                  "to_unit": "F"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "convert_temperature"
+          ],
+          "ranking": null,
+          "assistant": "La temperatura è 68°C.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 47,
+      "rank_ms": 0.0,
+      "total_ms": 5419.384982436895,
+      "id": "convert_temperature-it",
+      "request": "Converti 20 C in F.",
+      "language": "it",
+      "initial_ranking": {
+        "choice": "convert_temperature",
+        "probabilities": {
+          "read_note": 0.00016954244347289205,
+          "playlist_duration": 0.0005810296861454844,
+          "find_note": 0.000728272192645818,
+          "find_sensor": 0.0005968278856016695,
+          "list_notes": 0.00149850535672158,
+          "track_details": 0.00016653630882501602,
+          "note_count": 0.013933328911662102,
+          "playlist_tracks": 0.0051186284981667995,
+          "convert_temperature": 0.928981602191925,
+          "battery_status": 0.007122068665921688,
+          "search_track": 0.0007175696664489806,
+          "read_sensor": 0.04038601741194725
+        },
+        "elapsed_ms": 3203.046441078186
+      },
+      "expected_calls": [
+        {
+          "name": "convert_temperature",
+          "arguments": {
+            "value": 20,
+            "from_unit": "C",
+            "to_unit": "F"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 132,
+          "generated_tokens": 39,
+          "prefill_ms": 527.375244,
+          "elapsed_ms": 1275.109146
+        },
+        {
+          "prompt_tokens": 189,
+          "generated_tokens": 8,
+          "prefill_ms": 726.974283,
+          "elapsed_ms": 863.25432
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_selected",
+      "status": "answered",
+      "final": "The battery percentage of device D-91 is 73%.",
+      "emitted_calls": [
+        {
+          "name": "battery_status",
+          "arguments": {
+            "device_id": "D-91"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "battery_status",
+            "arguments": {
+              "device_id": "D-91"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "battery_status"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"battery_status\", \"arguments\": {\"device_id\": \"D-91\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "battery_status",
+              "arguments": {
+                "device_id": "D-91"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "battery_status",
+                "arguments": {
+                  "device_id": "D-91"
+                }
+              },
+              "result": {
+                "percent": 73
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "battery_status",
+                "arguments": {
+                  "device_id": "D-91"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "battery_status"
+          ],
+          "ranking": null,
+          "assistant": "The battery percentage of device D-91 is 73%.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 41,
+      "rank_ms": 0.0,
+      "total_ms": 4457.491723820567,
+      "id": "battery_status-en",
+      "request": "What is the battery percentage of device D-91?",
+      "language": "en",
+      "initial_ranking": {
+        "choice": "battery_status",
+        "probabilities": {
+          "convert_temperature": 8.258683374151587e-05,
+          "search_track": 3.612630052884924e-07,
+          "read_note": 4.881320592176053e-07,
+          "list_notes": 3.54584676642844e-06,
+          "track_details": 2.135369641109719e-06,
+          "playlist_duration": 3.92973015550524e-06,
+          "battery_status": 0.9995400905609131,
+          "find_sensor": 0.00013880229380447417,
+          "playlist_tracks": 4.79506234114524e-05,
+          "note_count": 1.6037494788179174e-05,
+          "read_sensor": 9.878120181383565e-05,
+          "find_note": 6.52464441373013e-05
+        },
+        "elapsed_ms": 2745.923552662134
+      },
+      "expected_calls": [
+        {
+          "name": "battery_status",
+          "arguments": {
+            "device_id": "D-91"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 91,
+          "generated_tokens": 28,
+          "prefill_ms": 371.703167,
+          "elapsed_ms": 909.897913
+        },
+        {
+          "prompt_tokens": 133,
+          "generated_tokens": 13,
+          "prefill_ms": 497.309444,
+          "elapsed_ms": 724.920149
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_selected",
+      "status": "answered",
+      "final": "La batteria del dispositivo D-91 ha una percentuale di carica del 73%.",
+      "emitted_calls": [
+        {
+          "name": "battery_status",
+          "arguments": {
+            "device_id": "D-91"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "battery_status",
+            "arguments": {
+              "device_id": "D-91"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "battery_status"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"battery_status\", \"arguments\": {\"device_id\": \"D-91\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "battery_status",
+              "arguments": {
+                "device_id": "D-91"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "battery_status",
+                "arguments": {
+                  "device_id": "D-91"
+                }
+              },
+              "result": {
+                "percent": 73
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "battery_status",
+                "arguments": {
+                  "device_id": "D-91"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "battery_status"
+          ],
+          "ranking": null,
+          "assistant": "La batteria del dispositivo D-91 ha una percentuale di carica del 73%.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 48,
+      "rank_ms": 0.0,
+      "total_ms": 5130.037613213062,
+      "id": "battery_status-it",
+      "request": "Qual è la percentuale della batteria del dispositivo D-91?",
+      "language": "it",
+      "initial_ranking": {
+        "choice": "battery_status",
+        "probabilities": {
+          "convert_temperature": 0.001074645551852882,
+          "search_track": 5.969938683847431e-06,
+          "read_note": 6.72774240229046e-06,
+          "list_notes": 1.1879005796799902e-05,
+          "track_details": 2.681971864149091e-06,
+          "playlist_duration": 3.334162101964466e-05,
+          "battery_status": 0.9974648952484131,
+          "find_sensor": 8.838059147819877e-05,
+          "playlist_tracks": 5.862786201760173e-05,
+          "note_count": 0.00010201738768955693,
+          "read_sensor": 0.0008771736756898463,
+          "find_note": 0.00027372155454941094
+        },
+        "elapsed_ms": 3177.169717848301
+      },
+      "expected_calls": [
+        {
+          "name": "battery_status",
+          "arguments": {
+            "device_id": "D-91"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 103,
+          "generated_tokens": 28,
+          "prefill_ms": 413.618119,
+          "elapsed_ms": 935.196587
+        },
+        {
+          "prompt_tokens": 145,
+          "generated_tokens": 20,
+          "prefill_ms": 571.390669,
+          "elapsed_ms": 941.565162
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_selected",
+      "status": "answered",
+      "final": "The identifier for the track titled \"Aster\" is \"T-3V8\".",
+      "emitted_calls": [
+        {
+          "name": "search_track",
+          "arguments": {
+            "title": "Aster"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "search_track",
+            "arguments": {
+              "title": "Aster"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "search_track"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"search_track\", \"arguments\": {\"title\": \"Aster\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "search_track",
+              "arguments": {
+                "title": "Aster"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "search_track",
+                "arguments": {
+                  "title": "Aster"
+                }
+              },
+              "result": {
+                "track_id": "T-3V8"
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "search_track",
+                "arguments": {
+                  "title": "Aster"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "search_track"
+          ],
+          "ranking": null,
+          "assistant": "The identifier for the track titled \"Aster\" is \"T-3V8\".",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 45,
+      "rank_ms": 0.0,
+      "total_ms": 4549.379022791982,
+      "id": "search_track-en",
+      "request": "Find the identifier of the track titled Aster.",
+      "language": "en",
+      "initial_ranking": {
+        "choice": "search_track",
+        "probabilities": {
+          "list_notes": 0.0001636605302337557,
+          "find_note": 0.01314452663064003,
+          "note_count": 0.0010011055273935199,
+          "search_track": 0.9276632070541382,
+          "playlist_tracks": 0.01521399337798357,
+          "read_note": 0.00021858655964024365,
+          "find_sensor": 0.00011614371032919735,
+          "track_details": 0.040816206485033035,
+          "battery_status": 4.545503543340601e-05,
+          "convert_temperature": 2.725418562476989e-05,
+          "read_sensor": 0.0002882801345549524,
+          "playlist_duration": 0.001301643205806613
+        },
+        "elapsed_ms": 2708.4784526377916
+      },
+      "expected_calls": [
+        {
+          "name": "search_track",
+          "arguments": {
+            "title": "Aster"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 92,
+          "generated_tokens": 26,
+          "prefill_ms": 366.89942,
+          "elapsed_ms": 863.660844
+        },
+        {
+          "prompt_tokens": 137,
+          "generated_tokens": 19,
+          "prefill_ms": 546.130074,
+          "elapsed_ms": 900.866275
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_selected",
+      "status": "answered",
+      "final": "Il brano \"Aster\" è stato trovato con ID T-3V8.",
+      "emitted_calls": [
+        {
+          "name": "search_track",
+          "arguments": {
+            "title": "Aster"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "search_track",
+            "arguments": {
+              "title": "Aster"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "search_track"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"search_track\", \"arguments\": {\"title\": \"Aster\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "search_track",
+              "arguments": {
+                "title": "Aster"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "search_track",
+                "arguments": {
+                  "title": "Aster"
+                }
+              },
+              "result": {
+                "track_id": "T-3V8"
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "search_track",
+                "arguments": {
+                  "title": "Aster"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "search_track"
+          ],
+          "ranking": null,
+          "assistant": "Il brano \"Aster\" è stato trovato con ID T-3V8.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 46,
+      "rank_ms": 0.0,
+      "total_ms": 5187.637876719236,
+      "id": "search_track-it",
+      "request": "Trova l’identificativo del brano intitolato Aster.",
+      "language": "it",
+      "initial_ranking": {
+        "choice": "search_track",
+        "probabilities": {
+          "list_notes": 0.00025040042237378657,
+          "find_note": 0.08569162338972092,
+          "note_count": 0.007664726115763187,
+          "search_track": 0.8988019824028015,
+          "playlist_tracks": 0.003987293224781752,
+          "read_note": 0.0005797790945507586,
+          "find_sensor": 3.104802090092562e-05,
+          "track_details": 0.0014479266246780753,
+          "battery_status": 4.159794480074197e-05,
+          "convert_temperature": 3.543493221513927e-05,
+          "read_sensor": 0.000138724222779274,
+          "playlist_duration": 0.001329432358033955
+        },
+        "elapsed_ms": 3200.228611007333
+      },
+      "expected_calls": [
+        {
+          "name": "search_track",
+          "arguments": {
+            "title": "Aster"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 111,
+          "generated_tokens": 26,
+          "prefill_ms": 472.598925,
+          "elapsed_ms": 959.835595
+        },
+        {
+          "prompt_tokens": 156,
+          "generated_tokens": 20,
+          "prefill_ms": 581.857375,
+          "elapsed_ms": 950.373817
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_selected",
+      "status": "answered",
+      "final": "The artist for track T-9W2 is Elio. The duration is 204 seconds.",
+      "emitted_calls": [
+        {
+          "name": "track_details",
+          "arguments": {
+            "track_id": "T-9W2"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "track_details",
+            "arguments": {
+              "track_id": "T-9W2"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "track_details"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"track_details\", \"arguments\": {\"track_id\": \"T-9W2\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "track_details",
+              "arguments": {
+                "track_id": "T-9W2"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "track_details",
+                "arguments": {
+                  "track_id": "T-9W2"
+                }
+              },
+              "result": {
+                "artist": "Elio",
+                "duration_seconds": 204
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "track_details",
+                "arguments": {
+                  "track_id": "T-9W2"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "track_details"
+          ],
+          "ranking": null,
+          "assistant": "The artist for track T-9W2 is Elio. The duration is 204 seconds.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 51,
+      "rank_ms": 0.0,
+      "total_ms": 4769.9354607611895,
+      "id": "track_details-en",
+      "request": "Tell me the artist and duration in seconds of track T-9W2.",
+      "language": "en",
+      "initial_ranking": {
+        "choice": "track_details",
+        "probabilities": {
+          "search_track": 0.00047966031706891954,
+          "find_sensor": 0.00014123594155535102,
+          "read_note": 9.437094377062749e-06,
+          "battery_status": 6.030769873177633e-05,
+          "convert_temperature": 0.00010872688289964572,
+          "playlist_tracks": 0.001686616218648851,
+          "playlist_duration": 0.1973211020231247,
+          "note_count": 0.0005989875644445419,
+          "read_sensor": 0.0005126545438542962,
+          "list_notes": 0.0005351696745492518,
+          "track_details": 0.7956640124320984,
+          "find_note": 0.0028820971492677927
+        },
+        "elapsed_ms": 2707.4222341179848
+      },
+      "expected_calls": [
+        {
+          "name": "track_details",
+          "arguments": {
+            "track_id": "T-9W2"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 100,
+          "generated_tokens": 30,
+          "prefill_ms": 408.987579,
+          "elapsed_ms": 980.310416
+        },
+        {
+          "prompt_tokens": 150,
+          "generated_tokens": 21,
+          "prefill_ms": 615.296375,
+          "elapsed_ms": 1005.470528
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_selected",
+      "status": "answered",
+      "final": "Mi dispiace, non posso visualizzare i video.",
+      "emitted_calls": [
+        {
+          "name": "playlist_duration",
+          "arguments": {
+            "playlist": "T-9W2"
+          }
+        },
+        {
+          "name": "playlist_duration",
+          "arguments": {
+            "playlist": "T-9W2"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "playlist_duration",
+            "arguments": {
+              "playlist": "T-9W2"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "playlist_duration"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"playlist_duration\", \"arguments\": {\"playlist\": \"T-9W2\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "playlist_duration",
+              "arguments": {
+                "playlist": "T-9W2"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "playlist_duration",
+                "arguments": {
+                  "playlist": "T-9W2"
+                }
+              },
+              "result": {
+                "error": "not_found"
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "playlist_duration",
+                "arguments": {
+                  "playlist": "T-9W2"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "playlist_duration"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"playlist_duration\", \"arguments\": {\"playlist\": \"T-9W2\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "playlist_duration",
+              "arguments": {
+                "playlist": "T-9W2"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "playlist_duration",
+                "arguments": {
+                  "playlist": "T-9W2"
+                }
+              },
+              "result": {
+                "error": "not_found"
+              },
+              "cached": true
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "playlist_duration",
+                "arguments": {
+                  "playlist": "T-9W2"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "tool_order": [
+            "playlist_duration"
+          ],
+          "ranking": null,
+          "assistant": "Mi dispiace, non posso visualizzare i video.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 72,
+      "rank_ms": 0.0,
+      "total_ms": 6428.200256079435,
+      "id": "track_details-it",
+      "request": "Dimmi artista e durata in secondi del brano T-9W2.",
+      "language": "it",
+      "initial_ranking": {
+        "choice": "playlist_duration",
+        "probabilities": {
+          "search_track": 0.00047929378342814744,
+          "find_sensor": 8.322072244482115e-05,
+          "read_note": 2.1334097255021334e-05,
+          "battery_status": 0.0004658153629861772,
+          "convert_temperature": 0.0009356240043416619,
+          "playlist_tracks": 0.006074198521673679,
+          "playlist_duration": 0.9567629098892212,
+          "note_count": 0.004599548876285553,
+          "read_sensor": 0.001568252220749855,
+          "list_notes": 0.0019350913353264332,
+          "track_details": 0.023694707080721855,
+          "find_note": 0.0033801784738898277
+        },
+        "elapsed_ms": 3166.5516681969166
+      },
+      "expected_calls": [
+        {
+          "name": "track_details",
+          "arguments": {
+            "track_id": "T-9W2"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 108,
+          "generated_tokens": 29,
+          "prefill_ms": 429.806645,
+          "elapsed_ms": 985.730174
+        },
+        {
+          "prompt_tokens": 152,
+          "generated_tokens": 29,
+          "prefill_ms": 586.805816,
+          "elapsed_ms": 1135.852232
+        },
+        {
+          "prompt_tokens": 196,
+          "generated_tokens": 14,
+          "prefill_ms": 762.459765,
+          "elapsed_ms": 1026.312879
+        }
+      ],
+      "score": {
+        "exact_execution": false,
+        "answer_anchor_proxy": false,
+        "nev_top_choice": false
+      }
+    },
+    {
+      "arm": "nev_selected",
+      "status": "answered",
+      "final": "The playlist \"Focus\" has no tracks listed. Please try again.",
+      "emitted_calls": [
+        {
+          "name": "playlist_tracks",
+          "arguments": {
+            "playlist": "Focus"
+          }
+        },
+        {
+          "name": "playlist_tracks",
+          "arguments": {
+            "playlist": "Focus",
+            "tracks": [
+              "Aster",
+              "Lumen"
+            ]
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "playlist_tracks",
+            "arguments": {
+              "playlist": "Focus"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "playlist_tracks"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"playlist_tracks\", \"arguments\": {\"playlist\": \"Focus\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "playlist_tracks",
+              "arguments": {
+                "playlist": "Focus"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "playlist_tracks",
+                "arguments": {
+                  "playlist": "Focus"
+                }
+              },
+              "result": {
+                "titles": [
+                  "Aster",
+                  "Lumen"
+                ]
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "playlist_tracks",
+                "arguments": {
+                  "playlist": "Focus"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "playlist_tracks"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"playlist_tracks\", \"arguments\": {\"playlist\": \"Focus\", \"tracks\": [\"Aster\", \"Lumen\"]}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "playlist_tracks",
+              "arguments": {
+                "playlist": "Focus",
+                "tracks": [
+                  "Aster",
+                  "Lumen"
+                ]
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": [
+            {
+              "call": {
+                "name": "playlist_tracks",
+                "arguments": {
+                  "playlist": "Focus",
+                  "tracks": [
+                    "Aster",
+                    "Lumen"
+                  ]
+                }
+              },
+              "error": "schema_violation"
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "tool_order": [
+            "playlist_tracks"
+          ],
+          "ranking": null,
+          "assistant": "The playlist \"Focus\" has no tracks listed. Please try again.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [
+        "schema_violation"
+      ],
+      "generated_tokens": 77,
+      "rank_ms": 0.0,
+      "total_ms": 5818.000067025423,
+      "id": "playlist_tracks-en",
+      "request": "List the track titles in playlist Focus.",
+      "language": "en",
+      "initial_ranking": {
+        "choice": "playlist_tracks",
+        "probabilities": {
+          "battery_status": 6.139160291240842e-07,
+          "read_note": 8.133833375723043e-07,
+          "note_count": 1.876134774647653e-05,
+          "playlist_tracks": 0.9410548210144043,
+          "playlist_duration": 0.00472569465637207,
+          "convert_temperature": 3.749718416656833e-06,
+          "track_details": 0.0013503049267455935,
+          "read_sensor": 1.4724347238370683e-05,
+          "find_note": 9.055800910573453e-05,
+          "search_track": 0.05218037962913513,
+          "find_sensor": 5.9260059060761705e-05,
+          "list_notes": 0.0005004144622944295
+        },
+        "elapsed_ms": 2626.2104641646147
+      },
+      "expected_calls": [
+        {
+          "name": "playlist_tracks",
+          "arguments": {
+            "playlist": "Focus"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 86,
+          "generated_tokens": 25,
+          "prefill_ms": 339.626528,
+          "elapsed_ms": 810.404978
+        },
+        {
+          "prompt_tokens": 129,
+          "generated_tokens": 37,
+          "prefill_ms": 489.281443,
+          "elapsed_ms": 1173.960745
+        },
+        {
+          "prompt_tokens": 215,
+          "generated_tokens": 15,
+          "prefill_ms": 822.134948,
+          "elapsed_ms": 1110.014634
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": false,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_selected",
+      "status": "answered",
+      "final": "Per poterti assistere al meglio, potresti specificare il titolo di ogni brano nella playlist Focus?",
+      "emitted_calls": [],
+      "executed_calls": [],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "playlist_tracks"
+          ],
+          "ranking": null,
+          "assistant": "Per poterti assistere al meglio, potresti specificare il titolo di ogni brano nella playlist Focus?",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 26,
+      "rank_ms": 0.0,
+      "total_ms": 4121.340088546276,
+      "id": "playlist_tracks-it",
+      "request": "Elenca i titoli dei brani nella playlist Focus.",
+      "language": "it",
+      "initial_ranking": {
+        "choice": "playlist_tracks",
+        "probabilities": {
+          "battery_status": 8.076098652054498e-07,
+          "read_note": 2.205433929702849e-06,
+          "note_count": 5.068416794529185e-05,
+          "playlist_tracks": 0.9868139028549194,
+          "playlist_duration": 0.002390584908425808,
+          "convert_temperature": 4.505078777583549e-06,
+          "track_details": 0.0002936880919151008,
+          "read_sensor": 2.0465369743760675e-05,
+          "find_note": 2.5313931473647244e-05,
+          "search_track": 0.010003408417105675,
+          "find_sensor": 2.148842759197578e-05,
+          "list_notes": 0.0003728563606273383
+        },
+        "elapsed_ms": 3221.1957201361656
+      },
+      "expected_calls": [
+        {
+          "name": "playlist_tracks",
+          "arguments": {
+            "playlist": "Focus"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 101,
+          "generated_tokens": 26,
+          "prefill_ms": 409.759978,
+          "elapsed_ms": 871.225102
+        }
+      ],
+      "score": {
+        "exact_execution": false,
+        "answer_anchor_proxy": false,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_selected",
+      "status": "answered",
+      "final": "The total duration in seconds of the Focus playlist is 391 seconds.",
+      "emitted_calls": [
+        {
+          "name": "playlist_duration",
+          "arguments": {
+            "playlist": "Focus"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "playlist_duration",
+            "arguments": {
+              "playlist": "Focus"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "playlist_duration"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"playlist_duration\", \"arguments\": {\"playlist\": \"Focus\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "playlist_duration",
+              "arguments": {
+                "playlist": "Focus"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "playlist_duration",
+                "arguments": {
+                  "playlist": "Focus"
+                }
+              },
+              "result": {
+                "duration_seconds": 391
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "playlist_duration",
+                "arguments": {
+                  "playlist": "Focus"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "playlist_duration"
+          ],
+          "ranking": null,
+          "assistant": "The total duration in seconds of the Focus playlist is 391 seconds.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 40,
+      "rank_ms": 0.0,
+      "total_ms": 4277.897557243705,
+      "id": "playlist_duration-en",
+      "request": "What is the total duration in seconds of playlist Focus?",
+      "language": "en",
+      "initial_ranking": {
+        "choice": "playlist_duration",
+        "probabilities": {
+          "playlist_duration": 0.8219612836837769,
+          "find_note": 0.14745987951755524,
+          "track_details": 0.00015602457278873771,
+          "search_track": 0.00020011131709907204,
+          "read_sensor": 1.744202927511651e-05,
+          "convert_temperature": 0.00010414023563498631,
+          "read_note": 2.6782781787915155e-06,
+          "list_notes": 1.9898099708370864e-05,
+          "note_count": 7.636426744284108e-05,
+          "find_sensor": 1.0409699825686403e-05,
+          "battery_status": 2.2589923901250586e-05,
+          "playlist_tracks": 0.029969247058033943
+        },
+        "elapsed_ms": 2621.06641381979
+      },
+      "expected_calls": [
+        {
+          "name": "playlist_duration",
+          "arguments": {
+            "playlist": "Focus"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 92,
+          "generated_tokens": 25,
+          "prefill_ms": 373.250686,
+          "elapsed_ms": 825.280724
+        },
+        {
+          "prompt_tokens": 132,
+          "generated_tokens": 15,
+          "prefill_ms": 509.569396,
+          "elapsed_ms": 773.847344
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true,
+        "nev_top_choice": true
+      }
+    },
+    {
+      "arm": "nev_selected",
+      "status": "answered",
+      "final": "La durata totale in secondi della playlist Focus è 391 secondi.",
+      "emitted_calls": [
+        {
+          "name": "playlist_duration",
+          "arguments": {
+            "playlist": "Focus"
+          }
+        }
+      ],
+      "executed_calls": [
+        {
+          "turn": 0,
+          "call": {
+            "name": "playlist_duration",
+            "arguments": {
+              "playlist": "Focus"
+            }
+          }
+        }
+      ],
+      "trace": [
+        {
+          "turn": 0,
+          "tool_order": [
+            "playlist_duration"
+          ],
+          "ranking": null,
+          "assistant": "<tool_call>\n{\"name\": \"playlist_duration\", \"arguments\": {\"playlist\": \"Focus\"}}\n</tool_call>",
+          "calls": [
+            {
+              "name": "playlist_duration",
+              "arguments": {
+                "playlist": "Focus"
+              }
+            }
+          ],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [
+            {
+              "call": {
+                "name": "playlist_duration",
+                "arguments": {
+                  "playlist": "Focus"
+                }
+              },
+              "result": {
+                "duration_seconds": 391
+              },
+              "cached": false
+            }
+          ],
+          "validation": [
+            {
+              "call": {
+                "name": "playlist_duration",
+                "arguments": {
+                  "playlist": "Focus"
+                }
+              },
+              "error": null
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "tool_order": [
+            "playlist_duration"
+          ],
+          "ranking": null,
+          "assistant": "La durata totale in secondi della playlist Focus è 391 secondi.",
+          "calls": [],
+          "parse_error": null,
+          "truncated": false,
+          "observations": [],
+          "validation": []
+        }
+      ],
+      "errors": [],
+      "generated_tokens": 43,
+      "rank_ms": 0.0,
+      "total_ms": 5008.5618942976,
+      "id": "playlist_duration-it",
+      "request": "Qual è la durata totale in secondi della playlist Focus?",
+      "language": "it",
+      "initial_ranking": {
+        "choice": "playlist_duration",
+        "probabilities": {
+          "playlist_duration": 0.8350052237510681,
+          "find_note": 0.1641315072774887,
+          "track_details": 4.9767345444706734e-06,
+          "search_track": 2.7130979560752166e-06,
+          "read_sensor": 6.110000185799436e-07,
+          "convert_temperature": 0.00015811799676157534,
+          "read_note": 2.947367931938061e-07,
+          "list_notes": 3.4917042057713843e-07,
+          "note_count": 2.7361638785805553e-06,
+          "find_sensor": 5.346636839931307e-07,
+          "battery_status": 1.4213901522452943e-06,
+          "playlist_tracks": 0.0006915649282746017
+        },
+        "elapsed_ms": 3231.9604251533747
+      },
+      "expected_calls": [
+        {
+          "name": "playlist_duration",
+          "arguments": {
+            "playlist": "Focus"
+          }
+        }
+      ],
+      "generation_metrics": [
+        {
+          "prompt_tokens": 103,
+          "generated_tokens": 25,
+          "prefill_ms": 416.061185,
+          "elapsed_ms": 857.810107
+        },
+        {
+          "prompt_tokens": 143,
+          "generated_tokens": 18,
+          "prefill_ms": 545.438444,
+          "elapsed_ms": 862.237282
+        }
+      ],
+      "score": {
+        "exact_execution": true,
+        "answer_anchor_proxy": true,
+        "nev_top_choice": true
+      }
+    }
+  ],
+  "load_seconds": 4.148318387567997,
+  "memory": {
+    "peak_mib": {
+      "all": {
+        "rss": 2415.62109375,
+        "pss": 2400.69921875,
+        "uss": 2393.3828125
+      },
+      "inference": {
+        "rss": 2415.62109375,
+        "pss": 2400.69921875,
+        "uss": 2393.3828125
+      }
+    },
+    "samples": 1482,
+    "inference_samples": 1445,
+    "failed_samples": 0,
+    "sampling_interval_seconds": 0.05,
+    "scope": "Python plus worker children; OS excluded. PSS apportions shared pages; RSS can double count. Sampled peaks, not a device minimum or hard ceiling."
+  },
+  "summary": {
+    "en": {
+      "n": 12,
+      "exact_execution": 12,
+      "answer_anchor_proxy": 10,
+      "nev_top_choice": 12,
+      "median_ms": 4504.595959559083
+    },
+    "it": {
+      "n": 12,
+      "exact_execution": 7,
+      "answer_anchor_proxy": 6,
+      "nev_top_choice": 11,
+      "median_ms": 5086.348071694374
+    }
+  }
+}

@@ -1,0 +1,1474 @@
+{
+  "reviewer": "Assistant trace review, not independent human audit",
+  "scope": "All final answers in completed runs. Correct executed plan plus complete factual answer; strict score also requires requested ISO date format.",
+  "runs": {
+    "routing-q8": [
+      {
+        "id": "find_note-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "find_note-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "read_note-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "read_note-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "list_notes-en",
+        "language": "en",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call, incomplete answer, or wrong fact; see retained trace."
+      },
+      {
+        "id": "list_notes-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call, incomplete answer, or wrong fact; see retained trace."
+      },
+      {
+        "id": "note_count-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "note_count-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "find_sensor-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "find_sensor-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call, incomplete answer, or wrong fact; see retained trace."
+      },
+      {
+        "id": "read_sensor-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "read_sensor-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "convert_temperature-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "convert_temperature-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "battery_status-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "battery_status-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "search_track-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "search_track-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "track_details-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "track_details-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call, incomplete answer, or wrong fact; see retained trace."
+      },
+      {
+        "id": "playlist_tracks-en",
+        "language": "en",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call, incomplete answer, or wrong fact; see retained trace."
+      },
+      {
+        "id": "playlist_tracks-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call, incomplete answer, or wrong fact; see retained trace."
+      },
+      {
+        "id": "playlist_duration-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "playlist_duration-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      }
+    ],
+    "routing-q4_k_m": [
+      {
+        "id": "find_note-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "find_note-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "read_note-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "read_note-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call, incomplete answer, or wrong fact; see retained trace."
+      },
+      {
+        "id": "list_notes-en",
+        "language": "en",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call, incomplete answer, or wrong fact; see retained trace."
+      },
+      {
+        "id": "list_notes-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call, incomplete answer, or wrong fact; see retained trace."
+      },
+      {
+        "id": "note_count-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "note_count-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call, incomplete answer, or wrong fact; see retained trace."
+      },
+      {
+        "id": "find_sensor-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "find_sensor-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call, incomplete answer, or wrong fact; see retained trace."
+      },
+      {
+        "id": "read_sensor-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "read_sensor-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "convert_temperature-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "convert_temperature-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Reports 68 degrees Celsius instead of the requested 68 degrees Fahrenheit."
+      },
+      {
+        "id": "battery_status-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "battery_status-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "search_track-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "search_track-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "track_details-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "track_details-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call, incomplete answer, or wrong fact; see retained trace."
+      },
+      {
+        "id": "playlist_tracks-en",
+        "language": "en",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call, incomplete answer, or wrong fact; see retained trace."
+      },
+      {
+        "id": "playlist_tracks-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call, incomplete answer, or wrong fact; see retained trace."
+      },
+      {
+        "id": "playlist_duration-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "playlist_duration-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      }
+    ],
+    "greenhouse-q4_k_m": [
+      {
+        "id": "read_air_temperature-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "read_air_temperature-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "read_air_humidity-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "read_air_humidity-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "read_soil_moisture-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "read_soil_moisture-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "read_soil_ph-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "read_soil_ph-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "read_light_level-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "read_light_level-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "get_irrigation_schedule-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "get_irrigation_schedule-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "read_water_tank_level-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "read_water_tank_level-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "get_crop_name-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "get_crop_name-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "get_planting_date-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "get_planting_date-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": false,
+        "reason": "Correct date in words, but not the requested YYYY-MM-DD format."
+      },
+      {
+        "id": "get_harvest_date-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": false,
+        "reason": "Correct date in words, but not the requested YYYY-MM-DD format."
+      },
+      {
+        "id": "get_harvest_date-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": false,
+        "reason": "Correct date in words, but not the requested YYYY-MM-DD format."
+      },
+      {
+        "id": "get_ventilation_status-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "get_ventilation_status-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "get_fertilizer_schedule-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "get_fertilizer_schedule-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Correct clock time but describes irrigation rather than fertilizer application."
+      }
+    ],
+    "greenhouse-q8": [
+      {
+        "id": "read_air_temperature-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "read_air_temperature-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "read_air_humidity-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "read_air_humidity-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "read_soil_moisture-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "read_soil_moisture-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "read_soil_ph-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "read_soil_ph-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "read_light_level-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "read_light_level-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "get_irrigation_schedule-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "get_irrigation_schedule-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call or no complete correct answer; see retained trace."
+      },
+      {
+        "id": "read_water_tank_level-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "read_water_tank_level-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "get_crop_name-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "get_crop_name-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "get_planting_date-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "get_planting_date-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": false,
+        "reason": "Correct date in words, but not the requested YYYY-MM-DD format."
+      },
+      {
+        "id": "get_harvest_date-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": false,
+        "reason": "Correct date in words, but not the requested YYYY-MM-DD format."
+      },
+      {
+        "id": "get_harvest_date-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": false,
+        "reason": "Correct date in words, but not the requested YYYY-MM-DD format."
+      },
+      {
+        "id": "get_ventilation_status-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "get_ventilation_status-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "get_fertilizer_schedule-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "get_fertilizer_schedule-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Correct clock time but describes irrigation rather than fertilizer application."
+      }
+    ],
+    "routing-q4_0": [
+      {
+        "id": "find_note-en",
+        "language": "en",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call or no complete correct answer; see retained trace."
+      },
+      {
+        "id": "find_note-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call or no complete correct answer; see retained trace."
+      },
+      {
+        "id": "read_note-en",
+        "language": "en",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call or no complete correct answer; see retained trace."
+      },
+      {
+        "id": "read_note-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call or no complete correct answer; see retained trace."
+      },
+      {
+        "id": "list_notes-en",
+        "language": "en",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call or no complete correct answer; see retained trace."
+      },
+      {
+        "id": "list_notes-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call or no complete correct answer; see retained trace."
+      },
+      {
+        "id": "note_count-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "note_count-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "find_sensor-en",
+        "language": "en",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call or no complete correct answer; see retained trace."
+      },
+      {
+        "id": "find_sensor-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call or no complete correct answer; see retained trace."
+      },
+      {
+        "id": "read_sensor-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "read_sensor-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "convert_temperature-en",
+        "language": "en",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call or no complete correct answer; see retained trace."
+      },
+      {
+        "id": "convert_temperature-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call or no complete correct answer; see retained trace."
+      },
+      {
+        "id": "battery_status-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "battery_status-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "search_track-en",
+        "language": "en",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Returns the correct ID but incorrectly calls T-3V8 the track title instead of Aster."
+      },
+      {
+        "id": "search_track-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call or no complete correct answer; see retained trace."
+      },
+      {
+        "id": "track_details-en",
+        "language": "en",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call or no complete correct answer; see retained trace."
+      },
+      {
+        "id": "track_details-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call or no complete correct answer; see retained trace."
+      },
+      {
+        "id": "playlist_tracks-en",
+        "language": "en",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call or no complete correct answer; see retained trace."
+      },
+      {
+        "id": "playlist_tracks-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call or no complete correct answer; see retained trace."
+      },
+      {
+        "id": "playlist_duration-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "playlist_duration-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      }
+    ],
+    "greenhouse-q4_0": [
+      {
+        "id": "read_air_temperature-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "read_air_temperature-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "read_air_humidity-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "read_air_humidity-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "read_soil_moisture-en",
+        "language": "en",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call or no complete correct answer; see retained trace."
+      },
+      {
+        "id": "read_soil_moisture-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call or no complete correct answer; see retained trace."
+      },
+      {
+        "id": "read_soil_ph-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "read_soil_ph-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call or no complete correct answer; see retained trace."
+      },
+      {
+        "id": "read_light_level-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "read_light_level-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "get_irrigation_schedule-en",
+        "language": "en",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call or no complete correct answer; see retained trace."
+      },
+      {
+        "id": "get_irrigation_schedule-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call or no complete correct answer; see retained trace."
+      },
+      {
+        "id": "read_water_tank_level-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "read_water_tank_level-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "get_crop_name-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "get_crop_name-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call or no complete correct answer; see retained trace."
+      },
+      {
+        "id": "get_planting_date-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "get_planting_date-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Extra/incorrect execution and fabricated 12:00 planting time."
+      },
+      {
+        "id": "get_harvest_date-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "get_harvest_date-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": false,
+        "reason": "Correct date in words, but not the requested YYYY-MM-DD format."
+      },
+      {
+        "id": "get_ventilation_status-en",
+        "language": "en",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call or no complete correct answer; see retained trace."
+      },
+      {
+        "id": "get_ventilation_status-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call or no complete correct answer; see retained trace."
+      },
+      {
+        "id": "get_fertilizer_schedule-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed the required call and answered the requested facts."
+      },
+      {
+        "id": "get_fertilizer_schedule-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call or no complete correct answer; see retained trace."
+      }
+    ],
+    "routing-q4_0_pure": [
+      {
+        "id": "find_note-en",
+        "language": "en",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Missing/wrong call, incomplete or incorrect answer; see retained trace."
+      },
+      {
+        "id": "find_note-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Missing/wrong call, incomplete or incorrect answer; see retained trace."
+      },
+      {
+        "id": "read_note-en",
+        "language": "en",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Missing/wrong call, incomplete or incorrect answer; see retained trace."
+      },
+      {
+        "id": "read_note-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed required call and answered the requested facts."
+      },
+      {
+        "id": "list_notes-en",
+        "language": "en",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Missing/wrong call, incomplete or incorrect answer; see retained trace."
+      },
+      {
+        "id": "list_notes-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Missing/wrong call, incomplete or incorrect answer; see retained trace."
+      },
+      {
+        "id": "note_count-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed required call and answered the requested facts."
+      },
+      {
+        "id": "note_count-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed required call and answered the requested facts."
+      },
+      {
+        "id": "find_sensor-en",
+        "language": "en",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Missing/wrong call, incomplete or incorrect answer; see retained trace."
+      },
+      {
+        "id": "find_sensor-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Missing/wrong call, incomplete or incorrect answer; see retained trace."
+      },
+      {
+        "id": "read_sensor-en",
+        "language": "en",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Missing/wrong call, incomplete or incorrect answer; see retained trace."
+      },
+      {
+        "id": "read_sensor-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed required call and answered the requested facts."
+      },
+      {
+        "id": "convert_temperature-en",
+        "language": "en",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Missing/wrong call, incomplete or incorrect answer; see retained trace."
+      },
+      {
+        "id": "convert_temperature-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Missing/wrong call, incomplete or incorrect answer; see retained trace."
+      },
+      {
+        "id": "battery_status-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed required call and answered the requested facts."
+      },
+      {
+        "id": "battery_status-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed required call and answered the requested facts."
+      },
+      {
+        "id": "search_track-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed required call and answered the requested facts."
+      },
+      {
+        "id": "search_track-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Missing/wrong call, incomplete or incorrect answer; see retained trace."
+      },
+      {
+        "id": "track_details-en",
+        "language": "en",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Missing/wrong call, incomplete or incorrect answer; see retained trace."
+      },
+      {
+        "id": "track_details-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Missing/wrong call, incomplete or incorrect answer; see retained trace."
+      },
+      {
+        "id": "playlist_tracks-en",
+        "language": "en",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Missing/wrong call, incomplete or incorrect answer; see retained trace."
+      },
+      {
+        "id": "playlist_tracks-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Missing/wrong call, incomplete or incorrect answer; see retained trace."
+      },
+      {
+        "id": "playlist_duration-en",
+        "language": "en",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Missing/wrong call, incomplete or incorrect answer; see retained trace."
+      },
+      {
+        "id": "playlist_duration-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed required call and answered the requested facts."
+      }
+    ],
+    "greenhouse-q4_0_pure": [
+      {
+        "id": "read_air_temperature-en",
+        "language": "en",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call or no complete correct answer; see retained trace."
+      },
+      {
+        "id": "read_air_temperature-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed required call and answered requested facts."
+      },
+      {
+        "id": "read_air_humidity-en",
+        "language": "en",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call or no complete correct answer; see retained trace."
+      },
+      {
+        "id": "read_air_humidity-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed required call and answered requested facts."
+      },
+      {
+        "id": "read_soil_moisture-en",
+        "language": "en",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call or no complete correct answer; see retained trace."
+      },
+      {
+        "id": "read_soil_moisture-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed required call and answered requested facts."
+      },
+      {
+        "id": "read_soil_ph-en",
+        "language": "en",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call or no complete correct answer; see retained trace."
+      },
+      {
+        "id": "read_soil_ph-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call or no complete correct answer; see retained trace."
+      },
+      {
+        "id": "read_light_level-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed required call and answered requested facts."
+      },
+      {
+        "id": "read_light_level-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call or no complete correct answer; see retained trace."
+      },
+      {
+        "id": "get_irrigation_schedule-en",
+        "language": "en",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call or no complete correct answer; see retained trace."
+      },
+      {
+        "id": "get_irrigation_schedule-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call or no complete correct answer; see retained trace."
+      },
+      {
+        "id": "read_water_tank_level-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed required call and answered requested facts."
+      },
+      {
+        "id": "read_water_tank_level-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed required call and answered requested facts."
+      },
+      {
+        "id": "get_crop_name-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed required call and answered requested facts."
+      },
+      {
+        "id": "get_crop_name-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call or no complete correct answer; see retained trace."
+      },
+      {
+        "id": "get_planting_date-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": false,
+        "reason": "Correct date in words or slash notation, but not requested YYYY-MM-DD."
+      },
+      {
+        "id": "get_planting_date-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": false,
+        "reason": "Correct date in words or slash notation, but not requested YYYY-MM-DD."
+      },
+      {
+        "id": "get_harvest_date-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": false,
+        "reason": "Correct date in words or slash notation, but not requested YYYY-MM-DD."
+      },
+      {
+        "id": "get_harvest_date-it",
+        "language": "it",
+        "factual_complete": true,
+        "strict_complete": false,
+        "reason": "Correct date in words or slash notation, but not requested YYYY-MM-DD."
+      },
+      {
+        "id": "get_ventilation_status-en",
+        "language": "en",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call or no complete correct answer; see retained trace."
+      },
+      {
+        "id": "get_ventilation_status-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Incorrect/missing call or no complete correct answer; see retained trace."
+      },
+      {
+        "id": "get_fertilizer_schedule-en",
+        "language": "en",
+        "factual_complete": true,
+        "strict_complete": true,
+        "reason": "Executed required call and answered requested facts."
+      },
+      {
+        "id": "get_fertilizer_schedule-it",
+        "language": "it",
+        "factual_complete": false,
+        "strict_complete": false,
+        "reason": "Uses the correct time but describes irrigation rather than fertilizer application."
+      }
+    ]
+  },
+  "source_sha256": {
+    "routing-q8.json": "23d3ff69ce1bde0260b5b5ede61390abe05dd63ca5e39e112d0eb71975e66c46",
+    "routing-q4_k_m.json": "ac78f3c6e63d91dca528603e2b8a197070407d0a0387e338b1b7d7c88ceac11c",
+    "greenhouse-q4_k_m.json": "25748766c44bf992ea986061eeaa1671b681645f68a375d011bc9043b45177ed",
+    "greenhouse-q8.json": "a9789b00138a31da62365e587baf28200c971edf4c39318b576663b19e305c77",
+    "routing-q4_0.json": "7e9161d66421e82fd5cd6434efe34377e44c959fc15107df7e88ffab472d8fab",
+    "greenhouse-q4_0.json": "7c1dcb8e5c53cdbc21e8f8449d6ea8a8f53c84957dc3c9b927def2b42ecdf4b5",
+    "routing-q4_0_pure.json": "abbd33b56aee71b21ef9076c4401a9a210ad355af32fe786dee220c0dfd0a3fb",
+    "greenhouse-q4_0_pure.json": "d008d02243b45a809ac241482549dceb43ebfde331f99034757ac21355f310b5"
+  },
+  "summary": {
+    "routing-q8": {
+      "en": {
+        "n": 12,
+        "factual_complete": 10,
+        "strict_complete": 10
+      },
+      "it": {
+        "n": 12,
+        "factual_complete": 8,
+        "strict_complete": 8
+      }
+    },
+    "routing-q4_k_m": {
+      "en": {
+        "n": 12,
+        "factual_complete": 10,
+        "strict_complete": 10
+      },
+      "it": {
+        "n": 12,
+        "factual_complete": 5,
+        "strict_complete": 5
+      }
+    },
+    "greenhouse-q4_k_m": {
+      "en": {
+        "n": 12,
+        "factual_complete": 12,
+        "strict_complete": 11
+      },
+      "it": {
+        "n": 12,
+        "factual_complete": 11,
+        "strict_complete": 9
+      }
+    },
+    "greenhouse-q8": {
+      "en": {
+        "n": 12,
+        "factual_complete": 12,
+        "strict_complete": 11
+      },
+      "it": {
+        "n": 12,
+        "factual_complete": 10,
+        "strict_complete": 8
+      }
+    },
+    "routing-q4_0": {
+      "en": {
+        "n": 12,
+        "factual_complete": 4,
+        "strict_complete": 4
+      },
+      "it": {
+        "n": 12,
+        "factual_complete": 4,
+        "strict_complete": 4
+      }
+    },
+    "greenhouse-q4_0": {
+      "en": {
+        "n": 12,
+        "factual_complete": 9,
+        "strict_complete": 9
+      },
+      "it": {
+        "n": 12,
+        "factual_complete": 5,
+        "strict_complete": 4
+      }
+    },
+    "routing-q4_0_pure": {
+      "en": {
+        "n": 12,
+        "factual_complete": 3,
+        "strict_complete": 3
+      },
+      "it": {
+        "n": 12,
+        "factual_complete": 5,
+        "strict_complete": 5
+      }
+    },
+    "greenhouse-q4_0_pure": {
+      "en": {
+        "n": 12,
+        "factual_complete": 6,
+        "strict_complete": 4
+      },
+      "it": {
+        "n": 12,
+        "factual_complete": 6,
+        "strict_complete": 4
+      }
+    }
+  }
+}

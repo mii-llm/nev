@@ -1,0 +1,1513 @@
+{
+  "scope": "48 reused authored requests, 24 EN + 24 IT, each at Q8, Q4_K_M, Q4_0 and pure Q4_0; 192 trials.",
+  "runs": {
+    "routing-q8": {
+      "by_language": {
+        "en": {
+          "n": 12,
+          "exact_execution": 12,
+          "answer_anchor_proxy": 10,
+          "nev_top_choice": 12,
+          "median_ms": 4213.111131452024
+        },
+        "it": {
+          "n": 12,
+          "exact_execution": 9,
+          "answer_anchor_proxy": 8,
+          "nev_top_choice": 10,
+          "median_ms": 4954.718894325197
+        }
+      },
+      "memory": {
+        "peak_mib": {
+          "all": {
+            "rss": 2590.21484375,
+            "pss": 2575.939453125,
+            "uss": 2568.9296875
+          },
+          "inference": {
+            "rss": 2590.21484375,
+            "pss": 2575.939453125,
+            "uss": 2568.9296875
+          }
+        },
+        "samples": 1309,
+        "inference_samples": 1269,
+        "failed_samples": 0,
+        "sampling_interval_seconds": 0.05,
+        "scope": "Python plus worker children; OS excluded. PSS apportions shared pages; RSS can double count. Sampled peaks, not a device minimum or hard ceiling."
+      },
+      "median_ms": 4634.129132144153
+    },
+    "routing-q4_k_m": {
+      "by_language": {
+        "en": {
+          "n": 12,
+          "exact_execution": 12,
+          "answer_anchor_proxy": 10,
+          "nev_top_choice": 12,
+          "median_ms": 4504.595959559083
+        },
+        "it": {
+          "n": 12,
+          "exact_execution": 7,
+          "answer_anchor_proxy": 6,
+          "nev_top_choice": 11,
+          "median_ms": 5086.348071694374
+        }
+      },
+      "memory": {
+        "peak_mib": {
+          "all": {
+            "rss": 2415.62109375,
+            "pss": 2400.69921875,
+            "uss": 2393.3828125
+          },
+          "inference": {
+            "rss": 2415.62109375,
+            "pss": 2400.69921875,
+            "uss": 2393.3828125
+          }
+        },
+        "samples": 1482,
+        "inference_samples": 1445,
+        "failed_samples": 0,
+        "sampling_interval_seconds": 0.05,
+        "scope": "Python plus worker children; OS excluded. PSS apportions shared pages; RSS can double count. Sampled peaks, not a device minimum or hard ceiling."
+      },
+      "median_ms": 4683.179918676615
+    },
+    "routing-q4_0": {
+      "by_language": {
+        "en": {
+          "n": 12,
+          "exact_execution": 7,
+          "answer_anchor_proxy": 5,
+          "nev_top_choice": 10,
+          "median_ms": 4105.6724851951
+        },
+        "it": {
+          "n": 12,
+          "exact_execution": 8,
+          "answer_anchor_proxy": 4,
+          "nev_top_choice": 9,
+          "median_ms": 5522.124258801341
+        }
+      },
+      "memory": {
+        "peak_mib": {
+          "all": {
+            "rss": 2624.87890625,
+            "pss": 2610.0625,
+            "uss": 2602.9609375
+          },
+          "inference": {
+            "rss": 2624.87890625,
+            "pss": 2610.0625,
+            "uss": 2602.9609375
+          }
+        },
+        "samples": 1116,
+        "inference_samples": 1084,
+        "failed_samples": 0,
+        "sampling_interval_seconds": 0.05,
+        "scope": "Python plus worker children; OS excluded. PSS apportions shared pages; RSS can double count. Sampled peaks, not a device minimum or hard ceiling."
+      },
+      "median_ms": 5018.348528072238
+    },
+    "routing-q4_0_pure": {
+      "by_language": {
+        "en": {
+          "n": 12,
+          "exact_execution": 7,
+          "answer_anchor_proxy": 3,
+          "nev_top_choice": 10,
+          "median_ms": 3043.7036929652095
+        },
+        "it": {
+          "n": 12,
+          "exact_execution": 8,
+          "answer_anchor_proxy": 5,
+          "nev_top_choice": 9,
+          "median_ms": 3586.480692960322
+        }
+      },
+      "memory": {
+        "peak_mib": {
+          "all": {
+            "rss": 2645.484375,
+            "pss": 2630.8017578125,
+            "uss": 2623.69140625
+          },
+          "inference": {
+            "rss": 2645.484375,
+            "pss": 2630.8017578125,
+            "uss": 2623.69140625
+          }
+        },
+        "samples": 1041,
+        "inference_samples": 1004,
+        "failed_samples": 0,
+        "sampling_interval_seconds": 0.05,
+        "scope": "Python plus worker children; OS excluded. PSS apportions shared pages; RSS can double count. Sampled peaks, not a device minimum or hard ceiling."
+      },
+      "median_ms": 3269.7525387629867
+    },
+    "greenhouse-q8": {
+      "by_language": {
+        "en": {
+          "n": 12,
+          "exact_execution": 12,
+          "answer_anchor_proxy": 11,
+          "nev_top_choice": 9,
+          "median_ms": 9594.509282149374
+        },
+        "it": {
+          "n": 12,
+          "exact_execution": 11,
+          "answer_anchor_proxy": 9,
+          "nev_top_choice": 10,
+          "median_ms": 11566.47767033428
+        }
+      },
+      "memory": {
+        "peak_mib": {
+          "all": {
+            "rss": 2652.734375,
+            "pss": 2637.76171875,
+            "uss": 2631.03515625
+          },
+          "inference": {
+            "rss": 2652.734375,
+            "pss": 2637.76171875,
+            "uss": 2631.03515625
+          }
+        },
+        "samples": 2616,
+        "inference_samples": 2555,
+        "failed_samples": 0,
+        "sampling_interval_seconds": 0.05,
+        "scope": "Python plus worker children; OS excluded. PSS apportions shared pages; RSS can double count. Sampled peaks, not a device minimum or hard ceiling."
+      },
+      "median_ms": 10923.658076673746
+    },
+    "greenhouse-q4_k_m": {
+      "by_language": {
+        "en": {
+          "n": 12,
+          "exact_execution": 12,
+          "answer_anchor_proxy": 11,
+          "nev_top_choice": 10,
+          "median_ms": 9980.89594207704
+        },
+        "it": {
+          "n": 12,
+          "exact_execution": 12,
+          "answer_anchor_proxy": 10,
+          "nev_top_choice": 9,
+          "median_ms": 12051.536794751883
+        }
+      },
+      "memory": {
+        "peak_mib": {
+          "all": {
+            "rss": 2466.00390625,
+            "pss": 2451.099609375,
+            "uss": 2444.046875
+          },
+          "inference": {
+            "rss": 2466.00390625,
+            "pss": 2451.099609375,
+            "uss": 2444.046875
+          }
+        },
+        "samples": 2785,
+        "inference_samples": 2719,
+        "failed_samples": 0,
+        "sampling_interval_seconds": 0.05,
+        "scope": "Python plus worker children; OS excluded. PSS apportions shared pages; RSS can double count. Sampled peaks, not a device minimum or hard ceiling."
+      },
+      "median_ms": 10917.569848708808
+    },
+    "greenhouse-q4_0": {
+      "by_language": {
+        "en": {
+          "n": 12,
+          "exact_execution": 11,
+          "answer_anchor_proxy": 9,
+          "nev_top_choice": 11,
+          "median_ms": 7818.327593617141
+        },
+        "it": {
+          "n": 12,
+          "exact_execution": 7,
+          "answer_anchor_proxy": 4,
+          "nev_top_choice": 10,
+          "median_ms": 11261.078475043178
+        }
+      },
+      "memory": {
+        "peak_mib": {
+          "all": {
+            "rss": 2678.7578125,
+            "pss": 2664.0087890625,
+            "uss": 2657.2265625
+          },
+          "inference": {
+            "rss": 2678.7578125,
+            "pss": 2664.0087890625,
+            "uss": 2657.2265625
+          }
+        },
+        "samples": 3070,
+        "inference_samples": 3019,
+        "failed_samples": 0,
+        "sampling_interval_seconds": 0.05,
+        "scope": "Python plus worker children; OS excluded. PSS apportions shared pages; RSS can double count. Sampled peaks, not a device minimum or hard ceiling."
+      },
+      "median_ms": 9233.47280267626
+    },
+    "greenhouse-q4_0_pure": {
+      "by_language": {
+        "en": {
+          "n": 12,
+          "exact_execution": 8,
+          "answer_anchor_proxy": 4,
+          "nev_top_choice": 11,
+          "median_ms": 7247.4260637536645
+        },
+        "it": {
+          "n": 12,
+          "exact_execution": 7,
+          "answer_anchor_proxy": 5,
+          "nev_top_choice": 10,
+          "median_ms": 8689.229598268867
+        }
+      },
+      "memory": {
+        "peak_mib": {
+          "all": {
+            "rss": 2696.9375,
+            "pss": 2682.201171875,
+            "uss": 2675.08203125
+          },
+          "inference": {
+            "rss": 2696.9375,
+            "pss": 2682.201171875,
+            "uss": 2675.08203125
+          }
+        },
+        "samples": 1854,
+        "inference_samples": 1814,
+        "failed_samples": 0,
+        "sampling_interval_seconds": 0.05,
+        "scope": "Python plus worker children; OS excluded. PSS apportions shared pages; RSS can double count. Sampled peaks, not a device minimum or hard ceiling."
+      },
+      "median_ms": 7852.7094181627035
+    }
+  },
+  "paired": {
+    "routing-q4_k_m": {
+      "nev_choice_agreement": 23,
+      "n": 24,
+      "score_changes": [
+        {
+          "id": "read_note-it",
+          "language": "it",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "Il contenuto della nota N-8R6 è \"Access code: 7392\".",
+            "status": "answered"
+          },
+          "q4_k_m": {
+            "score": {
+              "exact_execution": false,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "Mi dispiace, non posso leggere la nota specifica. Non ho la capacità di effettuare attività di lettura come questo.",
+            "status": "answered"
+          }
+        },
+        {
+          "id": "note_count-it",
+          "language": "it",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "Ci sono 2 note nella cartella Work.",
+            "status": "answered"
+          },
+          "q4_k_m": {
+            "score": {
+              "exact_execution": false,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "Mi dispiace, non posso determinare il numero di note nella cartella Work. Non ho la capacità di accedere a file o cartelle.",
+            "status": "answered"
+          }
+        },
+        {
+          "id": "find_sensor-it",
+          "language": "it",
+          "q8": {
+            "score": {
+              "exact_execution": false,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": false
+            },
+            "final": "",
+            "status": "limit"
+          },
+          "q4_k_m": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "L'identificativo del sensore di temperatura nella stanza Studio è S-4.",
+            "status": "answered"
+          }
+        },
+        {
+          "id": "playlist_tracks-it",
+          "language": "it",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "",
+            "status": "limit"
+          },
+          "q4_k_m": {
+            "score": {
+              "exact_execution": false,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "Per poterti assistere al meglio, potresti specificare il titolo di ogni brano nella playlist Focus?",
+            "status": "answered"
+          }
+        }
+      ]
+    },
+    "routing-q4_0": {
+      "nev_choice_agreement": 21,
+      "n": 24,
+      "score_changes": [
+        {
+          "id": "find_note-en",
+          "language": "en",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "The identifier of the note titled Aurora is N-7Q2.",
+            "status": "answered"
+          },
+          "q4_0": {
+            "score": {
+              "exact_execution": false,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "",
+            "status": "limit"
+          }
+        },
+        {
+          "id": "find_note-it",
+          "language": "it",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "La nota Aurora ha l'identificativo N-7Q2.",
+            "status": "answered"
+          },
+          "q4_0": {
+            "score": {
+              "exact_execution": false,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": false
+            },
+            "final": "",
+            "status": "limit"
+          }
+        },
+        {
+          "id": "read_note-en",
+          "language": "en",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "The access code is 7392.",
+            "status": "answered"
+          },
+          "q4_0": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "",
+            "status": "limit"
+          }
+        },
+        {
+          "id": "read_note-it",
+          "language": "it",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "Il contenuto della nota N-8R6 è \"Access code: 7392\".",
+            "status": "answered"
+          },
+          "q4_0": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "",
+            "status": "limit"
+          }
+        },
+        {
+          "id": "list_notes-it",
+          "language": "it",
+          "q8": {
+            "score": {
+              "exact_execution": false,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "Per fornirti i titoli delle note nella cartella Work, potresti specificare la cartella?",
+            "status": "answered"
+          },
+          "q4_0": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "",
+            "status": "limit"
+          }
+        },
+        {
+          "id": "find_sensor-en",
+          "language": "en",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "The temperature sensor with ID S-4J9 has been found in room Studio.",
+            "status": "answered"
+          },
+          "q4_0": {
+            "score": {
+              "exact_execution": false,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": false
+            },
+            "final": "",
+            "status": "limit"
+          }
+        },
+        {
+          "id": "convert_temperature-en",
+          "language": "en",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "The temperature is 68 degrees Fahrenheit.",
+            "status": "answered"
+          },
+          "q4_0": {
+            "score": {
+              "exact_execution": false,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "To convert 20 Celsius to Fahrenheit, I'll need to know the temperature in Fahrenheit. Could you please provide that?",
+            "status": "answered"
+          }
+        },
+        {
+          "id": "convert_temperature-it",
+          "language": "it",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "La temperatura è 68°F.",
+            "status": "answered"
+          },
+          "q4_0": {
+            "score": {
+              "exact_execution": false,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "Per procedere, ho bisogno di conoscere la temperatura in Kelvin. Potresti dirmi la temperatura in Kelvin?",
+            "status": "answered"
+          }
+        },
+        {
+          "id": "search_track-it",
+          "language": "it",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "Il brano \"Aster\" è stato trovato con ID: T-3V8.",
+            "status": "answered"
+          },
+          "q4_0": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "",
+            "status": "limit"
+          }
+        },
+        {
+          "id": "track_details-en",
+          "language": "en",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "The artist for track T-9W2 is Elio. The duration of the track is 204 seconds.",
+            "status": "answered"
+          },
+          "q4_0": {
+            "score": {
+              "exact_execution": false,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": false
+            },
+            "final": "",
+            "status": "limit"
+          }
+        },
+        {
+          "id": "playlist_tracks-en",
+          "language": "en",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "The playlist \"Aster\" and the focus playlist are both available.",
+            "status": "answered"
+          },
+          "q4_0": {
+            "score": {
+              "exact_execution": false,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "",
+            "status": "limit"
+          }
+        }
+      ]
+    },
+    "routing-q4_0_pure": {
+      "nev_choice_agreement": 21,
+      "n": 24,
+      "score_changes": [
+        {
+          "id": "find_note-en",
+          "language": "en",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "The identifier of the note titled Aurora is N-7Q2.",
+            "status": "answered"
+          },
+          "q4_0_pure": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "Aurora.",
+            "status": "answered"
+          }
+        },
+        {
+          "id": "find_note-it",
+          "language": "it",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "La nota Aurora ha l'identificativo N-7Q2.",
+            "status": "answered"
+          },
+          "q4_0_pure": {
+            "score": {
+              "exact_execution": false,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": false
+            },
+            "final": "",
+            "status": "invalid_output"
+          }
+        },
+        {
+          "id": "read_note-en",
+          "language": "en",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "The access code is 7392.",
+            "status": "answered"
+          },
+          "q4_0_pure": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "",
+            "status": "limit"
+          }
+        },
+        {
+          "id": "list_notes-it",
+          "language": "it",
+          "q8": {
+            "score": {
+              "exact_execution": false,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "Per fornirti i titoli delle note nella cartella Work, potresti specificare la cartella?",
+            "status": "answered"
+          },
+          "q4_0_pure": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "",
+            "status": "limit"
+          }
+        },
+        {
+          "id": "find_sensor-en",
+          "language": "en",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "The temperature sensor with ID S-4J9 has been found in room Studio.",
+            "status": "answered"
+          },
+          "q4_0_pure": {
+            "score": {
+              "exact_execution": false,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": false
+            },
+            "final": "I don't have a function for this. Please provide the identifier of the temperature sensor in the room.",
+            "status": "answered"
+          }
+        },
+        {
+          "id": "read_sensor-en",
+          "language": "en",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "The temperature reading is 18.2°C.",
+            "status": "answered"
+          },
+          "q4_0_pure": {
+            "score": {
+              "exact_execution": false,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "",
+            "status": "invalid_output"
+          }
+        },
+        {
+          "id": "convert_temperature-en",
+          "language": "en",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "The temperature is 68 degrees Fahrenheit.",
+            "status": "answered"
+          },
+          "q4_0_pure": {
+            "score": {
+              "exact_execution": false,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "20 F = 20 * 2 = 40.0",
+            "status": "answered"
+          }
+        },
+        {
+          "id": "convert_temperature-it",
+          "language": "it",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "La temperatura è 68°F.",
+            "status": "answered"
+          },
+          "q4_0_pure": {
+            "score": {
+              "exact_execution": false,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "20 Celsius in Fahrenheit.",
+            "status": "answered"
+          }
+        },
+        {
+          "id": "search_track-it",
+          "language": "it",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "Il brano \"Aster\" è stato trovato con ID: T-3V8.",
+            "status": "answered"
+          },
+          "q4_0_pure": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "Il brano \"Aster\" è il 3rd track di questa traccia.",
+            "status": "answered"
+          }
+        },
+        {
+          "id": "track_details-en",
+          "language": "en",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "The artist for track T-9W2 is Elio. The duration of the track is 204 seconds.",
+            "status": "answered"
+          },
+          "q4_0_pure": {
+            "score": {
+              "exact_execution": false,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": false
+            },
+            "final": "The artist \"T-9W2\" is not found in the given playlist. Please provide more information about the track or album you want to hear.",
+            "status": "answered"
+          }
+        },
+        {
+          "id": "playlist_duration-en",
+          "language": "en",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "The total duration in seconds of the \"Focus\" playlist is 391 seconds.",
+            "status": "answered"
+          },
+          "q4_0_pure": {
+            "score": {
+              "exact_execution": false,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "",
+            "status": "invalid_output"
+          }
+        }
+      ]
+    },
+    "greenhouse-q4_k_m": {
+      "nev_choice_agreement": 22,
+      "n": 24,
+      "score_changes": [
+        {
+          "id": "read_air_humidity-en",
+          "language": "en",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": false
+            },
+            "final": "The relative humidity in zone Z-41 is 62%.",
+            "status": "answered"
+          },
+          "q4_k_m": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "The relative humidity in zone Z-41 is 62%.",
+            "status": "answered"
+          }
+        },
+        {
+          "id": "read_soil_ph-it",
+          "language": "it",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "Il pH del terreno nell’aiuola B-73 è 6.4.",
+            "status": "answered"
+          },
+          "q4_k_m": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": false
+            },
+            "final": "Il pH del terreno nell’aiuola B-73 è 6.4.",
+            "status": "answered"
+          }
+        },
+        {
+          "id": "get_irrigation_schedule-it",
+          "language": "it",
+          "q8": {
+            "score": {
+              "exact_execution": false,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": false
+            },
+            "final": "",
+            "status": "limit"
+          },
+          "q4_k_m": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": false
+            },
+            "final": "La prossima irrigazione è prevista alle 06:30.",
+            "status": "answered"
+          }
+        }
+      ]
+    },
+    "greenhouse-q4_0": {
+      "nev_choice_agreement": 20,
+      "n": 24,
+      "score_changes": [
+        {
+          "id": "read_air_humidity-en",
+          "language": "en",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": false
+            },
+            "final": "The relative humidity in zone Z-41 is 62%.",
+            "status": "answered"
+          },
+          "q4_0": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "The relative air humidity in zone Z-41 is 62%.",
+            "status": "answered"
+          }
+        },
+        {
+          "id": "read_soil_moisture-en",
+          "language": "en",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "The soil in bed B-73 is 38% moist.",
+            "status": "answered"
+          },
+          "q4_0": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "",
+            "status": "invalid_output"
+          }
+        },
+        {
+          "id": "read_soil_moisture-it",
+          "language": "it",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "La percentuale di umidità del terreno nell’aiuola B-73 è del 38%.",
+            "status": "answered"
+          },
+          "q4_0": {
+            "score": {
+              "exact_execution": false,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "",
+            "status": "limit"
+          }
+        },
+        {
+          "id": "read_soil_ph-it",
+          "language": "it",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "Il pH del terreno nell’aiuola B-73 è 6.4.",
+            "status": "answered"
+          },
+          "q4_0": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": false
+            },
+            "final": "",
+            "status": "invalid_output"
+          }
+        },
+        {
+          "id": "get_irrigation_schedule-en",
+          "language": "en",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": false
+            },
+            "final": "The next scheduled watering time for bed B-73 is at 06:30.",
+            "status": "answered"
+          },
+          "q4_0": {
+            "score": {
+              "exact_execution": false,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": false
+            },
+            "final": "",
+            "status": "limit"
+          }
+        },
+        {
+          "id": "get_crop_name-it",
+          "language": "it",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "Il basilico è piantato nell’aiuola B-73.",
+            "status": "answered"
+          },
+          "q4_0": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "",
+            "status": "invalid_output"
+          }
+        },
+        {
+          "id": "get_planting_date-en",
+          "language": "en",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": false
+            },
+            "final": "The planting date was 2026-09-02.",
+            "status": "answered"
+          },
+          "q4_0": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "The planting date for bed B-73 was 2026-09-02.",
+            "status": "answered"
+          }
+        },
+        {
+          "id": "get_planting_date-it",
+          "language": "it",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "La semina è avvenuta il 2 settembre 2026.",
+            "status": "answered"
+          },
+          "q4_0": {
+            "score": {
+              "exact_execution": false,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "La semina è avvenuta il 2 settembre 2026 alle ore 12:00.",
+            "status": "answered"
+          }
+        },
+        {
+          "id": "get_harvest_date-en",
+          "language": "en",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "The harvest date is November 18, 2026.",
+            "status": "answered"
+          },
+          "q4_0": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "The planned harvest date for bed B-73 is on 2026-11-18.",
+            "status": "answered"
+          }
+        },
+        {
+          "id": "get_ventilation_status-en",
+          "language": "en",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "The ventilation fan in zone Z-41 is running.",
+            "status": "answered"
+          },
+          "q4_0": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "",
+            "status": "limit"
+          }
+        },
+        {
+          "id": "get_ventilation_status-it",
+          "language": "it",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "La ventola di ventilazione è in funzione.",
+            "status": "answered"
+          },
+          "q4_0": {
+            "score": {
+              "exact_execution": false,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "",
+            "status": "limit"
+          }
+        },
+        {
+          "id": "get_fertilizer_schedule-it",
+          "language": "it",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": false
+            },
+            "final": "L’irrigazione è programmata per l'orario 17:45.",
+            "status": "answered"
+          },
+          "q4_0": {
+            "score": {
+              "exact_execution": false,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "",
+            "status": "limit"
+          }
+        }
+      ]
+    },
+    "greenhouse-q4_0_pure": {
+      "nev_choice_agreement": 20,
+      "n": 24,
+      "score_changes": [
+        {
+          "id": "read_air_temperature-en",
+          "language": "en",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "The air temperature in zone Z-41 is 24.7°C.",
+            "status": "answered"
+          },
+          "q4_0_pure": {
+            "score": {
+              "exact_execution": false,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "The air temperature in zone Z-41 is not found. Please provide the zone ID for this area.",
+            "status": "answered"
+          }
+        },
+        {
+          "id": "read_air_humidity-en",
+          "language": "en",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": false
+            },
+            "final": "The relative humidity in zone Z-41 is 62%.",
+            "status": "answered"
+          },
+          "q4_0_pure": {
+            "score": {
+              "exact_execution": false,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "Relative air humidity in zone Z-41: 0.0%",
+            "status": "answered"
+          }
+        },
+        {
+          "id": "read_soil_moisture-en",
+          "language": "en",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "The soil in bed B-73 is 38% moist.",
+            "status": "answered"
+          },
+          "q4_0_pure": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "",
+            "status": "invalid_output"
+          }
+        },
+        {
+          "id": "read_soil_ph-en",
+          "language": "en",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "The soil pH in bed B-73 is 6.4.",
+            "status": "answered"
+          },
+          "q4_0_pure": {
+            "score": {
+              "exact_execution": false,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "Soil pH in Bed B-73: Not found.",
+            "status": "answered"
+          }
+        },
+        {
+          "id": "read_soil_ph-it",
+          "language": "it",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "Il pH del terreno nell’aiuola B-73 è 6.4.",
+            "status": "answered"
+          },
+          "q4_0_pure": {
+            "score": {
+              "exact_execution": false,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": false
+            },
+            "final": "Il pH del terreno nell’aiuola B-73 è 38.",
+            "status": "answered"
+          }
+        },
+        {
+          "id": "read_light_level-it",
+          "language": "it",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "La luce misurata è di 12500 lux.",
+            "status": "answered"
+          },
+          "q4_0_pure": {
+            "score": {
+              "exact_execution": false,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "",
+            "status": "invalid_output"
+          }
+        },
+        {
+          "id": "get_irrigation_schedule-en",
+          "language": "en",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": false
+            },
+            "final": "The next scheduled watering time for bed B-73 is at 06:30.",
+            "status": "answered"
+          },
+          "q4_0_pure": {
+            "score": {
+              "exact_execution": false,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": false
+            },
+            "final": "Bed B-73 is next scheduled to be watered at 2025-06-15.",
+            "status": "answered"
+          }
+        },
+        {
+          "id": "get_crop_name-it",
+          "language": "it",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "Il basilico è piantato nell’aiuola B-73.",
+            "status": "answered"
+          },
+          "q4_0_pure": {
+            "score": {
+              "exact_execution": false,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "",
+            "status": "limit"
+          }
+        },
+        {
+          "id": "get_planting_date-en",
+          "language": "en",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": false
+            },
+            "final": "The planting date was 2026-09-02.",
+            "status": "answered"
+          },
+          "q4_0_pure": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "The planting date for bed B-73 was September 2, 2026.",
+            "status": "answered"
+          }
+        },
+        {
+          "id": "get_ventilation_status-en",
+          "language": "en",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "The ventilation fan in zone Z-41 is running.",
+            "status": "answered"
+          },
+          "q4_0_pure": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "",
+            "status": "limit"
+          }
+        },
+        {
+          "id": "get_ventilation_status-it",
+          "language": "it",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "La ventola di ventilazione è in funzione.",
+            "status": "answered"
+          },
+          "q4_0_pure": {
+            "score": {
+              "exact_execution": false,
+              "answer_anchor_proxy": false,
+              "nev_top_choice": true
+            },
+            "final": "",
+            "status": "invalid_output"
+          }
+        },
+        {
+          "id": "get_fertilizer_schedule-it",
+          "language": "it",
+          "q8": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": false
+            },
+            "final": "L’irrigazione è programmata per l'orario 17:45.",
+            "status": "answered"
+          },
+          "q4_0_pure": {
+            "score": {
+              "exact_execution": true,
+              "answer_anchor_proxy": true,
+              "nev_top_choice": true
+            },
+            "final": "L'irrigazione è programmata per le 17:45.",
+            "status": "answered"
+          }
+        }
+      ]
+    }
+  }
+}

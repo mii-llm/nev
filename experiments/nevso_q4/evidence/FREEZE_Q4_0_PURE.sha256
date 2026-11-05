@@ -1,0 +1,5 @@
+162b44404cbc4ca3df23aae723345194bf7ab27c2ac429006242b6ee7e728760  /home/ecuser/nev-a100/nevso-q4-20261105/code/PROTOCOL_Q4_0_PURE.md
+574b1afa97c80af0d6c3b40701bce7a119fd5453ddc0d28866ec14e4c499a058  /home/ecuser/nev-a100/nevso-q4-20261105/code/run_q4_0_pure.py
+3a253389fbc7d2bfac94d86fad9481b95f2c97263a1ec68171780fa376b96744  /home/ecuser/nev-a100/nevso-q4-20261105/code/quantize_q4_0_pure.py
+fcd18c6f49af2598f540b6f5e7e755558521c4d4a32d71122e37ab7c3ddaab9c  /home/ecuser/nev-a100/nevso-q4-20261105/artifacts/gguf/nesso3-q4_0_pure.gguf
+84683a6094847947c80af5dca97bfc14a9380f47cb2f25cdfc7228492a8be5c7  /home/ecuser/nev-a100/nevso-q4-20261105/artifacts/gguf/nev-v3-q4_0_pure.gguf

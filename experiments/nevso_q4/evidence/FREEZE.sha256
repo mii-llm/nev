@@ -1,0 +1,11 @@
+dd26fdd02f0e7e529bde2ae60235e5b15f67eba9cdbb479e942bf83b2e356f41  /home/ecuser/nev-a100/nevso-q4-20261105/code/PROTOCOL.md
+0c8584c2f7deac6bc8ba80cdf3ca0cb76cbd237a7bde568e2a422769ae603dc6  /home/ecuser/nev-a100/nevso-q4-20261105/code/run.py
+783336a2332ebd884acae7fdfd708003f3e0aa5da0085c0aa6187bc096b74352  /home/ecuser/nev-a100/nevso-q4-20261105/code/quantize.py
+f4f22c694f26ebf52c09e2479c60716df92a3ed676b494f402c1335d63303df7  /home/ecuser/nev-a100/nevso-q4-20261105/code/run_linux.sh
+ee3f3fbb96b34a791dbfea34e1dbccb2096ef06519067de26a2bc4225c348013  /home/ecuser/nev-a100/nevso-q4-20261105/artifacts/gguf/nesso3-f16.gguf
+de2d28d21d478cac69600784d1c33ab935e356292cbd2178624c5c9106076e55  /home/ecuser/nev-a100/nevso-q4-20261105/artifacts/gguf/nesso3-q4_k_m.gguf
+918d3f3da5cf13c79c9fd273fe407dd3be748bb1e430480deadadcd848faaa3e  /home/ecuser/nev-a100/nevso-q4-20261105/artifacts/gguf/nesso3-q8.gguf
+6325b2d8ece94d7386b9cc367193605f74db8fb799c4a135530a0deb57a75eda  /home/ecuser/nev-a100/nevso-q4-20261105/artifacts/gguf/nev-v3-f16.gguf
+67d5dcf145c096a1abde7185a37e60dc60a5404d49e1c47a1bedda3975f5bc31  /home/ecuser/nev-a100/nevso-q4-20261105/artifacts/gguf/nev-v3-q4_k_m.gguf
+88a6484e8e6d8d7184c7a36230a9b8a22833b707389b815f2f03d38d6f6c1701  /home/ecuser/nev-a100/nevso-q4-20261105/artifacts/gguf/nev-v3-q8.gguf
+76fc4342431d31732fdeae8185e22592ab6e4166d85c540a2f3aec3f6a660730  /home/ecuser/nev-a100/nevso-q4-20261105/artifacts/models/nev/v3/decision_head.safetensors
