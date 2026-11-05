@@ -4,11 +4,15 @@
 
 We built **Nevso** by combining **Nev, a decision model**, with **Nesso3-0.4B-agentic, a small language model (SLM)**. The workflow separates tool selection from call generation, with English and Italian inference running locally.
 
+Nev comes from our own language-model family: **Zagreus, pretrained from scratch → Nesso2 → Nev**. We adapted Nesso2’s learned backbone for structured decisions using the Kev framework. Nesso3 is the generative partner in Nevso; it is not the parent checkpoint used to train Nev. “From scratch” refers to the foundation’s learned weights, with the architecture, tokenizer and software built on existing open-source work. The [training lineage](https://github.com/mii-llm/nev/blob/main/docs/RESEARCH.md#the-complete-lineage) documents those stages.
+
 In a demonstration with **24 authored bilingual requests on an Apple M3 Pro CPU**, adding Nev to select a tool improved correct executed calls from **18/24 to 22/24** and reduced warm median request latency from **2.57 to 1.72 seconds**, approximately **33%**. Those results describe this specific demonstration; the examples and measurements below show where the approach helps and where its tradeoffs remain.
 
 The two models have distinct jobs. **Nev selects or ranks the available functions. Nesso3 generates the call and answers from the returned data.** A controller validates the call and dispatches it to your application’s executor. You supply the tools; the same workflow can serve different domains.
 
 Each model has a roughly **0.4B backbone**. Their combined Q8 backbone files occupy approximately **902 MiB on disk**. We have tested CPU inference on **Linux and macOS**, and a native **Linux/NVIDIA GPU** path is also available. The results below describe these tested systems and provide a starting point for deployment on smaller devices.
+
+For these small, sequential Q8 workflows, **8 GB of total device RAM is a reasonable planning target**, allowing room for the operating system and application. Our recorded CPU diagnostic sampled a peak of approximately **2.9 GiB of summed process RSS** for the combined runtime. The 8 GB recommendation is an estimate based on that measurement, not a tested device requirement or a hard memory ceiling; a 4 GB device has not been validated. The memory measurement and its limits are explained below.
 
 Beyond the small demonstrations, we completed a broader evaluation of **200 requests: 100 English and 100 Italian**, producing **1,800 trials** across three strategies and three starting tool orders. It tests both the routing benefit and the limits of the complete workflow.
 

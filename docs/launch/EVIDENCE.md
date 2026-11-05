@@ -123,3 +123,19 @@ were checked against `suite.json`. No new evaluation was run. The article does
 not attribute 1,800 independent examples, general agent accuracy or an official
 BFCL score to this evidence. The reported findings and all source results remain
 unchanged.
+
+## 5 November lineage and RAM guidance
+
+The opening now identifies Zagreus (foundation pretrained from scratch) →
+Nesso2 → Nev, with Nesso3 as the generative partner rather than Nev's training
+parent. This follows `docs/RESEARCH.md` and preserves credit for the existing
+architecture, tokenizer and Kev framework.
+
+The RAM planning estimate is **8 GB total system memory** for the small,
+sequential Q8 workflow. Its basis is the existing CPU diagnostic's
+`backends.q8.peak_summed_rss_mib = 2985.3125` in
+`experiments/cpu_gguf/results/SUMMARY.json`, approximately 2.9 GiB. Summed RSS
+can double-count shared pages and is not a physical-footprint or hard-maximum
+measurement. The article and quick start explicitly mark 8 GB as an estimate;
+neither an 8 GB device nor a 4 GB minimum was validated. No new memory test was
+run for this wording change. Backbone disk size remains separate from RAM.

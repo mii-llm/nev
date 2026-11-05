@@ -17,6 +17,11 @@ setup and several GiB of free disk space. The Q8 backbones total about 902 MiB;
 that is not the total download, installation size or RAM requirement. Allow
 room for the environment, build and two resident models. The historical Mac
 diagnostic sampled about 2.9 GiB summed process RSS, not a minimum requirement.
+For the small sequential Q8 examples, **8 GB total system RAM is a reasonable
+planning target**, leaving space for the OS and application. This is an estimate
+from the diagnostic, not validation on an 8 GB device or a hard memory limit.
+We have not validated a 4 GB device. Longer contexts, concurrent requests and
+other applications can change the memory needed.
 
 **Ubuntu 24.04 CPU:**
 
