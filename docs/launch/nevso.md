@@ -4,7 +4,7 @@
 
 We built **Nevso** by combining **Nev, a decision model**, with **Nesso3-0.4B-agentic, a small language model (SLM)**. The workflow separates tool selection from call generation, with English and Italian inference running locally.
 
-Nev comes from our own language-model family: **Zagreus, pretrained from scratch → Nesso2 → Nev**. We adapted Nesso2’s learned backbone for structured decisions using the Kev framework. Nesso3 is the generative partner in Nevso; it is not the parent checkpoint used to train Nev. “From scratch” refers to the foundation’s learned weights, with the architecture, tokenizer and software built on existing open-source work. The [training lineage](https://github.com/mii-llm/nev/blob/main/docs/RESEARCH.md#the-complete-lineage) documents those stages.
+**Nev and Nesso3 come from the same model family and share a foundation pretrained from scratch on English, Italian and code data.** We developed them for complementary roles: structured decisions for Nev, and generation for Nesso3.
 
 In a demonstration with **24 authored bilingual requests on an Apple M3 Pro CPU**, adding Nev to select a tool improved correct executed calls from **18/24 to 22/24** and reduced warm median request latency from **2.57 to 1.72 seconds**, approximately **33%**. Those results describe this specific demonstration; the examples and measurements below show where the approach helps and where its tradeoffs remain.
 
