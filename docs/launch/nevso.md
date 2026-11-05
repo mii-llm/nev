@@ -10,6 +10,8 @@ The two models have distinct jobs. **Nev selects or ranks the available function
 
 Each model has a roughly **0.4B backbone**. Their combined Q8 backbone files occupy approximately **902 MiB on disk**. We have tested CPU inference on **Linux and macOS**, and a native **Linux/NVIDIA GPU** path is also available. The results below describe these tested systems and provide a starting point for deployment on smaller devices.
 
+Beyond the small demonstrations, we completed a broader evaluation of **200 requests: 100 English and 100 Italian**, producing **1,800 trials** across three strategies and three starting tool orders. It tests both the routing benefit and the limits of the complete workflow.
+
 The following sections cover installation, comparisons with Nesso3 alone, and the design choices behind the workflow. After setup, inference works offline.
 
 ## Run it on Linux or macOS
@@ -111,11 +113,54 @@ Two selected GPU examples show what changes:
 
 The lesson for deployment is to test the strategy against your catalog. Selecting one tool reduced work in the first demonstration. Ranking preserved flexibility and delivered higher accuracy in the greenhouse demonstration; its CPU median was **4.16 seconds**, versus **2.92 seconds** for Nesso3 alone. The shared-GPU ranked workflow recorded a **1.44-second** median, versus **1.38 seconds** alone. These are separate measurements, not a universal speedup claim.
 
-## More evidence for the routing benefit
+## Beyond the demos: 200 requests, 1,800 trials
 
-A subsequent test covered confusing tool choices across five authored domains and three starting tool orders. Nev-selected + Nesso3 improved correct executed calls from **28.3% to 93.3% in English** and from **38.3% to 71.7% in Italian**.
+We tested the same model pair on **200 requests**, evenly split between English and Italian. Each request ran with Nesso3 alone, Nev ranking all tools, and Nev selecting one tool, under three seeded starting tool orders: **200 × 3 × 3 = 1,800 completed trials**. The orders repeat the same requests; they do not create 1,800 independent examples.
 
-Each language had 20 distinct requests repeated under three tool orders. These percentages measure tool names and arguments, not final-answer accuracy, and apply to that category. The [complete stress-test record](https://github.com/mii-llm/nev/blob/main/experiments/nevso_stress/README.md) covers the broader workflow evaluation.
+The test ran on an A100 with Nesso3 BF16 and Nev FP32. These results are separate from the Mac Q8 measurements. Model revisions, prompts, controller and scoring were frozen before the run, with no retraining or prompt changes during evaluation.
+
+| Test area | Distinct requests, EN + IT | What it checks |
+| --- | ---: | --- |
+| BFCL-derived external API calls | 60 | Function names and arguments on adapted public API cases |
+| Confusable functions | 40 | Nearby operations and negation across five authored domains |
+| Missing arguments | 30 | Asking for the information needed to make a call |
+| Unsupported actions and direct answers | 30 | Avoiding inappropriate or unnecessary tool use |
+| Dependent calls | 20 | Using an identifier returned by an earlier tool |
+| Missing records and date formatting | 20 | Handling tool errors and following output requirements |
+
+The authored domains cover libraries, parcels, museums, bicycles and laboratory records. Their tools are local simulations. The BFCL-derived cases check call generation only; no external API is executed.
+
+### Tool selection and final answers
+
+For the confusable-function panel, there are **20 distinct requests per language**, each repeated under three orders: 60 trials per strategy and language.
+
+| Metric | Language | Nesso3 alone | Nev ranks + Nesso3 | Nev selects + Nesso3 |
+| --- | --- | ---: | ---: | ---: |
+| Correct executed calls | EN | 17/60 (28.3%) | 40/60 (66.7%) | **56/60 (93.3%)** |
+| Correct executed calls | IT | 23/60 (38.3%) | **44/60 (73.3%)** | 43/60 (71.7%) |
+| Calls + answer checks, automatic proxy | EN | 7/60 (11.7%) | 28/60 (46.7%) | **41/60 (68.3%)** |
+| Calls + answer checks, automatic proxy | IT | 15/60 (25.0%) | 26/60 (43.3%) | **29/60 (48.3%)** |
+
+The executed-call metric requires the correct function **and arguments**. The answer checks additionally test expected content and completion; they are automatic proxies, not independently reviewed factual accuracy. The gap between the two metrics matters: selecting the right tool does not guarantee that Nesso3 correctly explains its result. Selection gives the strongest English call score here; ranking has the highest Italian call score.
+
+### Transfer to external API catalogs
+
+The adapted BFCL subset contains **30 requests per language**, repeated three times. Its metric checks schema-valid reference calls, without scoring final answers.
+
+| Language | Nesso3 alone | Nev ranks + Nesso3 | Nev selects + Nesso3 |
+| --- | ---: | ---: | ---: |
+| English | **19/90 (21.1%)** | 15/90 (16.7%) | 16/90 (17.8%) |
+| Italian | **21/90 (23.3%)** | 13/90 (14.4%) | 18/90 (20.0%) |
+
+The routing gains on authored catalogs did not transfer to better scores on this external subset. The paired uncertainty intervals include zero, so this small sample also does not establish a general regression. This is a filtered, adapted BFCL subset, not an official BFCL score. Italian requests are translated while API descriptions remain English, and possible training overlap has not been resolved.
+
+### Clarification and workflow limits
+
+A review of all **270 missing-information trials** found that single-tool selection improved clean clarification from **0/45 to 16/45 in English** and **7/45 to 20/45 in Italian**. These are assistant-reviewed labels, not an independent human audit; the original automatic scorer overcounted successful clarification. The test stops at the clarification request and does not measure completion after a user replies.
+
+Dependent workflows remain weak: Nesso3 alone and Nev ranking each passed **1/60** completion checks across both languages; initial single-tool selection passed **0/60** and cannot expose a different second function. All strategies also failed the strict date-format checks, even though some responses contained the correct date in words.
+
+This larger evaluation supports Nevso as a tool-selection workflow for suitable catalogs. Argument generation, final answers and multi-step completion need their own checks. The [complete evaluation and trace review](https://github.com/mii-llm/nev/blob/main/experiments/nevso_stress/REVIEW.md) preserves every category, the scoring corrections and all 1,800 trials; the [plain-language results guide](https://github.com/mii-llm/nev/blob/main/experiments/nevso_stress/EXPLAINED.md) walks through successful and failed behavior.
 
 ## Local inference you can inspect
 

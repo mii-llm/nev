@@ -105,3 +105,21 @@ rhetorical questions and moves the release announcement to the closing
 paragraph. Installation, results and design discussion retain their order.
 This presents an engineering account without making claims about guaranteed
 reach or distribution on social publishing platforms.
+
+
+## 5 November broader Nevso evaluation in the article
+
+Expanded the stress-test section from two selected routing percentages to the
+completed 200-request/1,800-trial evaluation. Counts distinguish unique requests
+from correlated tool-order repeats. The article now shows coverage, EN/IT
+confusable-call and completion-proxy tables, external BFCL call results,
+reviewed clarification and dependent-workflow/date-format limits. These remain
+native A100 BF16/FP32 results, separate from CPU Q8 demonstrations.
+
+Confusable and external counts were recomputed from
+`experiments/nevso_stress/evidence/a100/rows.jsonl`; clarification uses
+`clarification_review.json`, not the uncorrected lexical proxy. Dataset counts
+were checked against `suite.json`. No new evaluation was run. The article does
+not attribute 1,800 independent examples, general agent accuracy or an official
+BFCL score to this evidence. The reported findings and all source results remain
+unchanged.
