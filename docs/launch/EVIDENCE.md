@@ -98,3 +98,10 @@ inference and the Python API, and distinguishes the intended device use from
 the tested Linux/macOS CPU and Linux/NVIDIA configurations. Installation,
 evaluation structure, numerical claims and deployment limitations are retained.
 This is an editorial change; no new inference or device validation is implied.
+
+The subsequent wording revision uses “Building Nevso” and opens directly with
+the implemented approach and the scoped 24-request Mac result. It avoids
+rhetorical questions and moves the release announcement to the closing
+paragraph. Installation, results and design discussion retain their order.
+This presents an engineering account without making claims about guaranteed
+reach or distribution on social publishing platforms.

@@ -1,14 +1,16 @@
-# We’re launching Nevso: a decision model + SLM agent for small devices
+# Building Nevso: a decision model + small language model for local AI agents
 
 **Nev chooses. Nesso3 calls and answers. Your application controls execution.**
 
-Today we’re launching the **Nevso developer preview**, an agent that pairs **Nev, a decision model**, with **Nesso3-0.4B-agentic, a small language model (SLM)**. Our aim is to make useful English and Italian tool workflows practical on devices with limited compute, with inference running locally.
+We built **Nevso** by combining **Nev, a decision model**, with **Nesso3-0.4B-agentic, a small language model (SLM)**. The workflow separates tool selection from call generation, with English and Italian inference running locally.
+
+In a demonstration with **24 authored bilingual requests on an Apple M3 Pro CPU**, adding Nev to select a tool improved correct executed calls from **18/24 to 22/24** and reduced warm median request latency from **2.57 to 1.72 seconds**, approximately **33%**. Those results describe this specific demonstration; the examples and measurements below show where the approach helps and where its tradeoffs remain.
 
 The two models have distinct jobs. **Nev selects or ranks the available functions. Nesso3 generates the call and answers from the returned data.** A controller validates the call and dispatches it to your application’s executor. You supply the tools; the same workflow can serve different domains.
 
 Each model has a roughly **0.4B backbone**. Their combined Q8 backbone files occupy approximately **902 MiB on disk**. We have tested CPU inference on **Linux and macOS**, and a native **Linux/NVIDIA GPU** path is also available. The results below describe these tested systems and provide a starting point for deployment on smaller devices.
 
-The preview brings together public weights, open-source code and a Python API for registering your own functions. You can run it today from the Nev repository. After setup, inference works offline.
+The following sections cover installation, comparisons with Nesso3 alone, and the design choices behind the workflow. After setup, inference works offline.
 
 ## Run it on Linux or macOS
 
@@ -51,7 +53,7 @@ call `agent.run(request, language="it")`, and inspect the answer and tool trace.
 The [runnable API example](https://github.com/mii-llm/nev/blob/main/examples/nevso_api.py)
 shows this with three local functions in English and Italian.
 
-## Why combine a decision model with an SLM?
+## Separating tool selection from generation
 
 Choosing a tool and generating its arguments are different tasks. Nevso gives each model a focused role: the decision model helps determine which function to use, then the SLM works with that choice.
 
@@ -123,6 +125,6 @@ The examples use read-only mock tools, so every call and returned value is repro
 
 The 24-request demonstrations are authored development examples, with factual success assessed by assistant trace review. Requiring the requested date formatting reduces greenhouse combined success to **19/24** on both backends. Their results support focused tool workflows; the full reports retain every trial and describe the wider evaluation scope.
 
-**Build a local agent from two small models. Connect your tools. Inspect the trace.**
+Nevso is available as a **developer preview** in the Nev repository, with public model weights, open-source code, recorded evaluations and a Python API for registering your own functions. The examples provide a starting point for testing this approach with your own tool catalog.
 
 [Code and examples](https://github.com/mii-llm/nev) · [Nev GGUF](https://huggingface.co/mii-llm/nev-gguf) · [Nesso3 GGUF](https://huggingface.co/mii-llm/nesso3-0.4B-agentic-gguf) · [Full CPU comparison](https://github.com/mii-llm/nev/blob/main/experiments/cpu_gguf/ROUTING_COMPARISON.md)
