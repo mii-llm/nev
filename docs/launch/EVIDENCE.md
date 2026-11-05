@@ -89,3 +89,12 @@ The [validation record](../nevso/evidence/python-api-20261103/validation.json)
 pins the new source and evidence. This adds an integration interface, not new
 model weights, new benchmark accuracy or a validated general agent. No fresh
 CUDA API inference was run for this change.
+
+## 5 November Nevso launch wording
+
+Retitled the article to announce Nevso as a decision-model + SLM agent for small
+devices. The opening defines each model's role, emphasizes local bilingual
+inference and the Python API, and distinguishes the intended device use from
+the tested Linux/macOS CPU and Linux/NVIDIA configurations. Installation,
+evaluation structure, numerical claims and deployment limitations are retained.
+This is an editorial change; no new inference or device validation is implied.

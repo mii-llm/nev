@@ -68,16 +68,16 @@
     "sha256": "3f23a5b063df3f472320aa5bd67922250a81e1288abc382a654d15b8ac727f9b"
   },
   "docs/launch/EVIDENCE.md": {
-    "bytes": 10796,
-    "sha256": "e49d48c069758d07b85712ba40b2758ea855c865a088cf4f99476d2664a9e581"
+    "bytes": 11299,
+    "sha256": "9911451df30698bb332ea7acb9598564d908a0fc6320716bcdf81910e0fb91a7"
   },
   "docs/launch/nev.md": {
     "bytes": 10764,
     "sha256": "7cefc909225d1c431111144e8420c49e4e007a92ba4e0a8b27adff40cee9a96b"
   },
   "docs/launch/nevso.md": {
-    "bytes": 9229,
-    "sha256": "b68737d989c3a6c30b7b976a2b6728a1d7b8b18c3b7407c796154f0cff06e349"
+    "bytes": 9911,
+    "sha256": "764f5e4a00a5d1a7fc2c26af9f7ce168f6606808c1401d78c597293cf6ea9e86"
   },
   "docs/nesso2/BUILD_RECIPE.md": {
     "bytes": 6243,

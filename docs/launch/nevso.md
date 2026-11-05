@@ -1,12 +1,14 @@
-# Meet Nevso: two small models, one local tool workflow
+# We’re launching Nevso: a decision model + SLM agent for small devices
 
 **Nev chooses. Nesso3 calls and answers. Your application controls execution.**
 
-Today we’re introducing the **Nevso developer preview**: a runnable agent workflow combining **Nev** and **Nesso3-0.4B-agentic**. Each has a roughly 0.4B backbone. Together, their Q8 backbone files occupy approximately **902 MiB**, with English and Italian workflows and installation paths for **Linux CPU, macOS CPU and Linux/NVIDIA GPU**.
+Today we’re launching the **Nevso developer preview**, an agent that pairs **Nev, a decision model**, with **Nesso3-0.4B-agentic, a small language model (SLM)**. Our aim is to make useful English and Italian tool workflows practical on devices with limited compute, with inference running locally.
 
-Nevso brings a focused division of work to local AI. Nev helps select the right function. Nesso3 generates its arguments and turns the returned data into an answer. A controller validates the call and dispatches it to the supplied executor.
+The two models have distinct jobs. **Nev selects or ranks the available functions. Nesso3 generates the call and answers from the returned data.** A controller validates the call and dispatches it to your application’s executor. You supply the tools; the same workflow can serve different domains.
 
-The preview combines two existing public models and open-source code. You can run it today from the Nev repository, without a separate Nevso checkpoint or hosted inference service.
+Each model has a roughly **0.4B backbone**. Their combined Q8 backbone files occupy approximately **902 MiB on disk**. We have tested CPU inference on **Linux and macOS**, and a native **Linux/NVIDIA GPU** path is also available. The results below describe these tested systems and provide a starting point for deployment on smaller devices.
+
+The preview brings together public weights, open-source code and a Python API for registering your own functions. You can run it today from the Nev repository. After setup, inference works offline.
 
 ## Run it on Linux or macOS
 
@@ -49,9 +51,11 @@ call `agent.run(request, language="it")`, and inspect the answer and tool trace.
 The [runnable API example](https://github.com/mii-llm/nev/blob/main/examples/nevso_api.py)
 shows this with three local functions in English and Italian.
 
-## A smaller prompt can produce a better result
+## Why combine a decision model with an SLM?
 
-In our notes, sensors and music demonstration, Nesso3 receives a catalog of 12 tools. Adding Nev lets us choose one relevant schema before asking Nesso3 to generate the call.
+Choosing a tool and generating its arguments are different tasks. Nevso gives each model a focused role: the decision model helps determine which function to use, then the SLM works with that choice.
+
+In our notes, sensors and music demonstration, Nesso3 starts with a catalog of 12 tools. Adding Nev lets us select one relevant schema before asking Nesso3 to generate the call. A smaller prompt can mean less work and a better result, as this comparison illustrates.
 
 Across **24 authored requests—12 English and 12 Italian—on an Apple M3 Pro**, the selected-tool workflow improved both quality and latency:
 
@@ -119,6 +123,6 @@ The examples use read-only mock tools, so every call and returned value is repro
 
 The 24-request demonstrations are authored development examples, with factual success assessed by assistant trace review. Requiring the requested date formatting reduces greenhouse combined success to **19/24** on both backends. Their results support focused tool workflows; the full reports retain every trial and describe the wider evaluation scope.
 
-**Download two small models. Run the comparison locally. Bring your own tool catalog.**
+**Build a local agent from two small models. Connect your tools. Inspect the trace.**
 
 [Code and examples](https://github.com/mii-llm/nev) · [Nev GGUF](https://huggingface.co/mii-llm/nev-gguf) · [Nesso3 GGUF](https://huggingface.co/mii-llm/nesso3-0.4B-agentic-gguf) · [Full CPU comparison](https://github.com/mii-llm/nev/blob/main/experiments/cpu_gguf/ROUTING_COMPARISON.md)
